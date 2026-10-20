@@ -1,22 +1,21 @@
 cff-version: 1.2.0
-message: "If you use this proof, please cite it as below."
-title: "Six unit squares cannot cover a square of side greater than 2"
+message: "Cite this as an AI-produced exploration artifact, not as an established theorem."
+title: "Candidate package toward S(6)=2 (AI-produced exploration)"
 authors:
   - family-names: Zhou
     given-names: Ningyu
     email: zhouningyu27@gmail.com
-    affiliation: "School of Physics, Peking University"
+    affiliation: "School of Physics, Peking University (releaser / maintainer)"
 date-released: "2026-10-21"
-version: "1.0.0"
+version: "1.1.0-candidate"
 type: software
-license: "LicenseRef-Mixed"
 url: "https://github.com/ZhouNingyu327/S6-eq-2"
 abstract: >-
-  Computer-assisted proof that S(6)=2 (equivalently Π(2)=7), resolving the
-  conjecture of Dósa–Lángi–Tuza. Independent peer review and a full Lean
-  re-proof of every metric inequality are not claimed.
+  Public GitHub dump of an AI-produced computer-assisted candidate argument for
+  S(6)=2. The human releaser does not claim independent mastery of every step.
+  Independent peer review is not claimed.
 keywords:
   - unit square covering
   - S(n)
   - computer-assisted proof
-  - Lean 4
+  - AI-assisted research dump

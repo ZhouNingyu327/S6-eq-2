@@ -1,56 +1,44 @@
-# Six unit squares cannot cover a square of side > 2
+# Candidate package: \(S(6)=2\)? (AI-produced exploration)
 
-**Theorem.** \(S(6)=2\), or equivalently \(\Pi(2)=7\).
+> **Release mode (OpenAI-style public dump).** This repository publishes an **AI-produced, computer-assisted candidate proof package** for the claim \(S(6)=2\) (equivalently \(\Pi(2)=7\)), via GitHub (and optional social posts). It is **not** a traditional journal/arXiv authorship claim by a human who independently mastered every step.
 
-Six closed unit squares (rigid motions and overlaps allowed) cannot cover any Euclidean square of side strictly greater than \(2\). Side \(2\) is attained by the obvious \(2\times 2\) tiling. This resolves the conjecture of Dósa–Lángi–Tuza (arXiv:2601.16535).
+## Read this first (ethics / accuracy)
 
 | | |
 |---|---|
-| **Author** | Ningyu Zhou (School of Physics, Peking University) |
-| **Status (2026-10-21, Asia/Shanghai)** | Mathematically complete (computer-assisted); **no** independent external peer review; **no** full Lean re-proof of every metric inequality |
-| **Primary PDF** | [`paper/main.pdf`](paper/main.pdf) |
-| **Source** | [`paper/main.tex`](paper/main.tex) |
-| **Companion** | [`ancillary/`](ancillary/) (Lean 4 skeleton, reproduce notes, selected certificates) |
+| **What this is** | Machine-generated case analysis, certificates, Lean skeleton, and a drafted AMS-style narrative arguing that six unit squares cannot cover a square of side \(>2\). |
+| **What this is not** | A human-verified theorem paper ready for silent “we prove …” credit. Independent peer review has **not** happened. |
+| **Human role** | Released / maintained by **Ningyu Zhou** (School of Physics, Peking University). The releaser used AI systems end-to-end and **does not claim** to personally understand or vouch for every lemma in the package. |
+| **How to cite cautiously** | Treat as *software / exploration artifact*, not as an established theorem, until independent experts audit it. |
 
-## Accuracy tier (read this)
+If you are looking for a deferential academic statement: **do not** treat this repo alone as closing Dósa–Lángi–Tuza’s conjecture.
 
-- **Claimed:** computer-assisted proof that \(S(6)=2\), with `still_S=0`, Lean obligations 1–4 closed (0 `sorry` / extra axioms in the shipped skeleton), and soft residuals classified non-blocking in the internal audit.
-- **Not claimed:** independent journal peer review; a full Lean formalisation of every inequality in the long verification manuscript.
-- Full leaf-certificate JSON trees (`ex/all/`) are **omitted** here for size; see `ancillary/REPRODUCE.md` §4.
+## Claim under investigation
 
-中文状态见 [`docs/STATUS_zh.md`](docs/STATUS_zh.md)。
+Dósa–Lángi–Tuza (arXiv:2601.16535) conjectured \(S(6)=2\). This package contains a **candidate** computer-assisted argument (ownership case split → normalisation → joining-mode elimination; `still_S=0` in the shipped audit slice; Lean obligations 1–4 closed in the shipped skeleton with 0 `sorry` / extra axioms **in that skeleton**). Soft residuals were classified non-blocking in an **internal** AI-assisted audit only.
 
-## Quick start
+**Not claimed by the releaser as personal mathematical knowledge:** correctness of the full narrative; a complete Lean re-proof of every metric inequality in the long manuscript; external peer review.
 
-1. Read **`paper/main.pdf`** (theorem paper).
-2. For machine checks / Lean: start at **`ancillary/REPRODUCE.md`** (or `REPRODUCE_zh.md`), index in `ancillary/MANIFEST.md`.
-3. Optional one-shot archive: `arxiv_submission_bundle.tar.gz` (same contents packaged for arXiv ancillary).
+## Artifacts
 
-## Repository layout
+| Path | Contents |
+|---|---|
+| [`paper/main.pdf`](paper/main.pdf) | AI-drafted AMS-style writeup (**draft**; claims inside are those of the draft, not a human-certified theorem) |
+| [`paper/main.tex`](paper/main.tex) | Source |
+| [`ancillary/`](ancillary/) | Lean `S6Core`, reproduce notes, selected certificates |
+| [`DISCLOSURE.md`](DISCLOSURE.md) | AI-use & release-policy disclosure |
+| [`docs/STATUS_zh.md`](docs/STATUS_zh.md) | Chinese status |
+| `arxiv_submission_bundle.tar.gz` | Same materials as a single archive |
 
-```
-paper/          # AMS-style theorem paper (PDF + TeX + bib)
-ancillary/      # Lean S6Core, scripts, selected certs, reproduce docs
-docs/           # Chinese status / publish notes
-arxiv_submission_bundle.tar.gz
-README.md       # this file
-README_zh.md    # 中文说明
-CITATION.cff
-LICENSE         # CC BY-NC-ND 4.0 for text; code under MIT (see LICENSE)
-```
+Full `ex/all/` leaf-certificate JSON trees are **omitted** for size; see `ancillary/REPRODUCE.md` §4.
 
-## Citation
+## Intended use
 
-```bibtex
-@unpublished{Zhou2026S6,
-  author = {Zhou, Ningyu},
-  title  = {Six unit squares cannot cover a square of side greater than 2},
-  year   = {2026},
-  note   = {Computer-assisted preprint; GitHub release},
-  url    = {https://github.com/ZhouNingyu327/S6-eq-2}
-}
-```
+1. Experts: audit, attempt to break, or formalise further.
+2. Reproducers: follow `ancillary/REPRODUCE.md`.
+3. Media / social: link this repo; quote the disclosure, not “undergraduate proved S(6)=2” without the caveats above.
 
 ## Contact
 
-Ningyu Zhou — `zhouningyu27@gmail.com` · school email `nyzhou25@stu.pku.edu.cn`
+Ningyu Zhou — `zhouningyu27@gmail.com` · `nyzhou25@stu.pku.edu.cn`  
+Repo: https://github.com/ZhouNingyu327/S6-eq-2
