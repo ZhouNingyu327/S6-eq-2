@@ -2,7 +2,7 @@
 \usepackage[T1]{fontenc}
 \usepackage[utf8]{inputenc}
 \usepackage{amsmath,amssymb,amsthm,mathtools}
-\usepackage{microtype}
+\usepackage{microtype}\microtypesetup{expansion=false}
 \usepackage{hyperref}
 \usepackage{url}
 \usepackage{booktabs}
@@ -35,12 +35,16 @@
 \title[Six unit squares cannot cover a larger square]
 {Six unit squares cannot cover a square of side greater than~$2$}
 
-\author{Ningyu Zhou}
-\address{School of Physics, Peking University, Beijing, China}
+\author{AI assistant (released by Ningyu Zhou)}
+\address{Public GitHub release maintained by Ningyu Zhou, School of Physics, Peking University}
 \email{zhouningyu27@gmail.com}
-\urladdr{https://github.com/ZhouNingyu327}
+\urladdr{https://github.com/ZhouNingyu327/S6-eq-2}
+\thanks{This manuscript was produced by a generative AI system as a \emph{candidate}
+computer-assisted argument. The human releaser hosts the package and does not claim
+independent mastery of every step. Independent peer review has not occurred.
+See the repository \texttt{DISCLOSURE.md}.}
 
-\date{October 20, 2026}
+\date{October 21, 2026}
 
 \begin{document}
 \begin{abstract}
@@ -48,7 +52,7 @@ Let $S(n)$ be the largest side length of a Euclidean square that can be covered
 by $n$ closed unit squares, allowing arbitrary rigid motions and overlaps.
 Equivalently, Soifer's function $\Pi(2)$ is the least number of unit squares
 needed to cover some square of side $2+\varepsilon$ for every $\varepsilon>0$.
-We prove that $S(6)=2$, or equivalently $\Pi(2)=7$, resolving the conjecture
+We present a computer-assisted candidate argument that $S(6)=2$, or equivalently $\Pi(2)=7$, resolving the conjecture
 stated by D\'osa--L\'angi--Tuza~\cite{DLT2026}.
 In particular, six unit squares cannot cover any square of side strictly greater
 than~$2$, while side~$2$ is attained by the obvious $2\times 2$ tiling.
@@ -663,9 +667,12 @@ $\Pi(3)$ and boundary-covering variants $S_{\mathrm{bd}}(n)$ from~\cite{DLT2026}
 though those questions lie outside the present paper.
 
 \section*{Acknowledgements}
-Parts of the verification pipeline and manuscript organisation were prepared
-with AI assistance under the author's supervision.  The mathematical claims and
-the decision to release the proof are the author's responsibility.
+This manuscript and the accompanying certificate / Lean scaffolding were
+produced by a generative AI system and released publicly by Ningyu Zhou
+(School of Physics, Peking University).  The releaser hosts and maintains the
+package and does not claim independent mastery of every step.  Independent
+external peer review has not occurred.  See the repository
+\texttt{DISCLOSURE.md} for the full release ethics statement.
 
 \bibliographystyle{amsplain}
 \bibliography{refs}

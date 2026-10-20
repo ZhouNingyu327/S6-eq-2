@@ -1,44 +1,31 @@
-# Candidate package: \(S(6)=2\)? (AI-produced exploration)
+# Readme
 
-> **Release mode (OpenAI-style public dump).** This repository publishes an **AI-produced, computer-assisted candidate proof package** for the claim \(S(6)=2\) (equivalently \(\Pi(2)=7\)), via GitHub (and optional social posts). It is **not** a traditional journal/arXiv authorship claim by a human who independently mastered every step.
+This repository contains a mathematical manuscript and supporting proof artifacts **produced by a generative AI system**, released publicly in the style of the [OpenAI math collection](https://github.com/openai/math).
 
-## Read this first (ethics / accuracy)
+The human releaser (**Ningyu Zhou**, School of Physics, Peking University) hosts and maintains the package. The releaser **does not claim** independent mastery of every step. Independent peer review has **not** occurred.
 
-| | |
-|---|---|
-| **What this is** | Machine-generated case analysis, certificates, Lean skeleton, and a drafted AMS-style narrative arguing that six unit squares cannot cover a square of side \(>2\). |
-| **What this is not** | A human-verified theorem paper ready for silent “we prove …” credit. Independent peer review has **not** happened. |
-| **Human role** | Released / maintained by **Ningyu Zhou** (School of Physics, Peking University). The releaser used AI systems end-to-end and **does not claim** to personally understand or vouch for every lemma in the package. |
-| **How to cite cautiously** | Treat as *software / exploration artifact*, not as an established theorem, until independent experts audit it. |
+This collection includes results at different stages of verification. Lean coverage is a **partial skeleton**. Some unformalized or certificate-backed steps could have issues; please open an issue or PR if you find one.
 
-If you are looking for a deferential academic statement: **do not** treat this repo alone as closing Dósa–Lángi–Tuza’s conjecture.
+## Navigating the collection
 
-## Claim under investigation
+The current catalogue contains **1 manuscript** organized into **1 family**, in convex / metric geometry.
 
-Dósa–Lángi–Tuza (arXiv:2601.16535) conjectured \(S(6)=2\). This package contains a **candidate** computer-assisted argument (ownership case split → normalisation → joining-mode elimination; `still_S=0` in the shipped audit slice; Lean obligations 1–4 closed in the shipped skeleton with 0 `sorry` / extra axioms **in that skeleton**). Soft residuals were classified non-blocking in an **internal** AI-assisted audit only.
+- Start with the [overview](overview.md) for a short description of the family.
+- Use the [manuscript map](CONTENTS.md) to find the paper and supporting materials.
+- The [`preprints/`](preprints/) directory contains the PDF, TeX sources, and manuscript-specific citation instructions.
+- The [Lean library](lean/README.md) and [formalization catalogue](lean/formalization.yaml) describe the available formalization scope. See [`lean/docs/001.md`](lean/docs/001.md).
+- Selected certificates and reproduce notes live under [`artifacts/`](artifacts/).
+- Updates are recorded in [`history.md`](history.md).
+- Release ethics: [`DISCLOSURE.md`](DISCLOSURE.md).
 
-**Not claimed by the releaser as personal mathematical knowledge:** correctness of the full narrative; a complete Lean re-proof of every metric inequality in the long manuscript; external peer review.
+## How the result was produced
 
-## Artifacts
+The manuscript and accompanying case-management / certificate / Lean scaffolding were produced with generative AI assistants under the releaser’s direction (end-to-end exploration dump), analogous in *release format* to OpenAI’s public math repository—not a classical sole-author paper written from personal mastery of every lemma.
 
-| Path | Contents |
-|---|---|
-| [`paper/main.pdf`](paper/main.pdf) | AI-drafted AMS-style writeup (**draft**; claims inside are those of the draft, not a human-certified theorem) |
-| [`paper/main.tex`](paper/main.tex) | Source |
-| [`ancillary/`](ancillary/) | Lean `S6Core`, reproduce notes, selected certificates |
-| [`DISCLOSURE.md`](DISCLOSURE.md) | AI-use & release-policy disclosure |
-| [`docs/STATUS_zh.md`](docs/STATUS_zh.md) | Chinese status |
-| `arxiv_submission_bundle.tar.gz` | Same materials as a single archive |
+Compute and tooling mix includes SMT / interval / Bernstein-style certificates and a Lean 4 skeleton. Full leaf-certificate JSON trees (`ex/all/`) are omitted for size; see `artifacts/REPRODUCE.md` §4.
 
-Full `ex/all/` leaf-certificate JSON trees are **omitted** for size; see `ancillary/REPRODUCE.md` §4.
+## Versions and citations
 
-## Intended use
+Public release history is preserved in git and summarized in [`history.md`](history.md). Corrections will be recorded as new versions when needed.
 
-1. Experts: audit, attempt to break, or formalise further.
-2. Reproducers: follow `ancillary/REPRODUCE.md`.
-3. Media / social: link this repo; quote the disclosure, not “undergraduate proved S(6)=2” without the caveats above.
-
-## Contact
-
-Ningyu Zhou — `zhouningyu27@gmail.com` · `nyzhou25@stu.pku.edu.cn`  
-Repo: https://github.com/ZhouNingyu327/S6-eq-2
+To cite the manuscript, use the BibTeX block in its preprint directory README.

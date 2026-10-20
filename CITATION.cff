@@ -1,21 +1,7 @@
 cff-version: 1.2.0
-message: "Cite this as an AI-produced exploration artifact, not as an established theorem."
-title: "Candidate package toward S(6)=2 (AI-produced exploration)"
+message: "Cite the preprint BibTeX in preprints/Six-unit-squares-cannot-cover-a-square-of-side-greater-than-2-October-21-2026/README.md; treat as AI-produced candidate artifact."
+title: "Six unit squares cannot cover a square of side greater than 2 (candidate)"
 authors:
-  - family-names: Zhou
-    given-names: Ningyu
-    email: zhouningyu27@gmail.com
-    affiliation: "School of Physics, Peking University (releaser / maintainer)"
+  - name: "AI assistant (released by Ningyu Zhou)"
 date-released: "2026-10-21"
-version: "1.1.0-candidate"
-type: software
 url: "https://github.com/ZhouNingyu327/S6-eq-2"
-abstract: >-
-  Public GitHub dump of an AI-produced computer-assisted candidate argument for
-  S(6)=2. The human releaser does not claim independent mastery of every step.
-  Independent peer review is not claimed.
-keywords:
-  - unit square covering
-  - S(n)
-  - computer-assisted proof
-  - AI-assisted research dump

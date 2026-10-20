@@ -1,0 +1,20 @@
+# Catalog of manuscripts with a formalized (or partially formalized) main result.
+version: "v0.1"
+
+project:
+  name: "ZhouNingyu327/S6-eq-2"
+  description: "Lean skeleton accompanying an AI-produced candidate argument for S(6)=2."
+  authors: ["AI assistant (released by Ningyu Zhou)"]
+  license: "Apache-2.0"
+
+sources:
+  - title: "Six unit squares cannot cover a square of side greater than 2"
+    authors: ["AI assistant (released by Ningyu Zhou)"]
+    id: ../preprints/Six-unit-squares-cannot-cover-a-square-of-side-greater-than-2-October-21-2026/paper.pdf
+    type: article
+    lean_docs: docs/001.md
+    status: partial_skeleton
+    notes: >-
+      Lean obligations 1–4 closed in the shipped S6Core skeleton (0 sorry / extra
+      axioms in that skeleton). Full leaf-certificate trees and a complete Lean
+      re-proof of every metric inequality are not claimed.
