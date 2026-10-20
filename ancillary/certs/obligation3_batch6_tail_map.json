@@ -1,0 +1,840 @@
+{
+  "updated": "2026-10-20T23:30+08:00",
+  "true_manuscript_maps": {
+    "R30_geom": [
+      {
+        "query": "asymmetric chord first active down face",
+        "status": "部分已证",
+        "file": "small/S6_attack_round30.md",
+        "line": 72,
+        "snippet": "## 4. 通用不对称轴弦引理",
+        "score": 5,
+        "layer": "synonym-fulltext"
+      },
+      {
+        "query": "asymmetric chord second active down face",
+        "status": "部分已证",
+        "file": "small/S6_attack_round30.md",
+        "line": 72,
+        "snippet": "## 4. 通用不对称轴弦引理",
+        "score": 5,
+        "layer": "synonym-fulltext"
+      },
+      {
+        "query": "large z full area contradiction",
+        "status": "部分已证",
+        "file": "small/S6_attack_round30.md",
+        "line": 72,
+        "snippet": "## 4. 通用不对称轴弦引理",
+        "score": 2,
+        "layer": "synonym-fulltext"
+      },
+      {
+        "query": "small sqrt polynomial decreases",
+        "status": "部分已证",
+        "file": "small/S6_attack_round30.md",
+        "line": 47,
+        "snippet": "\\boxed{h_Cu\\le1,\\qquad h_C\\le\\sqrt2<99/70.}",
+        "score": 2,
+        "layer": "synonym-fulltext"
+      },
+      {
+        "query": "small sqrt polynomial positive margin",
+        "status": "部分已证",
+        "file": "small/S6_attack_round30.md",
+        "line": 100,
+        "snippet": "引理得证。只使用同一原块的实际端点、活动支撑面及单位圆，不假设角度方向与其他代表相同。",
+        "score": 2,
+        "layer": "synonym-fulltext"
+      },
+      {
+        "query": "unit-square triangle determinant <=1",
+        "status": "部分已证",
+        "file": "small/S6_attack_round30.md",
+        "line": 50,
+        "snippet": "面积界可由三角形行列式对每个顶点坐标分别仿射、最大值可移至方形顶点直接证明；不是取几何点样本。",
+        "score": 2,
+        "layer": "synonym-fulltext"
+      },
+      {
+        "query": "unit-square triangle determinant >=-1",
+        "status": "部分已证",
+        "file": "small/S6_attack_round30.md",
+        "line": 50,
+        "snippet": "面积界可由三角形行列式对每个顶点坐标分别仿射、最大值可移至方形顶点直接证明；不是取几何点样本。",
+        "score": 2,
+        "layer": "synonym-fulltext"
+      }
+    ],
+    "R31_three": [
+      {
+        "query": "extended pair affine reduction with nonnegative coefficient",
+        "status": "部分已证",
+        "file": "small/S6_attack_round31.md",
+        "line": 5,
+        "snippet": "新证明先用真实上轴端点迫自由块方向，再排掉W水平截线；随后把相邻角块引理扩展到W顶腿略短于1的情况。新增两个完整参数矩形上的162个精确非负Bernstein系数，独立重建四个多项式恒等式；没有布局优化、角度采样或区间树。",
+        "score": 3,
+        "layer": "synonym-fulltext"
+      },
+      {
+        "query": "two valid pair budgets yield full strengthened C chord",
+        "status": "部分已证",
+        "file": "small/S6_attack_round31.md",
+        "line": 5,
+        "snippet": "新证明先用真实上轴端点迫自由块方向，再排掉W水平截线；随后把相邻角块引理扩展到W顶腿略短于1的情况。新增两个完整参数矩形上的162个精确非负Bernstein系数，独立重建四个多项式恒等式；没有布局优化、角度采样或区间树。",
+        "score": 4,
+        "layer": "synonym-fulltext"
+      },
+      {
+        "query": "final true endpoint-envelope contradiction: ",
+        "status": "部分已证",
+        "file": "small/S6_attack_round31.md",
+        "line": 5,
+        "snippet": "新证明先用真实上轴端点迫自由块方向，再排掉W水平截线；随后把相邻角块引理扩展到W顶腿略短于1的情况。新增两个完整参数矩形上的162个精确非负Bernstein系数，独立重建四个多项式恒等式；没有布局优化、角度采样或区间树。",
+        "score": 2,
+        "layer": "synonym-fulltext"
+      },
+      {
+        "query": "unit square three actual endpoints imply chord+up²<=2",
+        "status": "部分已证",
+        "file": "small/S6_attack_round31_working.md",
+        "line": 5,
+        "snippet": "**新闭：整个远端三相接、F水平非空（含相切）。**实际QU不属C而属W；W标准化后方向c>s，W水平完全空；新扩展相邻角块引理覆盖D∈[23/24,1]，D≥1仍用原十三轮，引出C真实h+u²>2。新162个精确系数覆盖两个完整连续矩形，不采样、不细分。三十轮错误帽未复用。",
+        "score": 5,
+        "layer": "synonym-fulltext"
+      },
+      {
+        "query": "near-anchor pair angle amplification <=133/121",
+        "status": "已证",
+        "file": "small/S6_attack_round31.md",
+        "line": 167,
+        "snippet": "t≤(133/121)κ < (11/10)κ",
+        "layer": "manual-pin",
+        "gap": ""
+      },
+      {
+        "query": "cosine angle cap kappa<=Yc",
+        "status": "已证",
+        "file": "small/S6_attack_round31.md",
+        "line": 172,
+        "snippet": "0<x≤2/5: κ≤Yc=x²/(1−2x²)",
+        "layer": "manual-pin",
+        "gap": ""
+      },
+      {
+        "query": "sine angle cap kappa<=Ys",
+        "status": "已证",
+        "file": "small/S6_attack_round31.md",
+        "line": 173,
+        "snippet": "2/5≤x<1: κ≤Ys=(1−x)²/(6x−1−x²)",
+        "layer": "manual-pin",
+        "gap": ""
+      }
+    ],
+    "R32_right_pos": [
+      {
+        "query": "positive C: first lower-face down-root impossible",
+        "status": "部分已证",
+        "file": "small/S6_attack_round32.md",
+        "line": 90,
+        "snippet": "负水平半轴只有C及V1，F正向不贡献，原W在右上角不能碰负水平轴，V4顶mid长弦排除水平线。因此",
+        "score": 3,
+        "layer": "synonym-fulltext"
+      },
+      {
+        "query": "negative C: first upper-face down-root impossible",
+        "status": "部分已证",
+        "file": "small/S6_attack_round32.md",
+        "line": 90,
+        "snippet": "负水平半轴只有C及V1，F正向不贡献，原W在右上角不能碰负水平轴，V4顶mid长弦排除水平线。因此",
+        "score": 3,
+        "layer": "synonym-fulltext"
+      },
+      {
+        "query": "negative C: second down-root cap",
+        "status": "部分已证",
+        "file": "small/S6_attack_round32_working.md",
+        "line": 11,
+        "snippet": "下一步：RIGHT负水平时，若C仍直接接到V1水平内端，同一链立即矛盾，故剩余必须由F桥接这一左轴缝。用F同时含BOTTOM弦两端及桥接左轴两端，争取以同块投影给出替代S1<q(l)的强联合约束。LEFT剩余和三相接F空继续开放。",
+        "score": 4,
+        "layer": "synonym-fulltext"
+      },
+      {
+        "query": "negative C: upper root must use first lower face",
+        "status": "部分已证",
+        "file": "small/S6_attack_round32.md",
+        "line": 90,
+        "snippet": "负水平半轴只有C及V1，F正向不贡献，原W在右上角不能碰负水平轴，V4顶mid长弦排除水平线。因此",
+        "score": 3,
+        "layer": "synonym-fulltext"
+      },
+      {
+        "query": "actual lower RIGHT gap endpoint yields long-leg defect",
+        "status": "部分已证",
+        "file": "small/S6_attack_round32.md",
+        "line": 3,
+        "snippet": "2026-10-15。**对任意μ>1，远端RIGHT真缺口且F水平截线位于正开半轴的整个分支不可能，包括单点相切。**不要求原W是否重复顶mid，不移动C/F/W。新链为真实支撑面、缺口两端、长腿最大短腿和显式有理不等式，不需要第十三轮相邻角块多项式证书。",
+        "score": 4,
+        "layer": "synonym-fulltext"
+      },
+      {
+        "query": "short-leg bound via direct left contact",
+        "status": "部分已证",
+        "file": "small/S6_attack_round32_working.md",
+        "line": 7,
+        "snippet": "关键新约束：负C的真实活动面使l≤Ku；RIGHT两实际端点分别迫L2>1+u−η和e+d<G。F正水平迫左轴直接接合，所以S1<q(l)，LEFT相接再给z<2u/7。底长腿最大短腿与Σ>1给u<9η/7，进而z+q(u)<1−G。原W的两个真实正竖轴接合端点迫A<z+q(u)，最终矛盾。",
+        "score": 3,
+        "layer": "synonym-fulltext"
+      },
+      {
+        "query": "Ys denominator on the large-angle left corner is positive",
+        "status": "部分已证",
+        "file": "small/S6_attack_round32.md",
+        "line": 3,
+        "snippet": "2026-10-15。**对任意μ>1，远端RIGHT真缺口且F水平截线位于正开半轴的整个分支不可能，包括单点相切。**不要求原W是否重复顶mid，不移动C/F/W。新链为真实支撑面、缺口两端、长腿最大短腿和显式有理不等式，不需要第十三轮相邻角块多项式证书。",
+        "score": 2,
+        "layer": "synonym-fulltext"
+      },
+      {
+        "query": "combined corner and centre deficits below 1-G",
+        "status": "部分已证",
+        "file": "small/S6_attack_round32.md",
+        "line": 3,
+        "snippet": "2026-10-15。**对任意μ>1，远端RIGHT真缺口且F水平截线位于正开半轴的整个分支不可能，包括单点相切。**不要求原W是否重复顶mid，不移动C/F/W。新链为真实支撑面、缺口两端、长腿最大短腿和显式有理不等式，不需要第十三轮相邻角块多项式证书。",
+        "score": 4,
+        "layer": "synonym-fulltext"
+      },
+      {
+        "query": "real bridge and upper endpoint contradict",
+        "status": "部分已证",
+        "file": "small/S6_attack_round32.md",
+        "line": 16,
+        "snippet": "实际轴根l,r,u,d>0且均<μ。底真缺口完整归F，真实底弦b与非空水平弦f满足",
+        "score": 2,
+        "layer": "synonym-fulltext"
+      }
+    ],
+    "R33_right_ne": [
+      {
+        "query": "strong Phi loss positive square difference",
+        "status": "部分已证",
+        "file": "small/S6_attack_round33.md",
+        "line": 3,
+        "snippet": "2026-10-15。**对任意μ>1，远端RIGHT真缺口且F水平截线非空的整个分支不可能。**第三十二轮已闭正水平（含相切），本轮关闭负水平（含相切）。不移动C/F/W；核心是同一个F的底弦与左轴桥接，结合原W两真实竖轴端点，不用完整布局搜索。",
+        "score": 2,
+        "layer": "synonym-fulltext"
+      },
+      {
+        "query": "small corner polynomial decreases",
+        "status": "部分已证",
+        "file": "small/S6_attack_round33_working.md",
+        "line": 7,
+        "snippet": "核心进展不是扩大搜索：同一个F同时含底缺口两端与左轴桥接两端，给Σ>2−a−l。角块相接把z压到8ρ(a)/5；底长腿损失大于5√w/4，和C真实活动面l≤Ku联合成一个连续标量必要条件。该标量条件以单调性、凹性和精确端值完整排除。",
+        "score": 2,
+        "layer": "synonym-fulltext"
+      },
+      {
+        "query": "small corner polynomial is positive",
+        "status": "部分已证",
+        "file": "small/S6_attack_round33_working.md",
+        "line": 7,
+        "snippet": "核心进展不是扩大搜索：同一个F同时含底缺口两端与左轴桥接两端，给Σ>2−a−l。角块相接把z压到8ρ(a)/5；底长腿损失大于5√w/4，和C真实活动面l≤Ku联合成一个连续标量必要条件。该标量条件以单调性、凹性和精确端值完整排除。",
+        "score": 2,
+        "layer": "synonym-fulltext"
+      },
+      {
+        "query": "large corner polynomial increases",
+        "status": "部分已证",
+        "file": "small/S6_attack_round33_working.md",
+        "line": 7,
+        "snippet": "核心进展不是扩大搜索：同一个F同时含底缺口两端与左轴桥接两端，给Σ>2−a−l。角块相接把z压到8ρ(a)/5；底长腿损失大于5√w/4，和C真实活动面l≤Ku联合成一个连续标量必要条件。该标量条件以单调性、凹性和精确端值完整排除。",
+        "score": 2,
+        "layer": "synonym-fulltext"
+      },
+      {
+        "query": "large corner polynomial is positive",
+        "status": "部分已证",
+        "file": "small/S6_attack_round33_working.md",
+        "line": 7,
+        "snippet": "核心进展不是扩大搜索：同一个F同时含底缺口两端与左轴桥接两端，给Σ>2−a−l。角块相接把z压到8ρ(a)/5；底长腿损失大于5√w/4，和C真实活动面l≤Ku联合成一个连续标量必要条件。该标量条件以单调性、凹性和精确端值完整排除。",
+        "score": 2,
+        "layer": "synonym-fulltext"
+      },
+      {
+        "query": "strong loss and same-F budget yield scalar second type",
+        "status": "部分已证",
+        "file": "small/S6_attack_round33.md",
+        "line": 105,
+        "snippet": "## 4. 手算标量引理",
+        "score": 3,
+        "layer": "synonym-fulltext"
+      },
+      {
+        "query": "whole continuous scalar lemma nonpositive defect",
+        "status": "部分已证",
+        "file": "small/S6_attack_round33.md",
+        "line": 3,
+        "snippet": "2026-10-15。**对任意μ>1，远端RIGHT真缺口且F水平截线非空的整个分支不可能。**第三十二轮已闭正水平（含相切），本轮关闭负水平（含相切）。不移动C/F/W；核心是同一个F的底弦与左轴桥接，结合原W两真实竖轴端点，不用完整布局搜索。",
+        "score": 4,
+        "layer": "synonym-fulltext"
+      },
+      {
+        "query": "whole continuous scalar lemma positive defect",
+        "status": "部分已证",
+        "file": "small/S6_attack_round33.md",
+        "line": 3,
+        "snippet": "2026-10-15。**对任意μ>1，远端RIGHT真缺口且F水平截线非空的整个分支不可能。**第三十二轮已闭正水平（含相切），本轮关闭负水平（含相切）。不移动C/F/W；核心是同一个F的底弦与左轴桥接，结合原W两真实竖轴端点，不用完整布局搜索。",
+        "score": 4,
+        "layer": "synonym-fulltext"
+      },
+      {
+        "query": "large corner Ys denominator positive",
+        "status": "已证",
+        "file": "small/S6_attack_round33.md",
+        "line": 99,
+        "snippet": "a≥5/12时用Ys=(1−a)²/(6a−1−a²)，差值的正分子…",
+        "layer": "manual-pin",
+        "gap": ""
+      },
+      {
+        "query": "small v affine loss coefficient 62/45",
+        "status": "已证",
+        "file": "small/S6_attack_round33.md",
+        "line": 186,
+        "snippet": "f(v)<q(\\eta)+A0-\\frac{62}{45}v.",
+        "layer": "manuscript_boxed_calc",
+        "gap": "",
+        "formula": "f(v)<q(η)+A0-(62/45)v  (and v≥(45/62)D branch at L188)"
+      }
+    ],
+    "R34_left_neg": [
+      {
+        "query": "LEFT second down root upper cap",
+        "status": "部分已证",
+        "file": "small/S6_attack_round34.md",
+        "line": 72,
+        "snippet": "若C不含QU，正竖轴仅C/V4/W，所以原W含T、QU两个真实桥接闭端。原W竖轴桥接界（第三十二轮§6，不需F正水平）给",
+        "score": 3,
+        "layer": "synonym-fulltext"
+      },
+      {
+        "query": "LEFT lower actual gap endpoint long leg",
+        "status": "部分已证",
+        "file": "small/S6_attack_round34.md",
+        "line": 72,
+        "snippet": "若C不含QU，正竖轴仅C/V4/W，所以原W含T、QU两个真实桥接闭端。原W竖轴桥接界（第三十二轮§6，不需F正水平）给",
+        "score": 3,
+        "layer": "synonym-fulltext"
+      },
+      {
+        "query": "one original corner square cannot contain two short axis ends",
+        "status": "部分已证",
+        "file": "small/S6_attack_round34_working.md",
+        "line": 5,
+        "snippet": "手算主线：C正旋转同块活动面使r≤Ku≤u<1/2。原角块含两个正轴端会迫r+u>μ，所以W不能同时接C右/上端。假设C直接接Q2，则底两短腿与LEFT真实闭端给u<9η/7，两种TOP接合方式均矛盾。负F不能贡献正H，于是W必须完整右桥接，不能再接C上端，迫C直接TOP接合；此时小η和底长腿迫x<g(u)，TOP长腿",
+        "score": 4,
+        "layer": "synonym-fulltext"
+      },
+      {
+        "query": "LEFT true up root first upper face active",
+        "status": "已证",
+        "file": "small/S6_attack_round34.md",
+        "line": 16,
+        "snippet": "第二上根sec−d>μ，而C无TOPmid，故第一上根活动，α=su−1，r=min(Ku,d/K)。",
+        "layer": "manuscript_face_activity",
+        "gap": "",
+        "formula": "第二上根sec−d>μ，而C无TOPmid，故第一上根活动，α=su−1，r=min(Ku,d/K)"
+      }
+    ],
+    "R35_pos_H": [
+      {
+        "query": "small eta numerator polynomial positive",
+        "status": "部分已证",
+        "file": "small/S6_attack_round35.md",
+        "line": 20,
+        "snippet": "若C含QU，三十四轮给η<2u/5、r<5u²/6、w>u²；上式损失>√w>u而r<u，立即矛盾。",
+        "score": 2,
+        "layer": "synonym-fulltext"
+      },
+      {
+        "query": "small eta numerator polynomial decreases",
+        "status": "部分已证",
+        "file": "small/S6_attack_round35.md",
+        "line": 20,
+        "snippet": "若C含QU，三十四轮给η<2u/5、r<5u²/6、w>u²；上式损失>√w>u而r<u，立即矛盾。",
+        "score": 2,
+        "layer": "synonym-fulltext"
+      },
+      {
+        "query": "whole continuous scalar lemma nonpositive defect",
+        "status": "部分已证",
+        "file": "small/S6_attack_round35.md",
+        "line": 101,
+        "snippet": "若原W同时含R、Q2，由三十四轮两短正端引理，W不能含C上端；正竖轴闭覆盖迫C含QU。三十四轮§4从这个实际前提出发，用TOP接合、原W水平桥接、底长腿得到矛盾；该段不再使用F负水平。因此本轮亦有**W不可能同时含R、Q2**。",
+        "score": 6,
+        "layer": "synonym-fulltext"
+      },
+      {
+        "query": "whole continuous scalar lemma positive defect",
+        "status": "部分已证",
+        "file": "small/S6_attack_round35.md",
+        "line": 101,
+        "snippet": "若原W同时含R、Q2，由三十四轮两短正端引理，W不能含C上端；正竖轴闭覆盖迫C含QU。三十四轮§4从这个实际前提出发，用TOP接合、原W水平桥接、底长腿得到矛盾；该段不再使用F负水平。因此本轮亦有**W不可能同时含R、Q2**。",
+        "score": 6,
+        "layer": "synonym-fulltext"
+      }
+    ],
+    "R36_ne_closed": [
+      {
+        "query": "relay convex function stays below common endpoints",
+        "status": "部分已证",
+        "file": "small/S6_attack_round36_working.md",
+        "line": 7,
+        "snippet": "关键链：C直接TOP接合时两真实接力顺序分别由凸端值和实际接力点预算排除；C不直接接合时原W含Cup，迫其水平左端h0>1−q(u)，同一F的底/H长弦给2−Σ<q(u)+Ku。两实际角块长腿的Φ损失与新两变量分别凹整矩形引理给相反严格不等式。没有布局优化、角度采样或区间细分。",
+        "score": 5,
+        "layer": "synonym-fulltext"
+      },
+      {
+        "query": "same F actual relay yields total short-leg loss bound",
+        "status": "部分已证",
+        "file": "small/S6_attack_round36_working.md",
+        "line": 7,
+        "snippet": "关键链：C直接TOP接合时两真实接力顺序分别由凸端值和实际接力点预算排除；C不直接接合时原W含Cup，迫其水平左端h0>1−q(u)，同一F的底/H长弦给2−Σ<q(u)+Ku。两实际角块长腿的Φ损失与新两变量分别凹整矩形引理给相反严格不等式。没有布局优化、角度采样或区间细分。",
+        "score": 4,
+        "layer": "synonym-fulltext"
+      },
+      {
+        "query": "two actual long-leg deficits dominate scalar E",
+        "status": "部分已证",
+        "file": "small/S6_attack_round36_working.md",
+        "line": 7,
+        "snippet": "关键链：C直接TOP接合时两真实接力顺序分别由凸端值和实际接力点预算排除；C不直接接合时原W含Cup，迫其水平左端h0>1−q(u)，同一F的底/H长弦给2−Σ<q(u)+Ku。两实际角块长腿的Φ损失与新两变量分别凹整矩形引理给相反严格不等式。没有布局优化、角度采样或区间细分。",
+        "score": 6,
+        "layer": "synonym-fulltext"
+      },
+      {
+        "query": "two explicit Phi loss bounds force total loss above Y",
+        "status": "部分已证",
+        "file": "small/S6_attack_round36_working.md",
+        "line": 7,
+        "snippet": "关键链：C直接TOP接合时两真实接力顺序分别由凸端值和实际接力点预算排除；C不直接接合时原W含Cup，迫其水平左端h0>1−q(u)，同一F的底/H长弦给2−Σ<q(u)+Ku。两实际角块长腿的Φ损失与新两变量分别凹整矩形引理给相反严格不等式。没有布局优化、角度采样或区间细分。",
+        "score": 6,
+        "layer": "synonym-fulltext"
+      },
+      {
+        "query": "separate u concavity implication",
+        "status": "部分已证",
+        "file": "small/S6_attack_round36_working.md",
+        "line": 7,
+        "snippet": "关键链：C直接TOP接合时两真实接力顺序分别由凸端值和实际接力点预算排除；C不直接接合时原W含Cup，迫其水平左端h0>1−q(u)，同一F的底/H长弦给2−Σ<q(u)+Ku。两实际角块长腿的Φ损失与新两变量分别凹整矩形引理给相反严格不等式。没有布局优化、角度采样或区间细分。",
+        "score": 3,
+        "layer": "synonym-fulltext"
+      },
+      {
+        "query": "separate eta concavity implication",
+        "status": "部分已证",
+        "file": "small/S6_attack_round36_working.md",
+        "line": 7,
+        "snippet": "关键链：C直接TOP接合时两真实接力顺序分别由凸端值和实际接力点预算排除；C不直接接合时原W含Cup，迫其水平左端h0>1−q(u)，同一F的底/H长弦给2−Σ<q(u)+Ku。两实际角块长腿的Φ损失与新两变量分别凹整矩形引理给相反严格不等式。没有布局优化、角度采样或区间细分。",
+        "score": 3,
+        "layer": "synonym-fulltext"
+      },
+      {
+        "query": "whole enlarged scalar rectangle positive for u>0",
+        "status": "部分已证",
+        "file": "small/S6_attack_round36_working.md",
+        "line": 7,
+        "snippet": "关键链：C直接TOP接合时两真实接力顺序分别由凸端值和实际接力点预算排除；C不直接接合时原W含Cup，迫其水平左端h0>1−q(u)，同一F的底/H长弦给2−Σ<q(u)+Ku。两实际角块长腿的Φ损失与新两变量分别凹整矩形引理给相反严格不等式。没有布局优化、角度采样或区间细分。",
+        "score": 5,
+        "layer": "synonym-fulltext"
+      }
+    ],
+    "R37_empty_left": [
+      {
+        "query": "new square from overlong right root has half-side>1",
+        "status": "部分已证",
+        "file": "small/S6_attack_round37.md",
+        "line": 91,
+        "snippet": "- 若不含Q2，F无H，原W必须真实水平桥接C右端与Q2，所以D<U2+q(r)<x+q(r)。TOP相接使D≥2μ−L4>1−δ(z)，故x>1−δ(z)−q(r)。",
+        "score": 3,
+        "layer": "synonym-fulltext"
+      },
+      {
+        "query": "new square centre is in original exclusive box",
+        "status": "部分已证",
+        "file": "small/S6_attack_round37.md",
+        "line": 3,
+        "snippet": "2026-10-15。**F水平完全空时，LEFT真缺口/C负旋转、RIGHT真缺口/C正旋转两个完整方向均不可能。**允许原W重复TOPmid及截线相切；不移动原C/F/W。新链为全局中心块轴根帽、真实支撑面、同一F底弦/上伸平方界和显式一变量比较。",
+        "score": 3,
+        "layer": "synonym-fulltext"
+      },
+      {
+        "query": "new contained square bounds",
+        "status": "部分已证",
+        "file": "small/S6_attack_round37.md",
+        "line": 3,
+        "snippet": "2026-10-15。**F水平完全空时，LEFT真缺口/C负旋转、RIGHT真缺口/C正旋转两个完整方向均不可能。**允许原W重复TOPmid及截线相切；不移动原C/F/W。新链为全局中心块轴根帽、真实支撑面、同一F底弦/上伸平方界和显式一变量比较。",
+        "score": 3,
+        "layer": "synonym-fulltext"
+      },
+      {
+        "query": "second down-root activity excluded by real side/V pair",
+        "status": "部分已证",
+        "file": "small/S6_attack_round37.md",
+        "line": 3,
+        "snippet": "2026-10-15。**F水平完全空时，LEFT真缺口/C负旋转、RIGHT真缺口/C正旋转两个完整方向均不可能。**允许原W重复TOPmid及截线相切；不移动原C/F/W。新链为全局中心块轴根帽、真实支撑面、同一F底弦/上伸平方界和显式一变量比较。",
+        "score": 4,
+        "layer": "synonym-fulltext"
+      },
+      {
+        "query": "same upper-cap failure forces l<7/10",
+        "status": "部分已证",
+        "file": "small/S6_attack_round37.md",
+        "line": 27,
+        "snippet": "三十六轮面积/直径引理使C避BOTTOM。故同一原F底弦b≥2μ−Σ，Σ=S1+S2；其从底mid向上真实V伸长v≥μ−d。通用单位块三轴端平方界给b+v²≤2，所以",
+        "score": 2,
+        "layer": "synonym-fulltext"
+      },
+      {
+        "query": "explicit small root/leg budget contradiction",
+        "status": "部分已证",
+        "file": "small/S6_attack_round37.md",
+        "line": 27,
+        "snippet": "三十六轮面积/直径引理使C避BOTTOM。故同一原F底弦b≥2μ−Σ，Σ=S1+S2；其从底mid向上真实V伸长v≥μ−d。通用单位块三轴端平方界给b+v²≤2，所以",
+        "score": 2,
+        "layer": "synonym-fulltext"
+      },
+      {
+        "query": "angle comparison polynomial is positive",
+        "status": "部分已证",
+        "file": "small/S6_attack_round37.md",
+        "line": 27,
+        "snippet": "三十六轮面积/直径引理使C避BOTTOM。故同一原F底弦b≥2μ−Σ，Σ=S1+S2；其从底mid向上真实V伸长v≥μ−d。通用单位块三轴端平方界给b+v²≤2，所以",
+        "score": 2,
+        "layer": "synonym-fulltext"
+      },
+      {
+        "query": "angle comparison polynomial derivative negative",
+        "status": "部分已证",
+        "file": "small/S6_attack_round37.md",
+        "line": 27,
+        "snippet": "三十六轮面积/直径引理使C避BOTTOM。故同一原F底弦b≥2μ−Σ，Σ=S1+S2；其从底mid向上真实V伸长v≥μ−d。通用单位块三轴端平方界给b+v²≤2，所以",
+        "score": 2,
+        "layer": "synonym-fulltext"
+      },
+      {
+        "query": "low u angle comparison",
+        "status": "部分已证",
+        "file": "small/S6_attack_round37.md",
+        "line": 3,
+        "snippet": "2026-10-15。**F水平完全空时，LEFT真缺口/C负旋转、RIGHT真缺口/C正旋转两个完整方向均不可能。**允许原W重复TOPmid及截线相切；不移动原C/F/W。新链为全局中心块轴根帽、真实支撑面、同一F底弦/上伸平方界和显式一变量比较。",
+        "score": 3,
+        "layer": "synonym-fulltext"
+      },
+      {
+        "query": "direct right contact gives small L2 excess",
+        "status": "部分已证",
+        "file": "small/S6_attack_round37.md",
+        "line": 27,
+        "snippet": "三十六轮面积/直径引理使C避BOTTOM。故同一原F底弦b≥2μ−Σ，Σ=S1+S2；其从底mid向上真实V伸长v≥μ−d。通用单位块三轴端平方界给b+v²≤2，所以",
+        "score": 2,
+        "layer": "synonym-fulltext"
+      },
+      {
+        "query": "final true W bridge contradiction",
+        "status": "部分已证",
+        "file": "small/S6_attack_round37.md",
+        "line": 3,
+        "snippet": "2026-10-15。**F水平完全空时，LEFT真缺口/C负旋转、RIGHT真缺口/C正旋转两个完整方向均不可能。**允许原W重复TOPmid及截线相切；不移动原C/F/W。新链为全局中心块轴根帽、真实支撑面、同一F底弦/上伸平方界和显式一变量比较。",
+        "score": 3,
+        "layer": "synonym-fulltext"
+      },
+      {
+        "query": "RIGHT explicit two-short-leg contradiction",
+        "status": "部分已证",
+        "file": "small/S6_attack_round37.md",
+        "line": 3,
+        "snippet": "2026-10-15。**F水平完全空时，LEFT真缺口/C负旋转、RIGHT真缺口/C正旋转两个完整方向均不可能。**允许原W重复TOPmid及截线相切；不移动原C/F/W。新链为全局中心块轴根帽、真实支撑面、同一F底弦/上伸平方界和显式一变量比较。",
+        "score": 4,
+        "layer": "synonym-fulltext"
+      }
+    ],
+    "R38_empty_right": [
+      {
+        "query": "RIGHT negative first down and first up impossible",
+        "status": "部分已证",
+        "file": "small/S6_attack_round38_working.md",
+        "line": 24,
+        "snippet": "若各前提核实，原W桥接和实际RIGHT上闭端会给",
+        "score": 4,
+        "layer": "synonym-fulltext"
+      },
+      {
+        "query": "RIGHT negative first down and second up impossible",
+        "status": "部分已证",
+        "file": "small/S6_attack_round38.md",
+        "line": 5,
+        "snippet": "另完整排除LEFT正C中原W同时桥接两条正轴，以及C同时直接接合两条正轴的两个子类。这里用新的底弦直径论证，不引用三十七轮已撤回的漏1预算。LEFT必须由C恰好直接接到Q2、QU之一，且原W不能含TOPmid。LEFT的两个单接合代表和三相接仍开放；整个G2/S(6)=2仍未解决，全局2≤S(6)<2.03。",
+        "score": 5,
+        "layer": "synonym-fulltext"
+      },
+      {
+        "query": "RIGHT negative both second vertical faces impossible",
+        "status": "部分已证",
+        "file": "small/S6_attack_round38.md",
+        "line": 212,
+        "snippet": "这只重新使用显式标量引理，不反射宿主图，不把RIGHT的小左根或LEFT相接帽移过来。**LEFT剩余C恰好直接含Q2、QU之一。**",
+        "score": 3,
+        "layer": "synonym-fulltext"
+      },
+      {
+        "query": "LEFT meeting denominator exceeds 7/4",
+        "status": "部分已证",
+        "file": "small/S6_attack_round38.md",
+        "line": 5,
+        "snippet": "另完整排除LEFT正C中原W同时桥接两条正轴，以及C同时直接接合两条正轴的两个子类。这里用新的底弦直径论证，不引用三十七轮已撤回的漏1预算。LEFT必须由C恰好直接接到Q2、QU之一，且原W不能含TOPmid。LEFT的两个单接合代表和三相接仍开放；整个G2/S(6)=2仍未解决，全局2≤S(6)<2.03。",
+        "score": 2,
+        "layer": "synonym-fulltext"
+      },
+      {
+        "query": "final explicit bottom square contradiction",
+        "status": "已证",
+        "file": "small/S6_attack_round38.md",
+        "line": 91,
+        "snippet": "Σ<1/3+Φ(2/7)=34/21−36√2/49<2−√2. …与(6)矛盾。因此 0<w<2/7.",
+        "layer": "manuscript_contradiction_chain",
+        "gap": "",
+        "formula": "Σ<1/3+Φ(2/7)<2−√2 contradicts boxed (6) Σ>2−√2 at L73"
+      }
+    ],
+    "R39_contact": [
+      {
+        "query": "actual V bridge equivalent deficit inequality",
+        "status": "部分已证",
+        "file": "small/S6_attack_round39.md",
+        "line": 11,
+        "snippet": "三十八轮已排除双W桥接、双C直接接合及W重复TOPmid。因此C恰好含Q2、QU之一。C正旋转，保持原C/F/W不动。记",
+        "score": 2,
+        "layer": "synonym-fulltext"
+      },
+      {
+        "query": "small root Delta is below ud",
+        "status": "部分已证",
+        "file": "small/S6_attack_round39.md",
+        "line": 45,
+        "snippet": "C含Q2给x>1−r、S2<q(r)、L2−1<Δ(r)。C不含QU，F不贡献正V，故原W完整含C上端与QU。真实RIGHT相接及W桥接给",
+        "score": 4,
+        "layer": "synonym-fulltext"
+      },
+      {
+        "query": "improved t is below one half",
+        "status": "部分已证",
+        "file": "small/S6_attack_round39.md",
+        "line": 11,
+        "snippet": "三十八轮已排除双W桥接、双C直接接合及W重复TOPmid。因此C恰好含Q2、QU之一。C正旋转，保持原C/F/W不动。记",
+        "score": 3,
+        "layer": "synonym-fulltext"
+      },
+      {
+        "query": "new linear deficit budget",
+        "status": "部分已证",
+        "file": "small/S6_attack_round39.md",
+        "line": 11,
+        "snippet": "三十八轮已排除双W桥接、双C直接接合及W重复TOPmid。因此C恰好含Q2、QU之一。C正旋转，保持原C/F/W不动。记",
+        "score": 3,
+        "layer": "synonym-fulltext"
+      },
+      {
+        "query": "Phi and actual bottom square contradiction",
+        "status": "部分已证",
+        "file": "small/S6_attack_round39.md",
+        "line": 5,
+        "snippet": "对最后的三相接，另证明C上根u>38/79，故C完全避BOTTOM，完整底缺口及两端归同一F。它获得直径、平方及三角形面积三组底弦预算，但本轮未排除整个三相接。S(6)=2仍开放，2≤S(6)<2.03不变。",
+        "score": 2,
+        "layer": "synonym-fulltext"
+      },
+      {
+        "query": "three meetings, direct QU gives upper root lower bound",
+        "status": "部分已证",
+        "file": "small/S6_attack_round39.md",
+        "line": 11,
+        "snippet": "三十八轮已排除双W桥接、双C直接接合及W重复TOPmid。因此C恰好含Q2、QU之一。C正旋转，保持原C/F/W不动。记",
+        "score": 4,
+        "layer": "synonym-fulltext"
+      },
+      {
+        "query": "root lemma large eta cubic positive",
+        "status": "部分已证",
+        "file": "small/S6_attack_round39.md",
+        "line": 120,
+        "snippet": "第二式的正分母为3(1−η²)(2−η−w)，其分子为",
+        "score": 2,
+        "layer": "synonym-fulltext"
+      },
+      {
+        "query": "root lemma small eta sixth degree positive",
+        "status": "部分已证",
+        "file": "small/S6_attack_round39.md",
+        "line": 120,
+        "snippet": "第二式的正分母为3(1−η²)(2−η−w)，其分子为",
+        "score": 2,
+        "layer": "synonym-fulltext"
+      },
+      {
+        "query": "actual horizontal W bridge refined deficit is small",
+        "status": "部分已证",
+        "file": "small/S6_attack_round39.md",
+        "line": 11,
+        "snippet": "三十八轮已排除双W桥接、双C直接接合及W重复TOPmid。因此C恰好含Q2、QU之一。C正旋转，保持原C/F/W不动。记",
+        "score": 3,
+        "layer": "synonym-fulltext"
+      },
+      {
+        "query": "top contact final Phi loss contradiction",
+        "status": "部分已证",
+        "file": "small/S6_attack_round39.md",
+        "line": 5,
+        "snippet": "对最后的三相接，另证明C上根u>38/79，故C完全避BOTTOM，完整底缺口及两端归同一F。它获得直径、平方及三角形面积三组底弦预算，但本轮未排除整个三相接。S(6)=2仍开放，2≤S(6)<2.03不变。",
+        "score": 2,
+        "layer": "synonym-fulltext"
+      },
+      {
+        "query": "combine explicit coefficient slack",
+        "status": "已证",
+        "file": "small/S6_attack_round39.md",
+        "line": 80,
+        "snippet": "(8/5)η+(3/4)d < (56/123)u (explicit coefficient budget)",
+        "layer": "manual-pin",
+        "gap": ""
+      },
+      {
+        "query": "top contact linear loss budget",
+        "status": "已证",
+        "file": "small/S6_attack_round39.md",
+        "line": 80,
+        "snippet": "\\boxed{\\frac85\\eta+\\frac34d<\\frac{56}{123}u.}",
+        "layer": "manuscript_boxed_linear",
+        "gap": "",
+        "formula": "(8/5)η+(3/4)d < (56/123)u  (linear deficit under §2 Q2/TOP contact; budgets (3)(4) at L33,L38)"
+      }
+    ]
+  },
+  "script_locus_maps": {
+    "R30_geom": [],
+    "R31_three": [],
+    "R32_right_pos": [],
+    "R33_right_ne": [],
+    "R34_left_neg": [],
+    "R35_pos_H": [],
+    "R36_ne_closed": [],
+    "R37_empty_left": [],
+    "R38_empty_right": [],
+    "R39_contact": []
+  },
+  "hard_unmapped": {
+    "R30_geom": [],
+    "R31_three": [],
+    "R32_right_pos": [],
+    "R33_right_ne": [],
+    "R34_left_neg": [],
+    "R35_pos_H": [],
+    "R36_ne_closed": [],
+    "R37_empty_left": [],
+    "R38_empty_right": [],
+    "R39_contact": []
+  },
+  "counts": {
+    "manuscript_mapped": 77,
+    "script_locus_remaining": 0,
+    "hard_unmapped": 0,
+    "manual_pins_this_step": 9
+  },
+  "tail_status": "已清空 hard_unmapped；9 条原 script-locus 已人工钉到手稿（部分为部分已证）",
+  "pins9": [
+    {
+      "frame": "R31_three",
+      "query": "near-anchor pair angle amplification <=133/121",
+      "file": "small/S6_attack_round31.md",
+      "line": 167,
+      "snippet": "t≤(133/121)κ < (11/10)κ",
+      "status": "已证"
+    },
+    {
+      "frame": "R31_three",
+      "query": "cosine angle cap kappa<=Yc",
+      "file": "small/S6_attack_round31.md",
+      "line": 172,
+      "snippet": "0<x≤2/5: κ≤Yc=x²/(1−2x²)",
+      "status": "已证"
+    },
+    {
+      "frame": "R31_three",
+      "query": "sine angle cap kappa<=Ys",
+      "file": "small/S6_attack_round31.md",
+      "line": 173,
+      "snippet": "2/5≤x<1: κ≤Ys=(1−x)²/(6x−1−x²)",
+      "status": "已证"
+    },
+    {
+      "frame": "R33_right_ne",
+      "query": "large corner Ys denominator positive",
+      "file": "small/S6_attack_round33.md",
+      "line": 99,
+      "snippet": "a≥5/12时用Ys=(1−a)²/(6a−1−a²)，差值的正分子…",
+      "status": "已证"
+    },
+    {
+      "frame": "R33_right_ne",
+      "query": "small v affine loss coefficient 62/45",
+      "file": "small/S6_attack_round33.md",
+      "line": 186,
+      "snippet": "f(v)<q(\\eta)+A0-\\frac{62}{45}v.",
+      "status": "已证",
+      "gap": "",
+      "formula": "f(v)<q(η)+A0-(62/45)v  (and v≥(45/62)D branch at L188)",
+      "layer": "manuscript_boxed_calc"
+    },
+    {
+      "frame": "R34_left_neg",
+      "query": "LEFT true up root first upper face active",
+      "file": "small/S6_attack_round34.md",
+      "line": 16,
+      "snippet": "第二上根sec−d>μ，而C无TOPmid，故第一上根活动，α=su−1，r=min(Ku,d/K)。",
+      "status": "已证",
+      "gap": "",
+      "formula": "第二上根sec−d>μ，而C无TOPmid，故第一上根活动，α=su−1，r=min(Ku,d/K)",
+      "layer": "manuscript_face_activity"
+    },
+    {
+      "frame": "R38_empty_right",
+      "query": "final explicit bottom square contradiction",
+      "file": "small/S6_attack_round38.md",
+      "line": 91,
+      "snippet": "Σ<1/3+Φ(2/7)=34/21−36√2/49<2−√2. …与(6)矛盾。因此 0<w<2/7.",
+      "status": "已证",
+      "formula": "Σ<1/3+Φ(2/7)<2−√2 contradicts boxed (6) Σ>2−√2 at L73",
+      "gap": "",
+      "layer": "manuscript_contradiction_chain"
+    },
+    {
+      "frame": "R39_contact",
+      "query": "combine explicit coefficient slack",
+      "file": "small/S6_attack_round39.md",
+      "line": 80,
+      "snippet": "(8/5)η+(3/4)d < (56/123)u (explicit coefficient budget)",
+      "status": "已证"
+    },
+    {
+      "frame": "R39_contact",
+      "query": "top contact linear loss budget",
+      "file": "small/S6_attack_round39.md",
+      "line": 80,
+      "snippet": "\\boxed{\\frac85\\eta+\\frac34d<\\frac{56}{123}u.}",
+      "status": "已证",
+      "formula": "(8/5)η+(3/4)d < (56/123)u  (linear deficit under §2 Q2/TOP contact; budgets (3)(4) at L33,L38)",
+      "gap": "",
+      "layer": "manuscript_boxed_linear"
+    }
+  ],
+  "partial_quality_closed": true
+}

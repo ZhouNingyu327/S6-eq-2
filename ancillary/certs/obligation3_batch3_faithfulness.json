@@ -1,0 +1,326 @@
+{
+  "updated": "2026-10-20T23:20+08:00",
+  "batch": 3,
+  "scope": "R32–R39 side/empty/contact frames (meet core / Open B / thin branches)",
+  "method": "Inventory + sample query-name alignment; δ/32/209 gaps closed in batch2b",
+  "frames": [
+    {
+      "frame": "R32_right_pos",
+      "script": "ex/all/check_round32_right_positive.py",
+      "geom_claim": "RIGHT 正水平 / Open B 右侧",
+      "manuscript_ref": "M3 step2–3 RIGHT",
+      "n_queries": 28,
+      "has_mu": true,
+      "mentions_delta": false,
+      "sample_alignments": [
+        {
+          "query": "positive C: first lower-face down-root impossible",
+          "status": "部分已证",
+          "note": "查询名与远端外边/水平状态叙事一致；逐不等式未对本轮展开"
+        },
+        {
+          "query": "positive C: second down-root and upper right point impossible",
+          "status": "部分已证",
+          "note": "查询名与远端外边/水平状态叙事一致；逐不等式未对本轮展开"
+        },
+        {
+          "query": "negative C: first upper-face down-root impossible",
+          "status": "部分已证",
+          "note": "查询名与远端外边/水平状态叙事一致；逐不等式未对本轮展开"
+        },
+        {
+          "query": "negative C: second down-root cap",
+          "status": "部分已证",
+          "note": "查询名与远端外边/水平状态叙事一致；逐不等式未对本轮展开"
+        },
+        {
+          "query": "negative C: upper root must use first lower face",
+          "status": "部分已证",
+          "note": "查询名与远端外边/水平状态叙事一致；逐不等式未对本轮展开"
+        }
+      ],
+      "frame_status": "部分已证",
+      "lean_geometry": "未证",
+      "gap": "Need per-query formula table like Batch2; not done this turn for all queries"
+    },
+    {
+      "frame": "R33_right_ne",
+      "script": "ex/all/check_round33_right_nonempty.py",
+      "geom_claim": "RIGHT 非空",
+      "manuscript_ref": "M3 RIGHT nonempty",
+      "n_queries": 26,
+      "has_mu": true,
+      "mentions_delta": false,
+      "sample_alignments": [
+        {
+          "query": "same F bottom and left-axis bridge give Sigma>2-a-l",
+          "status": "部分已证",
+          "note": "查询名与远端外边/水平状态叙事一致；逐不等式未对本轮展开"
+        },
+        {
+          "query": "same bottom legs force rho(a)<l",
+          "status": "部分已证",
+          "note": "查询名与远端外边/水平状态叙事一致；逐不等式未对本轮展开"
+        },
+        {
+          "query": "same bottom legs and Phi force loss<l-rho",
+          "status": "部分已证",
+          "note": "查询名与远端外边/水平状态叙事一致；逐不等式未对本轮展开"
+        },
+        {
+          "query": "strong Phi loss positive square difference",
+          "status": "部分已证",
+          "note": "查询名与远端外边/水平状态叙事一致；逐不等式未对本轮展开"
+        },
+        {
+          "query": "small corner polynomial decreases",
+          "status": "部分已证",
+          "note": "查询名与远端外边/水平状态叙事一致；逐不等式未对本轮展开"
+        }
+      ],
+      "frame_status": "部分已证",
+      "lean_geometry": "未证",
+      "gap": "Need per-query formula table like Batch2; not done this turn for all queries"
+    },
+    {
+      "frame": "R34_left_neg",
+      "script": "ex/all/check_round34_left_negative.py",
+      "geom_claim": "LEFT 负水平",
+      "manuscript_ref": "M3 LEFT",
+      "n_queries": 23,
+      "has_mu": true,
+      "mentions_delta": true,
+      "sample_alignments": [
+        {
+          "query": "LEFT positive C first down root impossible",
+          "status": "部分已证",
+          "note": "查询名与远端外边/水平状态叙事一致；逐不等式未对本轮展开"
+        },
+        {
+          "query": "LEFT second down root upper cap",
+          "status": "部分已证",
+          "note": "查询名与远端外边/水平状态叙事一致；逐不等式未对本轮展开"
+        },
+        {
+          "query": "LEFT true up root first upper face active",
+          "status": "部分已证",
+          "note": "查询名与远端外边/水平状态叙事一致；逐不等式未对本轮展开"
+        },
+        {
+          "query": "LEFT positive C true right root is short",
+          "status": "部分已证",
+          "note": "查询名与远端外边/水平状态叙事一致；逐不等式未对本轮展开"
+        },
+        {
+          "query": "LEFT lower actual gap endpoint long leg",
+          "status": "部分已证",
+          "note": "查询名与远端外边/水平状态叙事一致；逐不等式未对本轮展开"
+        }
+      ],
+      "frame_status": "部分已证",
+      "lean_geometry": "未证",
+      "gap": "Need per-query formula table like Batch2; not done this turn for all queries"
+    },
+    {
+      "frame": "R35_pos_H",
+      "script": "ex/all/check_round35_positive_H.py",
+      "geom_claim": "正 H / thin a→2⁺ 相关",
+      "manuscript_ref": "M3 H-positive",
+      "n_queries": 20,
+      "has_mu": true,
+      "mentions_delta": false,
+      "sample_alignments": [
+        {
+          "query": "same original F bottom and full H bridge budget",
+          "status": "部分已证",
+          "note": "查询名与远端外边/水平状态叙事一致；逐不等式未对本轮展开"
+        },
+        {
+          "query": "nonpositive defect: actual short legs force rho(x)<r",
+          "status": "部分已证",
+          "note": "查询名与远端外边/水平状态叙事一致；逐不等式未对本轮展开"
+        },
+        {
+          "query": "positive defect: same legs force loss<r-rho(x)",
+          "status": "部分已证",
+          "note": "查询名与远端外边/水平状态叙事一致；逐不等式未对本轮展开"
+        },
+        {
+          "query": "C direct QU contradicts same-F full H bridge",
+          "status": "部分已证",
+          "note": "查询名与远端外边/水平状态叙事一致；逐不等式未对本轮展开"
+        },
+        {
+          "query": "positive defect maps to scalar cap B(v)",
+          "status": "部分已证",
+          "note": "查询名与远端外边/水平状态叙事一致；逐不等式未对本轮展开"
+        }
+      ],
+      "frame_status": "部分已证",
+      "lean_geometry": "未证",
+      "gap": "Need per-query formula table like Batch2; not done this turn for all queries"
+    },
+    {
+      "frame": "R36_ne_closed",
+      "script": "ex/all/check_round36_nonempty_closed.py",
+      "geom_claim": "非空闭包",
+      "manuscript_ref": "M3 nonempty closed",
+      "n_queries": 19,
+      "has_mu": true,
+      "mentions_delta": false,
+      "sample_alignments": [
+        {
+          "query": "same original F bottom/H pair gives Sigma>1+f",
+          "status": "部分已证",
+          "note": "查询名与远端外边/水平状态叙事一致；逐不等式未对本轮展开"
+        },
+        {
+          "query": "direct TOP order I actual relay budget bounds h0",
+          "status": "部分已证",
+          "note": "查询名与远端外边/水平状态叙事一致；逐不等式未对本轮展开"
+        },
+        {
+          "query": "direct TOP order I convex chord gap",
+          "status": "部分已证",
+          "note": "查询名与远端外边/水平状态叙事一致；逐不等式未对本轮展开"
+        },
+        {
+          "query": "relay convex function stays below common endpoints",
+          "status": "部分已证",
+          "note": "查询名与远端外边/水平状态叙事一致；逐不等式未对本轮展开"
+        },
+        {
+          "query": "direct TOP order II original W bridge bounds right H end",
+          "status": "部分已证",
+          "note": "查询名与远端外边/水平状态叙事一致；逐不等式未对本轮展开"
+        }
+      ],
+      "frame_status": "部分已证",
+      "lean_geometry": "未证",
+      "gap": "Need per-query formula table like Batch2; not done this turn for all queries"
+    },
+    {
+      "frame": "R37_empty_left",
+      "script": "ex/all/check_round37_empty_left_negative.py",
+      "geom_claim": "空 LEFT",
+      "manuscript_ref": "M3 empty LEFT",
+      "n_queries": 37,
+      "has_mu": true,
+      "mentions_delta": true,
+      "sample_alignments": [
+        {
+          "query": "new square from overlong right root has half-side>1",
+          "status": "部分已证",
+          "note": "查询名与远端外边/水平状态叙事一致；逐不等式未对本轮展开"
+        },
+        {
+          "query": "new square centre is in original exclusive box",
+          "status": "部分已证",
+          "note": "查询名与远端外边/水平状态叙事一致；逐不等式未对本轮展开"
+        },
+        {
+          "query": "new contained square bounds",
+          "status": "部分已证",
+          "note": "查询名与远端外边/水平状态叙事一致；逐不等式未对本轮展开"
+        },
+        {
+          "query": "same F bottom chord plus actual V arm bound",
+          "status": "部分已证",
+          "note": "查询名与远端外边/水平状态叙事一致；逐不等式未对本轮展开"
+        },
+        {
+          "query": "LEFT P forces first up-root beyond outer mid",
+          "status": "部分已证",
+          "note": "查询名与远端外边/水平状态叙事一致；逐不等式未对本轮展开"
+        }
+      ],
+      "frame_status": "部分已证",
+      "lean_geometry": "未证",
+      "gap": "Need per-query formula table like Batch2; not done this turn for all queries"
+    },
+    {
+      "frame": "R38_empty_right",
+      "script": "ex/all/check_round38_empty_right_negative.py",
+      "geom_claim": "空 RIGHT",
+      "manuscript_ref": "M3 empty RIGHT",
+      "n_queries": 30,
+      "has_mu": true,
+      "mentions_delta": false,
+      "sample_alignments": [
+        {
+          "query": "RIGHT negative first down and first up impossible",
+          "status": "部分已证",
+          "note": "查询名与远端外边/水平状态叙事一致；逐不等式未对本轮展开"
+        },
+        {
+          "query": "RIGHT negative first down and second up impossible",
+          "status": "部分已证",
+          "note": "查询名与远端外边/水平状态叙事一致；逐不等式未对本轮展开"
+        },
+        {
+          "query": "RIGHT negative both second vertical faces impossible",
+          "status": "部分已证",
+          "note": "查询名与远端外边/水平状态叙事一致；逐不等式未对本轮展开"
+        },
+        {
+          "query": "RIGHT negative first right face wins",
+          "status": "部分已证",
+          "note": "查询名与远端外边/水平状态叙事一致；逐不等式未对本轮展开"
+        },
+        {
+          "query": "global right root less than one gives u>eta",
+          "status": "部分已证",
+          "note": "查询名与远端外边/水平状态叙事一致；逐不等式未对本轮展开"
+        }
+      ],
+      "frame_status": "部分已证",
+      "lean_geometry": "未证",
+      "gap": "Need per-query formula table like Batch2; not done this turn for all queries"
+    },
+    {
+      "frame": "R39_contact",
+      "script": "ex/all/check_round39_single_contact.py",
+      "geom_claim": "单相接→最后标准形",
+      "manuscript_ref": "M3 step4",
+      "n_queries": 29,
+      "has_mu": true,
+      "mentions_delta": true,
+      "sample_alignments": [
+        {
+          "query": "LEFT direct Q2 two roots give r<1/2",
+          "status": "部分已证",
+          "note": "查询名与远端外边/水平状态叙事一致；逐不等式未对本轮展开"
+        },
+        {
+          "query": "LEFT direct Q2 preliminary t is below one",
+          "status": "部分已证",
+          "note": "查询名与远端外边/水平状态叙事一致；逐不等式未对本轮展开"
+        },
+        {
+          "query": "actual V bridge equivalent deficit inequality",
+          "status": "部分已证",
+          "note": "查询名与远端外边/水平状态叙事一致；逐不等式未对本轮展开"
+        },
+        {
+          "query": "small root Delta is below ud",
+          "status": "部分已证",
+          "note": "查询名与远端外边/水平状态叙事一致；逐不等式未对本轮展开"
+        },
+        {
+          "query": "bridge implies original eta lower bound on u",
+          "status": "部分已证",
+          "note": "查询名与远端外边/水平状态叙事一致；逐不等式未对本轮展开"
+        }
+      ],
+      "frame_status": "部分已证",
+      "lean_geometry": "未证",
+      "gap": "Need per-query formula table like Batch2; not done this turn for all queries"
+    }
+  ],
+  "counts": {
+    "frames": 8,
+    "total_named_queries": 212,
+    "frame_status_all": "部分已证"
+  },
+  "batch2_gaps_now": "已证 (see obligation3_batch2b_gap_discharge.json)"
+}

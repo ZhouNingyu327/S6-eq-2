@@ -1,0 +1,285 @@
+{
+  "updated": "2026-10-20 Asia/Shanghai",
+  "description": "Expanded faithfulness spot-check across M8–M11 (script exists, cert present+referenced, dual-wrapper status)",
+  "n_samples": 21,
+  "n_pass": 21,
+  "n_fail": 0,
+  "all_pass": true,
+  "samples": [
+    {
+      "block": "M8",
+      "script": "check_round41_certificates.py",
+      "script_exists": true,
+      "certs": [
+        {
+          "name": "round41_corner_certificate.json",
+          "exists": true
+        },
+        {
+          "name": "round41_direct_certificate.json",
+          "exists": true
+        }
+      ],
+      "script_refs_cert": true,
+      "dual_wrapper": "passed",
+      "bernstein_nonpos_ok": null,
+      "pass": true,
+      "notes": "dual=passed"
+    },
+    {
+      "block": "M8",
+      "script": "check_round41_geometry.py",
+      "script_exists": true,
+      "certs": [],
+      "script_refs_cert": true,
+      "dual_wrapper": "passed",
+      "bernstein_nonpos_ok": null,
+      "pass": true,
+      "notes": "no-required-cert; dual=passed"
+    },
+    {
+      "block": "M8",
+      "script": "check_round42.py",
+      "script_exists": true,
+      "certs": [
+        {
+          "name": "round42_interval_certificate.json",
+          "exists": true
+        }
+      ],
+      "script_refs_cert": true,
+      "dual_wrapper": "passed",
+      "bernstein_nonpos_ok": null,
+      "pass": true,
+      "notes": "dual=passed"
+    },
+    {
+      "block": "M9",
+      "script": "check_round44.py",
+      "script_exists": true,
+      "certs": [],
+      "script_refs_cert": true,
+      "dual_wrapper": "passed",
+      "bernstein_nonpos_ok": null,
+      "pass": true,
+      "notes": "no-required-cert; dual=passed"
+    },
+    {
+      "block": "M9",
+      "script": "check_round47.py",
+      "script_exists": true,
+      "certs": [],
+      "script_refs_cert": true,
+      "dual_wrapper": "passed",
+      "bernstein_nonpos_ok": null,
+      "pass": true,
+      "notes": "no-required-cert; dual=passed"
+    },
+    {
+      "block": "M9",
+      "script": "check_round47_forced_fit.py",
+      "script_exists": true,
+      "certs": [],
+      "script_refs_cert": true,
+      "dual_wrapper": "passed",
+      "bernstein_nonpos_ok": null,
+      "pass": true,
+      "notes": "no-required-cert; dual=passed"
+    },
+    {
+      "block": "M9",
+      "script": "check_round50.py",
+      "script_exists": true,
+      "certs": [
+        {
+          "name": "round50_certificate.json",
+          "exists": true
+        }
+      ],
+      "script_refs_cert": true,
+      "dual_wrapper": "passed",
+      "bernstein_nonpos_ok": null,
+      "pass": true,
+      "notes": "dual=passed"
+    },
+    {
+      "block": "M9",
+      "script": "check_round52.py",
+      "script_exists": true,
+      "certs": [],
+      "script_refs_cert": true,
+      "dual_wrapper": "passed",
+      "bernstein_nonpos_ok": null,
+      "pass": true,
+      "notes": "no-required-cert; dual=passed"
+    },
+    {
+      "block": "M9",
+      "script": "check_round54.py",
+      "script_exists": true,
+      "certs": [],
+      "script_refs_cert": true,
+      "dual_wrapper": "passed",
+      "bernstein_nonpos_ok": null,
+      "pass": true,
+      "notes": "no-required-cert; dual=passed"
+    },
+    {
+      "block": "M9",
+      "script": "check_round55_final.py",
+      "script_exists": true,
+      "certs": [
+        {
+          "name": "round55_certificate.json",
+          "exists": true
+        }
+      ],
+      "script_refs_cert": true,
+      "dual_wrapper": "passed",
+      "bernstein_nonpos_ok": null,
+      "pass": true,
+      "notes": "dual=passed"
+    },
+    {
+      "block": "M9",
+      "script": "check_round56.py",
+      "script_exists": true,
+      "certs": [],
+      "script_refs_cert": true,
+      "dual_wrapper": "passed",
+      "bernstein_nonpos_ok": null,
+      "pass": true,
+      "notes": "no-required-cert; dual=passed"
+    },
+    {
+      "block": "M9",
+      "script": "check_round57.py",
+      "script_exists": true,
+      "certs": [],
+      "script_refs_cert": true,
+      "dual_wrapper": "passed",
+      "bernstein_nonpos_ok": null,
+      "pass": true,
+      "notes": "no-required-cert; dual=passed"
+    },
+    {
+      "block": "M9",
+      "script": "check_round58.py",
+      "script_exists": true,
+      "certs": [],
+      "script_refs_cert": true,
+      "dual_wrapper": "passed",
+      "bernstein_nonpos_ok": null,
+      "pass": true,
+      "notes": "no-required-cert; dual=passed"
+    },
+    {
+      "block": "M9",
+      "script": "check_round59.py",
+      "script_exists": true,
+      "certs": [],
+      "script_refs_cert": true,
+      "dual_wrapper": "passed",
+      "bernstein_nonpos_ok": null,
+      "pass": true,
+      "notes": "no-required-cert; dual=passed"
+    },
+    {
+      "block": "M10",
+      "script": "check_round60.py",
+      "script_exists": true,
+      "certs": [
+        {
+          "name": "round60_certificate.json",
+          "exists": true
+        }
+      ],
+      "script_refs_cert": true,
+      "dual_wrapper": "passed",
+      "bernstein_nonpos_ok": null,
+      "pass": true,
+      "notes": "dual=passed"
+    },
+    {
+      "block": "M10",
+      "script": "check_round61.py",
+      "script_exists": true,
+      "certs": [
+        {
+          "name": "round61_certificate.json",
+          "exists": true
+        }
+      ],
+      "script_refs_cert": true,
+      "dual_wrapper": "passed",
+      "bernstein_nonpos_ok": null,
+      "pass": true,
+      "notes": "dual=passed"
+    },
+    {
+      "block": "M10",
+      "script": "check_round61_forms.py",
+      "script_exists": true,
+      "certs": [],
+      "script_refs_cert": true,
+      "dual_wrapper": "passed",
+      "bernstein_nonpos_ok": null,
+      "pass": true,
+      "notes": "no-required-cert; dual=passed"
+    },
+    {
+      "block": "M10",
+      "script": "check_round62.py",
+      "script_exists": true,
+      "certs": [
+        {
+          "name": "round62_certificate.json",
+          "exists": true
+        }
+      ],
+      "script_refs_cert": true,
+      "dual_wrapper": "passed",
+      "bernstein_nonpos_ok": null,
+      "pass": true,
+      "notes": "dual=passed"
+    },
+    {
+      "block": "M11",
+      "script": "check_round63.py",
+      "script_exists": true,
+      "certs": [],
+      "script_refs_cert": true,
+      "dual_wrapper": "passed",
+      "bernstein_nonpos_ok": null,
+      "pass": true,
+      "notes": "no-required-cert; dual=passed"
+    },
+    {
+      "block": "M11",
+      "script": "check_round63_entry.py",
+      "script_exists": true,
+      "certs": [],
+      "script_refs_cert": true,
+      "dual_wrapper": "passed",
+      "bernstein_nonpos_ok": null,
+      "pass": true,
+      "notes": "no-required-cert; dual=passed"
+    },
+    {
+      "block": "M11",
+      "script": "check_round64.py",
+      "script_exists": true,
+      "certs": [
+        {
+          "name": "round64_certificate.json",
+          "exists": true
+        }
+      ],
+      "script_refs_cert": true,
+      "dual_wrapper": "passed",
+      "bernstein_nonpos_ok": null,
+      "pass": true,
+      "notes": "dual=passed"
+    }
+  ]
+}

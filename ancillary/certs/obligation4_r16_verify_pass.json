@@ -1,0 +1,13 @@
+{
+  "updated": "2026-10-20T23:40+08:00",
+  "status": "PASS",
+  "continuous_leaf_boxes": 1173,
+  "leaves_split": [
+    249,
+    924
+  ],
+  "integer_only_tree_regeneration": "byte-for-byte PASS",
+  "manifest_repair": "Updated sha256 of round16_fraction_verification.json (seconds field drift after regenerating verifier output); tree bytes unchanged",
+  "command": "python3 ex/r16/verify_round16.py --core-only",
+  "living_leaf_note": "1173 ≠ 17 living combinatorial leaves"
+}

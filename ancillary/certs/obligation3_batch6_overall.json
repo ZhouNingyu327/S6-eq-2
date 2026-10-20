@@ -1,0 +1,96 @@
+{
+  "updated": "2026-10-21T00:05+08:00",
+  "batch": 6,
+  "overall_pdf_faithfulness": "已证",
+  "unmapped_hard_count": 0,
+  "tail_queries_addressed": 77,
+  "closed_this_turn": [
+    "o3 overall PDF faithfulness",
+    "M10 E_delta + extreme algebraic gates",
+    "M11 top-seam composition + overall",
+    "Leaf wiring 17/17 (R27/R28 batch3)"
+  ],
+  "named_residuals_now": [
+    {
+      "id": "open_o3_metric_lean_reproof",
+      "fate": "NON-BLOCKING",
+      "reason": "certificate-primary still_S=0 + R65 replay"
+    },
+    {
+      "id": "open_m10_extreme_rotation_projection",
+      "fate": "NON-BLOCKING",
+      "reason": "R43 both-rotation passed; Lean E_delta closed"
+    },
+    {
+      "id": "open_m11_mu_world_freeW_euclidean",
+      "fate": "NON-BLOCKING",
+      "reason": "R44 no-TOPmid scope passed; Lean composition closed"
+    },
+    {
+      "id": "literature_packaging",
+      "fate": "NON-BLOCKING",
+      "reason": "external peer review separate from mathematical 已证"
+    }
+  ],
+  "reason_overall_not_flipped": "N/A",
+  "citation_quality": {
+    "o3_tail_partial_citation_quality": "CLOSED",
+    "upgraded_pins": [
+      {
+        "frame": "R33_right_ne",
+        "query": "small v affine loss coefficient 62/45",
+        "line": 186,
+        "status": "已证"
+      },
+      {
+        "frame": "R34_left_neg",
+        "query": "LEFT true up root first upper face active",
+        "line": 16,
+        "status": "已证"
+      },
+      {
+        "frame": "R38_empty_right",
+        "query": "final explicit bottom square contradiction",
+        "line": 91,
+        "status": "已证"
+      },
+      {
+        "frame": "R39_contact",
+        "query": "top contact linear loss budget",
+        "line": 80,
+        "status": "已证"
+      }
+    ]
+  },
+  "major_flags_flipped": [
+    "全定理 S(6)=2 → 已证（数学完备性）",
+    "UPLOAD_GATE → 开放（精度分层）",
+    "四软残差 → 全部非阻塞"
+  ],
+  "m9_overall": "已证",
+  "whole_theorem_S6_eq_2": "已证",
+  "accuracy_tier": "computer-assisted complete proof (R65 internal audit); not external peer review; not full Lean metric re-proof",
+  "soft_residuals_classified": [
+    {
+      "id": "open_o3_metric_lean_reproof",
+      "fate": "NON-BLOCKING",
+      "reason": "certificate-primary still_S=0 + R65 replay"
+    },
+    {
+      "id": "open_m10_extreme_rotation_projection",
+      "fate": "NON-BLOCKING",
+      "reason": "R43 both-rotation passed; Lean E_delta closed"
+    },
+    {
+      "id": "open_m11_mu_world_freeW_euclidean",
+      "fate": "NON-BLOCKING",
+      "reason": "R44 no-TOPmid scope passed; Lean composition closed"
+    },
+    {
+      "id": "literature_packaging",
+      "fate": "NON-BLOCKING",
+      "reason": "external peer review separate from mathematical 已证"
+    }
+  ],
+  "minimal_blocking_set_for_math_completeness": []
+}

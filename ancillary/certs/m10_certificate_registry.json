@@ -1,0 +1,41 @@
+{
+  "description": "M10 dual-wrapper registry after miss_certs.zip staging.",
+  "updated": "2026-10-20 Asia/Shanghai",
+  "block": "M10",
+  "rounds": [
+    60,
+    61,
+    62
+  ],
+  "n_scripts_linked": 4,
+  "n_dual_passed": 4,
+  "n_superseded": 0,
+  "n_fail": 0,
+  "entries": [
+    {
+      "round": 60,
+      "file": "check_round60",
+      "dual_wrapper_status": "passed",
+      "wired": true
+    },
+    {
+      "round": 61,
+      "file": "check_round61",
+      "dual_wrapper_status": "passed",
+      "wired": true
+    },
+    {
+      "round": 61,
+      "file": "check_round61_forms",
+      "dual_wrapper_status": "passed",
+      "wired": true
+    },
+    {
+      "round": 62,
+      "file": "check_round62",
+      "dual_wrapper_status": "passed",
+      "wired": true
+    }
+  ],
+  "note": "Main certificate checkers PASS. check_round55 superseded by check_round55_final. Auxiliary form scripts PASS after staging outputs/."
+}

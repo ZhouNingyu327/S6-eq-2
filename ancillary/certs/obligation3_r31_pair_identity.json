@@ -1,0 +1,11 @@
+{
+  "id": "o3_R31_pair_identity",
+  "status": "已证",
+  "manuscript": "small/S6_attack_round31.md:181",
+  "manuscript_formula": "F_1(x,t)=1-k(x)k(t)+b(x)-2k(x)+k(x)b(t)+x+2t-t^2",
+  "script": "ex/all/check_round31_extended_pair.py",
+  "script_formula": "F=(1-k(x)*k(y))+b(x)-2*k(x)+k(x)*b(y)+x+2*y-y*y",
+  "identification": "y ↔ t (second angle parameter); k=2a/(1-a^2), b=(1+a^2)/(1-a^2) as in manuscript § extended pair",
+  "certificate": "P=(2-F)(1-x²)(1-y²) and Q=(1-x²)(1-y²)-4xy Bernstein-nonneg; manuscript L196 independent verifier",
+  "note": "Script reconstructs transformed Bernstein polys and asserts coeff nonneg + identity with saved JSON"
+}

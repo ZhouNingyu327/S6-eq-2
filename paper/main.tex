@@ -1,0 +1,673 @@
+\documentclass[11pt,reqno]{amsart}
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage{amsmath,amssymb,amsthm,mathtools}
+\usepackage{microtype}
+\usepackage{hyperref}
+\usepackage{url}
+\usepackage{booktabs}
+\usepackage{enumitem}
+\usepackage{xcolor}
+\usepackage{graphicx}
+
+\hypersetup{
+  colorlinks=true,
+  linkcolor=blue,
+  citecolor=blue,
+  urlcolor=blue
+}
+
+\newtheorem{theorem}{Theorem}[section]
+\newtheorem{proposition}[theorem]{Proposition}
+\newtheorem{lemma}[theorem]{Lemma}
+\newtheorem{corollary}[theorem]{Corollary}
+\newtheorem{conjecture}[theorem]{Conjecture}
+\theoremstyle{definition}
+\newtheorem{definition}[theorem]{Definition}
+\newtheorem{remark}[theorem]{Remark}
+
+\newcommand{\midset}{\mathrm{mid}}
+\newcommand{\BOTTOM}{\mathrm{BOTTOM}}
+\newcommand{\RIGHT}{\mathrm{RIGHT}}
+\newcommand{\TOP}{\mathrm{TOP}}
+\newcommand{\LEFT}{\mathrm{LEFT}}
+
+\title[Six unit squares cannot cover a larger square]
+{Six unit squares cannot cover a square of side greater than~$2$}
+
+\author{Ningyu Zhou}
+\address{School of Physics, Peking University, Beijing, China}
+\email{zhouningyu27@gmail.com}
+\urladdr{https://github.com/ZhouNingyu327}
+
+\date{October 20, 2026}
+
+\begin{document}
+\begin{abstract}
+Let $S(n)$ be the largest side length of a Euclidean square that can be covered
+by $n$ closed unit squares, allowing arbitrary rigid motions and overlaps.
+Equivalently, Soifer's function $\Pi(2)$ is the least number of unit squares
+needed to cover some square of side $2+\varepsilon$ for every $\varepsilon>0$.
+We prove that $S(6)=2$, or equivalently $\Pi(2)=7$, resolving the conjecture
+stated by D\'osa--L\'angi--Tuza~\cite{DLT2026}.
+In particular, six unit squares cannot cover any square of side strictly greater
+than~$2$, while side~$2$ is attained by the obvious $2\times 2$ tiling.
+
+The argument is a finite case analysis on ownership of the centre and of the
+four outer midpoints, followed by a reduction to a final standard form and the
+elimination of all joining modes.  Algebraic exclusions are discharged by
+exact rational identities, positive Bernstein certificates on compact boxes,
+interval certificates, and SMT UNSAT queries; selected geometric interfaces
+are formalised in Lean~4.  The proof is computer-assisted: machine certificates
+(with \texttt{still\_S}=0) and a Lean~4 obligation skeleton (no \texttt{sorry},
+no extra axioms) support the narrative.  We do not claim independent peer
+review, nor a full Lean re-proof of every metric inequality appearing in the
+long verification manuscript.
+\end{abstract}
+
+\subjclass[2020]{Primary 52C15; Secondary 52C17, 68Q60, 68V15}
+\keywords{unit square covering, $S(n)$, $\Pi(n)$, computer-assisted proof,
+Bernstein certificates, SMT, Lean~4}
+
+\maketitle
+
+\tableofcontents
+
+%% ============================================================
+\section{Introduction}\label{sec:intro}
+%% ============================================================
+
+Covering a large square by equal smaller squares is a classical theme in
+discrete and metric geometry.  Write
+\begin{equation}\label{eq:Sn}
+S(n)
+\;=\;
+\sup\bigl\{\,s>0 :
+\text{a closed square of side~$s$ admits a covering by~$n$ closed unit squares}
+\,\bigr\},
+\end{equation}
+where each unit square may be translated and rotated and overlaps are allowed.
+Soifer's function $\Pi(n)$ asks for the least number of unit squares needed to
+cover \emph{some} square of side $n+\varepsilon$ for every $\varepsilon>0$;
+see~\cite{Soifer2006,SoiferCoverUp}.  In particular
+\begin{equation}\label{eq:equiv}
+S(6)=2
+\quad\Longleftrightarrow\quad
+\Pi(2)=7.
+\end{equation}
+The lower bound $S(6)\ge 2$ is elementary: four axis-aligned unit squares tile
+$[0,2]^2$.  The matching upper bound is the content of the present paper.
+
+Januszewski proved that covering a square of side $2+\varepsilon$ requires at
+least six unit squares, i.e.\ $\Pi(2)\ge 6$ \cite{Januszewski2009}.
+Exact small values such as $S(5)=2$ appear in the literature of
+Friedman--Paterson and Januszewski; see also Friedman's covering surveys
+\cite{FriedmanPaterson2006,FriedmanCovering}.
+In January~2026, D\'osa, L\'angi and Tuza revisited congruent square coverings,
+determined several small $S(n)$ and boundary-covering variants, and stated as
+Conjecture~1.1 that $S(6)=2$ (equivalently $\Pi(2)=7$) \cite{DLT2026}.
+
+\begin{theorem}[Main theorem]\label{thm:main}
+$S(6)=2$.  Equivalently, $\Pi(2)=7$: six closed unit squares cannot cover any
+square of side strictly greater than~$2$, while a square of side~$2$ admits such
+a covering.
+\end{theorem}
+
+The proof occupies Sections~\ref{sec:defs}--\ref{sec:finale}.
+Section~\ref{sec:certs} records the logical r\^oles of the computational
+certificates.  Related work is collected in Section~\ref{sec:related}.
+
+\begin{remark}[Accuracy tier]
+Theorem~\ref{thm:main} is asserted as a computer-assisted complete proof:
+internal audit (round~65), certificate inventory with \texttt{still\_S}=0, and
+a Lean~4 obligation skeleton with closed flags for obligations~1--4.  This does
+\emph{not} assert that the result has undergone independent peer review, nor
+that every metric inequality in the long manuscript has been re-proved in Lean.
+\end{remark}
+
+%% ============================================================
+\section{Definitions and standing notation}\label{sec:defs}
+%% ============================================================
+
+\begin{definition}
+For each integer $n\ge 1$, $S(n)$ is defined by~\eqref{eq:Sn}.
+Soifer's $\Pi(n)$ is the least $m$ such that for every $\varepsilon>0$ some
+square of side $n+\varepsilon$ admits a covering by $m$ unit squares.
+\end{definition}
+
+Throughout the upper-bound argument we work with the centred target
+\begin{equation}\label{eq:M1}
+T \;=\; [-\mu,\mu]^2,\qquad \mu>1,
+\end{equation}
+and derive a contradiction from the assumption that six closed unit squares
+cover~$T$.  (The translate $[0,2\mu]^2$ is equivalent for all length budgets.)
+
+Write $O$ for the centre of~$T$, label the four corners $1,2,3,4$
+counter-clockwise from the lower left, and write $\BOTTOM$, $\RIGHT$, $\TOP$,
+$\LEFT$ for the outer edges.  An \emph{outer mid} is the midpoint of an outer
+edge.  The central horizontal and vertical target segments are denoted $H$ and
+$V$.  A \emph{true gap} on an outer edge is a nonempty open subinterval of that
+edge not covered by the two adjacent corner tiles; endpoints of gaps are never
+free hypotheses and must be recovered from openness, convexity and closedness.
+
+``Corner tiles abut'' on an outer edge means that the two adjacent corner tiles
+together cover the entire edge (overlaps allowed).  Otherwise the uncovered
+open interval is a true gap.
+
+%% ============================================================
+\section{Roles, normalisation, and parallel budgets}\label{sec:basics}
+%% ============================================================
+
+\begin{lemma}[Roles and midpoints]\label{lem:roles}
+Four distinct tiles $V_1,V_2,V_3,V_4$ cover the four corners of~$T$; a fifth
+tile $C$ covers~$O$; the sixth tile is denoted~$F$.  Each unit tile contains at
+most one outer mid.  The role selection does not forbid $F$ from containing a
+corner, nor a mid from lying in both a corner tile and a non-corner tile.
+\end{lemma}
+
+\begin{proof}
+Distinct target corners are at distance at least $2\mu>\sqrt2$, hence cannot
+lie in one unit tile.  The distance from a corner to the centre is
+$\sqrt2\,\mu>\sqrt2$, so $C$ is not a corner tile.  Distinct outer mids are at
+least $\sqrt2\,\mu>\sqrt2$ apart.
+\end{proof}
+
+\begin{lemma}[Dominated normalisation]\label{lem:norm}
+Fix a target corner as origin with inward coordinates $X,Y\ge 0$.  The unit
+tile containing that corner may be enlarged inside~$T$ to the form
+\begin{equation}\label{eq:M2}
+0\le cX+sY\le 1,\qquad
+-\beta\le -sX+cY\le 1-\beta,
+\quad c,s\ge 0,\ c^2+s^2=1,
+\end{equation}
+without moving any other tile and without deleting any previously covered
+point of~$T$.
+\end{lemma}
+
+\begin{proof}
+Among the four oriented unit normals choose one in the open first quadrant.
+Its original projection interval $[\alpha,\alpha+1]$ contains~$0$, hence
+$\alpha\le 0$.  Replacing it by $[0,1]$ does not remove any point of~$T$ with
+nonnegative projection.  Keep the orthogonal unit interval unchanged.
+\end{proof}
+
+\begin{proposition}[One-shot global normalisation]\label{prop:M1}
+Starting from any covering of~$T$, apply Lemma~\ref{lem:norm} once to each
+corner tile $V_i$, leaving $C$ and $F$ fixed.  The resulting covering still
+covers~$T$, preserves roles of $C$ and~$F$, and is idempotent.  Thereafter
+classification is performed exactly once: every later local normalisation step
+acts as the identity on already normalised corner tiles.
+\end{proposition}
+
+\begin{lemma}[Two nonempty parallel chords]\label{lem:B}
+If a unit tile meets two parallel lines at distance $d>1$, then $d\le\sqrt2$
+and the sum of the two chord lengths is at most
+\begin{equation}\label{eq:M4}
+B(d)=\begin{cases}
+d-\sqrt{d^2-1},& 1<d\le 3/(2\sqrt2),\\
+2(\sqrt2-d),& 3/(2\sqrt2)\le d\le\sqrt2.
+\end{cases}
+\end{equation}
+In particular $B(d)<1$.  Tangency counts as nonempty; an empty chord may not
+be substituted into the bound.
+\end{lemma}
+
+\begin{proof}[Proof sketch]
+With direction parameters $c\ge s>0$ the transverse width is $w=c+s$.  The two
+vertical lines lie at $t$ and $t+d$ with $0\le t\le w-d$.  Since $d>1\ge c$,
+both chords fall in the triangular end-caps and the total length equals
+$(w-d)/(cs)=2(w-d)/(w^2-1)$.  Maximising over $d\le w\le\sqrt2$ yields the
+two branches of~\eqref{eq:M4}.  The Euclidean chord-length identities matching
+the triangular-cap formulae are recorded in the Lean development of the
+parallel-budget geometry (Obligation~1).
+\end{proof}
+
+Further elementary budgets (grid contribution at most~$2$ per corner tile;
+$L+S+U<2$ for a normalised corner tile; triangular area at most $1/2$) are
+collected as Lemmas~R2--R3 in the long verification manuscript and used below
+without restating the proofs.
+
+%% ============================================================
+\section{Top-level classification}\label{sec:class}
+%% ============================================================
+
+If $F$ also contains~$O$, call the configuration class~G5.  Otherwise set
+\begin{equation}\label{eq:M5}
+k \;=\; \#\{\text{outer mids belonging to }C\cup F\}\in\{0,1,2\}.
+\end{equation}
+Then $k=0$ is G1, $k=1$ is G2, and $k=2$ with adjacent (resp.\ opposite) mids
+is G4 (resp.\ G3).  Each mid not yet supplied by $C\cup F$ chooses an adjacent
+corner host injectively.  Reflection reduces host representatives.
+
+\begin{proposition}[Exhaustive branch table]\label{prop:M3}
+Every covering of~$T$ falls into exactly one of the classes
+G5, G1, centre-owning G2, G4, G3, or residual G2
+($k=1$ with the unique mid owned by~$F$ on~$\BOTTOM$).
+The residual G2 splits into a near-end host representative
+$(\RIGHT,\TOP,\LEFT)=(2,3,4)$ and a far-end representative $(2,4,1)$.
+\end{proposition}
+
+The global elimination order is: G5 for all three values of~$k$; then G1,
+centre-owning G2, G4 and G3; then near-end residual G2; then reduction of the
+far-end representative to the final standard form; then elimination of all
+joining modes of that form.
+
+%% ============================================================
+\section{Elimination of G5, G1, centre-G2, G3 and G4}\label{sec:early}
+%% ============================================================
+
+\begin{proposition}[G5 impossible]\label{prop:M41}
+In any covering of~$T$ exactly one tile contains~$O$, and $O$ is an interior
+point of that tile.
+\end{proposition}
+
+\begin{proof}[Proof outline]
+For G5, modules R2--R3 eliminate $k=2$ and $k=0$.  For $k=1$, modules
+R4--R7 reduce to a triple-abutment configuration with an interior second
+centre tile; module~R8 then proves the two-corner inequality
+\begin{equation}\label{eq:M7}
+L_1+L_2+\min(t_1,t_2)+\tfrac45\max(t_1,t_2)\le\tfrac{14}{5}
+\end{equation}
+by a Bernstein certificate on forty-five rational rectangles after mapping the
+full two-dimensional domain into the unit square, and compares it with the
+weighted three-ray bound on the interior tile to reach a contradiction in both
+orderings of $(t_1,t_2)$.  Thus G5 is empty.  The remaining five tiles stay at
+positive distance from~$O$, so a small neighbourhood of~$O$ is covered by~$C$
+alone and $O$ is interior to~$C$.
+\end{proof}
+
+\begin{proposition}[G1 impossible]\label{prop:M42}
+If the centre tile is unique, then $C\cup F$ contains at least one outer mid.
+\end{proposition}
+
+\begin{proof}[Proof outline]
+Module~R9 eliminates triple abutment by a quarter-boundary budget and reduces
+to opposite or adjacent residual gaps.  For opposite gaps, the corrigendum~R10C
+first forces the horizontal chord of~$F$ to be strictly positive (via
+$g_1+h_C>1$ against $B(\mu)<1$), then combines parallel-chord budgets of $C$
+and~$F$ with the corner contribution bound~$<8$.  Adjacent gaps are eliminated
+in R10~\S\S3--6 by real endpoints and direction constraints.
+\end{proof}
+
+\begin{proposition}[Centre cannot own the unique mid]\label{prop:M43}
+If $k=1$, the unique mid belonging to $C\cup F$ cannot belong to~$C$.
+\end{proposition}
+
+\begin{proof}[Proof outline]
+Axial propagation (R11) yields necessary outer contacts.  Module~R12 treats
+the two host representatives when only~$C$ owns the mid, covering all true-gap
+and triple-abutment patterns on $\LEFT$, $\TOP$ and~$\RIGHT$.  Shared ownership
+$C\cap F$ of the same mid is eliminated separately in R12~\S10 by vertical
+redundancy and a true-gap triangle constraint.
+\end{proof}
+
+\begin{proposition}[G4 impossible]\label{prop:M51}
+No covering has $C$ and~$F$ owning distinct adjacent outer mids.
+\end{proposition}
+
+\begin{proof}[Proof outline]
+Normalise so that $C$ owns the left mid and $F$ owns the bottom mid.  The three
+injective host representatives $(\TOP,\RIGHT)\in\{(4,3),(4,2),(3,2)\}$ are
+eliminated in modules R20--R23 by horizontal-sign analysis, forced suspension
+segments, and projection budgets on~$C$.  Shared left-mid ownership by the free
+corner tile is ruled out before the last representative.
+\end{proof}
+
+\begin{proposition}[G3 impossible]\label{prop:M52}
+No covering has $C$ and~$F$ owning distinct opposite outer mids.
+\end{proposition}
+
+\begin{proof}[Proof outline]
+Normalise so that $C$ owns the left mid and $F$ owns the right mid.  Three host
+representatives (after reflection) are eliminated in R24--R25 by abutment/gap
+analysis on $\TOP$ and~$\BOTTOM$, empty/nonempty vertical chords of~$F$, and a
+local exit lemma for nonempty cases.
+\end{proof}
+
+\begin{corollary}[Universal centre forbids outer mids]\label{cor:M53}
+In any covering of~$T$ the unique centre tile contains no outer mid, and the
+remaining non-corner tile contains some outer mid.
+\end{corollary}
+
+\begin{proof}
+Combine Propositions~\ref{prop:M41}--\ref{prop:M52}.
+\end{proof}
+
+%% ============================================================
+\section{Near-end residual G2}\label{sec:near}
+%% ============================================================
+
+After Corollary~\ref{cor:M53} the only surviving class is residual G2 with the
+unique mid owned by~$F$ on~$\BOTTOM$.
+
+\begin{proposition}[Near-end impossible]\label{prop:M61}
+The near-end host representative
+$(\RIGHT,\TOP,\LEFT)=(2,3,4)$ cannot occur.
+\end{proposition}
+
+\begin{proof}[Proof outline]
+Module~R18 shows that either both $\RIGHT$ and~$\TOP$ abut, or exactly one of
+them carries a true gap owned by~$C$.  In the double-abutment case:
+R13 eliminates nonempty horizontal chords of~$F$; R14--R15 force left abutment
+when that chord is empty and produce an interior point $Q_0$ of~$C$;
+R15S/R16P supply the strict angular separation and height hypotheses; R16 then
+covers the necessary continuous domain by $1173$ rational boxes with interval
+certificates excluding every leaf.  Remaining left-gap / nonempty-$F$ patterns
+are eliminated in R17--R18.  Top-gap patterns fall to R19 and~R26; right-gap
+patterns fall to R27--R28 (both rotation signs).  Normalisation that fills a
+gap returns to an already eliminated abutment leaf.
+\end{proof}
+
+%% ============================================================
+\section{Far-end reduction to standard form}\label{sec:far}
+%% ============================================================
+
+Henceforth fix the far-end representative: $V_1$ owns the left mid, $V_2$ the
+right mid, $V_4$ the top mid, and the free corner tile is $W=V_3$.  The centre
+tile $C$ owns no outer mid; $F$ owns the bottom mid and not the centre.
+
+\begin{proposition}[Far-end standard form]\label{prop:M71}
+Every far-end covering satisfies: the three non-bottom outer edges abut via
+corner tiles; $F\subset\{y<0\}$; $C$ avoids~$\BOTTOM$; and a single copy of~$F$
+contains both closed endpoints of the bottom gap together with the lower axial
+tip of~$C$.
+\end{proposition}
+
+\begin{proof}[Proof outline]
+\emph{Step~1.} Modules R27 and~R29 eliminate standardised top true gaps for
+both rotation signs of~$C$.  Thus $\TOP$ abuts.  Any lateral true gap lies too
+far from the bottom mid for~$F$ to reach, so lateral gaps are owned entirely
+by~$C$.  Since $C$ cannot meet both $\LEFT$ and~$\RIGHT$ at distance
+$2\mu>\sqrt2$, the only remaining cases are left gap, right gap, or triple
+abutment (corrigendum R29N).
+
+\emph{Step~2.} If $F\cap H\neq\varnothing$, R29N forces $C$ to avoid~$\BOTTOM$;
+R31 eliminates triple abutment and R32--R36 eliminate the lateral-gap cases.
+Hence $F\cap H=\varnothing$.  If some point of~$F$ had $y\ge 0$, convexity with
+$(0,-\mu)\in F$ would produce a point of $F\cap H$ inside~$T$, a contradiction.
+Thus $F\subset\{y<0\}$.
+
+\emph{Step~3.} Corollary~\ref{cor:M53} applied to an inscribed target yields
+axial-root caps $\le 2-\mu$ (module~R37) without circularity.  Modules
+R37--R39 eliminate all right and left true-gap patterns (both rotation signs,
+direct and bridged contacts).
+
+\emph{Step~4.} In the residual triple-abutment case, R39 gives the upper axial
+root $u>38/79$, whence $C$ avoids~$\BOTTOM$.  The three anchored corner tiles
+can contribute only their matching central half-axes, so the entire bottom gap
+and the lower tip of~$C$ are forced into the same tile~$F$.
+\end{proof}
+
+%% ============================================================
+\section{Standard-form notation and four joining modes}\label{sec:std}
+%% ============================================================
+
+Let $a,x,z\in(0,1)$ be the half-angle parameters of $V_1,V_2,V_4$, and let
+$h\in[0,\sqrt2-1]$ be the half-angle of the smaller axial angle of~$C$.  Set
+\begin{equation}\label{eq:M8}
+b(t)=\frac{1+t^2}{1-t^2},\quad
+k(t)=\frac{2t}{1-t^2},\quad
+g(t)=\frac{1-t}{1+t},\quad
+q(t)=\frac{t}{2-t},
+\end{equation}
+and write $\delta(t)=b(t)-1$, $\Delta_z=\delta(z)$.  The four actual axial tips
+of~$C$ are $L=(-l,0)$, $R=(r,0)$, $T_C=(0,u)$ and $B_C=(0,-d)$.  Writing
+$S_1,S_2$ for the actual short legs of the bottom corner tiles and
+$\Sigma=S_1+S_2$, Proposition~\ref{prop:M71} yields
+\begin{equation}\label{eq:M9}
+\Sigma>2-\sqrt2>\tfrac7{12},\qquad
+\Sigma>(1-d)^2,\qquad
+\Sigma>2-\frac1{1-d}.
+\end{equation}
+Left abutment supplies the constraints
+\begin{equation}\label{eq:M10}
+0<z<a<1,\quad a+2z<1,\quad z<\tfrac4{15},\quad
+0\le S_1<\mathcal F(a,z):=b(a)-k(a)\bigl(2-g(z)\bigr).
+\end{equation}
+
+\begin{lemma}[Normalised seam point in~$C$]\label{lem:M81}
+There is a point
+\begin{equation}\label{eq:M11}
+P_1=(-1+X,e)\in C,\qquad
+X=\frac{b(a)+S_4-2}{k(a)-k(z)},\quad
+e=1-S_4-k(z)X,
+\end{equation}
+obtained from the real-scale seam $P_\mu\in C$ by a convexity argument inside
+the same tile~$C$ (modules R40 and~R42).  The construction does not rescale the
+covering to $\mu=1$ and does not move~$C$.
+\end{lemma}
+
+Let $Q_2$ and $Q_U$ be the actual inward tips of $V_2$ and $V_4$ on the positive
+axes.  Whether $C$ contains these tips yields four exhaustive joining modes:
+double-direct, upper bridge by~$W$, right bridge by~$W$, and double bridge.
+If $C$ misses a tip, the corresponding open axial gap can be filled only by the
+same free corner tile~$W$, which is then forced by closedness to contain both
+the tip of~$C$ and the corner tip.
+
+%% ============================================================
+\section{Elimination of upper bridges and negative rotations}\label{sec:M9}
+%% ============================================================
+
+\begin{proposition}\label{prop:M91}
+In the standard form of Proposition~\ref{prop:M71}, the free corner tile~$W$
+cannot contain~$Q_U$.
+\end{proposition}
+
+\begin{proof}[Proof outline]
+Modules R44--R45 show that an upper bridge forces $z\le\tau<2/5$ for the
+parameter $\tau$ of~$W$ and empties $W\cap H$, whence $C$ contains~$Q_2$
+directly and double bridging is impossible.  Modules R46 and~R48 produce a
+real exit point $T_R\in C\cap W\cap V_2$.  Small angles $h\le 1/24$ fall to~R52.
+Positive rotations are eliminated in R53--R55 via the seam-derived bound
+$S_1<q(Q)$ and the two normals of~$C$ at~$T_R$.  Negative rotations are reduced
+in R56--R58 to $0<\tau<1/6$ and then excluded in~R59 by the area-forced
+negativity
+\begin{equation}\label{eq:M12}
+G=H_F-q(x+\delta)-g(x)+k(x)(B_t-1)<0,
+\quad H_F=2-\frac1{1-\delta-\tau},
+\end{equation}
+using endpoint polynomial certificates on small/medium~$x$ and a left-root
+projection contradiction on large~$x$.
+\end{proof}
+
+Consequently only double-direct and right-bridge modes remain, both with
+$C\ni Q_U$ and hence $u>1-z$.  In the right-bridge case the horizontal chord
+length of~$W$ is strictly less than~$\Delta_z$, which after establishing that
+the relevant parameters are~$<1$ yields
+\begin{equation}\label{eq:M13}
+S_2<q(r+\Delta_z);
+\end{equation}
+double-direct admits the stronger $S_2<q(r)$.
+
+\begin{proposition}\label{prop:M92}
+All negative rotations in the two residual joining modes are impossible.
+Every surviving positive rotation satisfies $1/10<z<1/5$.
+\end{proposition}
+
+\begin{proof}[Proof outline]
+Small-angle double-direct and right-bridge cases are eliminated in R43 and
+R49--R51 respectively, both forcing $h>1/8$.  Module~R60 partitions the
+negative-rotation domain into four regions and contradicts~\eqref{eq:M9} in
+each, paying the loss~\eqref{eq:M13}.  Modules R61--R62 eliminate
+$z\ge 1/5$ and $z\le 1/10$ for positive rotations by asymmetric triangles on
+the same~$F$ and concavity of the budget form, leaving the open strip
+$1/10<z<1/5$.
+\end{proof}
+
+%% ============================================================
+\section{Right bridges are impossible}\label{sec:M10}
+%% ============================================================
+
+\begin{proposition}\label{prop:M101}
+In the residual domain of Proposition~\ref{prop:M92}, $W$ does not contain the
+right axial tip~$R$ of~$C$.  Consequently the entire right-bridge class is
+empty.
+\end{proposition}
+
+\begin{proof}[Proof outline]
+Module~R63 first obtains $r<17/20$ from axial chords and the $R/T_C$
+projection.  Assuming $W\ni R$, the tile meets both $\TOP$ and~$H$, forcing a
+top leg $D>1-\Delta_z>11/12$ and a half-angle
+\begin{equation}\label{eq:M14}
+t<\tfrac18,\qquad t<\tfrac97\Delta_z.
+\end{equation}
+Comparing real projections in both orientations of~$W$ yields an abscissa
+$\xi$ of the contact on~$H$ satisfying
+\begin{equation}\label{eq:M15}
+\xi<\Delta_z+t
+\quad\text{or}\quad
+\xi>1-t>\tfrac78.
+\end{equation}
+The second alternative contradicts $r<17/20$ if the contact is~$R$.  The first,
+combined with~\eqref{eq:M13}--\eqref{eq:M14} and left long-leg loss, produces
+\begin{equation}
+\Sigma<\Phi\!\Bigl(\frac{2z}{1+z}\Bigr)+q\!\Bigl(\frac{23}{7}\Delta_z\Bigr),
+\quad
+\Phi(w)=(1+w)\bigl(1-\sqrt{w(2+w)}\bigr),
+\end{equation}
+which is decreasing on $1/10\le z\le 1/5$ and strictly less than $7/12$ at the
+left endpoint, contradicting~\eqref{eq:M9}.
+\end{proof}
+
+%% ============================================================
+\section{Double-direct positive rotations}\label{sec:finale}
+%% ============================================================
+
+\begin{proposition}\label{prop:M111}
+No positive-rotation double-direct covering survives in the residual strip of
+Proposition~\ref{prop:M92}.
+\end{proposition}
+
+\begin{proof}[Proof outline]
+From~\eqref{eq:M10} and $1/10<z<1/5$ one obtains $2/7<a<3/5$.  Double-direct
+gives $S_2<q(r)$.  At the formal endpoint $S_4=g(z)$ define
+\begin{equation}\label{eq:M16}
+X_G=\frac{(1-z)\bigl[a^2(1+2z)-z\bigr]}{(a-z)(1+az)},\qquad
+e_G=\frac{2az(1-a-z)}{(a-z)(1+az)}.
+\end{equation}
+After verifying $a<g(h)$ one has the projection bound
+\begin{equation}\label{eq:M17}
+r<R_P(h):=\delta(h)+X_G+k(h)e_G,
+\end{equation}
+while the pair $(T_C,R)$ yields $r<R_T(h):=h+z/k(h)$ for $h>0$.
+
+On $0\le h\le 1/4$ one has $a<3/5\le g(h)$; monotonicity of~\eqref{eq:M17}
+reduces the right-root upper bound to $h=1/4$, after which
+$\mathcal F+q\bigl(R_P(1/4)\bigr)<7/12$ on the full $(a,z)$-rectangle.
+On $1/4\le h\le 1/3$, concavity of the real $P_1/T_C$ relation forces $a>2/5$,
+and four endpoint values control $\Sigma<7/12$.  On
+$1/3\le h\le\sqrt2-1$, a rational outer cap $29/70$ splits according as
+$a\ge g(h)$ or not; both subcases again force $\Sigma<7/12$.
+
+The fourteen deduplicated rational targets are certified by twenty-eight
+numerator/denominator polynomials whose one hundred fourteen strictly positive
+rational Bernstein coefficients, together with reconstruction identities, cover
+the whole continuum $[0,\sqrt2-1]$ (module~R64).  Every angular segment
+contradicts~\eqref{eq:M9}.
+\end{proof}
+
+\begin{proof}[Proof of Theorem~\ref{thm:main}]
+Assume six unit squares cover~$T$ with $\mu>1$.  Proposition~\ref{prop:M3}
+places the covering in one of the top-level classes.  Propositions
+\ref{prop:M41}--\ref{prop:M52} eliminate G5, G1, centre-owning G2, G3 and~G4.
+Proposition~\ref{prop:M61} eliminates the near-end residual G2.
+Proposition~\ref{prop:M71} reduces the far-end residual G2 to the final
+standard form.  Propositions~\ref{prop:M91}--\ref{prop:M111} eliminate every
+joining mode, rotation sign and residual parameter domain of that form.
+Hence $\mu>1$ is impossible.  Combined with the elementary covering of side~$2$,
+one obtains $S(6)=2$, and therefore $\Pi(2)=7$ by~\eqref{eq:equiv}.
+\end{proof}
+
+%% ============================================================
+\section{Computational certificates}\label{sec:certs}
+
+The geometric narrative of Sections~\ref{sec:basics}--\ref{sec:finale} is
+supported by three layers of evidence.
+
+\paragraph{Exact rational certificates.}
+On a polynomial over $[0,1]^m$, the tensor Bernstein basis is nonnegative and
+sums to one.  Nonnegative (resp.\ strictly positive) coefficients prove
+nonnegativity (resp.\ strict positivity).  Parameter domains are mapped into
+rectangles by explicit rational substitutions after denominators are shown
+positive.  Verifiers regenerate targets, rebuild basis-change identities and
+rational coefficients, rather than trusting a generator's claimed minimal
+coefficient.  Module~R8 additionally checks a complete prefix-tree cover;
+module~R64 checks every polynomial on its fixed rectangles.
+
+\paragraph{Continuous interval certificates.}
+The R16 root box outwardly contains the necessary domain.  Each internal node
+splits into children whose union recovers the parent; each leaf is excluded by
+exact fractional envelopes.  Denominator positivity, monotonic substitution
+direction, and all leaves together with their boundaries are checked.
+
+\paragraph{Real-algebraic UNSAT queries.}
+Selected propositions are accompanied by QF\_LRA or QF\_NRA queries.  Only
+UNSAT is accepted.  Queries are classified as (E)~exact certificates,
+(H)~hand proofs with solver cross-check, or (S)~dual-solver UNSAT (z3 and
+cvc5) not yet reduced to~(E).  Dual-wrapper spot checks on the M8--M11
+inventory report pass on the expanded faithfulness sample shipped with the
+ancillary package.  Finite floating-point sampling is never used as an
+exclusion certificate.
+
+\paragraph{Lean~4 fragments.}
+Selected interfaces---parallel-budget geometry and Euclidean chord lengths;
+reduction of an arbitrary covering to a manuscript-normalised model; chord and
+ownership bridges; M7.1 narrative$\leftrightarrow$checker branch logic and the
+\texttt{StandardForm} predicate; far-end PDF faithfulness and face automata;
+and algebraic/geometric pieces used in M8--M11 together with the seventeen
+living near-end leaf wirings---are formalised in the Lean~4 package
+\texttt{S6Core} (mathlib), building with no \texttt{sorry} and no extra axioms.
+The long verification manuscript remains the geometric reference for the many
+metric inequalities that are discharged primarily by certificates rather than
+by a full Lean re-proof of every inequality; ancillary files record the
+correspondence between manuscript modules and certificates.
+
+\paragraph{Reproduction.}
+The ancillary archive contains the Lean sources, certificate registries,
+checker scripts for representative rounds (including R29, R38, R42, R55-final,
+R64, and the R16 leaf cover), and the long verification manuscript.  A minimal
+path is
+\begin{verbatim}
+cd formalization/lean/S6Core && lake build
+python3 formalization/audit/g3_alignment_check.py
+# spot-check ex/all/check_round{29,38,42,55_final,64}.py
+\end{verbatim}
+
+%% ============================================================
+\section{Related work}\label{sec:related}
+%% ============================================================
+
+Soifer's JCTA note and Cover-Up Squared writings introduced $\Pi(n)$
+\cite{Soifer2006,SoiferCoverUp}.
+Januszewski's Monthly note established $\Pi(2)\ge 6$ \cite{Januszewski2009}.
+Friedman--Paterson and Friedman's surveys record constructions and small-case
+discussions \cite{FriedmanPaterson2006,FriedmanCovering}.
+D\'osa--L\'angi--Tuza proved several exact small values and boundary analogues
+and isolated the conjecture $S(6)=2$ \cite{DLT2026}; Theorem~\ref{thm:main}
+resolves that conjecture.
+Asymptotic packing-waste problems of Chung--Graham
+\cite{ChungGraham2009,ChungGraham2020} concern a different regime.
+
+On computer-assisted proofs in geometry, we follow the AMS guidelines on
+independent checkability and durable availability of code and data
+\cite{AMSComputerAssisted}.
+
+%% ============================================================
+\section{Concluding remarks}\label{sec:conclusion}
+%% ============================================================
+
+Theorem~\ref{thm:main} determines the first previously open value of $S(n)$
+beyond the classical small cases.  The same case-analysis and certificate
+pipeline suggests approaches to neighbouring values (e.g.\ refinements of
+$\Pi(3)$ and boundary-covering variants $S_{\mathrm{bd}}(n)$ from~\cite{DLT2026}),
+though those questions lie outside the present paper.
+
+\section*{Acknowledgements}
+Parts of the verification pipeline and manuscript organisation were prepared
+with AI assistance under the author's supervision.  The mathematical claims and
+the decision to release the proof are the author's responsibility.
+
+\bibliographystyle{amsplain}
+\bibliography{refs}
+
+\end{document}

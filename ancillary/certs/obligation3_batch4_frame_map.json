@@ -1,0 +1,3783 @@
+{
+  "updated": "2026-10-20T23:30+08:00",
+  "batch": 4,
+  "overall_pdf_faithfulness": "未证",
+  "reason": "No frame is fully formula-certified end-to-end except local R29 anchors; finite residual list below blocks flip",
+  "frame_summary": [
+    {
+      "frame": "R29_far_top",
+      "status": "部分已证",
+      "ok": 25,
+      "partial": 0,
+      "unmapped": 11,
+      "gap": "11 queries unmapped"
+    },
+    {
+      "frame": "R29N_no_top",
+      "status": "部分已证",
+      "ok": 7,
+      "partial": 0,
+      "unmapped": 1,
+      "gap": "1 queries unmapped"
+    },
+    {
+      "frame": "R30_geom",
+      "status": "部分已证",
+      "ok": 16,
+      "partial": 4,
+      "unmapped": 17,
+      "gap": "17 queries unmapped"
+    },
+    {
+      "frame": "R31_three",
+      "status": "部分已证",
+      "ok": 14,
+      "partial": 1,
+      "unmapped": 16,
+      "gap": "16 queries unmapped"
+    },
+    {
+      "frame": "R31_pair",
+      "status": "部分已证",
+      "ok": 0,
+      "partial": 1,
+      "unmapped": 0,
+      "gap": "0 unmapped / 1 partial"
+    },
+    {
+      "frame": "R32_right_pos",
+      "status": "部分已证",
+      "ok": 11,
+      "partial": 3,
+      "unmapped": 25,
+      "gap": "25 queries unmapped"
+    },
+    {
+      "frame": "R33_right_ne",
+      "status": "部分已证",
+      "ok": 23,
+      "partial": 3,
+      "unmapped": 23,
+      "gap": "23 queries unmapped"
+    },
+    {
+      "frame": "R34_left_neg",
+      "status": "部分已证",
+      "ok": 16,
+      "partial": 3,
+      "unmapped": 20,
+      "gap": "20 queries unmapped"
+    },
+    {
+      "frame": "R35_pos_H",
+      "status": "部分已证",
+      "ok": 16,
+      "partial": 0,
+      "unmapped": 20,
+      "gap": "20 queries unmapped"
+    },
+    {
+      "frame": "R36_ne_closed",
+      "status": "部分已证",
+      "ok": 20,
+      "partial": 0,
+      "unmapped": 19,
+      "gap": "19 queries unmapped"
+    },
+    {
+      "frame": "R37_empty_left",
+      "status": "部分已证",
+      "ok": 25,
+      "partial": 6,
+      "unmapped": 31,
+      "gap": "31 queries unmapped"
+    },
+    {
+      "frame": "R38_empty_right",
+      "status": "部分已证",
+      "ok": 17,
+      "partial": 9,
+      "unmapped": 21,
+      "gap": "21 queries unmapped"
+    },
+    {
+      "frame": "R39_contact",
+      "status": "部分已证",
+      "ok": 25,
+      "partial": 6,
+      "unmapped": 23,
+      "gap": "23 queries unmapped"
+    }
+  ],
+  "named_residuals_blocking_overall": [
+    {
+      "id": "o3_R30_39_formula_table",
+      "frames": [
+        "R30_geom",
+        "R31_three",
+        "R31_pair",
+        "R32_right_pos",
+        "R33_right_ne",
+        "R34_left_neg",
+        "R35_pos_H",
+        "R36_ne_closed",
+        "R37_empty_left",
+        "R38_empty_right",
+        "R39_contact"
+      ],
+      "status": "未证",
+      "text": "R30–R39 lack complete query↔boxed-formula tables comparable to R29 Batch2b; only token/manual anchors"
+    },
+    {
+      "id": "o3_R31_pair_identity",
+      "frames": [
+        "R31_pair"
+      ],
+      "status": "部分已证",
+      "text": "sympy Poly cert exists; manuscript line for extended-pair F/P/Q not pinned"
+    },
+    {
+      "id": "o3_algebraic_discharge_vs_geometry",
+      "frames": [
+        "all"
+      ],
+      "status": "未证",
+      "text": "Even cited queries: z3 UNSAT ≠ PDF geometric derivation discharged in Lean"
+    },
+    {
+      "id": "o3_variable_pose_glossary",
+      "frames": [
+        "R32",
+        "R33",
+        "R34",
+        "R35",
+        "R36",
+        "R37",
+        "R38",
+        "R39"
+      ],
+      "status": "部分已证",
+      "text": "Variable/pose glossary incomplete beyond mu,c,s,B,H,J,z common names"
+    }
+  ],
+  "frames": [
+    {
+      "frame": "R29_far_top",
+      "round": 29,
+      "script": "ex/all/check_round29_far_top_complete.py",
+      "geom_claim": "远端TOP真缺口C正旋转排除",
+      "variables": "C,F,V4; E=L4-μ; h,s,c; G,g,q",
+      "n_ok": 25,
+      "n_partial": 0,
+      "n_unmapped": 11,
+      "frame_status": "部分已证",
+      "frame_gap": "11 queries unmapped",
+      "lean_lemma_needed": "δ_monotone / Φ(E)+3E<1 candidates for Lean (small)",
+      "query_maps": [
+        {
+          "query": "TOP actual P/left gives l+E<G",
+          "status": "已证",
+          "citation": "small/S6_attack_round29.md:27",
+          "snippet": "boxed l+E<G, r<h+E (1)",
+          "gap": ""
+        },
+        {
+          "query": "TOP actual P/right gives r<h+E",
+          "status": "已证",
+          "citation": "small/S6_attack_round29.md:27",
+          "snippet": "boxed l+E<G, r<h+E (1)",
+          "gap": ""
+        },
+        {
+          "query": "LEFT meeting forces E<32/209",
+          "status": "已证",
+          "citation": "small/S6_attack_round29.md:41",
+          "snippet": "E<L4-1≤δ(z)<32/209 (3)",
+          "gap": ""
+        },
+        {
+          "query": "long-leg short bound implies S4<1-3E",
+          "status": "已证",
+          "citation": "small/S6_attack_round29.md:51",
+          "snippet": "Φ(E)+3E<1 for E≤1/6",
+          "gap": ""
+        },
+        {
+          "query": "actual LEFT joint corner budget gives S1<l-3E",
+          "status": "已证",
+          "citation": "small/S6_attack_round29.md:63",
+          "snippet": "S1<l+S4-1≤l-3E",
+          "gap": ""
+        },
+        {
+          "query": "whole G-E positive",
+          "status": "已证",
+          "citation": "small/S6_attack_round29.md:21",
+          "snippet": "G=(1-h)/(1+h)",
+          "gap": ""
+        },
+        {
+          "query": "whole h+E<1",
+          "status": "未证",
+          "citation": null,
+          "snippet": null,
+          "gap": "no hit in ['S6_attack_round29.md', 'S6_attack_round29_working.md', 'S6_round29_continuation_notes.md']"
+        },
+        {
+          "query": "whole E+q(h+E)<1",
+          "status": "未证",
+          "citation": null,
+          "snippet": null,
+          "gap": "no hit in ['S6_attack_round29.md', 'S6_attack_round29_working.md', 'S6_round29_continuation_notes.md']"
+        },
+        {
+          "query": "q shift at most 2E",
+          "status": "未证",
+          "citation": null,
+          "snippet": null,
+          "gap": "no hit in ['S6_attack_round29.md', 'S6_attack_round29_working.md', 'S6_round29_continuation_notes.md']"
+        },
+        {
+          "query": "positive bridge argument",
+          "status": "未证",
+          "citation": null,
+          "snippet": null,
+          "gap": "no hit in ['S6_attack_round29.md', 'S6_attack_round29_working.md', 'S6_round29_continuation_notes.md']"
+        },
+        {
+          "query": "small bridge argument <1",
+          "status": "未证",
+          "citation": null,
+          "snippet": null,
+          "gap": "no hit in ['S6_attack_round29.md', 'S6_attack_round29_working.md', 'S6_round29_continuation_notes.md']"
+        },
+        {
+          "query": "small K<3/5",
+          "status": "未证",
+          "citation": null,
+          "snippet": null,
+          "gap": "no hit in ['S6_attack_round29.md', 'S6_attack_round29_working.md', 'S6_round29_continuation_notes.md']"
+        },
+        {
+          "query": "R h-second-derivative polynomial negative",
+          "status": "未证",
+          "citation": null,
+          "snippet": null,
+          "gap": "no hit in ['S6_attack_round29.md', 'S6_attack_round29_working.md', 'S6_round29_continuation_notes.md']"
+        },
+        {
+          "query": "q derivative <2 on [0,1)",
+          "status": "未证",
+          "citation": null,
+          "snippet": null,
+          "gap": "no hit in ['S6_attack_round29.md', 'S6_attack_round29_working.md', 'S6_round29_continuation_notes.md']"
+        },
+        {
+          "query": "q second derivative >=1/2",
+          "status": "未证",
+          "citation": null,
+          "snippet": null,
+          "gap": "no hit in ['S6_attack_round29.md', 'S6_attack_round29_working.md', 'S6_round29_continuation_notes.md']"
+        },
+        {
+          "query": "g second derivative >=1/2",
+          "status": "未证",
+          "citation": null,
+          "snippet": null,
+          "gap": "no hit in ['S6_attack_round29.md', 'S6_attack_round29_working.md', 'S6_round29_continuation_notes.md']"
+        },
+        {
+          "query": "minus g first derivative >=1/2",
+          "status": "未证",
+          "citation": null,
+          "snippet": null,
+          "gap": "no hit in ['S6_attack_round29.md', 'S6_attack_round29_working.md', 'S6_round29_continuation_notes.md']"
+        },
+        {
+          "query": "[sympy]q first",
+          "status": "已证",
+          "citation": "ex/all/check_round29_far_top_complete.py:ident",
+          "snippet": "sp.cancel==0",
+          "gap": ""
+        },
+        {
+          "query": "[sympy]q second",
+          "status": "已证",
+          "citation": "ex/all/check_round29_far_top_complete.py:ident",
+          "snippet": "sp.cancel==0",
+          "gap": ""
+        },
+        {
+          "query": "[sympy]g first",
+          "status": "已证",
+          "citation": "ex/all/check_round29_far_top_complete.py:ident",
+          "snippet": "sp.cancel==0",
+          "gap": ""
+        },
+        {
+          "query": "[sympy]g second",
+          "status": "已证",
+          "citation": "ex/all/check_round29_far_top_complete.py:ident",
+          "snippet": "sp.cancel==0",
+          "gap": ""
+        },
+        {
+          "query": "[sympy]G second",
+          "status": "已证",
+          "citation": "ex/all/check_round29_far_top_complete.py:ident",
+          "snippet": "sp.cancel==0",
+          "gap": ""
+        },
+        {
+          "query": "[sympy]A-q(h) positive identity",
+          "status": "已证",
+          "citation": "ex/all/check_round29_far_top_complete.py:ident",
+          "snippet": "sp.cancel==0",
+          "gap": ""
+        },
+        {
+          "query": "[sympy]R hh numerator",
+          "status": "已证",
+          "citation": "ex/all/check_round29_far_top_complete.py:ident",
+          "snippet": "sp.cancel==0",
+          "gap": ""
+        },
+        {
+          "query": "[sympy]R EE",
+          "status": "已证",
+          "citation": "ex/all/check_round29_far_top_complete.py:ident",
+          "snippet": "sp.cancel==0",
+          "gap": ""
+        },
+        {
+          "query": "[sympy]Phi+3E square gap",
+          "status": "已证",
+          "citation": "ex/all/check_round29_far_top_complete.py:ident",
+          "snippet": "sp.cancel==0",
+          "gap": ""
+        },
+        {
+          "query": "[sympy]bridge lower l endpoint WITH q(3E)",
+          "status": "已证",
+          "citation": "ex/all/check_round29_far_top_complete.py:ident",
+          "snippet": "sp.cancel==0",
+          "gap": ""
+        },
+        {
+          "query": "[sympy]bridge upper l endpoint (generic q argument)",
+          "status": "已证",
+          "citation": "ex/all/check_round29_far_top_complete.py:ident",
+          "snippet": "sp.cancel==0",
+          "gap": ""
+        },
+        {
+          "query": "[sympy]T EE chain",
+          "status": "已证",
+          "citation": "ex/all/check_round29_far_top_complete.py:ident",
+          "snippet": "sp.cancel==0",
+          "gap": ""
+        },
+        {
+          "query": "[exact]R hh P coarse corner",
+          "status": "已证",
+          "citation": "ex/all/check_round29_far_top_complete.py:exact",
+          "snippet": "exact()",
+          "gap": ""
+        },
+        {
+          "query": "[exact]K small endpoint",
+          "status": "已证",
+          "citation": "ex/all/check_round29_far_top_complete.py:exact",
+          "snippet": "exact()",
+          "gap": ""
+        },
+        {
+          "query": "[exact]R EE upper",
+          "status": "已证",
+          "citation": "ex/all/check_round29_far_top_complete.py:exact",
+          "snippet": "exact()",
+          "gap": ""
+        },
+        {
+          "query": "[exact]R EE margin below 3/4",
+          "status": "已证",
+          "citation": "ex/all/check_round29_far_top_complete.py:exact",
+          "snippet": "exact()",
+          "gap": ""
+        },
+        {
+          "query": "[exact]D EE lower",
+          "status": "已证",
+          "citation": "ex/all/check_round29_far_top_complete.py:exact",
+          "snippet": "exact()",
+          "gap": ""
+        },
+        {
+          "query": "[exact]U EE lower",
+          "status": "已证",
+          "citation": "ex/all/check_round29_far_top_complete.py:exact",
+          "snippet": "exact()",
+          "gap": ""
+        },
+        {
+          "query": "[exact]32/209 below 1/6",
+          "status": "已证",
+          "citation": "ex/all/check_round29_far_top_complete.py:exact",
+          "snippet": "exact()",
+          "gap": ""
+        }
+      ],
+      "manuscript_files": [
+        "small/S6_attack_round29.md",
+        "small/S6_attack_round29_working.md",
+        "small/S6_round29_continuation_notes.md",
+        "small/S6_round29_continuation_notes_original_20261014.md",
+        "small/S6_round29_geometric_review.md",
+        "small/S6_round29_research_log.md"
+      ]
+    },
+    {
+      "frame": "R29N_no_top",
+      "round": 29,
+      "script": "ex/all/check_round29_no_top_structure.py",
+      "geom_claim": "无TOP真缺口三分类+三相接",
+      "variables": "C,F,W; Σ,f,a,x; B parallel",
+      "n_ok": 7,
+      "n_partial": 0,
+      "n_unmapped": 1,
+      "frame_status": "部分已证",
+      "frame_gap": "1 queries unmapped",
+      "lean_lemma_needed": "δ_monotone / Φ(E)+3E<1 candidates for Lean (small)",
+      "query_maps": [
+        {
+          "query": "C side+bottom and F H nonempty impossible",
+          "status": "已证",
+          "citation": "closure/M2_R29_module_zh.md:29",
+          "snippet": "R29N.2 F水平非空⇒C避BOTTOM",
+          "gap": ""
+        },
+        {
+          "query": "C bottom and F H nonempty, three meetings",
+          "status": "已证",
+          "citation": "closure/M2_R29_module_zh.md:59",
+          "snippet": "R29N.4 三相接",
+          "gap": ""
+        },
+        {
+          "query": "real bottom and H budget gives Sigma>1+f",
+          "status": "已证",
+          "citation": "closure/M2_R29_module_zh.md:52",
+          "snippet": "Σ>1+f (R29N.1)",
+          "gap": ""
+        },
+        {
+          "query": "joint bottom angles a+x+3ax<1",
+          "status": "已证",
+          "citation": "closure/M2_R29_module_zh.md:56",
+          "snippet": "a+x+3ax<1 (R29N.2)",
+          "gap": ""
+        },
+        {
+          "query": "two adjacent corner budgets give strengthened C horizontal chord",
+          "status": "已证",
+          "citation": "closure/M2_R29_module_zh.md:73",
+          "snippet": "h_C bound (R29N.4)",
+          "gap": ""
+        },
+        {
+          "query": "TOP midpoint repeated contradiction: ",
+          "status": "未证",
+          "citation": null,
+          "snippet": null,
+          "gap": "no hit in ['S6_attack_round29.md', 'S6_attack_round29_working.md', 'S6_round29_continuation_notes.md']"
+        },
+        {
+          "query": "CORRECTED actual TOP/H parallel pair gives H<delta(z)",
+          "status": "已证",
+          "citation": "small/S6_attack_round29.md:41",
+          "snippet": "δ(z); Batch2b discharge",
+          "gap": ""
+        },
+        {
+          "query": "CORRECTED actual RIGHT/V parallel pair gives J<delta(x)",
+          "status": "已证",
+          "citation": "small/S6_attack_round29.md:41",
+          "snippet": "δ(x) same def",
+          "gap": ""
+        }
+      ],
+      "manuscript_files": [
+        "small/S6_attack_round29.md",
+        "small/S6_attack_round29_working.md",
+        "small/S6_round29_continuation_notes.md",
+        "small/S6_round29_continuation_notes_original_20261014.md",
+        "small/S6_round29_geometric_review.md",
+        "small/S6_round29_research_log.md"
+      ]
+    },
+    {
+      "frame": "R30_geom",
+      "round": 30,
+      "script": "ex/all/check_round30_corrected_geometry.py",
+      "geom_claim": "校正远端几何",
+      "variables": "J,H,z; RIGHT/LEFT缺口",
+      "n_ok": 16,
+      "n_partial": 4,
+      "n_unmapped": 17,
+      "frame_status": "部分已证",
+      "frame_gap": "17 queries unmapped",
+      "lean_lemma_needed": "Frame-level: geometric inequalities remain external (z3); Lean needed only if elevating to machine-checked PDF bridge",
+      "query_maps": [
+        {
+          "query": "side-gap effective grid implies hc-d>mu",
+          "status": "未证",
+          "citation": null,
+          "snippet": null,
+          "gap": "no hit in ['S6_attack_round30.md', 'S6_attack_round30_working.md']"
+        },
+        {
+          "query": "C side and TOP contact impossible with F H nonempty",
+          "status": "未证",
+          "citation": null,
+          "snippet": null,
+          "gap": "no hit in ['S6_attack_round30.md', 'S6_attack_round30_working.md']"
+        },
+        {
+          "query": "C TOP contact impossible in three meetings with F H nonempty",
+          "status": "部分已证",
+          "citation": "small/S6_attack_round30.md:29",
+          "snippet": "原稿保存在S6_round29_continuation_notes_original_20261014.md；已补正版S6_round29_continuation_notes.md仍未编入旧冻结主",
+          "gap": "weak token match"
+        },
+        {
+          "query": "asymmetric chord first active down face",
+          "status": "未证",
+          "citation": null,
+          "snippet": null,
+          "gap": "no hit in ['S6_attack_round30.md', 'S6_attack_round30_working.md']"
+        },
+        {
+          "query": "asymmetric chord second active down face",
+          "status": "未证",
+          "citation": null,
+          "snippet": null,
+          "gap": "no hit in ['S6_attack_round30.md', 'S6_attack_round30_working.md']"
+        },
+        {
+          "query": "CORRECT TOP/H cap H<delta(z)",
+          "status": "部分已证",
+          "citation": "small/S6_attack_round30.md:27",
+          "snippet": "每组只在两条截线实际非空时应用。TOP相接给H<δ(z)，RIGHT相接才给J<δ(x)。旧J<δ(z)、H<δ(x)互换，均撤回。RIGHT有缺口时不能使用J<δ(x)。",
+          "gap": "keyword/formula token match; not full algebraic discharge"
+        },
+        {
+          "query": "CORRECT RIGHT/V cap J<delta(x)",
+          "status": "部分已证",
+          "citation": "small/S6_attack_round30.md:27",
+          "snippet": "每组只在两条截线实际非空时应用。TOP相接给H<δ(z)，RIGHT相接才给J<δ(x)。旧J<δ(z)、H<δ(x)互换，均撤回。RIGHT有缺口时不能使用J<δ(x)。",
+          "gap": "keyword/formula token match; not full algebraic discharge"
+        },
+        {
+          "query": "three-meeting horizontal budget retains J",
+          "status": "未证",
+          "citation": null,
+          "snippet": null,
+          "gap": "no hit in ['S6_attack_round30.md', 'S6_attack_round30_working.md']"
+        },
+        {
+          "query": "LEFT adjacent lemma gives hc>1+2z-z²+J",
+          "status": "未证",
+          "citation": null,
+          "snippet": null,
+          "gap": "no hit in ['S6_attack_round30.md', 'S6_attack_round30_working.md']"
+        },
+        {
+          "query": "three-meeting sum cancels J",
+          "status": "未证",
+          "citation": null,
+          "snippet": null,
+          "gap": "no hit in ['S6_attack_round30.md', 'S6_attack_round30_working.md']"
+        },
+        {
+          "query": "z at least 1/7 gives sum>104/49",
+          "status": "未证",
+          "citation": null,
+          "snippet": null,
+          "gap": "no hit in ['S6_attack_round30.md', 'S6_attack_round30_working.md']"
+        },
+        {
+          "query": "large z full area contradiction",
+          "status": "未证",
+          "citation": null,
+          "snippet": null,
+          "gap": "no hit in ['S6_attack_round30.md', 'S6_attack_round30_working.md']"
+        },
+        {
+          "query": "small sqrt polynomial decreases",
+          "status": "未证",
+          "citation": null,
+          "snippet": null,
+          "gap": "no hit in ['S6_attack_round30.md', 'S6_attack_round30_working.md']"
+        },
+        {
+          "query": "small sqrt polynomial positive margin",
+          "status": "未证",
+          "citation": null,
+          "snippet": null,
+          "gap": "no hit in ['S6_attack_round30.md', 'S6_attack_round30_working.md']"
+        },
+        {
+          "query": "J <=sqrt(z)/3 makes lower u positive",
+          "status": "未证",
+          "citation": null,
+          "snippet": null,
+          "gap": "no hit in ['S6_attack_round30.md', 'S6_attack_round30_working.md']"
+        },
+        {
+          "query": "small actual hc*u contradicts too-short J",
+          "status": "未证",
+          "citation": null,
+          "snippet": null,
+          "gap": "no hit in ['S6_attack_round30.md', 'S6_attack_round30_working.md']"
+        },
+        {
+          "query": "three-meeting u>41/70",
+          "status": "未证",
+          "citation": null,
+          "snippet": null,
+          "gap": "no hit in ['S6_attack_round30.md', 'S6_attack_round30_working.md']"
+        },
+        {
+          "query": "side gaps force J>1/2-z",
+          "status": "未证",
+          "citation": null,
+          "snippet": null,
+          "gap": "no hit in ['S6_attack_round30.md', 'S6_attack_round30_working.md']"
+        },
+        {
+          "query": "RIGHT gap with LEFT meeting forces J>7/30",
+          "status": "部分已证",
+          "citation": "small/S6_attack_round30_working.md:13",
+          "snippet": "- RIGHT缺口：LEFT相接给z<4/15；J>7/30、H<32/209。RIGHT不相接，不设J<δ(x)。",
+          "gap": "keyword/formula token match; not full algebraic discharge"
+        },
+        {
+          "query": "unit-square triangle determinant <=1",
+          "status": "未证",
+          "citation": null,
+          "snippet": null,
+          "gap": "no hit in ['S6_attack_round30.md', 'S6_attack_round30_working.md']"
+        },
+        {
+          "query": "unit-square triangle determinant >=-1",
+          "status": "未证",
+          "citation": null,
+          "snippet": null,
+          "gap": "no hit in ['S6_attack_round30.md', 'S6_attack_round30_working.md']"
+        },
+        {
+          "query": "[sympy]asymmetric circle simplification",
+          "status": "已证",
+          "citation": "ex/all/check_round30_corrected_geometry.py:ident",
+          "snippet": "sp.cancel==0",
+          "gap": ""
+        },
+        {
+          "query": "[sympy]J derivative",
+          "status": "已证",
+          "citation": "ex/all/check_round30_corrected_geometry.py:ident",
+          "snippet": "sp.cancel==0",
+          "gap": ""
+        },
+        {
+          "query": "[sympy]small sqrt product",
+          "status": "已证",
+          "citation": "ex/all/check_round30_corrected_geometry.py:ident",
+          "snippet": "sp.cancel==0",
+          "gap": ""
+        },
+        {
+          "query": "[sympy]sum cancels J",
+          "status": "已证",
+          "citation": "ex/all/check_round30_corrected_geometry.py:ident",
+          "snippet": "sp.cancel==0",
+          "gap": ""
+        },
+        {
+          "query": "[sympy]large area quadratic margin",
+          "status": "已证",
+          "citation": "ex/all/check_round30_corrected_geometry.py:ident",
+          "snippet": "sp.cancel==0",
+          "gap": ""
+        },
+        {
+          "query": "[exact]rational chord cap square margin",
+          "status": "已证",
+          "citation": "ex/all/check_round30_corrected_geometry.py:exact",
+          "snippet": "exact()",
+          "gap": ""
+        },
+        {
+          "query": "[exact]large sum lower",
+          "status": "已证",
+          "citation": "ex/all/check_round30_corrected_geometry.py:exact",
+          "snippet": "exact()",
+          "gap": ""
+        },
+        {
+          "query": "[exact]large quadratic left",
+          "status": "已证",
+          "citation": "ex/all/check_round30_corrected_geometry.py:exact",
+          "snippet": "exact()",
+          "gap": ""
+        },
+        {
+          "query": "[exact]large quadratic right",
+          "status": "已证",
+          "citation": "ex/all/check_round30_corrected_geometry.py:exact",
+          "snippet": "exact()",
+          "gap": ""
+        },
+        {
+          "query": "[exact]sqrt polynomial derivative bound",
+          "status": "已证",
+          "citation": "ex/all/check_round30_corrected_geometry.py:exact",
+          "snippet": "exact()",
+          "gap": ""
+        },
+        {
+          "query": "[exact]sqrt polynomial endpoint",
+          "status": "已证",
+          "citation": "ex/all/check_round30_corrected_geometry.py:exact",
+          "snippet": "exact()",
+          "gap": ""
+        },
+        {
+          "query": "[exact]sqrt(1/7)<5/12 square gap",
+          "status": "已证",
+          "citation": "ex/all/check_round30_corrected_geometry.py:exact",
+          "snippet": "exact()",
+          "gap": ""
+        },
+        {
+          "query": "[exact]three-meeting u lower",
+          "status": "已证",
+          "citation": "ex/all/check_round30_corrected_geometry.py:exact",
+          "snippet": "exact()",
+          "gap": ""
+        },
+        {
+          "query": "[exact]local example actual J",
+          "status": "已证",
+          "citation": "ex/all/check_round30_corrected_geometry.py:exact",
+          "snippet": "exact()",
+          "gap": ""
+        },
+        {
+          "query": "[exact]local example false-cap violation J-delta(z)",
+          "status": "已证",
+          "citation": "ex/all/check_round30_corrected_geometry.py:exact",
+          "snippet": "exact()",
+          "gap": ""
+        },
+        {
+          "query": "[exact]local example genuine TOP meeting surplus",
+          "status": "已证",
+          "citation": "ex/all/check_round30_corrected_geometry.py:exact",
+          "snippet": "exact()",
+          "gap": ""
+        }
+      ],
+      "manuscript_files": [
+        "small/S6_attack_round30.md",
+        "small/S6_attack_round30_working.md"
+      ]
+    },
+    {
+      "frame": "R31_three",
+      "round": 31,
+      "script": "ex/all/check_round31_three_nonempty.py",
+      "geom_claim": "三相接F水平非空",
+      "variables": "W,H,K,c,s,u",
+      "n_ok": 14,
+      "n_partial": 1,
+      "n_unmapped": 16,
+      "frame_status": "部分已证",
+      "frame_gap": "16 queries unmapped",
+      "lean_lemma_needed": "Frame-level: geometric inequalities remain external (z3); Lean needed only if elevating to machine-checked PDF bridge",
+      "query_maps": [
+        {
+          "query": "C cannot contain actual TOP axis tail endpoint",
+          "status": "未证",
+          "citation": null,
+          "snippet": null,
+          "gap": "no hit in ['S6_attack_round31.md', 'S6_attack_round31_working.md', 'M2_R29_module_zh.md']"
+        },
+        {
+          "query": "actual QU and TOP leg give right leg bridge upper",
+          "status": "未证",
+          "citation": null,
+          "snippet": null,
+          "gap": "no hit in ['S6_attack_round31.md', 'S6_attack_round31_working.md', 'M2_R29_module_zh.md']"
+        },
+        {
+          "query": "c<=s forces c/(1+s)<5/12",
+          "status": "未证",
+          "citation": null,
+          "snippet": null,
+          "gap": "no hit in ['S6_attack_round31.md', 'S6_attack_round31_working.md', 'M2_R29_module_zh.md']"
+        },
+        {
+          "query": "actual RIGHT meet and bridge force c>s",
+          "status": "未证",
+          "citation": null,
+          "snippet": null,
+          "gap": "no hit in ['S6_attack_round31.md', 'S6_attack_round31_working.md', 'M2_R29_module_zh.md']"
+        },
+        {
+          "query": "c>s implies c>1/2",
+          "status": "未证",
+          "citation": null,
+          "snippet": null,
+          "gap": "no hit in ['S6_attack_round31.md', 'S6_attack_round31_working.md', 'M2_R29_module_zh.md']"
+        },
+        {
+          "query": "TOP meeting and z<1/7 force D>23/24",
+          "status": "未证",
+          "citation": null,
+          "snippet": null,
+          "gap": "no hit in ['S6_attack_round31.md', 'S6_attack_round31_working.md', 'M2_R29_module_zh.md']"
+        },
+        {
+          "query": "nonempty W H impossible from actual K equalities",
+          "status": "未证",
+          "citation": null,
+          "snippet": null,
+          "gap": "no hit in ['S6_attack_round31.md', 'S6_attack_round31_working.md', 'M2_R29_module_zh.md']"
+        },
+        {
+          "query": "2delta(z)<sqrt(z)/3",
+          "status": "部分已证",
+          "citation": "small/S6_attack_round31.md:110",
+          "snippet": "\\boxed{D>1-\\delta(z)>23/24.}",
+          "gap": "keyword/formula token match; not full algebraic discharge"
+        },
+        {
+          "query": "near-anchor pair angle amplification <=133/121",
+          "status": "未证",
+          "citation": null,
+          "snippet": null,
+          "gap": "no hit in ['S6_attack_round31.md', 'S6_attack_round31_working.md', 'M2_R29_module_zh.md']"
+        },
+        {
+          "query": "cosine angle cap kappa<=Yc",
+          "status": "未证",
+          "citation": null,
+          "snippet": null,
+          "gap": "no hit in ['S6_attack_round31.md', 'S6_attack_round31_working.md', 'M2_R29_module_zh.md']"
+        },
+        {
+          "query": "sine angle cap kappa<=Ys",
+          "status": "未证",
+          "citation": null,
+          "snippet": null,
+          "gap": "no hit in ['S6_attack_round31.md', 'S6_attack_round31_working.md', 'M2_R29_module_zh.md']"
+        },
+        {
+          "query": "extended pair affine reduction with nonnegative coefficient",
+          "status": "未证",
+          "citation": null,
+          "snippet": null,
+          "gap": "no hit in ['S6_attack_round31.md', 'S6_attack_round31_working.md', 'M2_R29_module_zh.md']"
+        },
+        {
+          "query": "V far endpoint depth is less than true W halfangle",
+          "status": "未证",
+          "citation": null,
+          "snippet": null,
+          "gap": "no hit in ['S6_attack_round31.md', 'S6_attack_round31_working.md', 'M2_R29_module_zh.md']"
+        },
+        {
+          "query": "empty original W H leaves C/F/root horizontal coverage",
+          "status": "未证",
+          "citation": null,
+          "snippet": null,
+          "gap": "no hit in ['S6_attack_round31.md', 'S6_attack_round31_working.md', 'M2_R29_module_zh.md']"
+        },
+        {
+          "query": "two valid pair budgets yield full strengthened C chord",
+          "status": "未证",
+          "citation": null,
+          "snippet": null,
+          "gap": "no hit in ['S6_attack_round31.md', 'S6_attack_round31_working.md', 'M2_R29_module_zh.md']"
+        },
+        {
+          "query": "final true endpoint-envelope contradiction: ",
+          "status": "未证",
+          "citation": null,
+          "snippet": null,
+          "gap": "no hit in ['S6_attack_round31.md', 'S6_attack_round31_working.md', 'M2_R29_module_zh.md']"
+        },
+        {
+          "query": "unit square three actual endpoints imply chord+up²<=2",
+          "status": "未证",
+          "citation": null,
+          "snippet": null,
+          "gap": "no hit in ['S6_attack_round31.md', 'S6_attack_round31_working.md', 'M2_R29_module_zh.md']"
+        },
+        {
+          "query": "[sympy]K zero-mu-defect identity",
+          "status": "已证",
+          "citation": "ex/all/check_round31_three_nonempty.py:ident",
+          "snippet": "sp.cancel==0",
+          "gap": ""
+        },
+        {
+          "query": "[sympy]K and leg weighted relation",
+          "status": "已证",
+          "citation": "ex/all/check_round31_three_nonempty.py:ident",
+          "snippet": "sp.cancel==0",
+          "gap": ""
+        },
+        {
+          "query": "[sympy]unit halfangle identity",
+          "status": "已证",
+          "citation": "ex/all/check_round31_three_nonempty.py:ident",
+          "snippet": "sp.cancel==0",
+          "gap": ""
+        },
+        {
+          "query": "[sympy]near-anchor meeting angle factor",
+          "status": "已证",
+          "citation": "ex/all/check_round31_three_nonempty.py:ident",
+          "snippet": "sp.cancel==0",
+          "gap": ""
+        },
+        {
+          "query": "[sympy]pair affine elimination",
+          "status": "已证",
+          "citation": "ex/all/check_round31_three_nonempty.py:ident",
+          "snippet": "sp.cancel==0",
+          "gap": ""
+        },
+        {
+          "query": "[sympy]final same-block root sum",
+          "status": "已证",
+          "citation": "ex/all/check_round31_three_nonempty.py:ident",
+          "snippet": "sp.cancel==0",
+          "gap": ""
+        },
+        {
+          "query": "[exact]c<=s bridge maximum rational",
+          "status": "已证",
+          "citation": "ex/all/check_round31_three_nonempty.py:exact",
+          "snippet": "exact()",
+          "gap": ""
+        },
+        {
+          "query": "[exact]RIGHT leg lower rational",
+          "status": "已证",
+          "citation": "ex/all/check_round31_three_nonempty.py:exact",
+          "snippet": "exact()",
+          "gap": ""
+        },
+        {
+          "query": "[exact]bridge contradiction gap",
+          "status": "已证",
+          "citation": "ex/all/check_round31_three_nonempty.py:exact",
+          "snippet": "exact()",
+          "gap": ""
+        },
+        {
+          "query": "[exact]delta at 1/7",
+          "status": "已证",
+          "citation": "ex/all/check_round31_three_nonempty.py:exact",
+          "snippet": "exact()",
+          "gap": ""
+        },
+        {
+          "query": "[exact]K cap denominator",
+          "status": "已证",
+          "citation": "ex/all/check_round31_three_nonempty.py:exact",
+          "snippet": "exact()",
+          "gap": ""
+        },
+        {
+          "query": "[exact]angle amplification loss",
+          "status": "已证",
+          "citation": "ex/all/check_round31_three_nonempty.py:exact",
+          "snippet": "exact()",
+          "gap": ""
+        },
+        {
+          "query": "[exact]angle amplification",
+          "status": "已证",
+          "citation": "ex/all/check_round31_three_nonempty.py:exact",
+          "snippet": "exact()",
+          "gap": ""
+        },
+        {
+          "query": "[exact]amplification below 11/10",
+          "status": "已证",
+          "citation": "ex/all/check_round31_three_nonempty.py:exact",
+          "snippet": "exact()",
+          "gap": ""
+        }
+      ],
+      "manuscript_files": [
+        "small/S6_attack_round31.md",
+        "small/S6_attack_round31_working.md",
+        "closure/M2_R29_module_zh.md"
+      ]
+    },
+    {
+      "frame": "R31_pair",
+      "round": 31,
+      "script": "ex/all/check_round31_extended_pair.py",
+      "geom_claim": "扩展对多项式证书",
+      "variables": "x,y sympy Poly",
+      "n_ok": 0,
+      "n_partial": 1,
+      "n_unmapped": 0,
+      "frame_status": "部分已证",
+      "frame_gap": "0 unmapped / 1 partial",
+      "lean_lemma_needed": "extended_pair_nonneg : Poly positivity",
+      "query_maps": [
+        {
+          "query": "extended_pair_poly_certificate",
+          "status": "部分已证",
+          "citation": "ex/r31 or round31 working notes",
+          "snippet": "sympy Poly F,P,Q",
+          "gap": "need explicit manuscript identity line for F=(1-k(x)k(y))+..."
+        }
+      ],
+      "manuscript_files": [
+        "small/S6_attack_round31.md",
+        "small/S6_attack_round31_working.md",
+        "closure/M2_R29_module_zh.md"
+      ]
+    },
+    {
+      "frame": "R32_right_pos",
+      "round": 32,
+      "script": "ex/all/check_round32_right_positive.py",
+      "geom_claim": "RIGHT正水平",
+      "variables": "RIGHT gap / F H",
+      "n_ok": 11,
+      "n_partial": 3,
+      "n_unmapped": 25,
+      "frame_status": "部分已证",
+      "frame_gap": "25 queries unmapped",
+      "lean_lemma_needed": "Frame-level: geometric inequalities remain external (z3); Lean needed only if elevating to machine-checked PDF bridge",
+      "query_maps": [
+        {
+          "query": "positive C: first lower-face down-root impossible",
+          "status": "未证",
+          "citation": null,
+          "snippet": null,
+          "gap": "no hit in ['S6_attack_round30.md', 'S6_attack_round30_working.md', 'S6_attack_round32.md']"
+        },
+        {
+          "query": "positive C: second down-root and upper right point impossible",
+          "status": "部分已证",
+          "citation": "small/S6_attack_round32_working.md:3",
+          "snippet": "主文：S6_attack_round32.md；几何复核34项。新脚本check_round32_right_positive.py验证28个精确局部反证（25 NRA、3 LRA）、6恒等式、5常数",
+          "gap": "weak token match"
+        },
+        {
+          "query": "negative C: first upper-face down-root impossible",
+          "status": "未证",
+          "citation": null,
+          "snippet": null,
+          "gap": "no hit in ['S6_attack_round30.md', 'S6_attack_round30_working.md', 'S6_attack_round32.md']"
+        },
+        {
+          "query": "negative C: second down-root cap",
+          "status": "未证",
+          "citation": null,
+          "snippet": null,
+          "gap": "no hit in ['S6_attack_round30.md', 'S6_attack_round30_working.md', 'S6_attack_round32.md']"
+        },
+        {
+          "query": "negative C: upper root must use first lower face",
+          "status": "未证",
+          "citation": null,
+          "snippet": null,
+          "gap": "no hit in ['S6_attack_round30.md', 'S6_attack_round30_working.md', 'S6_attack_round32.md']"
+        },
+        {
+          "query": "negative C: second upper face cannot set u below mu",
+          "status": "未证",
+          "citation": null,
+          "snippet": null,
+          "gap": "no hit in ['S6_attack_round30.md', 'S6_attack_round30_working.md', 'S6_attack_round32.md']"
+        },
+        {
+          "query": "negative C: true left endpoint min formula",
+          "status": "未证",
+          "citation": null,
+          "snippet": null,
+          "gap": "no hit in ['S6_attack_round30.md', 'S6_attack_round30_working.md', 'S6_attack_round32.md']"
+        },
+        {
+          "query": "negative C: left root below one half",
+          "status": "未证",
+          "citation": null,
+          "snippet": null,
+          "gap": "no hit in ['S6_attack_round30.md', 'S6_attack_round30_working.md', 'S6_attack_round32.md']"
+        },
+        {
+          "query": "actual lower RIGHT gap endpoint yields long-leg defect",
+          "status": "未证",
+          "citation": null,
+          "snippet": null,
+          "gap": "no hit in ['S6_attack_round30.md', 'S6_attack_round30_working.md', 'S6_attack_round32.md']"
+        },
+        {
+          "query": "actual upper RIGHT endpoint yields e+d<G",
+          "status": "未证",
+          "citation": null,
+          "snippet": null,
+          "gap": "no hit in ['S6_attack_round30.md', 'S6_attack_round30_working.md', 'S6_attack_round32.md']"
+        },
+        {
+          "query": "direct left-axis contact forces a>1-l",
+          "status": "未证",
+          "citation": null,
+          "snippet": null,
+          "gap": "no hit in ['S6_attack_round30.md', 'S6_attack_round30_working.md', 'S6_attack_round32.md']"
+        },
+        {
+          "query": "short-leg bound via direct left contact",
+          "status": "未证",
+          "citation": null,
+          "snippet": null,
+          "gap": "no hit in ['S6_attack_round30.md', 'S6_attack_round30_working.md', 'S6_attack_round32.md']"
+        },
+        {
+          "query": "Ys denominator on the large-angle left corner is positive",
+          "status": "未证",
+          "citation": null,
+          "snippet": null,
+          "gap": "no hit in ['S6_attack_round30.md', 'S6_attack_round30_working.md', 'S6_attack_round32.md']"
+        },
+        {
+          "query": "Ys is strictly decreasing for 1/2<a<1",
+          "status": "未证",
+          "citation": null,
+          "snippet": null,
+          "gap": "no hit in ['S6_attack_round30.md', 'S6_attack_round30_working.md', 'S6_attack_round32.md']"
+        },
+        {
+          "query": "Ys(1-l)<4*l²/7",
+          "status": "未证",
+          "citation": null,
+          "snippet": null,
+          "gap": "no hit in ['S6_attack_round30.md', 'S6_attack_round30_working.md', 'S6_attack_round32.md']"
+        },
+        {
+          "query": "left corner budget implies z<2u/7",
+          "status": "未证",
+          "citation": null,
+          "snippet": null,
+          "gap": "no hit in ['S6_attack_round30.md', 'S6_attack_round30_working.md', 'S6_attack_round32.md']"
+        },
+        {
+          "query": "Phi loss is greater than sqrt(w)",
+          "status": "部分已证",
+          "citation": "small/S6_attack_round32.md:118",
+          "snippet": "S_2\\le\\Phi(w)=(1+w)(1-\\sqrt{w(2+w)}).",
+          "gap": "weak token match"
+        },
+        {
+          "query": "same actual bottom legs force sqrt(w)<q(l)",
+          "status": "未证",
+          "citation": null,
+          "snippet": null,
+          "gap": "no hit in ['S6_attack_round30.md', 'S6_attack_round30_working.md', 'S6_attack_round32.md']"
+        },
+        {
+          "query": "q(l)<2l/3 below one half",
+          "status": "未证",
+          "citation": null,
+          "snippet": null,
+          "gap": "no hit in ['S6_attack_round30.md', 'S6_attack_round30_working.md', 'S6_attack_round32.md']"
+        },
+        {
+          "query": "positive w forces w<2u/9",
+          "status": "未证",
+          "citation": null,
+          "snippet": null,
+          "gap": "no hit in ['S6_attack_round30.md', 'S6_attack_round30_working.md', 'S6_attack_round32.md']"
+        },
+        {
+          "query": "either defect sign gives u<9eta/7: positive",
+          "status": "未证",
+          "citation": null,
+          "snippet": null,
+          "gap": "no hit in ['S6_attack_round30.md', 'S6_attack_round30_working.md', 'S6_attack_round32.md']"
+        },
+        {
+          "query": "either defect sign gives u<9eta/7: nonpositive",
+          "status": "未证",
+          "citation": null,
+          "snippet": null,
+          "gap": "no hit in ['S6_attack_round30.md', 'S6_attack_round30_working.md', 'S6_attack_round32.md']"
+        },
+        {
+          "query": "C halfangle eta below 5/12",
+          "status": "未证",
+          "citation": null,
+          "snippet": null,
+          "gap": "no hit in ['S6_attack_round30.md', 'S6_attack_round30_working.md', 'S6_attack_round32.md']"
+        },
+        {
+          "query": "combined corner and centre deficits below 1-G",
+          "status": "未证",
+          "citation": null,
+          "snippet": null,
+          "gap": "no hit in ['S6_attack_round30.md', 'S6_attack_round30_working.md', 'S6_attack_round32.md']"
+        },
+        {
+          "query": "original W inward projection forces T>1-u",
+          "status": "未证",
+          "citation": null,
+          "snippet": null,
+          "gap": "no hit in ['S6_attack_round30.md', 'S6_attack_round30_working.md', 'S6_attack_round32.md']"
+        },
+        {
+          "query": "original W QU and RIGHT support give A<g(T)+U4",
+          "status": "部分已证",
+          "citation": "small/S6_attack_round30.md:29",
+          "snippet": "原稿保存在S6_round29_continuation_notes_original_20261014.md；已补正版S6_round29_continuation_notes.md仍未编入旧冻结主",
+          "gap": "weak token match"
+        },
+        {
+          "query": "halfangle monotonicity gives g(T)<q(u)",
+          "status": "未证",
+          "citation": null,
+          "snippet": null,
+          "gap": "no hit in ['S6_attack_round30.md', 'S6_attack_round30_working.md', 'S6_attack_round32.md']"
+        },
+        {
+          "query": "real bridge and upper endpoint contradict",
+          "status": "未证",
+          "citation": null,
+          "snippet": null,
+          "gap": "no hit in ['S6_attack_round30.md', 'S6_attack_round30_working.md', 'S6_attack_round32.md']"
+        },
+        {
+          "query": "[sympy]Ys derivative",
+          "status": "已证",
+          "citation": "ex/all/check_round32_right_positive.py:ident",
+          "snippet": "sp.cancel==0",
+          "gap": ""
+        },
+        {
+          "query": "[sympy]left root substitution in Ys",
+          "status": "已证",
+          "citation": "ex/all/check_round32_right_positive.py:ident",
+          "snippet": "sp.cancel==0",
+          "gap": ""
+        },
+        {
+          "query": "[sympy]Phi positive square difference",
+          "status": "已证",
+          "citation": "ex/all/check_round32_right_positive.py:ident",
+          "snippet": "sp.cancel==0",
+          "gap": ""
+        },
+        {
+          "query": "[sympy]same-circle long-leg offset",
+          "status": "已证",
+          "citation": "ex/all/check_round32_right_positive.py:ident",
+          "snippet": "sp.cancel==0",
+          "gap": ""
+        },
+        {
+          "query": "[sympy]C halfangle G",
+          "status": "已证",
+          "citation": "ex/all/check_round32_right_positive.py:ident",
+          "snippet": "sp.cancel==0",
+          "gap": ""
+        },
+        {
+          "query": "[sympy]W halfangle g(T)",
+          "status": "已证",
+          "citation": "ex/all/check_round32_right_positive.py:ident",
+          "snippet": "sp.cancel==0",
+          "gap": ""
+        },
+        {
+          "query": "[exact]Ys lower denominator at l=1/2",
+          "status": "已证",
+          "citation": "ex/all/check_round32_right_positive.py:exact",
+          "snippet": "exact()",
+          "gap": ""
+        },
+        {
+          "query": "[exact]combined deficit coefficient",
+          "status": "已证",
+          "citation": "ex/all/check_round32_right_positive.py:exact",
+          "snippet": "exact()",
+          "gap": ""
+        },
+        {
+          "query": "[exact]after u<9eta/7",
+          "status": "已证",
+          "citation": "ex/all/check_round32_right_positive.py:exact",
+          "snippet": "exact()",
+          "gap": ""
+        },
+        {
+          "query": "[exact]1-G coefficient at eta=5/12",
+          "status": "已证",
+          "citation": "ex/all/check_round32_right_positive.py:exact",
+          "snippet": "exact()",
+          "gap": ""
+        },
+        {
+          "query": "[exact]positive rational gap",
+          "status": "已证",
+          "citation": "ex/all/check_round32_right_positive.py:exact",
+          "snippet": "exact()",
+          "gap": ""
+        }
+      ],
+      "manuscript_files": [
+        "small/S6_attack_round30.md",
+        "small/S6_attack_round30_working.md",
+        "small/S6_attack_round32.md",
+        "small/S6_attack_round32_working.md"
+      ]
+    },
+    {
+      "frame": "R33_right_ne",
+      "round": 33,
+      "script": "ex/all/check_round33_right_nonempty.py",
+      "geom_claim": "RIGHT非空",
+      "variables": "RIGHT nonempty",
+      "n_ok": 23,
+      "n_partial": 3,
+      "n_unmapped": 23,
+      "frame_status": "部分已证",
+      "frame_gap": "23 queries unmapped",
+      "lean_lemma_needed": "Frame-level: geometric inequalities remain external (z3); Lean needed only if elevating to machine-checked PDF bridge",
+      "query_maps": [
+        {
+          "query": "same F bottom and left-axis bridge give Sigma>2-a-l",
+          "status": "未证",
+          "citation": null,
+          "snippet": null,
+          "gap": "no hit in ['S6_attack_round30.md', 'S6_attack_round30_working.md', 'S6_attack_round33.md']"
+        },
+        {
+          "query": "same bottom legs force rho(a)<l",
+          "status": "未证",
+          "citation": null,
+          "snippet": null,
+          "gap": "no hit in ['S6_attack_round30.md', 'S6_attack_round30_working.md', 'S6_attack_round33.md']"
+        },
+        {
+          "query": "same bottom legs and Phi force loss<l-rho",
+          "status": "部分已证",
+          "citation": "small/S6_attack_round33.md:62",
+          "snippet": "1-\\Phi(w)<l-\\rho(a).",
+          "gap": "weak token match"
+        },
+        {
+          "query": "strong Phi loss positive square difference",
+          "status": "未证",
+          "citation": null,
+          "snippet": null,
+          "gap": "no hit in ['S6_attack_round30.md', 'S6_attack_round30_working.md', 'S6_attack_round33.md']"
+        },
+        {
+          "query": "small corner polynomial decreases",
+          "status": "未证",
+          "citation": null,
+          "snippet": null,
+          "gap": "no hit in ['S6_attack_round30.md', 'S6_attack_round30_working.md', 'S6_attack_round33.md']"
+        },
+        {
+          "query": "small corner polynomial is positive",
+          "status": "未证",
+          "citation": null,
+          "snippet": null,
+          "gap": "no hit in ['S6_attack_round30.md', 'S6_attack_round30_working.md', 'S6_attack_round33.md']"
+        },
+        {
+          "query": "large corner Ys denominator positive",
+          "status": "未证",
+          "citation": null,
+          "snippet": null,
+          "gap": "no hit in ['S6_attack_round30.md', 'S6_attack_round30_working.md', 'S6_attack_round33.md']"
+        },
+        {
+          "query": "large corner polynomial increases",
+          "status": "未证",
+          "citation": null,
+          "snippet": null,
+          "gap": "no hit in ['S6_attack_round30.md', 'S6_attack_round30_working.md', 'S6_attack_round33.md']"
+        },
+        {
+          "query": "large corner polynomial is positive",
+          "status": "未证",
+          "citation": null,
+          "snippet": null,
+          "gap": "no hit in ['S6_attack_round30.md', 'S6_attack_round30_working.md', 'S6_attack_round33.md']"
+        },
+        {
+          "query": "small corner cap implies z<8rho/5",
+          "status": "未证",
+          "citation": null,
+          "snippet": null,
+          "gap": "no hit in ['S6_attack_round30.md', 'S6_attack_round30_working.md', 'S6_attack_round33.md']"
+        },
+        {
+          "query": "large corner cap implies z<8rho/5",
+          "status": "未证",
+          "citation": null,
+          "snippet": null,
+          "gap": "no hit in ['S6_attack_round30.md', 'S6_attack_round30_working.md', 'S6_attack_round33.md']"
+        },
+        {
+          "query": "all meeting corner angles have z<29/111",
+          "status": "未证",
+          "citation": null,
+          "snippet": null,
+          "gap": "no hit in ['S6_attack_round30.md', 'S6_attack_round30_working.md', 'S6_attack_round33.md']"
+        },
+        {
+          "query": "strong loss and same-F budget yield scalar second type",
+          "status": "未证",
+          "citation": null,
+          "snippet": null,
+          "gap": "no hit in ['S6_attack_round30.md', 'S6_attack_round30_working.md', 'S6_attack_round33.md']"
+        },
+        {
+          "query": "positive scalar type forces v<2/5",
+          "status": "未证",
+          "citation": null,
+          "snippet": null,
+          "gap": "no hit in ['S6_attack_round30.md', 'S6_attack_round30_working.md', 'S6_attack_round33.md']"
+        },
+        {
+          "query": "eta<=sqrt2-1 implies eta<29/70",
+          "status": "部分已证",
+          "citation": "small/S6_attack_round33.md:12",
+          "snippet": "\\quad G=\\frac{1-\\eta}{1+\\eta},\\quad0<\\eta\\le\\sqrt2-1<29/70.",
+          "gap": "keyword/formula token match; not full algebraic discharge"
+        },
+        {
+          "query": "D negative on eta<=7/25",
+          "status": "未证",
+          "citation": null,
+          "snippet": null,
+          "gap": "no hit in ['S6_attack_round30.md', 'S6_attack_round30_working.md', 'S6_attack_round33.md']"
+        },
+        {
+          "query": "R derivative positive on (0,1/2)",
+          "status": "部分已证",
+          "citation": "small/S6_attack_round33_working.md:9",
+          "snippet": "准确剩余与接续推导见S6_round33_continuation_notes.md。F水平空时保留C碰BOTTOM、所有原W重复mid可能，不移用u<1/2或非空F平行预算。历史冻结包原字节保留；2",
+          "gap": "weak token match"
+        },
+        {
+          "query": "R derivative below one on eta>=7/25",
+          "status": "未证",
+          "citation": null,
+          "snippet": null,
+          "gap": "no hit in ['S6_attack_round30.md', 'S6_attack_round30_working.md', 'S6_attack_round33.md']"
+        },
+        {
+          "query": "A0 derivative greater than 224/125",
+          "status": "未证",
+          "citation": null,
+          "snippet": null,
+          "gap": "no hit in ['S6_attack_round30.md', 'S6_attack_round30_working.md', 'S6_attack_round33.md']"
+        },
+        {
+          "query": "q difference below 8v²/9",
+          "status": "未证",
+          "citation": null,
+          "snippet": null,
+          "gap": "no hit in ['S6_attack_round30.md', 'S6_attack_round30_working.md', 'S6_attack_round33.md']"
+        },
+        {
+          "query": "f derivative strictly negative on relevant interval",
+          "status": "未证",
+          "citation": null,
+          "snippet": null,
+          "gap": "no hit in ['S6_attack_round30.md', 'S6_attack_round30_working.md', 'S6_attack_round33.md']"
+        },
+        {
+          "query": "small v affine loss coefficient 62/45",
+          "status": "未证",
+          "citation": null,
+          "snippet": null,
+          "gap": "no hit in ['S6_attack_round30.md', 'S6_attack_round30_working.md', 'S6_attack_round33.md']"
+        },
+        {
+          "query": "concavity implication with D>0 and D''>0",
+          "status": "未证",
+          "citation": null,
+          "snippet": null,
+          "gap": "no hit in ['S6_attack_round30.md', 'S6_attack_round30_working.md', 'S6_attack_round33.md']"
+        },
+        {
+          "query": "whole continuous scalar lemma nonpositive defect",
+          "status": "未证",
+          "citation": null,
+          "snippet": null,
+          "gap": "no hit in ['S6_attack_round30.md', 'S6_attack_round30_working.md', 'S6_attack_round33.md']"
+        },
+        {
+          "query": "whole continuous scalar lemma positive defect",
+          "status": "未证",
+          "citation": null,
+          "snippet": null,
+          "gap": "no hit in ['S6_attack_round30.md', 'S6_attack_round30_working.md', 'S6_attack_round33.md']"
+        },
+        {
+          "query": "opposite inequalities from actual RIGHT/W endpoints contradict",
+          "status": "未证",
+          "citation": null,
+          "snippet": null,
+          "gap": "no hit in ['S6_attack_round30.md', 'S6_attack_round30_working.md', 'S6_attack_round33.md']"
+        },
+        {
+          "query": "[sympy]strong Phi loss sum of positive squares",
+          "status": "已证",
+          "citation": "ex/all/check_round33_right_nonempty.py:ident",
+          "snippet": "sp.cancel==0",
+          "gap": ""
+        },
+        {
+          "query": "[sympy]bottom leg rho identity",
+          "status": "已证",
+          "citation": "ex/all/check_round33_right_nonempty.py:ident",
+          "snippet": "sp.cancel==0",
+          "gap": ""
+        },
+        {
+          "query": "[sympy]small angle rho cap numerator",
+          "status": "已证",
+          "citation": "ex/all/check_round33_right_nonempty.py:ident",
+          "snippet": "sp.cancel==0",
+          "gap": ""
+        },
+        {
+          "query": "[sympy]large angle rho cap numerator",
+          "status": "已证",
+          "citation": "ex/all/check_round33_right_nonempty.py:ident",
+          "snippet": "sp.cancel==0",
+          "gap": ""
+        },
+        {
+          "query": "[sympy]R equals target minus qeta",
+          "status": "已证",
+          "citation": "ex/all/check_round33_right_nonempty.py:ident",
+          "snippet": "sp.cancel==0",
+          "gap": ""
+        },
+        {
+          "query": "[sympy]A0 derivative",
+          "status": "已证",
+          "citation": "ex/all/check_round33_right_nonempty.py:ident",
+          "snippet": "sp.cancel==0",
+          "gap": ""
+        },
+        {
+          "query": "[sympy]A0 second derivative",
+          "status": "已证",
+          "citation": "ex/all/check_round33_right_nonempty.py:ident",
+          "snippet": "sp.cancel==0",
+          "gap": ""
+        },
+        {
+          "query": "[sympy]R first derivative",
+          "status": "已证",
+          "citation": "ex/all/check_round33_right_nonempty.py:ident",
+          "snippet": "sp.cancel==0",
+          "gap": ""
+        },
+        {
+          "query": "[sympy]R second derivative",
+          "status": "已证",
+          "citation": "ex/all/check_round33_right_nonempty.py:ident",
+          "snippet": "sp.cancel==0",
+          "gap": ""
+        },
+        {
+          "query": "[sympy]D sign polynomial",
+          "status": "已证",
+          "citation": "ex/all/check_round33_right_nonempty.py:ident",
+          "snippet": "sp.cancel==0",
+          "gap": ""
+        },
+        {
+          "query": "[sympy]concavity exact second derivative",
+          "status": "已证",
+          "citation": "ex/all/check_round33_right_nonempty.py:ident",
+          "snippet": "sp.cancel==0",
+          "gap": ""
+        },
+        {
+          "query": "[sympy]q difference exact",
+          "status": "已证",
+          "citation": "ex/all/check_round33_right_nonempty.py:ident",
+          "snippet": "sp.cancel==0",
+          "gap": ""
+        },
+        {
+          "query": "[exact]small corner polynomial endpoint",
+          "status": "已证",
+          "citation": "ex/all/check_round33_right_nonempty.py:exact",
+          "snippet": "exact()",
+          "gap": ""
+        },
+        {
+          "query": "[exact]large corner polynomial endpoint",
+          "status": "已证",
+          "citation": "ex/all/check_round33_right_nonempty.py:exact",
+          "snippet": "exact()",
+          "gap": ""
+        },
+        {
+          "query": "[exact]D left endpoint",
+          "status": "已证",
+          "citation": "ex/all/check_round33_right_nonempty.py:exact",
+          "snippet": "exact()",
+          "gap": ""
+        },
+        {
+          "query": "[exact]D right endpoint",
+          "status": "已证",
+          "citation": "ex/all/check_round33_right_nonempty.py:exact",
+          "snippet": "exact()",
+          "gap": ""
+        },
+        {
+          "query": "[exact]large-v gap",
+          "status": "已证",
+          "citation": "ex/all/check_round33_right_nonempty.py:exact",
+          "snippet": "exact()",
+          "gap": ""
+        },
+        {
+          "query": "[exact]concavity left lower gap",
+          "status": "已证",
+          "citation": "ex/all/check_round33_right_nonempty.py:exact",
+          "snippet": "exact()",
+          "gap": ""
+        },
+        {
+          "query": "[exact]concavity right gap",
+          "status": "已证",
+          "citation": "ex/all/check_round33_right_nonempty.py:exact",
+          "snippet": "exact()",
+          "gap": ""
+        },
+        {
+          "query": "[exact]small-v coefficient",
+          "status": "已证",
+          "citation": "ex/all/check_round33_right_nonempty.py:exact",
+          "snippet": "exact()",
+          "gap": ""
+        },
+        {
+          "query": "[exact]quarter-v loss",
+          "status": "已证",
+          "citation": "ex/all/check_round33_right_nonempty.py:exact",
+          "snippet": "exact()",
+          "gap": ""
+        },
+        {
+          "query": "[exact]concavity coefficient",
+          "status": "已证",
+          "citation": "ex/all/check_round33_right_nonempty.py:exact",
+          "snippet": "exact()",
+          "gap": ""
+        },
+        {
+          "query": "[exact]derivative negative gap",
+          "status": "已证",
+          "citation": "ex/all/check_round33_right_nonempty.py:exact",
+          "snippet": "exact()",
+          "gap": ""
+        }
+      ],
+      "manuscript_files": [
+        "small/S6_attack_round30.md",
+        "small/S6_attack_round30_working.md",
+        "small/S6_attack_round33.md",
+        "small/S6_attack_round33_working.md"
+      ]
+    },
+    {
+      "frame": "R34_left_neg",
+      "round": 34,
+      "script": "ex/all/check_round34_left_negative.py",
+      "geom_claim": "LEFT负",
+      "variables": "LEFT neg H",
+      "n_ok": 16,
+      "n_partial": 3,
+      "n_unmapped": 20,
+      "frame_status": "部分已证",
+      "frame_gap": "20 queries unmapped",
+      "lean_lemma_needed": "Frame-level: geometric inequalities remain external (z3); Lean needed only if elevating to machine-checked PDF bridge",
+      "query_maps": [
+        {
+          "query": "LEFT positive C first down root impossible",
+          "status": "未证",
+          "citation": null,
+          "snippet": null,
+          "gap": "no hit in ['S6_attack_round31.md', 'S6_attack_round31_working.md', 'S6_attack_round34.md']"
+        },
+        {
+          "query": "LEFT second down root upper cap",
+          "status": "未证",
+          "citation": null,
+          "snippet": null,
+          "gap": "no hit in ['S6_attack_round31.md', 'S6_attack_round31_working.md', 'S6_attack_round34.md']"
+        },
+        {
+          "query": "LEFT true up root first upper face active",
+          "status": "未证",
+          "citation": null,
+          "snippet": null,
+          "gap": "no hit in ['S6_attack_round31.md', 'S6_attack_round31_working.md', 'S6_attack_round34.md']"
+        },
+        {
+          "query": "LEFT positive C true right root is short",
+          "status": "未证",
+          "citation": null,
+          "snippet": null,
+          "gap": "no hit in ['S6_attack_round31.md', 'S6_attack_round31_working.md', 'S6_attack_round34.md']"
+        },
+        {
+          "query": "LEFT lower actual gap endpoint long leg",
+          "status": "未证",
+          "citation": null,
+          "snippet": null,
+          "gap": "no hit in ['S6_attack_round31.md', 'S6_attack_round31_working.md', 'S6_attack_round34.md']"
+        },
+        {
+          "query": "LEFT upper actual gap endpoint e+d<G",
+          "status": "未证",
+          "citation": null,
+          "snippet": null,
+          "gap": "no hit in ['S6_attack_round31.md', 'S6_attack_round31_working.md', 'S6_attack_round34.md']"
+        },
+        {
+          "query": "LEFT short leg and side endpoint give z<qG",
+          "status": "未证",
+          "citation": null,
+          "snippet": null,
+          "gap": "no hit in ['S6_attack_round31.md', 'S6_attack_round31_working.md', 'S6_attack_round34.md']"
+        },
+        {
+          "query": "one original corner square cannot contain two short axis ends",
+          "status": "未证",
+          "citation": null,
+          "snippet": null,
+          "gap": "no hit in ['S6_attack_round31.md', 'S6_attack_round31_working.md', 'S6_attack_round34.md']"
+        },
+        {
+          "query": "LEFT C right+up roots are too short for joint W containment",
+          "status": "未证",
+          "citation": null,
+          "snippet": null,
+          "gap": "no hit in ['S6_attack_round31.md', 'S6_attack_round31_working.md', 'S6_attack_round34.md']"
+        },
+        {
+          "query": "direct Q2 contact gives bottom short leg <q(r)",
+          "status": "未证",
+          "citation": null,
+          "snippet": null,
+          "gap": "no hit in ['S6_attack_round31.md', 'S6_attack_round31_working.md', 'S6_attack_round34.md']"
+        },
+        {
+          "query": "large x gives L2-1<Delta(r)",
+          "status": "部分已证",
+          "citation": "small/S6_attack_round34.md:55",
+          "snippet": "L2-1\\le\\frac{(1-x)^2}{2x}<\\Delta(r),\\qquad",
+          "gap": "keyword/formula token match; not full algebraic discharge"
+        },
+        {
+          "query": "direct Q2 bottom budget forces positive w<2u/9",
+          "status": "未证",
+          "citation": null,
+          "snippet": null,
+          "gap": "no hit in ['S6_attack_round31.md', 'S6_attack_round31_working.md', 'S6_attack_round34.md']"
+        },
+        {
+          "query": "direct Q2 yields u<9eta/7: positive w",
+          "status": "未证",
+          "citation": null,
+          "snippet": null,
+          "gap": "no hit in ['S6_attack_round31.md', 'S6_attack_round31_working.md', 'S6_attack_round34.md']"
+        },
+        {
+          "query": "direct Q2 yields u<9eta/7: nonpositive w",
+          "status": "未证",
+          "citation": null,
+          "snippet": null,
+          "gap": "no hit in ['S6_attack_round31.md', 'S6_attack_round31_working.md', 'S6_attack_round34.md']"
+        },
+        {
+          "query": "direct Q2 and direct QU are incompatible",
+          "status": "未证",
+          "citation": null,
+          "snippet": null,
+          "gap": "no hit in ['S6_attack_round31.md', 'S6_attack_round31_working.md', 'S6_attack_round34.md']"
+        },
+        {
+          "query": "direct Q2 with actual W up bridge impossible",
+          "status": "未证",
+          "citation": null,
+          "snippet": null,
+          "gap": "no hit in ['S6_attack_round31.md', 'S6_attack_round31_working.md', 'S6_attack_round34.md']"
+        },
+        {
+          "query": "direct QU implies eta<2u/5<1/5",
+          "status": "部分已证",
+          "citation": "small/S6_attack_round34.md:103",
+          "snippet": "\\eta<\\frac{u}{4-3u}<\\frac25u<1/5.",
+          "gap": "weak token match"
+        },
+        {
+          "query": "direct QU makes K<5u/6",
+          "status": "未证",
+          "citation": null,
+          "snippet": null,
+          "gap": "no hit in ['S6_attack_round31.md', 'S6_attack_round31_working.md', 'S6_attack_round34.md']"
+        },
+        {
+          "query": "direct QU forces q(r)<5u²/9",
+          "status": "未证",
+          "citation": null,
+          "snippet": null,
+          "gap": "no hit in ['S6_attack_round31.md', 'S6_attack_round31_working.md', 'S6_attack_round34.md']"
+        },
+        {
+          "query": "direct QU implies w>u²",
+          "status": "未证",
+          "citation": null,
+          "snippet": null,
+          "gap": "no hit in ['S6_attack_round31.md', 'S6_attack_round31_working.md', 'S6_attack_round34.md']"
+        },
+        {
+          "query": "bottom same legs then force x<g(u)",
+          "status": "未证",
+          "citation": null,
+          "snippet": null,
+          "gap": "no hit in ['S6_attack_round31.md', 'S6_attack_round31_working.md', 'S6_attack_round34.md']"
+        },
+        {
+          "query": "large z gives L4-1<Delta(u)",
+          "status": "部分已证",
+          "citation": "small/S6_attack_round34.md:55",
+          "snippet": "L2-1\\le\\frac{(1-x)^2}{2x}<\\Delta(r),\\qquad",
+          "gap": "keyword/formula token match; not full algebraic discharge"
+        },
+        {
+          "query": "actual W right bridge conflicts with TOP meeting",
+          "status": "未证",
+          "citation": null,
+          "snippet": null,
+          "gap": "no hit in ['S6_attack_round31.md', 'S6_attack_round31_working.md', 'S6_attack_round34.md']"
+        },
+        {
+          "query": "[sympy]joint-axis endpoint lower difference",
+          "status": "已证",
+          "citation": "ex/all/check_round34_left_negative.py:ident",
+          "snippet": "sp.cancel==0",
+          "gap": ""
+        },
+        {
+          "query": "[sympy]q(G) in centre halfangle",
+          "status": "已证",
+          "citation": "ex/all/check_round34_left_negative.py:ident",
+          "snippet": "sp.cancel==0",
+          "gap": ""
+        },
+        {
+          "query": "[sympy]long-leg defect exact",
+          "status": "已证",
+          "citation": "ex/all/check_round34_left_negative.py:ident",
+          "snippet": "sp.cancel==0",
+          "gap": ""
+        },
+        {
+          "query": "[sympy]long-leg defect derivative",
+          "status": "已证",
+          "citation": "ex/all/check_round34_left_negative.py:ident",
+          "snippet": "sp.cancel==0",
+          "gap": ""
+        },
+        {
+          "query": "[sympy]short leg from direct endpoint",
+          "status": "已证",
+          "citation": "ex/all/check_round34_left_negative.py:ident",
+          "snippet": "sp.cancel==0",
+          "gap": ""
+        },
+        {
+          "query": "[sympy]TOP lower angle rearrangement",
+          "status": "已证",
+          "citation": "ex/all/check_round34_left_negative.py:ident",
+          "snippet": "sp.cancel==0",
+          "gap": ""
+        },
+        {
+          "query": "[sympy]g deficit",
+          "status": "已证",
+          "citation": "ex/all/check_round34_left_negative.py:ident",
+          "snippet": "sp.cancel==0",
+          "gap": ""
+        },
+        {
+          "query": "[exact]eta top gap lower factor",
+          "status": "已证",
+          "citation": "ex/all/check_round34_left_negative.py:exact",
+          "snippet": "exact()",
+          "gap": ""
+        },
+        {
+          "query": "[exact]top factor versus direct budget",
+          "status": "已证",
+          "citation": "ex/all/check_round34_left_negative.py:exact",
+          "snippet": "exact()",
+          "gap": ""
+        },
+        {
+          "query": "[exact]first direct endpoint combined budget",
+          "status": "已证",
+          "citation": "ex/all/check_round34_left_negative.py:exact",
+          "snippet": "exact()",
+          "gap": ""
+        },
+        {
+          "query": "[exact]first contradiction factor gap",
+          "status": "已证",
+          "citation": "ex/all/check_round34_left_negative.py:exact",
+          "snippet": "exact()",
+          "gap": ""
+        },
+        {
+          "query": "[exact]eta<1/5 norm denominator",
+          "status": "已证",
+          "citation": "ex/all/check_round34_left_negative.py:exact",
+          "snippet": "exact()",
+          "gap": ""
+        },
+        {
+          "query": "[exact]K/u constant",
+          "status": "已证",
+          "citation": "ex/all/check_round34_left_negative.py:exact",
+          "snippet": "exact()",
+          "gap": ""
+        },
+        {
+          "query": "[exact]q(r)/u² constant",
+          "status": "已证",
+          "citation": "ex/all/check_round34_left_negative.py:exact",
+          "snippet": "exact()",
+          "gap": ""
+        },
+        {
+          "query": "[exact]last chord deficit coefficient",
+          "status": "已证",
+          "citation": "ex/all/check_round34_left_negative.py:exact",
+          "snippet": "exact()",
+          "gap": ""
+        },
+        {
+          "query": "[exact]last contradiction coefficient gap",
+          "status": "已证",
+          "citation": "ex/all/check_round34_left_negative.py:exact",
+          "snippet": "exact()",
+          "gap": ""
+        }
+      ],
+      "manuscript_files": [
+        "small/S6_attack_round31.md",
+        "small/S6_attack_round31_working.md",
+        "small/S6_attack_round34.md",
+        "small/S6_attack_round34_working.md"
+      ]
+    },
+    {
+      "frame": "R35_pos_H",
+      "round": 35,
+      "script": "ex/all/check_round35_positive_H.py",
+      "geom_claim": "正H分支",
+      "variables": "H>0 thin a",
+      "n_ok": 16,
+      "n_partial": 0,
+      "n_unmapped": 20,
+      "frame_status": "部分已证",
+      "frame_gap": "20 queries unmapped",
+      "lean_lemma_needed": "Frame-level: geometric inequalities remain external (z3); Lean needed only if elevating to machine-checked PDF bridge",
+      "query_maps": [
+        {
+          "query": "same original F bottom and full H bridge budget",
+          "status": "未证",
+          "citation": null,
+          "snippet": null,
+          "gap": "no hit in ['S6_attack_round31.md', 'S6_attack_round31_working.md', 'S6_attack_round35.md']"
+        },
+        {
+          "query": "nonpositive defect: actual short legs force rho(x)<r",
+          "status": "未证",
+          "citation": null,
+          "snippet": null,
+          "gap": "no hit in ['S6_attack_round31.md', 'S6_attack_round31_working.md', 'S6_attack_round35.md']"
+        },
+        {
+          "query": "positive defect: same legs force loss<r-rho(x)",
+          "status": "未证",
+          "citation": null,
+          "snippet": null,
+          "gap": "no hit in ['S6_attack_round31.md', 'S6_attack_round31_working.md', 'S6_attack_round35.md']"
+        },
+        {
+          "query": "C direct QU contradicts same-F full H bridge",
+          "status": "未证",
+          "citation": null,
+          "snippet": null,
+          "gap": "no hit in ['S6_attack_round31.md', 'S6_attack_round31_working.md', 'S6_attack_round35.md']"
+        },
+        {
+          "query": "positive defect maps to scalar cap B(v)",
+          "status": "未证",
+          "citation": null,
+          "snippet": null,
+          "gap": "no hit in ['S6_attack_round31.md', 'S6_attack_round31_working.md', 'S6_attack_round35.md']"
+        },
+        {
+          "query": "scalar cap implies v<2/5",
+          "status": "未证",
+          "citation": null,
+          "snippet": null,
+          "gap": "no hit in ['S6_attack_round31.md', 'S6_attack_round31_working.md', 'S6_attack_round35.md']"
+        },
+        {
+          "query": "M(eta) is decreasing on C unit-circle range",
+          "status": "未证",
+          "citation": null,
+          "snippet": null,
+          "gap": "no hit in ['S6_attack_round31.md', 'S6_attack_round31_working.md', 'S6_attack_round35.md']"
+        },
+        {
+          "query": "small eta A0 below 3/10",
+          "status": "未证",
+          "citation": null,
+          "snippet": null,
+          "gap": "no hit in ['S6_attack_round31.md', 'S6_attack_round31_working.md', 'S6_attack_round35.md']"
+        },
+        {
+          "query": "small eta numerator polynomial positive",
+          "status": "未证",
+          "citation": null,
+          "snippet": null,
+          "gap": "no hit in ['S6_attack_round31.md', 'S6_attack_round31_working.md', 'S6_attack_round35.md']"
+        },
+        {
+          "query": "small eta numerator polynomial decreases",
+          "status": "未证",
+          "citation": null,
+          "snippet": null,
+          "gap": "no hit in ['S6_attack_round31.md', 'S6_attack_round31_working.md', 'S6_attack_round35.md']"
+        },
+        {
+          "query": "B(v) strictly decreases on feasible v range",
+          "status": "未证",
+          "citation": null,
+          "snippet": null,
+          "gap": "no hit in ['S6_attack_round31.md', 'S6_attack_round31_working.md', 'S6_attack_round35.md']"
+        },
+        {
+          "query": "g(B(v))-q(u) strictly increases where 0<B<=3/10",
+          "status": "未证",
+          "citation": null,
+          "snippet": null,
+          "gap": "no hit in ['S6_attack_round31.md', 'S6_attack_round31_working.md', 'S6_attack_round35.md']"
+        },
+        {
+          "query": "middle eta K cap",
+          "status": "未证",
+          "citation": null,
+          "snippet": null,
+          "gap": "no hit in ['S6_attack_round31.md', 'S6_attack_round31_working.md', 'S6_attack_round35.md']"
+        },
+        {
+          "query": "middle eta threshold B below Z",
+          "status": "未证",
+          "citation": null,
+          "snippet": null,
+          "gap": "no hit in ['S6_attack_round31.md', 'S6_attack_round31_working.md', 'S6_attack_round35.md']"
+        },
+        {
+          "query": "high eta threshold B below Z",
+          "status": "未证",
+          "citation": null,
+          "snippet": null,
+          "gap": "no hit in ['S6_attack_round31.md', 'S6_attack_round31_working.md', 'S6_attack_round35.md']"
+        },
+        {
+          "query": "q difference less than 8v²/9",
+          "status": "未证",
+          "citation": null,
+          "snippet": null,
+          "gap": "no hit in ['S6_attack_round31.md', 'S6_attack_round31_working.md', 'S6_attack_round35.md']"
+        },
+        {
+          "query": "actual RIGHT meeting gives A>g(kappa)",
+          "status": "未证",
+          "citation": null,
+          "snippet": null,
+          "gap": "no hit in ['S6_attack_round31.md', 'S6_attack_round31_working.md', 'S6_attack_round35.md']"
+        },
+        {
+          "query": "actual W bridge and scalar inequality contradict",
+          "status": "未证",
+          "citation": null,
+          "snippet": null,
+          "gap": "no hit in ['S6_attack_round31.md', 'S6_attack_round31_working.md', 'S6_attack_round35.md']"
+        },
+        {
+          "query": "whole continuous scalar lemma nonpositive defect",
+          "status": "未证",
+          "citation": null,
+          "snippet": null,
+          "gap": "no hit in ['S6_attack_round31.md', 'S6_attack_round31_working.md', 'S6_attack_round35.md']"
+        },
+        {
+          "query": "whole continuous scalar lemma positive defect",
+          "status": "未证",
+          "citation": null,
+          "snippet": null,
+          "gap": "no hit in ['S6_attack_round31.md', 'S6_attack_round31_working.md', 'S6_attack_round35.md']"
+        },
+        {
+          "query": "[sympy]M derivative",
+          "status": "已证",
+          "citation": "ex/all/check_round35_positive_H.py:ident",
+          "snippet": "sp.cancel==0",
+          "gap": ""
+        },
+        {
+          "query": "[sympy]M derivative sign polynomial",
+          "status": "已证",
+          "citation": "ex/all/check_round35_positive_H.py:ident",
+          "snippet": "sp.cancel==0",
+          "gap": ""
+        },
+        {
+          "query": "[sympy]small eta base numerator",
+          "status": "已证",
+          "citation": "ex/all/check_round35_positive_H.py:ident",
+          "snippet": "sp.cancel==0",
+          "gap": ""
+        },
+        {
+          "query": "[sympy]B derivative",
+          "status": "已证",
+          "citation": "ex/all/check_round35_positive_H.py:ident",
+          "snippet": "sp.cancel==0",
+          "gap": ""
+        },
+        {
+          "query": "[sympy]monotone comparison derivative",
+          "status": "已证",
+          "citation": "ex/all/check_round35_positive_H.py:ident",
+          "snippet": "sp.cancel==0",
+          "gap": ""
+        },
+        {
+          "query": "[sympy]q difference",
+          "status": "已证",
+          "citation": "ex/all/check_round35_positive_H.py:ident",
+          "snippet": "sp.cancel==0",
+          "gap": ""
+        },
+        {
+          "query": "[sympy]RIGHT meeting complementary leg",
+          "status": "已证",
+          "citation": "ex/all/check_round35_positive_H.py:ident",
+          "snippet": "sp.cancel==0",
+          "gap": ""
+        },
+        {
+          "query": "[exact]monotone derivative rational gap",
+          "status": "已证",
+          "citation": "ex/all/check_round35_positive_H.py:exact",
+          "snippet": "exact()",
+          "gap": ""
+        },
+        {
+          "query": "[exact]small numerator endpoint",
+          "status": "已证",
+          "citation": "ex/all/check_round35_positive_H.py:exact",
+          "snippet": "exact()",
+          "gap": ""
+        },
+        {
+          "query": "[exact]g(Z)",
+          "status": "已证",
+          "citation": "ex/all/check_round35_positive_H.py:exact",
+          "snippet": "exact()",
+          "gap": ""
+        },
+        {
+          "query": "[exact]middle q increment",
+          "status": "已证",
+          "citation": "ex/all/check_round35_positive_H.py:exact",
+          "snippet": "exact()",
+          "gap": ""
+        },
+        {
+          "query": "[exact]middle scalar gap",
+          "status": "已证",
+          "citation": "ex/all/check_round35_positive_H.py:exact",
+          "snippet": "exact()",
+          "gap": ""
+        },
+        {
+          "query": "[exact]middle K cap",
+          "status": "已证",
+          "citation": "ex/all/check_round35_positive_H.py:exact",
+          "snippet": "exact()",
+          "gap": ""
+        },
+        {
+          "query": "[exact]middle B threshold gap",
+          "status": "已证",
+          "citation": "ex/all/check_round35_positive_H.py:exact",
+          "snippet": "exact()",
+          "gap": ""
+        },
+        {
+          "query": "[exact]high scalar gap",
+          "status": "已证",
+          "citation": "ex/all/check_round35_positive_H.py:exact",
+          "snippet": "exact()",
+          "gap": ""
+        },
+        {
+          "query": "[exact]high B threshold gap",
+          "status": "已证",
+          "citation": "ex/all/check_round35_positive_H.py:exact",
+          "snippet": "exact()",
+          "gap": ""
+        }
+      ],
+      "manuscript_files": [
+        "small/S6_attack_round31.md",
+        "small/S6_attack_round31_working.md",
+        "small/S6_attack_round35.md",
+        "small/S6_attack_round35_working.md"
+      ]
+    },
+    {
+      "frame": "R36_ne_closed",
+      "round": 36,
+      "script": "ex/all/check_round36_nonempty_closed.py",
+      "geom_claim": "非空闭包",
+      "variables": "nonempty closed",
+      "n_ok": 20,
+      "n_partial": 0,
+      "n_unmapped": 19,
+      "frame_status": "部分已证",
+      "frame_gap": "19 queries unmapped",
+      "lean_lemma_needed": "Frame-level: geometric inequalities remain external (z3); Lean needed only if elevating to machine-checked PDF bridge",
+      "query_maps": [
+        {
+          "query": "same original F bottom/H pair gives Sigma>1+f",
+          "status": "未证",
+          "citation": null,
+          "snippet": null,
+          "gap": "no hit in ['S6_attack_round31.md', 'S6_attack_round31_working.md', 'S6_attack_round36.md']"
+        },
+        {
+          "query": "direct TOP order I actual relay budget bounds h0",
+          "status": "未证",
+          "citation": null,
+          "snippet": null,
+          "gap": "no hit in ['S6_attack_round31.md', 'S6_attack_round31_working.md', 'S6_attack_round36.md']"
+        },
+        {
+          "query": "direct TOP order I convex chord gap",
+          "status": "未证",
+          "citation": null,
+          "snippet": null,
+          "gap": "no hit in ['S6_attack_round31.md', 'S6_attack_round31_working.md', 'S6_attack_round36.md']"
+        },
+        {
+          "query": "relay convex function stays below common endpoints",
+          "status": "未证",
+          "citation": null,
+          "snippet": null,
+          "gap": "no hit in ['S6_attack_round31.md', 'S6_attack_round31_working.md', 'S6_attack_round36.md']"
+        },
+        {
+          "query": "direct TOP order II original W bridge bounds right H end",
+          "status": "未证",
+          "citation": null,
+          "snippet": null,
+          "gap": "no hit in ['S6_attack_round31.md', 'S6_attack_round31_working.md', 'S6_attack_round36.md']"
+        },
+        {
+          "query": "direct TOP order II gives h1<7u/9",
+          "status": "未证",
+          "citation": null,
+          "snippet": null,
+          "gap": "no hit in ['S6_attack_round31.md', 'S6_attack_round31_working.md', 'S6_attack_round36.md']"
+        },
+        {
+          "query": "direct TOP order II same-F budget forces h1>u",
+          "status": "未证",
+          "citation": null,
+          "snippet": null,
+          "gap": "no hit in ['S6_attack_round31.md', 'S6_attack_round31_working.md', 'S6_attack_round36.md']"
+        },
+        {
+          "query": "original W Cup forces halfangle tau>1-u",
+          "status": "未证",
+          "citation": null,
+          "snippet": null,
+          "gap": "no hit in ['S6_attack_round31.md', 'S6_attack_round31_working.md', 'S6_attack_round36.md']"
+        },
+        {
+          "query": "original W actual H point lies beyond 1-g(tau)",
+          "status": "未证",
+          "citation": null,
+          "snippet": null,
+          "gap": "no hit in ['S6_attack_round31.md', 'S6_attack_round31_working.md', 'S6_attack_round36.md']"
+        },
+        {
+          "query": "original W Cup and actual H left endpoint give h0>1-q(u)",
+          "status": "未证",
+          "citation": null,
+          "snippet": null,
+          "gap": "no hit in ['S6_attack_round31.md', 'S6_attack_round31_working.md', 'S6_attack_round36.md']"
+        },
+        {
+          "query": "same F actual relay yields total short-leg loss bound",
+          "status": "未证",
+          "citation": null,
+          "snippet": null,
+          "gap": "no hit in ['S6_attack_round31.md', 'S6_attack_round31_working.md', 'S6_attack_round36.md']"
+        },
+        {
+          "query": "original W V bridge and RIGHT meet give actual L2 defect",
+          "status": "未证",
+          "citation": null,
+          "snippet": null,
+          "gap": "no hit in ['S6_attack_round31.md', 'S6_attack_round31_working.md', 'S6_attack_round36.md']"
+        },
+        {
+          "query": "two actual long-leg deficits dominate scalar E",
+          "status": "未证",
+          "citation": null,
+          "snippet": null,
+          "gap": "no hit in ['S6_attack_round31.md', 'S6_attack_round31_working.md', 'S6_attack_round36.md']"
+        },
+        {
+          "query": "two explicit Phi loss bounds force total loss above Y",
+          "status": "未证",
+          "citation": null,
+          "snippet": null,
+          "gap": "no hit in ['S6_attack_round31.md', 'S6_attack_round31_working.md', 'S6_attack_round36.md']"
+        },
+        {
+          "query": "separate u concavity implication",
+          "status": "未证",
+          "citation": null,
+          "snippet": null,
+          "gap": "no hit in ['S6_attack_round31.md', 'S6_attack_round31_working.md', 'S6_attack_round36.md']"
+        },
+        {
+          "query": "separate eta concavity implication",
+          "status": "未证",
+          "citation": null,
+          "snippet": null,
+          "gap": "no hit in ['S6_attack_round31.md', 'S6_attack_round31_working.md', 'S6_attack_round36.md']"
+        },
+        {
+          "query": "whole enlarged scalar rectangle positive for u>0",
+          "status": "未证",
+          "citation": null,
+          "snippet": null,
+          "gap": "no hit in ['S6_attack_round31.md', 'S6_attack_round31_working.md', 'S6_attack_round36.md']"
+        },
+        {
+          "query": "F-empty side upper point excludes bottom same-side by area",
+          "status": "未证",
+          "citation": null,
+          "snippet": null,
+          "gap": "no hit in ['S6_attack_round31.md', 'S6_attack_round31_working.md', 'S6_attack_round36.md']"
+        },
+        {
+          "query": "F-empty side upper point excludes bottom opposite-side by diameter",
+          "status": "未证",
+          "citation": null,
+          "snippet": null,
+          "gap": "no hit in ['S6_attack_round31.md', 'S6_attack_round31_working.md', 'S6_attack_round36.md']"
+        },
+        {
+          "query": "[sympy]q first derivative",
+          "status": "已证",
+          "citation": "ex/all/check_round36_nonempty_closed.py:ident",
+          "snippet": "sp.cancel==0",
+          "gap": ""
+        },
+        {
+          "query": "[sympy]q second derivative",
+          "status": "已证",
+          "citation": "ex/all/check_round36_nonempty_closed.py:ident",
+          "snippet": "sp.cancel==0",
+          "gap": ""
+        },
+        {
+          "query": "[sympy]K first derivative",
+          "status": "已证",
+          "citation": "ex/all/check_round36_nonempty_closed.py:ident",
+          "snippet": "sp.cancel==0",
+          "gap": ""
+        },
+        {
+          "query": "[sympy]K second derivative",
+          "status": "已证",
+          "citation": "ex/all/check_round36_nonempty_closed.py:ident",
+          "snippet": "sp.cancel==0",
+          "gap": ""
+        },
+        {
+          "query": "[sympy]eta drift second derivative",
+          "status": "已证",
+          "citation": "ex/all/check_round36_nonempty_closed.py:ident",
+          "snippet": "sp.cancel==0",
+          "gap": ""
+        },
+        {
+          "query": "[sympy]P second u derivative",
+          "status": "已证",
+          "citation": "ex/all/check_round36_nonempty_closed.py:ident",
+          "snippet": "sp.cancel==0",
+          "gap": ""
+        },
+        {
+          "query": "[sympy]P second eta derivative",
+          "status": "已证",
+          "citation": "ex/all/check_round36_nonempty_closed.py:ident",
+          "snippet": "sp.cancel==0",
+          "gap": ""
+        },
+        {
+          "query": "[sympy]relay convex function rational expression",
+          "status": "已证",
+          "citation": "ex/all/check_round36_nonempty_closed.py:ident",
+          "snippet": "sp.cancel==0",
+          "gap": ""
+        },
+        {
+          "query": "[sympy]relay convex function positive second derivative",
+          "status": "已证",
+          "citation": "ex/all/check_round36_nonempty_closed.py:ident",
+          "snippet": "sp.cancel==0",
+          "gap": ""
+        },
+        {
+          "query": "[sympy]relay convex left endpoint",
+          "status": "已证",
+          "citation": "ex/all/check_round36_nonempty_closed.py:ident",
+          "snippet": "sp.cancel==0",
+          "gap": ""
+        },
+        {
+          "query": "[sympy]relay convex right endpoint",
+          "status": "已证",
+          "citation": "ex/all/check_round36_nonempty_closed.py:ident",
+          "snippet": "sp.cancel==0",
+          "gap": ""
+        },
+        {
+          "query": "[sympy]original W halfangle identity",
+          "status": "已证",
+          "citation": "ex/all/check_round36_nonempty_closed.py:ident",
+          "snippet": "sp.cancel==0",
+          "gap": ""
+        },
+        {
+          "query": "[sympy]loss deficit sum",
+          "status": "已证",
+          "citation": "ex/all/check_round36_nonempty_closed.py:ident",
+          "snippet": "sp.cancel==0",
+          "gap": ""
+        },
+        {
+          "query": "[exact]scalar corner 00",
+          "status": "已证",
+          "citation": "ex/all/check_round36_nonempty_closed.py:exact",
+          "snippet": "exact()",
+          "gap": ""
+        },
+        {
+          "query": "[exact]scalar corner eta0",
+          "status": "已证",
+          "citation": "ex/all/check_round36_nonempty_closed.py:exact",
+          "snippet": "exact()",
+          "gap": ""
+        },
+        {
+          "query": "[exact]scalar corner uhalf",
+          "status": "已证",
+          "citation": "ex/all/check_round36_nonempty_closed.py:exact",
+          "snippet": "exact()",
+          "gap": ""
+        },
+        {
+          "query": "[exact]scalar corner etahalf",
+          "status": "已证",
+          "citation": "ex/all/check_round36_nonempty_closed.py:exact",
+          "snippet": "exact()",
+          "gap": ""
+        },
+        {
+          "query": "[exact]TOP relay t/u lower factor",
+          "status": "已证",
+          "citation": "ex/all/check_round36_nonempty_closed.py:exact",
+          "snippet": "exact()",
+          "gap": ""
+        },
+        {
+          "query": "[exact]TOP relay g deficit lower factor",
+          "status": "已证",
+          "citation": "ex/all/check_round36_nonempty_closed.py:exact",
+          "snippet": "exact()",
+          "gap": ""
+        },
+        {
+          "query": "[exact]TOP second order handoff factor",
+          "status": "已证",
+          "citation": "ex/all/check_round36_nonempty_closed.py:exact",
+          "snippet": "exact()",
+          "gap": ""
+        }
+      ],
+      "manuscript_files": [
+        "small/S6_attack_round31.md",
+        "small/S6_attack_round31_working.md",
+        "small/S6_attack_round36.md",
+        "small/S6_attack_round36_working.md"
+      ]
+    },
+    {
+      "frame": "R37_empty_left",
+      "round": 37,
+      "script": "ex/all/check_round37_empty_left_negative.py",
+      "geom_claim": "空LEFT",
+      "variables": "F H empty LEFT",
+      "n_ok": 25,
+      "n_partial": 6,
+      "n_unmapped": 31,
+      "frame_status": "部分已证",
+      "frame_gap": "31 queries unmapped",
+      "lean_lemma_needed": "Frame-level: geometric inequalities remain external (z3); Lean needed only if elevating to machine-checked PDF bridge",
+      "query_maps": [
+        {
+          "query": "new square from overlong right root has half-side>1",
+          "status": "未证",
+          "citation": null,
+          "snippet": null,
+          "gap": "no hit in ['S6_attack_round30.md', 'S6_attack_round30_working.md', 'S6_attack_round37.md']"
+        },
+        {
+          "query": "new square centre is in original exclusive box",
+          "status": "部分已证",
+          "citation": "small/S6_attack_round30.md:29",
+          "snippet": "原稿保存在S6_round29_continuation_notes_original_20261014.md；已补正版S6_round29_continuation_notes.md仍未编入旧冻结主",
+          "gap": "weak token match"
+        },
+        {
+          "query": "new contained square bounds",
+          "status": "未证",
+          "citation": null,
+          "snippet": null,
+          "gap": "no hit in ['S6_attack_round30.md', 'S6_attack_round30_working.md', 'S6_attack_round37.md']"
+        },
+        {
+          "query": "same F bottom chord plus actual V arm bound",
+          "status": "未证",
+          "citation": null,
+          "snippet": null,
+          "gap": "no hit in ['S6_attack_round30.md', 'S6_attack_round30_working.md', 'S6_attack_round37.md']"
+        },
+        {
+          "query": "LEFT P forces first up-root beyond outer mid",
+          "status": "部分已证",
+          "citation": "small/S6_attack_round30.md:253",
+          "snippet": "仍剩LEFT真缺口、RIGHT真缺口、三相接的F空/正/负类型。三相接非空F已排除W重复顶mid及z≥1/7，并有平方根J下界，但整个三相接非空F未排除。",
+          "gap": "weak token match"
+        },
+        {
+          "query": "LEFT P and l<mu force first right-root active",
+          "status": "未证",
+          "citation": null,
+          "snippet": null,
+          "gap": "no hit in ['S6_attack_round30.md', 'S6_attack_round30_working.md', 'S6_attack_round37.md']"
+        },
+        {
+          "query": "second down-root activity excluded by real side/V pair",
+          "status": "未证",
+          "citation": null,
+          "snippet": null,
+          "gap": "no hit in ['S6_attack_round30.md', 'S6_attack_round30_working.md', 'S6_attack_round37.md']"
+        },
+        {
+          "query": "real LEFT P gives e+d<eta",
+          "status": "未证",
+          "citation": null,
+          "snippet": null,
+          "gap": "no hit in ['S6_attack_round30.md', 'S6_attack_round30_working.md', 'S6_attack_round37.md']"
+        },
+        {
+          "query": "global l<1 gives u>G",
+          "status": "未证",
+          "citation": null,
+          "snippet": null,
+          "gap": "no hit in ['S6_attack_round30.md', 'S6_attack_round30_working.md', 'S6_attack_round37.md']"
+        },
+        {
+          "query": "u+q(eta-d)>=1 forces d<1/6",
+          "status": "未证",
+          "citation": null,
+          "snippet": null,
+          "gap": "no hit in ['S6_attack_round30.md', 'S6_attack_round30_working.md', 'S6_attack_round37.md']"
+        },
+        {
+          "query": "same upper-cap failure forces l<7/10",
+          "status": "未证",
+          "citation": null,
+          "snippet": null,
+          "gap": "no hit in ['S6_attack_round30.md', 'S6_attack_round30_working.md', 'S6_attack_round37.md']"
+        },
+        {
+          "query": "TOP meet and original W H bridge bound x",
+          "status": "部分已证",
+          "citation": "small/S6_attack_round30.md:29",
+          "snippet": "原稿保存在S6_round29_continuation_notes_original_20261014.md；已补正版S6_round29_continuation_notes.md仍未编入旧冻结主",
+          "gap": "weak token match"
+        },
+        {
+          "query": "small z/r imply bounded total V2 deficit",
+          "status": "未证",
+          "citation": null,
+          "snippet": null,
+          "gap": "no hit in ['S6_attack_round30.md', 'S6_attack_round30_working.md', 'S6_attack_round37.md']"
+        },
+        {
+          "query": "V2 small deficit caps S2",
+          "status": "未证",
+          "citation": null,
+          "snippet": null,
+          "gap": "no hit in ['S6_attack_round30.md', 'S6_attack_round30_working.md', 'S6_attack_round37.md']"
+        },
+        {
+          "query": "explicit small root/leg budget contradiction",
+          "status": "未证",
+          "citation": null,
+          "snippet": null,
+          "gap": "no hit in ['S6_attack_round30.md', 'S6_attack_round30_working.md', 'S6_attack_round37.md']"
+        },
+        {
+          "query": "W cannot bridge both C roots",
+          "status": "未证",
+          "citation": null,
+          "snippet": null,
+          "gap": "no hit in ['S6_attack_round30.md', 'S6_attack_round30_working.md', 'S6_attack_round37.md']"
+        },
+        {
+          "query": "high u: Delta(1-u)<u-q(u)",
+          "status": "部分已证",
+          "citation": "small/S6_attack_round37.md:115",
+          "snippet": "x>1-r,\\qquad L2-1<\\Delta(r)=r^2/[2(1-r)].",
+          "gap": "keyword/formula token match; not full algebraic discharge"
+        },
+        {
+          "query": "low u: v-q(v) is increasing to 4/7",
+          "status": "未证",
+          "citation": null,
+          "snippet": null,
+          "gap": "no hit in ['S6_attack_round30.md', 'S6_attack_round30_working.md', 'S6_attack_round37.md']"
+        },
+        {
+          "query": "angle comparison polynomial is positive",
+          "status": "未证",
+          "citation": null,
+          "snippet": null,
+          "gap": "no hit in ['S6_attack_round30.md', 'S6_attack_round30_working.md', 'S6_attack_round37.md']"
+        },
+        {
+          "query": "angle comparison polynomial derivative negative",
+          "status": "未证",
+          "citation": null,
+          "snippet": null,
+          "gap": "no hit in ['S6_attack_round30.md', 'S6_attack_round30_working.md', 'S6_attack_round37.md']"
+        },
+        {
+          "query": "low u angle comparison",
+          "status": "未证",
+          "citation": null,
+          "snippet": null,
+          "gap": "no hit in ['S6_attack_round30.md', 'S6_attack_round30_working.md', 'S6_attack_round37.md']"
+        },
+        {
+          "query": "direct right contact gives small L2 excess",
+          "status": "未证",
+          "citation": null,
+          "snippet": null,
+          "gap": "no hit in ['S6_attack_round30.md', 'S6_attack_round30_working.md', 'S6_attack_round37.md']"
+        },
+        {
+          "query": "final true W bridge contradiction",
+          "status": "未证",
+          "citation": null,
+          "snippet": null,
+          "gap": "no hit in ['S6_attack_round30.md', 'S6_attack_round30_working.md', 'S6_attack_round37.md']"
+        },
+        {
+          "query": "RIGHT positive C first up-root is beyond outer mid",
+          "status": "部分已证",
+          "citation": "small/S6_attack_round30.md:236",
+          "snippet": "其真实TOP腿D=99/100、RIGHT腿A=26/75，均<μ，两个mid都不含。中央水平截线完全空；中央竖线向内Y端点为11/750、1997/4000，所以",
+          "gap": "weak token match"
+        },
+        {
+          "query": "RIGHT positive C first left-root is active",
+          "status": "未证",
+          "citation": null,
+          "snippet": null,
+          "gap": "no hit in ['S6_attack_round30.md', 'S6_attack_round30_working.md', 'S6_attack_round37.md']"
+        },
+        {
+          "query": "RIGHT positive C real P gives e+d<eta",
+          "status": "未证",
+          "citation": null,
+          "snippet": null,
+          "gap": "no hit in ['S6_attack_round30.md', 'S6_attack_round30_working.md', 'S6_attack_round37.md']"
+        },
+        {
+          "query": "RIGHT short left root bounds TOP angle",
+          "status": "部分已证",
+          "citation": "small/S6_attack_round30.md:16",
+          "snippet": "原W=V3的RIGHT腿为A、TOP腿为D，中央水平/竖直截长H/J。正确配对：",
+          "gap": "weak token match"
+        },
+        {
+          "query": "RIGHT vertical W bridge forces small positive long root",
+          "status": "未证",
+          "citation": null,
+          "snippet": null,
+          "gap": "no hit in ['S6_attack_round30.md', 'S6_attack_round30_working.md', 'S6_attack_round37.md']"
+        },
+        {
+          "query": "RIGHT vertical W bridge forces d<1/5",
+          "status": "未证",
+          "citation": null,
+          "snippet": null,
+          "gap": "no hit in ['S6_attack_round30.md', 'S6_attack_round30_working.md', 'S6_attack_round37.md']"
+        },
+        {
+          "query": "RIGHT d cap makes z<1/20",
+          "status": "未证",
+          "citation": null,
+          "snippet": null,
+          "gap": "no hit in ['S6_attack_round30.md', 'S6_attack_round30_working.md', 'S6_attack_round37.md']"
+        },
+        {
+          "query": "RIGHT small z/r total upper below 211/399",
+          "status": "未证",
+          "citation": null,
+          "snippet": null,
+          "gap": "no hit in ['S6_attack_round30.md', 'S6_attack_round30_working.md', 'S6_attack_round37.md']"
+        },
+        {
+          "query": "RIGHT explicit two-short-leg contradiction",
+          "status": "未证",
+          "citation": null,
+          "snippet": null,
+          "gap": "no hit in ['S6_attack_round30.md', 'S6_attack_round30_working.md', 'S6_attack_round37.md']"
+        },
+        {
+          "query": "LEFT positive C first down and first up faces impossible",
+          "status": "未证",
+          "citation": null,
+          "snippet": null,
+          "gap": "no hit in ['S6_attack_round30.md', 'S6_attack_round30_working.md', 'S6_attack_round37.md']"
+        },
+        {
+          "query": "LEFT positive C first down and second up faces impossible",
+          "status": "未证",
+          "citation": null,
+          "snippet": null,
+          "gap": "no hit in ['S6_attack_round30.md', 'S6_attack_round30_working.md', 'S6_attack_round37.md']"
+        },
+        {
+          "query": "LEFT positive C same second vertical faces impossible",
+          "status": "未证",
+          "citation": null,
+          "snippet": null,
+          "gap": "no hit in ['S6_attack_round30.md', 'S6_attack_round30_working.md', 'S6_attack_round37.md']"
+        },
+        {
+          "query": "both W bridges force u>2/3",
+          "status": "未证",
+          "citation": null,
+          "snippet": null,
+          "gap": "no hit in ['S6_attack_round30.md', 'S6_attack_round30_working.md', 'S6_attack_round37.md']"
+        },
+        {
+          "query": "both W bridges force eta<1/3",
+          "status": "未证",
+          "citation": null,
+          "snippet": null,
+          "gap": "no hit in ['S6_attack_round30.md', 'S6_attack_round30_working.md', 'S6_attack_round37.md']"
+        },
+        {
+          "query": "[sympy]left root cap derivative",
+          "status": "已证",
+          "citation": "ex/all/check_round37_empty_left_negative.py:ident",
+          "snippet": "sp.cancel==0",
+          "gap": ""
+        },
+        {
+          "query": "[sympy]angle delta identity",
+          "status": "已证",
+          "citation": "ex/all/check_round37_empty_left_negative.py:ident",
+          "snippet": "sp.cancel==0",
+          "gap": ""
+        },
+        {
+          "query": "[sympy]small angle Delta comparison",
+          "status": "已证",
+          "citation": "ex/all/check_round37_empty_left_negative.py:ident",
+          "snippet": "sp.cancel==0",
+          "gap": ""
+        },
+        {
+          "query": "[sympy]polynomial derivative square",
+          "status": "已证",
+          "citation": "ex/all/check_round37_empty_left_negative.py:ident",
+          "snippet": "sp.cancel==0",
+          "gap": ""
+        },
+        {
+          "query": "[sympy]high u deficit comparison",
+          "status": "已证",
+          "citation": "ex/all/check_round37_empty_left_negative.py:ident",
+          "snippet": "sp.cancel==0",
+          "gap": ""
+        },
+        {
+          "query": "[sympy]low u deficit derivative",
+          "status": "已证",
+          "citation": "ex/all/check_round37_empty_left_negative.py:ident",
+          "snippet": "sp.cancel==0",
+          "gap": ""
+        },
+        {
+          "query": "[sympy]S2 rational q cap",
+          "status": "已证",
+          "citation": "ex/all/check_round37_empty_left_negative.py:ident",
+          "snippet": "sp.cancel==0",
+          "gap": ""
+        },
+        {
+          "query": "[sympy]root rescaling right boundary",
+          "status": "已证",
+          "citation": "ex/all/check_round37_empty_left_negative.py:ident",
+          "snippet": "sp.cancel==0",
+          "gap": ""
+        },
+        {
+          "query": "[sympy]both bridge feasibility polynomial",
+          "status": "已证",
+          "citation": "ex/all/check_round37_empty_left_negative.py:ident",
+          "snippet": "sp.cancel==0",
+          "gap": ""
+        },
+        {
+          "query": "[sympy]both bridge feasibility derivative",
+          "status": "已证",
+          "citation": "ex/all/check_round37_empty_left_negative.py:ident",
+          "snippet": "sp.cancel==0",
+          "gap": ""
+        },
+        {
+          "query": "[exact]eta q cap",
+          "status": "已证",
+          "citation": "ex/all/check_round37_empty_left_negative.py:exact",
+          "snippet": "exact()",
+          "gap": ""
+        },
+        {
+          "query": "[exact]left root cap endpoint",
+          "status": "已证",
+          "citation": "ex/all/check_round37_empty_left_negative.py:exact",
+          "snippet": "exact()",
+          "gap": ""
+        },
+        {
+          "query": "[exact]left root cap gap",
+          "status": "已证",
+          "citation": "ex/all/check_round37_empty_left_negative.py:exact",
+          "snippet": "exact()",
+          "gap": ""
+        },
+        {
+          "query": "[exact]small z long-leg excess",
+          "status": "已证",
+          "citation": "ex/all/check_round37_empty_left_negative.py:exact",
+          "snippet": "exact()",
+          "gap": ""
+        },
+        {
+          "query": "[exact]small r q bound",
+          "status": "已证",
+          "citation": "ex/all/check_round37_empty_left_negative.py:exact",
+          "snippet": "exact()",
+          "gap": ""
+        },
+        {
+          "query": "[exact]small bottom budget gap",
+          "status": "已证",
+          "citation": "ex/all/check_round37_empty_left_negative.py:exact",
+          "snippet": "exact()",
+          "gap": ""
+        },
+        {
+          "query": "[exact]angle polynomial endpoint",
+          "status": "已证",
+          "citation": "ex/all/check_round37_empty_left_negative.py:exact",
+          "snippet": "exact()",
+          "gap": ""
+        },
+        {
+          "query": "[exact]high u quadratic endpoint",
+          "status": "已证",
+          "citation": "ex/all/check_round37_empty_left_negative.py:exact",
+          "snippet": "exact()",
+          "gap": ""
+        },
+        {
+          "query": "[exact]low u derivative endpoint",
+          "status": "已证",
+          "citation": "ex/all/check_round37_empty_left_negative.py:exact",
+          "snippet": "exact()",
+          "gap": ""
+        },
+        {
+          "query": "[exact]RIGHT long root cap gap",
+          "status": "已证",
+          "citation": "ex/all/check_round37_empty_left_negative.py:exact",
+          "snippet": "exact()",
+          "gap": ""
+        },
+        {
+          "query": "[exact]RIGHT d cap below 1/5",
+          "status": "已证",
+          "citation": "ex/all/check_round37_empty_left_negative.py:exact",
+          "snippet": "exact()",
+          "gap": ""
+        },
+        {
+          "query": "[exact]RIGHT small deficit bound",
+          "status": "已证",
+          "citation": "ex/all/check_round37_empty_left_negative.py:exact",
+          "snippet": "exact()",
+          "gap": ""
+        },
+        {
+          "query": "[exact]RIGHT total short-leg gap",
+          "status": "已证",
+          "citation": "ex/all/check_round37_empty_left_negative.py:exact",
+          "snippet": "exact()",
+          "gap": ""
+        },
+        {
+          "query": "[exact]both bridge cubic at 2/3",
+          "status": "已证",
+          "citation": "ex/all/check_round37_empty_left_negative.py:exact",
+          "snippet": "exact()",
+          "gap": ""
+        },
+        {
+          "query": "[exact]both bridge square gap",
+          "status": "已证",
+          "citation": "ex/all/check_round37_empty_left_negative.py:exact",
+          "snippet": "exact()",
+          "gap": ""
+        }
+      ],
+      "manuscript_files": [
+        "small/S6_attack_round30.md",
+        "small/S6_attack_round30_working.md",
+        "small/S6_attack_round37.md",
+        "small/S6_attack_round37_working.md"
+      ]
+    },
+    {
+      "frame": "R38_empty_right",
+      "round": 38,
+      "script": "ex/all/check_round38_empty_right_negative.py",
+      "geom_claim": "空RIGHT",
+      "variables": "F H empty RIGHT",
+      "n_ok": 17,
+      "n_partial": 9,
+      "n_unmapped": 21,
+      "frame_status": "部分已证",
+      "frame_gap": "21 queries unmapped",
+      "lean_lemma_needed": "Frame-level: geometric inequalities remain external (z3); Lean needed only if elevating to machine-checked PDF bridge",
+      "query_maps": [
+        {
+          "query": "RIGHT negative first down and first up impossible",
+          "status": "未证",
+          "citation": null,
+          "snippet": null,
+          "gap": "no hit in ['S6_attack_round30.md', 'S6_attack_round30_working.md', 'S6_attack_round38.md']"
+        },
+        {
+          "query": "RIGHT negative first down and second up impossible",
+          "status": "未证",
+          "citation": null,
+          "snippet": null,
+          "gap": "no hit in ['S6_attack_round30.md', 'S6_attack_round30_working.md', 'S6_attack_round38.md']"
+        },
+        {
+          "query": "RIGHT negative both second vertical faces impossible",
+          "status": "未证",
+          "citation": null,
+          "snippet": null,
+          "gap": "no hit in ['S6_attack_round30.md', 'S6_attack_round30_working.md', 'S6_attack_round38.md']"
+        },
+        {
+          "query": "RIGHT negative first right face wins",
+          "status": "未证",
+          "citation": null,
+          "snippet": null,
+          "gap": "no hit in ['S6_attack_round30.md', 'S6_attack_round30_working.md', 'S6_attack_round38.md']"
+        },
+        {
+          "query": "global right root less than one gives u>eta",
+          "status": "未证",
+          "citation": null,
+          "snippet": null,
+          "gap": "no hit in ['S6_attack_round30.md', 'S6_attack_round30_working.md', 'S6_attack_round38.md']"
+        },
+        {
+          "query": "actual lower RIGHT gap end gives long L2",
+          "status": "未证",
+          "citation": null,
+          "snippet": null,
+          "gap": "no hit in ['S6_attack_round30.md', 'S6_attack_round30_working.md', 'S6_attack_round38.md']"
+        },
+        {
+          "query": "actual upper RIGHT gap end gives e+d<G",
+          "status": "未证",
+          "citation": null,
+          "snippet": null,
+          "gap": "no hit in ['S6_attack_round30.md', 'S6_attack_round30_working.md', 'S6_attack_round38.md']"
+        },
+        {
+          "query": "two actual left-root caps force l<1/2",
+          "status": "未证",
+          "citation": null,
+          "snippet": null,
+          "gap": "no hit in ['S6_attack_round30.md', 'S6_attack_round30_working.md', 'S6_attack_round38.md']"
+        },
+        {
+          "query": "LEFT meeting denominator exceeds 7/4",
+          "status": "未证",
+          "citation": null,
+          "snippet": null,
+          "gap": "no hit in ['S6_attack_round30.md', 'S6_attack_round30_working.md', 'S6_attack_round38.md']"
+        },
+        {
+          "query": "u upper and z upper separate C from QU",
+          "status": "未证",
+          "citation": null,
+          "snippet": null,
+          "gap": "no hit in ['S6_attack_round30.md', 'S6_attack_round30_working.md', 'S6_attack_round38.md']"
+        },
+        {
+          "query": "sqrt2 bounds imply u<6/7",
+          "status": "未证",
+          "citation": null,
+          "snippet": null,
+          "gap": "no hit in ['S6_attack_round30.md', 'S6_attack_round30_working.md', 'S6_attack_round38.md']"
+        },
+        {
+          "query": "z<4 l squared/7 is also z<d",
+          "status": "未证",
+          "citation": null,
+          "snippet": null,
+          "gap": "no hit in ['S6_attack_round30.md', 'S6_attack_round30_working.md', 'S6_attack_round38.md']"
+        },
+        {
+          "query": "original W vertical bridge forces u>4 eta/(1+3 eta)",
+          "status": "部分已证",
+          "citation": "small/S6_attack_round30.md:80",
+          "snippet": "d=\\min((\\alpha+1)/s,-\\beta/c).",
+          "gap": "weak token match"
+        },
+        {
+          "query": "diameter constant gap at w=2/7",
+          "status": "未证",
+          "citation": null,
+          "snippet": null,
+          "gap": "no hit in ['S6_attack_round30.md', 'S6_attack_round30_working.md', 'S6_attack_round38.md']"
+        },
+        {
+          "query": "large eta incompatible with w<2/7",
+          "status": "未证",
+          "citation": null,
+          "snippet": null,
+          "gap": "no hit in ['S6_attack_round30.md', 'S6_attack_round30_working.md', 'S6_attack_round38.md']"
+        },
+        {
+          "query": "small eta gives K<8/15 and u<15/28",
+          "status": "部分已证",
+          "citation": "small/S6_attack_round38.md:103",
+          "snippet": "\\boxed{\\eta<1/4,\\quad K<8/15,\\quad u=\\eta+w<15/28.}",
+          "gap": "keyword/formula token match; not full algebraic discharge"
+        },
+        {
+          "query": "small-u W bridge gives linear budget",
+          "status": "未证",
+          "citation": null,
+          "snippet": null,
+          "gap": "no hit in ['S6_attack_round30.md', 'S6_attack_round30_working.md', 'S6_attack_round38.md']"
+        },
+        {
+          "query": "q(l) short-leg loss cap",
+          "status": "未证",
+          "citation": null,
+          "snippet": null,
+          "gap": "no hit in ['S6_attack_round30.md', 'S6_attack_round30_working.md', 'S6_attack_round38.md']"
+        },
+        {
+          "query": "combine two linear coefficients to 7w/3",
+          "status": "未证",
+          "citation": null,
+          "snippet": null,
+          "gap": "no hit in ['S6_attack_round30.md', 'S6_attack_round30_working.md', 'S6_attack_round38.md']"
+        },
+        {
+          "query": "strong Phi loss exceeds 7w/3 on w<2/7",
+          "status": "部分已证",
+          "citation": "small/S6_attack_round38.md:88",
+          "snippet": "\\Sigma<\\frac13+\\Phi(2/7)",
+          "gap": "weak token match"
+        },
+        {
+          "query": "final explicit bottom square contradiction",
+          "status": "未证",
+          "citation": null,
+          "snippet": null,
+          "gap": "no hit in ['S6_attack_round30.md', 'S6_attack_round30_working.md', 'S6_attack_round38.md']"
+        },
+        {
+          "query": "LEFT double W bridge forces u>7/10",
+          "status": "未证",
+          "citation": null,
+          "snippet": null,
+          "gap": "no hit in ['S6_attack_round30.md', 'S6_attack_round30_working.md', 'S6_attack_round38.md']"
+        },
+        {
+          "query": "LEFT double W bridge forces eta<3/10",
+          "status": "部分已证",
+          "citation": "small/S6_attack_round38.md:176",
+          "snippet": "\\boxed{17/60<\\eta<3/10,\\quad",
+          "gap": "weak token match"
+        },
+        {
+          "query": "LEFT double bridge long-leg domain forces eta>17/60",
+          "status": "部分已证",
+          "citation": "small/S6_attack_round38.md:176",
+          "snippet": "\\boxed{17/60<\\eta<3/10,\\quad",
+          "gap": "weak token match"
+        },
+        {
+          "query": "LEFT double bridge gives small Phi(2/5)",
+          "status": "部分已证",
+          "citation": "small/S6_attack_round38.md:177",
+          "snippet": "7/10<u<43/60,\\quad S1\\le\\Phi(w)<\\Phi(2/5)<1/30.}",
+          "gap": "weak token match"
+        },
+        {
+          "query": "LEFT double bridge two bottom legs force S2>1/2",
+          "status": "部分已证",
+          "citation": "small/S6_attack_round30_working.md:14",
+          "snippet": "- LEFT缺口：RIGHT相接给J<δ(x)；z+δ(x)>1/2。LEFT不相接，不设z<4/15。",
+          "gap": "weak token match"
+        },
+        {
+          "query": "LEFT S2>1/2 forces x<1/3",
+          "status": "部分已证",
+          "citation": "small/S6_attack_round30_working.md:14",
+          "snippet": "- LEFT缺口：RIGHT相接给J<δ(x)；z+δ(x)>1/2。LEFT不相接，不设z<4/15。",
+          "gap": "weak token match"
+        },
+        {
+          "query": "LEFT double bridge actual d lower and G upper",
+          "status": "未证",
+          "citation": null,
+          "snippet": null,
+          "gap": "no hit in ['S6_attack_round30.md', 'S6_attack_round30_working.md', 'S6_attack_round38.md']"
+        },
+        {
+          "query": "LEFT double bridge z and q(u) upper",
+          "status": "未证",
+          "citation": null,
+          "snippet": null,
+          "gap": "no hit in ['S6_attack_round30.md', 'S6_attack_round30_working.md', 'S6_attack_round38.md']"
+        },
+        {
+          "query": "LEFT C direct QU gives stronger bridge budget",
+          "status": "部分已证",
+          "citation": "small/S6_attack_round38.md:5",
+          "snippet": "另完整排除LEFT正C中原W同时桥接两条正轴，以及C同时直接接合两条正轴的两个子类。这里用新的底弦直径论证，不引用三十七轮已撤回的漏1预算。LEFT必须由C恰好直接接到Q2、QU之一，且原W不能含TO",
+          "gap": "weak token match"
+        },
+        {
+          "query": "[sympy]small left root diameter deficit",
+          "status": "已证",
+          "citation": "ex/all/check_round38_empty_right_negative.py:ident",
+          "snippet": "sp.cancel==0",
+          "gap": ""
+        },
+        {
+          "query": "[sympy]lower bound u creates w lower bound",
+          "status": "已证",
+          "citation": "ex/all/check_round38_empty_right_negative.py:ident",
+          "snippet": "sp.cancel==0",
+          "gap": ""
+        },
+        {
+          "query": "[sympy]eta quadratic test",
+          "status": "已证",
+          "citation": "ex/all/check_round38_empty_right_negative.py:ident",
+          "snippet": "sp.cancel==0",
+          "gap": ""
+        },
+        {
+          "query": "[sympy]strong Phi squared difference",
+          "status": "已证",
+          "citation": "ex/all/check_round38_empty_right_negative.py:ident",
+          "snippet": "sp.cancel==0",
+          "gap": ""
+        },
+        {
+          "query": "[sympy]Phi monotone squared difference",
+          "status": "已证",
+          "citation": "ex/all/check_round38_empty_right_negative.py:ident",
+          "snippet": "sp.cancel==0",
+          "gap": ""
+        },
+        {
+          "query": "[sympy]Phi at 2/7 gap",
+          "status": "已证",
+          "citation": "ex/all/check_round38_empty_right_negative.py:ident",
+          "snippet": "sp.cancel==0",
+          "gap": ""
+        },
+        {
+          "query": "[exact]eta test at 1/4",
+          "status": "已证",
+          "citation": "ex/all/check_round38_empty_right_negative.py:exact",
+          "snippet": "exact()",
+          "gap": ""
+        },
+        {
+          "query": "[exact]eta test at 5/12",
+          "status": "已证",
+          "citation": "ex/all/check_round38_empty_right_negative.py:exact",
+          "snippet": "exact()",
+          "gap": ""
+        },
+        {
+          "query": "[exact]diameter radical square gap",
+          "status": "已证",
+          "citation": "ex/all/check_round38_empty_right_negative.py:exact",
+          "snippet": "exact()",
+          "gap": ""
+        },
+        {
+          "query": "[exact]u coefficient slack",
+          "status": "已证",
+          "citation": "ex/all/check_round38_empty_right_negative.py:exact",
+          "snippet": "exact()",
+          "gap": ""
+        },
+        {
+          "query": "[exact]eta coefficient slack",
+          "status": "已证",
+          "citation": "ex/all/check_round38_empty_right_negative.py:exact",
+          "snippet": "exact()",
+          "gap": ""
+        },
+        {
+          "query": "[exact]last squared strict margin",
+          "status": "已证",
+          "citation": "ex/all/check_round38_empty_right_negative.py:exact",
+          "snippet": "exact()",
+          "gap": ""
+        },
+        {
+          "query": "[exact]double bridge cubic at 7/10",
+          "status": "已证",
+          "citation": "ex/all/check_round38_empty_right_negative.py:exact",
+          "snippet": "exact()",
+          "gap": ""
+        },
+        {
+          "query": "[exact]double bridge K gap",
+          "status": "已证",
+          "citation": "ex/all/check_round38_empty_right_negative.py:exact",
+          "snippet": "exact()",
+          "gap": ""
+        },
+        {
+          "query": "[exact]Phi(2/5) comparison square gap",
+          "status": "已证",
+          "citation": "ex/all/check_round38_empty_right_negative.py:exact",
+          "snippet": "exact()",
+          "gap": ""
+        },
+        {
+          "query": "[exact]bottom diameter lower comparison square gap",
+          "status": "已证",
+          "citation": "ex/all/check_round38_empty_right_negative.py:exact",
+          "snippet": "exact()",
+          "gap": ""
+        },
+        {
+          "query": "[exact]W right-leg upper comparison",
+          "status": "已证",
+          "citation": "ex/all/check_round38_empty_right_negative.py:exact",
+          "snippet": "exact()",
+          "gap": ""
+        }
+      ],
+      "manuscript_files": [
+        "small/S6_attack_round30.md",
+        "small/S6_attack_round30_working.md",
+        "small/S6_attack_round38.md",
+        "small/S6_attack_round38_working.md"
+      ]
+    },
+    {
+      "frame": "R39_contact",
+      "round": 39,
+      "script": "ex/all/check_round39_single_contact.py",
+      "geom_claim": "单相接→标准形",
+      "variables": "single contact",
+      "n_ok": 25,
+      "n_partial": 6,
+      "n_unmapped": 23,
+      "frame_status": "部分已证",
+      "frame_gap": "23 queries unmapped",
+      "lean_lemma_needed": "Frame-level: geometric inequalities remain external (z3); Lean needed only if elevating to machine-checked PDF bridge",
+      "query_maps": [
+        {
+          "query": "LEFT direct Q2 two roots give r<1/2",
+          "status": "部分已证",
+          "citation": "small/S6_attack_round39_working.md:11",
+          "snippet": "仅对C避BOTTOM、完整底缺口及闭端归F的LEFT代表。F包含底弦两端以及其从底mid向上V截线的实际最高端；三点三角形面积为bv/2。任一单位正方形内三角形面积≤1/2，所以bv≤1。结合b≥2μ",
+          "gap": "weak token match"
+        },
+        {
+          "query": "LEFT direct Q2 preliminary t is below one",
+          "status": "未证",
+          "citation": null,
+          "snippet": null,
+          "gap": "no hit in ['S6_attack_round39.md', 'S6_attack_round39_working.md', 'M3_branch_table_zh.md']"
+        },
+        {
+          "query": "actual V bridge equivalent deficit inequality",
+          "status": "未证",
+          "citation": null,
+          "snippet": null,
+          "gap": "no hit in ['S6_attack_round39.md', 'S6_attack_round39_working.md', 'M3_branch_table_zh.md']"
+        },
+        {
+          "query": "small root Delta is below ud",
+          "status": "部分已证",
+          "citation": "small/S6_attack_round39.md:16",
+          "snippet": "\\Delta(t)=\\frac{t^2}{2(1-t)},\\quad",
+          "gap": "keyword/formula token match; not full algebraic discharge"
+        },
+        {
+          "query": "bridge implies original eta lower bound on u",
+          "status": "未证",
+          "citation": null,
+          "snippet": null,
+          "gap": "no hit in ['S6_attack_round39.md', 'S6_attack_round39_working.md', 'M3_branch_table_zh.md']"
+        },
+        {
+          "query": "w cap forces eta<1/4",
+          "status": "部分已证",
+          "citation": "small/S6_attack_round39.md:68",
+          "snippet": "\\boxed{\\eta<1/4,\\quad K<8/15,\\quad u<15/28,\\quad r<2/7.}",
+          "gap": "weak token match"
+        },
+        {
+          "query": "eta and w caps force small r",
+          "status": "未证",
+          "citation": null,
+          "snippet": null,
+          "gap": "no hit in ['S6_attack_round39.md', 'S6_attack_round39_working.md', 'M3_branch_table_zh.md']"
+        },
+        {
+          "query": "improved t is below one half",
+          "status": "未证",
+          "citation": null,
+          "snippet": null,
+          "gap": "no hit in ['S6_attack_round39.md', 'S6_attack_round39_working.md', 'M3_branch_table_zh.md']"
+        },
+        {
+          "query": "q contraction and Delta coefficient",
+          "status": "部分已证",
+          "citation": "small/S6_attack_round39.md:16",
+          "snippet": "\\Delta(t)=\\frac{t^2}{2(1-t)},\\quad",
+          "gap": "keyword/formula token match; not full algebraic discharge"
+        },
+        {
+          "query": "new linear deficit budget",
+          "status": "未证",
+          "citation": null,
+          "snippet": null,
+          "gap": "no hit in ['S6_attack_round39.md', 'S6_attack_round39_working.md', 'M3_branch_table_zh.md']"
+        },
+        {
+          "query": "combine explicit coefficient slack",
+          "status": "未证",
+          "citation": null,
+          "snippet": null,
+          "gap": "no hit in ['S6_attack_round39.md', 'S6_attack_round39_working.md', 'M3_branch_table_zh.md']"
+        },
+        {
+          "query": "Phi and actual bottom square contradiction",
+          "status": "未证",
+          "citation": null,
+          "snippet": null,
+          "gap": "no hit in ['S6_attack_round39.md', 'S6_attack_round39_working.md', 'M3_branch_table_zh.md']"
+        },
+        {
+          "query": "three meetings, direct QU gives upper root lower bound",
+          "status": "未证",
+          "citation": null,
+          "snippet": null,
+          "gap": "no hit in ['S6_attack_round39.md', 'S6_attack_round39_working.md', 'M3_branch_table_zh.md']"
+        },
+        {
+          "query": "three meetings, actual W V bridge gives upper root lower bound",
+          "status": "未证",
+          "citation": null,
+          "snippet": null,
+          "gap": "no hit in ['S6_attack_round39.md', 'S6_attack_round39_working.md', 'M3_branch_table_zh.md']"
+        },
+        {
+          "query": "C upper root excludes any BOTTOM point by diameter",
+          "status": "未证",
+          "citation": null,
+          "snippet": null,
+          "gap": "no hit in ['S6_attack_round39.md', 'S6_attack_round39_working.md', 'M3_branch_table_zh.md']"
+        },
+        {
+          "query": "same F triangle area gives bottom budget",
+          "status": "未证",
+          "citation": null,
+          "snippet": null,
+          "gap": "no hit in ['S6_attack_round39.md', 'S6_attack_round39_working.md', 'M3_branch_table_zh.md']"
+        },
+        {
+          "query": "same F square budget remains legal after C avoids bottom",
+          "status": "未证",
+          "citation": null,
+          "snippet": null,
+          "gap": "no hit in ['S6_attack_round39.md', 'S6_attack_round39_working.md', 'M3_branch_table_zh.md']"
+        },
+        {
+          "query": "LEFT top contact root lemma r<2w/3",
+          "status": "部分已证",
+          "citation": "closure/M3_branch_table_zh.md:76",
+          "snippet": "`m3_branch_checker.py`：**PASS**（24 格 = 活叶子 ∪ 显式不可能格；其中 `top_gap+LEFT缺口+F正截线` 与 `both_gap` 标为不可能）。",
+          "gap": "weak token match"
+        },
+        {
+          "query": "root lemma P increases with w",
+          "status": "未证",
+          "citation": null,
+          "snippet": null,
+          "gap": "no hit in ['S6_attack_round39.md', 'S6_attack_round39_working.md', 'M3_branch_table_zh.md']"
+        },
+        {
+          "query": "root lemma large eta cubic positive",
+          "status": "未证",
+          "citation": null,
+          "snippet": null,
+          "gap": "no hit in ['S6_attack_round39.md', 'S6_attack_round39_working.md', 'M3_branch_table_zh.md']"
+        },
+        {
+          "query": "root lemma small eta sixth degree positive",
+          "status": "未证",
+          "citation": null,
+          "snippet": null,
+          "gap": "no hit in ['S6_attack_round39.md', 'S6_attack_round39_working.md', 'M3_branch_table_zh.md']"
+        },
+        {
+          "query": "global TOP meeting with H bridge gives S2<5/12",
+          "status": "未证",
+          "citation": null,
+          "snippet": null,
+          "gap": "no hit in ['S6_attack_round39.md', 'S6_attack_round39_working.md', 'M3_branch_table_zh.md']"
+        },
+        {
+          "query": "w<1/3 strengthens S2 to 13/35",
+          "status": "未证",
+          "citation": null,
+          "snippet": null,
+          "gap": "no hit in ['S6_attack_round39.md', 'S6_attack_round39_working.md', 'M3_branch_table_zh.md']"
+        },
+        {
+          "query": "w<9/28 excludes eta>=1/4",
+          "status": "部分已证",
+          "citation": "small/S6_attack_round39.md:68",
+          "snippet": "\\boxed{\\eta<1/4,\\quad K<8/15,\\quad u<15/28,\\quad r<2/7.}",
+          "gap": "weak token match"
+        },
+        {
+          "query": "top contact new linear d cap",
+          "status": "未证",
+          "citation": null,
+          "snippet": null,
+          "gap": "no hit in ['S6_attack_round39.md', 'S6_attack_round39_working.md', 'M3_branch_table_zh.md']"
+        },
+        {
+          "query": "actual horizontal W bridge refined deficit is small",
+          "status": "未证",
+          "citation": null,
+          "snippet": null,
+          "gap": "no hit in ['S6_attack_round39.md', 'S6_attack_round39_working.md', 'M3_branch_table_zh.md']"
+        },
+        {
+          "query": "refined H bridge bounds S2",
+          "status": "未证",
+          "citation": null,
+          "snippet": null,
+          "gap": "no hit in ['S6_attack_round39.md', 'S6_attack_round39_working.md', 'M3_branch_table_zh.md']"
+        },
+        {
+          "query": "top contact linear loss budget",
+          "status": "未证",
+          "citation": null,
+          "snippet": null,
+          "gap": "no hit in ['S6_attack_round39.md', 'S6_attack_round39_working.md', 'M3_branch_table_zh.md']"
+        },
+        {
+          "query": "top contact final Phi loss contradiction",
+          "status": "未证",
+          "citation": null,
+          "snippet": null,
+          "gap": "no hit in ['S6_attack_round39.md', 'S6_attack_round39_working.md', 'M3_branch_table_zh.md']"
+        },
+        {
+          "query": "[sympy]area vs square budget difference",
+          "status": "已证",
+          "citation": "ex/all/check_round39_single_contact.py:ident",
+          "snippet": "sp.cancel==0",
+          "gap": ""
+        },
+        {
+          "query": "[sympy]bottom budget derivative in mu",
+          "status": "已证",
+          "citation": "ex/all/check_round39_single_contact.py:ident",
+          "snippet": "sp.cancel==0",
+          "gap": ""
+        },
+        {
+          "query": "[sympy]root lemma projection numerator",
+          "status": "已证",
+          "citation": "ex/all/check_round39_single_contact.py:ident",
+          "snippet": "sp.cancel==0",
+          "gap": ""
+        },
+        {
+          "query": "[sympy]root lemma large w endpoint",
+          "status": "已证",
+          "citation": "ex/all/check_round39_single_contact.py:ident",
+          "snippet": "sp.cancel==0",
+          "gap": ""
+        },
+        {
+          "query": "[sympy]root lemma small eta endpoint",
+          "status": "已证",
+          "citation": "ex/all/check_round39_single_contact.py:ident",
+          "snippet": "sp.cancel==0",
+          "gap": ""
+        },
+        {
+          "query": "[sympy]eta lower-bound quadratic at w=9/28",
+          "status": "已证",
+          "citation": "ex/all/check_round39_single_contact.py:ident",
+          "snippet": "sp.cancel==0",
+          "gap": ""
+        },
+        {
+          "query": "[exact]t cap",
+          "status": "已证",
+          "citation": "ex/all/check_round39_single_contact.py:exact",
+          "snippet": "exact()",
+          "gap": ""
+        },
+        {
+          "query": "[exact]half minus t cap",
+          "status": "已证",
+          "citation": "ex/all/check_round39_single_contact.py:exact",
+          "snippet": "exact()",
+          "gap": ""
+        },
+        {
+          "query": "[exact]u coefficient gap",
+          "status": "已证",
+          "citation": "ex/all/check_round39_single_contact.py:exact",
+          "snippet": "exact()",
+          "gap": ""
+        },
+        {
+          "query": "[exact]eta coefficient gap",
+          "status": "已证",
+          "citation": "ex/all/check_round39_single_contact.py:exact",
+          "snippet": "exact()",
+          "gap": ""
+        },
+        {
+          "query": "[exact]strong loss squared margin",
+          "status": "已证",
+          "citation": "ex/all/check_round39_single_contact.py:exact",
+          "snippet": "exact()",
+          "gap": ""
+        },
+        {
+          "query": "[exact]C bottom diameter margin",
+          "status": "已证",
+          "citation": "ex/all/check_round39_single_contact.py:exact",
+          "snippet": "exact()",
+          "gap": ""
+        },
+        {
+          "query": "[exact]root cubic endpoint",
+          "status": "已证",
+          "citation": "ex/all/check_round39_single_contact.py:exact",
+          "snippet": "exact()",
+          "gap": ""
+        },
+        {
+          "query": "[exact]root cubic derivative endpoint",
+          "status": "已证",
+          "citation": "ex/all/check_round39_single_contact.py:exact",
+          "snippet": "exact()",
+          "gap": ""
+        },
+        {
+          "query": "[exact]root sixth degree endpoint",
+          "status": "已证",
+          "citation": "ex/all/check_round39_single_contact.py:exact",
+          "snippet": "exact()",
+          "gap": ""
+        },
+        {
+          "query": "[exact]root sixth degree derivative cap",
+          "status": "已证",
+          "citation": "ex/all/check_round39_single_contact.py:exact",
+          "snippet": "exact()",
+          "gap": ""
+        },
+        {
+          "query": "[exact]Phi(1/3) root comparison",
+          "status": "已证",
+          "citation": "ex/all/check_round39_single_contact.py:exact",
+          "snippet": "exact()",
+          "gap": ""
+        },
+        {
+          "query": "[exact]Phi(9/28) rational upper gap",
+          "status": "已证",
+          "citation": "ex/all/check_round39_single_contact.py:exact",
+          "snippet": "exact()",
+          "gap": ""
+        },
+        {
+          "query": "[exact]global H bridge S2 cap",
+          "status": "已证",
+          "citation": "ex/all/check_round39_single_contact.py:exact",
+          "snippet": "exact()",
+          "gap": ""
+        },
+        {
+          "query": "[exact]global H cap gap",
+          "status": "已证",
+          "citation": "ex/all/check_round39_single_contact.py:exact",
+          "snippet": "exact()",
+          "gap": ""
+        },
+        {
+          "query": "[exact]second global H cap",
+          "status": "已证",
+          "citation": "ex/all/check_round39_single_contact.py:exact",
+          "snippet": "exact()",
+          "gap": ""
+        },
+        {
+          "query": "[exact]eta quadratic left endpoint",
+          "status": "已证",
+          "citation": "ex/all/check_round39_single_contact.py:exact",
+          "snippet": "exact()",
+          "gap": ""
+        },
+        {
+          "query": "[exact]eta quadratic right endpoint",
+          "status": "已证",
+          "citation": "ex/all/check_round39_single_contact.py:exact",
+          "snippet": "exact()",
+          "gap": ""
+        },
+        {
+          "query": "[exact]top loss eta coefficient gap",
+          "status": "已证",
+          "citation": "ex/all/check_round39_single_contact.py:exact",
+          "snippet": "exact()",
+          "gap": ""
+        },
+        {
+          "query": "[exact]top final squared loss gap",
+          "status": "已证",
+          "citation": "ex/all/check_round39_single_contact.py:exact",
+          "snippet": "exact()",
+          "gap": ""
+        }
+      ],
+      "manuscript_files": [
+        "small/S6_attack_round39.md",
+        "small/S6_attack_round39_working.md",
+        "closure/M3_branch_table_zh.md"
+      ]
+    }
+  ]
+}

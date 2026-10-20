@@ -1,0 +1,337 @@
+{
+  "distribution_integrity": "passed",
+  "recursive_frozen_archives": 65,
+  "mathematical_replay_requested": true,
+  "geometric_global_reductions_automatically_verified": false,
+  "full_package_entries_replayed": 64,
+  "round2_selected_base_checks": "passed",
+  "round10_correction_queries": 2,
+  "round2_finite_point_search_replayed": false,
+  "rows": [
+    {
+      "label": "11",
+      "status": "passed",
+      "seconds": 0.878
+    },
+    {
+      "label": "12",
+      "status": "passed",
+      "seconds": 1.46
+    },
+    {
+      "label": "10",
+      "status": "passed",
+      "seconds": 1.883
+    },
+    {
+      "label": "15",
+      "status": "passed",
+      "seconds": 1.545
+    },
+    {
+      "label": "13",
+      "status": "passed",
+      "seconds": 3.76
+    },
+    {
+      "label": "16",
+      "status": "passed",
+      "seconds": 3.075
+    },
+    {
+      "label": "16_addendum",
+      "status": "passed",
+      "seconds": 2.289
+    },
+    {
+      "label": "18",
+      "status": "passed",
+      "seconds": 0.571
+    },
+    {
+      "label": "19",
+      "status": "passed",
+      "seconds": 2.515
+    },
+    {
+      "label": "17",
+      "status": "passed",
+      "seconds": 4.287
+    },
+    {
+      "label": "20_addendum",
+      "status": "passed",
+      "seconds": 0.584
+    },
+    {
+      "label": "21",
+      "status": "passed",
+      "seconds": 0.615
+    },
+    {
+      "label": "21_addendum",
+      "status": "passed",
+      "seconds": 0.666
+    },
+    {
+      "label": "20",
+      "status": "passed",
+      "seconds": 3.618
+    },
+    {
+      "label": "22",
+      "status": "passed",
+      "seconds": 1.346
+    },
+    {
+      "label": "24",
+      "status": "passed",
+      "seconds": 1.942
+    },
+    {
+      "label": "23",
+      "status": "passed",
+      "seconds": 2.752
+    },
+    {
+      "label": "24_addendum",
+      "status": "passed",
+      "seconds": 2.026
+    },
+    {
+      "label": "25",
+      "status": "passed",
+      "seconds": 2.488
+    },
+    {
+      "label": "26",
+      "status": "passed",
+      "seconds": 1.362
+    },
+    {
+      "label": "27",
+      "status": "passed",
+      "seconds": 0.689
+    },
+    {
+      "label": "29",
+      "status": "passed",
+      "seconds": 0.529
+    },
+    {
+      "label": "3",
+      "status": "passed",
+      "seconds": 2.922
+    },
+    {
+      "label": "30",
+      "status": "passed",
+      "seconds": 0.702
+    },
+    {
+      "label": "28",
+      "status": "passed",
+      "seconds": 14.044
+    },
+    {
+      "label": "14",
+      "status": "passed",
+      "seconds": 33.111
+    },
+    {
+      "label": "34",
+      "status": "passed",
+      "seconds": 0.435
+    },
+    {
+      "label": "33",
+      "status": "passed",
+      "seconds": 15.346
+    },
+    {
+      "label": "37",
+      "status": "passed",
+      "seconds": 0.521
+    },
+    {
+      "label": "38",
+      "status": "passed",
+      "seconds": 0.423
+    },
+    {
+      "label": "39",
+      "status": "passed",
+      "seconds": 0.468
+    },
+    {
+      "label": "36",
+      "status": "passed",
+      "seconds": 15.797
+    },
+    {
+      "label": "40",
+      "status": "passed",
+      "seconds": 0.813
+    },
+    {
+      "label": "41",
+      "status": "passed",
+      "seconds": 2.378
+    },
+    {
+      "label": "42",
+      "status": "passed",
+      "seconds": 2.231
+    },
+    {
+      "label": "43",
+      "status": "passed",
+      "seconds": 0.42
+    },
+    {
+      "label": "44",
+      "status": "passed",
+      "seconds": 1.541
+    },
+    {
+      "label": "45",
+      "status": "passed",
+      "seconds": 0.439
+    },
+    {
+      "label": "46",
+      "status": "passed",
+      "seconds": 0.508
+    },
+    {
+      "label": "31",
+      "status": "passed",
+      "seconds": 35.623
+    },
+    {
+      "label": "48",
+      "status": "passed",
+      "seconds": 0.364
+    },
+    {
+      "label": "47",
+      "status": "passed",
+      "seconds": 0.562
+    },
+    {
+      "label": "49",
+      "status": "passed",
+      "seconds": 0.723
+    },
+    {
+      "label": "5",
+      "status": "passed",
+      "seconds": 0.869
+    },
+    {
+      "label": "50",
+      "status": "passed",
+      "seconds": 0.409
+    },
+    {
+      "label": "52",
+      "status": "passed",
+      "seconds": 0.419
+    },
+    {
+      "label": "53",
+      "status": "passed",
+      "seconds": 1.013
+    },
+    {
+      "label": "51",
+      "status": "passed",
+      "seconds": 1.774
+    },
+    {
+      "label": "54",
+      "status": "passed",
+      "seconds": 1.51
+    },
+    {
+      "label": "55",
+      "status": "passed",
+      "seconds": 8.936
+    },
+    {
+      "label": "4",
+      "status": "passed",
+      "seconds": 27.951
+    },
+    {
+      "label": "56",
+      "status": "passed",
+      "seconds": 22.785
+    },
+    {
+      "label": "59",
+      "status": "passed",
+      "seconds": 0.943
+    },
+    {
+      "label": "6",
+      "status": "passed",
+      "seconds": 0.662
+    },
+    {
+      "label": "60",
+      "status": "passed",
+      "seconds": 4.725
+    },
+    {
+      "label": "57",
+      "status": "passed",
+      "seconds": 23.088
+    },
+    {
+      "label": "58",
+      "status": "passed",
+      "seconds": 21.842
+    },
+    {
+      "label": "63",
+      "status": "passed",
+      "seconds": 0.754
+    },
+    {
+      "label": "64",
+      "status": "passed",
+      "seconds": 1.059
+    },
+    {
+      "label": "61",
+      "status": "passed",
+      "seconds": 9.017
+    },
+    {
+      "label": "7",
+      "status": "passed",
+      "seconds": 0.838
+    },
+    {
+      "label": "9",
+      "status": "passed",
+      "seconds": 1.543
+    },
+    {
+      "label": "8",
+      "status": "passed",
+      "seconds": 2.441
+    },
+    {
+      "label": "2",
+      "status": "passed",
+      "seconds": 0.58
+    },
+    {
+      "label": "62",
+      "status": "passed",
+      "seconds": 16.186
+    }
+  ]
+}

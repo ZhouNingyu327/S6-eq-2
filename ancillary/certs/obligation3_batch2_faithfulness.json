@@ -1,0 +1,231 @@
+{
+  "updated": "2026-10-20T23:10+08:00",
+  "batch": 2,
+  "scope": "Deep faithfulness: R29N + R29 far-TOP + R31 (high-risk remote branch)",
+  "method": "Query-name and formula crosswalk to M2_R29_module_zh.md / script-local definitions; sympy identities checked in-script; solvers NOT re-run",
+  "honesty": "部分已证 ≠ PDF 全文重证；未证-δ定义 / 未证-常数来源 are concrete gaps",
+  "counts": {
+    "部分已证": 11,
+    "已证": 10,
+    "未证": 3
+  },
+  "n_alignments": 24,
+  "alignments": [
+    {
+      "frame": "R29N_no_top",
+      "script": "ex/all/check_round29_no_top_structure.py",
+      "query": "C side+bottom and F H nonempty impossible",
+      "manuscript_ref": "R29N.2",
+      "geom_meaning": "C 触 BOTTOM 且 F∩H≠∅ 不可能",
+      "note": "已对照：查询否定式对应 R29N.2 的逆否/不可能情形；变量 C/F/H/BOTTOM 与模块用语一致",
+      "status": "部分已证"
+    },
+    {
+      "frame": "R29N_no_top",
+      "script": "ex/all/check_round29_no_top_structure.py",
+      "query": "C bottom and F H nonempty, three meetings",
+      "manuscript_ref": "R29N.2+R29N.4 Hyp",
+      "geom_meaning": "三相接+F水平非空+C触底",
+      "note": "已对照：入口与 R29N.4 假设同型；具体截长符号 (a,x,Σ,f) 与 R29N.3 一致需逐不等式核对",
+      "status": "部分已证"
+    },
+    {
+      "frame": "R29N_no_top",
+      "script": "ex/all/check_round29_no_top_structure.py",
+      "query": "real bottom and H budget gives Sigma>1+f",
+      "manuscript_ref": "R29N.3 (R29N.1)",
+      "geom_meaning": "Σ>1+f 真实底+水平预算",
+      "note": "已对照：查询名与 (R29N.1) 第一式同文；系数是否=手稿需展开约束",
+      "status": "部分已证"
+    },
+    {
+      "frame": "R29N_no_top",
+      "script": "ex/all/check_round29_no_top_structure.py",
+      "query": "joint bottom angles a+x+3ax<1",
+      "manuscript_ref": "R29N.3 (R29N.2)",
+      "geom_meaning": "a+x+3ax<1",
+      "note": "已对照：与模块公式 (R29N.2) 字面一致",
+      "status": "已证-公式对齐"
+    },
+    {
+      "frame": "R29N_no_top",
+      "script": "ex/all/check_round29_no_top_structure.py",
+      "query": "two adjacent corner budgets give strengthened C horizontal chord",
+      "manuscript_ref": "R29N.4 / (R29N.4)(R29N.6)",
+      "geom_meaning": "角预算→C 弦下界",
+      "note": "已对照：叙事匹配 R29N.4 证明链；δ/z 符号与 CORRECTED 查询交叉",
+      "status": "部分已证"
+    },
+    {
+      "frame": "R29N_no_top",
+      "script": "ex/all/check_round29_no_top_structure.py",
+      "query": "CORRECTED actual TOP/H parallel pair gives H<delta(z)",
+      "manuscript_ref": "R29N + 平行弦界",
+      "geom_meaning": "TOP/H 平行对 H<δ(z)",
+      "note": "依赖义务1 B/δ 几何；查询为校正版平行对——与手稿 δ 定义对齐待核 δ= f 或 B",
+      "status": "未证-δ定义"
+    },
+    {
+      "frame": "R29N_no_top",
+      "script": "ex/all/check_round29_no_top_structure.py",
+      "query": "CORRECTED actual RIGHT/V parallel pair gives J<delta(x)",
+      "manuscript_ref": "同上 RIGHT/V",
+      "geom_meaning": "J<δ(x)",
+      "note": "同上一行",
+      "status": "未证-δ定义"
+    },
+    {
+      "frame": "R29_far_top",
+      "script": "ex/all/check_round29_far_top_complete.py",
+      "query": "[sympy] q first",
+      "manuscript_ref": "far-TOP 导数/恒等式",
+      "geom_meaning": "q first",
+      "note": "脚本内 sp.cancel==0 独立核验",
+      "status": "已证-sympy恒等式"
+    },
+    {
+      "frame": "R29_far_top",
+      "script": "ex/all/check_round29_far_top_complete.py",
+      "query": "[sympy] q second",
+      "manuscript_ref": "far-TOP 导数/恒等式",
+      "geom_meaning": "q second",
+      "note": "脚本内 sp.cancel==0 独立核验",
+      "status": "已证-sympy恒等式"
+    },
+    {
+      "frame": "R29_far_top",
+      "script": "ex/all/check_round29_far_top_complete.py",
+      "query": "[sympy] g first",
+      "manuscript_ref": "far-TOP 导数/恒等式",
+      "geom_meaning": "g first",
+      "note": "脚本内 sp.cancel==0 独立核验",
+      "status": "已证-sympy恒等式"
+    },
+    {
+      "frame": "R29_far_top",
+      "script": "ex/all/check_round29_far_top_complete.py",
+      "query": "[sympy] g second",
+      "manuscript_ref": "far-TOP 导数/恒等式",
+      "geom_meaning": "g second",
+      "note": "脚本内 sp.cancel==0 独立核验",
+      "status": "已证-sympy恒等式"
+    },
+    {
+      "frame": "R29_far_top",
+      "script": "ex/all/check_round29_far_top_complete.py",
+      "query": "[sympy] G second",
+      "manuscript_ref": "far-TOP 导数/恒等式",
+      "geom_meaning": "G second",
+      "note": "脚本内 sp.cancel==0 独立核验",
+      "status": "已证-sympy恒等式"
+    },
+    {
+      "frame": "R29_far_top",
+      "script": "ex/all/check_round29_far_top_complete.py",
+      "query": "[sympy] A-q(h) positive identity",
+      "manuscript_ref": "far-TOP 导数/恒等式",
+      "geom_meaning": "A-q(h) positive identity",
+      "note": "脚本内 sp.cancel==0 独立核验",
+      "status": "已证-sympy恒等式"
+    },
+    {
+      "frame": "R29_far_top",
+      "script": "ex/all/check_round29_far_top_complete.py",
+      "query": "[sympy] R hh numerator",
+      "manuscript_ref": "far-TOP 导数/恒等式",
+      "geom_meaning": "R hh numerator",
+      "note": "脚本内 sp.cancel==0 独立核验",
+      "status": "已证-sympy恒等式"
+    },
+    {
+      "frame": "R29_far_top",
+      "script": "ex/all/check_round29_far_top_complete.py",
+      "query": "[sympy] R EE",
+      "manuscript_ref": "far-TOP 导数/恒等式",
+      "geom_meaning": "R EE",
+      "note": "脚本内 sp.cancel==0 独立核验",
+      "status": "已证-sympy恒等式"
+    },
+    {
+      "frame": "R29_far_top",
+      "script": "ex/all/check_round29_far_top_complete.py",
+      "query": "TOP actual P/left gives l+E<G",
+      "manuscript_ref": "远端 TOP 真缺口 / 实际支撑",
+      "geom_meaning": "左实际截 l+E < G(h)",
+      "note": "G=g(h)=(1-h)/(1+h) 与手稿 g 一致（脚本定义）；E=超出量",
+      "status": "部分已证"
+    },
+    {
+      "frame": "R29_far_top",
+      "script": "ex/all/check_round29_far_top_complete.py",
+      "query": "TOP actual P/right gives r<h+E",
+      "manuscript_ref": "同上",
+      "geom_meaning": "右实际截 r<h+E",
+      "note": "与左对称；已对照脚本定义",
+      "status": "部分已证"
+    },
+    {
+      "frame": "R29_far_top",
+      "script": "ex/all/check_round29_far_top_complete.py",
+      "query": "LEFT meeting forces E<32/209",
+      "manuscript_ref": "远端 LEFT 相遇数值界",
+      "geom_meaning": "E<32/209",
+      "note": "显式有理界；来源是否=手稿引理需 PDF 页码核对",
+      "status": "未证-常数来源"
+    },
+    {
+      "frame": "R29_far_top",
+      "script": "ex/all/check_round29_far_top_complete.py",
+      "query": "whole G-E positive",
+      "manuscript_ref": "桥接恒正",
+      "geom_meaning": "G-E>0 全域",
+      "note": "与 g/E 几何：角块未盖满",
+      "status": "部分已证"
+    },
+    {
+      "frame": "R29_far_top",
+      "script": "ex/all/check_round29_far_top_complete.py",
+      "query": "q shift at most 2E",
+      "manuscript_ref": "q=x/(2-x) 导数界",
+      "geom_meaning": "q(h+E)-q(h)≤2E",
+      "note": "脚本另有 sympy 恒等式核验 q'/q''；代数层已证倾向",
+      "status": "已证-代数+sympy"
+    },
+    {
+      "frame": "R31_three",
+      "script": "ex/all/check_round31_three_nonempty.py",
+      "query": "C cannot contain actual TOP axis tail endpoint",
+      "manuscript_ref": "R29N.4 / R31",
+      "geom_meaning": "C 不含 TOP 轴尾端点",
+      "note": "与 R29N.4（W 不含 TOPmid）同族；C vs W 角色需确认脚本变量",
+      "status": "部分已证"
+    },
+    {
+      "frame": "R31_three",
+      "script": "ex/all/check_round31_three_nonempty.py",
+      "query": "nonempty W H impossible from actual K equalities",
+      "manuscript_ref": "R29N.4 结论方向",
+      "geom_meaning": "W∩H≠∅ 由 K 等式排除",
+      "note": "直接服务 R29N.4；K 定义=角截参数",
+      "status": "部分已证"
+    },
+    {
+      "frame": "R31_three",
+      "script": "ex/all/check_round31_three_nonempty.py",
+      "query": "c<=s forces c/(1+s)<5/12",
+      "manuscript_ref": "角方向数值",
+      "geom_meaning": "c≤s ⇒ c/(1+s)<5/12",
+      "note": "纯三角/单位圆不等式；可 Lean 化但本批未写",
+      "status": "部分已证"
+    },
+    {
+      "frame": "R31_three",
+      "script": "ex/all/check_round31_three_nonempty.py",
+      "query": "extended pair affine reduction with nonnegative coefficient",
+      "manuscript_ref": "R31 extended pair",
+      "geom_meaning": "扩展对仿射归约",
+      "note": "与 check_round31_extended_pair sympy 证书衔接",
+      "status": "部分已证"
+    }
+  ]
+}

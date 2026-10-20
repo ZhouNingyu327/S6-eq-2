@@ -1,0 +1,157 @@
+{
+  "description": "M9 dual-wrapper registry after miss_certs.zip staging.",
+  "updated": "2026-10-20 Asia/Shanghai",
+  "block": "M9",
+  "rounds": [
+    43,
+    44,
+    45,
+    46,
+    47,
+    48,
+    49,
+    50,
+    51,
+    52,
+    53,
+    54,
+    55,
+    56,
+    57,
+    58,
+    59
+  ],
+  "n_scripts_linked": 21,
+  "n_dual_passed": 20,
+  "n_superseded": 1,
+  "n_fail": 0,
+  "entries": [
+    {
+      "round": 43,
+      "file": "check_round43",
+      "dual_wrapper_status": "passed",
+      "wired": true
+    },
+    {
+      "round": 44,
+      "file": "check_round44",
+      "dual_wrapper_status": "passed",
+      "wired": true
+    },
+    {
+      "round": 45,
+      "file": "check_round45",
+      "dual_wrapper_status": "passed",
+      "wired": true
+    },
+    {
+      "round": 46,
+      "file": "check_round46",
+      "dual_wrapper_status": "passed",
+      "wired": true
+    },
+    {
+      "round": 47,
+      "file": "check_round47",
+      "dual_wrapper_status": "passed",
+      "wired": true
+    },
+    {
+      "round": 47,
+      "file": "check_round47_forced_fit",
+      "dual_wrapper_status": "passed",
+      "wired": true
+    },
+    {
+      "round": 48,
+      "file": "check_round48",
+      "dual_wrapper_status": "passed",
+      "wired": true
+    },
+    {
+      "round": 49,
+      "file": "check_round49",
+      "dual_wrapper_status": "passed",
+      "wired": true
+    },
+    {
+      "round": 50,
+      "file": "check_round50",
+      "dual_wrapper_status": "passed",
+      "wired": true
+    },
+    {
+      "round": 51,
+      "file": "check_round51",
+      "dual_wrapper_status": "passed",
+      "wired": true
+    },
+    {
+      "round": 52,
+      "file": "check_round52",
+      "dual_wrapper_status": "passed",
+      "wired": true
+    },
+    {
+      "round": 53,
+      "file": "check_round53",
+      "dual_wrapper_status": "passed",
+      "wired": true
+    },
+    {
+      "round": 54,
+      "file": "check_round54",
+      "dual_wrapper_status": "passed",
+      "wired": true
+    },
+    {
+      "round": 55,
+      "file": "check_round55",
+      "dual_wrapper_status": "superseded-by-check_round55_final",
+      "wired": true
+    },
+    {
+      "round": 55,
+      "file": "check_round55_final",
+      "dual_wrapper_status": "passed",
+      "wired": true
+    },
+    {
+      "round": 56,
+      "file": "check_round56",
+      "dual_wrapper_status": "passed",
+      "wired": true
+    },
+    {
+      "round": 57,
+      "file": "check_round57",
+      "dual_wrapper_status": "passed",
+      "wired": true
+    },
+    {
+      "round": 57,
+      "file": "check_round57_monotonicity",
+      "dual_wrapper_status": "passed",
+      "wired": true
+    },
+    {
+      "round": 58,
+      "file": "check_round58",
+      "dual_wrapper_status": "passed",
+      "wired": true
+    },
+    {
+      "round": 59,
+      "file": "check_round59",
+      "dual_wrapper_status": "passed",
+      "wired": true
+    },
+    {
+      "round": 59,
+      "file": "check_round59_exit_forms",
+      "dual_wrapper_status": "passed",
+      "wired": true
+    }
+  ],
+  "note": "Main certificate checkers PASS. check_round55 superseded by check_round55_final. Auxiliary form scripts PASS after staging outputs/."
+}

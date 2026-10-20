@@ -1,0 +1,22 @@
+cff-version: 1.2.0
+message: "If you use this proof, please cite it as below."
+title: "Six unit squares cannot cover a square of side greater than 2"
+authors:
+  - family-names: Zhou
+    given-names: Ningyu
+    email: zhouningyu27@gmail.com
+    affiliation: "School of Physics, Peking University"
+date-released: "2026-10-21"
+version: "1.0.0"
+type: software
+license: "LicenseRef-Mixed"
+url: "https://github.com/ZhouNingyu327/S6-eq-2"
+abstract: >-
+  Computer-assisted proof that S(6)=2 (equivalently Π(2)=7), resolving the
+  conjecture of Dósa–Lángi–Tuza. Independent peer review and a full Lean
+  re-proof of every metric inequality are not claimed.
+keywords:
+  - unit square covering
+  - S(n)
+  - computer-assisted proof
+  - Lean 4

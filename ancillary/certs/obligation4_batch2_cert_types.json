@@ -1,0 +1,347 @@
+{
+  "updated": "2026-10-20T23:30+08:00",
+  "batch": "4a_cert_types_and_stubs",
+  "living_leaves": [
+    {
+      "leaf": {
+        "rt": "bothMeet",
+        "left": "meet",
+        "fh": "pos"
+      },
+      "modules": "R13",
+      "cert_types": [
+        "z3-script"
+      ],
+      "second_route": false,
+      "z3_all_unsat": true,
+      "machine_checked": true,
+      "lean_geometry": "未证",
+      "lean_stub": "Obligation4NearEnd.lean (flags only) this turn"
+    },
+    {
+      "leaf": {
+        "rt": "bothMeet",
+        "left": "meet",
+        "fh": "neg"
+      },
+      "modules": "R13",
+      "cert_types": [
+        "z3-script"
+      ],
+      "second_route": false,
+      "z3_all_unsat": true,
+      "machine_checked": true,
+      "lean_geometry": "未证",
+      "lean_stub": "Obligation4NearEnd.lean (flags only) this turn"
+    },
+    {
+      "leaf": {
+        "rt": "bothMeet",
+        "left": "gap",
+        "fh": "empty"
+      },
+      "modules": "R14",
+      "cert_types": [
+        "exact-identity",
+        "exact/Bernstein/rational",
+        "z3-script"
+      ],
+      "second_route": true,
+      "z3_all_unsat": true,
+      "machine_checked": true,
+      "lean_geometry": "未证",
+      "lean_stub": null
+    },
+    {
+      "leaf": {
+        "rt": "bothMeet",
+        "left": "meet",
+        "fh": "empty"
+      },
+      "modules": "R16",
+      "cert_types": [
+        "z3-script"
+      ],
+      "second_route": false,
+      "z3_all_unsat": true,
+      "machine_checked": true,
+      "lean_geometry": "未证",
+      "lean_stub": "Obligation4NearEnd.lean (flags only) this turn"
+    },
+    {
+      "leaf": {
+        "rt": "bothMeet",
+        "left": "gap",
+        "fh": "neg"
+      },
+      "modules": "R17",
+      "cert_types": [
+        "z3-script"
+      ],
+      "second_route": false,
+      "z3_all_unsat": true,
+      "machine_checked": true,
+      "lean_geometry": "未证",
+      "lean_stub": null
+    },
+    {
+      "leaf": {
+        "rt": "bothMeet",
+        "left": "gap",
+        "fh": "pos"
+      },
+      "modules": "R18",
+      "cert_types": [
+        "z3-script"
+      ],
+      "second_route": false,
+      "z3_all_unsat": true,
+      "machine_checked": true,
+      "lean_geometry": "未证",
+      "lean_stub": null
+    },
+    {
+      "leaf": {
+        "rt": "topGap",
+        "left": "gap",
+        "fh": "empty"
+      },
+      "modules": "R19",
+      "cert_types": [
+        "z3-script"
+      ],
+      "second_route": false,
+      "z3_all_unsat": true,
+      "machine_checked": true,
+      "lean_geometry": "未证",
+      "lean_stub": null
+    },
+    {
+      "leaf": {
+        "rt": "topGap",
+        "left": "gap",
+        "fh": "neg"
+      },
+      "modules": "R19",
+      "cert_types": [
+        "z3-script"
+      ],
+      "second_route": false,
+      "z3_all_unsat": true,
+      "machine_checked": true,
+      "lean_geometry": "未证",
+      "lean_stub": null
+    },
+    {
+      "leaf": {
+        "rt": "topGap",
+        "left": "meet",
+        "fh": "pos"
+      },
+      "modules": "R19",
+      "cert_types": [
+        "z3-script"
+      ],
+      "second_route": false,
+      "z3_all_unsat": true,
+      "machine_checked": true,
+      "lean_geometry": "未证",
+      "lean_stub": null
+    },
+    {
+      "leaf": {
+        "rt": "topGap",
+        "left": "meet",
+        "fh": "neg"
+      },
+      "modules": "R19",
+      "cert_types": [
+        "z3-script"
+      ],
+      "second_route": false,
+      "z3_all_unsat": true,
+      "machine_checked": true,
+      "lean_geometry": "未证",
+      "lean_stub": null
+    },
+    {
+      "leaf": {
+        "rt": "topGap",
+        "left": "meet",
+        "fh": "empty"
+      },
+      "modules": "R26",
+      "cert_types": [
+        "cvc5",
+        "exact-identity",
+        "harness",
+        "z3-script"
+      ],
+      "second_route": true,
+      "z3_all_unsat": true,
+      "machine_checked": true,
+      "lean_geometry": "未证",
+      "lean_stub": null
+    },
+    {
+      "leaf": {
+        "rt": "rightGap",
+        "left": "meet",
+        "fh": "empty"
+      },
+      "modules": "R27/R28",
+      "cert_types": [
+        "cvc5",
+        "exact-identity",
+        "harness",
+        "z3-script"
+      ],
+      "second_route": true,
+      "z3_all_unsat": true,
+      "machine_checked": true,
+      "lean_geometry": "未证",
+      "lean_stub": null
+    },
+    {
+      "leaf": {
+        "rt": "rightGap",
+        "left": "meet",
+        "fh": "pos"
+      },
+      "modules": "R27/R28",
+      "cert_types": [
+        "cvc5",
+        "exact-identity",
+        "harness",
+        "z3-script"
+      ],
+      "second_route": true,
+      "z3_all_unsat": true,
+      "machine_checked": true,
+      "lean_geometry": "未证",
+      "lean_stub": null
+    },
+    {
+      "leaf": {
+        "rt": "rightGap",
+        "left": "meet",
+        "fh": "neg"
+      },
+      "modules": "R27/R28",
+      "cert_types": [
+        "cvc5",
+        "exact-identity",
+        "harness",
+        "z3-script"
+      ],
+      "second_route": true,
+      "z3_all_unsat": true,
+      "machine_checked": true,
+      "lean_geometry": "未证",
+      "lean_stub": null
+    },
+    {
+      "leaf": {
+        "rt": "rightGap",
+        "left": "gap",
+        "fh": "empty"
+      },
+      "modules": "R27/R28",
+      "cert_types": [
+        "cvc5",
+        "exact-identity",
+        "harness",
+        "z3-script"
+      ],
+      "second_route": true,
+      "z3_all_unsat": true,
+      "machine_checked": true,
+      "lean_geometry": "未证",
+      "lean_stub": null
+    },
+    {
+      "leaf": {
+        "rt": "rightGap",
+        "left": "gap",
+        "fh": "pos"
+      },
+      "modules": "R27/R28",
+      "cert_types": [
+        "cvc5",
+        "exact-identity",
+        "harness",
+        "z3-script"
+      ],
+      "second_route": true,
+      "z3_all_unsat": true,
+      "machine_checked": true,
+      "lean_geometry": "未证",
+      "lean_stub": null
+    },
+    {
+      "leaf": {
+        "rt": "rightGap",
+        "left": "gap",
+        "fh": "neg"
+      },
+      "modules": "R27/R28",
+      "cert_types": [
+        "cvc5",
+        "exact-identity",
+        "harness",
+        "z3-script"
+      ],
+      "second_route": true,
+      "z3_all_unsat": true,
+      "machine_checked": true,
+      "lean_geometry": "未证",
+      "lean_stub": null
+    }
+  ],
+  "counts": {
+    "n_leaves": 17,
+    "with_z3": 17,
+    "with_second_route": 8,
+    "lean_proved": 0
+  },
+  "M8_M11": {
+    "m8": {
+      "n_entries": 3,
+      "n_dual_passed": 3,
+      "n_scripts_linked": 3,
+      "lean_geometry": "未证",
+      "rerun_this_turn": "not_rerun_solvers; registry trusted as of updated field",
+      "updated": "2026-10-20 Asia/Shanghai"
+    },
+    "m9": {
+      "n_entries": 21,
+      "n_dual_passed": 20,
+      "n_scripts_linked": 21,
+      "lean_geometry": "未证",
+      "rerun_this_turn": "not_rerun_solvers; registry trusted as of updated field",
+      "updated": "2026-10-20 Asia/Shanghai"
+    },
+    "m10": {
+      "n_entries": 4,
+      "n_dual_passed": 4,
+      "n_scripts_linked": 4,
+      "lean_geometry": "未证",
+      "rerun_this_turn": "not_rerun_solvers; registry trusted as of updated field",
+      "updated": "2026-10-20 Asia/Shanghai"
+    },
+    "m11": {
+      "n_entries": 3,
+      "n_dual_passed": 3,
+      "n_scripts_linked": 3,
+      "lean_geometry": "未证",
+      "rerun_this_turn": "not_rerun_solvers; registry trusted as of updated field",
+      "updated": "2026-10-20 Asia/Shanghai"
+    }
+  },
+  "R16_1173_clarification": {
+    "living_leaf": "bothMeet/meet/empty → R16 (1 of 17)",
+    "interval_boxes_1173": "ex/r16: 249+924=1173 continuous leaf boxes in C-1.tree/C1.tree",
+    "verify_script": "ex/r16/verify_round16.py prints PASS: 1173 boxes",
+    "not_the_same_as": "17 living combinatorial leaves in near_end_leaf_certificate_registry"
+  }
+}

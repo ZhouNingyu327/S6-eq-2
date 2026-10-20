@@ -1,0 +1,46 @@
+{
+  "description": "M8 (R40–R42) certificate registry — wired to dual-wrapper + catalog.",
+  "updated": "2026-10-20 Asia/Shanghai",
+  "block": "M8",
+  "rounds": [
+    40,
+    41,
+    42
+  ],
+  "n_scripts_linked": 3,
+  "n_dual_passed": 3,
+  "hypotheses_M8_1": [
+    "Near-end / mid-pack seam geometry after G2 normalisation",
+    "Interval/Bernstein certificates for short-cap and corner residuals (R41)",
+    "Polynomial reconstruction identities for R42 interval board"
+  ],
+  "entries": [
+    {
+      "round": 41,
+      "file": "check_round41_certificates",
+      "checker": "check_round41_certificates.py",
+      "dual_wrapper_status": "passed",
+      "n_catalog_smt": 0,
+      "n_still_S": 0,
+      "wired": true
+    },
+    {
+      "round": 41,
+      "file": "check_round41_geometry",
+      "checker": "check_round41_geometry.py",
+      "dual_wrapper_status": "passed",
+      "n_catalog_smt": 8,
+      "n_still_S": 0,
+      "wired": true
+    },
+    {
+      "round": 42,
+      "file": "check_round42",
+      "checker": "check_round42.py",
+      "dual_wrapper_status": "passed",
+      "n_catalog_smt": 0,
+      "n_still_S": 0,
+      "wired": true
+    }
+  ]
+}

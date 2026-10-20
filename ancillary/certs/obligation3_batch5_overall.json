@@ -1,0 +1,113 @@
+{
+  "updated": "2026-10-20T23:45+08:00",
+  "batch": 5,
+  "overall_pdf_faithfulness": "未证",
+  "closed_this_turn": [
+    "o3_R31_pair_identity",
+    "o3_variable_pose_glossary",
+    "o3_algebraic_discharge_vs_geometry (reframed)"
+  ],
+  "partial_this_turn": [
+    "o3_R30_39_formula_table → unmapped_tail"
+  ],
+  "named_residuals_now": [
+    {
+      "id": "o3_R30_39_formula_table_unmapped_tail",
+      "status": "未证",
+      "text": "77 named queries in R30–39 still lack manuscript boxed/line citation after Batch5 fulltext pass",
+      "counts_by_frame": {
+        "R30_geom": 7,
+        "R31_three": 7,
+        "R32_right_pos": 9,
+        "R33_right_ne": 10,
+        "R34_left_neg": 4,
+        "R35_pos_H": 4,
+        "R36_ne_closed": 7,
+        "R37_empty_left": 12,
+        "R38_empty_right": 5,
+        "R39_contact": 12,
+        "R31_pair": 0
+      }
+    },
+    {
+      "id": "o3_lean_geometry_R30_39",
+      "status": "未证",
+      "text": "Lean re-proof of R30–39 metric inequalities beyond δ/q/M8-product fragments; z3/sympy remain primary machine layer"
+    }
+  ],
+  "frame_summary": {
+    "R30_geom": {
+      "n_ok": 1,
+      "n_partial": 13,
+      "n_unmapped": 7,
+      "frame_status": "部分已证"
+    },
+    "R31_three": {
+      "n_ok": 2,
+      "n_partial": 8,
+      "n_unmapped": 7,
+      "frame_status": "部分已证"
+    },
+    "R32_right_pos": {
+      "n_ok": 1,
+      "n_partial": 18,
+      "n_unmapped": 9,
+      "frame_status": "部分已证"
+    },
+    "R33_right_ne": {
+      "n_ok": 0,
+      "n_partial": 16,
+      "n_unmapped": 10,
+      "frame_status": "部分已证"
+    },
+    "R34_left_neg": {
+      "n_ok": 0,
+      "n_partial": 19,
+      "n_unmapped": 4,
+      "frame_status": "部分已证"
+    },
+    "R35_pos_H": {
+      "n_ok": 0,
+      "n_partial": 16,
+      "n_unmapped": 4,
+      "frame_status": "部分已证"
+    },
+    "R36_ne_closed": {
+      "n_ok": 1,
+      "n_partial": 11,
+      "n_unmapped": 7,
+      "frame_status": "部分已证"
+    },
+    "R37_empty_left": {
+      "n_ok": 0,
+      "n_partial": 25,
+      "n_unmapped": 12,
+      "frame_status": "部分已证"
+    },
+    "R38_empty_right": {
+      "n_ok": 0,
+      "n_partial": 25,
+      "n_unmapped": 5,
+      "frame_status": "部分已证"
+    },
+    "R39_contact": {
+      "n_ok": 0,
+      "n_partial": 17,
+      "n_unmapped": 12,
+      "frame_status": "部分已证"
+    },
+    "R31_pair": {
+      "n_ok": 1,
+      "n_partial": 0,
+      "n_unmapped": 0,
+      "frame_status": "已证"
+    }
+  },
+  "artifacts": [
+    "obligation3_batch5_formula_tables.json",
+    "obligation3_r30_39_boxed_index.json",
+    "obligation3_r31_pair_identity.json",
+    "obligation3_r32_39_glossary.json",
+    "obligation4_r16_verify_pass.json"
+  ]
+}

@@ -1,0 +1,500 @@
+{
+  "updated": "2026-10-20T23:35+08:00",
+  "rounds": {
+    "30": {
+      "sources": [
+        "small/S6_attack_round30.md",
+        "small/S6_attack_round30_working.md"
+      ],
+      "n_boxed": 10,
+      "boxed": [
+        {
+          "file": "small/S6_attack_round30.md",
+          "line": 47,
+          "formula": "h_Cu\\le1,\\qquad h_C\\le\\sqrt2<99/70."
+        },
+        {
+          "file": "small/S6_attack_round30.md",
+          "line": 66,
+          "formula": "h_C-d\\ge11\\mu-8-2B>\\mu."
+        },
+        {
+          "file": "small/S6_attack_round30.md",
+          "line": 129,
+          "formula": "h_C>1+2z-z^2+J."
+        },
+        {
+          "file": "small/S6_attack_round30.md",
+          "line": 135,
+          "formula": "u>1-z-J,\\qquad h_C+u>2+z-z^2."
+        },
+        {
+          "file": "small/S6_attack_round30.md",
+          "line": 159,
+          "formula": "0<z<1/7."
+        },
+        {
+          "file": "small/S6_attack_round30.md",
+          "line": 185,
+          "formula": "J>\\sqrt z/3,\\qquad9J^2>z."
+        },
+        {
+          "file": "small/S6_attack_round30.md",
+          "line": 191,
+          "formula": "z<9\\delta(x)^2."
+        },
+        {
+          "file": "small/S6_attack_round30.md",
+          "line": 197,
+          "formula": "u>41/70>1/2."
+        },
+        {
+          "file": "small/S6_attack_round30.md",
+          "line": 215,
+          "formula": "J>7/30,\\qquad H<32/209."
+        },
+        {
+          "file": "small/S6_attack_round30.md",
+          "line": 221,
+          "formula": "z+\\delta(x)>1/2."
+        }
+      ]
+    },
+    "31": {
+      "sources": [
+        "small/S6_attack_round31.md",
+        "small/S6_attack_round31_working.md"
+      ],
+      "n_boxed": 10,
+      "boxed": [
+        {
+          "file": "small/S6_attack_round31.md",
+          "line": 46,
+          "formula": "Q_U\\in W,\\qquad(0,u)\\in W,\\qquad u<\\mu-U_4."
+        },
+        {
+          "file": "small/S6_attack_round31.md",
+          "line": 67,
+          "formula": "sD+cA=1."
+        },
+        {
+          "file": "small/S6_attack_round31.md",
+          "line": 80,
+          "formula": "J=Y_{\\max}-Y_{\\min}=K-A>0."
+        },
+        {
+          "file": "small/S6_attack_round31.md",
+          "line": 86,
+          "formula": "H=K-D\\ge0."
+        },
+        {
+          "file": "small/S6_attack_round31.md",
+          "line": 104,
+          "formula": "c>s,\\quad c>1/2,\\quad t:=s/(1+c)<\\sqrt2-1<5/12."
+        },
+        {
+          "file": "small/S6_attack_round31.md",
+          "line": 110,
+          "formula": "D>1-\\delta(z)>23/24."
+        },
+        {
+          "file": "small/S6_attack_round31.md",
+          "line": 133,
+          "formula": "W\\cap\\{y=0\\}=\\varnothing,\\quad H=0."
+        },
+        {
+          "file": "small/S6_attack_round31.md",
+          "line": 149,
+          "formula": "D+S+x+2t-t^2\\le2."
+        },
+        {
+          "file": "small/S6_attack_round31.md",
+          "line": 227,
+          "formula": "h>1+2z-z^2+2t-t^2."
+        },
+        {
+          "file": "small/S6_attack_round31.md",
+          "line": 235,
+          "formula": "u\\ge\\mu-M>1-\\max(z,t)."
+        }
+      ]
+    },
+    "32": {
+      "sources": [
+        "small/S6_attack_round32.md",
+        "small/S6_attack_round32_working.md"
+      ],
+      "n_boxed": 7,
+      "boxed": [
+        {
+          "file": "small/S6_attack_round32.md",
+          "line": 19,
+          "formula": "S_1+S_2>1."
+        },
+        {
+          "file": "small/S6_attack_round32.md",
+          "line": 68,
+          "formula": "l=\\min(Ku,d/K),\\quad l\\le Ku,\\quad 0<l<1/2."
+        },
+        {
+          "file": "small/S6_attack_round32.md",
+          "line": 76,
+          "formula": "L_2>1+w."
+        },
+        {
+          "file": "small/S6_attack_round32.md",
+          "line": 82,
+          "formula": "e+d<G."
+        },
+        {
+          "file": "small/S6_attack_round32.md",
+          "line": 96,
+          "formula": "S_1<q(l),\\qquad q(v)=v/(2-v)."
+        },
+        {
+          "file": "small/S6_attack_round32.md",
+          "line": 123,
+          "formula": "1-\\Phi(w)>\\sqrt w."
+        },
+        {
+          "file": "small/S6_attack_round32.md",
+          "line": 138,
+          "formula": "u<9\\eta/7."
+        }
+      ]
+    },
+    "33": {
+      "sources": [
+        "small/S6_attack_round33.md",
+        "small/S6_attack_round33_working.md"
+      ],
+      "n_boxed": 7,
+      "boxed": [
+        {
+          "file": "small/S6_attack_round33.md",
+          "line": 36,
+          "formula": "z+q(u)>1-G+d>1-G."
+        },
+        {
+          "file": "small/S6_attack_round33.md",
+          "line": 46,
+          "formula": "\\Sigma>2-a-l."
+        },
+        {
+          "file": "small/S6_attack_round33.md",
+          "line": 72,
+          "formula": "1-\\Phi(w)>\\frac54\\sqrt w."
+        },
+        {
+          "file": "small/S6_attack_round33.md",
+          "line": 81,
+          "formula": "\\rho(a)+\\frac54v<l\\le Ku,\\quad u=\\eta+v^2,\\quad0<v<\\frac45Ku<\\frac25."
+        },
+        {
+          "file": "small/S6_attack_round33.md",
+          "line": 90,
+          "formula": "z<\\frac85\\rho(a)."
+        },
+        {
+          "file": "small/S6_attack_round33.md",
+          "line": 115,
+          "formula": "z+q(u)<\\frac{2\\eta}{1+\\eta}=1-G."
+        },
+        {
+          "file": "small/S6_attack_round33.md",
+          "line": 153,
+          "formula": "R>Z+\\frac{450}{961}D^2."
+        }
+      ]
+    },
+    "34": {
+      "sources": [
+        "small/S6_attack_round34.md",
+        "small/S6_attack_round34_working.md"
+      ],
+      "n_boxed": 4,
+      "boxed": [
+        {
+          "file": "small/S6_attack_round34.md",
+          "line": 24,
+          "formula": "z<q(G)=\\frac{1-\\eta}{1+3\\eta}."
+        },
+        {
+          "file": "small/S6_attack_round34.md",
+          "line": 35,
+          "formula": "r+u>\\mu."
+        },
+        {
+          "file": "small/S6_attack_round34.md",
+          "line": 61,
+          "formula": "u<9\\eta/7."
+        },
+        {
+          "file": "small/S6_attack_round34.md",
+          "line": 119,
+          "formula": "x<g(u)."
+        }
+      ]
+    },
+    "35": {
+      "sources": [
+        "small/S6_attack_round35.md",
+        "small/S6_attack_round35_working.md"
+      ],
+      "n_boxed": 2,
+      "boxed": [
+        {
+          "file": "small/S6_attack_round35.md",
+          "line": 36,
+          "formula": "g(\\kappa)<q(G)+q(u),\\qquad q(G)=(1-\\eta)/(1+3\\eta)."
+        },
+        {
+          "file": "small/S6_attack_round35_working.md",
+          "line": 36,
+          "formula": "g(\\kappa)<q(G)+q(u),\\qquad q(G)=(1-\\eta)/(1+3\\eta)."
+        }
+      ]
+    },
+    "36": {
+      "sources": [
+        "small/S6_attack_round36.md",
+        "small/S6_attack_round36_working.md"
+      ],
+      "n_boxed": 4,
+      "boxed": [
+        {
+          "file": "small/S6_attack_round36.md",
+          "line": 34,
+          "formula": "\\Sigma=S1+S2>1+f."
+        },
+        {
+          "file": "small/S6_attack_round36.md",
+          "line": 53,
+          "formula": "D>1-\\Delta(u)."
+        },
+        {
+          "file": "small/S6_attack_round36.md",
+          "line": 126,
+          "formula": "h0>1-q(u)."
+        },
+        {
+          "file": "small/S6_attack_round36.md",
+          "line": 131,
+          "formula": "\\Sigma>1+h0-r>2-q(u)-r,\\quad 2-\\Sigma<q(u)+r\\le q(u)+Ku."
+        }
+      ]
+    },
+    "37": {
+      "sources": [
+        "small/S6_attack_round37.md",
+        "small/S6_attack_round37_working.md"
+      ],
+      "n_boxed": 14,
+      "boxed": [
+        {
+          "file": "small/S6_attack_round37.md",
+          "line": 18,
+          "formula": "\\mu-1\\le l,r,u,d\\le2-\\mu<1."
+        },
+        {
+          "file": "small/S6_attack_round37.md",
+          "line": 29,
+          "formula": "\\Sigma\\ge2\\mu-2+(\\mu-d)^2>(1-d)^2."
+        },
+        {
+          "file": "small/S6_attack_round37.md",
+          "line": 34,
+          "formula": "u+d<1."
+        },
+        {
+          "file": "small/S6_attack_round37.md",
+          "line": 39,
+          "formula": "S1<q(l),\\quad q(t)=t/(2-t)."
+        },
+        {
+          "file": "small/S6_attack_round37.md",
+          "line": 55,
+          "formula": "d=r/K,\\ r=Kd\\le d,\\ u+r<1,\\ u>G=(1-\\eta)/(1+\\eta)."
+        },
+        {
+          "file": "small/S6_attack_round37.md",
+          "line": 64,
+          "formula": "0<d<\\eta,\\quad z<q(\\eta-d)."
+        },
+        {
+          "file": "small/S6_attack_round37.md",
+          "line": 74,
+          "formula": "d<1/6,\\quad r\\le d<1/6."
+        },
+        {
+          "file": "small/S6_attack_round37.md",
+          "line": 84,
+          "formula": "S1<q(l)<7/13."
+        },
+        {
+          "file": "small/S6_attack_round37.md",
+          "line": 104,
+          "formula": "u+q(\\eta-d)<1."
+        },
+        {
+          "file": "small/S6_attack_round37.md",
+          "line": 124,
+          "formula": "z+q(u)+\\Delta(r)>1."
+        },
+        {
+          "file": "small/S6_attack_round37.md",
+          "line": 132,
+          "formula": "q(u)+\\Delta(r)<u."
+        },
+        {
+          "file": "small/S6_attack_round37.md",
+          "line": 185,
+          "formula": "r<103/152<11/16."
+        },
+        {
+          "file": "small/S6_attack_round37.md",
+          "line": 195,
+          "formula": "d<35/186<1/5,\\quad l\\le d<1/5,\\quad S1<1/9."
+        },
+        {
+          "file": "small/S6_attack_round37.md",
+          "line": 229,
+          "formula": "\\alpha=su-1,\\quad l=\\sec-Ku,\\quad r=\\min(Ku,d/K)."
+        }
+      ]
+    },
+    "38": {
+      "sources": [
+        "small/S6_attack_round38.md",
+        "small/S6_attack_round38_working.md"
+      ],
+      "n_boxed": 11,
+      "boxed": [
+        {
+          "file": "small/S6_attack_round38.md",
+          "line": 27,
+          "formula": "r=\\sec-Ku,\\qquad l=\\min(Ku,d/K),\\qquad u>\\eta."
+        },
+        {
+          "file": "small/S6_attack_round38.md",
+          "line": 34,
+          "formula": "L2>1+w,\\quad w=u-\\eta>0,\\qquad e+d<G."
+        },
+        {
+          "file": "small/S6_attack_round38.md",
+          "line": 45,
+          "formula": "z=t4<\\frac{l^2}{4-4l-l^2}<\\frac47l^2<\\frac17."
+        },
+        {
+          "file": "small/S6_attack_round38.md",
+          "line": 58,
+          "formula": "\\frac{2\\eta}{1+\\eta}+d<z+q(u)."
+        },
+        {
+          "file": "small/S6_attack_round38.md",
+          "line": 73,
+          "formula": "\\Sigma>2-\\sqrt2."
+        },
+        {
+          "file": "small/S6_attack_round38.md",
+          "line": 93,
+          "formula": "0<w<2/7."
+        },
+        {
+          "file": "small/S6_attack_round38.md",
+          "line": 103,
+          "formula": "\\eta<1/4,\\quad K<8/15,\\quad u=\\eta+w<15/28."
+        },
+        {
+          "file": "small/S6_attack_round38.md",
+          "line": 112,
+          "formula": "\\frac85\\eta+\\frac{34}{49}d<\\frac{28}{41}u."
+        },
+        {
+          "file": "small/S6_attack_round38.md",
+          "line": 176,
+          "formula": "17/60<\\eta<3/10,\\quad 7/10<u<43/60,\\quad S1\\le\\Phi(w)<\\Phi(2/5)<1/30."
+        },
+        {
+          "file": "small/S6_attack_round38.md",
+          "line": 184,
+          "formula": "A>3/4."
+        },
+        {
+          "file": "small/S6_attack_round38.md",
+          "line": 203,
+          "formula": "1-G+d<q(u)."
+        }
+      ]
+    },
+    "39": {
+      "sources": [
+        "small/S6_attack_round39.md",
+        "small/S6_attack_round39_working.md"
+      ],
+      "n_boxed": 12,
+      "boxed": [
+        {
+          "file": "small/S6_attack_round39.md",
+          "line": 33,
+          "formula": "\\Sigma>2-\\sqrt2,\\qquad \\Sigma>(1-d)^2."
+        },
+        {
+          "file": "small/S6_attack_round39.md",
+          "line": 38,
+          "formula": "1-\\Phi(w)>\\frac54\\sqrt w."
+        },
+        {
+          "file": "small/S6_attack_round39.md",
+          "line": 58,
+          "formula": "E<q(T)<T."
+        },
+        {
+          "file": "small/S6_attack_round39.md",
+          "line": 68,
+          "formula": "\\eta<1/4,\\quad K<8/15,\\quad u<15/28,\\quad r<2/7."
+        },
+        {
+          "file": "small/S6_attack_round39.md",
+          "line": 80,
+          "formula": "\\frac85\\eta+\\frac34d<\\frac{56}{123}u."
+        },
+        {
+          "file": "small/S6_attack_round39.md",
+          "line": 103,
+          "formula": "\\frac{2\\eta}{1+\\eta}+d<q(u)."
+        },
+        {
+          "file": "small/S6_attack_round39.md",
+          "line": 110,
+          "formula": "r<\\frac23w."
+        },
+        {
+          "file": "small/S6_attack_round39.md",
+          "line": 177,
+          "formula": "w<9/28."
+        },
+        {
+          "file": "small/S6_attack_round39.md",
+          "line": 186,
+          "formula": "\\eta<1/4,\\quad K<8/15,\\quad u<4/7."
+        },
+        {
+          "file": "small/S6_attack_round39.md",
+          "line": 240,
+          "formula": "u>38/79"
+        },
+        {
+          "file": "small/S6_attack_round39.md",
+          "line": 259,
+          "formula": "\\Sigma>2-\\sqrt2,\\qquad \\Sigma>(1-d)^2."
+        },
+        {
+          "file": "small/S6_attack_round39.md",
+          "line": 264,
+          "formula": "\\Sigma\\ge2\\mu-\\frac1{\\mu-d}>2-\\frac1{1-d}."
+        }
+      ]
+    }
+  }
+}

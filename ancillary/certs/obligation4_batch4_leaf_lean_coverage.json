@@ -1,0 +1,23 @@
+{
+  "updated": "2026-10-21T00:40+08:00",
+  "m8": "CLOSED",
+  "m9": {
+    "overall": "已证",
+    "soft_residual": "P1 live convexity"
+  },
+  "m10": {
+    "bernstein": "已证",
+    "K_delta_I_gates": "已证",
+    "E_region_cases": "未证"
+  },
+  "o3": {
+    "transitions": "已证",
+    "named_open_states": 3,
+    "overall_pdf": "未证"
+  },
+  "leaves": {
+    "wired_batch1": 4,
+    "remaining": 13,
+    "shared_pack": "已证"
+  }
+}
