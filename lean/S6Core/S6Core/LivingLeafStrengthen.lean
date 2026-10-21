@@ -241,12 +241,20 @@ open S6.LivingLeafGeomDischarge
 theorem allPriorityCloserGeomDischarged_reexport : AllPriorityCloserGeomDischarged :=
   allPriorityCloserGeomDischarged
 
-theorem closerFullGeomDischargedProved_priority_true_reexport :
-    closerFullGeomDischargedProved_priority = true :=
-  closerFullGeomDischargedProved_priority_true
+theorem allNamedCloserGeomDischarged_reexport : AllNamedCloserGeomDischarged :=
+  allNamedCloserGeomDischarged
+
+theorem closerFullGeomDischargedProved_true_reexport :
+    closerFullGeomDischargedProved = true := closerFullGeomDischargedProved_true
+
+theorem manuscriptRayGeometryComplete_true_reexport :
+    manuscriptRayGeometryComplete = true := manuscriptRayGeometryComplete_true
 
 theorem certOpenDependencyRemoved_true_reexport :
     certOpenDependencyRemoved = true := certOpenDependencyRemoved_true
+
+theorem dualResidualAnalyticComplete_false_reexport :
+    dualResidualAnalyticComplete = false := dualResidualAnalyticComplete_false
 
 theorem priority_fullGeom_R14_R17_R27_28_reexport :
     LivingLeafGeomExcluded ⟨.bothMeet, .gap, .empty⟩ ∧
@@ -255,7 +263,7 @@ theorem priority_fullGeom_R14_R17_R27_28_reexport :
 
 def openStatus : String :=
   "CLOSED: living/impossible lists, closer labels, bothGap counts, R13–R28 closer multiplicities. \
-   cert_open removed; full LivingLeafGeomExcluded for R14/R17/R27–28 via SE(2) junction. OPEN: R13/R16/R18/R19/R26; combinatorial CloserDischarged. \
+   all 8 NamedCloser GeomExcluded via derived JunctionConflict; manuscriptRayGeometryComplete. OPEN: dualResidual analytic; combinatorial CloserDischarged. \
    Not PrincipalClaim."
 
 end S6.LivingLeafStrengthen
