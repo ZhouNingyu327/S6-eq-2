@@ -1,5 +1,14 @@
 # History
 
+## 2026-10-21 (Asia/Shanghai) — submission-ready referee pack
+
+- Added `referee_pack/`, paper Apps.\ A–D (M1–M4), `artifacts/closure/`, `ex_all.tar.gz`.
+- Framing unchanged: AI candidate; releaser maintains dump; not confirmed solved.
+- Open: Lean classification fidelity (Major 3); external peer review.
+
+---
+
+
 ## October 21, 2026
 
 **Initial public release (OpenAI-math-style layout).**

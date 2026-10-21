@@ -1,0 +1,36 @@
+[
+  {
+    "scope": "C cannot contain the left anchored inner tip",
+    "result": "unsat",
+    "seconds": 0.004382133483886719
+  },
+  {
+    "scope": "W contains left inner tip implies A<z+U4",
+    "result": "unsat",
+    "seconds": 0.003194093704223633
+  },
+  {
+    "scope": "forced W inner endpoint gives C left ray >2z/(1+z)",
+    "result": "unsat",
+    "seconds": 0.002023458480834961
+  },
+  {
+    "scope": "W bridge and 2U4<=(1-z)^2 force J=0",
+    "result": "unsat",
+    "seconds": 24.277899503707886
+  },
+  {
+    "scope": "full physical adjacent domain and C triangle force 2kappa3<=(1-z)^2",
+    "result": "unsat",
+    "seconds": 2.7061362266540527
+  },
+  {
+    "scope": "C cannot contain a left-lower outer point; left gap would belong to F",
+    "result": "unsat",
+    "seconds": 0.0016567707061767578
+  },
+  {
+    "scope": "bridge endpoint and vertical-trace identities",
+    "result": "exact identities passed"
+  }
+]

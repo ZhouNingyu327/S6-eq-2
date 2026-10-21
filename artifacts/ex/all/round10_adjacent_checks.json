@@ -1,0 +1,50 @@
+[
+  {
+    "scope": "right/top meets imply S2+U2+U3+U4<1-2eta",
+    "result": "unsat",
+    "arithmetic": "exact linear reals",
+    "seconds": 0.0018587112426757812
+  },
+  {
+    "scope": "C owns bottom gap and F left gap: parallel sections contradict F left/up diameter",
+    "result": "unsat",
+    "arithmetic": "exact linear reals",
+    "seconds": 0.001047372817993164
+  },
+  {
+    "scope": "C owns left gap: opposite up/down tips have span >22/15>sqrt2, so lower tip belongs F",
+    "result": "unsat",
+    "arithmetic": "exact linear reals",
+    "seconds": 0.0007586479187011719
+  },
+  {
+    "scope": "C left/lower outer contact cannot include right and upper middle tips; right tip belongs F",
+    "result": "unsat",
+    "arithmetic": "exact linear reals",
+    "seconds": 0.0008835792541503906
+  },
+  {
+    "scope": "C left gap and upper tip force c<s; axis-aligned and c>=s cases excluded",
+    "result": "unsat",
+    "arithmetic": "exact nonlinear reals",
+    "seconds": 0.003824949264526367
+  },
+  {
+    "scope": "universal calibrated L1+h+central orientation excess <=1+k/(2-k)+k^2/[2(1-k)]",
+    "result": "unsat",
+    "arithmetic": "exact nonlinear reals",
+    "seconds": 0.17052221298217773
+  },
+  {
+    "scope": "C owns left gap, F bottom: calibrated envelope makes southeast perimeter impossible",
+    "result": "unsat",
+    "arithmetic": "exact linear reals",
+    "seconds": 0.0006566047668457031
+  },
+  {
+    "scope": "opposite two meets: outer gaps and full floating central sections contradict corner budgets",
+    "result": "unsat",
+    "arithmetic": "exact linear reals",
+    "seconds": 0.001222372055053711
+  }
+]

@@ -1,0 +1,20 @@
+[
+  {
+    "scope": "unit centre tile full horizontal chord H and upward ray U: H+U^2<=2",
+    "result": "unsat",
+    "arithmetic": "exact nonlinear reals",
+    "seconds": 1.009800910949707
+  },
+  {
+    "scope": "unit centre tile H+U<=3/sqrt(2)",
+    "result": "unsat",
+    "arithmetic": "exact nonlinear reals",
+    "seconds": 0.017017126083374023
+  },
+  {
+    "scope": "unit three rays l+u+(2*sqrt(2)-2)*r<=2, sharp coefficient",
+    "result": "unsat",
+    "arithmetic": "exact nonlinear reals",
+    "seconds": 24.651422023773193
+  }
+]

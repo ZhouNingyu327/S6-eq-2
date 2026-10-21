@@ -1,0 +1,126 @@
+{
+  "result": "passed",
+  "feasible_five_points": [
+    [
+      "-21/40",
+      "0"
+    ],
+    [
+      "29/40",
+      "0"
+    ],
+    [
+      "0",
+      "9/20"
+    ],
+    [
+      "-1/10",
+      "2/5"
+    ],
+    [
+      "1/5",
+      "1/2"
+    ]
+  ],
+  "feasible_result": {
+    "fits_unit_square": true,
+    "maximum_vertex_norm_squared": "32/25",
+    "minimum_enclosing_square_side_squared": "25/32",
+    "witness_vertex": [
+      "4/5",
+      "4/5"
+    ],
+    "row_count": 40,
+    "nonparallel_row_pairs_tested": 760,
+    "vertex_count": 4,
+    "vertices": [
+      [
+        "0",
+        "0",
+        "0"
+      ],
+      [
+        "0",
+        "4/5",
+        "16/25"
+      ],
+      [
+        "4/5",
+        "0",
+        "16/25"
+      ],
+      [
+        "4/5",
+        "4/5",
+        "32/25"
+      ]
+    ],
+    "meaning": "If feasible, normalize the witness vertex to unit length and choose projection minima as support origins."
+  },
+  "infeasible_five_points": [
+    [
+      "-11/20",
+      "0"
+    ],
+    [
+      "11/20",
+      "0"
+    ],
+    [
+      "0",
+      "4/5"
+    ],
+    [
+      "-11/20",
+      "4/5"
+    ],
+    [
+      "11/20",
+      "4/5"
+    ]
+  ],
+  "infeasible_result": {
+    "fits_unit_square": false,
+    "maximum_vertex_norm_squared": "100/121",
+    "minimum_enclosing_square_side_squared": "121/100",
+    "witness_vertex": [
+      "10/11",
+      "0"
+    ],
+    "row_count": 28,
+    "nonparallel_row_pairs_tested": 340,
+    "vertex_count": 4,
+    "vertices": [
+      [
+        "0",
+        "0",
+        "0"
+      ],
+      [
+        "0",
+        "10/11",
+        "100/121"
+      ],
+      [
+        "10/19",
+        "10/19",
+        "200/361"
+      ],
+      [
+        "10/11",
+        "0",
+        "100/121"
+      ]
+    ],
+    "meaning": "If feasible, normalize the witness vertex to unit length and choose projection minima as support origins."
+  },
+  "infeasible_rectangle": {
+    "width": "11/10",
+    "height": "4/5",
+    "diameter_squared": "37/20",
+    "area": "22/25",
+    "base_plus_height_squared": "87/50"
+  },
+  "scope": "Exact local one-square inclusion; the rejected set passes older diameter, triangle-area and base/height budgets",
+  "not_proved": "That these points arise from a complete six-square covering; no new whole S6 family excluded"
+}

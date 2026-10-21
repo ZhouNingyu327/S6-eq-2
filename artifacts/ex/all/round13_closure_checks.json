@@ -1,0 +1,50 @@
+[
+  {
+    "scope": "unit-square three-ray parabola, all rotations and reflections",
+    "result": "unsat",
+    "arithmetic": "exact nonlinear reals",
+    "seconds": 1.0225574970245361
+  },
+  {
+    "scope": "redundant other outer traces: C/F both bottom and F horizontal nonempty are impossible",
+    "result": "unsat",
+    "arithmetic": "exact linear reals",
+    "seconds": 0.0007455348968505859
+  },
+  {
+    "scope": "near representative, all three non-bottom edges meet, F horizontal nonempty",
+    "result": "unsat",
+    "arithmetic": "exact linear reals",
+    "seconds": 0.0007507801055908203
+  },
+  {
+    "scope": "far representative, three non-bottom edges meet, F horizontal nonempty, W upper vertical length J=0",
+    "result": "unsat",
+    "arithmetic": "exact linear reals",
+    "seconds": 0.0012929439544677734
+  },
+  {
+    "scope": "only top non-bottom gap, C top and F bottom, both horizontal traces nonempty",
+    "result": "unsat",
+    "arithmetic": "exact linear reals",
+    "seconds": 0.0004553794860839844
+  },
+  {
+    "scope": "far representative, top and right gaps both assigned to C, F horizontal nonempty",
+    "result": "unsat",
+    "arithmetic": "exact linear reals",
+    "seconds": 0.00084686279296875
+  },
+  {
+    "scope": "near representative, right/top meet and F horizontal empty: H<=S2 contradicts round-5 Phi budget",
+    "result": "unsat",
+    "arithmetic": "exact nonlinear reals",
+    "seconds": 0.0022563934326171875
+  },
+  {
+    "scope": "near surviving empty-horizontal branch: A+S2<B<1 and entire F bottom gap g>1",
+    "result": "unsat",
+    "arithmetic": "exact linear reals",
+    "seconds": 0.0005314350128173828
+  }
+]

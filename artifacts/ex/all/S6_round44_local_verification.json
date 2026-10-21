@@ -1,0 +1,59 @@
+{
+  "result": "passed",
+  "scope": "W containing QU forces top seam in original C without a TOPmid assumption; W also containing C right root forces normalized top seam in original C",
+  "algebraic_identities": 17,
+  "identity_names": [
+    "top intersection on right first upper support",
+    "height nonnegative from top leg caps",
+    "left second lower support",
+    "right second lower support",
+    "actual to normalized inward height",
+    "uniform maximum height when t above z",
+    "uniform maximum height when z above t",
+    "positive cosine of sum",
+    "normalized top point x",
+    "normalized top point y",
+    "actual seam x displacement",
+    "actual seam y displacement",
+    "positive axis denominator",
+    "axis intercept formula",
+    "axis intercept below W lower horizontal root",
+    "normalized seam convex combination",
+    "free W tau cap"
+  ],
+  "constant_count": 7,
+  "constants": [
+    {
+      "name": "right leg diameter lower bound",
+      "exact": "1/144"
+    },
+    {
+      "name": "cosine left above common cap",
+      "exact": "6630/19039"
+    },
+    {
+      "name": "cosine right above common cap",
+      "exact": "17719/312919"
+    },
+    {
+      "name": "positive sum-angle margin",
+      "exact": "6/79"
+    },
+    {
+      "name": "maximum height below target center half width",
+      "exact": "38/79"
+    },
+    {
+      "name": "left halfangle below tau cap",
+      "exact": "299/1185"
+    },
+    {
+      "name": "small-z lower-root comparison",
+      "exact": "193/450"
+    }
+  ],
+  "UNSAT": 0,
+  "angle_sampling": false,
+  "subdivision": false,
+  "not_proved": "Any whole new contact family, entire G2 or S(6)=2"
+}

@@ -1,0 +1,159 @@
+{
+  "status": "exact checks passed",
+  "queries": [
+    {
+      "name": "G3 F vertical nonempty requires top or bottom corner gap",
+      "role": "new scalar consequence",
+      "theory": "QF_LRA",
+      "result": "unsat",
+      "seconds": 0.0011012550003215438
+    },
+    {
+      "name": "G4 diagonal upper-right perimeter bound",
+      "role": "new scalar consequence",
+      "theory": "QF_LRA",
+      "result": "unsat",
+      "seconds": 0.000675029999911203
+    },
+    {
+      "name": "G4 diagonal positive F horizontal is impossible",
+      "role": "new scalar consequence",
+      "theory": "QF_LRA",
+      "result": "unsat",
+      "seconds": 0.0007067050000841846
+    },
+    {
+      "name": "G4 diagonal F nonpositive horizontal and left gap impossible",
+      "role": "new scalar consequence",
+      "theory": "QF_LRA",
+      "result": "unsat",
+      "seconds": 0.0007389180000245688
+    },
+    {
+      "name": "G4 T8 nonpositive F horizontal and left gap impossible",
+      "role": "new scalar consequence",
+      "theory": "QF_LRA",
+      "result": "unsat",
+      "seconds": 0.0006970009999349713
+    },
+    {
+      "name": "a corner's single central horizontal trace is shorter than one",
+      "role": "new scalar consequence",
+      "theory": "QF_NRA",
+      "result": "unsat",
+      "seconds": 0.0029755759996987763
+    },
+    {
+      "name": "near three-meeting lemma: C cannot also touch bottom",
+      "role": "historical lemma applicability with C midpoint allowed",
+      "theory": "QF_LRA",
+      "result": "unsat",
+      "seconds": 0.0006685279995508608
+    },
+    {
+      "name": "near three-meeting exclusion does not need C to avoid midpoints",
+      "role": "historical lemma applicability with C midpoint allowed",
+      "theory": "QF_LRA",
+      "result": "unsat",
+      "seconds": 0.0009882059994197334
+    },
+    {
+      "name": "far three-meeting J=0 exclusion does not need C to avoid midpoints",
+      "role": "historical lemma applicability with C midpoint allowed",
+      "theory": "QF_LRA",
+      "result": "unsat",
+      "seconds": 0.0007858109993321705
+    },
+    {
+      "name": "axis propagation, arbitrary translated unit",
+      "role": "fresh historical input check",
+      "theory": "QF_NRA",
+      "result": "unsat",
+      "seconds": 0.003954877999603923
+    },
+    {
+      "name": "two genuinely nonempty parallel traces total <1",
+      "role": "fresh historical input check",
+      "theory": "QF_NRA",
+      "result": "unsat",
+      "seconds": 0.0036401590004970785
+    },
+    {
+      "name": "long chord plus perpendicular traces <2",
+      "role": "fresh historical input check",
+      "theory": "QF_NRA",
+      "result": "unsat",
+      "seconds": 0.005084928000542277
+    },
+    {
+      "name": "three rays in a unit: horizontal + up^2 <=2",
+      "role": "fresh historical input check",
+      "theory": "QF_NRA",
+      "result": "unsat",
+      "seconds": 1.0657456409999213
+    }
+  ],
+  "query_count": 13,
+  "new_scalar_consequence_queries": 6,
+  "historical_applicability_and_input_queries": 7,
+  "NRA_queries": 5,
+  "LRA_queries": 8,
+  "G3_host_orbits": [
+    [
+      [
+        3,
+        1
+      ],
+      [
+        4,
+        2
+      ]
+    ],
+    [
+      [
+        3,
+        2
+      ]
+    ],
+    [
+      [
+        4,
+        1
+      ]
+    ]
+  ],
+  "G4_ordered_host_representatives": [
+    [
+      3,
+      2
+    ],
+    [
+      4,
+      2
+    ],
+    [
+      4,
+      3
+    ]
+  ],
+  "exact_counterexample": {
+    "classification": "exact local counterexample to a candidate lemma, not a target covering",
+    "target_half_side": "101/100",
+    "C": "|x+1/2|+|y| <= sqrt(2)/2",
+    "F": "|x-19/20|+|y| <= sqrt(2)/2",
+    "anchors": "C contains origin and left midpoint; F contains right midpoint and excludes origin",
+    "F_vertical_trace": "empty",
+    "both_top_bottom_traces": "empty for C and F",
+    "horizontal_traces_disjoint": true,
+    "C_grid_length": "-151/100 + 5*sqrt(2)/2",
+    "F_grid_length": "-3/50 + 3*sqrt(2)/2",
+    "union_grid_length": "-157/100 + 4*sqrt(2)",
+    "union_grid_length_approx": 4.08685424949238,
+    "false_candidate": "|(C union F) intersect six-line target grid| <=4",
+    "not_proved": "the uncovered horizontal gap and all four corners have not been covered by four more units"
+  },
+  "proof_scope": "G3 top/bottom gap necessity; G4 diagonal positive phase and remaining negative phase J>0; G4 T8 negative phase and empty-phase left meeting",
+  "historical_dependency": "T8 negative exclusion and diagonal J>0 condition use the audited round13 adjacent-corner certificate",
+  "not_proved": "entire G3; entire G4; remaining G2; S(6)=2",
+  "no_search": "no target point enumeration, pose optimization, angle sampling or interval subdivision"
+}

@@ -1,0 +1,32 @@
+[
+  {
+    "scope": "k=(L2-1)/(3-L2) lies strictly between 0 and 4/15",
+    "result": "unsat",
+    "arithmetic": "exact nonlinear reals",
+    "seconds": 0.003086090087890625
+  },
+  {
+    "scope": "right corner meet forces t3<k",
+    "result": "unsat",
+    "arithmetic": "exact nonlinear reals",
+    "seconds": 0.001590728759765625
+  },
+  {
+    "scope": "top corner meet forces t4<k^2/(1-2k^2)",
+    "result": "unsat",
+    "arithmetic": "exact nonlinear reals",
+    "seconds": 0.0019311904907226562
+  },
+  {
+    "scope": "cosine long-leg bound gives k<=t^2/(1-2t^2) on t<=5/12",
+    "result": "unsat",
+    "arithmetic": "exact nonlinear reals",
+    "seconds": 0.0017337799072265625
+  },
+  {
+    "scope": "sine long-leg bound gives k<=(1-t)^2/(6t-1-t^2) on t>=2/5",
+    "result": "unsat",
+    "arithmetic": "exact nonlinear reals",
+    "seconds": 0.0018641948699951172
+  }
+]

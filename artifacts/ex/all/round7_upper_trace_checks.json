@@ -1,0 +1,32 @@
+{
+  "queries": [
+    {
+      "scope": "right upper external contact: H+up+external trace(s)<2, tangencies included",
+      "result": "unsat",
+      "arithmetic": "exact nonlinear reals",
+      "seconds": 0.01764369010925293
+    },
+    {
+      "scope": "top upper external contact: H+up+external trace(s)<2, tangencies included",
+      "result": "unsat",
+      "arithmetic": "exact nonlinear reals",
+      "seconds": 0.006261587142944336
+    },
+    {
+      "scope": "both upper external contact: H+up+external trace(s)<2, tangencies included",
+      "result": "unsat",
+      "arithmetic": "exact nonlinear reals",
+      "seconds": 0.006798744201660156
+    },
+    {
+      "scope": "lower-left external point forces right+up rays below 1; reflection covers lower-right",
+      "result": "unsat",
+      "arithmetic": "exact nonlinear reals",
+      "seconds": 0.008129358291625977
+    }
+  ],
+  "symbolic": {
+    "scope": "top and adjacent-upper-side trace identities",
+    "result": "exact identities verified"
+  }
+}

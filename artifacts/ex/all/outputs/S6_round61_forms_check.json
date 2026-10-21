@@ -1,0 +1,7 @@
+{
+  "result": "passed",
+  "algebraic_identities": 5,
+  "positive_constants": 1,
+  "new_exclusion": false,
+  "scope": "positive-C necessary forms; independent geometric use remains to be checked"
+}

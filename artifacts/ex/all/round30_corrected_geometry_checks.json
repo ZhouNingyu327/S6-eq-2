@@ -1,0 +1,86 @@
+{
+  "queries": [],
+  "symbolic_identities": [
+    "asymmetric circle simplification",
+    "J derivative",
+    "small sqrt product",
+    "sum cancels J",
+    "large area quadratic margin"
+  ],
+  "constants": [
+    {
+      "name": "rational chord cap square margin",
+      "value": "1/4900"
+    },
+    {
+      "name": "large sum lower",
+      "value": "104/49"
+    },
+    {
+      "name": "large quadratic left",
+      "value": "55/49"
+    },
+    {
+      "name": "large quadratic right",
+      "value": "34353/34300"
+    },
+    {
+      "name": "sqrt polynomial derivative bound",
+      "value": "-29/54"
+    },
+    {
+      "name": "sqrt polynomial endpoint",
+      "value": "13/2304"
+    },
+    {
+      "name": "sqrt(1/7)<5/12 square gap",
+      "value": "31/1008"
+    },
+    {
+      "name": "three-meeting u lower",
+      "value": "41/70"
+    },
+    {
+      "name": "local example actual J",
+      "value": "1163/2400"
+    },
+    {
+      "name": "local example false-cap violation J-delta(z)",
+      "value": "36779/79200"
+    },
+    {
+      "name": "local example genuine TOP meeting surplus",
+      "value": "203/24750"
+    }
+  ],
+  "local_counterexample": {
+    "mu": "1001/1000",
+    "W_inward_normals": [
+      "3/5",
+      "4/5"
+    ],
+    "W_beta": "99/125",
+    "W_TOP_leg": "99/100",
+    "W_RIGHT_leg": "26/75",
+    "W_V_inward_y_min": "11/750",
+    "W_V_inward_y_max": "1997/4000",
+    "W_J": "1163/2400",
+    "W_H": "empty",
+    "V4_halfangle": "1/10",
+    "V4_long_TOP": "101/99",
+    "V4_U": "1901/20000",
+    "delta_z": "2/99",
+    "scope": "Exact local unit-corner pair disproves J<delta(z) from TOP meeting; not a six-square cover"
+  },
+  "totals": {
+    "UNSAT": 0,
+    "NRA": 0,
+    "LRA": 0,
+    "symbolic_identities": 5,
+    "constants": 11
+  },
+  "scope": "Correct TOP/H and RIGHT/V caps; side-gap nonempty-F implies u<1/2; three-meeting nonempty-F implies z<1/7, 9J²>z and u>41/70",
+  "not_proved": "Entire LEFT-gap, RIGHT-gap, three-meeting families; entire G2; S(6)=2",
+  "historical_input": "round13 adjacent-corner lemma includes 266 exact coefficients; not replayed",
+  "withdrawn_candidate_not_replayed": true
+}

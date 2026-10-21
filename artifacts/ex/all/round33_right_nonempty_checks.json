@@ -1,0 +1,72 @@
+{
+  "queries": [],
+  "symbolic_identities": [
+    "strong Phi loss sum of positive squares",
+    "bottom leg rho identity",
+    "small angle rho cap numerator",
+    "large angle rho cap numerator",
+    "R equals target minus qeta",
+    "A0 derivative",
+    "A0 second derivative",
+    "R first derivative",
+    "R second derivative",
+    "D sign polynomial",
+    "concavity exact second derivative",
+    "q difference exact"
+  ],
+  "constants": [
+    {
+      "name": "small corner polynomial endpoint",
+      "value": "41/432"
+    },
+    {
+      "name": "large corner polynomial endpoint",
+      "value": "125/432"
+    },
+    {
+      "name": "D left endpoint",
+      "value": "-77/30960"
+    },
+    {
+      "name": "D right endpoint",
+      "value": "84709/250305"
+    },
+    {
+      "name": "large-v gap",
+      "value": "9043/1501830"
+    },
+    {
+      "name": "concavity left lower gap",
+      "value": "1027/76368"
+    },
+    {
+      "name": "concavity right gap",
+      "value": "23375336726/2408365675881"
+    },
+    {
+      "name": "small-v coefficient",
+      "value": "62/45"
+    },
+    {
+      "name": "quarter-v loss",
+      "value": "31/90"
+    },
+    {
+      "name": "concavity coefficient",
+      "value": "450/961"
+    },
+    {
+      "name": "derivative negative gap",
+      "value": "2/225"
+    }
+  ],
+  "totals": {
+    "UNSAT": 0,
+    "NRA": 0,
+    "LRA": 0,
+    "symbolic_identities": 12,
+    "constants": 11
+  },
+  "scope": "Entire far RIGHT gap and nonempty F H, combined with round32 positive case",
+  "not_proved": "LEFT with nonempty F H; LEFT/RIGHT/three meetings with empty F H; S(6)=2"
+}

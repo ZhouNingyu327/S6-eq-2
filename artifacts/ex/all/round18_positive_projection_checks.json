@@ -1,0 +1,80 @@
+{
+  "classification": "scalar and identity checks of an analytic branch exclusion",
+  "scope": "near G2 right/top meeting with F positive horizontal nonempty",
+  "all_queries_unsat": true,
+  "queries": [
+    {
+      "name": "C positive principal rotation cannot contain left/up points",
+      "theory": "QF_NRA",
+      "result": "unsat",
+      "seconds": 0.0040755089994490845
+    },
+    {
+      "name": "C negative rotation: half-angle h < y/(2-y)",
+      "theory": "QF_NRA",
+      "result": "unsat",
+      "seconds": 0.0018068640001729364
+    },
+    {
+      "name": "C right-ray bound is less than y^2",
+      "theory": "QF_NRA",
+      "result": "unsat",
+      "seconds": 0.0019367719996807864
+    },
+    {
+      "name": "bottom meeting would make W left leg D < 1-x",
+      "theory": "QF_NRA",
+      "result": "unsat",
+      "seconds": 0.0015434300003107637
+    },
+    {
+      "name": "C left/vertical traces force W left leg D > 1-y-delta",
+      "theory": "QF_LRA",
+      "result": "unsat",
+      "seconds": 0.0008240700008173008
+    },
+    {
+      "name": "bottom meeting scalar bounds are incompatible",
+      "theory": "QF_LRA",
+      "result": "unsat",
+      "seconds": 0.0005372990008254419
+    },
+    {
+      "name": "small-angle cascade y+delta < x/2",
+      "theory": "QF_NRA",
+      "result": "unsat",
+      "seconds": 0.00173756499953015
+    },
+    {
+      "name": "residual budget: y^2 < x(1-x)/(1+x)",
+      "theory": "QF_NRA",
+      "result": "unsat",
+      "seconds": 0.0026051200002257247
+    },
+    {
+      "name": "F bottom/horizontal lengths exceed one",
+      "theory": "QF_NRA",
+      "result": "unsat",
+      "seconds": 0.0020044310003868304
+    }
+  ],
+  "query_count": 9,
+  "NRA_queries": 7,
+  "LRA_queries": 2,
+  "symbolic_checks": {
+    "rho at half-angle cap": "exact identity",
+    "s/c at half-angle cap": "exact identity",
+    "C rotation factorization": "exact identity",
+    "C right-ray margin factorization": "exact identity",
+    "F total trace budget identity": "exact identity",
+    "right-upper/top-left residual triangle": "exact identity",
+    "top-left/left-lower residual triangle": "exact identity"
+  },
+  "constant_checks": {
+    "positive cap polynomial at y=4/15": "1/225",
+    "4/15 < 1/3": true,
+    "4/15 < 1/2": true
+  },
+  "no_search": "no placement enumeration, angle sampling, or subdivision",
+  "not_proved": "other near meeting patterns; remaining far G2; entire G2; G3/G4; S(6)=2"
+}

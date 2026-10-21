@@ -1,0 +1,84 @@
+{
+  "classification": "exact checks of scalar steps in an analytic proof",
+  "scope": "near G2, right/top corner meeting, F on negative horizontal half-axis",
+  "all_queries_unsat": true,
+  "queries": [
+    {
+      "name": "corner kappa < t",
+      "theory": "QF_NRA",
+      "result": "unsat",
+      "seconds": 0.003313688000162074
+    },
+    {
+      "name": "corner kappa < 1-t",
+      "theory": "QF_NRA",
+      "result": "unsat",
+      "seconds": 0.002327342999706161
+    },
+    {
+      "name": "cascade delta < y^2",
+      "theory": "QF_NRA",
+      "result": "unsat",
+      "seconds": 0.001943477000168059
+    },
+    {
+      "name": "two gap endpoints exceed the unit diagonal",
+      "theory": "QF_NRA",
+      "result": "unsat",
+      "seconds": 0.0030064919992582873
+    },
+    {
+      "name": "bottom host short leg S < 1-x",
+      "theory": "QF_NRA",
+      "result": "unsat",
+      "seconds": 0.0017681019999145065
+    },
+    {
+      "name": "shared midpoint, W longer: d > x-delta",
+      "theory": "QF_LRA",
+      "result": "unsat",
+      "seconds": 0.0006855969995740452
+    },
+    {
+      "name": "shared midpoint, F longer: d > x-delta",
+      "theory": "QF_LRA",
+      "result": "unsat",
+      "seconds": 0.0005057689995737746
+    },
+    {
+      "name": "small-angle cascade y+delta < x/2",
+      "theory": "QF_NRA",
+      "result": "unsat",
+      "seconds": 0.0017716510001264396
+    },
+    {
+      "name": "C projection contradicts rho >= x/2",
+      "theory": "QF_NRA",
+      "result": "unsat",
+      "seconds": 0.003767058999983419
+    }
+  ],
+  "query_count": 9,
+  "NRA_queries": 7,
+  "LRA_queries": 2,
+  "symbolic_checks": {
+    "F(x/2)": "x*(x**3 - 48*x + 16)/16",
+    "F(5/12)": "-431*x**2/576 - 265*x/144 + 5/6",
+    "F(5/12) at x=1/3": "709/5184",
+    "quadratic coefficient": "x**2/4 - x",
+    "concavity chord identity": "exactly zero",
+    "exterior-point elimination": "exactly zero",
+    "top-to-left cascade identity": "exactly zero"
+  },
+  "rational_checks": {
+    "19 sqrt(2) < 27": true,
+    "sqrt(2)-1 < 5/12": true,
+    "26/15 > sqrt(2)": true,
+    "193/225 > 5/6": true,
+    "34/75 < 1/2": true,
+    "709/5184 > 0": true
+  },
+  "no_search": "no covering-point enumeration, angle sampling, interval subdivision, or placement optimization",
+  "dependency_limit": "whole-branch closure also uses the audited round13 three-meeting theorem",
+  "not_proved": "positive horizontal phase; all G2; G3/G4; S(6)=2"
+}

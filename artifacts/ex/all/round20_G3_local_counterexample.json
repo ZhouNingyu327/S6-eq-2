@@ -1,0 +1,16 @@
+{
+  "classification": "exact local counterexample to a candidate lemma, not a target covering",
+  "target_half_side": "101/100",
+  "C": "|x+1/2|+|y| <= sqrt(2)/2",
+  "F": "|x-19/20|+|y| <= sqrt(2)/2",
+  "anchors": "C contains origin and left midpoint; F contains right midpoint and excludes origin",
+  "F_vertical_trace": "empty",
+  "both_top_bottom_traces": "empty for C and F",
+  "horizontal_traces_disjoint": true,
+  "C_grid_length": "-151/100 + 5*sqrt(2)/2",
+  "F_grid_length": "-3/50 + 3*sqrt(2)/2",
+  "union_grid_length": "-157/100 + 4*sqrt(2)",
+  "union_grid_length_approx": 4.08685424949238,
+  "false_candidate": "|(C union F) intersect six-line target grid| <=4",
+  "not_proved": "the uncovered horizontal gap and all four corners have not been covered by four more units"
+}

@@ -1,0 +1,35 @@
+{
+  "classification": "exact geometric-reduction checks",
+  "symbolic": {
+    "rational_identities": 6,
+    "exact_endpoint": "256/36993 < 1/101",
+    "S_derivatives_negative": "L>=1, 0<x<1, y>=0",
+    "b_derivative_positive": "0<y<=4/15"
+  },
+  "queries": [
+    {
+      "name": "C support implications sign 1",
+      "result": "unsat",
+      "seconds": 0.015806913375854492,
+      "inequality_count": 11
+    },
+    {
+      "name": "C support implications sign -1",
+      "result": "unsat",
+      "seconds": 0.024034500122070312,
+      "inequality_count": 11
+    },
+    {
+      "name": "C downward extent d<=1",
+      "result": "unsat"
+    },
+    {
+      "name": "b(y)<1/101",
+      "result": "unsat"
+    },
+    {
+      "name": "H derivative positive on [1/10,1]",
+      "result": "unsat"
+    }
+  ]
+}

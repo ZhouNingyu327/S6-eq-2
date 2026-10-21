@@ -1,0 +1,22 @@
+[
+  {
+    "scope": "three nonbottom corner meets: C cannot dominate centre-left ray coverage",
+    "result": "unsat",
+    "arithmetic": "exact linear reals"
+  },
+  {
+    "scope": "right corner meet alone excludes C containing up critical tip",
+    "result": "unsat",
+    "arithmetic": "exact linear reals",
+    "diameter_upper": "10/7"
+  },
+  {
+    "scope": "near W, all nonbottom outer traces redundant: conditional length threshold",
+    "result": "unsat",
+    "arithmetic": "exact nonlinear reals plus symbolic root identity",
+    "seconds": 0.01154017448425293,
+    "mu_bound_exact": "-sqrt(-99 + (3*sqrt(2)/2 + 8)**2)/99 + 5*sqrt(2)/33 + 80/99",
+    "a_bound_decimal": "2.0072358858114417177137798697186304",
+    "not_global": true
+  }
+]

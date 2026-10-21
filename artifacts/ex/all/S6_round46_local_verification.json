@@ -1,0 +1,57 @@
+{
+  "result": "passed",
+  "scope": "When W contains QU, L2>1+tau and C rotation delta>tau/32; universal left C/F/V1 junction, and right C/F/V2 junction when W-QU",
+  "UNSAT": 0,
+  "algebraic_identities": 14,
+  "full_polynomial_identities": 8,
+  "strictly_positive_rational_coefficients": 45,
+  "whole_rational_charts": 4,
+  "constant_count": 7,
+  "identity_names": [
+    "upper bridge long right leg",
+    "common surplus decomposition",
+    "positive surplus target",
+    "rotation loss",
+    "complementary short leg",
+    "V1 H endpoint first upper",
+    "V1 inner vertex first upper",
+    "V1 inner vertex second upper",
+    "V1 vertex strict negative x decomposition",
+    "V1 vertex above bottom",
+    "V1 vertex below H",
+    "first frontier branch",
+    "second frontier branch",
+    "frontier branches at vertex"
+  ],
+  "constants": [
+    {
+      "name": "uniform right leg excess",
+      "exact": "281/5225"
+    },
+    {
+      "name": "cosine derivative negative",
+      "exact": "23/56"
+    },
+    {
+      "name": "middle derivative negative",
+      "exact": "11/40"
+    },
+    {
+      "name": "large x complete square margin",
+      "exact": "1651/11520"
+    },
+    {
+      "name": "very large x coefficient",
+      "exact": "11/40"
+    },
+    {
+      "name": "delta maximum",
+      "exact": "1/80"
+    },
+    {
+      "name": "low x plus delta below one",
+      "exact": "39/80"
+    }
+  ],
+  "not_proved": "Any remaining whole contact mechanism, entire G2 or S(6)=2"
+}

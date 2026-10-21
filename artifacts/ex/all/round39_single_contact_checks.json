@@ -1,0 +1,98 @@
+{
+  "queries": [],
+  "symbolic_identities": [
+    "area vs square budget difference",
+    "bottom budget derivative in mu",
+    "root lemma projection numerator",
+    "root lemma large w endpoint",
+    "root lemma small eta endpoint",
+    "eta lower-bound quadratic at w=9/28"
+  ],
+  "constants": [
+    {
+      "name": "t cap",
+      "value": "607/1435"
+    },
+    {
+      "name": "half minus t cap",
+      "value": "221/2870"
+    },
+    {
+      "name": "u coefficient gap",
+      "value": "56/1845"
+    },
+    {
+      "name": "eta coefficient gap",
+      "value": "8/3"
+    },
+    {
+      "name": "strong loss squared margin",
+      "value": "2327/2800"
+    },
+    {
+      "name": "C bottom diameter margin",
+      "value": "1207/6241"
+    },
+    {
+      "name": "root cubic endpoint",
+      "value": "59/125"
+    },
+    {
+      "name": "root cubic derivative endpoint",
+      "value": "81/4"
+    },
+    {
+      "name": "root sixth degree endpoint",
+      "value": "888/15625"
+    },
+    {
+      "name": "root sixth degree derivative cap",
+      "value": "-10432/3125"
+    },
+    {
+      "name": "Phi(1/3) root comparison",
+      "value": "7/64"
+    },
+    {
+      "name": "Phi(9/28) rational upper gap",
+      "value": "11/980"
+    },
+    {
+      "name": "global H bridge S2 cap",
+      "value": "215/529"
+    },
+    {
+      "name": "global H cap gap",
+      "value": "65/6348"
+    },
+    {
+      "name": "second global H cap",
+      "value": "13/35"
+    },
+    {
+      "name": "eta quadratic left endpoint",
+      "value": "0"
+    },
+    {
+      "name": "eta quadratic right endpoint",
+      "value": "1/6"
+    },
+    {
+      "name": "top loss eta coefficient gap",
+      "value": "31/30"
+    },
+    {
+      "name": "top final squared loss gap",
+      "value": "3/56"
+    }
+  ],
+  "totals": {
+    "UNSAT": 0,
+    "NRA": 0,
+    "LRA": 0,
+    "symbolic_identities": 6,
+    "constants": 19
+  },
+  "scope": "Entire LEFT real-gap family excluded; three meetings C avoids BOTTOM",
+  "not_proved": "F empty three meetings; S(6)=2"
+}

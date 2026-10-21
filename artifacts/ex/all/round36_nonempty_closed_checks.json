@@ -1,0 +1,58 @@
+{
+  "queries": [],
+  "symbolic_identities": [
+    "q first derivative",
+    "q second derivative",
+    "K first derivative",
+    "K second derivative",
+    "eta drift second derivative",
+    "P second u derivative",
+    "P second eta derivative",
+    "relay convex function rational expression",
+    "relay convex function positive second derivative",
+    "relay convex left endpoint",
+    "relay convex right endpoint",
+    "original W halfangle identity",
+    "loss deficit sum"
+  ],
+  "constants": [
+    {
+      "name": "scalar corner 00",
+      "value": "0"
+    },
+    {
+      "name": "scalar corner eta0",
+      "value": "35/108"
+    },
+    {
+      "name": "scalar corner uhalf",
+      "value": "43/450"
+    },
+    {
+      "name": "scalar corner etahalf",
+      "value": "1598333/38234700"
+    },
+    {
+      "name": "TOP relay t/u lower factor",
+      "value": "7/12"
+    },
+    {
+      "name": "TOP relay g deficit lower factor",
+      "value": "7/9"
+    },
+    {
+      "name": "TOP second order handoff factor",
+      "value": "14/9"
+    }
+  ],
+  "totals": {
+    "UNSAT": 0,
+    "NRA": 0,
+    "LRA": 0,
+    "symbolic_identities": 13,
+    "constants": 7
+  },
+  "scope": "All remaining nonempty F horizontal cases excluded via the LEFT positive relay proof",
+  "also_proved": "Empty-F LEFT/RIGHT side-gap cases have C disjoint from BOTTOM",
+  "not_proved": "Empty-F LEFT/RIGHT/three-meeting families; entire G2; S(6)=2"
+}

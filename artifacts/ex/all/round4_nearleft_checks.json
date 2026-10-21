@@ -1,0 +1,14 @@
+[
+  {
+    "scope": "centre tile with left-lower outer point has right+up rays <1",
+    "result": "unsat",
+    "arithmetic": "exact nonlinear reals",
+    "seconds": 0.013521671295166016
+  },
+  {
+    "scope": "centre tile with left-lower outer point cannot touch top edge",
+    "result": "unsat",
+    "arithmetic": "exact nonlinear reals",
+    "seconds": 0.0033483505249023438
+  }
+]

@@ -1,0 +1,105 @@
+{
+  "result": "passed",
+  "UNSAT": 0,
+  "algebraic_identities": 6,
+  "identity_names": [
+    "q exact increment",
+    "F square height perturbation",
+    "small z delta ratio",
+    "negative exceptional q loss",
+    "large-a ordinary positive margin",
+    "middle-a exact q increment maximum"
+  ],
+  "constant_count": 21,
+  "constants": [
+    {
+      "name": "K below one over31",
+      "exact_margin": "127/126945"
+    },
+    {
+      "name": "small q argument below half",
+      "exact_margin": "4079/32760"
+    },
+    {
+      "name": "positive L T coefficient",
+      "exact_margin": "93/2240"
+    },
+    {
+      "name": "negative L T coefficient",
+      "exact_margin": "29/192"
+    },
+    {
+      "name": "small positive rotation margin",
+      "exact_margin": "597/1280"
+    },
+    {
+      "name": "small negative rotation margin",
+      "exact_margin": "543/1120"
+    },
+    {
+      "name": "middle shifted surplus",
+      "exact_margin": "9619/4813650"
+    },
+    {
+      "name": "middle including C rotation",
+      "exact_margin": "6523/146014050"
+    },
+    {
+      "name": "middle all q arguments below one",
+      "exact_margin": "592939/1711710"
+    },
+    {
+      "name": "ordinary large-a q domain",
+      "exact_margin": "13213/17556"
+    },
+    {
+      "name": "ordinary large-a residual",
+      "exact_margin": "92/1463"
+    },
+    {
+      "name": "exceptional z over K cap",
+      "exact_margin": "597/63700"
+    },
+    {
+      "name": "exceptional delta z over z cap",
+      "exact_margin": "9547999/96099990"
+    },
+    {
+      "name": "exceptional S1 per K",
+      "exact_margin": "1301/217760"
+    },
+    {
+      "name": "positive exceptional right q domain",
+      "exact_margin": "1787/8000"
+    },
+    {
+      "name": "positive exceptional bottom contradiction",
+      "exact_margin": "143/420"
+    },
+    {
+      "name": "negative exceptional coefficient",
+      "exact_margin": "201/49600"
+    },
+    {
+      "name": "negative exceptional shifted right root",
+      "exact_margin": "79/1000"
+    },
+    {
+      "name": "negative exceptional q loss domain",
+      "exact_margin": "3512/4095"
+    },
+    {
+      "name": "negative exceptional F lower surplus",
+      "exact_margin": "39/800"
+    },
+    {
+      "name": "negative exceptional final gap",
+      "exact_margin": "4/5"
+    }
+  ],
+  "new_closed_subclass": "Right-W bridge: C contains QU but not Q2, both C rotations, eta in [0,1/64]",
+  "angle_degrees_max": 1.7903474204221488,
+  "historical_input": "Round43 full scalar E bounds and its original frozen rational certificate; not counted anew",
+  "new_geometric_input": "Actual nonempty W H bridge and TOP chord imply H<sec(theta_z)-1, hence S2<q(r+Delta_z) on the proved argument domain",
+  "not_proved": "Entire right-W bridge, either round48 I/II combination, other remaining whole mechanisms, G2 or S(6)=2"
+}

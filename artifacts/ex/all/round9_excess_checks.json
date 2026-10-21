@@ -1,0 +1,122 @@
+{
+  "queries": [
+    {
+      "scope": "left_anchor: 2/p-2 <= 2-L-S-t",
+      "result": "unsat",
+      "arithmetic": "exact nonlinear reals",
+      "seconds": 0.017800092697143555
+    },
+    {
+      "scope": "top_anchor: 2/p-2 <= 2-L-S-t",
+      "result": "unsat",
+      "arithmetic": "exact nonlinear reals",
+      "seconds": 0.023180484771728516
+    }
+  ],
+  "rational_certificates": [
+    {
+      "scope": "left_D_ge_t/2",
+      "interval": [
+        "0",
+        "16/193"
+      ],
+      "numerator": "-3*t**5 + 8*t**4 + 10*t**3 - 8*t**2 + t",
+      "positive_denominator": "2*(1 - t**2)**2",
+      "degree": 5,
+      "exact_bernstein_coefficients": [
+        "0",
+        "16/965",
+        "5152/186245",
+        "1215536/35945285",
+        "49515328/1387488001",
+        "9100380176/267785184193"
+      ],
+      "status": "exact rational certificate and reconstruction identity passed"
+    },
+    {
+      "scope": "top_cos_D_positive",
+      "interval": [
+        "0",
+        "9/40"
+      ],
+      "numerator": "-t**5 + 4*t**4 + 4*t**3 - 4*t**2 + t",
+      "positive_denominator": "(1 - t**2)**2",
+      "degree": 5,
+      "exact_bernstein_coefficients": [
+        "0",
+        "9/200",
+        "279/4000",
+        "12609/160000",
+        "252081/3200000",
+        "7960311/102400000"
+      ],
+      "status": "exact rational certificate and reconstruction identity passed"
+    },
+    {
+      "scope": "top_cos_P_nonnegative",
+      "interval": [
+        "0",
+        "9/40"
+      ],
+      "numerator": "5*t**14 - 140*t**13 + 150*t**12 + 712*t**11 - 570*t**10 - 1036*t**9 + 884*t**8 + 600*t**7 - 579*t**6 - 140*t**5 + 182*t**4 - 24*t**2 + 4*t",
+      "positive_denominator": "(1 - 2*t**2)**2*(1 - t**2)**4",
+      "degree": 14,
+      "exact_bernstein_coefficients": [
+        "0",
+        "9/140",
+        "2097/18200",
+        "2781/18200",
+        "227425851/1281280000",
+        "1949612697/10250240000",
+        "787883856687/4100096000000",
+        "866445645141/4685824000000",
+        "279039858128847/1640038400000000",
+        "1510284914168553/10092544000000000",
+        "131376350488350663/1049624576000000000",
+        "1876866758341965801/19084083200000000000",
+        "10785989491820023311/152672665600000000000",
+        "20337214693148900217/469762048000000000000",
+        "92603640191739436881/5368709120000000000000"
+      ],
+      "status": "exact rational certificate and reconstruction identity passed"
+    },
+    {
+      "scope": "top_short_D_positive",
+      "interval": [
+        "9/40",
+        "5/19"
+      ],
+      "numerator": "-43*t**2 + 34*t - 5",
+      "positive_denominator": "24*t",
+      "degree": 2,
+      "exact_bernstein_coefficients": [
+        "757/1600",
+        "143/190",
+        "350/361"
+      ],
+      "status": "exact rational certificate and reconstruction identity passed"
+    },
+    {
+      "scope": "top_short_P_nonnegative",
+      "interval": [
+        "9/40",
+        "5/19"
+      ],
+      "numerator": "886977*t**8 - 7909244*t**7 + 25765680*t**6 - 36376972*t**5 + 20496142*t**4 - 5232180*t**3 + 634000*t**2 - 34500*t + 625",
+      "positive_denominator": "192*t**2*(19*t**2 - 72*t + 5)**2",
+      "degree": 8,
+      "exact_bernstein_coefficients": [
+        "206172519170977/6553600000000",
+        "19745148873311/327680000000",
+        "48305827337977/517529600000",
+        "45896690014619/351180800000",
+        "1005298088728613/5838380800000",
+        "3447769389963/15847033600",
+        "1403823322585/5269138672",
+        "14970327700/47045881",
+        "921600000/2476099"
+      ],
+      "status": "exact rational certificate and reconstruction identity passed"
+    }
+  ]
+}

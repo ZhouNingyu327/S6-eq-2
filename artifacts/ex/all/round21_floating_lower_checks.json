@@ -1,0 +1,87 @@
+{
+  "status": "all exact checks passed",
+  "queries": [
+    {
+      "name": "small floating J gives u>29/45",
+      "theory": "QF_LRA",
+      "result": "unsat",
+      "seconds": 0.0015004320002844906
+    },
+    {
+      "name": "small floating J excludes C positive orientation",
+      "theory": "QF_NRA",
+      "result": "unsat",
+      "seconds": 0.003818981999756943
+    },
+    {
+      "name": "negative C orientation gives h<z/(2-z)",
+      "theory": "QF_NRA",
+      "result": "unsat",
+      "seconds": 0.0022806899996794527
+    },
+    {
+      "name": "r<Delta(z)",
+      "theory": "QF_NRA",
+      "result": "unsat",
+      "seconds": 0.0020566799994412577
+    },
+    {
+      "name": "real top/right meets and positive axis give S2+J<cosine_excess+r",
+      "theory": "QF_LRA",
+      "result": "unsat",
+      "seconds": 0.0007463489992005634
+    },
+    {
+      "name": "2x^2/(1-x^2)<(120/209)x",
+      "theory": "QF_NRA",
+      "result": "unsat",
+      "seconds": 0.001320694999776606
+    },
+    {
+      "name": "Delta(z)<(32/87)x for z<=4x/3",
+      "theory": "QF_NRA",
+      "result": "unsat",
+      "seconds": 0.0017916950000653742
+    },
+    {
+      "name": "q>6x/(2+3x)>(15/7)x",
+      "theory": "QF_NRA",
+      "result": "unsat",
+      "seconds": 0.0014425179997488158
+    },
+    {
+      "name": "Gamma^2-z^2 identity and psi bound",
+      "theory": "QF_NRA",
+      "result": "unsat",
+      "seconds": 0.0020195669994791388
+    },
+    {
+      "name": "S2+2d-d^2<q from the joint floating bound",
+      "theory": "QF_NRA",
+      "result": "unsat",
+      "seconds": 0.06645510099951935
+    },
+    {
+      "name": "bottom chord and vertical ray contradict unit parabolic budget",
+      "theory": "QF_NRA",
+      "result": "unsat",
+      "seconds": 0.001794144000086817
+    }
+  ],
+  "query_count": 11,
+  "NRA_queries": 9,
+  "LRA_queries": 2,
+  "symbolic_identity_checks": 2,
+  "constant_checks": {
+    "4/3 *4/15 =16/45": true,
+    "29/45 >sqrt(2)-1": true,
+    "15/7 minus joint coefficient positive": true,
+    "8/37 <1": true
+  },
+  "joint_coefficient": "52704679/24892527",
+  "positive_margin": "4455152/174247689",
+  "scope": "Remaining G4 diagonal (top TL/right BR), nonpositive F horizontal: J>t4/3",
+  "historical_round13_pair_certificate_needed_for_new_bound": false,
+  "no_search": "no poses, target points, angle sampling or interval partition",
+  "not_proved": "J>t4/3 remainder; other G4 representative; remaining G2/G3; S(6)=2"
+}

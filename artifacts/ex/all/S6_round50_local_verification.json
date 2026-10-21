@@ -1,0 +1,100 @@
+{
+  "result": "passed",
+  "UNSAT": 0,
+  "algebraic_identities": 3,
+  "identity_names": [
+    "positive denominator factorization",
+    "extreme z over K cap",
+    "extreme S1 coefficient"
+  ],
+  "full_polynomial_identities": 1,
+  "strictly_positive_rational_coefficients": 24,
+  "whole_bivariate_rectangles": 1,
+  "constant_count": 20,
+  "constants": [
+    {
+      "name": "K cap",
+      "exact": "31/1785"
+    },
+    {
+      "name": "small all q domain",
+      "exact": "239/2040"
+    },
+    {
+      "name": "small positive C L T coefficient",
+      "exact": "5/112"
+    },
+    {
+      "name": "small negative C L T coefficient",
+      "exact": "5/48"
+    },
+    {
+      "name": "small positive final margin",
+      "exact": "11/40"
+    },
+    {
+      "name": "small negative final margin",
+      "exact": "51/140"
+    },
+    {
+      "name": "middle positive denominator",
+      "exact": "563/450"
+    },
+    {
+      "name": "middle q with delta below one",
+      "exact": "36139/106590"
+    },
+    {
+      "name": "large ordinary q domain",
+      "exact": "13213/17556"
+    },
+    {
+      "name": "large ordinary gamma margin",
+      "exact": "92/1463"
+    },
+    {
+      "name": "extreme z K coefficient",
+      "exact": "23/2380"
+    },
+    {
+      "name": "extreme Delta z over z cap",
+      "exact": "5599/979950"
+    },
+    {
+      "name": "extreme S1 coefficient",
+      "exact": "7/1080"
+    },
+    {
+      "name": "positive extreme right argument",
+      "exact": "273/2000"
+    },
+    {
+      "name": "positive extreme bottom contradiction",
+      "exact": "23/60"
+    },
+    {
+      "name": "negative extreme r coefficient",
+      "exact": "1/2800"
+    },
+    {
+      "name": "negative shifted r coefficient",
+      "exact": "29/1000"
+    },
+    {
+      "name": "negative q loss K cap",
+      "exact": "584/765"
+    },
+    {
+      "name": "negative F square lower coefficient",
+      "exact": "1/40"
+    },
+    {
+      "name": "negative final gap",
+      "exact": "7/20"
+    }
+  ],
+  "new_closed_subclass": "Right-W bridge: both C rotations eta in [0,1/16]",
+  "angle_degrees_max": 7.152668749994702,
+  "scope": "Enlarges round49 right-W-bridge small C angle to approx 7.152669 degrees, using coupled middle-a surplus",
+  "not_proved": "Whole right-W bridge, round48 I/II, other whole remaining mechanisms, G2 or S(6)=2"
+}

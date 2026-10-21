@@ -1,0 +1,24 @@
+[
+  {
+    "scope": "centre tile touching bottom cannot touch upper half of right edge; reflection gives left edge",
+    "result": "unsat",
+    "arithmetic": "exact nonlinear reals",
+    "seconds": 0.0067446231842041016
+  },
+  {
+    "scope": "far weak-corner orbit, both extras touch bottom: W middle-horizontal length >=4(mu-B)",
+    "result": "unsat",
+    "arithmetic": "exact linear reals"
+  },
+  {
+    "scope": "same branch: top corner long leg L4 >=6mu-5B",
+    "result": "unsat",
+    "arithmetic": "exact linear reals"
+  },
+  {
+    "scope": "conditional threshold equation",
+    "result": "exact symbolic identity passed",
+    "side_threshold": "-sqrt(2)/12 + 5*sqrt(26)/12",
+    "side_decimal": "2.0067403337992357584"
+  }
+]

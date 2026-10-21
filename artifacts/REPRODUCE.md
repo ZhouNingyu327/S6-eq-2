@@ -18,7 +18,10 @@ Paths below are relative to the **repository root** unless noted.
 | `artifacts/still_S/` | Audit notes + honest manifests (empty `b23d` replaced) |
 | `artifacts/audit/` | G3 alignment script (repo-relative paths) |
 | `artifacts/long_proof/` | Long verification manuscript (`.md` + `.pdf`) |
-| `artifacts/DOWNLOADS/` | Hash manifest for omitted `ex/all/` |
+| `artifacts/ex_all.tar.gz`, `artifacts/ex/all/` | Historical verification tree |
+| `artifacts/SHA256SUMS.txt` | Hashes for archive + files |
+| `artifacts/closure/` | M1–M4 notes + `m3_branch_checker.py` |
+| `artifacts/DOWNLOADS/` | Pointer README (ex/all now shipped) |
 
 ---
 

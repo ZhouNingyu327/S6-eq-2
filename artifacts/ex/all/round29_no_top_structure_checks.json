@@ -1,0 +1,13 @@
+{
+  "queries": [],
+  "totals": {
+    "UNSAT": 0,
+    "NRA": 0,
+    "LRA": 0,
+    "identities": 2
+  },
+  "scope": "No-TOP far: F H nonempty excludes all C bottom contact; three meetings excludes original W repeating TOPmid; exact three-side-status classification is proved in text",
+  "old_adjacent_lemma": "round13 assumed, not replayed; includes its 266-coefficient certificate",
+  "not_proved": "Any entire remaining side-gap or three-meeting family; S(6)=2",
+  "not_in_frozen_round29_zip": true
+}

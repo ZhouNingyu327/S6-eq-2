@@ -1,0 +1,7 @@
+[
+  {
+    "scope": "far W, F avoids bottom: C cannot contain left critical tip; full cover forces it into F",
+    "result": "unsat",
+    "arithmetic": "exact linear reals"
+  }
+]

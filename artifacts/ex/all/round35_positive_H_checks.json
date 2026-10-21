@@ -1,0 +1,59 @@
+{
+  "queries": [],
+  "symbolic_identities": [
+    "M derivative",
+    "M derivative sign polynomial",
+    "small eta base numerator",
+    "B derivative",
+    "monotone comparison derivative",
+    "q difference",
+    "RIGHT meeting complementary leg"
+  ],
+  "constants": [
+    {
+      "name": "monotone derivative rational gap",
+      "value": "1072/7605"
+    },
+    {
+      "name": "small numerator endpoint",
+      "value": "18592/15625"
+    },
+    {
+      "name": "g(Z)",
+      "value": "41/70"
+    },
+    {
+      "name": "middle q increment",
+      "value": "1/32"
+    },
+    {
+      "name": "middle scalar gap",
+      "value": "409/1107680"
+    },
+    {
+      "name": "middle K cap",
+      "value": "48/55"
+    },
+    {
+      "name": "middle B threshold gap",
+      "value": "3103/48840"
+    },
+    {
+      "name": "high scalar gap",
+      "value": "12853/17403750"
+    },
+    {
+      "name": "high B threshold gap",
+      "value": "24874/2428125"
+    }
+  ],
+  "totals": {
+    "UNSAT": 0,
+    "NRA": 0,
+    "LRA": 0,
+    "symbolic_identities": 7,
+    "constants": 9
+  },
+  "scope": "Last LEFT positive-F case: original W horizontal trace has positive length",
+  "not_proved": "Entire LEFT positive F relay; empty-F families; S(6)=2"
+}

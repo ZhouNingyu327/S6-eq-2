@@ -1,0 +1,58 @@
+{
+  "result": "passed",
+  "scope": "W containing QU contributes nothing to target H; whole both-W-bridge mechanism excluded; C must directly contain Q2 or QU; W-QU normalized top seam in original C",
+  "algebraic_identities": 14,
+  "identity_names": [
+    "tau exclusion concave quadratic",
+    "top inner trace exact order",
+    "complementary half angle sine",
+    "complementary half angle tangent",
+    "contradictory lower tau threshold",
+    "actual W first horizontal root",
+    "actual horizontal root strict mu increment",
+    "actual vertical root strict mu increment",
+    "inner trace derivative",
+    "W horizontal feasibility",
+    "W first square span at mu one",
+    "W square span mu decrease",
+    "W square span derivative",
+    "strict top leg versus span"
+  ],
+  "constant_count": 8,
+  "constants": [
+    {
+      "name": "concave exclusion left endpoint",
+      "exact": "157/20900"
+    },
+    {
+      "name": "concave exclusion right endpoint",
+      "exact": "46848/1304369"
+    },
+    {
+      "name": "right-angle order contradiction",
+      "exact": "49/2090"
+    },
+    {
+      "name": "new tau cap improves old",
+      "exact": "47/395"
+    },
+    {
+      "name": "free W top leg lower bound",
+      "exact": "177/209"
+    },
+    {
+      "name": "uniform normalized top height",
+      "exact": "3/5"
+    },
+    {
+      "name": "strict span gap polynomial at z cap",
+      "exact": "1/225"
+    },
+    {
+      "name": "span strictly decreasing through tau cap",
+      "exact": "1/25"
+    }
+  ],
+  "UNSAT": 0,
+  "not_proved": "The remaining three contact mechanisms, entire G2 or S(6)=2"
+}

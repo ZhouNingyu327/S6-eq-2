@@ -4,41 +4,42 @@ This repository contains a mathematical manuscript and supporting proof artifact
 
 The human releaser (**Ningyu Zhou**, School of Physics, Peking University) hosts and maintains the package. The releaser **does not claim** independent mastery of every step. Independent peer review has **not** occurred.
 
-**Status (2026-10-21 maturity fix):** computer-assisted **candidate** package under revision after a public-snapshot review of commit `9930699`. Appropriate phrase: materials are being revised and verified — **not** “confirmed solved.” See [`CHANGELOG_zh.md`](CHANGELOG_zh.md).
+**Status (2026-10-21 submission-ready pack):** computer-assisted **candidate** package prepared for **external referee review**; accuracy tier disclosed. Appropriate phrase: organized for peer review — **not** “confirmed solved.” See [`referee_pack/`](referee_pack/) and [`CHANGELOG_zh.md`](CHANGELOG_zh.md).
 
-This collection includes results at different stages of verification. Lean coverage is a **partial skeleton**; Boolean “closed” flags are human-maintained **status metadata**, not geometric theorems. Some unformalized or certificate-backed steps could have issues; please open an issue or PR if you find one.
+## Start here (external readers)
+
+1. **[`referee_pack/README.md`](referee_pack/README.md)** — bilingual entry  
+2. **[`referee_pack/REFEREE_BRIEF.md`](referee_pack/REFEREE_BRIEF.md)** — 30 min / 2 h / full-day paths  
+3. **Short paper** — [`preprints/Six-unit-squares-cannot-cover-a-square-of-side-greater-than-2-October-21-2026/paper.pdf`](preprints/Six-unit-squares-cannot-cover-a-square-of-side-greater-than-2-October-21-2026/paper.pdf)  
+4. **Long proof** — [`artifacts/long_proof/`](artifacts/long_proof/)  
+5. **Reproduce** — [`referee_pack/HOW_TO_REPRODUCE.md`](referee_pack/HOW_TO_REPRODUCE.md) (`check_round64`, `check_round63`, `m3_branch_checker`)  
+6. **Gaps / tier** — [`referee_pack/KNOWN_GAPS.md`](referee_pack/KNOWN_GAPS.md), [`referee_pack/ACCURACY_TIER.md`](referee_pack/ACCURACY_TIER.md)  
+7. **Submission checklist (zh)** — [`SUBMISSION_CHECKLIST_zh.md`](SUBMISSION_CHECKLIST_zh.md)
 
 ## Navigating the collection
 
-The current catalogue contains **1 manuscript** organized into **1 family**, in convex / metric geometry.
+- [overview](overview.md) · [CONTENTS](CONTENTS.md) · [history](history.md) · [DISCLOSURE](DISCLOSURE.md) · [CITATION.cff](CITATION.cff)
+- [`preprints/`](preprints/) — TeX + PDF (Guide for referees; Apps.\ A–D = M1–M4)
+- [`lean/`](lean/) — partial skeleton; Boolean flags = status metadata ([`lean/docs/001.md`](lean/docs/001.md))
+- [`artifacts/`](artifacts/) — `long_proof/`, `checkers/` (+ companion JSON), `closure/` (M1–M4), `ex_all.tar.gz` + `ex/all/`, `SHA256SUMS.txt`
+- [`referee_pack/`](referee_pack/) — **preferred entry for outsiders**
 
-- Start with the [overview](overview.md) for a short description of the family.
-- Use the [manuscript map](CONTENTS.md) to find the paper and supporting materials.
-- The [`preprints/`](preprints/) directory contains the PDF, TeX sources, and manuscript-specific citation instructions.
-- The [Lean library](lean/README.md) and [formalization catalogue](lean/formalization.yaml) describe the available formalization scope. See [`lean/docs/001.md`](lean/docs/001.md).
-- Certificates, long proof, and reproduce notes live under [`artifacts/`](artifacts/) (`long_proof/`, `checkers/`, `REPRODUCE.md`).
-- Updates are recorded in [`history.md`](history.md) and [`CHANGELOG_zh.md`](CHANGELOG_zh.md).
-- Release ethics: [`DISCLOSURE.md`](DISCLOSURE.md).
-
-## Referee-facing fixes in this tree (summary)
+## Honesty snapshot
 
 | Item | State |
 | --- | --- |
-| Π(n) quantifier (exists ε, not ∀ε) | Fixed in TeX/PDF |
-| Lemma norm “closed first quadrant” | Fixed |
-| One-shot normalisation ⇒ later = id | Weakened to stepwise reclassification |
-| Long proof + R64/R42/R55 companion certs | Shipped under `artifacts/` |
-| Empty `still_S_after_b23d.jsonl` | Replaced by honest manifest |
-| Lean Bool “theorem closed” reading | Relabeled as status metadata |
-| Ownership / role manuscript fidelity | Documented FIXMEs + renames; **not** fully repaired |
-| Full `ex/all/` + private `closure/*.md` | Deferred (size / packaging) |
+| Π(n) quantifier (∃ε) | Fixed |
+| Normalisation “later = id” overclaim | Weakened; App.\ A candidate protocol |
+| Long proof + R64 certs + `ex/all` | Shipped |
+| Closure M1–M4 | In `artifacts/closure/` + paper appendices |
+| Lean Bool “theorem closed” | Status metadata only |
+| Lean ↔ manuscript classification fidelity | **Open** (Major 3) |
+| External peer review | **Not done** |
 
 ## How the result was produced
 
-The manuscript and accompanying case-management / certificate / Lean scaffolding were produced with generative AI assistants under the releaser’s direction (end-to-end exploration dump), analogous in *release format* to OpenAI’s public math repository—not a classical sole-author paper written from personal mastery of every lemma.
+Generative AI assistants under the releaser’s direction produced the manuscript and certificate / Lean scaffolding (end-to-end exploration dump). Release *format* follows OpenAI’s public math repository; this is not a classical sole-author paper from personal mastery of every lemma.
 
-## Versions and citations
+## License
 
-Public release history is preserved in git and summarized in [`history.md`](history.md). Corrections are recorded as new versions when needed.
-
-To cite the manuscript, use the BibTeX block in its preprint directory README.
+See [LICENSE](LICENSE).

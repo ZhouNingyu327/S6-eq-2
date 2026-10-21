@@ -1,0 +1,44 @@
+[
+  {
+    "scope": "W horizontal middle trace H<=L4-mu, including H=0 and duplicate top midpoint",
+    "result": "unsat",
+    "arithmetic": "exact linear reals",
+    "seconds": 0.0011341571807861328
+  },
+  {
+    "scope": "W right leg plus vertical middle trace A+J<mu, including J=0",
+    "result": "unsat",
+    "arithmetic": "exact linear reals",
+    "seconds": 0.0006265640258789062
+  },
+  {
+    "scope": "forced F rays r>=2mu-L4-U2 and u>2mu-L2-U4",
+    "result": "unsat",
+    "arithmetic": "exact linear reals",
+    "seconds": 0.001073598861694336
+  },
+  {
+    "scope": "left corner meet transfers L4+U4<L1-(2mu-2)",
+    "result": "unsat",
+    "arithmetic": "exact linear reals",
+    "seconds": 0.0005750656127929688
+  },
+  {
+    "scope": "final weighted contradiction, t1<=t2",
+    "result": "unsat",
+    "arithmetic": "exact linear reals",
+    "seconds": 0.0007345676422119141
+  },
+  {
+    "scope": "final weighted contradiction, t2<=t1",
+    "result": "unsat",
+    "arithmetic": "exact linear reals",
+    "seconds": 0.0007817745208740234
+  },
+  {
+    "scope": "universal unit-square bound l+u+(4/5)r<=2; reflected version by symmetry",
+    "result": "unsat",
+    "arithmetic": "exact nonlinear reals",
+    "seconds": 0.02135157585144043
+  }
+]

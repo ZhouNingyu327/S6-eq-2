@@ -1,0 +1,60 @@
+{
+  "queries": [],
+  "symbolic_identities": [
+    "joint-axis endpoint lower difference",
+    "q(G) in centre halfangle",
+    "long-leg defect exact",
+    "long-leg defect derivative",
+    "short leg from direct endpoint",
+    "TOP lower angle rearrangement",
+    "g deficit"
+  ],
+  "constants": [
+    {
+      "name": "eta top gap lower factor",
+      "value": "16/9"
+    },
+    {
+      "name": "top factor versus direct budget",
+      "value": "31/63"
+    },
+    {
+      "name": "first direct endpoint combined budget",
+      "value": "3/2"
+    },
+    {
+      "name": "first contradiction factor gap",
+      "value": "5/18"
+    },
+    {
+      "name": "eta<1/5 norm denominator",
+      "value": "24/25"
+    },
+    {
+      "name": "K/u constant",
+      "value": "5/6"
+    },
+    {
+      "name": "q(r)/u² constant",
+      "value": "5/9"
+    },
+    {
+      "name": "last chord deficit coefficient",
+      "value": "14/9"
+    },
+    {
+      "name": "last contradiction coefficient gap",
+      "value": "5/9"
+    }
+  ],
+  "totals": {
+    "UNSAT": 0,
+    "NRA": 0,
+    "LRA": 0,
+    "symbolic_identities": 7,
+    "constants": 9
+  },
+  "scope": "Entire far LEFT real gap with negative nonempty F horizontal, including tangency",
+  "also_proved": "All LEFT nonempty F: C cannot contain the actual V2 H inner endpoint",
+  "not_proved": "LEFT positive F H; LEFT/RIGHT/three meetings with empty F H; S(6)=2"
+}

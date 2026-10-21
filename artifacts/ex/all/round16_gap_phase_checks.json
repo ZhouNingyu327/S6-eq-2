@@ -1,0 +1,55 @@
+{
+  "classification": "exact conditional geometric results, not a closure of the residual branch",
+  "scope": "near G2 right/top meeting: horizontal sign determines left-gap ownership; Q0 remains forced into C in negative phase",
+  "queries": [
+    {
+      "name": "C left-lower exterior point implies r+u<1; sign 1",
+      "result": "unsat",
+      "seconds": 0.007356166839599609
+    },
+    {
+      "name": "C left-lower exterior point implies r+u<1; sign -1",
+      "result": "unsat",
+      "seconds": 0.005254507064819336
+    },
+    {
+      "name": "F bottom midpoint plus left exterior point forbids positive horizontal point",
+      "result": "unsat"
+    },
+    {
+      "name": "positive phase: C owning left gap cannot contain right inner endpoint",
+      "result": "unsat",
+      "theory": "QF_LRA"
+    },
+    {
+      "scope": "right adjacent meeting forces t3<t2",
+      "result": "unsat",
+      "seconds": 0.0021049976348876953
+    },
+    {
+      "scope": "round13 adjacent budget forces t2+t3<1",
+      "result": "unsat",
+      "seconds": 0.0015177726745605469
+    },
+    {
+      "scope": "actual junction lies strictly right of qR and below qU inside target",
+      "result": "unsat",
+      "seconds": 0.0030069351196289062
+    },
+    {
+      "scope": "coordinate decrease keeps reduced point below upper hull edge",
+      "result": "unsat",
+      "seconds": 0.0017421245574951172
+    }
+  ],
+  "UNSAT_count": 8,
+  "NRA_queries": 7,
+  "LRA_queries": 1,
+  "barycentric_identities": 3,
+  "triangle_determinant_identity": 1,
+  "junction_identities": {
+    "scope": "junction coordinates, mu monotonicity, wedge exclusion and triangle areas",
+    "result": "exact symbolic identities passed"
+  },
+  "not_proved": "remaining positive/negative horizontal branches; entire G2; S(6)=2"
+}

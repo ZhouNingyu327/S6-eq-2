@@ -1,0 +1,188 @@
+{
+  "result": "passed",
+  "algebraic_identities": 15,
+  "identity_names": [
+    "right upper vertex first support",
+    "right upper vertex second lower support",
+    "right edge endpoint first support",
+    "right edge endpoint second lower support",
+    "right upper vertex height above outer endpoint",
+    "right upper vertex height above H",
+    "right H endpoint to vertex along first edge",
+    "right upper vertex below cosine sine cap",
+    "top right vertex first support",
+    "top right vertex second lower support",
+    "top endpoint first support",
+    "top endpoint second lower support",
+    "top right vertex beyond vertical axis",
+    "top V endpoint to vertex along first edge",
+    "top right vertex inside target horizontal cap"
+  ],
+  "mod2_boundary_cycle_solutions": [
+    [
+      0,
+      1,
+      0,
+      1
+    ],
+    [
+      1,
+      0,
+      1,
+      0
+    ]
+  ],
+  "four_face_availability_patterns_checked": 16,
+  "availability": [
+    {
+      "faces_present": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "boundary_cycle_fills": false
+    },
+    {
+      "faces_present": [
+        0,
+        0,
+        0,
+        1
+      ],
+      "boundary_cycle_fills": false
+    },
+    {
+      "faces_present": [
+        0,
+        0,
+        1,
+        0
+      ],
+      "boundary_cycle_fills": false
+    },
+    {
+      "faces_present": [
+        0,
+        0,
+        1,
+        1
+      ],
+      "boundary_cycle_fills": false
+    },
+    {
+      "faces_present": [
+        0,
+        1,
+        0,
+        0
+      ],
+      "boundary_cycle_fills": false
+    },
+    {
+      "faces_present": [
+        0,
+        1,
+        0,
+        1
+      ],
+      "boundary_cycle_fills": true
+    },
+    {
+      "faces_present": [
+        0,
+        1,
+        1,
+        0
+      ],
+      "boundary_cycle_fills": false
+    },
+    {
+      "faces_present": [
+        0,
+        1,
+        1,
+        1
+      ],
+      "boundary_cycle_fills": true
+    },
+    {
+      "faces_present": [
+        1,
+        0,
+        0,
+        0
+      ],
+      "boundary_cycle_fills": false
+    },
+    {
+      "faces_present": [
+        1,
+        0,
+        0,
+        1
+      ],
+      "boundary_cycle_fills": false
+    },
+    {
+      "faces_present": [
+        1,
+        0,
+        1,
+        0
+      ],
+      "boundary_cycle_fills": true
+    },
+    {
+      "faces_present": [
+        1,
+        0,
+        1,
+        1
+      ],
+      "boundary_cycle_fills": true
+    },
+    {
+      "faces_present": [
+        1,
+        1,
+        0,
+        0
+      ],
+      "boundary_cycle_fills": false
+    },
+    {
+      "faces_present": [
+        1,
+        1,
+        0,
+        1
+      ],
+      "boundary_cycle_fills": true
+    },
+    {
+      "faces_present": [
+        1,
+        1,
+        1,
+        0
+      ],
+      "boundary_cycle_fills": true
+    },
+    {
+      "faces_present": [
+        1,
+        1,
+        1,
+        1
+      ],
+      "boundary_cycle_fills": true
+    }
+  ],
+  "geometric_proofs": "Common-point fan; boundary path contraction; fine triangulation labels with compact thickening",
+  "scope": "Exact lower-half five-point reduction when W contains QU; actual upper corner triple junctions; two lower-right contact combinations for the right-W bridge",
+  "UNSAT": 0,
+  "sampling": false,
+  "layout_optimization": false,
+  "not_proved": "Incompatibility of all remaining parameters, any new entire contact mechanism, G2 or S(6)=2"
+}

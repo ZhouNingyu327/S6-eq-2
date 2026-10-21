@@ -1,0 +1,41 @@
+Subject: Candidate computer-assisted argument for S(6)=2 — invitation to inspect
+
+Dear Professors Dósa, Lángi, and Tuza,
+
+I am writing regarding the conjecture S(6)=2 isolated in your work on covering a
+square with equal squares. A public GitHub package presents an AI-produced
+computer-assisted *candidate* argument addressing that conjecture:
+
+  https://github.com/ZhouNingyu327/S6-eq-2
+
+I (Ningyu Zhou, undergraduate, School of Physics, Peking University) maintain
+and release the dump. I do not claim independent mastery of every step, and I
+do not claim that the conjecture is confirmed solved or peer-reviewed.
+
+The package is organized for external reading: start at referee_pack/README.md
+and referee_pack/REFEREE_BRIEF.md; the short PDF includes a Guide for referees
+and appendices for closure notes M1–M4; the long verification manuscript and
+machine certificates sit under artifacts/. Accuracy tier and known gaps are
+disclosed explicitly.
+
+If you are willing to glance at the organization, sample certificates, or
+comment on whether the case division matches the problem as you formulated it,
+I would be grateful for any criticism. A brief note that you have not verified
+the argument is also completely fine.
+
+Thank you for your time and for formulating the conjecture.
+
+Sincerely,
+Ningyu Zhou
+School of Physics, Peking University
+zhouningyu27@gmail.com
+https://github.com/ZhouNingyu327/S6-eq-2
+
+---
+Journal cover variant (same honesty):
+
+We submit a computer-assisted candidate manuscript on S(6)=2, released with
+full certificate archives and an explicit accuracy-tier disclosure. The human
+releaser does not claim mastery of every lemma. We request referee evaluation
+of exhaustiveness and certificate faithfulness; we do not assert prior peer
+review.

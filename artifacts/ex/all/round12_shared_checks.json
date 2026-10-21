@@ -1,0 +1,26 @@
+[
+  {
+    "scope": "unit containing shared bottom midpoint and left-lower gap point cannot touch positive horizontal axis",
+    "result": "unsat",
+    "arithmetic": "exact nonlinear reals",
+    "seconds": 0.0067598819732666016
+  },
+  {
+    "scope": "shared midpoint and redundant nonbottom exterior, F horizontal empty: B+2sqrt2<4 grid bound",
+    "result": "unsat",
+    "arithmetic": "exact linear reals",
+    "seconds": 0.0010497570037841797
+  },
+  {
+    "scope": "shared midpoint and redundant nonbottom exterior, F horizontal nonempty: total grid contribution deficient",
+    "result": "unsat",
+    "arithmetic": "exact linear reals",
+    "seconds": 0.0005846023559570312
+  },
+  {
+    "scope": "shared midpoint near left gap: C forced to cover right/up middle endpoints, violating corner chain",
+    "result": "unsat",
+    "arithmetic": "exact linear reals",
+    "seconds": 0.0010156631469726562
+  }
+]

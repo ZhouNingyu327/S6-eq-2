@@ -1,0 +1,24 @@
+[
+  {
+    "scope": "unit square touching bottom left and containing right/up rays has r+u<1",
+    "result": "unsat",
+    "arithmetic": "exact nonlinear reals",
+    "seconds": 0.3399183750152588
+  },
+  {
+    "scope": "near W and F bottom-left: C cannot contain right critical tip",
+    "result": "unsat",
+    "arithmetic": "exact linear reals"
+  },
+  {
+    "scope": "right and up critical rays cannot both fit the F bottom-left triangle restriction",
+    "result": "unsat",
+    "arithmetic": "exact linear reals"
+  },
+  {
+    "scope": "upper meets exclude C containing both bottom midpoint and up critical tip",
+    "result": "unsat",
+    "arithmetic": "exact linear reals",
+    "diameter_upper": "10/7"
+  }
+]

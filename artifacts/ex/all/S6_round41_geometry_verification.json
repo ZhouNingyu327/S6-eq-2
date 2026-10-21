@@ -1,0 +1,118 @@
+{
+  "queries": [
+    {
+      "name": "uniform short cap Ka<=1",
+      "theory": "QF_NRA",
+      "result": "unsat",
+      "seconds": 0.022545681000337936
+    },
+    {
+      "name": "uniform short cap Ka>=1",
+      "theory": "QF_NRA",
+      "result": "unsat",
+      "seconds": 0.07696800799749326
+    },
+    {
+      "name": "two small top angles have positive cosine sum",
+      "theory": "QF_NRA",
+      "result": "unsat",
+      "seconds": 0.001527902000816539
+    },
+    {
+      "name": "top seam inward depth is below z+t",
+      "theory": "QF_NRA",
+      "result": "unsat",
+      "seconds": 0.004912160002277233
+    },
+    {
+      "name": "whole near-diagonal interval gives R/T bound",
+      "theory": "QF_NRA",
+      "result": "unsat",
+      "seconds": 0.0016109349999169353
+    },
+    {
+      "name": "both near-diagonal rotations give P/T bound",
+      "theory": "QF_NRA",
+      "result": "unsat",
+      "seconds": 0.0017082710000977386
+    },
+    {
+      "name": "near-diagonal C direct roots give rational cap",
+      "theory": "QF_LRA",
+      "result": "unsat",
+      "seconds": 0.0006284900009632111
+    },
+    {
+      "name": "same F bottom diameter final contradiction",
+      "theory": "QF_LRA",
+      "result": "unsat",
+      "seconds": 0.0003726050017576199
+    }
+  ],
+  "query_count": 8,
+  "identities": [
+    "mu relaxation of seam projection",
+    "seam projection affine slope",
+    "short-cap envelope identity",
+    "objective derivative in top angle",
+    "objective derivative in bottom angle",
+    "objective zero-angle deficit",
+    "top seam upper bound factor",
+    "top seam lower-support identity",
+    "top first supports intersect",
+    "Phi derivative with its square relation"
+  ],
+  "identity_count": 10,
+  "constants": [
+    {
+      "name": "low-a uniform cap margin",
+      "exact": "9/70"
+    },
+    {
+      "name": "sqrt2 below 17/12 squared",
+      "exact": "1/144"
+    },
+    {
+      "name": "sqrt2 above 11/8 squared",
+      "exact": "7/64"
+    },
+    {
+      "name": "Ka>=1 objective negative at z=1/9 squared",
+      "exact": "305161/10112400"
+    },
+    {
+      "name": "objective uniform slope exceeds 2/3",
+      "exact": "12887/421350"
+    },
+    {
+      "name": "initial objective slope contraction",
+      "exact": "26/215"
+    },
+    {
+      "name": "objective decreasing on all z<4/15",
+      "exact": "209250/2253001"
+    },
+    {
+      "name": "Phi composite decreases",
+      "exact": "4631175/4506002"
+    },
+    {
+      "name": "large-z Phi endpoint deficit",
+      "exact": "-8083/6468 + 30*sqrt(26)/121"
+    },
+    {
+      "name": "top cosine above inward depth",
+      "exact": "1207/3615"
+    },
+    {
+      "name": "actual upper root above seam height",
+      "exact": "19/60"
+    },
+    {
+      "name": "near-diagonal interval has positive width",
+      "exact": "1/578"
+    }
+  ],
+  "constant_count": 12,
+  "scope": "C with min normal coefficient >=12/17 and direct QU/Q2 excluded; two local inequalities; repeated-TOPmid forced top seam"
+}

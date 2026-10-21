@@ -24,3 +24,9 @@ The package is a **computer-assisted candidate** under revision. Fixes in this t
 ## Intended use
 
 Open scrutiny, reproducibility experiments, and expert audit. Formal arXiv/journal submission under ordinary authorship norms is deferred until a human expert takes scientific responsibility or the releaser can honestly do so.
+
+
+## Submission-ready packaging (2026-10-21)
+
+Materials under `referee_pack/` organize the dump for external human referees.
+This does **not** constitute peer review or a confirmed resolution of \(S(6)=2\).

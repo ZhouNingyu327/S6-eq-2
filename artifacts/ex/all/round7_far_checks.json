@@ -1,0 +1,27 @@
+[
+  {
+    "scope": "far W: C cannot contain the left critical tip, so that C ray is redundant in F",
+    "result": "unsat",
+    "arithmetic": "exact linear reals"
+  },
+  {
+    "scope": "far W upper outer contact: two useful central traces below 2 exclude covering",
+    "result": "unsat",
+    "arithmetic": "exact linear reals"
+  },
+  {
+    "scope": "far W lower outer contact: triangle ray bound excludes covering",
+    "result": "unsat",
+    "arithmetic": "exact linear reals"
+  },
+  {
+    "scope": "far W, all nonbottom sides meet: C cannot dominate right centre ray",
+    "result": "unsat",
+    "arithmetic": "exact linear reals"
+  },
+  {
+    "scope": "far W, all nonbottom sides meet: C cannot dominate up centre ray",
+    "result": "unsat",
+    "arithmetic": "exact linear reals"
+  }
+]

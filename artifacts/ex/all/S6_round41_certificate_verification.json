@@ -1,0 +1,90 @@
+{
+  "result": "passed",
+  "whole_parameter_charts": 9,
+  "polynomial_identities": 9,
+  "nonnegative_rational_coefficients": 219,
+  "charts": [
+    {
+      "chart": "small a, cosine envelope",
+      "degrees": [
+        8,
+        3
+      ],
+      "coefficient_count": 36,
+      "minimum": "352/19683"
+    },
+    {
+      "chart": "Ka<=1, short-leg envelope",
+      "degrees": [
+        8,
+        3
+      ],
+      "coefficient_count": 36,
+      "minimum": "1376/81"
+    },
+    {
+      "chart": "Ka>=1, short-leg envelope",
+      "degrees": [
+        10,
+        3
+      ],
+      "coefficient_count": 44,
+      "minimum": "2579571974/5859375"
+    },
+    {
+      "chart": "Ka>=1 low z R2",
+      "degrees": [
+        7,
+        4
+      ],
+      "coefficient_count": 40,
+      "minimum": "1479347290360657799/2161924538813375000"
+    },
+    {
+      "chart": "Ka<=1 very low z",
+      "degrees": [
+        2,
+        3
+      ],
+      "coefficient_count": 12,
+      "minimum": "0"
+    },
+    {
+      "chart": "Ka<=1 low a",
+      "degrees": [
+        2,
+        3
+      ],
+      "coefficient_count": 12,
+      "minimum": "329/512"
+    },
+    {
+      "chart": "Ka<=1 high a objective",
+      "degrees": [
+        2,
+        2
+      ],
+      "coefficient_count": 9,
+      "minimum": "216/245"
+    },
+    {
+      "chart": "Ka<=1 separator lower a",
+      "degrees": [
+        2,
+        4
+      ],
+      "coefficient_count": 15,
+      "minimum": "11153/3936600"
+    },
+    {
+      "chart": "Ka<=1 separator upper a",
+      "degrees": [
+        2,
+        4
+      ],
+      "coefficient_count": 15,
+      "minimum": "3593639/1574640"
+    }
+  ],
+  "scope": "two explicit local support inequalities; no target point enumeration or adaptive subdivision"
+}

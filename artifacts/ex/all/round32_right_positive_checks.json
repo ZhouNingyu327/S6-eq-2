@@ -1,0 +1,42 @@
+{
+  "queries": [],
+  "symbolic_identities": [
+    "Ys derivative",
+    "left root substitution in Ys",
+    "Phi positive square difference",
+    "same-circle long-leg offset",
+    "C halfangle G",
+    "W halfangle g(T)"
+  ],
+  "constants": [
+    {
+      "name": "Ys lower denominator at l=1/2",
+      "value": "7/4"
+    },
+    {
+      "name": "combined deficit coefficient",
+      "value": "20/21"
+    },
+    {
+      "name": "after u<9eta/7",
+      "value": "60/49"
+    },
+    {
+      "name": "1-G coefficient at eta=5/12",
+      "value": "24/17"
+    },
+    {
+      "name": "positive rational gap",
+      "value": "156/833"
+    }
+  ],
+  "totals": {
+    "UNSAT": 0,
+    "NRA": 0,
+    "LRA": 0,
+    "symbolic_identities": 6,
+    "constants": 5
+  },
+  "scope": "Entire far RIGHT real gap and positive nonempty F horizontal, including tangency",
+  "not_proved": "RIGHT negative/empty F H; LEFT remaining; three meetings with empty F H; S(6)=2"
+}

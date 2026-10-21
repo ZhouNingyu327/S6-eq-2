@@ -1,0 +1,16 @@
+{
+  "result": "passed",
+  "identities": [
+    "E1_general_support",
+    "same_a_height",
+    "triangle_mu_monotone",
+    "V_derivative"
+  ],
+  "new_angle_or_mechanism_exclusion": false,
+  "required_geometric_guards": [
+    "W contains QU; actual T_R lower bounds with mu correlation",
+    "same actual E1, C, F and bottom endpoints",
+    "a > h before dividing 1-k(h)/k(a)",
+    "alpha_R > h before using the old monotone V(A) argument"
+  ]
+}

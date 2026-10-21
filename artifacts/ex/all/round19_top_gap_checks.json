@@ -1,0 +1,111 @@
+{
+  "classification": "exact scalar checks of a hand geometric proof",
+  "new_scope": "near G2, C fills top gap: left gap impossible; nonempty F horizontal impossible",
+  "remaining_scope": "top C gap requires left/right corner meeting and F horizontal empty",
+  "all_queries_unsat": true,
+  "query_count": 13,
+  "NRA_queries": 10,
+  "LRA_queries": 3,
+  "queries": [
+    {
+      "name": "top exterior point and right ray force z < x/(2-x)",
+      "theory": "QF_NRA",
+      "result": "unsat",
+      "seconds": 0.004131730000153766
+    },
+    {
+      "name": "cosine cap gives L4 < 1+Delta(x)",
+      "theory": "QF_NRA",
+      "result": "unsat",
+      "seconds": 0.0020112949996473617
+    },
+    {
+      "name": "two gap endpoints force x < 1/3",
+      "theory": "QF_NRA",
+      "result": "unsat",
+      "seconds": 0.001969175999875006
+    },
+    {
+      "name": "x < 1/3 implies S2 < 1-Delta",
+      "theory": "QF_NRA",
+      "result": "unsat",
+      "seconds": 0.001522632000160229
+    },
+    {
+      "name": "two actual gap endpoints cannot fit the unit diagonal",
+      "theory": "QF_NRA",
+      "result": "unsat",
+      "seconds": 0.002716756999689096
+    },
+    {
+      "name": "corner kappa < t",
+      "theory": "QF_NRA",
+      "result": "unsat",
+      "seconds": 0.001596201999745972
+    },
+    {
+      "name": "corner kappa < 1-t",
+      "theory": "QF_NRA",
+      "result": "unsat",
+      "seconds": 0.0019312340000396944
+    },
+    {
+      "name": "new first-order angle relation gives y+Delta < x/2",
+      "theory": "QF_NRA",
+      "result": "unsat",
+      "seconds": 0.0015982069999154191
+    },
+    {
+      "name": "bottom host S1 < 1-x",
+      "theory": "QF_NRA",
+      "result": "unsat",
+      "seconds": 0.0015748960004202672
+    },
+    {
+      "name": "shared midpoint, W longer: d > x-Delta",
+      "theory": "QF_LRA",
+      "result": "unsat",
+      "seconds": 0.000717119000000821
+    },
+    {
+      "name": "shared midpoint, F longer: d > x-Delta",
+      "theory": "QF_LRA",
+      "result": "unsat",
+      "seconds": 0.0006312130008154782
+    },
+    {
+      "name": "C projection contradicts rho >= x/2",
+      "theory": "QF_NRA",
+      "result": "unsat",
+      "seconds": 0.0046296119999169605
+    },
+    {
+      "name": "top gap, left meeting, F empty forces a long bottom chord",
+      "theory": "QF_LRA",
+      "result": "unsat",
+      "seconds": 0.000862687000335427
+    }
+  ],
+  "symbolic_checks": {
+    "new top-to-left angle relation": "-x**2/(2*x - 2)",
+    "Delta(x/3 scale)": "-x/(2*x - 2)",
+    "angle coefficient sum": "61/33",
+    "F(x/2)": "x*(x**3 - 48*x + 16)/16",
+    "F(5/12)": "-431*x**2/576 - 265*x/144 + 5/6",
+    "F(5/12) at x=1/3": "709/5184",
+    "concavity chord identity": "exactly zero",
+    "short-leg deficit minus Delta": "x*(x**2 + 5*x - 4)/(2*(x - 1)*(x + 1))"
+  },
+  "constant_checks": {
+    "sqrt(2) < 3/2": true,
+    "19 sqrt(2) < 27": true,
+    "26/15 > sqrt(2)": true,
+    "225/193 < 7/6": true,
+    "244/495 < 1/2": true,
+    "sqrt(2)-1 < 5/12": true,
+    "709/5184 > 0": true
+  },
+  "historical_limit": "the new conditional exclusion has a hand proof; the remaining long-chord condition uses the audited round13 adjacent-corner certificate",
+  "not_proved": "the final top-gap empty-horizontal case; other near/far G2; all G2; G3/G4; S(6)=2",
+  "no_search": "no point enumeration, angle sampling, interval subdivision, or placement optimization"
+}

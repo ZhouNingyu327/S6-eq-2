@@ -6,6 +6,7 @@
 \usepackage{hyperref}
 \usepackage{url}
 \usepackage{booktabs}
+\usepackage{caption}
 \usepackage{enumitem}
 \usepackage{xcolor}
 \usepackage{graphicx}
@@ -82,6 +83,18 @@ Bernstein certificates, SMT, Lean~4}
 \maketitle
 
 \tableofcontents
+
+\section*{Guide for referees}
+This short paper is a \emph{candidate} computer-assisted argument, not a
+peer-reviewed resolution.  Read in this order: (i)~Definitions and
+Proposition~\ref{prop:M1} (normalisation honesty); (ii)~Proposition~\ref{prop:M3}
+and Appendix~\ref{app:M3} (branch tables); (iii)~Propositions in
+Sections~\ref{sec:early}--\ref{sec:finale}, each stating
+\emph{hypothesis~$\Rightarrow$ conclusion} and citing long-proof modules by
+ID; (iv)~Appendix~\ref{app:M1}--\ref{app:M4} (closure patches M1--M4);
+(v)~repository \texttt{referee\_pack/REFEREE\_BRIEF.md} for a 30-minute /
+2-hour / full-day checklist.  Boolean Lean flags are status metadata.
+Do \emph{not} treat dual-solver UNSAT alone as a machine-independent proof.
 
 %% ============================================================
 \section{Introduction}\label{sec:intro}
@@ -289,16 +302,27 @@ centre-owning G2, G4 and G3; then near-end residual G2; then reduction of the
 far-end representative to the final standard form; then elimination of all
 joining modes of that form.
 
+\begin{remark}[Branch tables]
+Explicit tables (M3.0--M3.3) and the Boolean near-end checker appear in
+Appendix~\ref{app:M3} and \texttt{artifacts/closure/}.  The short-paper
+propositions below state hypothesis~$\Rightarrow$ conclusion and cite
+long-proof module IDs; they are not self-contained geometric proofs of every
+leaf.
+\end{remark}
+
 %% ============================================================
 \section{Elimination of G5, G1, centre-G2, G3 and G4}\label{sec:early}
 %% ============================================================
 
 \begin{proposition}[G5 impossible]\label{prop:M41}
-In any covering of~$T$ exactly one tile contains~$O$, and $O$ is an interior
-point of that tile.
+\emph{Hypothesis.} $F$ also contains~$O$ (class G5), with
+$k=\#\{\mathrm{mid}\in C\cup F\}\in\{0,1,2\}$.
+\emph{Conclusion.} No such covering exists; consequently in any covering of~$T$
+exactly one tile contains~$O$, and $O$ is interior to that tile.
 \end{proposition}
 
 \begin{proof}[Proof outline]
+Long-proof modules: R2 ($k=2$), R3 ($k=0$), R4--R8 ($k=1$).
 For G5, modules R2--R3 eliminate $k=2$ and $k=0$.  For $k=1$, modules
 R4--R7 reduce to a triple-abutment configuration with an interior second
 centre tile; module~R8 then proves the two-corner inequality
@@ -378,21 +402,26 @@ After Corollary~\ref{cor:M53} the only surviving class is residual G2 with the
 unique mid owned by~$F$ on~$\BOTTOM$.
 
 \begin{proposition}[Near-end impossible]\label{prop:M61}
-The near-end host representative
-$(\RIGHT,\TOP,\LEFT)=(2,3,4)$ cannot occur.
+\emph{Hypothesis.} Residual G2 with $F$ owning the bottom mid, $C$ owning no
+outer mid, and host injection $(\RIGHT,\TOP,\LEFT)=(2,3,4)$ (free corner
+$W=V_1$).
+\emph{Conclusion.} No such covering of~$T$ exists.
 \end{proposition}
 
 \begin{proof}[Proof outline]
-Module~R18 shows that either both $\RIGHT$ and~$\TOP$ abut, or exactly one of
-them carries a true gap owned by~$C$.  In the double-abutment case:
-R13 eliminates nonempty horizontal chords of~$F$; R14--R15 force left abutment
-when that chord is empty and produce an interior point $Q_0$ of~$C$;
-R15S/R16P supply the strict angular separation and height hypotheses; R16 then
-covers the necessary continuous domain by $1173$ rational boxes with interval
-certificates excluding every leaf.  Remaining left-gap / nonempty-$F$ patterns
-are eliminated in R17--R18.  Top-gap patterns fall to R19 and~R26; right-gap
-patterns fall to R27--R28 (both rotation signs).  Normalisation that fills a
-gap returns to an already eliminated abutment leaf.
+See long-proof modules R13--R19 and R26--R28, summarised by the Boolean
+branch table in Appendix~\ref{app:M3} (Table~M3.1).  Module~R18 shows that
+either both $\RIGHT$ and~$\TOP$ abut, or exactly one of them carries a true
+gap owned by~$C$.  In the double-abutment case: R13 eliminates nonempty
+horizontal chords of~$F$; R14--R15 force left abutment when that chord is
+empty and produce an interior point $Q_0$ of~$C$; R15S/R16P supply the
+strict angular separation and height hypotheses; R16 then covers the
+necessary continuous domain by $1173$ rational boxes with interval
+certificates excluding every leaf.  Remaining left-gap / nonempty-$F$
+patterns are eliminated in R17--R18.  Top-gap patterns fall to R19 and~R26;
+right-gap patterns fall to R27--R28 (both rotation signs).  A normalisation
+that fills a gap returns to an already eliminated abutment leaf
+(Appendix~\ref{app:M1}).
 \end{proof}
 
 %% ============================================================
@@ -404,25 +433,32 @@ right mid, $V_4$ the top mid, and the free corner tile is $W=V_3$.  The centre
 tile $C$ owns no outer mid; $F$ owns the bottom mid and not the centre.
 
 \begin{proposition}[Far-end standard form]\label{prop:M71}
-Every far-end covering satisfies: the three non-bottom outer edges abut via
-corner tiles; $F\subset\{y<0\}$; $C$ avoids~$\BOTTOM$; and a single copy of~$F$
+\emph{Hypothesis.} Residual G2 with $F$ owning the bottom mid, $C$ owning no
+outer mid, and far-end hosts $V_1\supset\mathrm{LEFT\,mid}$,
+$V_2\supset\mathrm{RIGHT\,mid}$, $V_4\supset\mathrm{TOP\,mid}$, free corner
+$W=V_3$.
+\emph{Conclusion.} The covering satisfies: $\LEFT$, $\RIGHT$ and $\TOP$ abut
+via corner tiles; $F\subset\{y<0\}$; $C$ avoids~$\BOTTOM$; and one copy of~$F$
 contains both closed endpoints of the bottom gap together with the lower axial
-tip of~$C$.
+tip of~$C$ (the \emph{final standard form}).
 \end{proposition}
 
 \begin{proof}[Proof outline]
+See Table~M3.2 in Appendix~\ref{app:M3} and frozen module R29N in
+Appendix~\ref{app:M2}.
+
 \emph{Step~1.} Modules R27 and~R29 eliminate standardised top true gaps for
 both rotation signs of~$C$.  Thus $\TOP$ abuts.  Any lateral true gap lies too
 far from the bottom mid for~$F$ to reach, so lateral gaps are owned entirely
 by~$C$.  Since $C$ cannot meet both $\LEFT$ and~$\RIGHT$ at distance
 $2\mu>\sqrt2$, the only remaining cases are left gap, right gap, or triple
-abutment (corrigendum R29N).
+abutment (Proposition~R29N.1).
 
-\emph{Step~2.} If $F\cap H\neq\varnothing$, R29N forces $C$ to avoid~$\BOTTOM$;
-R31 eliminates triple abutment and R32--R36 eliminate the lateral-gap cases.
-Hence $F\cap H=\varnothing$.  If some point of~$F$ had $y\ge 0$, convexity with
-$(0,-\mu)\in F$ would produce a point of $F\cap H$ inside~$T$, a contradiction.
-Thus $F\subset\{y<0\}$.
+\emph{Step~2.} If $F\cap H\neq\varnothing$, Proposition~R29N.2 forces $C$ to
+avoid~$\BOTTOM$; R31 eliminates triple abutment and R32--R36 eliminate the
+lateral-gap cases.  Hence $F\cap H=\varnothing$.  If some point of~$F$ had
+$y\ge 0$, convexity with $(0,-\mu)\in F$ would produce a point of $F\cap H$
+inside~$T$, a contradiction.  Thus $F\subset\{y<0\}$.
 
 \emph{Step~3.} Corollary~\ref{cor:M53} applied to an inscribed target yields
 axial-root caps $\le 2-\mu$ (module~R37) without circularity.  Modules
@@ -670,14 +706,17 @@ registries and spot-check checkers under \texttt{artifacts/}, and the long
 verification manuscript under \texttt{artifacts/long\_proof/}
 (\texttt{S6\_full\_proof.md}/\texttt{.pdf}).  Companion certificate JSON files
 needed by the shipped R42/R54--55/R64 checkers sit next to those scripts.
-The full historical \texttt{ex/all/} tree is omitted for size; see
-\texttt{artifacts/DOWNLOADS/} and \texttt{artifacts/REPRODUCE.md}.  A minimal
-path from a clean clone is
+A compressed copy of the historical \texttt{ex/all/} verification tree is
+shipped as \texttt{artifacts/ex\_all.tar.gz} with SHA-256 sums in
+\texttt{artifacts/SHA256SUMS.txt}; an unpacked copy sits at
+\texttt{artifacts/ex/all/}.  Closure patches M1--M4 live in
+\texttt{artifacts/closure/} and in Appendices~\ref{app:M1}--\ref{app:M4}.
+See \texttt{referee\_pack/HOW\_TO\_REPRODUCE.md}.  A minimal path from a clean
+clone is
 \begin{verbatim}
-cd lean/S6Core && lake build
-cd ../../artifacts && python3 audit/g3_alignment_check.py
-python3 checkers/check_round64.py
-python3 checkers/check_round63.py
+cd artifacts/checkers && python3 check_round64.py && python3 check_round63.py
+cd ../closure && python3 m3_branch_checker.py
+# optional: cd ../../lean/S6Core && lake build
 \end{verbatim}
 
 %% ============================================================
@@ -716,6 +755,124 @@ produced by a generative AI system and released publicly by Ningyu Zhou
 package and does not claim independent mastery of every step.  Independent
 external peer review has not occurred.  See the repository
 \texttt{DISCLOSURE.md} for the full release ethics statement.
+
+
+%% ============================================================
+\appendix
+\section{Closure patch M1: global normalisation honesty}\label{app:M1}
+%% ============================================================
+
+The maturity revision weakened Proposition~\ref{prop:M1}: a single dominated
+enlargement is idempotent, but later $\beta$-clamps need not be the identity,
+and classification must be recomputed after enlargements that fill gaps.
+The following propositions, adapted from the Chinese closure note
+\texttt{artifacts/closure/M1\_proposition\_zh.md}, record the stronger
+\emph{intended} global protocol used by the long proof.  They are packaging
+and logical-cycle closures, not new geometric exclusions.
+
+\begin{proposition}[One-shot global corner normalisation]\label{prop:M11}
+Apply Lemma~\ref{lem:norm} once to each corner tile $V_1,\dots,V_4$, leaving
+$C$ and $F$ fixed, and (when $c,s>0$) clamp the orthogonal parameter $\beta$
+into the interval determined by $s/c$ and $1-c/s$ as in the long manuscript.
+Then: coverage of~$T$ is nondecreasing; roles of $C$ and $F$ are unchanged
+up to non-increasing $k$; open-first-quadrant normals are unique so the
+procedure is canonical; and no corner tile acquires $O$ or two distinct outer
+mids.
+\end{proposition}
+
+\begin{proposition}[Classify once after global normalisation]\label{prop:M12}
+On the output of Proposition~\ref{prop:M11}, perform the G1--G5 / host /
+near--far / abutment--gap / $F\cap H$ classification of
+Section~\ref{sec:class} exactly once.  Subsequent local ``normalisation''
+steps of types (L$\alpha$) and (L$\beta$) on already-normalised corner tiles
+are the identity, so there is no ``normalise $\to$ reclassify $\to$
+normalise'' loop inside elimination modules.
+\end{proposition}
+
+\begin{remark}
+Proposition~\ref{prop:M12} assumes no module requires a strictly
+\emph{non}-normalised corner tile.  The module-by-module check is recorded in
+\texttt{artifacts/closure/REVIEW\_addendum\_item2\_zh.md}.  If a future module
+needs a non-normalised intersection, that module must be rewritten or the
+global protocol delayed with a well-founded order.  Until independently
+verified, treat Propositions~\ref{prop:M11}--\ref{prop:M12} as candidate
+closure text accompanying the long proof.
+\end{remark}
+
+%% ============================================================
+\section{Closure patch M2: frozen module R29N}\label{app:M2}
+%% ============================================================
+
+References in the short paper and long proof to ``round-29 continuation notes
+\S4'' are hereby frozen as module~\textbf{R29N}.  Withdrawn note~\S5 (swapped
+parallel directions) is \emph{not} part of the candidate argument.
+
+\begin{proposition}[R29N.1: three outer-edge states]\label{prop:R29N1}
+Under the far-end hypothesis of Proposition~\ref{prop:M71} with $\TOP$
+abutting, the remaining outer-edge states are exactly: (i)~LEFT gap owned by
+$C$, RIGHT and TOP abutting; (ii)~RIGHT gap owned by $C$, LEFT and TOP
+abutting; (iii)~LEFT, RIGHT and TOP all abutting.
+\end{proposition}
+
+\begin{proposition}[R29N.2: nonempty $F\cap H$ forces $C$ off BOTTOM]\label{prop:R29N2}
+If $F\cap H\neq\varnothing$, then $C$ avoids $\BOTTOM$ entirely.
+\end{proposition}
+
+\begin{proposition}[R29N.4: triple abutment + nonempty $F\cap H$]\label{prop:R29N4}
+Under triple abutment and $F\cap H\neq\varnothing$, the free corner $W$ cannot
+contain the top mid.  (Does not migrate to lateral-gap cases.)
+\end{proposition}
+
+Full inequality chains, including the 266-coefficient adjacent-corner
+certificates retained from R13, are in
+\texttt{artifacts/closure/M2\_R29\_module\_zh.md} and the long proof.
+
+%% ============================================================
+\section{Closure patch M3: explicit branch tables}\label{app:M3}
+%% ============================================================
+
+\begin{center}
+\small
+\begin{tabular}{@{}llll@{}}
+\toprule
+Class & Definition & Closing modules & Exhaustion note \\
+\midrule
+G5 & $F\ni O$; $k\in\{0,1,2\}$ & R2--R8 & Prop.~\ref{prop:M41} \\
+G1 & unique centre, $k=0$ & R9--R10C & Prop.~\ref{prop:M42} \\
+centre-G2 & $k=1$, mid in $C$ & R11--R12 & Prop.~\ref{prop:M43} \\
+G4 & $k=2$, adjacent mids & R20--R23 & Prop.~\ref{prop:M51} \\
+G3 & $k=2$, opposite mids & R24--R25 & Prop.~\ref{prop:M52} \\
+residual G2 & $k=1$, mid only in $F$ & near Prop.~\ref{prop:M61}; far Prop.~\ref{prop:M71}+M8--M11 & Cor.~\ref{cor:M53} \\
+\bottomrule
+\end{tabular}
+\end{center}
+\captionof{table}{Table M3.0 (top-level). Full near-end / far-end / joining
+tables: \texttt{artifacts/closure/M3\_branch\_table\_zh.md}.}
+
+\noindent
+The Python checker \texttt{artifacts/closure/m3\_branch\_checker.py} verifies
+that the near-end Boolean grid (24 cells) is covered by live closing rows
+plus explicitly impossible cells.  It is \emph{not} a geometric proof.
+Running it on the shipped tree returns \texttt{PASS}.
+
+%% ============================================================
+\section{Closure patch M4: E/H/S certificate tiers}\label{app:M4}
+%% ============================================================
+
+Computational exclusions in the long proof are tagged:
+\begin{itemize}[leftmargin=*]
+\item[(E)] exact certificates (Bernstein / Farkas / rational IBB / CAD);
+\item[(H)] hand proofs with solver cross-check;
+\item[(S)] dual-solver UNSAT (z3 and cvc5) without an independent exact
+certificate.
+\end{itemize}
+On the tracked unique-query inventory accompanying the peer-ready dump,
+roughly $60\%$ are (E) or (H) and roughly $40\%$ remain (S); exact counts
+drift as Item-3 upgrades land and are recorded in
+\texttt{artifacts/closure/M4\_unsat\_inventory.md}.
+\textbf{Class (S) must not be rewritten as machine-independent proofs.}
+External referees should sample (S) queries for modelling faithfulness even
+when both solvers report UNSAT.
 
 \bibliographystyle{amsplain}
 \bibliography{refs}

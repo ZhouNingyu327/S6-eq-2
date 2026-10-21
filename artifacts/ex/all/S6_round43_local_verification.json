@@ -1,0 +1,74 @@
+{
+  "result": "passed",
+  "scope": "Both C rotations, double direct Q2/QU contact, eta in [0,1/8] excluded",
+  "UNSAT": 0,
+  "algebraic_identities": 8,
+  "identity_names": [
+    "axis-aligned surplus decomposition",
+    "surplus derivative",
+    "small-z derivative comparison",
+    "large-a derivative cap",
+    "large-a initial surplus",
+    "delta change in F surplus",
+    "negative C right cap",
+    "C half angle delta relation"
+  ],
+  "full_polynomial_identities": 2,
+  "strictly_positive_rational_coefficients": 20,
+  "constant_count": 13,
+  "constants": [
+    {
+      "name": "small-a q derivative range",
+      "exact": "17/126"
+    },
+    {
+      "name": "positive small-a margin",
+      "exact": "49/1460"
+    },
+    {
+      "name": "negative small-a margin",
+      "exact": "643/1820"
+    },
+    {
+      "name": "middle-a surplus",
+      "exact": "1591/59850"
+    },
+    {
+      "name": "middle-a decreasing bound",
+      "exact": "161/570"
+    },
+    {
+      "name": "positive exceptional right cap",
+      "exact": "17/392"
+    },
+    {
+      "name": "positive exceptional bottom bound",
+      "exact": "535/1596"
+    },
+    {
+      "name": "negative exceptional z cap",
+      "exact": "9/490"
+    },
+    {
+      "name": "negative exceptional K cap",
+      "exact": "5/63"
+    },
+    {
+      "name": "negative exceptional one minus eta z",
+      "exact": "1/24"
+    },
+    {
+      "name": "negative exceptional S1 cap",
+      "exact": "13/152"
+    },
+    {
+      "name": "negative exceptional q loss",
+      "exact": "6/95"
+    },
+    {
+      "name": "negative final gap",
+      "exact": "1/4"
+    }
+  ],
+  "not_proved": "Other C angles, other contacts, entire G2 or S(6)=2"
+}
