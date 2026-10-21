@@ -181,6 +181,31 @@ theorem impossible_partition_shape :
         isImpossibleFlag ⟨.topGap, .gap, .pos⟩ = true := by
   native_decide
 
+/-- Explicit livingClosers membership for remaining closer labels. -/
+theorem livingClosers_R16 :
+    (⟨.bothMeet, .meet, .empty⟩, "R16") ∈ livingClosers := by
+  native_decide
+
+theorem livingClosers_R17 :
+    (⟨.bothMeet, .gap, .neg⟩, "R17") ∈ livingClosers := by
+  native_decide
+
+theorem livingClosers_R18 :
+    (⟨.bothMeet, .gap, .pos⟩, "R18") ∈ livingClosers := by
+  native_decide
+
+theorem livingClosers_R19_four :
+    (⟨.topGap, .gap, .empty⟩, "R19") ∈ livingClosers ∧
+      (⟨.topGap, .gap, .neg⟩, "R19") ∈ livingClosers ∧
+        (⟨.topGap, .meet, .pos⟩, "R19") ∈ livingClosers ∧
+          (⟨.topGap, .meet, .neg⟩, "R19") ∈ livingClosers := by
+  native_decide
+
+theorem livingClosers_rightGap_R27_28 :
+    (allNear.filter (fun ℓ => decide (ℓ.rt = OuterRT.rightGap))).all
+      (fun ℓ => decide ((ℓ, "R27/R28") ∈ livingClosers)) = true := by
+  native_decide
+
 def openStatus : String :=
   "CLOSED: living/impossible lists, closer labels, bothGap counts, R13–R28 closer multiplicities. \
    OPEN: geometric LivingLeafExcluded for each of the 17 living leaves. \
