@@ -17,8 +17,8 @@ together with geom exclusion for that closer's leaves (from the same algebra).
 Inhabited first for R14 / R17 / R27–R28, then all eight.
 
 Also: `NearEndLeafRealised` (SE2 + Bernstein region_open) discharged for all
-living closers via `LeafCloserCertDischarged`. Raw `Nonempty NearEndSE2` open.
-Combinatorial `LivingLeafExcluded` / PrincipalClaim untouched.
+living closers. Raw living `¬ NearEndSE2Inhabited` blocked (SE(2)-satisfiable);
+impossible leaves + dual/junction exclusions proved. Combinatorial spine untouched.
 -/
 
 namespace S6.LivingLeafGeomDischarge
@@ -238,7 +238,30 @@ theorem partialSE2_not_realised_all_living :
     ∀ ℓ : NearLeaf, livingFlag ℓ = true → ¬ NearEndLeafRealised ℓ :=
   all_living_not_nearEndLeafRealised
 
+/-- Raw SE2 empty for all 7 impossible leaves. -/
+theorem rawSE2_empty_impossible :
+    (∀ left fh, ¬ NearEndSE2Inhabited ⟨.bothGap, left, fh⟩) ∧
+      ¬ NearEndSE2Inhabited ⟨.topGap, .gap, .pos⟩ :=
+  ⟨not_se2Inhabited_bothGap, not_se2Inhabited_topGap_gap_pos⟩
+
+theorem rawSE2_se2_excludes_dual_R14 (cfg : NearEndSE2 leaf_R14) :
+    ¬ CloserDualResidual leaf_R14 cfg.rays :=
+  se2_excludes_dualResidual _ cfg
+
+theorem rawSE2_se2_excludes_dual_R17 (cfg : NearEndSE2 leaf_R17) :
+    ¬ CloserDualResidual leaf_R17 cfg.rays :=
+  se2_excludes_dualResidual _ cfg
+
+theorem rawSE2_blocked_living_documented :
+    rawSE2EmptyBlockedReason ≠ "" := by native_decide
+
+def rawSE2ImpossibleEmptyProved : Bool := true
+theorem rawSE2ImpossibleEmptyProved_true : rawSE2ImpossibleEmptyProved = true := rfl
+
+def rawSE2LivingEmptyProved : Bool := false
+theorem rawSE2LivingEmptyProved_false : rawSE2LivingEmptyProved = false := rfl
+
 def openStatus : String :=
-  "CLOSED: CloserDualObligation×8; LivingLeafGeomExcluded via ¬ManuscriptCompleteRealised;    NearEndLeafRealised discharged for all living (Bernstein region_open);    partialSE2UnrealisedProved; no dual packaging / no cert_open on NearEndSE2.    OPEN: raw Nonempty NearEndSE2; combinatorial CloserDischarged. Not PrincipalClaim."
+  "CLOSED: partialSE2UnrealisedProved; GeomExcluded; raw ¬SE2 for 7 impossible;    se2_excludes_dual/junction; conditional living emptiness under dual-on-rt.    BLOCKED rawSE2EmptyProved living: SE2 satisfiable; need J cert→geometry.    OPEN: combinatorial CloserDischarged. Not PrincipalClaim."
 
 end S6.LivingLeafGeomDischarge

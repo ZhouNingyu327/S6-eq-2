@@ -642,6 +642,91 @@ theorem realised_left_gap (ℓ : NearLeaf) (cfg : NearEndSE2 ℓ) (hl : ℓ.left
     cfg.leftRays.gapsL := by
   have h := cfg.left_ok; simp only [hl, LeftStatusMatches] at h; exact h
 
+/-! ## Strongest honest raw-SE2 emptiness (no region_open / dual packaging) -/
+
+/-- Impossible leaves cannot inhabit `NearEndSE2` (`living` field). -/
+theorem not_se2Inhabited_of_impossible (ℓ : NearLeaf) (hi : impossible ℓ) :
+    ¬ NearEndSE2Inhabited ℓ := by
+  intro ⟨cfg⟩
+  have hlive := cfg.living
+  simp only [impossible] at hi
+  simp only [livingFlag, hi] at hlive
+  cases hlive
+
+theorem not_se2Inhabited_bothGap (left : LeftStatus) (fh : FHoriz) :
+    ¬ NearEndSE2Inhabited ⟨.bothGap, left, fh⟩ :=
+  not_se2Inhabited_of_impossible _ (by simp [impossible, isImpossibleFlag])
+
+theorem not_se2Inhabited_topGap_gap_pos :
+    ¬ NearEndSE2Inhabited ⟨.topGap, .gap, .pos⟩ :=
+  not_se2Inhabited_of_impossible _ (by simp [impossible, isImpossibleFlag])
+
+/-- Any inhabited partial SE2 excludes dual residual on its outer rays (SE(2) algebra). -/
+theorem se2_excludes_dualResidual (ℓ : NearLeaf) (cfg : NearEndSE2 ℓ) :
+    ¬ CloserDualResidual ℓ cfg.rays := by
+  intro hd
+  exact JunctionConflict_false cfg.rays
+    (dualResidual_implies_junction ℓ cfg.rays cfg.rt_ok hd)
+
+/-- Any inhabited partial SE2 excludes same-ray JunctionConflict. -/
+theorem se2_excludes_junction (ℓ : NearLeaf) (cfg : NearEndSE2 ℓ) :
+    ¬ JunctionConflict cfg.rays :=
+  JunctionConflict_false cfg.rays
+
+theorem not_se2Inhabited_of_junction_on_rt (ℓ : NearLeaf)
+    (H : ∀ (g : RigidMotion) (w : OuterRayWitnesses g),
+      OuterRTMatches ℓ.rt w → JunctionConflict w) :
+    ¬ NearEndSE2Inhabited ℓ := by
+  intro ⟨cfg⟩
+  exact JunctionConflict_false cfg.rays (H cfg.C cfg.rays cfg.rt_ok)
+
+/-- Priority form: dual-on-rt hypothesis ⇒ raw SE2 empty (R14/R17/R27–28 shape). -/
+theorem not_se2Inhabited_R14_of_dual_on_rt
+    (H : ∀ (g : RigidMotion) (w : OuterRayWitnesses g),
+      OuterRTMatches OuterRT.bothMeet w → CloserDualResidual ⟨.bothMeet, .gap, .empty⟩ w) :
+    ¬ NearEndSE2Inhabited ⟨.bothMeet, .gap, .empty⟩ :=
+  not_se2Inhabited_of_dual_on_rt _ H
+
+theorem not_se2Inhabited_R17_of_dual_on_rt
+    (H : ∀ (g : RigidMotion) (w : OuterRayWitnesses g),
+      OuterRTMatches OuterRT.bothMeet w → CloserDualResidual ⟨.bothMeet, .gap, .neg⟩ w) :
+    ¬ NearEndSE2Inhabited ⟨.bothMeet, .gap, .neg⟩ :=
+  not_se2Inhabited_of_dual_on_rt _ H
+
+theorem not_se2Inhabited_R27_of_dual_on_rt (ℓ : NearLeaf)
+    (hc : closerModule ℓ = "R27/R28")
+    (H : ∀ (g : RigidMotion) (w : OuterRayWitnesses g),
+      OuterRTMatches ℓ.rt w → CloserDualResidual ℓ w) :
+    ¬ NearEndSE2Inhabited ℓ :=
+  not_se2Inhabited_of_dual_on_rt ℓ H
+
+/-- Complete hit+miss Options on one outer ray are SE(2)-empty (already in coherent). -/
+theorem outerRay_hitR_missR_empty {g : RigidMotion} (w : OuterRayWitnesses g)
+    (h : w.hitR.isSome ∧ w.missR.isSome) : False :=
+  not_hitR_and_missR w h
+
+theorem outerRay_hitT_missT_empty {g : RigidMotion} (w : OuterRayWitnesses g)
+    (h : w.hitT.isSome ∧ w.missT.isSome) : False :=
+  not_hitT_and_missT w h
+
+theorem leftRay_hitL_missL_empty {g : RigidMotion} (w : LeftRayWitnesses g)
+    (h : w.hitL.isSome ∧ w.missL.isSome) : False :=
+  not_hitL_and_missL w h
+
+/-- BLOCKED: unconditional `¬ NearEndSE2Inhabited` for living R14/R17/R27–28.
+NearEndSE2 (OuterRT witnesses + left + chart + FHoriz + coherent) is jointly
+satisfiable in SE(2). Bernstein certs close only `NearEndLeafRealised`
+(region_open wrapper). Missing: J-analytic map from cert positivity to a
+contradiction among `(C, rays, leftRays, chart, fProj)`. -/
+def rawSE2EmptyBlockedReason : String :=
+  "Living NearEndSE2 fields are SE(2)-satisfiable; Bernstein closes region_open only. Need J map cert → contradiction on (C,rays,left,chart)."
+
+def rawSE2ImpossibleEmptyProved : Bool := true
+theorem rawSE2ImpossibleEmptyProved_true : rawSE2ImpossibleEmptyProved = true := rfl
+
+def rawSE2LivingEmptyProved : Bool := false
+theorem rawSE2LivingEmptyProved_false : rawSE2LivingEmptyProved = false := rfl
+
 def nearEndRealisationSE2Closed : Bool := true
 theorem nearEndRealisationSE2Closed_true : nearEndRealisationSE2Closed = true := rfl
 
@@ -668,6 +753,6 @@ def rawSE2EmptyProved : Bool := false
 theorem rawSE2EmptyProved_false : rawSE2EmptyProved = false := rfl
 
 def openStatus : String :=
-  "CLOSED: NearEndLeafRealised = SE2+Bernstein region_open; ¬Realised for all living    via LeafCloserCertDischarged (R14/R17/R27–28 first, all 8); partialSE2UnrealisedProved;    ManuscriptCompleteRealised empty; no dual packaging / no cert_open on NearEndSE2.    OPEN: raw Nonempty NearEndSE2 emptiness; combinatorial LivingLeafExcluded; not PrincipalClaim."
+  "CLOSED: partialSE2UnrealisedProved (Bernstein region_open); ManuscriptComplete empty;    raw ¬SE2 for 7 impossible leaves; se2_excludes_dual/junction; conditional living emptiness.    BLOCKED rawSE2EmptyProved for living: SE2 fields satisfiable; need J cert→geometry map.    OPEN: combinatorial LivingLeafExcluded; not PrincipalClaim."
 
 end S6.NearEndRealisation
