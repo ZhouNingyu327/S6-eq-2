@@ -17,16 +17,19 @@ Sources (read-only): `artifacts/ex/all/check_round14_bridge.py`,
 * Weierstrass `cW`/`sW` bridge `K` and left-ray identities.
 * Junction coordinate identity (`s₂X - c₂Y = s₂ + c₂ - 1`).
 * SE2 for R14 excludes `JunctionConflict` / dual residual.
-* Conditional: `R14SE2ForcesBridgeJunctionContradiction` ⇒ `BernsteinForcesRawEmpty "R14"`
+* SE2 left-gap ⇒ `dL > 1`; with `z ∈ (0,1)`, `leftRayBound z < dL`
+  (one half of bridge `leftLength`).
+* Conditional: `R14SE2ForcesLeftRayLeBound` + ∀cfg `z∈(0,1)` ⇒
+  `R14SE2ForcesBridgeJunctionContradiction` / `BernsteinForcesRawEmpty "R14"`
   (**not** via R-poly ≤ 0).
 
 ## Inventory only
 * Bridge/junction Z3 unsat scopes named; JSON holds solver results.
 
 ## Blocked
-* `R14SE2ForcesBridgeJunctionContradiction` — no Lean map from SE2 fields onto a
-  Z3-unsat hypothesis package.
-* `BernsteinForcesRawEmpty` stays false.
+* `R14SE2ForcesLeftRayLeBound` (complementary half of leftLength).
+* ∀cfg `z ∈ (0,1)` (chart alone does not force it).
+* `R14SE2ForcesBridgeJunctionContradiction` / `BernsteinForcesRawEmpty` stay false.
 
 Not PrincipalClaim / namedClosersDischarged. Bridge theorem files untouched.
 -/
@@ -169,6 +172,50 @@ theorem r14BridgeJunctionIdentities : R14BridgeJunctionIdentities :=
     fun z h1 h2 hz1 => bridge_left_ray_identity z h1 h2 hz1,
     fun x y N hD h2 => junction_coord_id_2 x y N hD h2⟩
 
+/-! ## Partial SE2 ⇒ bridge left-ray comparison (leftLength scope fragment) -/
+
+theorem r14_se2_left_gap
+    (cfg : NearEndSE2 BernsteinGeometryMap.leaf_R14) :
+    cfg.leftRays.gapsL := by
+  have h := cfg.left_ok
+  simpa [LeftStatusMatches, BernsteinGeometryMap.leaf_R14] using h
+
+theorem r14_se2_dL_gt_one
+    (cfg : NearEndSE2 BernsteinGeometryMap.leaf_R14) :
+    1 < cfg.leftRays.dL :=
+  (r14_se2_left_gap cfg).2
+
+/-- For `z ∈ (0,1)`, `2z/(1+z) < 1`. -/
+theorem leftRayBound_lt_one (z : ℚ) (hz0 : 0 < z) (hz1 : z < 1) :
+    leftRayBound z < 1 := by
+  simp only [leftRayBound]
+  have hden : 0 < 1 + z := by linarith
+  exact (div_lt_one hden).mpr (by linarith)
+
+/-- SE2 left-gap + chart `z ∈ (0,1)` ⇒ `leftRayBound z < dL`
+(one side of the bridge `leftLength` Z3 scope). -/
+theorem r14_se2_leftRayBound_lt_dL
+    (cfg : NearEndSE2 BernsteinGeometryMap.leaf_R14)
+    (hz0 : 0 < cfg.z) (hz1 : cfg.z < 1) :
+    leftRayBound cfg.z < cfg.leftRays.dL := by
+  have hgt1 := r14_se2_dL_gt_one cfg
+  have hbound := leftRayBound_lt_one cfg.z hz0 hz1
+  linarith
+
+theorem left_ray_squeeze_false (z dL : ℚ)
+    (hlt : leftRayBound z < dL) (hle : dL ≤ leftRayBound z) : False := by
+  linarith
+
+/-- OPEN complementary half of leftLength: living geometry forces `dL ≤ leftRayBound`.
+SE2 alone gives the opposite strict inequality under `z ∈ (0,1)`. -/
+def R14SE2ForcesLeftRayLeBound : Prop :=
+  ∀ cfg : NearEndSE2 BernsteinGeometryMap.leaf_R14,
+    0 < cfg.z → cfg.z < 1 → cfg.leftRays.dL ≤ leftRayBound cfg.z
+
+def r14SE2ForcesLeftRayLeBoundProved : Bool := false
+theorem r14SE2ForcesLeftRayLeBoundProved_false :
+    r14SE2ForcesLeftRayLeBoundProved = false := rfl
+
 /-- OPEN: living R14 SE2 realises a bridge/junction hypothesis package that the
 external Z3 scopes show unsatisfiable. **Not** an R-poly ≤ 0 claim. -/
 def R14SE2ForcesBridgeJunctionContradiction : Prop :=
@@ -188,6 +235,27 @@ theorem bernsteinForcesRawEmpty_R14_of_cover_and_bridge
     (H : R14SE2ForcesBridgeJunctionContradiction) :
     BernsteinForcesRawEmpty "R14" :=
   bernsteinForcesRawEmpty_R14_of_bridgeJunction H
+
+theorem bernsteinForcesRawEmpty_R14_of_leftRayLeBound
+    (hz : ∀ cfg : NearEndSE2 BernsteinGeometryMap.leaf_R14, 0 < cfg.z ∧ cfg.z < 1)
+    (H : R14SE2ForcesLeftRayLeBound) :
+    BernsteinForcesRawEmpty "R14" := by
+  intro _hc ℓ hlab
+  have hℓ := closerModule_eq_R14_leaf ℓ hlab
+  subst hℓ
+  intro ⟨cfg⟩
+  have ⟨hz0, hz1⟩ := hz cfg
+  exact left_ray_squeeze_false cfg.z cfg.leftRays.dL
+    (r14_se2_leftRayBound_lt_dL cfg hz0 hz1) (H cfg hz0 hz1)
+
+theorem r14SE2ForcesBridgeJunctionContradiction_of_leftRayLeBound
+    (hz : ∀ cfg : NearEndSE2 BernsteinGeometryMap.leaf_R14, 0 < cfg.z ∧ cfg.z < 1)
+    (H : R14SE2ForcesLeftRayLeBound) :
+    R14SE2ForcesBridgeJunctionContradiction := by
+  intro cfg
+  have ⟨hz0, hz1⟩ := hz cfg
+  exact left_ray_squeeze_false cfg.z cfg.leftRays.dL
+    (r14_se2_leftRayBound_lt_dL cfg hz0 hz1) (H cfg hz0 hz1)
 
 /-! ## Z3 scope inventory (names only) -/
 
@@ -228,14 +296,14 @@ def rawSE2EmptyProved : Bool := false
 theorem rawSE2EmptyProved_false : rawSE2EmptyProved = false := rfl
 
 def blockedReason : String :=
-  "CLOSED: bridge K + left-ray identities; junction coord id 2; SE2 excludes \
-   junction/dual; conditional raw-empty from bridge/junction hyp. \
-   BLOCKED: R14SE2ForcesBridgeJunctionContradiction (Z3 scopes not Lean-derived \
-   from SE2). Not via R-poly≤0. BernsteinForcesRawEmpty false."
+  "CLOSED: bridge K + left-ray identities; junction coord id 2; SE2 left-gap ⇒ \
+   dL>1; z∈(0,1)⇒leftRayBound<dL (leftLength one side); squeeze→False if LeBound. \
+   BLOCKED: R14SE2ForcesLeftRayLeBound; ∀cfg z∈(0,1); ForcesBridgeJunction. \
+   Not via R-poly≤0. BernsteinForcesRawEmpty false."
 
 def openStatus : String :=
-  "CLOSED: CertR14BridgeJunction identities + inventory. \
-   OPEN: SE2⇒bridge/junction unsat pack; BernsteinForcesRawEmpty; R17/R27–28. \
+  "CLOSED: identities + leftRayBound<dL fragment + inventory. \
+   OPEN: R14SE2ForcesLeftRayLeBound; ForcesBridgeJunction; BernsteinForcesRawEmpty. \
    Not PrincipalClaim / namedClosersDischarged."
 
 end S6.CertR14BridgeJunction

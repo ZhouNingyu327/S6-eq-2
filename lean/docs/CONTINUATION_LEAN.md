@@ -6,6 +6,8 @@
 - **v0.26:** centre outer-miss when `μ²>2` (`RoleSelection`); `projWidth_lt_mu`;
   SW projWidth mid-miss (`|c|+|s|<μ`, some μ²≤2 cases)
 - LivingLeaf / Closer / NearEnd / BernsteinGeometryMap / Cert* (other track)
+- **R14 bridge:** identities + SE2⇒`leftRayBound<dL` fragment; ForcesBridgeJunction OPEN
+- **R17/R27:** `CertR17R27GridPos` partial grid-pos + SE2 hyps; raw-empty OPEN
 
 ## Next
 

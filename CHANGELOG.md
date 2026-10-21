@@ -1,3 +1,14 @@
+## v0.26.1 — R14 left-ray SE2 fragment + R17/R27 grid-pos pack (2026-10-22 Asia/Shanghai)
+
+- `CertR14BridgeJunction`: SE2 left-gap ⇒ `dL>1`; `z∈(0,1)` ⇒ `leftRayBound<dL`
+  (one half of bridge `leftLength`); squeeze + conditionals from OPEN
+  `R14SE2ForcesLeftRayLeBound` ⇒ `ForcesBridgeJunction` / `BernsteinForcesRawEmpty "R14"`.
+- `CertR17R27GridPos`: R17/R27–28 grid positivity tokens + SE2 hyp decode
+  (`R17R27GridPosPartial`); raw-empty still false.
+- `r14SE2ForcesBridgeJunctionContradictionProved=false`;
+  `principalClaimProvedUnconditionally=false`; `namedClosersDischargedProved=false`.
+- Lake green. Honest residual: complementary `dL≤leftRayBound`, ∀cfg `z∈(0,1)`.
+
 ## v0.26 — centre outer-miss + projWidth mid-miss (2026-10-22 Asia/Shanghai)
 
 - `RotatedChordMeasure`: centre tile misses all four outers when `μ²>2`
