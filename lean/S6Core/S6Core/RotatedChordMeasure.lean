@@ -12,6 +12,7 @@ import S6Core.G5ExclusionFrag
 import S6Core.G5GeometryBridge
 import S6Core.AxisG5k0FromCover
 import S6Core.AxisGridCover
+import S6Core.AxisGridContribution
 import S6Core.ChordLength
 import S6Core.ObliqueChart
 import S6Core.IntervalCover1D
@@ -29,7 +30,8 @@ Proved: horiz/vert chord Δ²≤2 and |Δ|≤2; RotatedLineChordCover algebra;
 SixLineMeasureLift ⇒ CoverIneq / G5k0Bridge / GeomExport / LinePackageExport.
 Proved: corner diameter-miss (4 corners vs opposite sides) for any PointwiseCover;
 onesided axial sum ≤2; ChordMatrixExport ⇒ SixLineMeasureLift.
-Open: inhabit ChordMatrixExport / LineMeasureLift (Euclidean intervals) from rat cover.
+Proved: AxisCoverBridge ⇒ ChordMatrixExport; axis bottom LineChordCover; roles contrib ≤2.
+Open: general (non-axis) ChordMatrixExport / full six-line LineMeasureLift.
 -/
 
 namespace S6.RotatedChordMeasure
@@ -800,5 +802,208 @@ theorem pointwiseCoverCornerDiameterMissClosed_true :
 def rotatedChordMatrixExportProved : Bool := false
 theorem rotatedChordMatrixExportProved_false :
     rotatedChordMatrixExportProved = false := rfl
+
+
+/-! ## Axis path inhabits ChordMatrixExport / bottom LineChordCover -/
+
+open S6.AxisGridContribution
+open S6.AxisG5k0FromCover
+open S6.OwnershipBridge (AxisSquare)
+open Set
+
+theorem sum6_eq_sum (f : Fin 6 → ℚ) : sum6 f = ∑ i : Fin 6, f i := by
+  simp only [sum6]
+  rw [Fin.sum_univ_succ, Fin.sum_univ_succ, Fin.sum_univ_succ, Fin.sum_univ_succ,
+    Fin.sum_univ_succ, Fin.sum_univ_succ]
+  simp; ring
+
+theorem axisGridContrib_le_two_of_roles {μ : ℚ} {squares : Fin 6 → AxisSquare}
+    (R : AxisG5k0Roles μ squares) (k : Fin 6) :
+    axisGridContrib (squares k) μ ≤ 2 := by
+  have hμ := R.hμ
+  rw [axisGridContrib_eq_outer_mid]
+  rcases R.hpart k with hk | hk | hk | hk | hk | hk
+  · subst hk
+    have hm : midContrib (squares R.iSW) μ = 0 :=
+      R.onlyFillers R.iSW R.hj1SW.symm R.hj2SW.symm
+    have ho := axis_contains_origin_outer_le_two (squares R.iSW) μ hμ R.hSW
+    simp only [outerContrib, midContrib] at ho hm ⊢
+    linarith
+  · subst hk
+    have hm : midContrib (squares R.iSE) μ = 0 :=
+      R.onlyFillers R.iSE R.hj1SE.symm R.hj2SE.symm
+    have ho := axis_contains_se_outer_le_two (squares R.iSE) μ hμ R.hSE
+    simp only [outerContrib, midContrib] at ho hm ⊢
+    linarith
+  · subst hk
+    have hm : midContrib (squares R.iNE) μ = 0 :=
+      R.onlyFillers R.iNE R.hj1NE.symm R.hj2NE.symm
+    have ho := axis_contains_ne_outer_le_two (squares R.iNE) μ hμ R.hNE
+    simp only [outerContrib, midContrib] at ho hm ⊢
+    linarith
+  · subst hk
+    have hm : midContrib (squares R.iNW) μ = 0 :=
+      R.onlyFillers R.iNW R.hj1NW.symm R.hj2NW.symm
+    have ho := axis_contains_nw_outer_le_two (squares R.iNW) μ hμ R.hNW
+    simp only [outerContrib, midContrib] at ho hm ⊢
+    linarith
+  · subst hk
+    have ho : outerContrib (squares R.j1) μ = 0 :=
+      R.onlyOwners R.j1 R.hj1SW R.hj1SE R.hj1NE R.hj1NW
+    have hm := axis_mid_sum_le_two (squares R.j1) μ hμ
+    simp only [outerContrib, midContrib] at ho hm ⊢
+    linarith
+  · subst hk
+    have ho : outerContrib (squares R.j2) μ = 0 :=
+      R.onlyOwners R.j2 R.hj2SW R.hj2SE R.hj2NE R.hj2NW
+    have hm := axis_mid_sum_le_two (squares R.j2) μ hμ
+    simp only [outerContrib, midContrib] at ho hm ⊢
+    linarith
+
+def axisSixLineChord (squares : Fin 6 → AxisSquare) (μ : ℚ) : Fin 6 → Fin 6 → ℚ
+  | ⟨0, _⟩, i => bottomLen (squares i) μ
+  | ⟨1, _⟩, i => topLen (squares i) μ
+  | ⟨2, _⟩, i => leftLen (squares i) μ
+  | ⟨3, _⟩, i => rightLen (squares i) μ
+  | ⟨4, _⟩, i => hMidLen (squares i) μ
+  | ⟨5, _⟩, i => vMidLen (squares i) μ
+
+theorem axisSixLineChord_nonneg (squares : Fin 6 → AxisSquare) (μ : ℚ) (ℓ i : Fin 6) :
+    0 ≤ axisSixLineChord squares μ ℓ i := by
+  fin_cases ℓ
+  · exact bottomLen_nonneg _ _
+  · exact len_nonneg_top _ _
+  · exact len_nonneg_left _ _
+  · exact len_nonneg_right _ _
+  · exact len_nonneg_hMid _ _
+  · exact len_nonneg_vMid _ _
+
+theorem axisSixLineChord_square_sum (squares : Fin 6 → AxisSquare) (μ : ℚ) (i : Fin 6) :
+    sum6 (fun ℓ => axisSixLineChord squares μ ℓ i) = axisGridContrib (squares i) μ := by
+  simp only [sum6, axisSixLineChord, axisGridContrib]
+
+theorem axisSixLine_lineCover (μ : ℚ) (hμ : 1 < μ) (squares : Fin 6 → AxisSquare)
+    (H : AxisGridLineCover μ squares) (ℓ : Fin 6) :
+    (2 : ℚ) * μ ≤ sum6 (fun i => axisSixLineChord squares μ ℓ i) := by
+  fin_cases ℓ
+  · have hQ : (2 : ℚ) * μ ≤ ∑ i : Fin 6, bottomLen (squares i) μ := by
+      exact_mod_cast H.bottom_sum hμ
+    simpa [sum6_eq_sum, axisSixLineChord] using hQ
+  · have hQ : (2 : ℚ) * μ ≤ ∑ i : Fin 6, topLen (squares i) μ := by
+      exact_mod_cast H.top_sum hμ
+    simpa [sum6_eq_sum, axisSixLineChord] using hQ
+  · have hQ : (2 : ℚ) * μ ≤ ∑ i : Fin 6, leftLen (squares i) μ := by
+      exact_mod_cast H.left_sum hμ
+    simpa [sum6_eq_sum, axisSixLineChord] using hQ
+  · have hQ : (2 : ℚ) * μ ≤ ∑ i : Fin 6, rightLen (squares i) μ := by
+      exact_mod_cast H.right_sum hμ
+    simpa [sum6_eq_sum, axisSixLineChord] using hQ
+  · have hQ : (2 : ℚ) * μ ≤ ∑ i : Fin 6, hMidLen (squares i) μ := by
+      exact_mod_cast H.hMid_sum hμ
+    simpa [sum6_eq_sum, axisSixLineChord] using hQ
+  · have hQ : (2 : ℚ) * μ ≤ ∑ i : Fin 6, vMidLen (squares i) μ := by
+      exact_mod_cast H.vMid_sum hμ
+    simpa [sum6_eq_sum, axisSixLineChord] using hQ
+
+theorem RotatedChordMatrixExport_of_axisCoverBridge (h : AxisG5k0CoverBridge) :
+    RotatedChordMatrixExport := by
+  intro T cov hcls hk
+  rcases h T cov hcls hk with ⟨squares, Hrat, ⟨R⟩⟩
+  have Hline := AxisGridLineCover_of_ratCover T.μ R.hμ squares Hrat
+  refine ⟨axisSixLineChord squares T.μ, ?_, ?_, ?_⟩
+  · intro ℓ i; exact axisSixLineChord_nonneg squares T.μ ℓ i
+  · intro ℓ; exact axisSixLine_lineCover T.μ R.hμ squares Hline ℓ
+  · intro i
+    rw [axisSixLineChord_square_sum]
+    exact axisGridContrib_le_two_of_roles R i
+
+theorem RotatedChordMatrixExport_of_axisRealisation (h : AxisAlignedG5k0Realisation) :
+    RotatedChordMatrixExport :=
+  RotatedChordMatrixExport_of_axisCoverBridge (AxisG5k0CoverBridge_of_axisRealisation h)
+
+theorem RotatedSixLineMeasureLift_of_axisCoverBridge (h : AxisG5k0CoverBridge) :
+    RotatedSixLineMeasureLift :=
+  RotatedSixLineMeasureLift_of_chordMatrixExport
+    (RotatedChordMatrixExport_of_axisCoverBridge h)
+
+/-- Clamped bottom chord endpoints (empty / inverted → `{0}`). -/
+noncomputable def axisBottomChordLo (s : AxisSquare) (μ : ℚ) : ℝ :=
+  if s.y ≤ 0 ∧ 0 ≤ s.y + 1 then
+    let lo := bottomLo s μ
+    let hi := bottomHi s μ
+    if lo ≤ hi then lo else (0 : ℝ)
+  else (0 : ℝ)
+
+noncomputable def axisBottomChordHi (s : AxisSquare) (μ : ℚ) : ℝ :=
+  if s.y ≤ 0 ∧ 0 ≤ s.y + 1 then
+    let lo := bottomLo s μ
+    let hi := bottomHi s μ
+    if lo ≤ hi then hi else (0 : ℝ)
+  else (0 : ℝ)
+
+theorem axisBottomChord_le (s : AxisSquare) (μ : ℚ) :
+    axisBottomChordLo s μ ≤ axisBottomChordHi s μ := by
+  dsimp [axisBottomChordLo, axisBottomChordHi]
+  split_ifs <;> simp [*]
+
+theorem axisBottomChord_len_le_two (s : AxisSquare) (μ : ℚ) :
+    axisBottomChordHi s μ - axisBottomChordLo s μ ≤ 2 := by
+  dsimp [axisBottomChordLo, axisBottomChordHi]
+  split_ifs with h hle
+  · have h1 : bottomHi s μ - bottomLo s μ ≤ 1 := by
+      dsimp [bottomLo, bottomHi]
+      have := sub_le_sub (min_le_left ((s.x : ℝ) + 1) ((2 : ℝ) * μ))
+        (le_max_left (s.x : ℝ) 0)
+      linarith
+    linarith
+  · norm_num
+  · norm_num
+
+theorem bottomInterval_subset_chordIcc (s : AxisSquare) (μ : ℚ) :
+    bottomInterval s μ ⊆ Icc (axisBottomChordLo s μ) (axisBottomChordHi s μ) := by
+  intro x hx
+  dsimp [bottomInterval] at hx
+  by_cases h : s.y ≤ 0 ∧ 0 ≤ s.y + 1
+  · have hx' : x ∈ Icc (bottomLo s μ) (bottomHi s μ) := by
+      simpa [h] using hx
+    dsimp [axisBottomChordLo, axisBottomChordHi]
+    by_cases hle : bottomLo s μ ≤ bottomHi s μ
+    · simpa [h, hle] using hx'
+    · have : Icc (bottomLo s μ) (bottomHi s μ) = ∅ :=
+        Icc_eq_empty_of_lt (lt_of_not_ge hle)
+      rw [this] at hx'
+      cases hx'
+  · simp only [h, ite_false] at hx
+    cases hx
+
+theorem RotatedLineChordCover_of_axis_bottom (μ : ℚ) (hμ : 1 < μ)
+    (squares : Fin 6 → AxisSquare)
+    (hQ : ∀ q : ℚ, 0 ≤ q → q ≤ 2 * μ → ∃ i, (squares i).contains (q, 0)) :
+    Nonempty (RotatedLineChordCover μ) := by
+  have hreal := bottom_rat_cover_implies_real μ hμ squares hQ
+  refine ⟨{
+    lo := fun i => axisBottomChordLo (squares i) μ
+    hi := fun i => axisBottomChordHi (squares i) μ
+    hle := fun i => axisBottomChord_le (squares i) μ
+    hchord_le_two := fun i => axisBottomChord_len_le_two (squares i) μ
+    hcover := ?_ }⟩
+  intro x hx
+  rcases mem_iUnion.mp (hreal hx) with ⟨i, hi⟩
+  exact mem_iUnion.mpr ⟨i, bottomInterval_subset_chordIcc (squares i) μ hi⟩
+
+theorem axis_aligned_implies_bottom_lineLift (μ : ℚ) (hμ : 1 < μ)
+    (rs : Fin 6 → RotatedSquare)
+    (H : RotatedGridRatCover μ rs) (halign : ∀ i, isAxisAligned (rs i)) :
+    Nonempty (RotatedLineChordCover μ) := by
+  have Hax := AxisGridRatCover_of_rotated_axis μ rs H (fun i => by simpa using (halign i))
+  exact RotatedLineChordCover_of_axis_bottom μ hμ (fun i => toAxisSquare (rs i)) Hax.bottom
+
+def axisPathChordMatrixExportClosed : Bool := true
+theorem axisPathChordMatrixExportClosed_true :
+    axisPathChordMatrixExportClosed = true := rfl
+
+def axisBottomLineChordCoverClosed : Bool := true
+theorem axisBottomLineChordCoverClosed_true :
+    axisBottomLineChordCoverClosed = true := rfl
 
 end S6.RotatedChordMeasure
