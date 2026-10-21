@@ -2,18 +2,19 @@
 
 ## Done
 
-- Reduction spine; G5 algebra; GeomExport⇒Bridge⇒G5Exclusion
-- Axis packing / `AxisG5k0Roles` ⇒ OnlyOwners/OnlyFillers ⇒ axis G5k0 False
-- **`AxisG5k0FromCover`**: axis-aligned ↔ AxisSquare; centre⇒strict interior; pointwise⇒`AxisGridRatCover`; six-distinct partition; corners+centre fillers⇒roles; `AxisAlignedG5k0Realisation`⇒`AxisG5k0CoverBridge`/`G5k0Bridge`/`G5k0GeomExport`
-- RotatedChordMeasure: `RotatedChordBoundPackage`⇒`RotatedG5k0ChordExport`⇒GeomExport/Bridge; owner diameter ≤2
-- Living-leaf: `LivingLeafCertBridge`⇒`AllLivingLeavesExcluded`; closer-module inventory
-- G3/G4: grid implications; `G3CoverBudgetRealisation`⇒`G3Exclusion`
+- Axis packing / `AxisG5k0Roles` / `AxisG5k0FromCover` base path
+- **`isG5Class ↔ fHasO`**; **`pullback identityPose = id`**; **identity-C + G5 ⇒ world F∋O**
+- **`AxisAlignedIdentityCRealisation` ⇒ `AxisAlignedG5k0Realisation` ⇒ bridges/GeomExport/ChordExport**
+- Axis-aligned + C=`identityPose` + G5 (+k=0) ⇒ `False` (unconditional on that hyp)
+- Rotated: `RotatedG5k0ChordExport_of_axisRealisation` / `_of_identityCRealisation`
+- Living: S-tier exact complete (151/151) inventory flag; `LivingLeafCertBridge` packaging
+- G3/G4: grid implications; `G3CoverBudgetRealisation` ⇒ exclusion
 
 ## Next
 
-1. Discharge `AxisAlignedG5k0Realisation` (axis align + world `F∋O`) for every G5 k=0 `PointwiseCover`, **or** inhabit `RotatedChordBoundPackage` / `RotatedG5k0ChordExport` without axis hyp.
-2. Geometry for 17 living near-end leaves (`LivingLeafCertBridge`).
-3. Inhabit `G3CoverBudgetRealisation` / `G4BudgetBridge` from covers.
+1. Discharge `AxisAlignedIdentityCRealisation` (every G5 k=0 cover axis-alignable with C placed as `identityPose`) — manuscript normalisation faithfulness — **or** inhabit `RotatedChordBoundPackage` cover-ineq from general rotated covers.
+2. Geometry for 17 living near-end leaves (`AllLivingClosersDischarged`).
+3. Inhabit G3/G4 cover budgets from covers.
 4. Unconditional `PrincipalClaim` only after all ClassExclusions close.
 
 ## Honesty

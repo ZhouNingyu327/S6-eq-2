@@ -11,6 +11,8 @@ import S6Core.PdfNormalisation
 import S6Core.G5ExclusionFrag
 import S6Core.G5GeometryBridge
 import S6Core.G5Budget
+import S6Core.ChordLength
+import S6Core.Exhaustiveness
 
 /-!
 # Axis G5 k=0 roles / rat-cover from axis-aligned PointwiseCover
@@ -41,6 +43,10 @@ open S6.PdfNormalisation
 open S6.G5ExclusionFrag
 open S6.G5GeometryBridge
 open S6.G5Budget
+open S6.Exhaustiveness
+open S6.TopClassExhaustiveness
+open S6.ChordLength (UnitDir)
+open S6.RigidMotionChart
 
 /-! ## Axis-aligned rigid motions ↔ AxisSquare -/
 
@@ -314,12 +320,136 @@ def axisRolesFromCentreFillersClosed : Bool := true
 theorem axisRolesFromCentreFillersClosed_true :
     axisRolesFromCentreFillersClosed = true := rfl
 
+/-! ## G5 ⇒ fHasO; identity-C ⇒ world F∋O (general PointwiseCover) -/
+
+theorem unitDir_eq (u v : UnitDir) (hc : u.c = v.c) (hs : u.s = v.s) : u = v := by
+  match u, v with
+  | ⟨uc, us, uh⟩, ⟨vc, vs, vh⟩ =>
+    cases hc; cases hs; rfl
+
+theorem rigidMotion_eq (g₁ g₂ : RigidMotion)
+    (hd : g₁.dir = g₂.dir) (hs : g₁.shift = g₂.shift) : g₁ = g₂ := by
+  match g₁, g₂ with
+  | ⟨d1, s1⟩, ⟨d2, s2⟩ =>
+    cases hd; cases hs; rfl
+
+theorem identityPose_inverse :
+    RigidMotion.inverse identityPose = identityPose := by
+  apply rigidMotion_eq
+  · apply unitDir_eq <;>
+      simp [RigidMotion.inverse, identityPose, rotateInv, unitDirInv, rotateBy]
+  · simp [RigidMotion.inverse, identityPose, rotateInv, unitDirInv, rotateBy]
+
+theorem pullback_identity (f : RotatedSquare) :
+    RotatedSquare.pullback identityPose f = f := by
+  simp only [RotatedSquare.pullback, identityPose_inverse]
+  apply rigidMotion_eq
+  · apply unitDir_eq <;>
+      simp [RigidMotion.comp, identityPose, UnitDir.comp, rotateBy]
+  · simp [RigidMotion.comp, identityPose, rotateBy]
+
+theorem classify_eq_G5_iff_fHasO (o : Ownership) :
+    classify o = TopClass.G5 ↔ o.fHasO = true := by
+  constructor
+  · intro h
+    cases hf : o.fHasO
+    · simp [classify, hf] at h
+      match o.k, h with
+      | ⟨0, _⟩, h => cases h
+      | ⟨1, _⟩, h => revert h; cases o.midInC <;> intro h <;> cases h
+      | ⟨2, _⟩, h => revert h; cases o.midsAdjacent <;> intro h <;> cases h
+    · rfl
+  · intro h; exact classify_G5_of_fHasO o h
+
+theorem isG5Class_fHasO {T : Target} (cov : PointwiseCover T) (h : isG5Class cov) :
+    (RoleSelection.ofCover cov).toManuscript.flags.fHasO = true :=
+  (classify_eq_G5_iff_fHasO _).1 h
+
+theorem toManuscript_F_of_identityC {T : Target} (R : RoleSelection T)
+    (hC : R.cov.squares R.iC = identityPose) :
+    R.toManuscript.F = R.cov.squares R.iF := by
+  simp only [RoleSelection.toManuscript, hC, pullback_identity]
+
+theorem worldF_contains_O_of_identityC_G5 {T : Target} (cov : PointwiseCover T)
+    (hC : (RoleSelection.ofCover cov).cov.squares (RoleSelection.ofCover cov).iC = identityPose)
+    (hG5 : isG5Class cov) :
+    RotatedSquare.contains
+      ((RoleSelection.ofCover cov).cov.squares (RoleSelection.ofCover cov).iF)
+      (T.μ, T.μ) := by
+  set R := RoleSelection.ofCover cov
+  have hf := isG5Class_fHasO cov hG5
+  have hFeq := toManuscript_F_of_identityC R hC
+  simp only [ManuscriptNormalisedCovering.flags, flagsOfTargetRotated, fContainsO_rot,
+    ManuscriptNormalisedCovering.toRotated] at hf
+  rw [hFeq] at hf
+  have hO : R.toManuscript.target.O = (T.μ, T.μ) := by
+    simp [ManuscriptNormalisedCovering.target, TargetMids.O, RoleSelection.toManuscript]
+  rw [hO] at hf
+  exact (RotatedSquare.containsB_iff _ _).1 hf
+
+
+/-- Axis-aligned + identity centre tile + G5 ⇒ `AxisAlignedCentreFCover`. -/
+theorem axisCentreF_of_identityC_axis {T : Target} (cov : PointwiseCover T)
+    (halign : ∀ i : Fin 6, isAxisAligned (cov.squares i))
+    (hC : (RoleSelection.ofCover cov).cov.squares (RoleSelection.ofCover cov).iC = identityPose)
+    (hG5 : isG5Class cov) :
+    Nonempty (AxisAlignedCentreFCover T) := by
+  have hF := worldF_contains_O_of_identityC_G5 cov hC hG5
+  -- RoleSelection.ofCover cov .cov = cov definitionally enough for squares
+  refine ⟨⟨cov, halign, ?_⟩⟩
+  -- hF is on R.cov.squares; need cov.squares
+  have hcov : (RoleSelection.ofCover cov).cov = cov := rfl
+  simpa [hcov, Target.centre] using hF
+
+/-- Full axis G5k0 discharge when cover is axis-aligned with C = identityPose. -/
+theorem axis_G5k0_impossible_of_identityC_axis {T : Target} (cov : PointwiseCover T)
+    (halign : ∀ i : Fin 6, isAxisAligned (cov.squares i))
+    (hC : (RoleSelection.ofCover cov).cov.squares (RoleSelection.ofCover cov).iC = identityPose)
+    (hG5 : isG5Class cov)
+    (_hk : (RoleSelection.ofCover cov).toManuscript.flags.k = ⟨0, by decide⟩) :
+    False := by
+  rcases axisCentreF_of_identityC_axis cov halign hC hG5 with ⟨H⟩
+  exact axis_G5k0_impossible_of_centreF T H
+
+/-- Open hyp reduced: only need axis-align + identity-C for every G5 k=0 cover
+(world F∋O is then proved). -/
+def AxisAlignedIdentityCRealisation : Prop :=
+  ∀ (T : Target) (cov : PointwiseCover T),
+    isG5Class cov →
+      (RoleSelection.ofCover cov).toManuscript.flags.k = ⟨0, by decide⟩ →
+        (∀ i : Fin 6, isAxisAligned (cov.squares i)) ∧
+          (RoleSelection.ofCover cov).cov.squares (RoleSelection.ofCover cov).iC = identityPose
+
+theorem AxisAlignedG5k0Realisation_of_identityCRealisation
+    (h : AxisAlignedIdentityCRealisation) : AxisAlignedG5k0Realisation := by
+  intro T cov hcls hk
+  have ⟨halign, hC⟩ := h T cov hcls hk
+  refine ⟨halign, ?_⟩
+  have hF := worldF_contains_O_of_identityC_G5 cov hC hcls
+  have hcov : (RoleSelection.ofCover cov).cov = cov := rfl
+  simpa [hcov, Target.centre] using hF
+
+theorem G5k0Bridge_of_identityCRealisation (h : AxisAlignedIdentityCRealisation) :
+    G5k0Bridge :=
+  G5k0Bridge_of_axisRealisation (AxisAlignedG5k0Realisation_of_identityCRealisation h)
+
+theorem G5k0GeomExport_of_identityCRealisation (h : AxisAlignedIdentityCRealisation) :
+    G5k0GeomExport :=
+  G5k0GeomExport_of_axisRealisation (AxisAlignedG5k0Realisation_of_identityCRealisation h)
+
+def axisIdentityCPathClosed : Bool := true
+theorem axisIdentityCPathClosed_true : axisIdentityCPathClosed = true := rfl
+
 def axisAlignedG5k0RealisationProved : Bool := false
 theorem axisAlignedG5k0RealisationProved_false :
     axisAlignedG5k0RealisationProved = false := rfl
 
+def axisAlignedIdentityCRealisationProved : Bool := false
+theorem axisAlignedIdentityCRealisationProved_false :
+    axisAlignedIdentityCRealisationProved = false := rfl
+
 def openAxisG5k0FromCover : List String :=
-  ["AxisAlignedG5k0Realisation (axis align + world F∋O for every G5 k=0 cover)",
-   "RotatedG5k0ChordExport from general PointwiseCover"]
+  ["AxisAlignedIdentityCRealisation (axis-align + C=identityPose for every G5 k=0 cover)",
+   "RotatedChordBoundPackage / grid cover ineq from general PointwiseCover"]
 
 end S6.AxisG5k0FromCover

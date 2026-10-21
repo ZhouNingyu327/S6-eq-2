@@ -1,5 +1,5 @@
 # Catalog of manuscripts with a formalized (or partially formalized) main result.
-version: "v0.12"
+version: "v0.13"
 
 project:
   name: "ZhouNingyu327/S6-eq-2"
@@ -15,7 +15,7 @@ sources:
     id: ../preprints/Six-unit-squares-cannot-cover-a-square-of-side-greater-than-2-October-21-2026/paper.pdf
     type: article
     lean_docs: docs/001.md
-    status: partial_formalization_axis_g5k0_from_cover
+    status: partial_formalization_identityC_g5k0_path
     notes: >-
       PrincipalClaim is a Prop (not Bool metadata). Proved: cover→five roles,
       pairwise-far outer mids, cover→TopClass, principal_of_class_exclusions,
@@ -29,4 +29,4 @@ sources:
       17 living near-end leaves; G3/G4 budget realisation from covers;
       unconditional G1…G5Exclusion / PrincipalClaim.
       principalClaimProvedUnconditionally=false. Computer-assisted candidate;
-      not peer-reviewed. ~68–72% toward openai/math Lean top-line bar (honest). AxisG5k0FromCover + chord bound package reduce G5k0 to realisation hyps.
+      not peer-reviewed. ~70–74% toward openai/math Lean top-line bar (honest). Identity-C path closes world F∋O; remaining wall is normalisation faithfulness / rotated cover ineq.

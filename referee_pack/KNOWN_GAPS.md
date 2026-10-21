@@ -22,6 +22,14 @@ Relative to the 2026-10-21 **rereview** of commit `32e0e0f`, the API repair at `
 4. **(S)-tier inventory — CLEARED (2026-10-22, tip `80e8ee0`).** Batch24–26f family: **151** checkable (E)/(H) certs under `artifacts/closure/item3_certs/exact_certs_batch24/` (checker `check_exact_certs_batch24.py` **PASS 151/151**). Remaining dual-solver (S) from the post-batch25 set of 91: **0**. Inventory: `S_tier_inventory.md`, `S_tier_remaining.json`, handoff `CERT_TO_LEAN_HANDOFF.md`. **Honest:** clearing (S) does **not** prove the theorem; Lean e2e faithfulness and independent external review remain open (items 1–2).
 5. Short paper §§5–7 now cite concrete module tables; further page-length expansions may still help referees.
 
+## Advanced this round (vs `91d6ea4`)
+
+- **G5 ⇒ fHasO** (`classify_eq_G5_iff_fHasO` / `isG5Class_fHasO`).
+- **identityPose inverse + pullback id**; **identity-C + G5 ⇒ world F∋O** on general `PointwiseCover`.
+- **`AxisAlignedIdentityCRealisation` ⇒ `AxisAlignedG5k0Realisation` ⇒ G5k0 Bridge/GeomExport/ChordExport**; axis+identityC+G5 ⇒ False.
+- S-tier near-end exact inventory complete (151/151) recorded; living geometry still **open**.
+- `principalClaimProvedUnconditionally=false`.
+
 ## Advanced this round (vs `2334cde`)
 
 - **`AxisG5k0FromCover`**: axis-aligned RigidMotion↔AxisSquare; centre⇒strict interior/outer=0; axis PointwiseCover⇒`AxisGridRatCover`; Fin6 partition; corners+two centre fillers⇒`AxisG5k0Roles`; `AxisAlignedG5k0Realisation`⇒`AxisG5k0CoverBridge`/`G5k0Bridge`/`G5k0GeomExport`. Realisation from general G5 k=0 cover **open**.

@@ -118,4 +118,19 @@ theorem living_has_closer_module (ℓ : NearLeaf) (hl : living ℓ) :
 def livingLeafCertBridgeProved : Bool := false
 theorem livingLeafCertBridgeProved_false : livingLeafCertBridgeProved = false := rfl
 
+
+/-- External exact-cert family for near-end / dual-solver inventory is complete
+(S-tier remaining = 0 as of 2026-10-22; 151/151 PASS). This is **inventory
+status**, not a Lean proof that each living leaf is geometrically excluded. -/
+def sTierNearEndExactComplete : Bool := true
+theorem sTierNearEndExactComplete_true : sTierNearEndExactComplete = true := rfl
+
+/-- Conditional: certificate discharge of all 17 living closers ⇒ exclusions. -/
+def AllLivingClosersDischarged : Prop :=
+  ∀ ℓ : NearLeaf, living ℓ → LivingLeafExcluded ℓ
+
+theorem AllLivingLeavesExcluded_of_closers (h : AllLivingClosersDischarged) :
+    AllLivingLeavesExcluded :=
+  AllLivingLeavesExcluded_of_certBridge h
+
 end S6.G1G2Fragments

@@ -9,6 +9,7 @@ import S6Core.RotatedGridBound
 import S6Core.G5Budget
 import S6Core.G5ExclusionFrag
 import S6Core.G5GeometryBridge
+import S6Core.AxisG5k0FromCover
 
 /-!
 # Rotated chord-measure fragments (toward G5k*GeomExport)
@@ -143,5 +144,24 @@ theorem owner_square_diameter {T : Target} (cov : PointwiseCover T) (i : Fin 6)
 
 def rotatedChordBoundPackageProved : Bool := false
 theorem rotatedChordBoundPackageProved_false : rotatedChordBoundPackageProved = false := rfl
+
+
+open S6.AxisG5k0FromCover
+
+/-- Axis / identity-C realisation ⇒ `RotatedG5k0ChordExport` (via GeomExport). -/
+theorem RotatedG5k0ChordExport_of_axisRealisation (h : AxisAlignedG5k0Realisation) :
+    RotatedG5k0ChordExport := by
+  intro T cov hcls hk
+  rcases G5k0GeomExport_of_axisRealisation h T cov hcls hk with ⟨E⟩
+  exact ⟨E.corners, E.CF, E.hcorners, le_of_lt E.hCF, E.hcover⟩
+
+theorem RotatedG5k0ChordExport_of_identityCRealisation
+    (h : AxisAlignedIdentityCRealisation) : RotatedG5k0ChordExport :=
+  RotatedG5k0ChordExport_of_axisRealisation
+    (AxisAlignedG5k0Realisation_of_identityCRealisation h)
+
+def rotatedExportFromAxisPathClosed : Bool := true
+theorem rotatedExportFromAxisPathClosed_true :
+    rotatedExportFromAxisPathClosed = true := rfl
 
 end S6.RotatedChordMeasure
