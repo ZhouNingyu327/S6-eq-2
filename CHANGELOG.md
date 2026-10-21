@@ -1,3 +1,12 @@
+## v0.21 — real chord slices inhabit LineMeasureLift (2026-10-22 Asia/Shanghai)
+
+- `RotatedChordMeasure`: `containsR`/`toBodyR`/`rotateInvR`; `horizSliceR` closed + bdd;
+  Inf/Sup chords with length ≤2; rat→real bottom `Icc` cover; `RotatedLineMeasureLift`
+  inhabited from any `RotatedGridRatCover` (no axis hyp). Flag `rotatedLineMeasureLiftProved=true`.
+- Still open: general `RotatedChordMatrixExport` / `RotatedSixLineMeasureLift`;
+  `principalClaimProvedUnconditionally=false`.
+- Lake green. Honest bar still ~80–84%.
+
 ## v0.20 — axis path inhabits ChordMatrixExport (2026-10-22 Asia/Shanghai)
 
 - `RotatedChordMeasure`: `RotatedChordMatrixExport_of_axisCoverBridge` /

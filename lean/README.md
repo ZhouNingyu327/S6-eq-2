@@ -53,8 +53,8 @@ geometric proofs.
 | Onesided axial sum ≤2; `ChordMatrixExport`⇒SixLineMeasureLift | **Proved conditional** |
 | `AxisG5k0CoverBridge`/`Realisation` ⇒ `RotatedChordMatrixExport` | **Proved conditional** |
 | Roles ⇒ per-square `axisGridContrib ≤ 2`; axis bottom LineChordCover | **Proved** |
+| Real `containsR`/Inf-Sup chords; `RotatedLineMeasureLift` from any rat cover | **Proved** |
 | `RotatedChordMatrixExport` for general (non-axis) covers | **Open** |
-| Inhabit `RotatedChordMatrixExport` / LineMeasureLift from rat cover | **Open** |
 | Inhabit `RotatedSixLineMeasureLift` from `RotatedGridRatCover` | **Open** |
 | Axis/identity-C realisation ⇒ `RotatedChordCoverIneq` | **Proved conditional** |
 | `G3ParallelBudgetExport`⇒`G3SideGapDataExport`/exclusion | **Proved conditional** |

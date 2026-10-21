@@ -1,5 +1,5 @@
 # Catalog of manuscripts with a formalized (or partially formalized) main result.
-version: "v0.20"
+version: "v0.21"
 
 project:
   name: "ZhouNingyu327/S6-eq-2"
@@ -15,12 +15,12 @@ sources:
     id: ../preprints/Six-unit-squares-cannot-cover-a-square-of-side-greater-than-2-October-21-2026/paper.pdf
     type: article
     lean_docs: docs/001.md
-    status: partial_formalization_axis_chord_matrix_export
+    status: partial_formalization_real_chord_line_measure_lift
     notes: >-
-      PrincipalClaim is a Prop. Proved as v0.19 plus AxisG5k0CoverBridge/Realisation ⇒
-      RotatedChordMatrixExport/SixLineMeasureLift (axis six-line chord table + roles
-      squareTotal≤2); axis-aligned rat cover ⇒ bottom RotatedLineChordCover.
-      Open: ChordMatrixExport for general rotated covers; full six-line LineMeasureLift;
-      BodyChartAxis/IdentityC; G3SepWitness from covers; living-leaf other track;
-      unconditional PrincipalClaim. principalClaimProvedUnconditionally=false.
-      ~80–84% openai/math Lean bar (honest).
+      PrincipalClaim is a Prop. Proved as v0.20 plus real containsR/horizSliceR Inf-Sup
+      chords; RotatedLineMeasureLift inhabited for every RotatedGridRatCover (bottom
+      Euclidean Icc cover, no axis hyp). Axis path still gives ChordMatrixExport.
+      Open: ChordMatrixExport for general rotated covers (squareTotal≤2 packing);
+      RotatedSixLineMeasureLift; BodyChartAxis/IdentityC; G3SepWitness from covers;
+      living-leaf other track; unconditional PrincipalClaim.
+      principalClaimProvedUnconditionally=false. ~80–84% openai/math Lean bar (honest).
