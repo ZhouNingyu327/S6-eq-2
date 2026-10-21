@@ -168,8 +168,8 @@ def blockedReason : String :=
    contradiction on (C, rays, leftRays, chart, fProj)."
 
 def openStatus : String :=
-  "CLOSED: BernsteinGeometryMap ×8 (R14/R17/R27–28 first); positivity cores exported. \
-   OPEN: BernsteinForcesRawEmpty (J identification); combinatorial LivingLeafExcluded. \
+  "CLOSED: BernsteinGeometryMap ×8; positivity cores; CertGeometryIdPartial (SE2⇒hyps/chart/thresholds). \
+   OPEN: BernsteinForcesRawEmpty (full J ID); combinatorial LivingLeafExcluded. \
    Not PrincipalClaim / namedClosersDischarged."
 
 end S6.BernsteinGeometryMap
