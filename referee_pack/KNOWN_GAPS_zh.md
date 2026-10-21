@@ -23,7 +23,7 @@
 1. **无条件 Lean 主定理 + 端到端忠实性。** 约化骨架 + G5 代数 R2 脊已证；`G5Exclusion` 仅在开放几何桥 `G5k0/k1/k2Bridge` 下成立；`G1…G4Exclusion` 仍开放。长稿忠实性仍开放。
 2. **外部独立人类审稿**（早期 G5 几何→代数）。仅有内部重建笔记 `INTERNAL_G5_rebuild_zh.md`，**不关闭**本项。
 3. 强规范化若升格所需的逐模块迁移证明（当前延期）。
-4. 剩余约 **91** 条 (S) 级双求解器查询（清单见 `S_tier_inventory_zh.md`）。
+4. **(S) 层清单已清空（2026-10-22，tip `80e8ee0`）。** batch24–26f 族：**151** 条可机核 (E)/(H) 证书（`check_exact_certs_batch24.py` **PASS 151/151**）。相对 batch25 后的 91 条 (S) 剩余：**0**。清单见 `S_tier_inventory_zh.md` / `S_tier_remaining.json`；Lean 交接见 `CERT_TO_LEAN_HANDOFF.md`。**诚实说明：** 清空 (S) **不等于**定理已证；Lean 端到端忠实性与外部审稿仍开放（见第 1–2 项）。
 5. 短文 §§5–7 已加模块表；篇幅上仍可再扩。
 
 ## 本轮推进（相对 `634f591`）
@@ -46,7 +46,10 @@
 
 可核证书累计 **60**；仍余（S）**91**。不宣称定理已证。
 
+## Batch24–26f 证书轨道（(S) 清单已关闭 — 2026-10-22 Asia/Shanghai）
 
-## Batch24–26f certificate track (2026-10-22 Asia/Shanghai)
+`artifacts/closure/item3_certs/exact_certs_batch24/`：**151** 条（检查器 PASS 151/151，提交 `80e8ee0`）。相对 batch25 后 91 条 (S)：**0**。
 
-Machine-checkable exact/hand certs in `artifacts/closure/item3_certs/exact_certs_batch24/`: **151** (checker PASS 151/151). Remaining dual-solver (S) from the post-batch25 set of 91: **0**. Does **not** close the theorem; Lean/lake remains a separate gap.
+Lean 优先提升目标：`artifacts/closure/CERT_TO_LEAN_HANDOFF.md`。
+
+**不关闭**主定理、端到端忠实性或外部审稿。

@@ -18,7 +18,7 @@ Status labels: **(E)** exact rational/Bernstein/CAD certificate; **(H)** hand + 
 
 Baseline after batch25 / tip `006fb96`: 60 exact family / **91** (S).
 Tip `f493430`: 144 exact / **7** (S).
-**This push converts the last 7 → remaining (S) = 0.**
+**Remaining (S) = 0** (cleared at `80e8ee0`). Docs/handoff refresh follows; does **not** prove the theorem.
 
 ## Conversions this push family
 

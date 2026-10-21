@@ -1,5 +1,14 @@
 # Changelog
 
+## 2026-10-22 — (S)-tier inventory cleared to (E)/(H) (`80e8ee0`)
+
+- Batch24–26f family: **151** checkable Bernstein/IBB/hand certificates under `artifacts/closure/item3_certs/exact_certs_batch24/`.
+- Checker `artifacts/closure/scripts/check_exact_certs_batch24.py`: **PASS 151/151**.
+- Remaining dual-solver (S) from the post-batch25 set of 91: **0** (`S_tier_inventory.md`, `S_tier_remaining.json`).
+- Handoff for Lean Bernstein lifts: `artifacts/closure/CERT_TO_LEAN_HANDOFF.md`.
+- Referee pack `KNOWN_GAPS` / `STATUS` (+ zh) updated with honest wording: clearing (S) does **not** prove the theorem; Lean e2e faithfulness and external review stay open.
+- **Not claimed:** principal geometric theorem, unconditional Lean claim, or peer review.
+
 ## 2026-10-21 — KNOWN_GAPS advance (vs `8672f31`)
 
 - Lean: `Faithfulness.lean` + classification regressions; README / formalization.yaml state proved vs open.

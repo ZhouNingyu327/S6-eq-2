@@ -1,4 +1,13 @@
-# Changelog
+# 变更说明
+
+## 2026-10-22 — (S) 层清单清空为 (E)/(H)（`80e8ee0`）
+
+- batch24–26f 族：`exact_certs_batch24/` 下 **151** 条可机核 Bernstein/IBB/手证证书。
+- 检查器 `check_exact_certs_batch24.py`：**PASS 151/151**。
+- 相对 batch25 后 91 条 (S) 剩余：**0**（`S_tier_inventory_zh.md`、`S_tier_remaining.json`）。
+- Lean Bernstein 交接：`artifacts/closure/CERT_TO_LEAN_HANDOFF.md`。
+- `KNOWN_GAPS` / `STATUS`（中英）已更新；诚实措辞：清空 (S) **不等于**定理已证；Lean 端到端与外部审稿仍开放。
+- **不声称：** 主几何定理、无条件 Lean 主声明、或同行评议。
 
 ## 2026-10-21 — 缺口推进（相对 `8672f31`）
 

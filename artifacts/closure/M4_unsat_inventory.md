@@ -1,5 +1,6 @@
-<!-- auto-status batch26f -->
-**Status 2026-10-22 Asia/Shanghai:** exact batch24–26f family = **151** (checker PASS); remaining (S) from post-batch25 set of 91 = **0**.
+<!-- auto-status batch26f-docs -->
+**Status 2026-10-22 Asia/Shanghai:** exact batch24–26f family = **151** (checker PASS 151/151 at `80e8ee0`); remaining (S) from post-batch25 set of 91 = **0**. Handoff: `CERT_TO_LEAN_HANDOFF.md`. Clearing (S) ≠ theorem proved.
+
 
 # M4：z3-UNSAT 步骤清单与第二路线状态（peer_ready 定稿计数）
 
@@ -18,15 +19,15 @@
 | exact（第一轮 harness） | 121 | FM/Farkas / 单变量 CAD 等 |
 | hand / Bernstein 补证 | 10 | R28/R32/R36/R35k/R41 等 |
 | exact（Item3 自队列升级） | 109 | Bernstein / 有理 IBB / Or 分拆等 |
-| **cvc5-only（仍无精确证书）** | **91** | 双求解器一致；batch24/25 族已升级 60 条为可核（E） |
+| **cvc5-only（仍无精确证书）** | **0** | 原 batch25 后 91 条 (S) 已全部升级为 batch24–26f 族可核 (E)/(H)（PASS 151/151） |
 | open | 0 | |
 
 **精确/手证第二路线：** **240**（约占跟踪唯一集的 61.4%）  
-**仍仅 cvc5：** **91**（约 32%）；batch24/25 族新增可核 exact **60**
+**仍仅 cvc5（跟踪的 post-batch25 (S) 集）：** **0**；batch24–26f 族可核 exact/hand **151**
 
 诚实说明：cvc5-only **不能**写成机器无关证明。历史“403”与去重后 “391” 的差额来自队列重复键及跨脚本重复计数，不以抬高 exact 比例的方式隐瞒。
 
-机器可读计数：`certs/certificate_counts.json`。
+机器可读计数：`artifacts/closure/certificate_counts.json`；剩余清单 `S_tier_remaining.json`（0）。
 
 ---
 

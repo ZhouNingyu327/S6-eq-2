@@ -19,7 +19,7 @@ Relative to the 2026-10-21 **rereview** of commit `32e0e0f`, the API repair at `
 1. **Unconditional Lean principal claim + end-to-end faithfulness.** Reduction spine + G5 algebraic R2 spine + **geom-export⇒bridge⇒G5Exclusion composition** proved; axis `AxisG5k0Roles`/`AxisG5k0CoverBridge` packing closed under roles; **`G5Exclusion` still conditional** on inhabiting `AxisG5k0CoverBridge` / `RotatedG5k0ChordExport` / `G5k*GeomExport` from `PointwiseCover`. G3/G4 reduced to budget bridges (open realisation). G1/G2: 7/24 near-end leaves table-excluded; 17 living open. Faithfulness of every informal M3.0 covering to `flagsOfTarget*` still open.
 2. **Independent external human referee** rebuild of critical reductions (esp. early G5 geometry → algebraic premises). Internal rebuild note only: `artifacts/closure/INTERNAL_G5_rebuild.md` (+ `_zh.md`) — does **not** close this item.
 3. **Full premise-migration proof** if the optional strong normalisation candidate (M1.1–M1.3) is ever elevated to primary. Currently **deferred**; primary remains stepwise reclassification (`M1_module_migration.md`).
-4. **Remaining (S)-tier** dual-solver queries (~91 unique after Item3 ledger). Inventory: `artifacts/closure/S_tier_inventory.md` (+ JSON). No claim that leftovers are machine-independent.
+4. **(S)-tier inventory — CLEARED (2026-10-22, tip `80e8ee0`).** Batch24–26f family: **151** checkable (E)/(H) certs under `artifacts/closure/item3_certs/exact_certs_batch24/` (checker `check_exact_certs_batch24.py` **PASS 151/151**). Remaining dual-solver (S) from the post-batch25 set of 91: **0**. Inventory: `S_tier_inventory.md`, `S_tier_remaining.json`, handoff `CERT_TO_LEAN_HANDOFF.md`. **Honest:** clearing (S) does **not** prove the theorem; Lean e2e faithfulness and independent external review remain open (items 1–2).
 5. Short paper §§5–7 now cite concrete module tables; further page-length expansions may still help referees.
 
 ## Advanced this round (vs `2334cde`)
@@ -88,7 +88,10 @@ Converted **60** previously (S) dual-solver rows to checkable Bernstein/IBB/hand
 
 Checkable cert family total **60** (PASS). **Remaining (S): 91.** Not a theorem claim.
 
+## Batch24–26f certificate track (CLOSED (S) inventory — 2026-10-22 Asia/Shanghai)
 
-## Batch24–26f certificate track (2026-10-22 Asia/Shanghai)
+Machine-checkable exact/hand certs in `artifacts/closure/item3_certs/exact_certs_batch24/`: **151** (checker PASS 151/151 at commit `80e8ee0`). Remaining dual-solver (S) from the post-batch25 set of 91: **0**.
 
-Machine-checkable exact/hand certs in `artifacts/closure/item3_certs/exact_certs_batch24/`: **151** (checker PASS 151/151). Remaining dual-solver (S) from the post-batch25 set of 91: **0**. Does **not** close the theorem; Lean/lake remains a separate gap.
+Lean handoff targets (Bernstein first): `artifacts/closure/CERT_TO_LEAN_HANDOFF.md`.
+
+**Does not** close the principal claim, end-to-end faithfulness, or external review.
