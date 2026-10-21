@@ -633,4 +633,162 @@ theorem axis_rat_cover_impossible_of_owners_fillers
 def axisG5k0ModelDischargeClosed : Bool := true
 theorem axisG5k0ModelDischargeClosed_true : axisG5k0ModelDischargeClosed = true := rfl
 
+/-! ## Role packing: non-owner outer = 0 / non-filler mid = 0 -/
+
+theorem outerContrib_nonneg (s : AxisSquare) (μ : ℚ) : 0 ≤ outerContrib s μ := by
+  simp only [outerContrib]
+  have hb : 0 ≤ bottomLen s μ := by
+    simp only [bottomLen]; split_ifs <;> simp [clampIntervalLen]
+  have ht : 0 ≤ topLen s μ := by
+    simp only [topLen]; split_ifs <;> simp [clampIntervalLen]
+  have hl : 0 ≤ leftLen s μ := by
+    simp only [leftLen]; split_ifs <;> simp [clampIntervalLen]
+  have hr : 0 ≤ rightLen s μ := by
+    simp only [rightLen]; split_ifs <;> simp [clampIntervalLen]
+  nlinarith
+
+theorem midContrib_nonneg (s : AxisSquare) (μ : ℚ) : 0 ≤ midContrib s μ := by
+  simp only [midContrib]
+  have hh : 0 ≤ hMidLen s μ := by
+    simp only [hMidLen]; split_ifs <;> simp [clampIntervalLen]
+  have hv : 0 ≤ vMidLen s μ := by
+    simp only [vMidLen]; split_ifs <;> simp [clampIntervalLen]
+  nlinarith
+
+/-- Non-corner-owner tiles contribute 0 to the four outer sides. -/
+def OnlyOwnersTouchOuter (μ : ℚ) (squares : Fin 6 → AxisSquare)
+    (iSW iSE iNE iNW : Fin 6) : Prop :=
+  ∀ k : Fin 6, k ≠ iSW → k ≠ iSE → k ≠ iNE → k ≠ iNW →
+    outerContrib (squares k) μ = 0
+
+/-- Non-filler tiles contribute 0 to the two midlines. -/
+def OnlyFillersTouchMid (μ : ℚ) (squares : Fin 6 → AxisSquare)
+    (j1 j2 : Fin 6) : Prop :=
+  ∀ k : Fin 6, k ≠ j1 → k ≠ j2 → midContrib (squares k) μ = 0
+
+theorem sum_outer_eq_four_owners (μ : ℚ) (squares : Fin 6 → AxisSquare)
+    (iSW iSE iNE iNW : Fin 6)
+    (hSW : iSW ≠ iSE) (hSW3 : iSW ≠ iNE) (hSW4 : iSW ≠ iNW)
+    (hSE3 : iSE ≠ iNE) (hSE4 : iSE ≠ iNW) (hNE4 : iNE ≠ iNW)
+    (houter : OnlyOwnersTouchOuter μ squares iSW iSE iNE iNW) :
+    ∑ k : Fin 6, outerContrib (squares k) μ =
+      outerContrib (squares iSW) μ + outerContrib (squares iSE) μ +
+        outerContrib (squares iNE) μ + outerContrib (squares iNW) μ := by
+  classical
+  let S : Finset (Fin 6) := {iSW, iSE, iNE, iNW}
+  have hSsum : ∑ k ∈ S, outerContrib (squares k) μ =
+      outerContrib (squares iSW) μ + outerContrib (squares iSE) μ +
+        outerContrib (squares iNE) μ + outerContrib (squares iNW) μ := by
+    simp only [S, Finset.mem_insert, Finset.mem_singleton]
+    -- expand insert sum
+    rw [Finset.sum_insert (by simp [hSW, hSW3, hSW4]),
+      Finset.sum_insert (by simp [hSE3, hSE4]),
+      Finset.sum_insert (by simp [hNE4]),
+      Finset.sum_singleton]
+    ring
+  have hUniv : ∑ k : Fin 6, outerContrib (squares k) μ = ∑ k ∈ S, outerContrib (squares k) μ := by
+    refine (Finset.sum_subset (Finset.subset_univ S) ?_).symm
+    intro k _ hk
+    have : k ≠ iSW ∧ k ≠ iSE ∧ k ≠ iNE ∧ k ≠ iNW := by
+      simp only [S, Finset.mem_insert, Finset.mem_singleton, not_or] at hk
+      exact hk
+    exact houter k this.1 this.2.1 this.2.2.1 this.2.2.2
+  rw [hUniv, hSsum]
+
+theorem sum_mid_eq_two_fillers (μ : ℚ) (squares : Fin 6 → AxisSquare)
+    (j1 j2 : Fin 6) (hj : j1 ≠ j2)
+    (hmid : OnlyFillersTouchMid μ squares j1 j2) :
+    ∑ k : Fin 6, midContrib (squares k) μ =
+      midContrib (squares j1) μ + midContrib (squares j2) μ := by
+  classical
+  let S : Finset (Fin 6) := {j1, j2}
+  have hSsum : ∑ k ∈ S, midContrib (squares k) μ =
+      midContrib (squares j1) μ + midContrib (squares j2) μ := by
+    simp only [S]
+    rw [Finset.sum_insert (by simp [hj]), Finset.sum_singleton]
+  have hUniv : ∑ k : Fin 6, midContrib (squares k) μ = ∑ k ∈ S, midContrib (squares k) μ := by
+    refine (Finset.sum_subset (Finset.subset_univ S) ?_).symm
+    intro k _ hk
+    have : k ≠ j1 ∧ k ≠ j2 := by
+      simp only [S, Finset.mem_insert, Finset.mem_singleton, not_or] at hk
+      exact hk
+    exact hmid k this.1 this.2
+  rw [hUniv, hSsum]
+
+/-- Packing from role geometry: ∑ contrib = outer₄ + mid₂. -/
+theorem packing_of_role_geometry (μ : ℚ) (squares : Fin 6 → AxisSquare)
+    (iSW iSE iNE iNW j1 j2 : Fin 6)
+    (hSW : iSW ≠ iSE) (hSW3 : iSW ≠ iNE) (hSW4 : iSW ≠ iNW)
+    (hSE3 : iSE ≠ iNE) (hSE4 : iSE ≠ iNW) (hNE4 : iNE ≠ iNW)
+    (hj : j1 ≠ j2)
+    (houter : OnlyOwnersTouchOuter μ squares iSW iSE iNE iNW)
+    (hmid : OnlyFillersTouchMid μ squares j1 j2) :
+    ∑ k : Fin 6, axisGridContrib (squares k) μ =
+      outerContrib (squares iSW) μ + outerContrib (squares iSE) μ +
+        outerContrib (squares iNE) μ + outerContrib (squares iNW) μ +
+        midContrib (squares j1) μ + midContrib (squares j2) μ := by
+  simp_rw [axisGridContrib_eq_outer_mid]
+  rw [Finset.sum_add_distrib, sum_outer_eq_four_owners μ squares iSW iSE iNE iNW
+    hSW hSW3 hSW4 hSE3 hSE4 hNE4 houter,
+    sum_mid_eq_two_fillers μ squares j1 j2 hj hmid]
+  ring
+
+/-- Unconditional axis G5k0 discharge under role geometry (outer-only owners, mid-only fillers). -/
+theorem axis_rat_cover_impossible_of_role_geometry
+    (μ : ℚ) (hμ : 1 < μ) (squares : Fin 6 → AxisSquare)
+    (H : AxisGridRatCover μ squares)
+    (iSW iSE iNE iNW j1 j2 : Fin 6)
+    (hSW : (squares iSW).contains (0, 0))
+    (hSE : (squares iSE).contains (2 * μ, 0))
+    (hNE : (squares iNE).contains (2 * μ, 2 * μ))
+    (hNW : (squares iNW).contains (0, 2 * μ))
+    (hdSW : iSW ≠ iSE) (hdSW3 : iSW ≠ iNE) (hdSW4 : iSW ≠ iNW)
+    (hdSE3 : iSE ≠ iNE) (hdSE4 : iSE ≠ iNW) (hdNE4 : iNE ≠ iNW)
+    (hj : j1 ≠ j2)
+    (houter : OnlyOwnersTouchOuter μ squares iSW iSE iNE iNW)
+    (hmid : OnlyFillersTouchMid μ squares j1 j2) :
+    False := by
+  have hpack := packing_of_role_geometry μ squares iSW iSE iNE iNW j1 j2
+    hdSW hdSW3 hdSW4 hdSE3 hdSE4 hdNE4 hj houter hmid
+  exact axis_rat_cover_impossible_of_owners_fillers μ hμ squares H
+    iSW iSE iNE iNW j1 j2 hSW hSE hNE hNW (le_of_eq hpack)
+
+
+/-- Strictly interior axis square meets no outer side ⇒ outer contrib = 0. -/
+theorem interior_outerContrib_eq_zero (s : AxisSquare) (μ : ℚ) (hμ : 1 < μ)
+    (hx0 : (0 : ℚ) < s.x) (hx1 : s.x + 1 < 2 * μ)
+    (hy0 : (0 : ℚ) < s.y) (hy1 : s.y + 1 < 2 * μ) :
+    outerContrib s μ = 0 := by
+  have hb : bottomLen s μ = 0 := by
+    simp only [bottomLen]
+    have : ¬ (s.y ≤ 0 ∧ 0 ≤ s.y + 1) := by
+      intro ⟨h1, _⟩; exact absurd h1 (not_le.mpr hy0)
+    simp [this]
+  have ht : topLen s μ = 0 := by
+    simp only [topLen]
+    have : ¬ (s.y ≤ 2 * μ ∧ 2 * μ ≤ s.y + 1) := by
+      intro ⟨_, h2⟩; nlinarith [hy1, h2]
+    simp [this]
+  have hl : leftLen s μ = 0 := by
+    simp only [leftLen]
+    have : ¬ (s.x ≤ 0 ∧ 0 ≤ s.x + 1) := by
+      intro ⟨h1, _⟩; exact absurd h1 (not_le.mpr hx0)
+    simp [this]
+  have hr : rightLen s μ = 0 := by
+    simp only [rightLen]
+    have : ¬ (s.x ≤ 2 * μ ∧ 2 * μ ≤ s.x + 1) := by
+      intro ⟨_, h2⟩; nlinarith [hx1, h2]
+    simp [this]
+  simp only [outerContrib, hb, ht, hl, hr]; norm_num
+
+/-- If a square misses both midlines, mid contrib = 0. -/
+theorem miss_mids_midContrib_eq_zero (s : AxisSquare) (μ : ℚ)
+    (hy : ¬ (s.y ≤ μ ∧ μ ≤ s.y + 1))
+    (hx : ¬ (s.x ≤ μ ∧ μ ≤ s.x + 1)) :
+    midContrib s μ = 0 := by
+  simp only [midContrib, hMidLen, vMidLen, hy, hx, ↓reduceIte]; norm_num
+
+def axisRolePackingClosed : Bool := true
+theorem axisRolePackingClosed_true : axisRolePackingClosed = true := rfl
+
 end S6.AxisGridCover

@@ -284,4 +284,33 @@ theorem axis_G5k0_model_impossible (μ : ℚ) (hμ : 1 < μ) (squares : Fin 6 �
 def axisRatCoverToLineCoverClosed : Bool := true
 theorem axisRatCoverToLineCoverClosed_true : axisRatCoverToLineCoverClosed = true := rfl
 
+
+/-- Axis G5k0 under role geometry packing (non-owner outer=0, non-filler mid=0). -/
+theorem axis_G5k0_of_role_geometry (μ : ℚ) (hμ : 1 < μ) (squares : Fin 6 → AxisSquare)
+    (H : AxisGridRatCover μ squares)
+    (iSW iSE iNE iNW j1 j2 : Fin 6)
+    (hSW : (squares iSW).contains (0, 0))
+    (hSE : (squares iSE).contains (2 * μ, 0))
+    (hNE : (squares iNE).contains (2 * μ, 2 * μ))
+    (hNW : (squares iNW).contains (0, 2 * μ))
+    (hdSW : iSW ≠ iSE) (hdSW3 : iSW ≠ iNE) (hdSW4 : iSW ≠ iNW)
+    (hdSE3 : iSE ≠ iNE) (hdSE4 : iSE ≠ iNW) (hdNE4 : iNE ≠ iNW)
+    (hj : j1 ≠ j2)
+    (houter : OnlyOwnersTouchOuter μ squares iSW iSE iNE iNW)
+    (hmid : OnlyFillersTouchMid μ squares j1 j2) :
+    False :=
+  axis_rat_cover_impossible_of_role_geometry μ hμ squares H
+    iSW iSE iNE iNW j1 j2 hSW hSE hNE hNW
+    hdSW hdSW3 hdSW4 hdSE3 hdSE4 hdNE4 hj houter hmid
+
+/-- Interior tiles have outer contrib 0 (feeds OnlyOwnersTouchOuter). -/
+theorem axis_interior_outer_zero (s : AxisSquare) (μ : ℚ) (hμ : 1 < μ)
+    (hx0 : (0 : ℚ) < s.x) (hx1 : s.x + 1 < 2 * μ)
+    (hy0 : (0 : ℚ) < s.y) (hy1 : s.y + 1 < 2 * μ) :
+    outerContrib s μ = 0 :=
+  interior_outerContrib_eq_zero s μ hμ hx0 hx1 hy0 hy1
+
+def axisG5k0RoleGeometryClosed : Bool := true
+theorem axisG5k0RoleGeometryClosed_true : axisG5k0RoleGeometryClosed = true := rfl
+
 end S6.G5GeometryBridge

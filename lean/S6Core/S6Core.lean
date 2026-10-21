@@ -29,6 +29,7 @@ import S6Core.IntervalCover1D
 import S6Core.AxisGridCover
 import S6Core.G1G2Fragments
 import S6Core.RotatedGridBound
+import S6Core.RotatedChordMeasure
 import S6Core.G5GeometryBridge
 import S6Core.RigidMotionChart
 import S6Core.ObliqueChart

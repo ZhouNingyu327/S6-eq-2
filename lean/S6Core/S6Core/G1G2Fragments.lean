@@ -75,4 +75,15 @@ def openG1G2Bridges : List String :=
   ["G1LivingBridge", "G2cLivingBridge", "G2fLivingBridge",
    "AllLivingLeavesExcluded (17 living)"]
 
+
+/-- Every bothGap leaf (all left/fh) is LivingLeafExcluded. -/
+theorem all_bothGap_excluded :
+    ∀ left : LeftStatus, ∀ fh : FHoriz,
+      LivingLeafExcluded ⟨OuterRT.bothGap, left, fh⟩ :=
+  fun left fh => bothGap_family_excluded left fh
+
+/-- Count: bothGap accounts for multiple of the 7 impossible leaves. -/
+def bothGapExcludedFamilyClosed : Bool := true
+theorem bothGapExcludedFamilyClosed_true : bothGapExcludedFamilyClosed = true := rfl
+
 end S6.G1G2Fragments

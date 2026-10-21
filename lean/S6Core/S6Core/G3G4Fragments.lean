@@ -122,4 +122,22 @@ theorem g3g4BudgetReductionClosed_true : g3g4BudgetReductionClosed = true := rfl
 def openG3G4BudgetBridges : List String :=
   ["G3SideGapBudgetBridge", "G4BudgetBridge"]
 
+
+/-- G3 exclusion from side-gap OR no-side-gap budget export. -/
+def G3EitherBudgetBridge : Prop :=
+  ∀ (T : S6.Obligation2.Target) (cov : S6.Obligation2Opens.PointwiseCover T),
+    classify (S6.Obligation2Roles.RoleSelection.ofCover cov).toManuscript.flags.toOwnership =
+        TopClass.G3 →
+      (∃ hyp : BudgetHyp, (12 : ℚ) * hyp.μ ≤ 8 + 3 * hyp.B + hyp.vF) ∨
+        (∃ (B : ℚ), B < 1 ∧ (12 : ℚ) * T.μ ≤ 8 + 2 * B + 2 * T.μ)
+
+theorem G3Exclusion_of_either_budget (h : G3EitherBudgetBridge) : G3Exclusion := by
+  intro T cov hcls
+  rcases h T cov hcls with h1 | h2
+  · rcases h1 with ⟨hyp, hp⟩; exact sideGap_impossible hyp hp
+  · rcases h2 with ⟨B, hB, hp⟩; exact noSideGap_impossible T.μ B T.hμ hB hp
+
+def g3EitherBudgetReductionClosed : Bool := true
+theorem g3EitherBudgetReductionClosed_true : g3EitherBudgetReductionClosed = true := rfl
+
 end S6.G3G4Fragments

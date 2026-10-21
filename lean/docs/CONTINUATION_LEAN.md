@@ -2,22 +2,21 @@
 
 ## Done
 
-- Reduction spine, G5 algebra, GeomExport⇒Bridge⇒G5Exclusion composition
-- Axis corner-owner outer≤2; CF≤4 algebra; `g2_alg_lt_two`
-- **`Icc_subset_of_closed_of_rats`** (no sorry): closed + ℚ in `[0,L]` ⇒ real Icc
-- **`AxisGridLineCover_of_ratCover`**: six-line ℚ cover ⇒ real line cover ⇒ ∑ contrib ≥ 12μ
-- **`axis_rat_cover_impossible_of_owners_fillers`**: axis G5k0 model under outer₄+mid₂ packing
-- G1/G2: 7 impossible leaves excluded; bridges named
-- G3/G4 budget-bridge reductions; RotatedGridBound diameter/g2 re-exports
+- Reduction spine; G5 algebra; GeomExport⇒Bridge⇒G5Exclusion
+- `Icc_subset_of_closed_of_rats`; `AxisGridRatCover`⇒`AxisGridLineCover`⇒∑≥12μ
+- **`packing_of_role_geometry`**: OnlyOwnersTouchOuter ∧ OnlyFillersTouchMid ⇒ ∑ = outer₄+mid₂
+- **`axis_rat_cover_impossible_of_role_geometry`**: axis G5k0 under role packing
+- **`interior_outerContrib_eq_zero`**: strict interior ⇒ outer=0 (feeds OnlyOwnersTouchOuter)
+- RotatedChordMeasure: diameter chord ℓ²≤2; Weierstrass g2_alg<2; measure export open
+- G1/G2: bothGap family excluded; G3EitherBudgetBridge ⇒ G3Exclusion
 
-## Next (priority)
+## Next
 
-1. Prove packing `∑ contrib ≤ outer₄ + mid₂` from axis role geometry (or drop hyp) → closer to unconditional axis `G5k0GeomExport`.
-2. Rotated chord-measure API → full `G5k*GeomExport` from `PointwiseCover`.
-3. 17 living near-end leaves; M7.1 metric → `G3/G4BudgetBridge`.
-4. Only then unconditional `PrincipalClaim`.
+1. Derive `OnlyOwnersTouchOuter` / `OnlyFillersTouchMid` from axis PointwiseCover roles (G5 k=0).
+2. Rotated chord-measure corners≤8 / CF≤4 from PointwiseCover → `G5k*GeomExport`.
+3. 17 living near-end leaves; realise G3/G4 budget bridges from covers.
+4. Unconditional `PrincipalClaim` only after all ClassExclusions close.
 
 ## Honesty
 
-Do **not** set `principalClaimProvedUnconditionally := true` until all
-`ClassExclusions` fields are constructed without sorry/axioms/open bridges.
+`principalClaimProvedUnconditionally` stays **false** until ClassExclusions are fully constructed.

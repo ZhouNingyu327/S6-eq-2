@@ -32,7 +32,9 @@ geometric proofs.
 | `Icc_subset_of_closed_of_rats` (closed+ℚ⇒Icc) | **Proved** |
 | ℚ six-line cover → `AxisGridLineCover` | **Proved** (`AxisGridCover`) |
 | Axis G5k0 under outer₄+mid₂ packing | **Proved conditional** |
-| Packing `∑≤outer₄+mid₂` from roles | **Open** |
+| Packing ∑=outer₄+mid₂ from OnlyOwners/OnlyFillers | **Proved** |
+| Derive OnlyOwners/OnlyFillers from G5 cover | **Open** |
+| Interior ⇒ outer contrib 0 | **Proved** |
 | `G5k*GeomExport ⇒ Bridge ⇒ G5Exclusion` composition | **Proved** (`G5GeometryBridge`) |
 | `G5Exclusion` from three geometric bridges | **Proved conditional** |
 | G5 geom exports from rotated `PointwiseCover` | **Open** (`G5k*GeomExport`) |
