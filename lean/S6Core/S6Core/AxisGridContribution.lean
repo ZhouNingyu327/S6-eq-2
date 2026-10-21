@@ -203,7 +203,7 @@ def nwCornerAt (μ : ℚ) : AxisSquare := ⟨0, 2 * μ - 1⟩
 theorem se_contains_se (μ : ℚ) (_hμ : 1 < μ) :
     (seCornerAt μ).contains (2 * μ, 0) := by
   simp only [AxisSquare.contains, seCornerAt]
-  refine ⟨⟨⟨?_, ?_⟩, ?_⟩, ?_⟩ <;> nlinarith [hμ]
+  refine ⟨⟨⟨?_, ?_⟩, ?_⟩, ?_⟩ <;> nlinarith
 
 theorem axis_contains_se_outer_le_two (s : AxisSquare) (μ : ℚ) (hμ : 1 < μ)
     (hSE : s.contains (2 * μ, 0)) :
@@ -303,5 +303,26 @@ theorem axis_four_corner_owners_outer_le_eight
   have h3 := axis_contains_ne_outer_le_two sNE μ hμ hNE
   have h4 := axis_contains_nw_outer_le_two sNW μ hμ hNW
   nlinarith
+
+
+/-! ## Midline / CF axis bounds -/
+
+theorem axis_mid_sum_le_two (s : AxisSquare) (μ : ℚ) (hμ : 1 < μ) :
+    hMidLen s μ + vMidLen s μ ≤ 2 := by
+  nlinarith [hMidLen_le_one s μ hμ, vMidLen_le_one s μ hμ]
+
+/-- Two filler tiles: each mid-sum ≤2 ⇒ combined mid CF ≤4 (non-strict).
+Strict `CF < 4` needs an extra geometric gap (still open for full export). -/
+theorem axis_two_filler_mid_le_four (s1 s2 : AxisSquare) (μ : ℚ) (hμ : 1 < μ) :
+    (hMidLen s1 μ + vMidLen s1 μ) + (hMidLen s2 μ + vMidLen s2 μ) ≤ 4 := by
+  nlinarith [axis_mid_sum_le_two s1 μ hμ, axis_mid_sum_le_two s2 μ hμ]
+
+/-- Full axis grid contrib of one square ≤6 (4 outer + 2 mid, each ≤1). -/
+theorem axisGridContrib_le_six (s : AxisSquare) (μ : ℚ) (hμ : 1 < μ) :
+    axisGridContrib s μ ≤ 6 := by
+  simp only [axisGridContrib]
+  nlinarith [bottomLen_le_one s μ hμ, topLen_le_one s μ hμ,
+    leftLen_le_one s μ hμ, rightLen_le_one s μ hμ,
+    hMidLen_le_one s μ hμ, vMidLen_le_one s μ hμ]
 
 end S6.AxisGridContribution

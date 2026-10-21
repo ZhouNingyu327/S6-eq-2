@@ -24,7 +24,7 @@ Relative to the 2026-10-21 **rereview** of commit `32e0e0f`, the API repair at `
 
 ## Advanced this round (vs `8d5dee0`)
 
-- Lean **AxisGridContribution / G5GeometryBridge**: axis SW outer=2, corners≤8 package, `RigidSquareGridExport→G5GridHyp→False`; `G5k*GeomExport⇒G5k*Bridge⇒G5Exclusion` composition proved. Rotated chord-measure exports still **open**.
+- Lean **AxisGridContribution / G5GeometryBridge**: axis SW outer=2; **any axis corner-owner outer≤2** (four⇒≤8); mid/CF≤4 non-strict; `RigidSquareGridExport→G5GridHyp→False`; `G5k*GeomExport⇒G5k*Bridge⇒G5Exclusion` composition proved. Strict CF<4 + rotated chord-measure exports still **open**.
 - Near-end: 7 impossible leaves ⇒ `LivingLeafExcluded`; 17 living open.
 - G3/G4: `G3SideGapBudgetBridge`/`G4BudgetBridge` ⇒ exclusions; M7.1 budget algebra wired. Metric packing export still **open**.
 - `principalClaimProvedUnconditionally` remains `false`.
