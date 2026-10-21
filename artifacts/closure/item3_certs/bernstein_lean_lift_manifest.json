@@ -94,6 +94,7 @@
     "r24_28_extra_module": "S6Core.NearEndExactR24_28Extra",
     "r24_28_extra_lift_count": 35,
     "living_leaf_strengthen": "S6Core.LivingLeafStrengthen",
-    "note": "native_decide payloads + LivingLeaf inventory strengthenings; \u2260 PrincipalClaim; forbidden files untouched"
+    "note": "native_decide payloads + LivingLeaf inventory strengthenings; \u2260 PrincipalClaim; forbidden files untouched",
+    "living_leaf_strengthen_theorems": "closer multiplicities + livingClosers membership R13/R14/R26"
   }
 }
