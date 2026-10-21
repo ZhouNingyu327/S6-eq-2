@@ -38,6 +38,7 @@ import S6Core.LivingLeafCertDischarge
 import S6Core.LivingLeafGeomDischarge
 import S6Core.BernsteinGeometryMap
 import S6Core.CertGeometryIdentification
+import S6Core.CertJBoxIdentification
 import S6Core.LivingLeafStrengthen
 import S6Core.G3G4Fragments
 import S6Core.G5ExclusionFrag
