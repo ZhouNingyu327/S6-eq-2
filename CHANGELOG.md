@@ -1,3 +1,11 @@
+## v0.20 — axis path inhabits ChordMatrixExport (2026-10-22 Asia/Shanghai)
+
+- `RotatedChordMeasure`: `RotatedChordMatrixExport_of_axisCoverBridge` /
+  `_of_axisRealisation`; `axisGridContrib_le_two_of_roles`; axis six-line chord table;
+  axis-aligned ⇒ bottom `RotatedLineChordCover`.
+- Flags remain false for general (non-axis) inhabit; `principalClaimProvedUnconditionally=false`.
+- Lake green. Honest bar still ~80–84%.
+
 ## v0.19 — corner diameter-miss + ChordMatrixExport (2026-10-22 Asia/Shanghai)
 
 - `RotatedChordMeasure`: SW/SE/NE/NW diameter-miss vs opposite outer sides; meet

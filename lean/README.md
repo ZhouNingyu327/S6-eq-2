@@ -51,6 +51,9 @@ geometric proofs.
 | `G3CapGeometryExport`⇒ParallelBudget/SepWitness/exclusion | **Proved conditional** |
 | Corner diameter-miss (4 corners vs opposite outers) on any cover | **Proved** |
 | Onesided axial sum ≤2; `ChordMatrixExport`⇒SixLineMeasureLift | **Proved conditional** |
+| `AxisG5k0CoverBridge`/`Realisation` ⇒ `RotatedChordMatrixExport` | **Proved conditional** |
+| Roles ⇒ per-square `axisGridContrib ≤ 2`; axis bottom LineChordCover | **Proved** |
+| `RotatedChordMatrixExport` for general (non-axis) covers | **Open** |
 | Inhabit `RotatedChordMatrixExport` / LineMeasureLift from rat cover | **Open** |
 | Inhabit `RotatedSixLineMeasureLift` from `RotatedGridRatCover` | **Open** |
 | Axis/identity-C realisation ⇒ `RotatedChordCoverIneq` | **Proved conditional** |
