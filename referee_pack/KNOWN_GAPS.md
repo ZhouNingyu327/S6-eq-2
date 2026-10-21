@@ -22,6 +22,13 @@ Relative to the 2026-10-21 **rereview** of commit `32e0e0f`, the API repair at `
 4. **Remaining (S)-tier** dual-solver queries (~91 unique after Item3 ledger). Inventory: `artifacts/closure/S_tier_inventory.md` (+ JSON). No claim that leftovers are machine-independent.
 5. Short paper §§5–7 now cite concrete module tables; further page-length expansions may still help referees.
 
+## Advanced this round (vs `c41b03f`)
+
+- **`Icc_subset_of_closed_of_rats`** proved (clamp non-expansive + dense ℚ); six-line ℚ→`AxisGridLineCover` lift closed; ∑ contrib ≥ 12μ from ℚ covers.
+- Axis G5k0 model discharge under outer₄+mid₂ packing hyp; packing from roles still **open**.
+- Rotated chord export / 17 living leaves / G3G4 realisation still **open**.
+- `principalClaimProvedUnconditionally=false`.
+
 ## Advanced this round (vs `58571e1`)
 
 - Lean **IntervalCover1D / AxisGridCover**: 1D Lebesgue cover ⇒ sum lengths; **`AxisGridLineCover` ⇒ ∑ axisGridContrib ≥ 12μ**; + corners≤8+CF≤4 ⇒ False. Lift from ℚ PointwiseCover → real line cover still **open**.

@@ -257,4 +257,31 @@ theorem axis_G5_of_line_cover_corner_cf (μ : ℚ) (hμ : 1 < μ)
 def axisGridCoverIneqInBridge : Bool := true
 theorem axisGridCoverIneqInBridge_true : axisGridCoverIneqInBridge = true := rfl
 
+
+/-- ℚ six-line cover lifts to real `AxisGridLineCover`. -/
+theorem axis_line_cover_of_rat (μ : ℚ) (hμ : 1 < μ) (squares : Fin 6 → AxisSquare)
+    (H : AxisGridRatCover μ squares) :
+    AxisGridLineCover μ squares :=
+  AxisGridLineCover_of_ratCover μ hμ squares H
+
+/-- Axis G5k0 model: ℚ grid cover + corner/filler packing ⇒ False. -/
+theorem axis_G5k0_model_impossible (μ : ℚ) (hμ : 1 < μ) (squares : Fin 6 → AxisSquare)
+    (H : AxisGridRatCover μ squares)
+    (iSW iSE iNE iNW j1 j2 : Fin 6)
+    (hSW : (squares iSW).contains (0, 0))
+    (hSE : (squares iSE).contains (2 * μ, 0))
+    (hNE : (squares iNE).contains (2 * μ, 2 * μ))
+    (hNW : (squares iNW).contains (0, 2 * μ))
+    (hsplit :
+      ∑ k : Fin 6, axisGridContrib (squares k) μ ≤
+        outerContrib (squares iSW) μ + outerContrib (squares iSE) μ +
+          outerContrib (squares iNE) μ + outerContrib (squares iNW) μ +
+          midContrib (squares j1) μ + midContrib (squares j2) μ) :
+    False :=
+  axis_rat_cover_impossible_of_owners_fillers μ hμ squares H
+    iSW iSE iNE iNW j1 j2 hSW hSE hNE hNW hsplit
+
+def axisRatCoverToLineCoverClosed : Bool := true
+theorem axisRatCoverToLineCoverClosed_true : axisRatCoverToLineCoverClosed = true := rfl
+
 end S6.G5GeometryBridge

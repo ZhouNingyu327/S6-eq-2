@@ -1,5 +1,7 @@
 import Mathlib.Tactic
 import Mathlib.MeasureTheory.Measure.Lebesgue.Basic
+import Mathlib.Algebra.Order.Archimedean.Basic
+import Mathlib.Topology.Instances.Rat
 import S6Core.AxisGridContribution
 import S6Core.IntervalCover1D
 import S6Core.OwnershipBridge
@@ -323,5 +325,312 @@ theorem bottom_rats_subset_union (μ : ℚ) (squares : Fin 6 → AxisSquare)
   rcases hx with ⟨q, ⟨hq0, hqL⟩, rfl⟩
   rcases hQ q hq0 hqL with ⟨i, hi⟩
   exact mem_iUnion.mpr ⟨i, contains_bottom_mem_interval (squares i) μ q hq0 hqL hi⟩
+
+/-! ## Closed + rationals ⇒ full Icc -/
+
+def clampToIcc (q L : ℝ) : ℝ := max (0 : ℝ) (min q L)
+
+theorem abs_sub_clampToIcc_le (x q L : ℝ) (hx0 : 0 ≤ x) (hxL : x ≤ L) (hL : 0 ≤ L) :
+    |x - clampToIcc q L| ≤ |x - q| := by
+  dsimp [clampToIcc]
+  by_cases h1 : q < 0
+  · have : min q L < 0 := lt_of_le_of_lt (min_le_left _ _) h1
+    have hcl : max (0 : ℝ) (min q L) = 0 := max_eq_left (le_of_lt this)
+    rw [hcl]
+    have hx0' : |x - 0| = x := by simp [abs_of_nonneg hx0]
+    have hxq : |x - q| = x - q :=
+      abs_of_nonneg (sub_nonneg.mpr (by nlinarith [hx0, h1] : q ≤ x))
+    rw [hx0', hxq]
+    nlinarith
+  · by_cases h2 : L < q
+    · have hcl : max (0 : ℝ) (min q L) = L := by
+        have hmin : min q L = L := min_eq_right (le_of_lt h2)
+        rw [hmin, max_eq_right hL]
+      rw [hcl]
+      have hxL' : |x - L| = L - x := by
+        rw [abs_sub_comm, abs_of_nonneg (sub_nonneg.mpr hxL)]
+      have hxq : |x - q| = q - x := by
+        have : x ≤ q := by nlinarith [hxL, h2]
+        rw [abs_sub_comm, abs_of_nonneg (sub_nonneg.mpr this)]
+      rw [hxL', hxq]
+      nlinarith
+    · have h1' : 0 ≤ q := le_of_not_gt h1
+      have h2' : q ≤ L := le_of_not_gt h2
+      have hmin : min q L = q := min_eq_left h2'
+      have hcl : max (0 : ℝ) (min q L) = q := by rw [hmin, max_eq_right h1']
+      rw [hcl]
+
+theorem mem_closure_rats_Icc (x : ℝ) (L : ℚ) (hx0 : 0 ≤ x) (hxL : x ≤ (L : ℝ))
+    (hL : 0 ≤ L) :
+    x ∈ closure (((↑) : ℚ → ℝ) '' Icc (0 : ℚ) L) := by
+  refine Metric.mem_closure_iff.mpr ?_
+  intro ε hε
+  obtain ⟨q, hq⟩ := exists_rat_near x hε
+  set q' : ℚ := max (0 : ℚ) (min q L)
+  have hq'I : q' ∈ Icc (0 : ℚ) L := by
+    refine ⟨le_max_left _ _, max_le hL (min_le_right _ _)⟩
+  have hcast : (q' : ℝ) = clampToIcc (q : ℝ) (L : ℝ) := by
+    simp only [q', clampToIcc, Rat.cast_max, Rat.cast_min, Rat.cast_zero]
+  have hdist : dist x (q' : ℝ) < ε := by
+    rw [Real.dist_eq, hcast]
+    exact lt_of_le_of_lt (abs_sub_clampToIcc_le x (q : ℝ) (L : ℝ) hx0 hxL
+      (by exact_mod_cast hL)) hq
+  refine ⟨(q' : ℝ), ?_, hdist⟩
+  exact ⟨q', hq'I, rfl⟩
+
+/-- Closed set containing every rational in `[0,L]` contains the real interval. -/
+theorem Icc_subset_of_closed_of_rats (F : Set ℝ) (hF : IsClosed F) (L : ℚ)
+    (hL : 0 ≤ L)
+    (h : ∀ q : ℚ, 0 ≤ q → q ≤ L → (q : ℝ) ∈ F) :
+    Icc (0 : ℝ) (L : ℝ) ⊆ F := by
+  have hsub : ((↑) : ℚ → ℝ) '' Icc (0 : ℚ) L ⊆ F := by
+    intro y hy
+    rcases hy with ⟨q, hq, rfl⟩
+    exact h q hq.1 hq.2
+  have hcl : closure (((↑) : ℚ → ℝ) '' Icc (0 : ℚ) L) ⊆ F :=
+    (IsClosed.closure_subset_iff hF).mpr hsub
+  intro x hx
+  exact hcl (mem_closure_rats_Icc x L hx.1 hx.2 hL)
+
+/-- ℚ pointwise cover of the bottom edge ⇒ real `Icc` cover. -/
+theorem bottom_rat_cover_implies_real (μ : ℚ) (hμ : 1 < μ)
+    (squares : Fin 6 → AxisSquare)
+    (hQ : ∀ q : ℚ, 0 ≤ q → q ≤ 2 * μ → ∃ i, (squares i).contains (q, 0)) :
+    Icc (0 : ℝ) ((2 : ℝ) * μ) ⊆ ⋃ i, bottomInterval (squares i) μ := by
+  have hL : (0 : ℚ) ≤ 2 * μ := by nlinarith [hμ]
+  have hEq : Icc (0 : ℝ) ((2 : ℝ) * μ) = Icc (0 : ℝ) ((2 * μ : ℚ) : ℝ) := by
+    simp
+  rw [hEq]
+  refine Icc_subset_of_closed_of_rats _ (bottomUnion_isClosed μ squares) (2 * μ) hL ?_
+  intro q hq0 hqL
+  rcases hQ q hq0 hqL with ⟨i, hi⟩
+  exact mem_iUnion.mpr ⟨i, contains_bottom_mem_interval (squares i) μ q hq0 hqL hi⟩
+
+
+/-! ## Remaining five lines: membership, closed union, ℚ→ℝ lift -/
+
+theorem contains_left_mem_interval (s : AxisSquare) (μ : ℚ) (q : ℚ)
+    (hq0 : 0 ≤ q) (hqL : q ≤ 2 * μ) (hc : s.contains (0, q)) :
+    (q : ℝ) ∈ leftInterval s μ := by
+  have hmeets : s.x ≤ 0 ∧ 0 ≤ s.x + 1 := by
+    simp only [AxisSquare.contains] at hc
+    exact ⟨hc.1.1.1, hc.1.1.2⟩
+  have hy : s.y ≤ q ∧ q ≤ s.y + 1 := by
+    simp only [AxisSquare.contains] at hc
+    exact ⟨hc.1.2, hc.2⟩
+  simp only [leftInterval, hmeets, ↓reduceIte, mem_Icc]
+  constructor
+  · exact max_le (by exact_mod_cast hy.1) (by exact_mod_cast hq0)
+  · exact le_min (by exact_mod_cast hy.2) (by exact_mod_cast hqL)
+
+theorem contains_right_mem_interval (s : AxisSquare) (μ : ℚ) (q : ℚ)
+    (hq0 : 0 ≤ q) (hqL : q ≤ 2 * μ) (hc : s.contains (2 * μ, q)) :
+    (q : ℝ) ∈ rightInterval s μ := by
+  have hmeets : s.x ≤ 2 * μ ∧ 2 * μ ≤ s.x + 1 := by
+    simp only [AxisSquare.contains] at hc
+    exact ⟨hc.1.1.1, hc.1.1.2⟩
+  have hy : s.y ≤ q ∧ q ≤ s.y + 1 := by
+    simp only [AxisSquare.contains] at hc
+    exact ⟨hc.1.2, hc.2⟩
+  simp only [rightInterval, hmeets, ↓reduceIte, mem_Icc]
+  constructor
+  · exact max_le (by exact_mod_cast hy.1) (by exact_mod_cast hq0)
+  · exact le_min (by exact_mod_cast hy.2) (by exact_mod_cast hqL)
+
+theorem contains_hMid_mem_interval (s : AxisSquare) (μ : ℚ) (q : ℚ)
+    (hq0 : 0 ≤ q) (hqL : q ≤ 2 * μ) (hc : s.contains (q, μ)) :
+    (q : ℝ) ∈ hMidInterval s μ := by
+  have hmeets : s.y ≤ μ ∧ μ ≤ s.y + 1 := by
+    simp only [AxisSquare.contains] at hc
+    exact ⟨hc.1.2, hc.2⟩
+  have hx : s.x ≤ q ∧ q ≤ s.x + 1 := by
+    simp only [AxisSquare.contains] at hc
+    exact ⟨hc.1.1.1, hc.1.1.2⟩
+  simp only [hMidInterval, hmeets, ↓reduceIte, mem_Icc]
+  constructor
+  · exact max_le (by exact_mod_cast hx.1) (by exact_mod_cast hq0)
+  · exact le_min (by exact_mod_cast hx.2) (by exact_mod_cast hqL)
+
+theorem contains_vMid_mem_interval (s : AxisSquare) (μ : ℚ) (q : ℚ)
+    (hq0 : 0 ≤ q) (hqL : q ≤ 2 * μ) (hc : s.contains (μ, q)) :
+    (q : ℝ) ∈ vMidInterval s μ := by
+  have hmeets : s.x ≤ μ ∧ μ ≤ s.x + 1 := by
+    simp only [AxisSquare.contains] at hc
+    exact ⟨hc.1.1.1, hc.1.1.2⟩
+  have hy : s.y ≤ q ∧ q ≤ s.y + 1 := by
+    simp only [AxisSquare.contains] at hc
+    exact ⟨hc.1.2, hc.2⟩
+  simp only [vMidInterval, hmeets, ↓reduceIte, mem_Icc]
+  constructor
+  · exact max_le (by exact_mod_cast hy.1) (by exact_mod_cast hq0)
+  · exact le_min (by exact_mod_cast hy.2) (by exact_mod_cast hqL)
+
+theorem lineUnion_isClosed (μ : ℚ) (S : Fin 6 → Set ℝ)
+    (h : ∀ i, IsClosed (S i)) :
+    IsClosed (⋃ i, S i) :=
+  isClosed_iUnion_of_finite h
+
+theorem topUnion_isClosed (μ : ℚ) (squares : Fin 6 → AxisSquare) :
+    IsClosed (⋃ i, topInterval (squares i) μ) :=
+  isClosed_iUnion_of_finite fun i => by
+    simp only [topInterval]; split_ifs <;> simp [isClosed_Icc, isClosed_empty]
+
+theorem leftUnion_isClosed (μ : ℚ) (squares : Fin 6 → AxisSquare) :
+    IsClosed (⋃ i, leftInterval (squares i) μ) :=
+  isClosed_iUnion_of_finite fun i => by
+    simp only [leftInterval]; split_ifs <;> simp [isClosed_Icc, isClosed_empty]
+
+theorem rightUnion_isClosed (μ : ℚ) (squares : Fin 6 → AxisSquare) :
+    IsClosed (⋃ i, rightInterval (squares i) μ) :=
+  isClosed_iUnion_of_finite fun i => by
+    simp only [rightInterval]; split_ifs <;> simp [isClosed_Icc, isClosed_empty]
+
+theorem hMidUnion_isClosed (μ : ℚ) (squares : Fin 6 → AxisSquare) :
+    IsClosed (⋃ i, hMidInterval (squares i) μ) :=
+  isClosed_iUnion_of_finite fun i => by
+    simp only [hMidInterval]; split_ifs <;> simp [isClosed_Icc, isClosed_empty]
+
+theorem vMidUnion_isClosed (μ : ℚ) (squares : Fin 6 → AxisSquare) :
+    IsClosed (⋃ i, vMidInterval (squares i) μ) :=
+  isClosed_iUnion_of_finite fun i => by
+    simp only [vMidInterval]; split_ifs <;> simp [isClosed_Icc, isClosed_empty]
+
+theorem top_rat_cover_implies_real (μ : ℚ) (hμ : 1 < μ)
+    (squares : Fin 6 → AxisSquare)
+    (hQ : ∀ q : ℚ, 0 ≤ q → q ≤ 2 * μ → ∃ i, (squares i).contains (q, 2 * μ)) :
+    Icc (0 : ℝ) ((2 : ℝ) * μ) ⊆ ⋃ i, topInterval (squares i) μ := by
+  have hL : (0 : ℚ) ≤ 2 * μ := by nlinarith [hμ]
+  have hEq : Icc (0 : ℝ) ((2 : ℝ) * μ) = Icc (0 : ℝ) ((2 * μ : ℚ) : ℝ) := by simp
+  rw [hEq]
+  refine Icc_subset_of_closed_of_rats _ (topUnion_isClosed μ squares) (2 * μ) hL ?_
+  intro q hq0 hqL
+  rcases hQ q hq0 hqL with ⟨i, hi⟩
+  exact mem_iUnion.mpr ⟨i, contains_top_mem_interval (squares i) μ q hq0 hqL hi⟩
+
+theorem left_rat_cover_implies_real (μ : ℚ) (hμ : 1 < μ)
+    (squares : Fin 6 → AxisSquare)
+    (hQ : ∀ q : ℚ, 0 ≤ q → q ≤ 2 * μ → ∃ i, (squares i).contains (0, q)) :
+    Icc (0 : ℝ) ((2 : ℝ) * μ) ⊆ ⋃ i, leftInterval (squares i) μ := by
+  have hL : (0 : ℚ) ≤ 2 * μ := by nlinarith [hμ]
+  have hEq : Icc (0 : ℝ) ((2 : ℝ) * μ) = Icc (0 : ℝ) ((2 * μ : ℚ) : ℝ) := by simp
+  rw [hEq]
+  refine Icc_subset_of_closed_of_rats _ (leftUnion_isClosed μ squares) (2 * μ) hL ?_
+  intro q hq0 hqL
+  rcases hQ q hq0 hqL with ⟨i, hi⟩
+  exact mem_iUnion.mpr ⟨i, contains_left_mem_interval (squares i) μ q hq0 hqL hi⟩
+
+theorem right_rat_cover_implies_real (μ : ℚ) (hμ : 1 < μ)
+    (squares : Fin 6 → AxisSquare)
+    (hQ : ∀ q : ℚ, 0 ≤ q → q ≤ 2 * μ → ∃ i, (squares i).contains (2 * μ, q)) :
+    Icc (0 : ℝ) ((2 : ℝ) * μ) ⊆ ⋃ i, rightInterval (squares i) μ := by
+  have hL : (0 : ℚ) ≤ 2 * μ := by nlinarith [hμ]
+  have hEq : Icc (0 : ℝ) ((2 : ℝ) * μ) = Icc (0 : ℝ) ((2 * μ : ℚ) : ℝ) := by simp
+  rw [hEq]
+  refine Icc_subset_of_closed_of_rats _ (rightUnion_isClosed μ squares) (2 * μ) hL ?_
+  intro q hq0 hqL
+  rcases hQ q hq0 hqL with ⟨i, hi⟩
+  exact mem_iUnion.mpr ⟨i, contains_right_mem_interval (squares i) μ q hq0 hqL hi⟩
+
+theorem hMid_rat_cover_implies_real (μ : ℚ) (hμ : 1 < μ)
+    (squares : Fin 6 → AxisSquare)
+    (hQ : ∀ q : ℚ, 0 ≤ q → q ≤ 2 * μ → ∃ i, (squares i).contains (q, μ)) :
+    Icc (0 : ℝ) ((2 : ℝ) * μ) ⊆ ⋃ i, hMidInterval (squares i) μ := by
+  have hL : (0 : ℚ) ≤ 2 * μ := by nlinarith [hμ]
+  have hEq : Icc (0 : ℝ) ((2 : ℝ) * μ) = Icc (0 : ℝ) ((2 * μ : ℚ) : ℝ) := by simp
+  rw [hEq]
+  refine Icc_subset_of_closed_of_rats _ (hMidUnion_isClosed μ squares) (2 * μ) hL ?_
+  intro q hq0 hqL
+  rcases hQ q hq0 hqL with ⟨i, hi⟩
+  exact mem_iUnion.mpr ⟨i, contains_hMid_mem_interval (squares i) μ q hq0 hqL hi⟩
+
+theorem vMid_rat_cover_implies_real (μ : ℚ) (hμ : 1 < μ)
+    (squares : Fin 6 → AxisSquare)
+    (hQ : ∀ q : ℚ, 0 ≤ q → q ≤ 2 * μ → ∃ i, (squares i).contains (μ, q)) :
+    Icc (0 : ℝ) ((2 : ℝ) * μ) ⊆ ⋃ i, vMidInterval (squares i) μ := by
+  have hL : (0 : ℚ) ≤ 2 * μ := by nlinarith [hμ]
+  have hEq : Icc (0 : ℝ) ((2 : ℝ) * μ) = Icc (0 : ℝ) ((2 * μ : ℚ) : ℝ) := by simp
+  rw [hEq]
+  refine Icc_subset_of_closed_of_rats _ (vMidUnion_isClosed μ squares) (2 * μ) hL ?_
+  intro q hq0 hqL
+  rcases hQ q hq0 hqL with ⟨i, hi⟩
+  exact mem_iUnion.mpr ⟨i, contains_vMid_mem_interval (squares i) μ q hq0 hqL hi⟩
+
+/-- ℚ pointwise cover of all six grid lines ⇒ `AxisGridLineCover`. -/
+structure AxisGridRatCover (μ : ℚ) (squares : Fin 6 → AxisSquare) : Prop where
+  bottom : ∀ q : ℚ, 0 ≤ q → q ≤ 2 * μ → ∃ i, (squares i).contains (q, 0)
+  top : ∀ q : ℚ, 0 ≤ q → q ≤ 2 * μ → ∃ i, (squares i).contains (q, 2 * μ)
+  left : ∀ q : ℚ, 0 ≤ q → q ≤ 2 * μ → ∃ i, (squares i).contains (0, q)
+  right : ∀ q : ℚ, 0 ≤ q → q ≤ 2 * μ → ∃ i, (squares i).contains (2 * μ, q)
+  hMid : ∀ q : ℚ, 0 ≤ q → q ≤ 2 * μ → ∃ i, (squares i).contains (q, μ)
+  vMid : ∀ q : ℚ, 0 ≤ q → q ≤ 2 * μ → ∃ i, (squares i).contains (μ, q)
+
+theorem AxisGridLineCover_of_ratCover (μ : ℚ) (hμ : 1 < μ)
+    (squares : Fin 6 → AxisSquare) (H : AxisGridRatCover μ squares) :
+    AxisGridLineCover μ squares where
+  bottom := bottom_rat_cover_implies_real μ hμ squares H.bottom
+  top := top_rat_cover_implies_real μ hμ squares H.top
+  left := left_rat_cover_implies_real μ hμ squares H.left
+  right := right_rat_cover_implies_real μ hμ squares H.right
+  hMid := hMid_rat_cover_implies_real μ hμ squares H.hMid
+  vMid := vMid_rat_cover_implies_real μ hμ squares H.vMid
+
+/-- Six-line ℚ cover ⇒ ∑ axisGridContrib ≥ 12μ. -/
+theorem axis_rat_cover_sum (μ : ℚ) (hμ : 1 < μ) (squares : Fin 6 → AxisSquare)
+    (H : AxisGridRatCover μ squares) :
+    (12 : ℚ) * μ ≤ ∑ i : Fin 6, axisGridContrib (squares i) μ :=
+  axis_grid_cover_sum_rat μ hμ squares (AxisGridLineCover_of_ratCover μ hμ squares H)
+
+def axisRatCoverLiftClosed : Bool := true
+theorem axisRatCoverLiftClosed_true : axisRatCoverLiftClosed = true := rfl
+
+
+/-! ## Corner-owner + two-filler discharge under ℚ grid cover -/
+
+def outerContrib (s : AxisSquare) (μ : ℚ) : ℚ :=
+  bottomLen s μ + topLen s μ + leftLen s μ + rightLen s μ
+
+def midContrib (s : AxisSquare) (μ : ℚ) : ℚ :=
+  hMidLen s μ + vMidLen s μ
+
+theorem axisGridContrib_eq_outer_mid (s : AxisSquare) (μ : ℚ) :
+    axisGridContrib s μ = outerContrib s μ + midContrib s μ := by
+  simp only [axisGridContrib, outerContrib, midContrib]; ring
+
+/-- ℚ six-line cover + four corner-owners + packing
+`∑ contrib ≤ outer₄ + mid₂` ⇒ False (axis G5k0 model discharge). -/
+theorem axis_rat_cover_impossible_of_owners_fillers
+    (μ : ℚ) (hμ : 1 < μ) (squares : Fin 6 → AxisSquare)
+    (H : AxisGridRatCover μ squares)
+    (iSW iSE iNE iNW j1 j2 : Fin 6)
+    (hSW : (squares iSW).contains (0, 0))
+    (hSE : (squares iSE).contains (2 * μ, 0))
+    (hNE : (squares iNE).contains (2 * μ, 2 * μ))
+    (hNW : (squares iNW).contains (0, 2 * μ))
+    (hsplit :
+      ∑ k : Fin 6, axisGridContrib (squares k) μ ≤
+        outerContrib (squares iSW) μ + outerContrib (squares iSE) μ +
+          outerContrib (squares iNE) μ + outerContrib (squares iNW) μ +
+          midContrib (squares j1) μ + midContrib (squares j2) μ) :
+    False := by
+  have hge := axis_rat_cover_sum μ hμ squares H
+  set corners :=
+    outerContrib (squares iSW) μ + outerContrib (squares iSE) μ +
+      outerContrib (squares iNE) μ + outerContrib (squares iNW) μ
+  set CF := midContrib (squares j1) μ + midContrib (squares j2) μ
+  have hcorners : corners ≤ 8 := by
+    dsimp [corners, outerContrib]
+    exact axis_four_corner_owners_outer_le_eight
+      (squares iSW) (squares iSE) (squares iNE) (squares iNW) μ hμ hSW hSE hNE hNW
+  have hCF : CF ≤ 4 := by
+    dsimp [CF, midContrib]
+    exact axis_two_filler_mid_le_four (squares j1) (squares j2) μ hμ
+  have hle : ∑ k : Fin 6, axisGridContrib (squares k) μ ≤ corners + CF := by
+    simpa [corners, CF, add_assoc] using hsplit
+  have hcover : (12 : ℚ) * μ ≤ corners + CF := le_trans hge hle
+  exact axis_grid_cover_impossible_le μ corners CF hμ hcorners hCF (by
+    simpa [gridLen] using hcover)
+
+def axisG5k0ModelDischargeClosed : Bool := true
+theorem axisG5k0ModelDischargeClosed_true : axisG5k0ModelDischargeClosed = true := rfl
 
 end S6.AxisGridCover
