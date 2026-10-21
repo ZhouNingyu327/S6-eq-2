@@ -37,7 +37,8 @@ Proved: |Δx|/|Δy| ≤ |c|+|s|; parallel miss bottom↔top and left↔right (μ
 vertSliceR Inf-Sup; RotatedSixLineRealLift (all six grid lines) from any rat cover.
 Proved: distSq on containsR; clamped [0,2μ] lens; all four corner outer pairs ≤ 2;
 PointwiseCover corner clamped packing.
-Open: mid packing; general ChordMatrixExport (squareTotal≤2); BodyChartAxis/IdentityC.
+Proved: corner mid-miss when μ²>2; corner outer+mid pack skeleton (μ²>2).
+Open: mid packing for μ²≤2 / fillers; general ChordMatrixExport; BodyChartAxis.
 -/
 
 namespace S6.RotatedChordMeasure
@@ -1792,5 +1793,143 @@ theorem rotatedCornerClampedOuterPackingProved_true :
 def rotatedCornerClampedOuterPackingClosed : Bool := true
 theorem rotatedCornerClampedOuterPackingClosed_true :
     rotatedCornerClampedOuterPackingClosed = true := rfl
+
+/-! ## Mid-miss for corners when μ² > 2 (toward mid packing) -/
+
+theorem SW_misses_hMid_of_mu_sq_gt (g : RotatedSquare) (μ : ℚ) (hμ2 : 2 < μ * μ)
+    (hSW : RotatedSquare.contains g (0, 0)) (x : ℚ) :
+    ¬ RotatedSquare.contains g (x, μ) := by
+  intro ht
+  have hd := chord_distSq_le_two g (0, 0) (x, μ) hSW ht
+  simp only [distSq] at hd
+  nlinarith [mul_self_nonneg x]
+
+theorem SW_misses_vMid_of_mu_sq_gt (g : RotatedSquare) (μ : ℚ) (hμ2 : 2 < μ * μ)
+    (hSW : RotatedSquare.contains g (0, 0)) (y : ℚ) :
+    ¬ RotatedSquare.contains g (μ, y) := by
+  intro ht
+  have hd := chord_distSq_le_two g (0, 0) (μ, y) hSW ht
+  simp only [distSq] at hd
+  nlinarith [mul_self_nonneg y]
+
+theorem SE_misses_hMid_of_mu_sq_gt (g : RotatedSquare) (μ : ℚ) (hμ2 : 2 < μ * μ)
+    (hSE : RotatedSquare.contains g (2 * μ, 0)) (x : ℚ) :
+    ¬ RotatedSquare.contains g (x, μ) := by
+  intro ht
+  have hd := chord_distSq_le_two g (2 * μ, 0) (x, μ) hSE ht
+  simp only [distSq] at hd
+  nlinarith [mul_self_nonneg (2 * μ - x)]
+
+theorem SE_misses_vMid_of_mu_sq_gt (g : RotatedSquare) (μ : ℚ) (hμ2 : 2 < μ * μ)
+    (hSE : RotatedSquare.contains g (2 * μ, 0)) (y : ℚ) :
+    ¬ RotatedSquare.contains g (μ, y) := by
+  intro ht
+  have hd := chord_distSq_le_two g (2 * μ, 0) (μ, y) hSE ht
+  simp only [distSq] at hd
+  nlinarith [mul_self_nonneg y]
+
+theorem NE_misses_hMid_of_mu_sq_gt (g : RotatedSquare) (μ : ℚ) (hμ2 : 2 < μ * μ)
+    (hNE : RotatedSquare.contains g (2 * μ, 2 * μ)) (x : ℚ) :
+    ¬ RotatedSquare.contains g (x, μ) := by
+  intro ht
+  have hd := chord_distSq_le_two g (2 * μ, 2 * μ) (x, μ) hNE ht
+  simp only [distSq] at hd
+  nlinarith [mul_self_nonneg (2 * μ - x)]
+
+theorem NE_misses_vMid_of_mu_sq_gt (g : RotatedSquare) (μ : ℚ) (hμ2 : 2 < μ * μ)
+    (hNE : RotatedSquare.contains g (2 * μ, 2 * μ)) (y : ℚ) :
+    ¬ RotatedSquare.contains g (μ, y) := by
+  intro ht
+  have hd := chord_distSq_le_two g (2 * μ, 2 * μ) (μ, y) hNE ht
+  simp only [distSq] at hd
+  nlinarith [mul_self_nonneg (2 * μ - y)]
+
+theorem NW_misses_hMid_of_mu_sq_gt (g : RotatedSquare) (μ : ℚ) (hμ2 : 2 < μ * μ)
+    (hNW : RotatedSquare.contains g (0, 2 * μ)) (x : ℚ) :
+    ¬ RotatedSquare.contains g (x, μ) := by
+  intro ht
+  have hd := chord_distSq_le_two g (0, 2 * μ) (x, μ) hNW ht
+  simp only [distSq] at hd
+  nlinarith [mul_self_nonneg x]
+
+theorem NW_misses_vMid_of_mu_sq_gt (g : RotatedSquare) (μ : ℚ) (hμ2 : 2 < μ * μ)
+    (hNW : RotatedSquare.contains g (0, 2 * μ)) (y : ℚ) :
+    ¬ RotatedSquare.contains g (μ, y) := by
+  intro ht
+  have hd := chord_distSq_le_two g (0, 2 * μ) (μ, y) hNW ht
+  simp only [distSq] at hd
+  nlinarith [mul_self_nonneg (2 * μ - y)]
+
+theorem SW_not_meets_mids_of_mu_sq_gt (g : RotatedSquare) (μ : ℚ) (hμ2 : 2 < μ * μ)
+    (hSW : RotatedSquare.contains g (0, 0)) :
+    ¬ meetsHoriz g μ ∧ ¬ meetsVert g μ :=
+  ⟨fun ⟨x, hx⟩ => SW_misses_hMid_of_mu_sq_gt g μ hμ2 hSW x hx,
+    fun ⟨y, hy⟩ => SW_misses_vMid_of_mu_sq_gt g μ hμ2 hSW y hy⟩
+
+theorem SE_not_meets_mids_of_mu_sq_gt (g : RotatedSquare) (μ : ℚ) (hμ2 : 2 < μ * μ)
+    (hSE : RotatedSquare.contains g (2 * μ, 0)) :
+    ¬ meetsHoriz g μ ∧ ¬ meetsVert g μ :=
+  ⟨fun ⟨x, hx⟩ => SE_misses_hMid_of_mu_sq_gt g μ hμ2 hSE x hx,
+    fun ⟨y, hy⟩ => SE_misses_vMid_of_mu_sq_gt g μ hμ2 hSE y hy⟩
+
+theorem NE_not_meets_mids_of_mu_sq_gt (g : RotatedSquare) (μ : ℚ) (hμ2 : 2 < μ * μ)
+    (hNE : RotatedSquare.contains g (2 * μ, 2 * μ)) :
+    ¬ meetsHoriz g μ ∧ ¬ meetsVert g μ :=
+  ⟨fun ⟨x, hx⟩ => NE_misses_hMid_of_mu_sq_gt g μ hμ2 hNE x hx,
+    fun ⟨y, hy⟩ => NE_misses_vMid_of_mu_sq_gt g μ hμ2 hNE y hy⟩
+
+theorem NW_not_meets_mids_of_mu_sq_gt (g : RotatedSquare) (μ : ℚ) (hμ2 : 2 < μ * μ)
+    (hNW : RotatedSquare.contains g (0, 2 * μ)) :
+    ¬ meetsHoriz g μ ∧ ¬ meetsVert g μ :=
+  ⟨fun ⟨x, hx⟩ => NW_misses_hMid_of_mu_sq_gt g μ hμ2 hNW x hx,
+    fun ⟨y, hy⟩ => NW_misses_vMid_of_mu_sq_gt g μ hμ2 hNW y hy⟩
+
+/-- When `μ² > 2`, every `PointwiseCover` corner owner misses both midlines. -/
+theorem PointwiseCover_corner_mid_miss_of_mu_sq_gt {T : Target} (cov : PointwiseCover T)
+    (hμ2 : 2 < T.μ * T.μ) :
+    let C := cov.toCornerOwners
+    (¬ meetsHoriz (C.squares C.i1) T.μ ∧ ¬ meetsVert (C.squares C.i1) T.μ) ∧
+      (¬ meetsHoriz (C.squares C.i2) T.μ ∧ ¬ meetsVert (C.squares C.i2) T.μ) ∧
+      (¬ meetsHoriz (C.squares C.i3) T.μ ∧ ¬ meetsVert (C.squares C.i3) T.μ) ∧
+      (¬ meetsHoriz (C.squares C.i4) T.μ ∧ ¬ meetsVert (C.squares C.i4) T.μ) := by
+  intro C
+  refine ⟨?_, ?_, ?_, ?_⟩
+  · exact SW_not_meets_mids_of_mu_sq_gt _ T.μ hμ2 (by simpa [Target.v1] using C.h1)
+  · exact SE_not_meets_mids_of_mu_sq_gt _ T.μ hμ2 (by simpa [Target.v2] using C.h2)
+  · exact NE_not_meets_mids_of_mu_sq_gt _ T.μ hμ2 (by simpa [Target.v3] using C.h3)
+  · exact NW_not_meets_mids_of_mu_sq_gt _ T.μ hμ2 (by simpa [Target.v4] using C.h4)
+
+/-- Corner outer ≤2 plus mid-miss when `μ²>2`: packing skeleton for corner tiles. -/
+theorem SW_corner_pack_outer_mid_of_mu_sq_gt (g : RotatedSquare) (μ : ℚ) (hμ : 1 < μ)
+    (hμ2 : 2 < μ * μ) (hSW : RotatedSquare.contains g (0, 0)) :
+    clampedHorizLen g 0 μ + clampedVertLen g 0 μ ≤ 2 ∧
+      ¬ meetsHoriz g μ ∧ ¬ meetsVert g μ :=
+  ⟨SW_clamped_outer_sum_le_two g μ hμ hSW, SW_not_meets_mids_of_mu_sq_gt g μ hμ2 hSW⟩
+
+theorem SE_corner_pack_outer_mid_of_mu_sq_gt (g : RotatedSquare) (μ : ℚ) (hμ : 1 < μ)
+    (hμ2 : 2 < μ * μ) (hSE : RotatedSquare.contains g (2 * μ, 0)) :
+    clampedHorizLen g 0 μ + clampedVertLen g (2 * μ) μ ≤ 2 ∧
+      ¬ meetsHoriz g μ ∧ ¬ meetsVert g μ :=
+  ⟨SE_clamped_outer_sum_le_two g μ hμ hSE, SE_not_meets_mids_of_mu_sq_gt g μ hμ2 hSE⟩
+
+theorem NE_corner_pack_outer_mid_of_mu_sq_gt (g : RotatedSquare) (μ : ℚ) (hμ : 1 < μ)
+    (hμ2 : 2 < μ * μ) (hNE : RotatedSquare.contains g (2 * μ, 2 * μ)) :
+    clampedHorizLen g (2 * μ) μ + clampedVertLen g (2 * μ) μ ≤ 2 ∧
+      ¬ meetsHoriz g μ ∧ ¬ meetsVert g μ :=
+  ⟨NE_clamped_outer_sum_le_two g μ hμ hNE, NE_not_meets_mids_of_mu_sq_gt g μ hμ2 hNE⟩
+
+theorem NW_corner_pack_outer_mid_of_mu_sq_gt (g : RotatedSquare) (μ : ℚ) (hμ : 1 < μ)
+    (hμ2 : 2 < μ * μ) (hNW : RotatedSquare.contains g (0, 2 * μ)) :
+    clampedHorizLen g (2 * μ) μ + clampedVertLen g 0 μ ≤ 2 ∧
+      ¬ meetsHoriz g μ ∧ ¬ meetsVert g μ :=
+  ⟨NW_clamped_outer_sum_le_two g μ hμ hNW, NW_not_meets_mids_of_mu_sq_gt g μ hμ2 hNW⟩
+
+def rotatedCornerMidMissMuSqGtClosed : Bool := true
+theorem rotatedCornerMidMissMuSqGtClosed_true :
+    rotatedCornerMidMissMuSqGtClosed = true := rfl
+
+/-- Full mid packing for all μ>1 (incl. μ²≤2) and filler tiles still open. -/
+def rotatedMidPackingProved : Bool := false
+theorem rotatedMidPackingProved_false : rotatedMidPackingProved = false := rfl
 
 end S6.RotatedChordMeasure

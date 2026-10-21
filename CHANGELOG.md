@@ -1,3 +1,12 @@
+## v0.25 — corner mid-miss when μ²>2 (2026-10-22 Asia/Shanghai)
+
+- `RotatedChordMeasure`: SW/SE/NE/NW miss both midlines when `μ²>2`;
+  `PointwiseCover_corner_mid_miss_of_mu_sq_gt`; corner outer+mid pack skeleton.
+  `rotatedMidPackingProved` remains false (μ²≤2 / fillers open).
+- Still open: full mid packing; general `ChordMatrixExport`;
+  `principalClaimProvedUnconditionally=false`.
+- Lake green. Honest bar still ~80–84%.
+
 ## v0.24 — four-corner clamped outer packing (2026-10-22 Asia/Shanghai)
 
 - `RotatedChordMeasure`: SE/NE/NW clamped outer pairs ≤2; helpers
