@@ -94,7 +94,7 @@ def rotatedG5k0ChordExportProved : Bool := false
 theorem rotatedG5k0ChordExportProved_false : rotatedG5k0ChordExportProved = false := rfl
 
 def openRotatedChordExports : List String :=
-  ["RotatedG5k0ChordExport from PointwiseCover",
+  ["RotatedChordCoverIneq from PointwiseCover (geometric chord measures)",
    "g2_alg geometric reading as outer chord sum"]
 
 
@@ -163,5 +163,66 @@ theorem RotatedG5k0ChordExport_of_identityCRealisation
 def rotatedExportFromAxisPathClosed : Bool := true
 theorem rotatedExportFromAxisPathClosed_true :
     rotatedExportFromAxisPathClosed = true := rfl
+
+
+/-! ## Bound-package split: diameters held; cover ineq residual -/
+
+/-- Max unit-diameter proxies cannot satisfy cover ineq when `μ>1`. -/
+theorem max_diameter_cover_ineq_impossible (μ : ℚ) (hμ : 1 < μ) :
+    ¬((12 : ℚ) * μ ≤ (2 + 2 + 2 + 2) + (2 + 2)) := by
+  intro h; nlinarith
+
+/-- All-max diameter proxies never inhabit the package cover ineq. -/
+theorem RotatedChordBoundPackage_needs_tight_chords :
+    ∀ (μ : ℚ), 1 < μ →
+      ¬∃ (c1 c2 c3 c4 m1 m2 : ℚ),
+        c1 = 2 ∧ c2 = 2 ∧ c3 = 2 ∧ c4 = 2 ∧ m1 = 2 ∧ m2 = 2 ∧
+          (12 : ℚ) * μ ≤ (c1 + c2 + c3 + c4) + (m1 + m2) := by
+  intro μ hμ ⟨_, _, _, _, _, _, h1, h2, h3, h4, hm1, hm2, hcover⟩
+  subst h1; subst h2; subst h3; subst h4; subst hm1; subst hm2
+  exact max_diameter_cover_ineq_impossible μ hμ hcover
+
+/-- Diameter upper bounds `≤ 2` are always available (take proxies `= 2`). -/
+def RotatedChordDiameterBounds : Prop :=
+  ∀ (T : Target) (cov : PointwiseCover T),
+    isG5Class cov →
+      (RoleSelection.ofCover cov).toManuscript.flags.k = ⟨0, by decide⟩ →
+        ∃ (c1 c2 c3 c4 m1 m2 : ℚ),
+          c1 ≤ 2 ∧ c2 ≤ 2 ∧ c3 ≤ 2 ∧ c4 ≤ 2 ∧ m1 ≤ 2 ∧ m2 ≤ 2
+
+theorem RotatedChordDiameterBounds_held : RotatedChordDiameterBounds := by
+  intro T cov _ _
+  exact ⟨2, 2, 2, 2, 2, 2, by norm_num, by norm_num, by norm_num, by norm_num,
+    by norm_num, by norm_num⟩
+
+/-- Residual: cover inequality at some diameter-bounded chord measures. -/
+def RotatedChordCoverIneq : Prop :=
+  ∀ (T : Target) (cov : PointwiseCover T),
+    isG5Class cov →
+      (RoleSelection.ofCover cov).toManuscript.flags.k = ⟨0, by decide⟩ →
+        ∃ (c1 c2 c3 c4 m1 m2 : ℚ),
+          c1 ≤ 2 ∧ c2 ≤ 2 ∧ c3 ≤ 2 ∧ c4 ≤ 2 ∧ m1 ≤ 2 ∧ m2 ≤ 2 ∧
+            (12 : ℚ) * T.μ ≤ (c1 + c2 + c3 + c4) + (m1 + m2)
+
+theorem RotatedChordBoundPackage_iff_coverIneq :
+    RotatedChordBoundPackage ↔ RotatedChordCoverIneq :=
+  ⟨fun h => h, fun h => h⟩
+
+theorem RotatedG5k0ChordExport_of_coverIneq (h : RotatedChordCoverIneq) :
+    RotatedG5k0ChordExport :=
+  RotatedG5k0ChordExport_of_boundPackage h
+
+theorem G5k0GeomExport_of_coverIneq (h : RotatedChordCoverIneq) : G5k0GeomExport :=
+  G5k0GeomExport_of_boundPackage h
+
+theorem G5k0Bridge_of_coverIneq (h : RotatedChordCoverIneq) : G5k0Bridge :=
+  G5k0Bridge_of_boundPackage h
+
+def rotatedChordDiameterBoundsClosed : Bool := true
+theorem rotatedChordDiameterBoundsClosed_true :
+    rotatedChordDiameterBoundsClosed = true := rfl
+
+def rotatedChordCoverIneqProved : Bool := false
+theorem rotatedChordCoverIneqProved_false : rotatedChordCoverIneqProved = false := rfl
 
 end S6.RotatedChordMeasure

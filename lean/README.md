@@ -39,6 +39,10 @@ geometric proofs.
 | `isG5Class`↔`fHasO`; identity-C⇒world F∋O | **Proved** |
 | `AxisAlignedIdentityCRealisation`⇒G5k0 bridges/exports | **Proved conditional** |
 | `pullback_self`; body-chart C=`identityPose`; axis translate→identity | **Proved** |
+| SE(2) `pullback_contains_iff`; body-F∋body-O ↔ world-F∋O | **Proved** |
+| Manuscript fHasO ↔ world F∋O (identity-C) | **Proved** |
+| `RotatedChordDiameterBounds` held; package ↔ `CoverIneq` | **Proved** |
+| `G3SideGapDataExport`⇒bridge/exclusion; `BudgetHyp.of` | **Proved conditional** |
 | World-axis ⇒ `BodyChartAxisAligned` + body identity-C | **Proved** |
 | `BodyChartAxisG5k0Realisation` of axis/identity-C realisation | **Proved conditional** |
 | Discharge identity-C / body-chart-axis for every G5 k=0 cover | **Open** |

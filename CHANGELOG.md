@@ -1,5 +1,13 @@
 # Changelog
 
+## 2026-10-22 — SE(2) pullback transport + chord/G3 package split
+
+- `AxisG5k0FromCover`: `pullback_contains_iff`; body-F∋body-O ↔ world-F∋O; manuscript fHasO ↔ world F∋O (identity-C).
+- `RotatedChordMeasure`: diameter bounds held; BoundPackage ↔ CoverIneq; max-proxy ineq impossible.
+- `G3G4Fragments`: `BudgetHyp.of`; `G3SideGapDataExport`⇒exclusion.
+- Docs v0.15. `principalClaimProvedUnconditionally` remains **false**.
+- BernsteinExact* / NearEndExact* untouched.
+
 ## 2026-10-22 — Body-chart faithfulness + G3/G4 flag iff (Lean)
 
 - `AxisG5k0FromCover`: `pullback_self`; axis pullback preserves alignment; `translate_axis_to_identity`;

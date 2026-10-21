@@ -25,13 +25,12 @@ Proved:
 * corner owners + two centre fillers ⇒ `AxisG5k0Roles`
 * `AxisAlignedG5k0Realisation` ⇒ `AxisG5k0CoverBridge` ⇒ G5k0 export/bridge
 
-Proved (this pass): `pullback_self` (C-chart ⇒ C=`identityPose`); axis pullback
-preserves alignment; pure translation normalises any axis tile to `identityPose`;
-body-chart packaging (`bodyChartSquares` / `BodyChartAxisAligned`) with
-world-axis ⇒ body identity-C.
+Proved: `pullback_self`; SE(2) `comp`/`inverse`/`pullback_contains_iff`;
+body-F∋body-O ↔ world-F∋O; manuscript fHasO ↔ world F∋O when C=`identityPose`;
+axis pullback/translate→identity; body-chart packaging.
 
 Open: inhabit `AxisAlignedIdentityCRealisation` / `BodyChartAxisG5k0Realisation`
-for every G5 k=0 cover, or `RotatedChordBoundPackage` from general covers.
+for every G5 k=0 cover, or `RotatedChordCoverIneq` from general covers.
 -/
 
 namespace S6.AxisG5k0FromCover
@@ -471,6 +470,117 @@ theorem pullback_self (g : RotatedSquare) :
   · simp only [RigidMotion.comp, RigidMotion.inverse, rotateInv, rotateBy, identityPose]
     apply Prod.ext <;> ring
 
+/-! ## SE(2) laws + containment transport -/
+
+theorem rotateBy_comp (u v : UnitDir) (p : ℚ × ℚ) :
+    rotateBy (UnitDir.comp u v) p = rotateBy u (rotateBy v p) := by
+  simp only [rotateBy, UnitDir.comp]
+  apply Prod.ext <;> ring
+
+theorem rotateBy_add (u : UnitDir) (p q : ℚ × ℚ) :
+    rotateBy u (p.1 + q.1, p.2 + q.2) =
+      ((rotateBy u p).1 + (rotateBy u q).1,
+        (rotateBy u p).2 + (rotateBy u q).2) := by
+  simp only [rotateBy]; apply Prod.ext <;> ring
+
+theorem rigid_comp_apply (g h : RigidMotion) (p : ℚ × ℚ) :
+    (RigidMotion.comp g h).apply p = g.apply (h.apply p) := by
+  simp only [RigidMotion.comp, RigidMotion.apply, translate]
+  have hr := rotateBy_comp g.dir h.dir p
+  have hlin := rotateBy_add g.dir (rotateBy h.dir p) h.shift
+  apply Prod.ext
+  · calc
+      (rotateBy (UnitDir.comp g.dir h.dir) p).1 +
+          ((rotateBy g.dir h.shift).1 + g.shift.1)
+          = (rotateBy g.dir (rotateBy h.dir p)).1 +
+              ((rotateBy g.dir h.shift).1 + g.shift.1) := by rw [hr]
+      _ = (rotateBy g.dir
+              ((rotateBy h.dir p).1 + h.shift.1,
+               (rotateBy h.dir p).2 + h.shift.2)).1 + g.shift.1 := by
+            have := congrArg Prod.fst hlin; linarith
+  · calc
+      (rotateBy (UnitDir.comp g.dir h.dir) p).2 +
+          ((rotateBy g.dir h.shift).2 + g.shift.2)
+          = (rotateBy g.dir (rotateBy h.dir p)).2 +
+              ((rotateBy g.dir h.shift).2 + g.shift.2) := by rw [hr]
+      _ = (rotateBy g.dir
+              ((rotateBy h.dir p).1 + h.shift.1,
+               (rotateBy h.dir p).2 + h.shift.2)).2 + g.shift.2 := by
+            have := congrArg Prod.snd hlin; linarith
+
+theorem toBody_eq_inverse_apply (g : RigidMotion) (p : ℚ × ℚ) :
+    RotatedSquare.toBody g p = (RigidMotion.inverse g).apply p := by
+  simp only [RotatedSquare.toBody, RigidMotion.inverse, RigidMotion.apply,
+    translate, rotateInv, unitDirInv, rotateBy]
+  apply Prod.ext <;> ring
+
+theorem rigid_inverse_apply_apply (g : RigidMotion) (p : ℚ × ℚ) :
+    (RigidMotion.inverse g).apply (g.apply p) = p := by
+  have h := toBody_apply g p
+  rwa [toBody_eq_inverse_apply] at h
+
+theorem rigid_apply_inverse_apply (g : RigidMotion) (p : ℚ × ℚ) :
+    g.apply ((RigidMotion.inverse g).apply p) = p := by
+  have h := apply_toBody g p
+  rwa [toBody_eq_inverse_apply] at h
+
+/-- Body coord of `pullback g f` at `g.toBody p` equals body coord of `f` at `p`. -/
+theorem pullback_toBody (g f : RotatedSquare) (p : ℚ × ℚ) :
+    RotatedSquare.toBody (RotatedSquare.pullback g f) (RotatedSquare.toBody g p) =
+      RotatedSquare.toBody f p := by
+  have hgoal :
+      (RotatedSquare.pullback g f).apply (RotatedSquare.toBody f p) =
+        RotatedSquare.toBody g p := by
+    simp only [RotatedSquare.pullback]
+    rw [rigid_comp_apply, apply_toBody, ← toBody_eq_inverse_apply]
+  have h := congrArg (RotatedSquare.toBody (RotatedSquare.pullback g f)) hgoal
+  rw [toBody_apply] at h
+  exact h.symm
+
+theorem pullback_contains_iff (g f : RotatedSquare) (p : ℚ × ℚ) :
+    RotatedSquare.contains (RotatedSquare.pullback g f) (RotatedSquare.toBody g p) ↔
+      RotatedSquare.contains f p := by
+  simp only [RotatedSquare.contains, pullback_toBody]
+
+/-- Body-chart F∋(C.toBody O) ↔ world F∋O. -/
+theorem bodyF_contains_bodyO_iff_worldF {T : Target} (cov : PointwiseCover T) :
+    let R := RoleSelection.ofCover cov
+    let C := R.cov.squares R.iC
+    let F := R.cov.squares R.iF
+    RotatedSquare.contains (RotatedSquare.pullback C F) (RotatedSquare.toBody C (T.μ, T.μ)) ↔
+      RotatedSquare.contains F (T.μ, T.μ) :=
+  pullback_contains_iff _ _ _
+
+/-- Manuscript `fHasO` ↔ world F∋O when C = `identityPose`. -/
+theorem manuscript_fHasO_eq_world_of_identityC {T : Target} (cov : PointwiseCover T)
+    (hC : (RoleSelection.ofCover cov).cov.squares (RoleSelection.ofCover cov).iC =
+      identityPose) :
+    ((RoleSelection.ofCover cov).toManuscript.flags.fHasO = true) ↔
+      RotatedSquare.contains
+        ((RoleSelection.ofCover cov).cov.squares (RoleSelection.ofCover cov).iF)
+        (T.μ, T.μ) := by
+  set R := RoleSelection.ofCover cov
+  have hFeq := toManuscript_F_of_identityC R hC
+  constructor
+  · intro hf
+    simp only [ManuscriptNormalisedCovering.flags, flagsOfTargetRotated, fContainsO_rot,
+      ManuscriptNormalisedCovering.toRotated] at hf
+    rw [hFeq] at hf
+    have hO : R.toManuscript.target.O = (T.μ, T.μ) := by
+      simp [ManuscriptNormalisedCovering.target, TargetMids.O, RoleSelection.toManuscript]
+    rw [hO] at hf
+    exact (RotatedSquare.containsB_iff _ _).1 hf
+  · intro hw
+    have hO : R.toManuscript.target.O = (T.μ, T.μ) := by
+      simp [ManuscriptNormalisedCovering.target, TargetMids.O, RoleSelection.toManuscript]
+    simp only [ManuscriptNormalisedCovering.flags, flagsOfTargetRotated, fContainsO_rot,
+      ManuscriptNormalisedCovering.toRotated, hFeq, hO]
+    exact (RotatedSquare.containsB_iff _ _).2 hw
+
+def pullbackContainsTransportClosed : Bool := true
+theorem pullbackContainsTransportClosed_true :
+    pullbackContainsTransportClosed = true := rfl
+
 theorem isAxisAligned_identity : isAxisAligned identityPose := by
   simp [isAxisAligned, identityPose]
 
@@ -585,6 +695,7 @@ theorem bodyChartAxisG5k0RealisationProved_false :
 def openAxisG5k0FromCover : List String :=
   ["AxisAlignedIdentityCRealisation (world axis + C=identityPose for every G5 k=0)",
    "BodyChartAxisG5k0Realisation (axis in C-body chart for every G5 k=0)",
-   "RotatedChordBoundPackage / grid cover ineq from general PointwiseCover"]
+   "RotatedChordCoverIneq / BoundPackage from general PointwiseCover",
+   "Manuscript fHasO uses O=(μ,μ) not C.toBody(world O) when C≠identity (model gap)"]
 
 end S6.AxisG5k0FromCover

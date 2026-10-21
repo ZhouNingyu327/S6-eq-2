@@ -249,4 +249,57 @@ theorem isG4Class_flags {T : S6.Obligation2.Target}
 def g3g4FlagIffClosed : Bool := true
 theorem g3g4FlagIffClosed_true : g3g4FlagIffClosed = true := rfl
 
+
+/-! ## G3/G4 cover → flag extracts + BudgetHyp packaging -/
+
+theorem G3_cover_k_eq_two {T : S6.Obligation2.Target}
+    (cov : S6.Obligation2Opens.PointwiseCover T)
+    (h : classify (S6.Obligation2Roles.RoleSelection.ofCover cov).toManuscript.flags.toOwnership =
+      TopClass.G3) :
+    (S6.Obligation2Roles.RoleSelection.ofCover cov).toManuscript.flags.k = ⟨2, by decide⟩ :=
+  (isG3Class_flags cov h).2.1
+
+theorem G4_cover_k_eq_two {T : S6.Obligation2.Target}
+    (cov : S6.Obligation2Opens.PointwiseCover T)
+    (h : classify (S6.Obligation2Roles.RoleSelection.ofCover cov).toManuscript.flags.toOwnership =
+      TopClass.G4) :
+    (S6.Obligation2Roles.RoleSelection.ofCover cov).toManuscript.flags.k = ⟨2, by decide⟩ :=
+  (isG4Class_flags cov h).2.1
+
+/-- Build `BudgetHyp` from rational witnesses (geometry supplies `B`,`vF`). -/
+def BudgetHyp.of (μ B vF : ℚ) (hμ : 1 < μ) (hB : B < 1) (hv : vF < μ) : BudgetHyp :=
+  ⟨μ, B, vF, hμ, hB, hv⟩
+
+/-- Side-gap exclusion from exported `(B,vF)` + covering inequality at `T.μ`. -/
+theorem G3Exclusion_of_exported_sideGap {T : S6.Obligation2.Target}
+    (cov : S6.Obligation2Opens.PointwiseCover T)
+    (_hcls :
+      classify (S6.Obligation2Roles.RoleSelection.ofCover cov).toManuscript.flags.toOwnership =
+        TopClass.G3)
+    (B vF : ℚ) (hB : B < 1) (hv : vF < T.μ)
+    (hp : (12 : ℚ) * T.μ ≤ 8 + 3 * B + vF) : False :=
+  sideGap_impossible (BudgetHyp.of T.μ B vF T.hμ hB hv) hp
+
+/-- Named residual: export `B<1`, `vF<μ`, and covering ineq from a G3 cover. -/
+def G3SideGapDataExport : Prop :=
+  ∀ (T : S6.Obligation2.Target) (cov : S6.Obligation2Opens.PointwiseCover T),
+    classify (S6.Obligation2Roles.RoleSelection.ofCover cov).toManuscript.flags.toOwnership =
+        TopClass.G3 →
+      ∃ (B vF : ℚ), B < 1 ∧ vF < T.μ ∧ (12 : ℚ) * T.μ ≤ 8 + 3 * B + vF
+
+theorem G3SideGapBudgetBridge_of_dataExport (h : G3SideGapDataExport) :
+    G3SideGapBudgetBridge := by
+  intro T cov hcls
+  rcases h T cov hcls with ⟨B, vF, hB, hv, hp⟩
+  exact ⟨BudgetHyp.of T.μ B vF T.hμ hB hv, hp⟩
+
+theorem G3Exclusion_of_dataExport (h : G3SideGapDataExport) : G3Exclusion :=
+  G3Exclusion_of_sideGapBudget (G3SideGapBudgetBridge_of_dataExport h)
+
+def g3SideGapDataExportProved : Bool := false
+theorem g3SideGapDataExportProved_false : g3SideGapDataExportProved = false := rfl
+
+def g3BudgetHypBuilderClosed : Bool := true
+theorem g3BudgetHypBuilderClosed_true : g3BudgetHypBuilderClosed = true := rfl
+
 end S6.G3G4Fragments

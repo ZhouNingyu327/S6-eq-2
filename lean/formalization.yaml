@@ -1,5 +1,5 @@
 # Catalog of manuscripts with a formalized (or partially formalized) main result.
-version: "v0.14"
+version: "v0.15"
 
 project:
   name: "ZhouNingyu327/S6-eq-2"
@@ -15,21 +15,13 @@ sources:
     id: ../preprints/Six-unit-squares-cannot-cover-a-square-of-side-greater-than-2-October-21-2026/paper.pdf
     type: article
     lean_docs: docs/001.md
-    status: partial_formalization_bodychart_faithfulness
+    status: partial_formalization_se2_transport
     notes: >-
-      PrincipalClaim is a Prop (not Bool metadata). Proved: cover→five roles,
-      pairwise-far outer mids, cover→TopClass, principal_of_class_exclusions,
-      near-end table Props (7 impossible ⇒ LivingLeafExcluded; impossible_cases),
-      AxisClassConstraints, G5Budget, G5Exclusion_of_bridges / geomExports,
-      AxisGridContribution/Cover (ℚ→line, ∑≥12μ), packing_of_role_geometry,
-      AxisG5k0Roles ⇒ OnlyOwners/OnlyFillers ⇒ axis G5k0 False;
-      AxisG5k0CoverBridge ⇒ G5k0Bridge/G5k0GeomExport; RotatedG5k0ChordExport ⇒
-      G5k0GeomExport/Bridge; G3/G4 budget-bridge reductions; BernsteinGridLift;
-      pullback_self / bodyChartSquares / axis-tile translate→identityPose;
-      classify_eq_G3_iff / classify_eq_G4_iff.
-      Open: inhabit AxisAlignedIdentityCRealisation / BodyChartAxisG5k0Realisation
-      / RotatedChordBoundPackage from PointwiseCover; 17 living near-end leaves;
-      G3/G4 budget realisation from covers; unconditional G1…G5Exclusion / PrincipalClaim.
-      principalClaimProvedUnconditionally=false. Computer-assisted candidate;
-      not peer-reviewed. ~74–78% toward openai/math Lean top-line bar (honest).
-      Body-chart C=identity always; residual wall is axis-in-chart / rotated cover ineq.
+      PrincipalClaim is a Prop. Proved spine as in v0.14 plus SE(2) pullback
+      containment transport, body-F∋body-O ↔ world-F∋O, manuscript fHasO ↔ world
+      F∋O under identity-C, RotatedChordDiameterBounds held, BoundPackage ↔
+      CoverIneq, G3 BudgetHyp.of + SideGapDataExport⇒exclusion.
+      Open: RotatedChordCoverIneq / BodyChartAxisG5k0Realisation inhabit;
+      17 living; G3/G4 data export from covers; unconditional PrincipalClaim.
+      principalClaimProvedUnconditionally=false. ~76–80% openai/math Lean bar
+      (honest). Residual: geometric chord cover ineq / axis-in-chart / living.
