@@ -238,32 +238,28 @@ theorem inhabitedCloserCertCount_eq_eight : inhabitedCloserCertCount = 8 :=
 
 open S6.LivingLeafGeomDischarge
 
-theorem allPriorityCloserGeomDischarged_reexport : AllPriorityCloserGeomDischarged :=
-  allPriorityCloserGeomDischarged
+theorem dualResidualAnalyticComplete_true_reexport :
+    dualResidualAnalyticComplete = true := dualResidualAnalyticComplete_true
 
-theorem allNamedCloserGeomDischarged_reexport : AllNamedCloserGeomDischarged :=
-  allNamedCloserGeomDischarged
-
-theorem closerFullGeomDischargedProved_true_reexport :
-    closerFullGeomDischargedProved = true := closerFullGeomDischargedProved_true
-
-theorem manuscriptRayGeometryComplete_true_reexport :
-    manuscriptRayGeometryComplete = true := manuscriptRayGeometryComplete_true
+theorem rayWitnessAlgebraComplete_true_reexport :
+    rayWitnessAlgebraComplete = true := rayWitnessAlgebraComplete_true
 
 theorem certOpenDependencyRemoved_true_reexport :
     certOpenDependencyRemoved = true := certOpenDependencyRemoved_true
 
-theorem dualResidualAnalyticComplete_false_reexport :
-    dualResidualAnalyticComplete = false := dualResidualAnalyticComplete_false
+theorem closerFullGeomDischargedProved_false_reexport :
+    closerFullGeomDischargedProved = false := closerFullGeomDischargedProved_false
 
-theorem priority_fullGeom_R14_R17_R27_28_reexport :
-    LivingLeafGeomExcluded ⟨.bothMeet, .gap, .empty⟩ ∧
-      LivingLeafGeomExcluded ⟨.bothMeet, .gap, .neg⟩ :=
-  ⟨livingLeafGeomExcluded_R14, livingLeafGeomExcluded_R17⟩
+theorem manuscriptRayGeometryComplete_false_reexport :
+    manuscriptRayGeometryComplete = false := manuscriptRayGeometryComplete_false
+
+theorem namedClosersDischargedProved_false_reexport :
+    LivingLeafGeomDischarge.namedClosersDischargedProved = false :=
+  LivingLeafGeomDischarge.namedClosersDischargedProved_false
 
 def openStatus : String :=
   "CLOSED: living/impossible lists, closer labels, bothGap counts, R13–R28 closer multiplicities. \
-   all 8 NamedCloser GeomExcluded via derived JunctionConflict; manuscriptRayGeometryComplete. OPEN: dualResidual analytic; combinatorial CloserDischarged. \
+   dualResidualAnalyticComplete (dual↔junction); packaging dual dropped; left-ray SE(2). OPEN: CloserDualObligation from J; living GeomExcluded; combinatorial CloserDischarged. \
    Not PrincipalClaim."
 
 end S6.LivingLeafStrengthen

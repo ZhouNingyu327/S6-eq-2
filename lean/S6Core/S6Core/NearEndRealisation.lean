@@ -10,17 +10,15 @@ import S6Core.Round13PairBernstein
 /-!
 # Near-end SE(2) / chart realisation (≠ livingFlag)
 
-`NearEndSE2` packages rigid motion, F-horizontal projection, chart hypotheses,
-and **OuterRT meet/gap ray constraints backed by SE(2) hit/miss witnesses**.
+`NearEndSE2` packages rigid motion, F-horizontal / left-ray witnesses, chart
+hypotheses, and OuterRT meet/gap constraints (SE(2) hit/miss).
 
-`JunctionConflict` is **derived** from `OuterRTMatches` + manuscript
-`CloserDualResidual` (extra opposite witness on a meet/gap ray) — not an
-opaque field. All eight named closers discharge `LivingLeafGeomExcluded`
-without `LeafCloserCertDischarged` / `cert_open`.
+`CloserDualResidual` is **analytic**: under `OuterRTMatches` it is equivalent
+to `JunctionConflict` (`dualResidual_iff_junction`). Packaging field
+`dual : NamedCloser → CloserDualResidual` removed.
 
-Honest residual: `CloserDualResidual` is still manuscript packaging, not full
-J/analytic ray algebra. Combinatorial `LivingLeafExcluded` untouched.
-Not PrincipalClaim.
+Living GeomExcluded is conditional on a dual/junction hypothesis per closer.
+Combinatorial `LivingLeafExcluded` untouched. Not PrincipalClaim.
 -/
 
 namespace S6.NearEndRealisation
@@ -190,6 +188,44 @@ theorem gapsT_blocks_extent_hit {g : RigidMotion} (w : OuterRayWitnesses g) (α 
     (hd' : α ≤ w.dT ∧ w.dT ≤ α + 1) : False :=
   parallel_miss_extent_one α w.dT hg.2 h0 hd'
 
+
+def nL : Pt := (-1, 0)
+
+structure LeftRayWitnesses (g : RigidMotion) where
+  dL : ℚ
+  hitL : Option (MeetHitWitness g nL dL)
+  missL : Option (GapMissWitness dL)
+
+def LeftRayWitnesses.meetsL {g : RigidMotion} (w : LeftRayWitnesses g) : Prop :=
+  w.hitL.isSome ∧ w.dL ≤ 1
+def LeftRayWitnesses.gapsL {g : RigidMotion} (w : LeftRayWitnesses g) : Prop :=
+  w.missL.isSome ∧ 1 < w.dL
+
+theorem not_meetsL_and_gapsL {g : RigidMotion} (w : LeftRayWitnesses g) :
+    ¬ (w.meetsL ∧ w.gapsL) := by
+  intro ⟨⟨_, hme⟩, ⟨_, hga⟩⟩
+  exact (not_le_of_gt hga) hme
+
+theorem meetHit_not_gapMiss_nL {g : RigidMotion} {d : ℚ}
+    (hm : MeetHitWitness g nL d) (hg : GapMissWitness d) : False :=
+  (not_le_of_gt hg.d_gt) hm.d_le
+
+theorem not_hitL_and_missL {g : RigidMotion} (w : LeftRayWitnesses g) :
+    ¬ (w.hitL.isSome ∧ w.missL.isSome) := by
+  intro ⟨hh, hm⟩
+  cases hL : w.hitL with
+  | none => simp [hL] at hh
+  | some hit =>
+    cases mL : w.missL with
+    | none => simp [mL] at hm
+    | some miss => exact meetHit_not_gapMiss_nL hit miss
+
+def LeftStatusMatches (left : LeftStatus) {g : RigidMotion}
+    (w : LeftRayWitnesses g) : Prop :=
+  match left with
+  | .meet => w.meetsL
+  | .gap => w.gapsL
+
 def OuterRTMatches (rt : OuterRT) {g : RigidMotion} (w : OuterRayWitnesses g) : Prop :=
   match rt with
   | .bothMeet => w.meetsR ∧ w.meetsT
@@ -207,9 +243,8 @@ theorem JunctionConflict_false {g : RigidMotion} (w : OuterRayWitnesses g) :
   cases h with
   | inl hR => exact not_meetsR_and_gapsR w hR
   | inr hT => exact not_meetsT_and_gapsT w hT
-
-/-- Manuscript dual residual: OuterRT match forces an *extra opposite* witness
-on at least one outer ray (toward analytic J; still packaging until derived). -/
+/-- Dual residual: OuterRT-indexed opposite-witness obligations.
+Analytic: equivalent to `JunctionConflict` under `OuterRTMatches`. -/
 structure CloserDualResidual (ℓ : NearLeaf) {g : RigidMotion}
     (w : OuterRayWitnesses g) : Prop where
   bothMeet_extra_gap : ℓ.rt = .bothMeet → w.gapsR ∨ w.gapsT
@@ -217,7 +252,27 @@ structure CloserDualResidual (ℓ : NearLeaf) {g : RigidMotion}
   rightGap_extra_conflict : ℓ.rt = .rightGap → w.meetsR ∨ w.gapsT
   bothGap_extra_meet : ℓ.rt = .bothGap → w.meetsR ∨ w.meetsT
 
-/-- JunctionConflict **derived** from OuterRTMatches + CloserDualResidual. -/
+/-- SE(2): JunctionConflict ⇒ CloserDualResidual (any leaf). -/
+theorem dualResidual_of_junction (ℓ : NearLeaf) {g : RigidMotion}
+    (w : OuterRayWitnesses g) (hj : JunctionConflict w) :
+    CloserDualResidual ℓ w where
+  bothMeet_extra_gap := fun _ => by
+    cases hj with
+    | inl h => exact Or.inl h.2
+    | inr h => exact Or.inr h.2
+  topGap_extra_conflict := fun _ => by
+    cases hj with
+    | inl h => exact Or.inr h.2
+    | inr h => exact Or.inl h.1
+  rightGap_extra_conflict := fun _ => by
+    cases hj with
+    | inl h => exact Or.inl h.1
+    | inr h => exact Or.inr h.2
+  bothGap_extra_meet := fun _ => by
+    cases hj with
+    | inl h => exact Or.inl h.1
+    | inr h => exact Or.inr h.1
+
 theorem dualResidual_implies_junction (ℓ : NearLeaf) {g : RigidMotion}
     (w : OuterRayWitnesses g) (hrt : OuterRTMatches ℓ.rt w)
     (hd : CloserDualResidual ℓ w) : JunctionConflict w := by
@@ -248,12 +303,15 @@ theorem dualResidual_implies_junction (ℓ : NearLeaf) {g : RigidMotion}
     | inl hmeR => exact Or.inl ⟨hmeR, hgaR⟩
     | inr hmeT => exact Or.inr ⟨hmeT, hgaT⟩
 
-/-- All eight named closer labels (R13–R19, R26, R27/R28). -/
+theorem dualResidual_iff_junction (ℓ : NearLeaf) {g : RigidMotion}
+    (w : OuterRayWitnesses g) (hrt : OuterRTMatches ℓ.rt w) :
+    CloserDualResidual ℓ w ↔ JunctionConflict w :=
+  ⟨dualResidual_implies_junction ℓ w hrt, dualResidual_of_junction ℓ w⟩
+
 def NamedCloser (ℓ : NearLeaf) : Prop :=
   closerModule ℓ = "R13" ∨ closerModule ℓ = "R14" ∨ closerModule ℓ = "R16" ∨
     closerModule ℓ = "R17" ∨ closerModule ℓ = "R18" ∨ closerModule ℓ = "R19" ∨
       closerModule ℓ = "R26" ∨ closerModule ℓ = "R27/R28"
-
 
 theorem namedCloser_R13 (ℓ : NearLeaf) (hc : closerModule ℓ = "R13") : NamedCloser ℓ :=
   Or.inl hc
@@ -308,7 +366,6 @@ theorem namedCloser_of_living (ℓ : NearLeaf) (h : livingFlag ℓ = true) :
     intro h
     simp [livingFlag, isImpossibleFlag] at h
 
-/-- Legacy alias: priority subset of NamedCloser. -/
 def PriorityJunctionCloser (ℓ : NearLeaf) : Prop :=
   closerModule ℓ = "R14" ∨ closerModule ℓ = "R17" ∨ closerModule ℓ = "R27/R28"
 
@@ -406,8 +463,7 @@ theorem leafCloserCert_R27_meet_empty :
     LeafCloserCertDischarged ⟨.rightGap, .meet, .empty⟩ :=
   leafCloserCert_of_closer_R27_28 _ (by native_decide)
 
-/-- SE(2) realisation: OuterRT via hit/miss witnesses; **no** `cert_open`.
-Named closers carry `CloserDualResidual`; JunctionConflict is derived. -/
+/-- SE(2) realisation: OuterRT + LeftStatus witnesses; no cert_open; no packaging dual. -/
 structure NearEndSE2 (ℓ : NearLeaf) where
   C : RigidMotion
   fProj : ℚ
@@ -418,8 +474,9 @@ structure NearEndSE2 (ℓ : NearLeaf) where
   fh_ok : FHorizMatches ℓ.fh fProj
   rays : OuterRayWitnesses C
   rt_ok : OuterRTMatches ℓ.rt rays
+  leftRays : LeftRayWitnesses C
+  left_ok : LeftStatusMatches ℓ.left leftRays
   coherent : RayCoherent rays
-  dual : NamedCloser ℓ → CloserDualResidual ℓ rays
 
 def NearEndLeafRealised (ℓ : NearLeaf) : Prop := Nonempty (NearEndSE2 ℓ)
 
@@ -429,6 +486,9 @@ theorem realised_implies_livingFlag (ℓ : NearLeaf) (h : NearEndLeafRealised �
 
 theorem realised_implies_rt (ℓ : NearLeaf) (cfg : NearEndSE2 ℓ) :
     OuterRTMatches ℓ.rt cfg.rays := cfg.rt_ok
+
+theorem realised_implies_left (ℓ : NearLeaf) (cfg : NearEndSE2 ℓ) :
+    LeftStatusMatches ℓ.left cfg.leftRays := cfg.left_ok
 
 theorem not_realised_of_impossible (ℓ : NearLeaf) (hi : impossible ℓ) :
     ¬ NearEndLeafRealised ℓ := by
@@ -441,20 +501,21 @@ theorem not_realised_of_impossible (ℓ : NearLeaf) (hi : impossible ℓ) :
 theorem realised_implies_not_impossible (ℓ : NearLeaf) (h : NearEndLeafRealised ℓ) :
     ¬ impossible ℓ := fun hi => not_realised_of_impossible ℓ hi h
 
-/-- GeomExcluded via derived junction (OuterRT + dual residual) — no LeafCloserCert. -/
-theorem not_realised_of_named_closer (ℓ : NearLeaf)
-    (hn : NamedCloser ℓ) : ¬ NearEndLeafRealised ℓ := by
+/-- Conditional: dual residual on every OuterRT match ⇒ unrealisable (analytic iff). -/
+theorem not_realised_of_dual_on_rt (ℓ : NearLeaf)
+    (H : ∀ (g : RigidMotion) (w : OuterRayWitnesses g),
+      OuterRTMatches ℓ.rt w → CloserDualResidual ℓ w) :
+    ¬ NearEndLeafRealised ℓ := by
   intro ⟨cfg⟩
   exact JunctionConflict_false cfg.rays
-    (dualResidual_implies_junction ℓ cfg.rays cfg.rt_ok (cfg.dual hn))
+    (dualResidual_implies_junction ℓ cfg.rays cfg.rt_ok (H cfg.C cfg.rays cfg.rt_ok))
 
-theorem not_realised_of_priority_junction (ℓ : NearLeaf)
-    (hp : PriorityJunctionCloser ℓ) : ¬ NearEndLeafRealised ℓ :=
-  not_realised_of_named_closer ℓ (priority_implies_named ℓ hp)
-
-theorem not_realised_of_living (ℓ : NearLeaf) (hlive : livingFlag ℓ = true) :
-    ¬ NearEndLeafRealised ℓ :=
-  not_realised_of_named_closer ℓ (namedCloser_of_living ℓ hlive)
+theorem not_realised_of_junction_on_rt (ℓ : NearLeaf)
+    (H : ∀ (g : RigidMotion) (w : OuterRayWitnesses g),
+      OuterRTMatches ℓ.rt w → JunctionConflict w) :
+    ¬ NearEndLeafRealised ℓ := by
+  intro ⟨cfg⟩
+  exact JunctionConflict_false cfg.rays (H cfg.C cfg.rays cfg.rt_ok)
 
 def NearEndSE2.originWorld {ℓ : NearLeaf} (cfg : NearEndSE2 ℓ) : Pt := cfg.C.apply (0, 0)
 
@@ -486,27 +547,37 @@ theorem realised_topGap_rays (ℓ : NearLeaf) (cfg : NearEndSE2 ℓ) (hrt : ℓ.
     cfg.rays.meetsR ∧ cfg.rays.gapsT := by
   have h := cfg.rt_ok; simp only [hrt, OuterRTMatches] at h; exact h
 
+theorem realised_left_meet (ℓ : NearLeaf) (cfg : NearEndSE2 ℓ) (hl : ℓ.left = .meet) :
+    cfg.leftRays.meetsL := by
+  have h := cfg.left_ok; simp only [hl, LeftStatusMatches] at h; exact h
+theorem realised_left_gap (ℓ : NearLeaf) (cfg : NearEndSE2 ℓ) (hl : ℓ.left = .gap) :
+    cfg.leftRays.gapsL := by
+  have h := cfg.left_ok; simp only [hl, LeftStatusMatches] at h; exact h
+
 def nearEndRealisationSE2Closed : Bool := true
 theorem nearEndRealisationSE2Closed_true : nearEndRealisationSE2Closed = true := rfl
 
-def manuscriptRayGeometryComplete_priority : Bool := true
-theorem manuscriptRayGeometryComplete_priority_true :
-    manuscriptRayGeometryComplete_priority = true := rfl
+def manuscriptRayGeometryComplete_priority : Bool := false
+theorem manuscriptRayGeometryComplete_priority_false :
+    manuscriptRayGeometryComplete_priority = false := rfl
 
-/-- All 8 named closers: OuterRT + dual residual ⇒ derived JunctionConflict. -/
-def manuscriptRayGeometryComplete : Bool := true
-theorem manuscriptRayGeometryComplete_true : manuscriptRayGeometryComplete = true := rfl
+def manuscriptRayGeometryComplete : Bool := false
+theorem manuscriptRayGeometryComplete_false : manuscriptRayGeometryComplete = false := rfl
 
 def certOpenDependencyRemoved : Bool := true
 theorem certOpenDependencyRemoved_true : certOpenDependencyRemoved = true := rfl
 
-/-- Dual residual still packaging (not full J/analytic). -/
-def dualResidualAnalyticComplete : Bool := false
-theorem dualResidualAnalyticComplete_false : dualResidualAnalyticComplete = false := rfl
+/-- Dual residual analytically characterized (iff junction); packaging dual dropped. -/
+def dualResidualAnalyticComplete : Bool := true
+theorem dualResidualAnalyticComplete_true : dualResidualAnalyticComplete = true := rfl
+
+def rayWitnessAlgebraComplete : Bool := true
+theorem rayWitnessAlgebraComplete_true : rayWitnessAlgebraComplete = true := rfl
 
 def openStatus : String :=
-  "CLOSED: NearEndSE2 OuterRT via SE(2) hit/miss; JunctionConflict derived from \
-   OuterRTMatches+CloserDualResidual; all 8 NamedCloser GeomExcluded; cert_open removed. \
-   OPEN: derive CloserDualResidual from J/analytic ray algebra; not PrincipalClaim."
+  "CLOSED: dualResidual ↔ JunctionConflict under OuterRTMatches; packaging dual removed; \
+   LeftStatus SE(2) witnesses; cert_open removed; rayWitnessAlgebraComplete. \
+   OPEN: inhabit dual/junction per closer from J/Bernstein; living GeomExcluded; \
+   not PrincipalClaim."
 
 end S6.NearEndRealisation
