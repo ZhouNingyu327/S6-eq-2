@@ -2,6 +2,7 @@ import Mathlib.Tactic
 import S6Core.G5Budget
 import S6Core.G5ExclusionFrag
 import S6Core.AxisGridContribution
+import S6Core.AxisGridCover
 import S6Core.ParallelBudget
 import S6Core.CoveringGeometry
 import S6Core.MainTheorem
@@ -235,5 +236,25 @@ theorem axis_cover_impossible_of_two_fillers
 
 def axisFourCornerBoundClosed : Bool := true
 theorem axisFourCornerBoundClosed_true : axisFourCornerBoundClosed = true := rfl
+
+
+open S6.AxisGridCover
+
+/-- Re-export: real six-line axis cover ⇒ ∑ contrib ≥ 12μ. -/
+theorem axis_grid_cover_inequality (μ : ℚ) (hμ : 1 < μ) (squares : Fin 6 → AxisSquare)
+    (H : AxisGridLineCover μ squares) :
+    (12 : ℚ) * μ ≤ ∑ i : Fin 6, axisGridContrib (squares i) μ :=
+  axis_grid_cover_sum_rat μ hμ squares H
+
+/-- Axis line cover + corners≤8 + CF≤4 on a contrib split ⇒ False. -/
+theorem axis_G5_of_line_cover_corner_cf (μ : ℚ) (hμ : 1 < μ)
+    (squares : Fin 6 → AxisSquare) (H : AxisGridLineCover μ squares)
+    (corners CF : ℚ) (hcorners : corners ≤ 8) (hCF : CF ≤ 4)
+    (hsplit : ∑ i : Fin 6, axisGridContrib (squares i) μ ≤ corners + CF) :
+    False :=
+  axis_line_cover_impossible_of_corner_cf μ hμ squares H corners CF hcorners hCF hsplit
+
+def axisGridCoverIneqInBridge : Bool := true
+theorem axisGridCoverIneqInBridge_true : axisGridCoverIneqInBridge = true := rfl
 
 end S6.G5GeometryBridge

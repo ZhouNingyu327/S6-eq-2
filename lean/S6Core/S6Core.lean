@@ -25,6 +25,10 @@ import S6Core.G3G4Fragments
 import S6Core.G5ExclusionFrag
 import S6Core.G5Budget
 import S6Core.AxisGridContribution
+import S6Core.IntervalCover1D
+import S6Core.AxisGridCover
+import S6Core.G1G2Fragments
+import S6Core.RotatedGridBound
 import S6Core.G5GeometryBridge
 import S6Core.RigidMotionChart
 import S6Core.ObliqueChart

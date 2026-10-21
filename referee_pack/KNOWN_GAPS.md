@@ -22,12 +22,17 @@ Relative to the 2026-10-21 **rereview** of commit `32e0e0f`, the API repair at `
 4. **Remaining (S)-tier** dual-solver queries (~125 unique after Item3 ledger). Inventory: `artifacts/closure/S_tier_inventory.md` (+ JSON). No claim that leftovers are machine-independent.
 5. Short paper §§5–7 now cite concrete module tables; further page-length expansions may still help referees.
 
-## Advanced this round (vs `8d5dee0`)
+## Advanced this round (vs `58571e1`)
 
-- Lean **AxisGridContribution / G5GeometryBridge**: axis SW outer=2; **any axis corner-owner outer≤2** (four⇒≤8); mid/CF≤4 non-strict; `RigidSquareGridExport→G5GridHyp→False`; `G5k*GeomExport⇒G5k*Bridge⇒G5Exclusion` composition proved. Axis CF≤4 (two-filler) + corners≤8 ⇒ False under cover ineq (**proved**); grid-cover ineq from PointwiseCover + rotated contrib still **open**.
-- Near-end: 7 impossible leaves ⇒ `LivingLeafExcluded`; 17 living open.
-- G3/G4: `G3SideGapBudgetBridge`/`G4BudgetBridge` ⇒ exclusions; M7.1 budget algebra wired. Metric packing export still **open**.
+- Lean **IntervalCover1D / AxisGridCover**: 1D Lebesgue cover ⇒ sum lengths; **`AxisGridLineCover` ⇒ ∑ axisGridContrib ≥ 12μ**; + corners≤8+CF≤4 ⇒ False. Lift from ℚ PointwiseCover → real line cover still **open**.
+- **RotatedGridBound**: diameter + `g2_alg<2` re-exports; chord-measure G5 export **open**.
+- **G1G2Fragments**: 7 impossible leaves excluded; G1/G2 living bridges named; 17 living **open**.
 - `principalClaimProvedUnconditionally` remains `false`.
+
+## Prior (vs `8d5dee0`)
+
+- Lean **AxisGridContribution / G5GeometryBridge**: axis corner-owner outer≤2; GeomExport⇒Bridge⇒G5Exclusion; CF≤4 algebra. Grid-cover ineq / rotated contrib were open (now partially closed for axis real-line covers).
+- Near-end 7/24; G3/G4 budget bridges.
 
 ## Prior (vs `634f591`)
 
