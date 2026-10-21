@@ -33,7 +33,9 @@ onesided axial sum ≤2; ChordMatrixExport ⇒ SixLineMeasureLift.
 Proved: AxisCoverBridge ⇒ ChordMatrixExport; axis bottom LineChordCover; roles contrib ≤2.
 Proved: real containsR/horizSliceR Inf-Sup chords; RotatedLineMeasureLift from any
 RotatedGridRatCover (bottom line Euclidean cover).
-Open: general (non-axis) ChordMatrixExport (squareTotal≤2 packing); BodyChartAxis/IdentityC.
+Proved: |Δx|/|Δy| ≤ |c|+|s|; parallel miss bottom↔top and left↔right (μ>1);
+vertSliceR Inf-Sup; RotatedSixLineRealLift (all six grid lines) from any rat cover.
+Open: general ChordMatrixExport (squareTotal≤2 packing); BodyChartAxis/IdentityC.
 -/
 
 namespace S6.RotatedChordMeasure
@@ -1207,5 +1209,291 @@ theorem rotatedLineMeasureLift_held : RotatedLineMeasureLift :=
 
 def rotatedRealChordSliceClosed : Bool := true
 theorem rotatedRealChordSliceClosed_true : rotatedRealChordSliceClosed = true := rfl
+
+
+/-! ## Six-line real lift + parallel miss (toward general ChordMatrixExport) -/
+
+open S6.ObliqueChart (unitDir_projectedWidth_le_two)
+
+theorem applyR_y_of_toBodyR (g : RotatedSquare) (X y : ℝ) :
+    y = (g.shift.2 : ℝ) + (g.dir.s : ℝ) * (toBodyR g (X, y)).1
+      + (g.dir.c : ℝ) * (toBodyR g (X, y)).2 := by
+  have hc : (g.dir.c : ℝ) * (g.dir.c : ℝ) + (g.dir.s : ℝ) * (g.dir.s : ℝ) = 1 := by
+    exact_mod_cast g.dir.hc
+  apply Eq.symm
+  simp only [toBodyR, rotateInvR]
+  calc
+    (g.shift.2 : ℝ) + (g.dir.s : ℝ) *
+          ((g.dir.c : ℝ) * (X - (g.shift.1 : ℝ)) + (g.dir.s : ℝ) * (y - (g.shift.2 : ℝ)))
+        + (g.dir.c : ℝ) *
+          ((-(g.dir.s : ℝ)) * (X - (g.shift.1 : ℝ)) + (g.dir.c : ℝ) * (y - (g.shift.2 : ℝ)))
+        = (g.shift.2 : ℝ) + ((g.dir.c : ℝ) * (g.dir.c : ℝ) + (g.dir.s : ℝ) * (g.dir.s : ℝ)) *
+            (y - (g.shift.2 : ℝ)) := by ring
+    _ = (g.shift.2 : ℝ) + 1 * (y - (g.shift.2 : ℝ)) := by rw [hc]
+    _ = y := by ring
+
+theorem abs_delta_y_containsR (g : RotatedSquare) (x₁ y₁ x₂ y₂ : ℝ)
+    (h1 : containsR g (x₁, y₁)) (h2 : containsR g (x₂, y₂)) :
+    |y₁ - y₂| ≤ |(g.dir.c : ℝ)| + |(g.dir.s : ℝ)| := by
+  have e1 := applyR_y_of_toBodyR g x₁ y₁
+  have e2 := applyR_y_of_toBodyR g x₂ y₂
+  obtain ⟨hu1, hu1b, hv1, hv1b⟩ := h1
+  obtain ⟨hu2, hu2b, hv2, hv2b⟩ := h2
+  have hdu : |(toBodyR g (x₁, y₁)).1 - (toBodyR g (x₂, y₂)).1| ≤ 1 := by
+    cases' le_total (toBodyR g (x₁, y₁)).1 (toBodyR g (x₂, y₂)).1 with h h
+    · rw [abs_of_nonpos (sub_nonpos.mpr h)]; linarith
+    · rw [abs_of_nonneg (sub_nonneg.mpr h)]; linarith
+  have hdv : |(toBodyR g (x₁, y₁)).2 - (toBodyR g (x₂, y₂)).2| ≤ 1 := by
+    cases' le_total (toBodyR g (x₁, y₁)).2 (toBodyR g (x₂, y₂)).2 with h h
+    · rw [abs_of_nonpos (sub_nonpos.mpr h)]; linarith
+    · rw [abs_of_nonneg (sub_nonneg.mpr h)]; linarith
+  have hEq : y₁ - y₂ =
+      (g.dir.s : ℝ) * ((toBodyR g (x₁, y₁)).1 - (toBodyR g (x₂, y₂)).1) +
+        (g.dir.c : ℝ) * ((toBodyR g (x₁, y₁)).2 - (toBodyR g (x₂, y₂)).2) := by
+    linarith
+  rw [hEq]
+  refine (abs_add_le _ _).trans ?_
+  rw [abs_mul, abs_mul]
+  nlinarith [mul_le_of_le_one_right (abs_nonneg (g.dir.s : ℝ)) hdu,
+    mul_le_of_le_one_right (abs_nonneg (g.dir.c : ℝ)) hdv]
+
+theorem abs_delta_x_containsR (g : RotatedSquare) (x₁ y₁ x₂ y₂ : ℝ)
+    (h1 : containsR g (x₁, y₁)) (h2 : containsR g (x₂, y₂)) :
+    |x₁ - x₂| ≤ |(g.dir.c : ℝ)| + |(g.dir.s : ℝ)| := by
+  have e1 := applyR_x_of_toBodyR g x₁ y₁
+  have e2 := applyR_x_of_toBodyR g x₂ y₂
+  obtain ⟨hu1, hu1b, hv1, hv1b⟩ := h1
+  obtain ⟨hu2, hu2b, hv2, hv2b⟩ := h2
+  have hdu : |(toBodyR g (x₁, y₁)).1 - (toBodyR g (x₂, y₂)).1| ≤ 1 := by
+    cases' le_total (toBodyR g (x₁, y₁)).1 (toBodyR g (x₂, y₂)).1 with h h
+    · rw [abs_of_nonpos (sub_nonpos.mpr h)]; linarith
+    · rw [abs_of_nonneg (sub_nonneg.mpr h)]; linarith
+  have hdv : |(toBodyR g (x₁, y₁)).2 - (toBodyR g (x₂, y₂)).2| ≤ 1 := by
+    cases' le_total (toBodyR g (x₁, y₁)).2 (toBodyR g (x₂, y₂)).2 with h h
+    · rw [abs_of_nonpos (sub_nonpos.mpr h)]; linarith
+    · rw [abs_of_nonneg (sub_nonneg.mpr h)]; linarith
+  have hEq : x₁ - x₂ =
+      (g.dir.c : ℝ) * ((toBodyR g (x₁, y₁)).1 - (toBodyR g (x₂, y₂)).1) -
+        (g.dir.s : ℝ) * ((toBodyR g (x₁, y₁)).2 - (toBodyR g (x₂, y₂)).2) := by
+    linarith
+  rw [hEq]
+  refine le_trans (abs_sub _ _) ?_
+  rw [abs_mul, abs_mul]
+  nlinarith [mul_le_of_le_one_right (abs_nonneg (g.dir.c : ℝ)) hdu,
+    mul_le_of_le_one_right (abs_nonneg (g.dir.s : ℝ)) hdv]
+
+theorem abs_delta_y_le_two (g : RotatedSquare) (x₁ y₁ x₂ y₂ : ℝ)
+    (h1 : containsR g (x₁, y₁)) (h2 : containsR g (x₂, y₂)) :
+    |y₁ - y₂| ≤ 2 :=
+  (abs_delta_y_containsR g x₁ y₁ x₂ y₂ h1 h2).trans
+    (by exact_mod_cast unitDir_projectedWidth_le_two g.dir)
+
+theorem abs_delta_x_le_two (g : RotatedSquare) (x₁ y₁ x₂ y₂ : ℝ)
+    (h1 : containsR g (x₁, y₁)) (h2 : containsR g (x₂, y₂)) :
+    |x₁ - x₂| ≤ 2 :=
+  (abs_delta_x_containsR g x₁ y₁ x₂ y₂ h1 h2).trans
+    (by exact_mod_cast unitDir_projectedWidth_le_two g.dir)
+
+theorem projectedWidth_lt_two_mu (g : RotatedSquare) (μ : ℚ) (hμ : 1 < μ) :
+    (|g.dir.c| + |g.dir.s| : ℚ) < 2 * μ := by
+  have hle : |g.dir.c| + |g.dir.s| ≤ 2 := unitDir_projectedWidth_le_two g.dir
+  have : (2 : ℚ) < 2 * μ := by nlinarith [hμ]
+  linarith
+
+theorem parallel_miss_bottom_top (g : RotatedSquare) (μ : ℚ) (hμ : 1 < μ)
+    (x₁ x₂ : ℚ)
+    (h0 : RotatedSquare.contains g (x₁, 0))
+    (h1 : RotatedSquare.contains g (x₂, 2 * μ)) : False := by
+  have hr0 := contains_implies_containsR g x₁ (0 : ℚ) h0
+  have hr1 := contains_implies_containsR g x₂ (2 * μ) h1
+  have hd := abs_delta_y_le_two g (x₁ : ℝ) ((0 : ℚ) : ℝ) (x₂ : ℝ) ((2 * μ : ℚ) : ℝ) hr0 hr1
+  have hgap : (2 : ℝ) < ((2 * μ : ℚ) : ℝ) := by exact_mod_cast (by nlinarith [hμ] : (2 : ℚ) < 2 * μ)
+  have hnn : (0 : ℝ) ≤ ((2 * μ : ℚ) : ℝ) := by
+    exact_mod_cast (by nlinarith [hμ] : (0 : ℚ) ≤ 2 * μ)
+  have hlen : ((2 * μ : ℚ) : ℝ) ≤ (2 : ℝ) := by
+    have : |((2 * μ : ℚ) : ℝ)| ≤ (2 : ℝ) := by
+      simpa [abs_sub_comm, Rat.cast_zero] using hd
+    rwa [abs_of_nonneg hnn] at this
+  linarith
+
+theorem parallel_miss_left_right (g : RotatedSquare) (μ : ℚ) (hμ : 1 < μ)
+    (y₁ y₂ : ℚ)
+    (h0 : RotatedSquare.contains g (0, y₁))
+    (h1 : RotatedSquare.contains g (2 * μ, y₂)) : False := by
+  have hr0 := contains_implies_containsR g (0 : ℚ) y₁ h0
+  have hr1 := contains_implies_containsR g (2 * μ) y₂ h1
+  have hd := abs_delta_x_le_two g ((0 : ℚ) : ℝ) (y₁ : ℝ) ((2 * μ : ℚ) : ℝ) (y₂ : ℝ) hr0 hr1
+  have hgap : (2 : ℝ) < ((2 * μ : ℚ) : ℝ) := by exact_mod_cast (by nlinarith [hμ] : (2 : ℚ) < 2 * μ)
+  have hnn : (0 : ℝ) ≤ ((2 * μ : ℚ) : ℝ) := by
+    exact_mod_cast (by nlinarith [hμ] : (0 : ℚ) ≤ 2 * μ)
+  have hlen : ((2 * μ : ℚ) : ℝ) ≤ (2 : ℝ) := by
+    have : |((2 * μ : ℚ) : ℝ)| ≤ (2 : ℝ) := by
+      simpa [abs_sub_comm, Rat.cast_zero] using hd
+    rwa [abs_of_nonneg hnn] at this
+  linarith
+
+def vertSliceR (g : RotatedSquare) (X : ℚ) : Set ℝ :=
+  {y | containsR g ((X : ℝ), y)}
+
+theorem mem_vertSliceR_of_contains (g : RotatedSquare) (X y : ℚ)
+    (h : RotatedSquare.contains g (X, y)) : (y : ℝ) ∈ vertSliceR g X :=
+  contains_implies_containsR g X y h
+
+theorem vertSliceR_isClosed (g : RotatedSquare) (X : ℚ) : IsClosed (vertSliceR g X) := by
+  let f1 : ℝ → ℝ := fun y => (toBodyR g ((X : ℝ), y)).1
+  let f2 : ℝ → ℝ := fun y => (toBodyR g ((X : ℝ), y)).2
+  have hf1 : Continuous f1 := by simp only [f1, toBodyR, rotateInvR]; continuity
+  have hf2 : Continuous f2 := by simp only [f2, toBodyR, rotateInvR]; continuity
+  have : vertSliceR g X = f1 ⁻¹' Icc 0 1 ∩ f2 ⁻¹' Icc 0 1 := by
+    ext y; simp [vertSliceR, containsR, f1, f2, mem_preimage, mem_Icc, mem_inter_iff]
+    constructor
+    · intro ⟨a, b, c, d⟩; exact ⟨⟨a, b⟩, ⟨c, d⟩⟩
+    · intro ⟨⟨a, b⟩, ⟨c, d⟩⟩; exact ⟨a, b, c, d⟩
+  rw [this]
+  exact (isClosed_Icc.preimage hf1).inter (isClosed_Icc.preimage hf2)
+
+theorem vertSliceR_bddBelow (g : RotatedSquare) (X : ℚ)
+    (hne : (vertSliceR g X).Nonempty) : BddBelow (vertSliceR g X) := by
+  rcases hne with ⟨y0, hy0⟩
+  refine ⟨y0 - 2, fun y hy => ?_⟩
+  have := abs_delta_y_le_two g (X : ℝ) y0 (X : ℝ) y hy0 hy
+  cases' abs_cases (y0 - y) with h' h' <;> linarith
+
+theorem vertSliceR_bddAbove (g : RotatedSquare) (X : ℚ)
+    (hne : (vertSliceR g X).Nonempty) : BddAbove (vertSliceR g X) := by
+  rcases hne with ⟨y0, hy0⟩
+  refine ⟨y0 + 2, fun y hy => ?_⟩
+  have := abs_delta_y_le_two g (X : ℝ) y0 (X : ℝ) y hy0 hy
+  cases' abs_cases (y0 - y) with h' h' <;> linarith
+
+noncomputable def vertChordLo (g : RotatedSquare) (X : ℚ) : ℝ :=
+  if _hne : (vertSliceR g X).Nonempty then sInf (vertSliceR g X) else 0
+
+noncomputable def vertChordHi (g : RotatedSquare) (X : ℚ) : ℝ :=
+  if _hne : (vertSliceR g X).Nonempty then sSup (vertSliceR g X) else 0
+
+theorem vertChord_le (g : RotatedSquare) (X : ℚ) :
+    vertChordLo g X ≤ vertChordHi g X := by
+  dsimp [vertChordLo, vertChordHi]
+  split_ifs with hne
+  · exact csInf_le_csSup hne (vertSliceR_bddBelow g X hne) (vertSliceR_bddAbove g X hne)
+  · rfl
+
+theorem vertChord_len_le_two (g : RotatedSquare) (X : ℚ) :
+    vertChordHi g X - vertChordLo g X ≤ 2 := by
+  dsimp [vertChordLo, vertChordHi]
+  split_ifs with hne
+  · have hs : sSup (vertSliceR g X) ≤ sInf (vertSliceR g X) + 2 := by
+      apply csSup_le hne
+      intro y hy
+      have : y - 2 ≤ sInf (vertSliceR g X) := by
+        apply le_csInf hne
+        intro z hz
+        have hd := abs_delta_y_le_two g (X : ℝ) y (X : ℝ) z hy hz
+        cases' abs_cases (y - z) with h' h' <;> linarith
+      linarith
+    linarith
+  · norm_num
+
+theorem slice_subset_vertChordIcc (g : RotatedSquare) (X : ℚ) :
+    vertSliceR g X ⊆ Icc (vertChordLo g X) (vertChordHi g X) := by
+  intro y hy
+  have hne : (vertSliceR g X).Nonempty := ⟨y, hy⟩
+  dsimp [vertChordLo, vertChordHi]
+  simp only [hne, mem_Icc]
+  exact ⟨csInf_le (vertSliceR_bddBelow g X hne) hy,
+    le_csSup (vertSliceR_bddAbove g X hne) hy⟩
+
+theorem vertSliceUnion_isClosed (squares : Fin 6 → RotatedSquare) (X : ℚ) :
+    IsClosed (⋃ i, vertSliceR (squares i) X) :=
+  isClosed_iUnion_of_finite (fun i => vertSliceR_isClosed (squares i) X)
+
+theorem line_vert_rat_cover_implies_real (μ : ℚ) (hμ : 1 < μ) (X : ℚ)
+    (squares : Fin 6 → RotatedSquare)
+    (hQ : ∀ q : ℚ, 0 ≤ q → q ≤ 2 * μ → ∃ i, RotatedSquare.contains (squares i) (X, q)) :
+    Icc (0 : ℝ) ((2 : ℝ) * μ) ⊆
+      ⋃ i, Icc (vertChordLo (squares i) X) (vertChordHi (squares i) X) := by
+  have hL : (0 : ℚ) ≤ 2 * μ := by nlinarith [hμ]
+  have hEq : Icc (0 : ℝ) ((2 : ℝ) * μ) = Icc (0 : ℝ) ((2 * μ : ℚ) : ℝ) := by simp
+  rw [hEq]
+  have hslice : Icc (0 : ℝ) ((2 * μ : ℚ) : ℝ) ⊆ ⋃ i, vertSliceR (squares i) X := by
+    refine S6.AxisGridCover.Icc_subset_of_closed_of_rats _
+      (vertSliceUnion_isClosed squares X) (2 * μ) hL ?_
+    intro q hq0 hqL
+    rcases hQ q hq0 hqL with ⟨i, hi⟩
+    exact mem_iUnion.mpr ⟨i, mem_vertSliceR_of_contains _ X q hi⟩
+  intro y hy
+  rcases mem_iUnion.mp (hslice hy) with ⟨i, hi⟩
+  exact mem_iUnion.mpr ⟨i, slice_subset_vertChordIcc (squares i) X hi⟩
+
+theorem line_horiz_rat_cover_implies_real (μ : ℚ) (hμ : 1 < μ) (Y : ℚ)
+    (squares : Fin 6 → RotatedSquare)
+    (hQ : ∀ q : ℚ, 0 ≤ q → q ≤ 2 * μ → ∃ i, RotatedSquare.contains (squares i) (q, Y)) :
+    Icc (0 : ℝ) ((2 : ℝ) * μ) ⊆
+      ⋃ i, Icc (horizChordLo (squares i) Y) (horizChordHi (squares i) Y) := by
+  have hL : (0 : ℚ) ≤ 2 * μ := by nlinarith [hμ]
+  have hEq : Icc (0 : ℝ) ((2 : ℝ) * μ) = Icc (0 : ℝ) ((2 * μ : ℚ) : ℝ) := by simp
+  rw [hEq]
+  have hslice : Icc (0 : ℝ) ((2 * μ : ℚ) : ℝ) ⊆ ⋃ i, horizSliceR (squares i) Y := by
+    refine S6.AxisGridCover.Icc_subset_of_closed_of_rats _
+      (horizSliceUnion_isClosed squares Y) (2 * μ) hL ?_
+    intro q hq0 hqL
+    rcases hQ q hq0 hqL with ⟨i, hi⟩
+    exact mem_iUnion.mpr ⟨i, mem_horizSliceR_of_contains _ Y q hi⟩
+  intro x hx
+  rcases mem_iUnion.mp (hslice hx) with ⟨i, hi⟩
+  exact mem_iUnion.mpr ⟨i, slice_subset_chordIcc (squares i) Y hi⟩
+
+theorem RotatedLineChordCover_of_horiz_line (μ : ℚ) (hμ : 1 < μ) (Y : ℚ)
+    (squares : Fin 6 → RotatedSquare)
+    (hQ : ∀ q : ℚ, 0 ≤ q → q ≤ 2 * μ → ∃ i, RotatedSquare.contains (squares i) (q, Y)) :
+    Nonempty (RotatedLineChordCover μ) :=
+  ⟨{ lo := fun i => horizChordLo (squares i) Y
+     hi := fun i => horizChordHi (squares i) Y
+     hle := fun i => horizChord_le (squares i) Y
+     hchord_le_two := fun i => horizChord_len_le_two (squares i) Y
+     hcover := line_horiz_rat_cover_implies_real μ hμ Y squares hQ }⟩
+
+theorem RotatedLineChordCover_of_vert_line (μ : ℚ) (hμ : 1 < μ) (X : ℚ)
+    (squares : Fin 6 → RotatedSquare)
+    (hQ : ∀ q : ℚ, 0 ≤ q → q ≤ 2 * μ → ∃ i, RotatedSquare.contains (squares i) (X, q)) :
+    Nonempty (RotatedLineChordCover μ) :=
+  ⟨{ lo := fun i => vertChordLo (squares i) X
+     hi := fun i => vertChordHi (squares i) X
+     hle := fun i => vertChord_le (squares i) X
+     hchord_le_two := fun i => vertChord_len_le_two (squares i) X
+     hcover := line_vert_rat_cover_implies_real μ hμ X squares hQ }⟩
+
+/-- Six Euclidean line covers from any `RotatedGridRatCover` (no axis hyp). -/
+structure RotatedSixLineRealCovers (μ : ℚ) where
+  bottom : RotatedLineChordCover μ
+  top : RotatedLineChordCover μ
+  left : RotatedLineChordCover μ
+  right : RotatedLineChordCover μ
+  hMid : RotatedLineChordCover μ
+  vMid : RotatedLineChordCover μ
+
+def RotatedSixLineRealLift : Prop :=
+  ∀ (μ : ℚ), 1 < μ → ∀ (squares : Fin 6 → RotatedSquare),
+    RotatedGridRatCover μ squares → Nonempty (RotatedSixLineRealCovers μ)
+
+theorem RotatedSixLineRealLift_of_ratCover : RotatedSixLineRealLift := by
+  intro μ hμ squares H
+  exact ⟨{
+    bottom := (RotatedLineChordCover_of_horiz_line μ hμ 0 squares H.bottom).some
+    top := (RotatedLineChordCover_of_horiz_line μ hμ (2 * μ) squares H.top).some
+    left := (RotatedLineChordCover_of_vert_line μ hμ 0 squares H.left).some
+    right := (RotatedLineChordCover_of_vert_line μ hμ (2 * μ) squares H.right).some
+    hMid := (RotatedLineChordCover_of_horiz_line μ hμ μ squares H.hMid).some
+    vMid := (RotatedLineChordCover_of_vert_line μ hμ μ squares H.vMid).some }⟩
+
+theorem rotatedSixLineRealLift_held : RotatedSixLineRealLift :=
+  RotatedSixLineRealLift_of_ratCover
+
+def rotatedSixLineRealLiftProved : Bool := true
+theorem rotatedSixLineRealLiftProved_true : rotatedSixLineRealLiftProved = true := rfl
+
+def rotatedParallelMissClosed : Bool := true
+theorem rotatedParallelMissClosed_true : rotatedParallelMissClosed = true := rfl
 
 end S6.RotatedChordMeasure

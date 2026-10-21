@@ -54,6 +54,7 @@ geometric proofs.
 | `AxisG5k0CoverBridge`/`Realisation` ⇒ `RotatedChordMatrixExport` | **Proved conditional** |
 | Roles ⇒ per-square `axisGridContrib ≤ 2`; axis bottom LineChordCover | **Proved** |
 | Real `containsR`/Inf-Sup chords; `RotatedLineMeasureLift` from any rat cover | **Proved** |
+| `|Δx|/|Δy|≤|c|+|s|`; parallel miss; `RotatedSixLineRealLift` (six lines) | **Proved** |
 | `RotatedChordMatrixExport` for general (non-axis) covers | **Open** |
 | Inhabit `RotatedSixLineMeasureLift` from `RotatedGridRatCover` | **Open** |
 | Axis/identity-C realisation ⇒ `RotatedChordCoverIneq` | **Proved conditional** |

@@ -1,3 +1,12 @@
+## v0.22 — six-line real lift + parallel miss (2026-10-22 Asia/Shanghai)
+
+- `RotatedChordMeasure`: `|Δx|/|Δy| ≤ |c|+|s|`; parallel miss bottom↔top and
+  left↔right when `μ>1`; `vertSliceR` Inf-Sup chords; `RotatedSixLineRealLift`
+  inhabited from any `RotatedGridRatCover` (all six grid lines, no axis hyp).
+- Flags: `rotatedSixLineRealLiftProved=true`; general `ChordMatrixExport` still open;
+  `principalClaimProvedUnconditionally=false`.
+- Lake green. Honest bar still ~80–84%.
+
 ## v0.21 — real chord slices inhabit LineMeasureLift (2026-10-22 Asia/Shanghai)
 
 - `RotatedChordMeasure`: `containsR`/`toBodyR`/`rotateInvR`; `horizSliceR` closed + bdd;
