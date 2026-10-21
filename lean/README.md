@@ -29,7 +29,7 @@ geometric proofs.
 | `G5Exclusion` from three geometric bridges | **Proved conditional** (`G5Exclusion_of_bridges`) |
 | G5 geometric bridges `G5k0/k1/k2Bridge` | **Open** |
 | G3/G4 mid-split + M7.1 interface | **Proved fragments** (`G3G4Fragments`) |
-| `g2_alg<2` under bridge; E-tier coeff nonneg | **Proved** (`BernsteinGridLift`) |
+| `g2_alg t < 2` on `(0,1/2)` (Weierstrass id proved); E-tier coeff nonneg | **Proved** (`BernsteinGridLift`) |
 | `RoleSelection.hF_ne_corners` (sixth tile ≠ corners) | **Proved** |
 | `G1Exclusion` … `G5Exclusion` | **Open** (named Props) |
 | Unconditional `PrincipalClaim` | **Open** (`principalClaimProvedUnconditionally = false`) |

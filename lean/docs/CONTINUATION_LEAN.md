@@ -8,7 +8,7 @@
 - **`G5Budget`**: `d+B(d)<2`, opposite/adjacent/grid hyps ⇒ False, wire from `ParallelBudgetData`
 - **`G5ExclusionFrag`**: `G5Exclusion_of_bridges` (conditional); bridges open
 - **`G3G4Fragments`**: mid-split + M7.1 re-exports; G3/G4 bridges open
-- **`BernsteinGridLift`**: `g2_alg_lt_two_of_bridge`; E-tier short-cap coeff nonneg
+- **`BernsteinGridLift`**: **`g2_alg_lt_two` unconditional** (Weierstrass identity proved); E-tier short-cap coeff nonneg
 
 ## Next (priority)
 
@@ -16,7 +16,7 @@
    (export corners≤8, CF bounds, `BudgetHyp` from rigid squares) — this closes `G5Exclusion`.
 2. **G1/G2 exclusions** via near-end living-leaf geometry + certificates.
 3. **G3/G4**: turn M7.1 boolean exclusions into geometric `False` for covers.
-4. Prove `G2AlgBridge` (identify `g2_alg` with Euclidean chord sum).
+4. ~~Prove `G2AlgBridge` algebraically~~ **done**; optional: Euclidean chord-sum reading.
 5. Only then attempt unconditional `PrincipalClaim`.
 
 ## Honesty
