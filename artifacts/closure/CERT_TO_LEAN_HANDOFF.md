@@ -126,3 +126,14 @@ Committed modules (payload-side `native_decide` only; **not** PrincipalClaim):
 | `lean/S6Core/S6Core/BernsteinExactP3.lean` | all 10 IBB handoff certs; 195 leaf range theorems | lake-green |
 
 Wired in `lean/S6Core/S6Core.lean` next to `BernsteinGridLift` only. Manifest: `artifacts/closure/item3_certs/bernstein_lean_lift_manifest.json`.
+
+
+## Lean lift status (BernsteinExactP4–P5 + Extra)
+
+| Module | Scope | Status |
+| --- | --- | --- |
+| `BernsteinExactP4.lean` | tip e-h / d-G / half-angle numer; catalog 40 | lake-green |
+| `BernsteinExactP5.lean` | budget/Or catalog 60 + 4 numeric coeff lists + AM-GM cleared | lake-green |
+| `BernsteinExactExtra.lean` | tip branch A/B/C rational samples + count checks | lake-green |
+
+Still honest: these lifts verify certificate algebra / payloads — **not** PrincipalClaim unconditional.

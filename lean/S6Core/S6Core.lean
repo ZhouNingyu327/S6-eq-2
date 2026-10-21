@@ -24,6 +24,9 @@ import S6Core.BernsteinGridLift
 import S6Core.BernsteinExactP1
 import S6Core.BernsteinExactP2
 import S6Core.BernsteinExactP3
+import S6Core.BernsteinExactP4
+import S6Core.BernsteinExactP5
+import S6Core.BernsteinExactExtra
 import S6Core.G3G4Fragments
 import S6Core.G5ExclusionFrag
 import S6Core.G5Budget

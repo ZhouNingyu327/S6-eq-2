@@ -71,5 +71,19 @@
     "check_round35_positive_H__n8__622d8fa357.json",
     "check_round35_positive_H__n9__e2db3fea8c.json"
   ],
-  "note": "Payload-side native_decide lifts only. Not PrincipalClaim unconditional."
+  "note": "P1\u2013P5 + Extra payload/algebra lifts. Not PrincipalClaim unconditional.",
+  "p4_catalog": 40,
+  "p4_core": [
+    "tip_eh_identity",
+    "tip_dG_identity",
+    "h_eq_t",
+    "halfangle_diff_numer",
+    "halfangle_diff_neg_of_T_gt"
+  ],
+  "p4_branch_samples": [
+    "tipBranchA/B/C via BernsteinExactExtra native_decide"
+  ],
+  "p5_catalog": 60,
+  "p5_numeric_certs": 4,
+  "extra": true
 }
