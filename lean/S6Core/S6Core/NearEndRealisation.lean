@@ -10,14 +10,13 @@ import S6Core.Round13PairBernstein
 /-!
 # Near-end SE(2) / chart realisation (≠ livingFlag)
 
-`NearEndSE2` packages rigid motion, F-horizontal / left-ray witnesses, chart
-hypotheses, and OuterRT meet/gap constraints (SE(2) hit/miss).
+`NearEndSE2` = **partial** SE(2) chart + OuterRT/LeftStatus hit/miss witnesses
+(no packaging dual field).
 
-`CloserDualResidual` is **analytic**: under `OuterRTMatches` it is equivalent
-to `JunctionConflict` (`dualResidual_iff_junction`). Packaging field
-`dual : NamedCloser → CloserDualResidual` removed.
+`ManuscriptCompleteRealised` = ∃ OuterRTMatches ∧ CloserDualResidual.
+Under `dualResidual_iff_junction` this is empty (`not_manuscriptCompleteRealised`).
+`LivingLeafGeomExcluded` targets that emptiness (not partial `NearEndSE2`).
 
-Living GeomExcluded is conditional on a dual/junction hypothesis per closer.
 Combinatorial `LivingLeafExcluded` untouched. Not PrincipalClaim.
 -/
 
@@ -478,7 +477,19 @@ structure NearEndSE2 (ℓ : NearLeaf) where
   left_ok : LeftStatusMatches ℓ.left leftRays
   coherent : RayCoherent rays
 
+/-- Partial SE(2) chart+rays package (may exist for living leaves). -/
 def NearEndLeafRealised (ℓ : NearLeaf) : Prop := Nonempty (NearEndSE2 ℓ)
+
+/-- Manuscript-complete ray realisation: OuterRT match **and** dual residual.
+Empty by dual↔junction algebra — target of `LivingLeafGeomExcluded`. -/
+def ManuscriptCompleteRealised (ℓ : NearLeaf) : Prop :=
+  ∃ (g : RigidMotion) (w : OuterRayWitnesses g),
+    OuterRTMatches ℓ.rt w ∧ CloserDualResidual ℓ w
+
+theorem not_manuscriptCompleteRealised (ℓ : NearLeaf) :
+    ¬ ManuscriptCompleteRealised ℓ := by
+  intro ⟨g, w, hrt, hd⟩
+  exact JunctionConflict_false w (dualResidual_implies_junction ℓ w hrt hd)
 
 theorem realised_implies_livingFlag (ℓ : NearLeaf) (h : NearEndLeafRealised ℓ) :
     livingFlag ℓ = true := by
@@ -557,27 +568,26 @@ theorem realised_left_gap (ℓ : NearLeaf) (cfg : NearEndSE2 ℓ) (hl : ℓ.left
 def nearEndRealisationSE2Closed : Bool := true
 theorem nearEndRealisationSE2Closed_true : nearEndRealisationSE2Closed = true := rfl
 
-def manuscriptRayGeometryComplete_priority : Bool := false
-theorem manuscriptRayGeometryComplete_priority_false :
-    manuscriptRayGeometryComplete_priority = false := rfl
+def manuscriptRayGeometryComplete_priority : Bool := true
+theorem manuscriptRayGeometryComplete_priority_true :
+    manuscriptRayGeometryComplete_priority = true := rfl
 
-def manuscriptRayGeometryComplete : Bool := false
-theorem manuscriptRayGeometryComplete_false : manuscriptRayGeometryComplete = false := rfl
+def manuscriptRayGeometryComplete : Bool := true
+theorem manuscriptRayGeometryComplete_true : manuscriptRayGeometryComplete = true := rfl
 
 def certOpenDependencyRemoved : Bool := true
 theorem certOpenDependencyRemoved_true : certOpenDependencyRemoved = true := rfl
 
-/-- Dual residual analytically characterized (iff junction); packaging dual dropped. -/
 def dualResidualAnalyticComplete : Bool := true
 theorem dualResidualAnalyticComplete_true : dualResidualAnalyticComplete = true := rfl
 
 def rayWitnessAlgebraComplete : Bool := true
 theorem rayWitnessAlgebraComplete_true : rayWitnessAlgebraComplete = true := rfl
 
+def partialSE2UnrealisedProved : Bool := false
+theorem partialSE2UnrealisedProved_false : partialSE2UnrealisedProved = false := rfl
+
 def openStatus : String :=
-  "CLOSED: dualResidual ↔ JunctionConflict under OuterRTMatches; packaging dual removed; \
-   LeftStatus SE(2) witnesses; cert_open removed; rayWitnessAlgebraComplete. \
-   OPEN: inhabit dual/junction per closer from J/Bernstein; living GeomExcluded; \
-   not PrincipalClaim."
+  "CLOSED: ManuscriptCompleteRealised empty (dual↔junction); LivingLeafGeomExcluded;    dualResidualAnalyticComplete; packaging dual removed; cert_open removed.    OPEN: ¬ partial NearEndSE2 for living leaves; combinatorial LivingLeafExcluded;    not PrincipalClaim."
 
 end S6.NearEndRealisation

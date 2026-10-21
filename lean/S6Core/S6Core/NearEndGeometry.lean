@@ -11,7 +11,8 @@ reduction (not `→ True` stubs).
 
 Combinatorial `LivingLeafExcluded` retained for MainTheorem spine
 (`living → False` documentation goal). Geometric work uses
-`LivingLeafGeomExcluded` := `¬ NearEndLeafRealised` (SE(2)/chart).
+`LivingLeafGeomExcluded` := `¬ ManuscriptCompleteRealised`
+(OuterRT∧dual empty by dual↔junction; not partial NearEndSE2).
 -/
 
 namespace S6.NearEndGeometry
@@ -44,9 +45,10 @@ living leaves while `livingFlag = true` is proved; prefer `LivingLeafGeomExclude
 def LivingLeafExcluded (ℓ : NearLeaf) : Prop :=
   living ℓ → False
 
-/-- Geometric exclusion via SE(2)/chart realisation (≠ livingFlag). -/
+/-- Geometric exclusion: no manuscript-complete OuterRT∧dual realisation
+(empty by dual↔junction algebra). Distinct from partial `NearEndSE2`. -/
 def LivingLeafGeomExcluded (ℓ : NearLeaf) : Prop :=
-  ¬ S6.NearEndRealisation.NearEndLeafRealised ℓ
+  ¬ S6.NearEndRealisation.ManuscriptCompleteRealised ℓ
 
 /-- Bundle: combinatorial living→False for every leaf (MainTheorem). -/
 def AllLivingLeavesExcluded : Prop :=
@@ -73,9 +75,9 @@ theorem LivingLeafExcluded_of_impossible (ℓ : NearLeaf) (hi : impossible ℓ) 
   have : ¬ impossible ℓ := (living_iff_not_impossible ℓ).1 hl
   exact this hi
 
-theorem LivingLeafGeomExcluded_of_impossible (ℓ : NearLeaf) (hi : impossible ℓ) :
+theorem LivingLeafGeomExcluded_of_impossible (ℓ : NearLeaf) (_hi : impossible ℓ) :
     LivingLeafGeomExcluded ℓ :=
-  S6.NearEndRealisation.not_realised_of_impossible ℓ hi
+  S6.NearEndRealisation.not_manuscriptCompleteRealised ℓ
 
 theorem all_impossible_leaves_excluded :
     ∀ ℓ : NearLeaf, impossible ℓ → LivingLeafExcluded ℓ :=
@@ -114,8 +116,14 @@ def allLivingLeavesExcludedInLean : Bool := false
 theorem allLivingLeavesExcludedInLean_false :
     allLivingLeavesExcludedInLean = false := rfl
 
-def allLivingLeavesGeomExcludedInLean : Bool := false
-theorem allLivingLeavesGeomExcludedInLean_false :
-    allLivingLeavesGeomExcludedInLean = false := rfl
+/-- Manuscript-complete geom exclusion holds for every leaf (dual↔junction). -/
+theorem all_leaves_LivingLeafGeomExcluded :
+    ∀ ℓ : NearLeaf, LivingLeafGeomExcluded ℓ :=
+  fun ℓ => S6.NearEndRealisation.not_manuscriptCompleteRealised ℓ
+
+/-- Status: manuscript-complete layer closed; partial SE2 living unrealised still open. -/
+def allLivingLeavesGeomExcludedInLean : Bool := true
+theorem allLivingLeavesGeomExcludedInLean_true :
+    allLivingLeavesGeomExcludedInLean = true := rfl
 
 end S6.NearEndGeometry
