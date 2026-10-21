@@ -16,3 +16,13 @@
 ## 2026-10-21 — OpenAI math-style repository layout
 
 Restructured the public dump to mirror [openai/math](https://github.com/openai/math): top-level README / CONTENTS / overview / history / DISCLOSURE, `preprints/<Title-Date>/` with paper.pdf + build/, `lean/` with formalization.yaml + docs, `artifacts/`, and `reasoning_traces/`. Author line and acknowledgements updated to AI-produced / human-released framing. PDF rebuilt from TeX on 2026-10-21 (Asia/Shanghai).
+
+## October 21, 2026 — maturity fix (post public-snapshot review)
+
+Addressed the five major items in the 2026-10-21 referee report on commit `9930699` without claiming a confirmed theorem:
+
+- Fixed \(\Pi(n)\) quantifier; weakened one-shot normalisation claim; closed-quadrant wording in Lemma norm.
+- Shipped long verification manuscript under `artifacts/long_proof/`; companion certs for R42/R54–55/R64; repo-relative `g3_alignment_check.py`.
+- Replaced empty `still_S_after_b23d.jsonl` with an honest manifest.
+- Relabeled Lean whole-theorem Bools as status metadata; documented Exhaustiveness/`reduction_to_standardForm` non-proofs; OwnershipBridge/Obligation2Roles FIXMEs + renames.
+- Full `ex/all/` tree and private `closure/*.md` sources remain deferred for size/packaging.

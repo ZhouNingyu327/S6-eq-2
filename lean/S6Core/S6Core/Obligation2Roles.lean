@@ -189,7 +189,18 @@ structure RoleSelection (T : Target) where
   hC_ne_corners :
     iC ≠ owners.i1 ∧ iC ≠ owners.i2 ∧ iC ≠ owners.i3 ∧ iC ≠ owners.i4
 
-/-- Uses **body-chart** standard mids of the centre square. -/
+/-
+FIXME (referee Major 3.3): `ofCover` currently sets `iF := owners.i1` and
+`iA := owners.i2` (corner hosts), not the sixth index outside the four corner
+hosts and the centre host. `toManuscript` then hands those blocks to
+`ManuscriptNormalisedCovering` while mid candidates are already in the centre
+tile's body chart, without a common rigid motion. This is **not** a faithful
+role selection for the manuscript. Do not cite `pointwiseCover_reaches_normalised`
+as geometric reduction.
+-/
+
+/-- Uses **body-chart** standard mids of the centre square.
+WARNING: role indices are provisional (see FIXME above). -/
 noncomputable def RoleSelection.ofCover {T : Target} (cov : PointwiseCover T) :
     RoleSelection T := by
   let owners := cov.toCornerOwners

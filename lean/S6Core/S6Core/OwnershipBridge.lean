@@ -4,20 +4,27 @@ import S6Core.ChordLength
 import S6Core.RigidMotionChart
 
 /-!
-# Ownership geometric bridge (G2)
+# Ownership geometric bridge (G2) — PARTIAL / NOT MANUSCRIPT-FAITHFUL YET
 
-Axis-aligned and **rotated** unit squares → manuscript flags → `TopClass`.
+Axis-aligned and **rotated** unit squares → *approximate* flags → `TopClass`.
 
-## Proved
+## Proved (local)
 * Axis-aligned mid∈square → `flagsOf` → `TopClass`
 * Rotated square = rigid image of `[0,1]²`; body pullback criterion
 * Edge mids of a rotated square = rigid images of axis edge mids
-* `flagsOfRotated` induces `Ownership` / `TopClass`
+* `flagsOfRotated` induces *some* `Ownership` / `TopClass` enum value
 
-## Closed (fragment)
-`fullPdfNormalisationClosed`: after manuscript dominance / unit-square
-normalisation, `ManuscriptNormalisedCovering` → `RotatedCovering` × mids
-with matching `flagsOfRotated` (see `S6.PdfNormalisation`).
+## FIXME (2026-10-21 public-snapshot referee report, Major 3)
+The following classifiers are **not** proved equivalent to the manuscript:
+* Manuscript `k` = number of distinct *target outer mids* in `C ∪ F`.
+  Current `kOf_rot` counts how many of three `MidCandidates` lie in `C`,
+  capped at 2 — it does not count `F`, nor the four target outer mids.
+* Manuscript `F ∋ O` (centre). Current `fHasAnyMidCandidate_rot` (formerly
+  `fHasOOf_rot`) is true iff `F` contains *any* mid-candidate, not the centre.
+* `midsAdjacentOf_rot` compares C's own edge-mid pairs, not adjacency of the
+  two target outer mids owned by C/F.
+Until these are repaired, “∃ tc, classify flags = tc” does **not** mean an
+arbitrary covering has been faithfully reduced to the paper's G1–G5 cases.
 -/
 
 namespace S6.OwnershipBridge
@@ -83,18 +90,26 @@ structure MidCandidates where
 
 def MidCandidates.toList (m : MidCandidates) : List Pt := [m.m0, m.m1, m.m2]
 
+/-- FIXME: counts mid-candidates in C only (not manuscript k on C∪F). -/
 def countInC (cov : Covering) (m : MidCandidates) : ℕ :=
   (m.toList.filter (fun p => cov.C.containsB p)).length
 
+/-- FIXME / NOT manuscript `k`. -/
 def kOf (cov : Covering) (m : MidCandidates) : Fin 3 :=
   ⟨min (countInC cov m) 2, Nat.lt_succ_of_le (Nat.min_le_right _ _)⟩
 
-def fHasOOf (cov : Covering) (m : MidCandidates) : Bool :=
+/-- True iff F contains any mid-candidate (NOT “F contains centre O”). -/
+def fHasAnyMidCandidate (cov : Covering) (m : MidCandidates) : Bool :=
   m.toList.any (fun p => cov.F.containsB p)
+
+/-- Deprecated misleading name — use `fHasAnyMidCandidate`. -/
+abbrev fHasOOf (cov : Covering) (m : MidCandidates) : Bool :=
+  fHasAnyMidCandidate cov m
 
 def midInCOf (cov : Covering) (m : MidCandidates) : Bool :=
   cov.C.containsB m.m0
 
+/-- FIXME: C's own edge-mid pairs ≠ target outer-mid adjacency. -/
 def midsAdjacentOf (cov : Covering) (m : MidCandidates) : Bool :=
   let b := cov.C.midBottom; let t := cov.C.midTop
   let l := cov.C.midLeft; let r := cov.C.midRight
@@ -109,7 +124,7 @@ structure CoveringFlags where
 
 def flagsOf (cov : Covering) (m : MidCandidates) : CoveringFlags where
   k := kOf cov m
-  fHasO := fHasOOf cov m
+  fHasO := fHasAnyMidCandidate cov m
   midInC := midInCOf cov m
   midsAdjacent := midsAdjacentOf cov m
 
@@ -263,18 +278,26 @@ structure RotatedCovering where
   F : RotatedSquare
   A : RotatedSquare
 
+/-- FIXME: counts mid-candidates in C only (not C∪F target outer mids). -/
 def countInC_rot (cov : RotatedCovering) (m : MidCandidates) : ℕ :=
   (m.toList.filter (fun p => cov.C.containsB p)).length
 
+/-- FIXME / NOT manuscript `k`: min(#candidates in C, 2). -/
 def kOf_rot (cov : RotatedCovering) (m : MidCandidates) : Fin 3 :=
   ⟨min (countInC_rot cov m) 2, Nat.lt_succ_of_le (Nat.min_le_right _ _)⟩
 
-def fHasOOf_rot (cov : RotatedCovering) (m : MidCandidates) : Bool :=
+/-- True iff F contains any mid-candidate (NOT “F contains the centre O”). -/
+def fHasAnyMidCandidate_rot (cov : RotatedCovering) (m : MidCandidates) : Bool :=
   m.toList.any (fun p => cov.F.containsB p)
+
+/-- Deprecated misleading name — use `fHasAnyMidCandidate_rot`. -/
+abbrev fHasOOf_rot (cov : RotatedCovering) (m : MidCandidates) : Bool :=
+  fHasAnyMidCandidate_rot cov m
 
 def midInCOf_rot (cov : RotatedCovering) (m : MidCandidates) : Bool :=
   cov.C.containsB m.m0
 
+/-- FIXME: uses C's own edge-mid pairs, not target outer-mid adjacency. -/
 def midsAdjacentOf_rot (cov : RotatedCovering) (m : MidCandidates) : Bool :=
   let b := cov.C.midBottom; let t := cov.C.midTop
   let l := cov.C.midLeft; let r := cov.C.midRight
@@ -283,7 +306,7 @@ def midsAdjacentOf_rot (cov : RotatedCovering) (m : MidCandidates) : Bool :=
 
 def flagsOfRotated (cov : RotatedCovering) (m : MidCandidates) : CoveringFlags where
   k := kOf_rot cov m
-  fHasO := fHasOOf_rot cov m
+  fHasO := fHasAnyMidCandidate_rot cov m
   midInC := midInCOf_rot cov m
   midsAdjacent := midsAdjacentOf_rot cov m
 

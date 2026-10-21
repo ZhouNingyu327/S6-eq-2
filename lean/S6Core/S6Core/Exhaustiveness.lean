@@ -71,15 +71,18 @@ theorem near_exhaustive (ℓ : NearLeaf) : living ℓ ∨ impossible ℓ := by
   · left; rfl
   · right; rfl
 
-/-! ## Former vacuous axioms — now theorems -/
+/-! ## NON-PROOF placeholders (`→ True` / `True`)
 
-/-- Vacuous placeholder discharged: does **not** prove PDF leaf closures. -/
+These compile without `sorry` because the *goal* is propositional `True`,
+not a covering exclusion. They must **not** be cited as geometric closure.
+-/
+
+/-- NON-PROOF: concludes `True`, not that a living leaf is geometrically excluded. -/
 theorem near_end_leaves_closed : ∀ ℓ : NearLeaf, living ℓ → True :=
   fun _ _ => trivial
 
-/-- Boolean exhaustiveness of Ownership→TopClass is in
-`S6.TopClassExhaustiveness` (`classImage_length = 6`). This stub records that
-the *boolean* table is closed; geometric realisation remains residual. -/
+/-- NON-PROOF stubs. Boolean Ownership→TopClass tables live elsewhere; geometric
+realisation / manuscript faithfulness remain open (see OwnershipBridge FIXMEs). -/
 theorem top_class_exhaustive : True := trivial
 theorem far_end_reduction_closed : True := trivial
 theorem final_form_closed : True := trivial

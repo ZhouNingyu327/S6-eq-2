@@ -10,17 +10,21 @@ import S6Core.Obligation2Roles
 import S6Core.M7_1Geometry
 
 /-!
-# Whole theorem S(6)=2 — mathematical completeness status
+# STATUS METADATA for the S(6)=2 *candidate* package (NOT a geometric theorem)
 
-## Accuracy tier (crisp)
-* **Mathematical 已证:** computer-assisted complete proof chain, internally
-  audited (R65 full audit + `still_S=0` certificates + Lean o1–o4 flags).
-* **Not claimed:** independent external peer review; full Lean re-proof of
-  every R30–64 metric inequality (those remain certificate-primary).
+## Accuracy tier (2026-10-21 maturity fix)
+* These `Bool` values are **human-maintained status metadata** for release
+  tracking. A theorem of the form `flag = true := rfl` proves only that the
+  constant was defined as `true`. It does **not** quantify six unit squares,
+  assume a covering, or conclude a side-length bound.
+* **Not claimed:** independent peer review; confirmed resolution of S(6)=2;
+  faithfulness of ownership/role bridges to the manuscript; full Lean re-proof
+  of every R30–64 metric inequality.
+* After the 2026-10-21 public-snapshot referee report, treat this module as a
+  dashboard, not as evidence that the geometric theorem is closed in Lean.
 
-## Soft residuals — classified NON-BLOCKING
-Each former soft residual is a Lean-layer duplicate of an already-discharged
-machine certificate / manuscript identity. They do not affect correctness.
+## Soft residuals
+Listed for inventory only; they do not upgrade metadata into geometry.
 -/
 
 namespace S6.WholeTheoremStatus
@@ -99,24 +103,38 @@ theorem soft_residuals_all_nonblocking :
       soft_literature_packaging_nonblocking = true :=
   ⟨rfl, rfl, rfl, rfl⟩
 
-/-- Mathematical completeness flag for S(6)=2.
-Tier: computer-assisted complete proof (R65 internal audit) + Lean o1–o4
-+ certificate still_S=0. Does **not** claim external peer review. -/
-def wholeTheorem_S6_eq_2_closed : Bool := true
+/-- STATUS METADATA (human-maintained). Renamed conceptually:
+`statusMetadata_candidate_S6_eq_2_flag`.
+Kept under the historical name so existing imports compile.
+**Not a proof of S(6)=2.** -/
+def statusMetadata_candidate_S6_eq_2_flag : Bool := true
+
+/-- Historical alias — still only metadata. -/
+abbrev wholeTheorem_S6_eq_2_closed : Bool := statusMetadata_candidate_S6_eq_2_flag
+
+theorem statusMetadata_candidate_S6_eq_2_flag_true :
+    statusMetadata_candidate_S6_eq_2_flag = true := rfl
+
 theorem wholeTheorem_S6_eq_2_closed_true :
     wholeTheorem_S6_eq_2_closed = true := rfl
 
-/-- Minimal blocking set for mathematical 已证: empty.
-(External peer review is intentionally excluded from this set.) -/
+/-- Open items for a *confirmed* geometric theorem (not empty in substance).
+This list is documentation; emptiness of a parallel metadata list must not be
+read as mathematical discharge. -/
+def open_items_for_confirmed_theorem : List String :=
+  [ "independent external peer review",
+    "ownership/role Lean bridge faithful to manuscript k / F∋O / sixth tile",
+    "stepwise normalisation / β-clamp global argument in the short paper",
+    "optional full Lean re-proof of every certificate metric inequality",
+    "complete public delivery of every cited geometric reduction" ]
+
+/-- Historical metadata list (intentionally excludes review). Do not treat
+emptiness as proof completeness. -/
 def minimal_blocking_set_for_math_completeness : List String := []
 
 theorem minimal_blocking_set_empty :
     minimal_blocking_set_for_math_completeness = [] := rfl
 
-/-- What remains OUTSIDE mathematical 已证 (not blockers for the flag). -/
-def outside_math_completeness : List String :=
-  [ "independent external peer review",
-    "optional full Lean re-proof of every certificate metric inequality",
-    "arxiv_prep self-contained paper polish (parallel worker)" ]
+def outside_math_completeness : List String := open_items_for_confirmed_theorem
 
 end S6.WholeTheoremStatus

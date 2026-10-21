@@ -6,13 +6,13 @@
 
 **Subject:** Convex and metric geometry / Combinatorics
 
-**Verification stage:** Computer-assisted candidate; partial Lean skeleton; no independent peer review. Soft residuals classified only in an internal audit.
+**Verification stage:** Computer-assisted candidate under revision after the 2026-10-21 public-snapshot review; partial Lean skeleton (status metadata ≠ geometric theorem); no independent peer review. Long manuscript: `artifacts/long_proof/`.
 
 **Source:** [`build/`](build/) (`main.tex`, `refs.bib`)
 
 **Lean:** See [`../../../lean/docs/001.md`](../../lean/docs/001.md) and [`formalization.yaml`](../../lean/formalization.yaml).
 
-**Supporting artifacts:** [`../../../artifacts/`](../../artifacts/) (selected certificates, `still_S` audit slice, reproduce notes).
+**Supporting artifacts:** [`../../artifacts/`](../../artifacts/) (long proof, selected certificates, `still_S` manifests, reproduce notes). See repo-root `CHANGELOG_zh.md`.
 
 ## Citation
 

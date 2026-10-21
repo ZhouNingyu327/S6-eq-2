@@ -17,6 +17,10 @@ Substantial portions of the mathematical exploration, case management, certifica
 - **Role:** Releases and hosts the package.  
 - **Explicit non-claim:** Does **not** claim to have independently verified, or to personally understand, the full proof narrative and every certificate leaf.
 
+## Status after 2026-10-21 public-snapshot review
+
+The package is a **computer-assisted candidate** under revision. Fixes in this tree address concrete delivery / wording / metadata issues raised against commit `9930699`. Ownership-bridge faithfulness and a fully global normalisation argument remain open. Do **not** read Lean Boolean flags or empty-log filenames as confirmation that \(S(6)=2\) is solved.
+
 ## Intended use
 
 Open scrutiny, reproducibility experiments, and expert audit. Formal arXiv/journal submission under ordinary authorship norms is deferred until a human expert takes scientific responsibility or the releaser can honestly do so.

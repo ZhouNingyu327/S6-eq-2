@@ -1,0 +1,78 @@
+{
+  "updated": "2026-10-21 Asia/Shanghai",
+  "honesty": "The historical filename still_S_after_b23d.jsonl was 0 bytes in public commit 9930699 and also empty in the private formalization/progress copy. An empty file is NOT a PASS certificate. This replacement is a manifest of what is actually shipped and verifiable in this maturity-fix package.",
+  "claim": "Internal inventory labels still_S=0 for listed SMT/certificate batches; this is author-side bookkeeping, not independent peer confirmation.",
+  "replaced_empty_file": "still_S_after_b23d.jsonl",
+  "shipped_evidence": [
+    {
+      "artifact": "still_S_after_b22d.jsonl",
+      "bytes": 4637,
+      "sha256": "db461b82bbb2917ab847b36c3cb52d611097c67a78da386f84583c7e0d460ac7",
+      "n_lines": 17,
+      "role": "prior_snapshot_shipped"
+    },
+    {
+      "artifact": "still_S_after_b23c.jsonl",
+      "bytes": 921,
+      "sha256": "031fbb5d7f412f678b2d4f73d79b03ed30f1e77d1740c1f1976c70adc7c0417f",
+      "n_lines": 3,
+      "role": "prior_snapshot_shipped"
+    },
+    {
+      "artifact": "../checkers/round29_far_top_checks.json",
+      "bytes": 4229,
+      "sha256": "c287dbb60ab9afc4523a04890fa46d068e73c3e1e5bd065ce1cb705caea3fd32",
+      "role": "shipped_companion_cert"
+    },
+    {
+      "artifact": "../checkers/round29_no_top_structure_checks.json",
+      "bytes": 499,
+      "sha256": "e9acb70049939d9f1926619364eafbd9df48d89ead58dbfe86befe285d23612f",
+      "role": "shipped_companion_cert"
+    },
+    {
+      "artifact": "../checkers/round38_empty_right_negative_checks.json",
+      "bytes": 1617,
+      "sha256": "10e58fe01231a3c58d9e1c640e862cd367c44403e98f8c8401278d9a7342afd8",
+      "role": "shipped_companion_cert"
+    },
+    {
+      "artifact": "../checkers/round42_interval_certificate.json",
+      "bytes": 5627,
+      "sha256": "dbe0f67902c1f0791dfcc4d713946549a158aeb21e45ddde4b973a795290d0c8",
+      "role": "shipped_companion_cert"
+    },
+    {
+      "artifact": "../checkers/round54_certificate.json",
+      "bytes": 5846,
+      "sha256": "e99254c56139cf6f4661e5b5930b8237eb9ab30e9092c4d47cb75ae0349e2862",
+      "role": "shipped_companion_cert"
+    },
+    {
+      "artifact": "../checkers/round55_certificate.json",
+      "bytes": 42164,
+      "sha256": "dc7a02dae70c766117a51a5e4ce0fea7ad45a645ad59685c247dbd73a98c76ee",
+      "role": "shipped_companion_cert"
+    },
+    {
+      "artifact": "../checkers/round64_certificate.json",
+      "bytes": 11336,
+      "sha256": "b77b7304c75ad90f45f9a51b59c4fc49a97e9824486aefabb6b7d2479c48da95",
+      "role": "shipped_companion_cert"
+    }
+  ],
+  "r65_bundle_summary": {
+    "file": "bundle_verification_result.json",
+    "sha256": "be7e5cc1c49518c46fa5d0670f4b83eb5756f71a7a1f2b02b7563cbfcf025c3a",
+    "n_rows": 65,
+    "n_passed": 65,
+    "distribution_integrity": "passed",
+    "full_package_entries_replayed": 64,
+    "geometric_global_reductions_automatically_verified": false
+  },
+  "how_to_replay_spot_checks": [
+    "cd artifacts/checkers && python3 check_round64.py",
+    "cd artifacts/checkers && python3 check_round63.py",
+    "cd artifacts && python3 audit/g3_alignment_check.py  # may report missing private closure/*.md"
+  ]
+}

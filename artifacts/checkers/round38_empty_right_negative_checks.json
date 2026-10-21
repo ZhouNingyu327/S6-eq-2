@@ -1,0 +1,68 @@
+{
+  "queries": [],
+  "symbolic_identities": [
+    "small left root diameter deficit",
+    "lower bound u creates w lower bound",
+    "eta quadratic test",
+    "strong Phi squared difference",
+    "Phi monotone squared difference",
+    "Phi at 2/7 gap"
+  ],
+  "constants": [
+    {
+      "name": "eta test at 1/4",
+      "value": "7/16"
+    },
+    {
+      "name": "eta test at 5/12",
+      "value": "29/48"
+    },
+    {
+      "name": "diameter radical square gap",
+      "value": "94"
+    },
+    {
+      "name": "u coefficient slack",
+      "value": "293/31365"
+    },
+    {
+      "name": "eta coefficient slack",
+      "value": "581/255"
+    },
+    {
+      "name": "last squared strict margin",
+      "value": "1/144"
+    },
+    {
+      "name": "double bridge cubic at 7/10",
+      "value": "-17/1000"
+    },
+    {
+      "name": "double bridge K gap",
+      "value": "17/1820"
+    },
+    {
+      "name": "Phi(2/5) comparison square gap",
+      "value": "311"
+    },
+    {
+      "name": "bottom diameter lower comparison square gap",
+      "value": "1/144"
+    },
+    {
+      "name": "W right-leg upper comparison",
+      "value": "2819/300916"
+    }
+  ],
+  "totals": {
+    "UNSAT": 0,
+    "NRA": 0,
+    "LRA": 0,
+    "symbolic_identities": 6,
+    "constants": 11
+  },
+  "scope": "RIGHT real-gap family excluded; LEFT double W bridge and double direct C contact excluded",
+  "also_proved": "LEFT positive-C C meets exactly one of Q2 and QU; original W cannot contain TOPmid",
+  "not_proved": "F empty LEFT positive-C exactly-one direct-contact subcases; three meetings; S(6)=2",
+  "exploratory_UNKNOWN_counted": false
+}

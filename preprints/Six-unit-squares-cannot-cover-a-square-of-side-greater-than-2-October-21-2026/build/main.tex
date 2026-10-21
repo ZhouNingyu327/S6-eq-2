@@ -51,22 +51,28 @@ See the repository \texttt{DISCLOSURE.md}.}
 Let $S(n)$ be the largest side length of a Euclidean square that can be covered
 by $n$ closed unit squares, allowing arbitrary rigid motions and overlaps.
 Equivalently, Soifer's function $\Pi(2)$ is the least number of unit squares
-needed to cover some square of side $2+\varepsilon$ for every $\varepsilon>0$.
-We present a computer-assisted candidate argument that $S(6)=2$, or equivalently $\Pi(2)=7$, resolving the conjecture
-stated by D\'osa--L\'angi--Tuza~\cite{DLT2026}.
-In particular, six unit squares cannot cover any square of side strictly greater
-than~$2$, while side~$2$ is attained by the obvious $2\times 2$ tiling.
+needed to cover \emph{some} square of side $2+\varepsilon$ for \emph{some}
+$\varepsilon>0$.
+We present a computer-assisted \emph{candidate} argument that $S(6)=2$, or
+equivalently $\Pi(2)=7$, addressing the conjecture stated by
+D\'osa--L\'angi--Tuza~\cite{DLT2026}.
+In particular, the candidate claims that six unit squares cannot cover any
+square of side strictly greater than~$2$, while side~$2$ is attained by the
+obvious $2\times 2$ tiling.  The matching upper bound $\Pi(2)\le 7$ is the
+classical fact that seven unit squares cover some square of side $>2$; see
+Soifer and the covering surveys cited below.
 
 The argument is a finite case analysis on ownership of the centre and of the
-four outer midpoints, followed by a reduction to a final standard form and the
-elimination of all joining modes.  Algebraic exclusions are discharged by
+four outer midpoints, followed by stepwise normalisation / reclassification
+and the elimination of joining modes.  Algebraic exclusions are discharged by
 exact rational identities, positive Bernstein certificates on compact boxes,
 interval certificates, and SMT UNSAT queries; selected geometric interfaces
-are formalised in Lean~4.  The proof is computer-assisted: machine certificates
-(with \texttt{still\_S}=0) and a Lean~4 obligation skeleton (no \texttt{sorry},
-no extra axioms) support the narrative.  We do not claim independent peer
-review, nor a full Lean re-proof of every metric inequality appearing in the
-long verification manuscript.
+are sketched in a Lean~4 skeleton.  Machine certificates and the Lean skeleton
+(no \texttt{sorry}, no extra axioms \emph{in that skeleton}) support the
+narrative; Boolean status flags in Lean are human-maintained metadata, not
+geometric theorems.  We do not claim independent peer review, nor a confirmed
+resolution of the conjecture, nor a full Lean re-proof of every metric
+inequality in the long verification manuscript.
 \end{abstract}
 
 \subjclass[2020]{Primary 52C15; Secondary 52C17, 68Q60, 68V15}
@@ -91,16 +97,22 @@ S(n)
 \,\bigr\},
 \end{equation}
 where each unit square may be translated and rotated and overlaps are allowed.
-Soifer's function $\Pi(n)$ asks for the least number of unit squares needed to
-cover \emph{some} square of side $n+\varepsilon$ for every $\varepsilon>0$;
-see~\cite{Soifer2006,SoiferCoverUp}.  In particular
+Soifer's function $\Pi(n)$ is the least number $m$ of unit squares for which
+there \emph{exists} some $\varepsilon>0$ such that a square of side
+$n+\varepsilon$ admits a covering by $m$ unit squares
+(equivalently: there exists $\varepsilon_0>0$ such that every side in
+$(n,n+\varepsilon_0]$ admits such a covering);
+see~\cite{Soifer2006,SoiferCoverUp}.  With this existential reading, and with
+the classical construction that seven unit squares cover some square of side
+strictly greater than~$2$ (hence $\Pi(2)\le 7$), one has
 \begin{equation}\label{eq:equiv}
 S(6)=2
 \quad\Longleftrightarrow\quad
 \Pi(2)=7.
 \end{equation}
 The lower bound $S(6)\ge 2$ is elementary: four axis-aligned unit squares tile
-$[0,2]^2$.  The matching upper bound is the content of the present paper.
+$[0,2]^2$.  The candidate upper bound $S(6)\le 2$ is the content of the present
+paper; together with $\Pi(2)\le 7$ it would yield $\Pi(2)=7$.
 
 Januszewski proved that covering a square of side $2+\varepsilon$ requires at
 least six unit squares, i.e.\ $\Pi(2)\ge 6$ \cite{Januszewski2009}.
@@ -111,10 +123,13 @@ In January~2026, D\'osa, L\'angi and Tuza revisited congruent square coverings,
 determined several small $S(n)$ and boundary-covering variants, and stated as
 Conjecture~1.1 that $S(6)=2$ (equivalently $\Pi(2)=7$) \cite{DLT2026}.
 
-\begin{theorem}[Main theorem]\label{thm:main}
-$S(6)=2$.  Equivalently, $\Pi(2)=7$: six closed unit squares cannot cover any
-square of side strictly greater than~$2$, while a square of side~$2$ admits such
-a covering.
+\begin{theorem}[Main claim — candidate]\label{thm:main}
+Candidate statement: $S(6)=2$.  Equivalently (given $\Pi(2)\le 7$ from known
+seven-square constructions), $\Pi(2)=7$: six closed unit squares cannot cover
+any square of side strictly greater than~$2$, while a square of side~$2$ admits
+such a covering.  This package presents a computer-assisted candidate argument;
+it is under revision after a 2026-10-21 public-snapshot review and is
+\emph{not} asserted as independently confirmed.
 \end{theorem}
 
 The proof occupies Sections~\ref{sec:defs}--\ref{sec:finale}.
@@ -122,11 +137,14 @@ Section~\ref{sec:certs} records the logical r\^oles of the computational
 certificates.  Related work is collected in Section~\ref{sec:related}.
 
 \begin{remark}[Accuracy tier]
-Theorem~\ref{thm:main} is asserted as a computer-assisted complete proof:
-internal audit (round~65), certificate inventory with \texttt{still\_S}=0, and
-a Lean~4 obligation skeleton with closed flags for obligations~1--4.  This does
-\emph{not} assert that the result has undergone independent peer review, nor
-that every metric inequality in the long manuscript has been re-proved in Lean.
+Theorem~\ref{thm:main} is offered as a \emph{computer-assisted candidate}: an
+internal audit slice (round~65), certificate inventories, and a Lean~4
+obligation skeleton with human-maintained Boolean status metadata for
+obligations~1--4.  Lean ``no \texttt{sorry}'' applies to that skeleton only;
+Boolean flags are \emph{not} geometric theorems.  This does \emph{not} assert
+independent peer review, mathematical confirmation of $S(6)=2$, or a full Lean
+re-proof of every metric inequality in the long manuscript.  See the repository
+\texttt{DISCLOSURE.md} and \texttt{CHANGELOG\_zh.md}.
 \end{remark}
 
 %% ============================================================
@@ -135,8 +153,12 @@ that every metric inequality in the long manuscript has been re-proved in Lean.
 
 \begin{definition}
 For each integer $n\ge 1$, $S(n)$ is defined by~\eqref{eq:Sn}.
-Soifer's $\Pi(n)$ is the least $m$ such that for every $\varepsilon>0$ some
-square of side $n+\varepsilon$ admits a covering by $m$ unit squares.
+Soifer's $\Pi(n)$ is the least integer $m$ for which there \emph{exists} some
+$\varepsilon>0$ such that a square of side $n+\varepsilon$ admits a covering by
+$m$ unit squares.  Equivalently, there exists $\varepsilon_0>0$ such that every
+square of side in $(n,n+\varepsilon_0]$ admits such a covering.
+(The universal quantifier ``for every $\varepsilon>0$'' is incorrect: for fixed
+$m$, large $\varepsilon$ violate the area bound $(n+\varepsilon)^2\le m$.)
 \end{definition}
 
 Throughout the upper-bound argument we work with the centred target
@@ -189,18 +211,29 @@ point of~$T$.
 \end{lemma}
 
 \begin{proof}
-Among the four oriented unit normals choose one in the open first quadrant.
-Its original projection interval $[\alpha,\alpha+1]$ contains~$0$, hence
-$\alpha\le 0$.  Replacing it by $[0,1]$ does not remove any point of~$T$ with
-nonnegative projection.  Keep the orthogonal unit interval unchanged.
+Among the four oriented unit normals choose one in the \emph{closed} first
+quadrant (so $c,s\ge 0$; axis-aligned tiles have a normal on the boundary of
+the open first quadrant).  Its original projection interval
+$[\alpha,\alpha+1]$ contains~$0$, hence $\alpha\le 0$.  Replacing it by
+$[0,1]$ does not remove any point of~$T$ with nonnegative projection.  Keep
+the orthogonal unit interval unchanged.
 \end{proof}
 
-\begin{proposition}[One-shot global normalisation]\label{prop:M1}
-Starting from any covering of~$T$, apply Lemma~\ref{lem:norm} once to each
-corner tile $V_i$, leaving $C$ and $F$ fixed.  The resulting covering still
-covers~$T$, preserves roles of $C$ and~$F$, and is idempotent.  Thereafter
-classification is performed exactly once: every later local normalisation step
-acts as the identity on already normalised corner tiles.
+\begin{proposition}[Dominated corner enlargement; stepwise reclassification]\label{prop:M1}
+Starting from any covering of~$T$, apply Lemma~\ref{lem:norm} to a corner tile
+$V_i$, leaving the other tiles fixed.  The resulting covering still covers~$T$
+and does not delete previously covered points of~$T$.  The same push applied a
+second time to that same tile is the identity on the already enlarged tile
+(idempotence of that single operator).
+
+This does \emph{not} imply that every later local normalisation or clamping
+step (for example, the $\beta\le s/c$ clamp used for anchored corner tiles in
+the long verification manuscript) acts as the identity, nor that classification
+flags computed before an enlargement remain valid afterwards.  After each
+enlargement that may create duplicate hosts or fill gaps, the covering must be
+\emph{reclassified} on the new configuration; see the round~65 audit notes on
+$\beta$-clamping and stepwise reclassification in the ancillary package
+(\texttt{artifacts/still\_S/S6\_round65\_full\_audit.md}, §4).
 \end{proposition}
 
 \begin{lemma}[Two nonempty parallel chords]\label{lem:B}
@@ -578,8 +611,11 @@ Proposition~\ref{prop:M61} eliminates the near-end residual G2.
 Proposition~\ref{prop:M71} reduces the far-end residual G2 to the final
 standard form.  Propositions~\ref{prop:M91}--\ref{prop:M111} eliminate every
 joining mode, rotation sign and residual parameter domain of that form.
-Hence $\mu>1$ is impossible.  Combined with the elementary covering of side~$2$,
-one obtains $S(6)=2$, and therefore $\Pi(2)=7$ by~\eqref{eq:equiv}.
+Hence (subject to the completeness of the cited modules and certificates)
+$\mu>1$ is impossible under the candidate narrative.  Combined with the
+elementary covering of side~$2$ and the classical $\Pi(2)\le 7$, this would
+yield $S(6)=2$ and therefore $\Pi(2)=7$ by~\eqref{eq:equiv}.  The public
+package remains a candidate under revision.
 \end{proof}
 
 %% ============================================================
@@ -615,26 +651,33 @@ exclusion certificate.
 
 \paragraph{Lean~4 fragments.}
 Selected interfaces---parallel-budget geometry and Euclidean chord lengths;
-reduction of an arbitrary covering to a manuscript-normalised model; chord and
-ownership bridges; M7.1 narrative$\leftrightarrow$checker branch logic and the
-\texttt{StandardForm} predicate; far-end PDF faithfulness and face automata;
-and algebraic/geometric pieces used in M8--M11 together with the seventeen
-living near-end leaf wirings---are formalised in the Lean~4 package
-\texttt{S6Core} (mathlib), building with no \texttt{sorry} and no extra axioms.
-The long verification manuscript remains the geometric reference for the many
-metric inequalities that are discharged primarily by certificates rather than
-by a full Lean re-proof of every inequality; ancillary files record the
-correspondence between manuscript modules and certificates.
+partial ownership / role bridges; M7.1 branch-logic scaffolding; far-end PDF
+faithfulness sketches; and algebraic pieces used in M8--M11 together with
+near-end leaf wirings---are present in the Lean~4 package \texttt{S6Core}
+(mathlib).  The shipped skeleton builds with no \texttt{sorry} and no extra
+axioms \emph{as a skeleton}.  Boolean ``closed'' flags
+(e.g.\ \texttt{wholeTheorem\_S6\_eq\_2\_closed}) are human-maintained
+\emph{status metadata}, not theorems about six unit squares covering a target.
+Several leaf conclusions are still propositional placeholders of the form
+\texttt{living $\to$ True}; ownership-bridge classifiers are not yet proved
+faithful to the manuscript's $k$ / $F\ni O$ / sixth-tile role selection.
+The long verification manuscript remains the geometric reference for metric
+inequalities discharged primarily by certificates.
 
 \paragraph{Reproduction.}
-The ancillary archive contains the Lean sources, certificate registries,
-checker scripts for representative rounds (including R29, R38, R42, R55-final,
-R64, and the R16 leaf cover), and the long verification manuscript.  A minimal
-path is
+The public repository ships Lean sources under \texttt{lean/}, certificate
+registries and spot-check checkers under \texttt{artifacts/}, and the long
+verification manuscript under \texttt{artifacts/long\_proof/}
+(\texttt{S6\_full\_proof.md}/\texttt{.pdf}).  Companion certificate JSON files
+needed by the shipped R42/R54--55/R64 checkers sit next to those scripts.
+The full historical \texttt{ex/all/} tree is omitted for size; see
+\texttt{artifacts/DOWNLOADS/} and \texttt{artifacts/REPRODUCE.md}.  A minimal
+path from a clean clone is
 \begin{verbatim}
-cd formalization/lean/S6Core && lake build
-python3 formalization/audit/g3_alignment_check.py
-# spot-check ex/all/check_round{29,38,42,55_final,64}.py
+cd lean/S6Core && lake build
+cd ../../artifacts && python3 audit/g3_alignment_check.py
+python3 checkers/check_round64.py
+python3 checkers/check_round63.py
 \end{verbatim}
 
 %% ============================================================
@@ -648,7 +691,7 @@ Friedman--Paterson and Friedman's surveys record constructions and small-case
 discussions \cite{FriedmanPaterson2006,FriedmanCovering}.
 D\'osa--L\'angi--Tuza proved several exact small values and boundary analogues
 and isolated the conjecture $S(6)=2$ \cite{DLT2026}; Theorem~\ref{thm:main}
-resolves that conjecture.
+is a candidate argument addressing that conjecture.
 Asymptotic packing-waste problems of Chung--Graham
 \cite{ChungGraham2009,ChungGraham2020} concern a different regime.
 
@@ -660,8 +703,8 @@ independent checkability and durable availability of code and data
 \section{Concluding remarks}\label{sec:conclusion}
 %% ============================================================
 
-Theorem~\ref{thm:main} determines the first previously open value of $S(n)$
-beyond the classical small cases.  The same case-analysis and certificate
+If confirmed, Theorem~\ref{thm:main} would determine the first previously open
+value of $S(n)$ beyond the classical small cases.  The same case-analysis and certificate
 pipeline suggests approaches to neighbouring values (e.g.\ refinements of
 $\Pi(3)$ and boundary-covering variants $S_{\mathrm{bd}}(n)$ from~\cite{DLT2026}),
 though those questions lie outside the present paper.

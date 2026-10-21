@@ -1,0 +1,15 @@
+Maturity-fix verification log — 2026-10-21 Asia/Shanghai
+Working directory base: /workspace/s6_maturity_fix
+
+Commands and exit codes:
+1. pdflatex×3 + bibtex on preprints/.../build/main.tex → exit 0,0,0 / bibtex 0
+   paper.pdf = 12 pages, copied from build/main.pdf
+2. python3 artifacts/checkers/check_round64.py → exit 0 (result passed; found round64_certificate.json)
+3. python3 artifacts/checkers/check_round63.py → exit 0
+4. python3 artifacts/checkers/check_round55_final.py → exit 0 (result passed)
+5. /workspace/s6venv/bin/python artifacts/checkers/check_round42.py → exit 0 (needs z3; system python3 lacked z3)
+6. python3 artifacts/audit/g3_alignment_check.py → exit 1
+   Expected on clean public tree: 20 errors for missing private closure/*.md and some far-end checkers.
+   No hardcoded /workspace/uploads path remains in the script.
+
+Not run: lake build (Lean/mathlib not installed in this environment).

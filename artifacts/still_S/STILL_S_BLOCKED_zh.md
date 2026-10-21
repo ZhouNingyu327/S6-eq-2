@@ -1,3 +1,5 @@
+> **2026-10-21：** 空的 `still_S_after_b23d.jsonl` 已替换为清单；公开口径为候选修订中，见 `CHANGELOG_zh.md`。
+
 # 仍（S）阻塞原因（crisp）
 
 更新：2026-10-20 Asia/Shanghai

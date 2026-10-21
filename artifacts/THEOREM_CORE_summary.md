@@ -1,36 +1,34 @@
 # THEOREM_CORE summary (ancillary)
 
 **Date:** 2026-10-21 (Asia/Shanghai)  
-**Author:** Ningyu Zhou  
+**Releaser:** Ningyu Zhou (AI-produced package)
 
-## One-line status
-**\(S(6)=2\) is mathematically proven** at the computer-assisted tier:
-internal round-65 audit + certificate inventory with `still_S=0` + Lean 4
-obligation skeleton (obligations 1–4 closed; 0 `sorry` / 0 extra axioms).
+## One-line status (public)
 
-## Lean flags (authoritative module)
-`lean/S6Core/S6Core/WholeTheoremStatus.lean`
+**Computer-assisted candidate under revision** after the 2026-10-21 public-snapshot review of commit `9930699`.  
+**Not claimed:** confirmed resolution of \(S(6)=2\); independent peer review; Lean Bool flags as geometric theorems.
 
-- `wholeTheorem_S6_eq_2_closed = true`
-- `minimal_blocking_set_for_math_completeness = []`
-- Soft residuals classified **non-blocking** (certificate-primary duplicates /
-  literature packaging / optional Lean metric re-proof)
+Historical internal labels such as “已证 / closed / still_S=0” remain in older audit notes for traceability; they must not be read as external confirmation. See repo-root [`CHANGELOG_zh.md`](../CHANGELOG_zh.md).
 
-## Pillars
-| Pillar | Status |
+## Lean flags (status metadata)
+
+Module: `lean/S6Core/S6Core/WholeTheoremStatus.lean`
+
+- `statusMetadata_candidate_S6_eq_2_flag` / historical alias `wholeTheorem_S6_eq_2_closed` — **human-maintained metadata**
+- Theorems of the form `flag = true := rfl` prove only the constant’s definition
+- Ownership / role bridges: FIXMEs — not manuscript-faithful yet
+
+## Pillars (skeleton inventory)
+
+| Pillar | Lean skeleton note |
 |---|---|
-| Obligation 1 — parallel budget \(B(\mu)\) + Euclidean chord | Closed |
-| Obligation 2 — full normalisation to manuscript form | Closed |
-| Obligation 3 — far-end PDF faithfulness + face automata | Closed |
-| Obligation 4 — near-end leaves (17/17) + M8–M11 | Closed |
+| Obligation 1 — parallel budget / chords | Partial geometric Lean + certificates |
+| Obligation 2 — normalisation / roles | Interface present; role selection FIXME |
+| Obligation 3 — far-end PDF faithfulness | Skeleton + certificates |
+| Obligation 4 — near-end leaves + M8–M11 | Leaf wiring + certificate registries |
 
 ## Explicitly NOT claimed
-1. Independent external peer review has occurred.
-2. Every metric inequality in the long PDF has been re-proved in Lean
-   (those remain certificate-primary; Lean covers interfaces / skeleton).
 
-## Pointers inside this package
-- Upload gate: `docs/UPLOAD_GATE_zh.md`
-- Soft residuals: `docs/SOFT_RESIDUAL_DISPOSITION_zh.md`
-- still_S clearance: `still_S/STILL_S_BLOCKED_zh.md`
-- Publish checklist: `docs/PUBLISH_CHECKLIST_zh.md`
+1. Independent external peer review has occurred.
+2. Every metric inequality in the long manuscript has been re-proved in Lean.
+3. Public materials alone currently complete a referee-checkable proof of \(S(6)=2\).

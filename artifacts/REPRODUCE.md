@@ -1,14 +1,10 @@
-# Reproduction guide (ancillary package for arXiv)
+# Reproduction guide
 
-**Paper:** Ningyu Zhou — *Six unit squares cannot cover a square of side greater than 2*  
-**Claim tier:** computer-assisted mathematical completeness of \(S(6)=2\)  
-**Not claimed:** independent peer review; full Lean re-proof of every metric inequality  
+**Paper:** AI assistant (released by Ningyu Zhou) — *Six unit squares cannot cover a square of side greater than 2*  
+**Claim tier:** computer-assisted **candidate** (under revision after 2026-10-21 public-snapshot review)  
+**Not claimed:** independent peer review; confirmed resolution of \(S(6)=2\); Lean Bool flags as geometric theorems
 
-This folder is a self-contained *skeleton* for checking the Lean obligation layer
-and the certificate registries. Full round-by-round JSON certificates and the
-complete `ex/all/` checker tree live in the author’s verification archive
-(companion to the long manuscript); spot-check scripts for key rounds are
-included under `checkers/`.
+Paths below are relative to the **repository root** unless noted.
 
 ---
 
@@ -16,104 +12,95 @@ included under `checkers/`.
 
 | Path | Contents |
 |---|---|
-| `lean/S6Core/` | Lean 4 sources + `lakefile.toml` + `lean-toolchain` + `lake-manifest.json` |
-| `certs/` | Certificate registries (near-end leaves, M7–M11, obligation batches) |
-| `checkers/` | Representative Python checkers (R16, R29, R38, R41–42, R50, R55, R60–64) |
-| `still_S/` | Evidence that `still_S=0` after batch b23d + R65 audit pointers |
-| `audit/` | G3 alignment script/result; M8–M11 dual-wrapper / faithfulness JSON |
-| `docs/` | Upload gate, publish checklist, obligation notes, soft-residual disposition |
-| `scripts/` | Small auxiliary verifiers |
+| `lean/S6Core/` | Lean 4 skeleton + Lake pin |
+| `artifacts/certs/` | Certificate registries |
+| `artifacts/checkers/` | Spot-check Python scripts **plus companion JSON** for R42/R54–55/R64 |
+| `artifacts/still_S/` | Audit notes + honest manifests (empty `b23d` replaced) |
+| `artifacts/audit/` | G3 alignment script (repo-relative paths) |
+| `artifacts/long_proof/` | Long verification manuscript (`.md` + `.pdf`) |
+| `artifacts/DOWNLOADS/` | Hash manifest for omitted `ex/all/` |
 
 ---
 
-## 1. Lean 4: `lake build`
-
-Requires a working Lean 4 / Lake installation. The pin is:
-
-```
-leanprover/lean4:v4.35.0
-mathlib @ v4.35.0   (see lakefile.toml / lake-manifest.json)
-```
+## 1. Lean 4: `lake build` (skeleton only)
 
 ```bash
 cd lean/S6Core
-lake update   # first time: fetches mathlib (large download)
+lake update   # first time: fetches mathlib
 lake build
 ```
 
-Success: `Build completed successfully`. Closed modules build with **no `sorry`**
-and **no extra axioms**.
-
-Flag smoke-check (after a successful build):
-
-```bash
-cd lean/S6Core
-cat > /tmp/eval_s6_flags.lean << 'LEAN'
-import S6Core.WholeTheoremStatus
-#eval S6.WholeTheoremStatus.wholeTheorem_S6_eq_2_closed
-#eval S6.WholeTheoremStatus.minimal_blocking_set_for_math_completeness
-LEAN
-lake env lean /tmp/eval_s6_flags.lean
-# expect: true
-# expect: []
-```
+Success means the **shipped skeleton** builds with no `sorry` / extra axioms.
+Boolean flags such as `wholeTheorem_S6_eq_2_closed` are **status metadata**
+(`statusMetadata_candidate_S6_eq_2_flag`); evaluating them to `true` is not a
+proof of \(S(6)=2\).
 
 ---
 
-## 2. G3 narrative ↔ checker alignment
+## 2. G3 narrative ↔ file checklist
 
 ```bash
+cd artifacts
 python3 audit/g3_alignment_check.py
-# expect: pass / G3_checklistClosed / G3_overallClosed = true
-# (script reads certs/g3_m7_1_alignment_checklist.json when run from package root;
-#  if paths are hard-coded, run from the original formalization/ tree or edit cwd)
 ```
 
-Precomputed result: `audit/g3_alignment_check_result.json`.
+Paths are resolved from this repository only (optional in-repo overlays:
+`private_ex_all/`, `artifacts/private_overlay/`). On a clean public clone the
+script is expected to **report errors** for checklist sources such as
+`closure/*.md` and some far-end checkers that were not shipped — that is
+documented deferred delivery, not a path bug. Precomputed
+`audit/g3_alignment_check_result.json` records the latest run.
 
 ---
 
-## 3. Certificate registries and `still_S=0`
+## 3. Spot-check checkers (clean clone)
 
-- Inventories: `certs/m7_m8_m11_certificate_inventory.json`,
-  `certs/m{8,9,10,11}_certificate_registry.json`,
-  `certs/near_end_leaf_certificate_registry.json`
-- Clearance note: `still_S/STILL_S_BLOCKED_zh.md` — **still_S = 0** after b23d
-- Snapshots: `still_S/still_S_after_b23d.jsonl` (and prior b22d/b23*)
-- Round-65 internal audit summary: `still_S/S6_round65_full_audit.md`,
-  `still_S/bundle_verification_result.json`, `still_S/r65_manifest.json`
+Companion JSON files are next to the scripts (and under `checkers/work/` for
+scripts that prefer a `work/` directory):
 
-Faithfulness / dual-wrapper spot checks (M8–M11):
-
-- `audit/faithfulness_G4_M8_M11_expanded.json`
-- `audit/dual_wrapper_M8_M11_results.jsonl`
-- `audit/faithfulness_M8_M11_spotcheck.json`
+```bash
+cd artifacts/checkers
+python3 check_round64.py      # needs round64_certificate.json (shipped)
+python3 check_round63.py      # self-contained identities
+python3 check_round55_final.py  # needs round55_certificate.json + round54_certificate.json
+python3 check_round42.py      # needs work/round42_interval_certificate.json (shipped) + `z3` (`pip install z3-solver`)
+# R29 / R38 scripts generate JSON; prior outputs are also shipped for comparison
+```
 
 ---
 
-## 4. Spot-check checkers
+## 4. `still_S` honesty
 
-Scripts under `checkers/` are the paper’s representative rounds. They typically
-expect companion certificate JSON files that lived next to them in `ex/all/` of
-the full verification tree. Use them as:
-
-1. **Source audit** — read the predicates and certificate wiring; or
-2. **Replay** — place the matching `*_certificate.json` (and helpers) beside
-   the script, then `python3 checkers/check_round64.py` (etc.).
-
-Included: R16 interval cover; R29 far-TOP; R38 empty-right; R41–42 (M8);
-R50 / R55-final (M9); R60 / R62 (M10); R63 / R64 (M11).
+- `still_S/still_S_after_b23d.jsonl` was **0 bytes** in public commit `9930699`.
+  It is replaced by a one-line pointer + `still_S_after_b23d_MANIFEST.json`.
+- Do **not** treat an empty log as PASS.
+- Prior non-empty snapshots: `still_S_after_b22d.jsonl`, `still_S_after_b23c.jsonl`.
+- Round-65 audit narrative: `S6_round65_full_audit.md` (includes β-clamp /
+  stepwise reclassification notes in §4).
 
 ---
 
-## 5. Accuracy reminder
+## 5. Long proof
+
+See `long_proof/S6_full_proof.md` and `.pdf` with `long_proof/SHA256SUMS.json`.
+
+---
+
+## 6. Omitted `ex/all/`
+
+Full historical checker/certificate tree omitted for size. Hash inventory:
+`DOWNLOADS/ex_all_SHA256_manifest.json`. Spot-check companions for key rounds
+are shipped under `checkers/`.
+
+---
+
+## 7. Accuracy reminder
 
 | Layer | Status in this package |
 |---|---|
-| Mathematical completeness \(S(6)=2\) (computer-assisted) | Asserted / closed |
-| Lean obligations 1–4 skeleton | Closed (`wholeTheorem_S6_eq_2_closed = true`) |
-| Certificate `still_S` | 0 |
+| \(S(6)=2\) as confirmed theorem | **Not claimed** (candidate under revision) |
+| Lean obligations skeleton | Partial; Bool flags = metadata |
+| Ownership / role fidelity to manuscript | **Open** (FIXME in Lean sources) |
+| One-shot “later normalisations = id” | **Retracted** in short paper; stepwise reclassification |
+| Certificate spot checks (shipped) | Runnable for R63/R64/R55/R42 when deps present |
 | Independent peer review | **Not done** |
-| Full Lean re-proof of every R30–64 metric inequality | **Not done** (certificate-primary) |
-
-See `docs/UPLOAD_GATE_zh.md` and `docs/THEOREM_CORE_summary.md`.

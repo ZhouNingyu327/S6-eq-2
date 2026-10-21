@@ -320,8 +320,10 @@ theorem remaining_is_triple_of_sides_excluded
     o = OuterEdgeState.triple := by
   cases o <;> simp at hL hR ⊢
 
-/-- Manuscript reduction fragment: side exclusions + empty FHoriz + bottom flags
-⇒ StandardForm. -/
+/-- NON-PROOF of geometry: constructs a *fresh* `StandardForm` record whose
+Boolean fields are set to `true` by definition. This does **not** prove that a
+concrete covering's same tile C avoids the bottom edge, or that the same tile F
+owns the bottom gap. See 2026-10-21 public-snapshot referee report, Major 2. -/
 theorem reduction_to_standardForm
     (o : OuterEdgeState) (_fh : FHorizStatus)
     (hL : o ≠ OuterEdgeState.leftGap)

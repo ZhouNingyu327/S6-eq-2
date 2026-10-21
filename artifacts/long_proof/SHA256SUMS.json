@@ -1,0 +1,30 @@
+{
+  "updated": "2026-10-21 Asia/Shanghai",
+  "files": [
+    {
+      "file": "S6_full_proof.md",
+      "bytes": 594534,
+      "sha256": "5928f5bf46d7af9f70f945efa4df8e4edd3134ab306d5a478e9fb76b50aa94e6"
+    },
+    {
+      "file": "S6_full_proof.pdf",
+      "bytes": 5926084,
+      "sha256": "681d54b18a86992bc04ec10611ec9a3d7dedd87d2d95bb5a5d839a66e3eb5be2"
+    },
+    {
+      "file": "THEOREM_STATUS_zh.md",
+      "bytes": 850,
+      "sha256": "1db257fd845e03287ab8cff42ebfc3210ad69b347b99e81a3b1a36465ad096d6"
+    },
+    {
+      "file": "VERIFY_SUMMARY_zh.md",
+      "bytes": 472,
+      "sha256": "2cd63b7a875d1c535f5290bab9be239889d38a41a1759300dc9941fbd293299c"
+    },
+    {
+      "file": "manifest.json",
+      "bytes": 10296,
+      "sha256": "f62cbf1588c55b862b38f39a10af619148e076baa2bccd06a3cbb8a107d25d08"
+    }
+  ]
+}
