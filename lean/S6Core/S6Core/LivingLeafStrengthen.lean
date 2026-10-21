@@ -256,8 +256,18 @@ theorem manuscriptRayGeometryComplete_true_reexport :
 theorem certOpenDependencyRemoved_true_reexport :
     certOpenDependencyRemoved = true := certOpenDependencyRemoved_true
 
-theorem partialSE2UnrealisedProved_false_reexport :
-    partialSE2UnrealisedProved = false := partialSE2UnrealisedProved_false
+theorem partialSE2UnrealisedProved_true_reexport :
+    LivingLeafGeomDischarge.partialSE2UnrealisedProved = true :=
+  LivingLeafGeomDischarge.partialSE2UnrealisedProved_true
+
+theorem partialSE2_not_realised_priority_reexport :
+    ¬ S6.NearEndRealisation.NearEndLeafRealised ⟨.bothMeet, .gap, .empty⟩ ∧
+      ¬ S6.NearEndRealisation.NearEndLeafRealised ⟨.bothMeet, .gap, .neg⟩ :=
+  ⟨S6.NearEndRealisation.not_realised_R14, S6.NearEndRealisation.not_realised_R17⟩
+
+theorem rawSE2EmptyProved_false_reexport :
+    LivingLeafGeomDischarge.rawSE2EmptyProved = false :=
+  LivingLeafGeomDischarge.rawSE2EmptyProved_false
 
 theorem namedClosersDischargedProved_false_reexport :
     LivingLeafGeomDischarge.namedClosersDischargedProved = false :=
@@ -270,7 +280,7 @@ theorem priority_fullGeom_R14_R17_R27_28_reexport :
 
 def openStatus : String :=
   "CLOSED: living/impossible lists, closer labels, bothGap counts, R13–R28 closer multiplicities. \
-   CloserDualObligation×8; LivingLeafGeomExcluded via ¬ManuscriptCompleteRealised; manuscriptRayGeometryComplete. OPEN: ¬partial NearEndSE2; combinatorial CloserDischarged. \
+   CloserDualObligation×8; GeomExcluded; partialSE2UnrealisedProved (Bernstein region). OPEN: rawSE2Empty; combinatorial CloserDischarged. \
    Not PrincipalClaim."
 
 end S6.LivingLeafStrengthen

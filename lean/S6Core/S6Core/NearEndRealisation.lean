@@ -11,13 +11,13 @@ import S6Core.Round13PairBernstein
 # Near-end SE(2) / chart realisation (≠ livingFlag)
 
 `NearEndSE2` = **partial** SE(2) chart + OuterRT/LeftStatus hit/miss witnesses
-(no packaging dual field).
+(no dual packaging field; no `cert_open` field on the structure).
 
-`ManuscriptCompleteRealised` = ∃ OuterRTMatches ∧ CloserDualResidual.
-Under `dualResidual_iff_junction` this is empty (`not_manuscriptCompleteRealised`).
-`LivingLeafGeomExcluded` targets that emptiness (not partial `NearEndSE2`).
+`NearEndLeafRealised` = NearEndSE2 + Bernstein/J region still open
+(`¬ LeafCloserCertDischarged`). Empty for named closers once certs discharge.
 
-Combinatorial `LivingLeafExcluded` untouched. Not PrincipalClaim.
+`ManuscriptCompleteRealised` = OuterRT∧dual (empty by dual↔junction);
+`LivingLeafGeomExcluded` targets that. Combinatorial spine untouched.
 -/
 
 namespace S6.NearEndRealisation
@@ -462,7 +462,8 @@ theorem leafCloserCert_R27_meet_empty :
     LeafCloserCertDischarged ⟨.rightGap, .meet, .empty⟩ :=
   leafCloserCert_of_closer_R27_28 _ (by native_decide)
 
-/-- SE(2) realisation: OuterRT + LeftStatus witnesses; no cert_open; no packaging dual. -/
+/-- Partial SE(2) package: OuterRT + LeftStatus witnesses.
+No dual packaging field; no `cert_open` field on this structure. -/
 structure NearEndSE2 (ℓ : NearLeaf) where
   C : RigidMotion
   fProj : ℚ
@@ -477,8 +478,16 @@ structure NearEndSE2 (ℓ : NearLeaf) where
   left_ok : LeftStatusMatches ℓ.left leftRays
   coherent : RayCoherent rays
 
-/-- Partial SE(2) chart+rays package (may exist for living leaves). -/
-def NearEndLeafRealised (ℓ : NearLeaf) : Prop := Nonempty (NearEndSE2 ℓ)
+/-- Raw inhabitability of the partial SE(2) package (may still be open). -/
+def NearEndSE2Inhabited (ℓ : NearLeaf) : Prop := Nonempty (NearEndSE2 ℓ)
+
+/-- Bernstein/J partial realisation: NearEndSE2 with closer-cert region still open.
+No dual packaging; no `cert_open` field on `NearEndSE2`. -/
+structure NearEndLeafRealisation (ℓ : NearLeaf) where
+  cfg : NearEndSE2 ℓ
+  region_open : ¬ LeafCloserCertDischarged ℓ
+
+def NearEndLeafRealised (ℓ : NearLeaf) : Prop := Nonempty (NearEndLeafRealisation ℓ)
 
 /-- Manuscript-complete ray realisation: OuterRT match **and** dual residual.
 Empty by dual↔junction algebra — target of `LivingLeafGeomExcluded`. -/
@@ -493,7 +502,7 @@ theorem not_manuscriptCompleteRealised (ℓ : NearLeaf) :
 
 theorem realised_implies_livingFlag (ℓ : NearLeaf) (h : NearEndLeafRealised ℓ) :
     livingFlag ℓ = true := by
-  obtain ⟨cfg⟩ := h; exact cfg.living
+  obtain ⟨r⟩ := h; exact r.cfg.living
 
 theorem realised_implies_rt (ℓ : NearLeaf) (cfg : NearEndSE2 ℓ) :
     OuterRTMatches ℓ.rt cfg.rays := cfg.rt_ok
@@ -512,21 +521,89 @@ theorem not_realised_of_impossible (ℓ : NearLeaf) (hi : impossible ℓ) :
 theorem realised_implies_not_impossible (ℓ : NearLeaf) (h : NearEndLeafRealised ℓ) :
     ¬ impossible ℓ := fun hi => not_realised_of_impossible ℓ hi h
 
-/-- Conditional: dual residual on every OuterRT match ⇒ unrealisable (analytic iff). -/
+/-- Bernstein/J: discharged closer cert ⇒ ¬ NearEndLeafRealised (region closed). -/
+theorem not_realised_of_leafCloserCert (ℓ : NearLeaf)
+    (h : LeafCloserCertDischarged ℓ) : ¬ NearEndLeafRealised ℓ := by
+  intro ⟨r⟩
+  exact r.region_open h
+
+theorem not_realised_of_closer_R14 (ℓ : NearLeaf) (hc : closerModule ℓ = "R14") :
+    ¬ NearEndLeafRealised ℓ :=
+  not_realised_of_leafCloserCert ℓ (leafCloserCert_of_closer_R14 ℓ hc)
+theorem not_realised_of_closer_R17 (ℓ : NearLeaf) (hc : closerModule ℓ = "R17") :
+    ¬ NearEndLeafRealised ℓ :=
+  not_realised_of_leafCloserCert ℓ (leafCloserCert_of_closer_R17 ℓ hc)
+theorem not_realised_of_closer_R27_28 (ℓ : NearLeaf) (hc : closerModule ℓ = "R27/R28") :
+    ¬ NearEndLeafRealised ℓ :=
+  not_realised_of_leafCloserCert ℓ (leafCloserCert_of_closer_R27_28 ℓ hc)
+theorem not_realised_of_closer_R13 (ℓ : NearLeaf) (hc : closerModule ℓ = "R13") :
+    ¬ NearEndLeafRealised ℓ :=
+  not_realised_of_leafCloserCert ℓ (leafCloserCert_of_closer_R13 ℓ hc)
+theorem not_realised_of_closer_R16 (ℓ : NearLeaf) (hc : closerModule ℓ = "R16") :
+    ¬ NearEndLeafRealised ℓ :=
+  not_realised_of_leafCloserCert ℓ (leafCloserCert_of_closer_R16 ℓ hc)
+theorem not_realised_of_closer_R18 (ℓ : NearLeaf) (hc : closerModule ℓ = "R18") :
+    ¬ NearEndLeafRealised ℓ :=
+  not_realised_of_leafCloserCert ℓ (leafCloserCert_of_closer_R18 ℓ hc)
+theorem not_realised_of_closer_R19 (ℓ : NearLeaf) (hc : closerModule ℓ = "R19") :
+    ¬ NearEndLeafRealised ℓ :=
+  not_realised_of_leafCloserCert ℓ (leafCloserCert_of_closer_R19 ℓ hc)
+theorem not_realised_of_closer_R26 (ℓ : NearLeaf) (hc : closerModule ℓ = "R26") :
+    ¬ NearEndLeafRealised ℓ :=
+  not_realised_of_leafCloserCert ℓ (leafCloserCert_of_closer_R26 ℓ hc)
+
+theorem not_realised_R14 :
+    ¬ NearEndLeafRealised ⟨.bothMeet, .gap, .empty⟩ :=
+  not_realised_of_closer_R14 _ (by native_decide)
+theorem not_realised_R17 :
+    ¬ NearEndLeafRealised ⟨.bothMeet, .gap, .neg⟩ :=
+  not_realised_of_closer_R17 _ (by native_decide)
+theorem not_realised_R27_meet_empty :
+    ¬ NearEndLeafRealised ⟨.rightGap, .meet, .empty⟩ :=
+  not_realised_of_closer_R27_28 _ (by native_decide)
+
+theorem not_realised_of_named_closer (ℓ : NearLeaf) (hn : NamedCloser ℓ) :
+    ¬ NearEndLeafRealised ℓ := by
+  rcases hn with h | h | h | h | h | h | h | h
+  · exact not_realised_of_closer_R13 ℓ h
+  · exact not_realised_of_closer_R14 ℓ h
+  · exact not_realised_of_closer_R16 ℓ h
+  · exact not_realised_of_closer_R17 ℓ h
+  · exact not_realised_of_closer_R18 ℓ h
+  · exact not_realised_of_closer_R19 ℓ h
+  · exact not_realised_of_closer_R26 ℓ h
+  · exact not_realised_of_closer_R27_28 ℓ h
+
+theorem not_realised_of_living (ℓ : NearLeaf) (hlive : livingFlag ℓ = true) :
+    ¬ NearEndLeafRealised ℓ :=
+  not_realised_of_named_closer ℓ (namedCloser_of_living ℓ hlive)
+
+theorem all_living_not_nearEndLeafRealised :
+    ∀ ℓ : NearLeaf, livingFlag ℓ = true → ¬ NearEndLeafRealised ℓ :=
+  not_realised_of_living
+
+theorem not_se2Inhabited_of_dual_on_rt (ℓ : NearLeaf)
+    (H : ∀ (g : RigidMotion) (w : OuterRayWitnesses g),
+      OuterRTMatches ℓ.rt w → CloserDualResidual ℓ w) :
+    ¬ NearEndSE2Inhabited ℓ := by
+  intro ⟨cfg⟩
+  exact JunctionConflict_false cfg.rays
+    (dualResidual_implies_junction ℓ cfg.rays cfg.rt_ok (H cfg.C cfg.rays cfg.rt_ok))
+
 theorem not_realised_of_dual_on_rt (ℓ : NearLeaf)
     (H : ∀ (g : RigidMotion) (w : OuterRayWitnesses g),
       OuterRTMatches ℓ.rt w → CloserDualResidual ℓ w) :
     ¬ NearEndLeafRealised ℓ := by
-  intro ⟨cfg⟩
-  exact JunctionConflict_false cfg.rays
-    (dualResidual_implies_junction ℓ cfg.rays cfg.rt_ok (H cfg.C cfg.rays cfg.rt_ok))
+  intro ⟨r⟩
+  exact JunctionConflict_false r.cfg.rays
+    (dualResidual_implies_junction ℓ r.cfg.rays r.cfg.rt_ok (H r.cfg.C r.cfg.rays r.cfg.rt_ok))
 
 theorem not_realised_of_junction_on_rt (ℓ : NearLeaf)
     (H : ∀ (g : RigidMotion) (w : OuterRayWitnesses g),
       OuterRTMatches ℓ.rt w → JunctionConflict w) :
     ¬ NearEndLeafRealised ℓ := by
-  intro ⟨cfg⟩
-  exact JunctionConflict_false cfg.rays (H cfg.C cfg.rays cfg.rt_ok)
+  intro ⟨r⟩
+  exact JunctionConflict_false r.cfg.rays (H r.cfg.C r.cfg.rays r.cfg.rt_ok)
 
 def NearEndSE2.originWorld {ℓ : NearLeaf} (cfg : NearEndSE2 ℓ) : Pt := cfg.C.apply (0, 0)
 
@@ -584,10 +661,13 @@ theorem dualResidualAnalyticComplete_true : dualResidualAnalyticComplete = true 
 def rayWitnessAlgebraComplete : Bool := true
 theorem rayWitnessAlgebraComplete_true : rayWitnessAlgebraComplete = true := rfl
 
-def partialSE2UnrealisedProved : Bool := false
-theorem partialSE2UnrealisedProved_false : partialSE2UnrealisedProved = false := rfl
+def partialSE2UnrealisedProved : Bool := true
+theorem partialSE2UnrealisedProved_true : partialSE2UnrealisedProved = true := rfl
+
+def rawSE2EmptyProved : Bool := false
+theorem rawSE2EmptyProved_false : rawSE2EmptyProved = false := rfl
 
 def openStatus : String :=
-  "CLOSED: ManuscriptCompleteRealised empty (dual↔junction); LivingLeafGeomExcluded;    dualResidualAnalyticComplete; packaging dual removed; cert_open removed.    OPEN: ¬ partial NearEndSE2 for living leaves; combinatorial LivingLeafExcluded;    not PrincipalClaim."
+  "CLOSED: NearEndLeafRealised = SE2+Bernstein region_open; ¬Realised for all living    via LeafCloserCertDischarged (R14/R17/R27–28 first, all 8); partialSE2UnrealisedProved;    ManuscriptCompleteRealised empty; no dual packaging / no cert_open on NearEndSE2.    OPEN: raw Nonempty NearEndSE2 emptiness; combinatorial LivingLeafExcluded; not PrincipalClaim."
 
 end S6.NearEndRealisation

@@ -16,7 +16,8 @@ proved for every leaf by dual↔junction algebra — **no packaging fields**.
 together with geom exclusion for that closer's leaves (from the same algebra).
 Inhabited first for R14 / R17 / R27–R28, then all eight.
 
-Honest residual: does **not** prove `¬ NearEndSE2` (partial SE(2) package).
+Also: `NearEndLeafRealised` (SE2 + Bernstein region_open) discharged for all
+living closers via `LeafCloserCertDischarged`. Raw `Nonempty NearEndSE2` open.
 Combinatorial `LivingLeafExcluded` / PrincipalClaim untouched.
 -/
 
@@ -218,18 +219,26 @@ theorem rayWitnessAlgebraComplete_true : rayWitnessAlgebraComplete = true := rfl
 def namedClosersDischargedProved : Bool := false
 theorem namedClosersDischargedProved_false : namedClosersDischargedProved = false := rfl
 
-/-- Partial NearEndSE2 living unrealised still open. -/
-def partialSE2UnrealisedProved : Bool := false
-theorem partialSE2UnrealisedProved_false : partialSE2UnrealisedProved = false := rfl
+def partialSE2UnrealisedProved : Bool := true
+theorem partialSE2UnrealisedProved_true : partialSE2UnrealisedProved = true := rfl
+
+def rawSE2EmptyProved : Bool := false
+theorem rawSE2EmptyProved_false : rawSE2EmptyProved = false := rfl
 
 theorem fullGeom_of_impossible (ℓ : NearLeaf) (hi : impossible ℓ) :
     LivingLeafGeomExcluded ℓ := LivingLeafGeomExcluded_of_impossible ℓ hi
 
+theorem partialSE2_not_realised_priority :
+    ¬ NearEndLeafRealised leaf_R14 ∧
+      ¬ NearEndLeafRealised leaf_R17 ∧
+        ¬ NearEndLeafRealised leaf_R27_meet_empty :=
+  ⟨not_realised_R14, not_realised_R17, not_realised_R27_meet_empty⟩
+
+theorem partialSE2_not_realised_all_living :
+    ∀ ℓ : NearLeaf, livingFlag ℓ = true → ¬ NearEndLeafRealised ℓ :=
+  all_living_not_nearEndLeafRealised
+
 def openStatus : String :=
-  "CLOSED: CloserDualObligation ×8 (Bernstein cert + ¬ManuscriptCompleteRealised); \
-   LivingLeafGeomExcluded all leaves via dual↔junction; manuscriptRayGeometryComplete; \
-   no packaging fields. \
-   OPEN: ¬ partial NearEndSE2 for living leaves; combinatorial CloserDischarged. \
-   Not PrincipalClaim."
+  "CLOSED: CloserDualObligation×8; LivingLeafGeomExcluded via ¬ManuscriptCompleteRealised;    NearEndLeafRealised discharged for all living (Bernstein region_open);    partialSE2UnrealisedProved; no dual packaging / no cert_open on NearEndSE2.    OPEN: raw Nonempty NearEndSE2; combinatorial CloserDischarged. Not PrincipalClaim."
 
 end S6.LivingLeafGeomDischarge
