@@ -171,3 +171,14 @@ Honest residual: inhabit `CloserDischarged` for each of 8 labels (geometry). Rat
 | `namedClosersDischargedProved` | false |
 | `principalClaimProvedUnconditionally` | false |
 
+## SE(2) realisation + pending CloserGeomDischarged ×8
+
+| Item | Status |
+|------|--------|
+| `NearEndSE2` / `NearEndLeafRealised` | **Concrete SE(2)+chart** (opacity removed) |
+| `LivingLeafGeomExcluded` | `¬ NearEndLeafRealised` (alias; combinatorial `LivingLeafExcluded` kept for MainTheorem) |
+| `CloserGeomDischarged` pending (R14/R17/R27–28 first, then all 8) | **Inhabited** via cert residual on `NearEndSE2Pending` |
+| Full `¬ NearEndLeafRealised` | **Open** |
+| Combinatorial `CloserDischarged` | **Blocked** (livingFlag encoding) |
+| `principalClaimProvedUnconditionally` | false |
+

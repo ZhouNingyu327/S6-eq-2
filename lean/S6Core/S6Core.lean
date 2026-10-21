@@ -17,6 +17,7 @@ import S6Core.ClassificationExample
 import S6Core.Faithfulness
 import S6Core.CoveringGeometry
 import S6Core.MainTheorem
+import S6Core.NearEndRealisation
 import S6Core.NearEndGeometry
 import S6Core.G5Fragments
 import S6Core.AxisClassConstraints
@@ -34,6 +35,7 @@ import S6Core.NearEndAdjacentExact
 import S6Core.NearEndRationalChecks
 import S6Core.LivingLeafCloserBridge
 import S6Core.LivingLeafCertDischarge
+import S6Core.LivingLeafGeomDischarge
 import S6Core.LivingLeafStrengthen
 import S6Core.G3G4Fragments
 import S6Core.G5ExclusionFrag

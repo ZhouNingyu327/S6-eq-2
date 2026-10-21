@@ -105,6 +105,11 @@
     "cert_discharge": "S6Core.LivingLeafCertDischarge",
     "inhabited_closer_certs": 8,
     "named_closer_certs_discharged_proved": true,
-    "closer_discharged_encoding_note": "LivingLeafExcluded:=living\u2192False blocked for livingFlag=true leaves"
+    "closer_discharged_encoding_note": "LivingLeafExcluded:=living\u2192False blocked for livingFlag=true leaves",
+    "se2_realisation": "S6Core.NearEndRealisation",
+    "geom_discharge": "S6Core.LivingLeafGeomDischarge",
+    "closer_geom_pending_count": 8,
+    "closer_geom_pending_proved": true,
+    "closer_full_geom_proved": false
   }
 }

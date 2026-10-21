@@ -1,5 +1,6 @@
 import Mathlib.Tactic
 import S6Core.Exhaustiveness
+import S6Core.NearEndRealisation
 
 /-!
 # Near-end leaf table — combinatorial impossibilities as Props
@@ -8,7 +9,9 @@ The 24-leaf near-end table is already machine-checked in `Exhaustiveness`.
 This module lifts the impossible flags to named Props used by the main
 reduction (not `→ True` stubs).
 
-Geometric realisation of each living leaf remains open / certificate-backed.
+Combinatorial `LivingLeafExcluded` retained for MainTheorem spine
+(`living → False` documentation goal). Geometric work uses
+`LivingLeafGeomExcluded` := `¬ NearEndLeafRealised` (SE(2)/chart).
 -/
 
 namespace S6.NearEndGeometry
@@ -36,13 +39,22 @@ theorem near_partition_cards :
         allNear.length = 24 :=
   ⟨count_impossible, count_living, allNear_length⟩
 
-/-- Open geometric goal for each living leaf (documentation Prop). -/
+/-- Combinatorial documentation goal (MainTheorem spine). Uninhabitable for
+living leaves while `livingFlag = true` is proved; prefer `LivingLeafGeomExcluded`. -/
 def LivingLeafExcluded (ℓ : NearLeaf) : Prop :=
   living ℓ → False
 
-/-- Bundle: all 17 living leaves geometrically excluded. -/
+/-- Geometric exclusion via SE(2)/chart realisation (≠ livingFlag). -/
+def LivingLeafGeomExcluded (ℓ : NearLeaf) : Prop :=
+  ¬ S6.NearEndRealisation.NearEndLeafRealised ℓ
+
+/-- Bundle: combinatorial living→False for every leaf (MainTheorem). -/
 def AllLivingLeavesExcluded : Prop :=
   ∀ ℓ : NearLeaf, LivingLeafExcluded ℓ
+
+/-- Bundle: every leaf unrealisable in SE(2)/chart. -/
+def AllLivingLeavesGeomExcluded : Prop :=
+  ∀ ℓ : NearLeaf, LivingLeafGeomExcluded ℓ
 
 theorem near_end_closed_of_living_excluded (h : AllLivingLeavesExcluded) :
     ∀ ℓ : NearLeaf, impossible ℓ ∨ ¬ living ℓ := by
@@ -55,21 +67,24 @@ theorem no_living_leaf_of_all_excluded (h : AllLivingLeavesExcluded)
     (ℓ : NearLeaf) (hl : living ℓ) : False :=
   h ℓ hl
 
-
-/-- Table-impossible leaves are vacuously geometrically excluded. -/
 theorem LivingLeafExcluded_of_impossible (ℓ : NearLeaf) (hi : impossible ℓ) :
     LivingLeafExcluded ℓ := by
   intro hl
   have : ¬ impossible ℓ := (living_iff_not_impossible ℓ).1 hl
   exact this hi
 
-/-- All seven table-impossible near-end leaves are LivingLeafExcluded. -/
+theorem LivingLeafGeomExcluded_of_impossible (ℓ : NearLeaf) (hi : impossible ℓ) :
+    LivingLeafGeomExcluded ℓ :=
+  S6.NearEndRealisation.not_realised_of_impossible ℓ hi
+
 theorem all_impossible_leaves_excluded :
     ∀ ℓ : NearLeaf, impossible ℓ → LivingLeafExcluded ℓ :=
   fun ℓ hi => LivingLeafExcluded_of_impossible ℓ hi
 
-/-- Count: 7 of 24 leaves discharged as LivingLeafExcluded via the table;
-17 living leaves remain open geometric goals. -/
+theorem all_impossible_leaves_geom_excluded :
+    ∀ ℓ : NearLeaf, impossible ℓ → LivingLeafGeomExcluded ℓ :=
+  fun ℓ hi => LivingLeafGeomExcluded_of_impossible ℓ hi
+
 def impossibleLeavesExcludedCount : ℕ := 7
 theorem impossibleLeavesExcludedCount_eq :
     impossibleLeavesExcludedCount = 7 := rfl
@@ -77,8 +92,6 @@ theorem impossibleLeavesExcludedCount_eq :
 def livingLeavesStillOpenCount : ℕ := 17
 theorem livingLeavesStillOpenCount_eq : livingLeavesStillOpenCount = 17 := rfl
 
-
-/-- Exact characterization of table-impossible near-end leaves. -/
 theorem impossible_cases (ℓ : NearLeaf) :
     impossible ℓ ↔
       ℓ.rt = OuterRT.bothGap ∨
@@ -87,7 +100,6 @@ theorem impossible_cases (ℓ : NearLeaf) :
   | mk rt left fh =>
     cases rt <;> cases left <;> cases fh <;> simp [impossible, isImpossibleFlag]
 
-/-- All seven table-impossible leaves, listed. -/
 theorem seven_impossible_list :
     (allNear.filter isImpossibleFlag) =
       [ ⟨.topGap,  .gap,  .pos⟩
@@ -101,5 +113,9 @@ theorem nearEndTableFragmentClosed_true : nearEndTableFragmentClosed = true := r
 def allLivingLeavesExcludedInLean : Bool := false
 theorem allLivingLeavesExcludedInLean_false :
     allLivingLeavesExcludedInLean = false := rfl
+
+def allLivingLeavesGeomExcludedInLean : Bool := false
+theorem allLivingLeavesGeomExcludedInLean_false :
+    allLivingLeavesGeomExcludedInLean = false := rfl
 
 end S6.NearEndGeometry

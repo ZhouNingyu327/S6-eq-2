@@ -1,5 +1,6 @@
 import Mathlib.Tactic
 import S6Core.NearEndGeometry
+import S6Core.NearEndRealisation
 import S6Core.Exhaustiveness
 import S6Core.LeafCertificates
 import S6Core.LivingLeafCloserBridge
@@ -240,27 +241,7 @@ theorem AllNamedClosersDischarged_of_certs_and_bridges
   rcases hg with ⟨g13, g14, g16, g17, g18, g19, g26, g2728⟩
   exact ⟨g13 c13, g14 c14, g16 c16, g17 c17, g18 c18, g19 c19, g26 c26, g2728 c2728⟩
 
-/-- Opaque geometric realisation of a near-end leaf (SE(2)/chart; ≠ `livingFlag`).
-Until inhabited by geometry, `LivingLeafGeomExcluded` stays an open goal. -/
-opaque NearEndLeafRealised : NearLeaf → Prop
-
-def LivingLeafGeomExcluded (ℓ : NearLeaf) : Prop :=
-  NearEndLeafRealised ℓ → False
-
-def CloserGeomDischarged (label : String) : Prop :=
-  ∀ ℓ : NearLeaf, closerModule ℓ = label → LivingLeafGeomExcluded ℓ
-
-/-- Same packaging shape as combinatorial CloserDischarged, aimed at realisation. -/
-def AllNamedCloserGeomDischarged : Prop :=
-  CloserGeomDischarged "R13" ∧
-    CloserGeomDischarged "R14" ∧
-      CloserGeomDischarged "R16" ∧
-        CloserGeomDischarged "R17" ∧
-          CloserGeomDischarged "R18" ∧
-            CloserGeomDischarged "R19" ∧
-              CloserGeomDischarged "R26" ∧
-                CloserGeomDischarged "R27/R28"
-
+/-- Combinatorial `CloserDischarged` still blocked; pending geom in LivingLeafGeomDischarge. -/
 def namedClosersDischargedProved : Bool := false
 theorem namedClosersDischargedProved_false :
     namedClosersDischargedProved = false := rfl
@@ -269,9 +250,6 @@ def closerGeomBridgesProved : Bool := false
 theorem closerGeomBridgesProved_false : closerGeomBridgesProved = false := rfl
 
 def openStatus : String :=
-  "CLOSED: CloserCertDischarged inhabited for all 8 labels (R13–R19/R26/R27–28); \
-   LivingLeafExcluded encoding blocked lemma recorded. \
-   OPEN: CloserGeomBridge / reformulate exclusion around NearEndLeafRealised. \
-   namedClosersDischargedProved=false; Not PrincipalClaim."
+  "CLOSED: CloserCertDischarged ×8; LivingLeafExcluded↔False blocked lemma;    SE(2) NearEndLeafRealised alias. See LivingLeafGeomDischarge for pending geom×8.    namedClosersDischargedProved=false; Not PrincipalClaim."
 
 end S6.LivingLeafCertDischarge

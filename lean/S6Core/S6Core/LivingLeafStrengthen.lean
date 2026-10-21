@@ -4,6 +4,7 @@ import S6Core.Exhaustiveness
 import S6Core.LeafCertificates
 import S6Core.LivingLeafCloserBridge
 import S6Core.LivingLeafCertDischarge
+import S6Core.LivingLeafGeomDischarge
 
 /-!
 # LivingLeaf strengthenings (table + closer inventory)
@@ -234,9 +235,18 @@ theorem allNamedCloserCertsDischarged_reexport : AllNamedCloserCertsDischarged :
 theorem inhabitedCloserCertCount_eq_eight : inhabitedCloserCertCount = 8 :=
   inhabitedCloserCertCount_eq
 
+
+open S6.LivingLeafGeomDischarge
+
+theorem allNamedCloserGeomDischarged_reexport : AllNamedCloserGeomDischarged :=
+  allNamedCloserGeomDischarged
+
+theorem closerGeomPendingBridgesProved_true_reexport :
+    closerGeomPendingBridgesProved = true := closerGeomPendingBridgesProved_true
+
 def openStatus : String :=
   "CLOSED: living/impossible lists, closer labels, bothGap counts, R13–R28 closer multiplicities. \
-   CERT: CloserCertDischarged ×8 inhabited. OPEN: CloserGeomBridge / reformulate LivingLeafExcluded (blocked by livingFlag). \
+   CERT×8 + pending CloserGeomDischarged×8 (SE(2)). OPEN: full ¬NearEndLeafRealised; combinatorial CloserDischarged. \
    Not PrincipalClaim."
 
 end S6.LivingLeafStrengthen
