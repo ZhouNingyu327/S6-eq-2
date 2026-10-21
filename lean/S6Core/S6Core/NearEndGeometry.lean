@@ -77,6 +77,24 @@ theorem impossibleLeavesExcludedCount_eq :
 def livingLeavesStillOpenCount : ℕ := 17
 theorem livingLeavesStillOpenCount_eq : livingLeavesStillOpenCount = 17 := rfl
 
+
+/-- Exact characterization of table-impossible near-end leaves. -/
+theorem impossible_cases (ℓ : NearLeaf) :
+    impossible ℓ ↔
+      ℓ.rt = OuterRT.bothGap ∨
+        (ℓ.rt = OuterRT.topGap ∧ ℓ.left = LeftStatus.gap ∧ ℓ.fh = FHoriz.pos) := by
+  cases ℓ with
+  | mk rt left fh =>
+    cases rt <;> cases left <;> cases fh <;> simp [impossible, isImpossibleFlag]
+
+/-- All seven table-impossible leaves, listed. -/
+theorem seven_impossible_list :
+    (allNear.filter isImpossibleFlag) =
+      [ ⟨.topGap,  .gap,  .pos⟩
+      , ⟨.bothGap, .meet, .empty⟩, ⟨.bothGap, .meet, .pos⟩, ⟨.bothGap, .meet, .neg⟩
+      , ⟨.bothGap, .gap,  .empty⟩, ⟨.bothGap, .gap,  .pos⟩, ⟨.bothGap, .gap,  .neg⟩ ] := by
+  native_decide
+
 def nearEndTableFragmentClosed : Bool := true
 theorem nearEndTableFragmentClosed_true : nearEndTableFragmentClosed = true := rfl
 

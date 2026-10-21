@@ -140,4 +140,22 @@ theorem G3Exclusion_of_either_budget (h : G3EitherBudgetBridge) : G3Exclusion :=
 def g3EitherBudgetReductionClosed : Bool := true
 theorem g3EitherBudgetReductionClosed_true : g3EitherBudgetReductionClosed = true := rfl
 
+
+/-- Package: G3 cover realises either side-gap BudgetHyp or opposite-mid hyp. -/
+def G3SideOrOppBridge : Prop :=
+  ∀ (T : S6.Obligation2.Target) (cov : S6.Obligation2Opens.PointwiseCover T),
+    classify (S6.Obligation2Roles.RoleSelection.ofCover cov).toManuscript.flags.toOwnership =
+        TopClass.G3 →
+      (∃ hyp : BudgetHyp, (12 : ℚ) * hyp.μ ≤ 8 + 3 * hyp.B + hyp.vF) ∨
+        Nonempty G5OppositeMidHyp
+
+theorem G3Exclusion_of_sideOrOpp (h : G3SideOrOppBridge) : G3Exclusion := by
+  intro T cov hcls
+  rcases h T cov hcls with h1 | h2
+  · rcases h1 with ⟨hyp, hp⟩; exact sideGap_impossible hyp hp
+  · exact h2.elim fun H => H.impossible
+
+def g3SideOrOppReductionClosed : Bool := true
+theorem g3SideOrOppReductionClosed_true : g3SideOrOppReductionClosed = true := rfl
+
 end S6.G3G4Fragments

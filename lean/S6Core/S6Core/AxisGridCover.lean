@@ -791,4 +791,181 @@ theorem miss_mids_midContrib_eq_zero (s : AxisSquare) (μ : ℚ)
 def axisRolePackingClosed : Bool := true
 theorem axisRolePackingClosed_true : axisRolePackingClosed = true := rfl
 
+/-! ## G5 k=0 axis roles ⇒ OnlyOwners / OnlyFillers -/
+
+/-- Any axis square containing the SW corner misses both midlines when `μ > 1`. -/
+theorem axis_contains_SW_mid_zero (s : AxisSquare) (μ : ℚ) (hμ : 1 < μ)
+    (h : s.contains (0, 0)) : midContrib s μ = 0 := by
+  have hx0 : s.x ≤ 0 := by simp only [AxisSquare.contains] at h; exact h.1.1.1
+  have hy0 : s.y ≤ 0 := by simp only [AxisSquare.contains] at h; exact h.1.2
+  have hx1 : (0 : ℚ) ≤ s.x + 1 := by simp only [AxisSquare.contains] at h; exact h.1.1.2
+  have hy1 : (0 : ℚ) ≤ s.y + 1 := by simp only [AxisSquare.contains] at h; exact h.2
+  have hhmid : ¬ (s.y ≤ μ ∧ μ ≤ s.y + 1) := by
+    intro ⟨_, h2⟩
+    have : s.y + 1 ≤ 1 := by nlinarith [hy0]
+    nlinarith [hμ, h2, this]
+  have hvmid : ¬ (s.x ≤ μ ∧ μ ≤ s.x + 1) := by
+    intro ⟨_, h2⟩
+    have : s.x + 1 ≤ 1 := by nlinarith [hx0]
+    nlinarith [hμ, h2, this]
+  exact miss_mids_midContrib_eq_zero s μ hhmid hvmid
+
+theorem axis_contains_SE_mid_zero (s : AxisSquare) (μ : ℚ) (hμ : 1 < μ)
+    (h : s.contains (2 * μ, 0)) : midContrib s μ = 0 := by
+  have hx1 : 2 * μ ≤ s.x + 1 := by simp only [AxisSquare.contains] at h; exact h.1.1.2
+  have hy0 : s.y ≤ 0 := by simp only [AxisSquare.contains] at h; exact h.1.2
+  have hhmid : ¬ (s.y ≤ μ ∧ μ ≤ s.y + 1) := by
+    intro ⟨_, h2⟩
+    have : s.y + 1 ≤ 1 := by nlinarith [hy0]
+    nlinarith [hμ, h2, this]
+  have hvmid : ¬ (s.x ≤ μ ∧ μ ≤ s.x + 1) := by
+    intro ⟨h1, h2⟩
+    -- s.x ≥ 2μ - 1 from hx1, so μ ≤ s.x+1 and s.x ≤ μ ⇒ 2μ-1 ≤ μ ⇒ μ ≤ 1
+    nlinarith [hμ, hx1, h1, h2]
+  exact miss_mids_midContrib_eq_zero s μ hhmid hvmid
+
+theorem axis_contains_NE_mid_zero (s : AxisSquare) (μ : ℚ) (hμ : 1 < μ)
+    (h : s.contains (2 * μ, 2 * μ)) : midContrib s μ = 0 := by
+  have hx1 : 2 * μ ≤ s.x + 1 := by simp only [AxisSquare.contains] at h; exact h.1.1.2
+  have hy1 : 2 * μ ≤ s.y + 1 := by simp only [AxisSquare.contains] at h; exact h.2
+  have hhmid : ¬ (s.y ≤ μ ∧ μ ≤ s.y + 1) := by
+    intro ⟨h1, h2⟩
+    nlinarith [hμ, hy1, h1, h2]
+  have hvmid : ¬ (s.x ≤ μ ∧ μ ≤ s.x + 1) := by
+    intro ⟨h1, h2⟩
+    nlinarith [hμ, hx1, h1, h2]
+  exact miss_mids_midContrib_eq_zero s μ hhmid hvmid
+
+theorem axis_contains_NW_mid_zero (s : AxisSquare) (μ : ℚ) (hμ : 1 < μ)
+    (h : s.contains (0, 2 * μ)) : midContrib s μ = 0 := by
+  have hx0 : s.x ≤ 0 := by simp only [AxisSquare.contains] at h; exact h.1.1.1
+  have hy1 : 2 * μ ≤ s.y + 1 := by simp only [AxisSquare.contains] at h; exact h.2
+  have hhmid : ¬ (s.y ≤ μ ∧ μ ≤ s.y + 1) := by
+    intro ⟨h1, h2⟩
+    nlinarith [hμ, hy1, h1, h2]
+  have hvmid : ¬ (s.x ≤ μ ∧ μ ≤ s.x + 1) := by
+    intro ⟨_, h2⟩
+    have : s.x + 1 ≤ 1 := by nlinarith [hx0]
+    nlinarith [hμ, h2, this]
+  exact miss_mids_midContrib_eq_zero s μ hhmid hvmid
+
+/-- Four corner-owners (by containment) each miss midlines ⇒ `OnlyFillersTouchMid`
+for the complementary two filler indices. -/
+theorem OnlyFillersTouchMid_of_corner_owners (μ : ℚ) (hμ : 1 < μ)
+    (squares : Fin 6 → AxisSquare)
+    (iSW iSE iNE iNW j1 j2 : Fin 6)
+    (hSW : (squares iSW).contains (0, 0))
+    (hSE : (squares iSE).contains (2 * μ, 0))
+    (hNE : (squares iNE).contains (2 * μ, 2 * μ))
+    (hNW : (squares iNW).contains (0, 2 * μ))
+    (hpart : ∀ k : Fin 6, k = iSW ∨ k = iSE ∨ k = iNE ∨ k = iNW ∨ k = j1 ∨ k = j2) :
+    OnlyFillersTouchMid μ squares j1 j2 := by
+  intro k hk1 hk2
+  -- k is one of the four owners
+  have hk : k = iSW ∨ k = iSE ∨ k = iNE ∨ k = iNW := by
+    rcases hpart k with h | h | h | h | h | h
+    · exact Or.inl h
+    · exact Or.inr (Or.inl h)
+    · exact Or.inr (Or.inr (Or.inl h))
+    · exact Or.inr (Or.inr (Or.inr h))
+    · exact absurd h hk1
+    · exact absurd h hk2
+  rcases hk with h | h | h | h
+  · rw [h]; exact axis_contains_SW_mid_zero (squares iSW) μ hμ hSW
+  · rw [h]; exact axis_contains_SE_mid_zero (squares iSE) μ hμ hSE
+  · rw [h]; exact axis_contains_NE_mid_zero (squares iNE) μ hμ hNE
+  · rw [h]; exact axis_contains_NW_mid_zero (squares iNW) μ hμ hNW
+
+/-- Two interior fillers ⇒ `OnlyOwnersTouchOuter` for the four corner indices. -/
+theorem OnlyOwnersTouchOuter_of_interior_fillers (μ : ℚ) (hμ : 1 < μ)
+    (squares : Fin 6 → AxisSquare)
+    (iSW iSE iNE iNW j1 j2 : Fin 6)
+    (hj1x0 : (0 : ℚ) < (squares j1).x) (hj1x1 : (squares j1).x + 1 < 2 * μ)
+    (hj1y0 : (0 : ℚ) < (squares j1).y) (hj1y1 : (squares j1).y + 1 < 2 * μ)
+    (hj2x0 : (0 : ℚ) < (squares j2).x) (hj2x1 : (squares j2).x + 1 < 2 * μ)
+    (hj2y0 : (0 : ℚ) < (squares j2).y) (hj2y1 : (squares j2).y + 1 < 2 * μ)
+    (hpart : ∀ k : Fin 6, k = iSW ∨ k = iSE ∨ k = iNE ∨ k = iNW ∨ k = j1 ∨ k = j2) :
+    OnlyOwnersTouchOuter μ squares iSW iSE iNE iNW := by
+  intro k hk1 hk2 hk3 hk4
+  have hk : k = j1 ∨ k = j2 := by
+    rcases hpart k with h | h | h | h | h | h
+    · exact absurd h hk1
+    · exact absurd h hk2
+    · exact absurd h hk3
+    · exact absurd h hk4
+    · exact Or.inl h
+    · exact Or.inr h
+  rcases hk with h | h
+  · rw [h]; exact interior_outerContrib_eq_zero (squares j1) μ hμ hj1x0 hj1x1 hj1y0 hj1y1
+  · rw [h]; exact interior_outerContrib_eq_zero (squares j2) μ hμ hj2x0 hj2x1 hj2y0 hj2y1
+
+/-- Axis G5 k=0 role package: four corner-owners + two strict-interior fillers,
+partitioning `Fin 6`. -/
+structure AxisG5k0Roles (μ : ℚ) (squares : Fin 6 → AxisSquare) where
+  iSW : Fin 6
+  iSE : Fin 6
+  iNE : Fin 6
+  iNW : Fin 6
+  j1 : Fin 6
+  j2 : Fin 6
+  hμ : 1 < μ
+  hSW : (squares iSW).contains (0, 0)
+  hSE : (squares iSE).contains (2 * μ, 0)
+  hNE : (squares iNE).contains (2 * μ, 2 * μ)
+  hNW : (squares iNW).contains (0, 2 * μ)
+  -- pairwise distinct corner owners
+  hdSW : iSW ≠ iSE
+  hdSW3 : iSW ≠ iNE
+  hdSW4 : iSW ≠ iNW
+  hdSE3 : iSE ≠ iNE
+  hdSE4 : iSE ≠ iNW
+  hdNE4 : iNE ≠ iNW
+  hj : j1 ≠ j2
+  -- fillers distinct from owners
+  hj1SW : j1 ≠ iSW
+  hj1SE : j1 ≠ iSE
+  hj1NE : j1 ≠ iNE
+  hj1NW : j1 ≠ iNW
+  hj2SW : j2 ≠ iSW
+  hj2SE : j2 ≠ iSE
+  hj2NE : j2 ≠ iNE
+  hj2NW : j2 ≠ iNW
+  -- partition
+  hpart : ∀ k : Fin 6, k = iSW ∨ k = iSE ∨ k = iNE ∨ k = iNW ∨ k = j1 ∨ k = j2
+  -- fillers strictly interior
+  hj1x0 : (0 : ℚ) < (squares j1).x
+  hj1x1 : (squares j1).x + 1 < 2 * μ
+  hj1y0 : (0 : ℚ) < (squares j1).y
+  hj1y1 : (squares j1).y + 1 < 2 * μ
+  hj2x0 : (0 : ℚ) < (squares j2).x
+  hj2x1 : (squares j2).x + 1 < 2 * μ
+  hj2y0 : (0 : ℚ) < (squares j2).y
+  hj2y1 : (squares j2).y + 1 < 2 * μ
+
+theorem AxisG5k0Roles.onlyFillers (R : AxisG5k0Roles μ squares) :
+    OnlyFillersTouchMid μ squares R.j1 R.j2 :=
+  OnlyFillersTouchMid_of_corner_owners μ R.hμ squares
+    R.iSW R.iSE R.iNE R.iNW R.j1 R.j2 R.hSW R.hSE R.hNE R.hNW R.hpart
+
+theorem AxisG5k0Roles.onlyOwners (R : AxisG5k0Roles μ squares) :
+    OnlyOwnersTouchOuter μ squares R.iSW R.iSE R.iNE R.iNW :=
+  OnlyOwnersTouchOuter_of_interior_fillers μ R.hμ squares
+    R.iSW R.iSE R.iNE R.iNW R.j1 R.j2
+    R.hj1x0 R.hj1x1 R.hj1y0 R.hj1y1
+    R.hj2x0 R.hj2x1 R.hj2y0 R.hj2y1 R.hpart
+
+/-- ℚ grid cover + axis G5 k=0 roles ⇒ False (unconditional on that package). -/
+theorem axis_G5k0_impossible_of_roles
+    (μ : ℚ) (squares : Fin 6 → AxisSquare)
+    (H : AxisGridRatCover μ squares) (R : AxisG5k0Roles μ squares) :
+    False :=
+  axis_rat_cover_impossible_of_role_geometry μ R.hμ squares H
+    R.iSW R.iSE R.iNE R.iNW R.j1 R.j2 R.hSW R.hSE R.hNE R.hNW
+    R.hdSW R.hdSW3 R.hdSW4 R.hdSE3 R.hdSE4 R.hdNE4 R.hj
+    R.onlyOwners R.onlyFillers
+
+def axisG5k0RolesDischargeClosed : Bool := true
+theorem axisG5k0RolesDischargeClosed_true : axisG5k0RolesDischargeClosed = true := rfl
+
+
 end S6.AxisGridCover

@@ -65,6 +65,18 @@ theorem G1Exclusion_of_bridge (h : G1LivingBridge) : G1Exclusion := h
 theorem G2cExclusion_of_bridge (h : G2cLivingBridge) : G2cExclusion := h
 theorem G2fExclusion_of_bridge (h : G2fLivingBridge) : G2fExclusion := h
 
+
+/-- The 17 living near-end leaves (open geometric goals). -/
+theorem seventeen_living_list :
+    (allNear.filter livingFlag).length = 17 :=
+  count_living
+
+/-- Table-impossible leaves are exactly bothGap (×6) + topGap/gap/pos (×1). -/
+theorem impossible_shape (ℓ : NearLeaf) (hi : impossible ℓ) :
+    ℓ.rt = OuterRT.bothGap ∨
+      (ℓ.rt = OuterRT.topGap ∧ ℓ.left = LeftStatus.gap ∧ ℓ.fh = FHoriz.pos) :=
+  (impossible_cases ℓ).1 hi
+
 def g1g2TableFragmentClosed : Bool := true
 theorem g1g2TableFragmentClosed_true : g1g2TableFragmentClosed = true := rfl
 

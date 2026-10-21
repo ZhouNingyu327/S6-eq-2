@@ -16,11 +16,19 @@ Relative to the 2026-10-21 **rereview** of commit `32e0e0f`, the API repair at `
 
 ## Still open
 
-1. **Unconditional Lean principal claim + end-to-end faithfulness.** Reduction spine + G5 algebraic R2 spine + **geom-export⇒bridge⇒G5Exclusion composition** proved; **`G5Exclusion` still conditional** on open `G5k*GeomExport` (rotated corner≤2 / CF / cover ineq from `PointwiseCover`). G3/G4 reduced to `G3SideGapBudgetBridge`/`G4BudgetBridge` (open). G1/G2: 7/24 near-end leaves table-excluded; 17 living open. Faithfulness of every informal M3.0 covering to `flagsOfTarget*` still open.
+1. **Unconditional Lean principal claim + end-to-end faithfulness.** Reduction spine + G5 algebraic R2 spine + **geom-export⇒bridge⇒G5Exclusion composition** proved; axis `AxisG5k0Roles`/`AxisG5k0CoverBridge` packing closed under roles; **`G5Exclusion` still conditional** on inhabiting `AxisG5k0CoverBridge` / `RotatedG5k0ChordExport` / `G5k*GeomExport` from `PointwiseCover`. G3/G4 reduced to budget bridges (open realisation). G1/G2: 7/24 near-end leaves table-excluded; 17 living open. Faithfulness of every informal M3.0 covering to `flagsOfTarget*` still open.
 2. **Independent external human referee** rebuild of critical reductions (esp. early G5 geometry → algebraic premises). Internal rebuild note only: `artifacts/closure/INTERNAL_G5_rebuild.md` (+ `_zh.md`) — does **not** close this item.
 3. **Full premise-migration proof** if the optional strong normalisation candidate (M1.1–M1.3) is ever elevated to primary. Currently **deferred**; primary remains stepwise reclassification (`M1_module_migration.md`).
 4. **Remaining (S)-tier** dual-solver queries (~91 unique after Item3 ledger). Inventory: `artifacts/closure/S_tier_inventory.md` (+ JSON). No claim that leftovers are machine-independent.
 5. Short paper §§5–7 now cite concrete module tables; further page-length expansions may still help referees.
+
+## Advanced this round (vs `86656b3`)
+
+- **OnlyOwners/OnlyFillers from axis roles**: corner-owner mid=0 + interior-filler outer=0 ⇒ `AxisG5k0Roles` ⇒ packing ⇒ axis G5k0 False; `AxisG5k0CoverBridge` ⇒ `G5k0Bridge`/`G5k0GeomExport`.
+- RotatedChordMeasure: `RotatedG5k0ChordExport` ⇒ GeomExport/Bridge; CF_strict_of_le_four; inhabiting export from PointwiseCover **open**.
+- Living-leaf: `impossible_cases` + seven-list; 17 living still open.
+- G3SideOrOppBridge packaging; G3/G4 realisation from covers still **open**.
+- `principalClaimProvedUnconditionally=false`.
 
 ## Advanced this round (vs `c89464f`)
 

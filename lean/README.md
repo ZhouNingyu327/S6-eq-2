@@ -33,11 +33,13 @@ geometric proofs.
 | ℚ six-line cover → `AxisGridLineCover` | **Proved** (`AxisGridCover`) |
 | Axis G5k0 under outer₄+mid₂ packing | **Proved conditional** |
 | Packing ∑=outer₄+mid₂ from OnlyOwners/OnlyFillers | **Proved** |
-| Derive OnlyOwners/OnlyFillers from G5 cover | **Open** |
+| OnlyOwners/OnlyFillers from `AxisG5k0Roles` (corners+interior) | **Proved** |
+| Inhabit `AxisG5k0CoverBridge` / roles from PointwiseCover | **Open** |
 | Interior ⇒ outer contrib 0 | **Proved** |
 | `G5k*GeomExport ⇒ Bridge ⇒ G5Exclusion` composition | **Proved** (`G5GeometryBridge`) |
 | `G5Exclusion` from three geometric bridges | **Proved conditional** |
-| G5 geom exports from rotated `PointwiseCover` | **Open** (`G5k*GeomExport`) |
+| `RotatedG5k0ChordExport` ⇒ `G5k*GeomExport`/`Bridge` | **Proved conditional** |
+| Inhabit rotated chord export from PointwiseCover | **Open** |
 | G3/G4 mid-split + M7.1 interface | **Proved fragments** (`G3G4Fragments`) |
 | G3/G4 budget-bridge ⇒ exclusion | **Proved conditional**; realisation **open** |
 | `g2_alg t < 2` on `(0,1/2)`; E-tier coeff nonneg | **Proved** (`BernsteinGridLift`) |

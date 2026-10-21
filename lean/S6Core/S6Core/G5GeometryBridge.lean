@@ -313,4 +313,101 @@ theorem axis_interior_outer_zero (s : AxisSquare) (μ : ℚ) (hμ : 1 < μ)
 def axisG5k0RoleGeometryClosed : Bool := true
 theorem axisG5k0RoleGeometryClosed_true : axisG5k0RoleGeometryClosed = true := rfl
 
+
+/-- Re-export: ℚ cover + `AxisG5k0Roles` ⇒ False. -/
+theorem axis_G5k0_roles_impossible (μ : ℚ) (squares : Fin 6 → AxisSquare)
+    (H : AxisGridRatCover μ squares) (R : AxisG5k0Roles μ squares) : False :=
+  axis_G5k0_impossible_of_roles μ squares H R
+
+/-- From roles + rat cover, build `G5GridHypLe` (corners≤8, CF≤4, cover ineq). -/
+theorem G5GridHypLe_of_axis_roles (μ : ℚ) (squares : Fin 6 → AxisSquare)
+    (H : AxisGridRatCover μ squares) (R : AxisG5k0Roles μ squares) :
+    Nonempty S6.G5Budget.G5GridHypLe := by
+  have hpack := packing_of_role_geometry μ squares
+    R.iSW R.iSE R.iNE R.iNW R.j1 R.j2
+    R.hdSW R.hdSW3 R.hdSW4 R.hdSE3 R.hdSE4 R.hdNE4 R.hj
+    R.onlyOwners R.onlyFillers
+  have hge := axis_rat_cover_sum μ R.hμ squares H
+  set corners :=
+    outerContrib (squares R.iSW) μ + outerContrib (squares R.iSE) μ +
+      outerContrib (squares R.iNE) μ + outerContrib (squares R.iNW) μ
+  set CF := midContrib (squares R.j1) μ + midContrib (squares R.j2) μ
+  have hcorners : corners ≤ 8 := by
+    dsimp [corners, outerContrib]
+    exact axis_four_corner_owners_outer_le_eight
+      (squares R.iSW) (squares R.iSE) (squares R.iNE) (squares R.iNW) μ R.hμ
+      R.hSW R.hSE R.hNE R.hNW
+  have hCF : CF ≤ 4 := by
+    dsimp [CF, midContrib]
+    exact axis_two_filler_mid_le_four (squares R.j1) (squares R.j2) μ R.hμ
+  have hcover : (12 : ℚ) * μ ≤ corners + CF := by
+    have : ∑ k : Fin 6, axisGridContrib (squares k) μ = corners + CF := by
+      simpa [corners, CF, add_assoc] using hpack
+    exact le_trans hge (le_of_eq this)
+  exact ⟨⟨μ, corners, CF, R.hμ, hcorners, hCF, hcover⟩⟩
+
+/-- Conditional: if every G5 k=0 PointwiseCover realises axis roles + rat cover,
+then `G5k0Bridge` holds (via `False` from roles, or equivalently nonempty grid hyp).
+Here we package the axis-model bridge Prop. -/
+def AxisG5k0CoverBridge : Prop :=
+  ∀ (T : Target) (cov : PointwiseCover T),
+    isG5Class cov →
+      (RoleSelection.ofCover cov).toManuscript.flags.k = ⟨0, by decide⟩ →
+        ∃ (squares : Fin 6 → AxisSquare),
+          AxisGridRatCover T.μ squares ∧ Nonempty (AxisG5k0Roles T.μ squares)
+
+theorem G5k0_impossible_of_axis_bridge (h : AxisG5k0CoverBridge)
+    (T : Target) (cov : PointwiseCover T)
+    (hcls : isG5Class cov)
+    (hk : (RoleSelection.ofCover cov).toManuscript.flags.k = ⟨0, by decide⟩) :
+    False := by
+  rcases h T cov hcls hk with ⟨squares, Hrat, ⟨R⟩⟩
+  exact axis_G5k0_impossible_of_roles T.μ squares Hrat R
+
+def axisG5k0RolesToImpossibleClosed : Bool := true
+theorem axisG5k0RolesToImpossibleClosed_true :
+    axisG5k0RolesToImpossibleClosed = true := rfl
+
+
+/-- Axis cover-bridge package ⇒ `G5k0Bridge`. -/
+theorem G5k0Bridge_of_axisCoverBridge (h : AxisG5k0CoverBridge) : G5k0Bridge := by
+  intro T cov hcls hk
+  exact False.elim (G5k0_impossible_of_axis_bridge h T cov hcls hk)
+
+/-- Axis cover-bridge ⇒ `G5k0GeomExport` (rebuild corners/CF from roles). -/
+theorem G5k0GeomExport_of_axisCoverBridge (h : AxisG5k0CoverBridge) : G5k0GeomExport := by
+  intro T cov hcls hk
+  rcases h T cov hcls hk with ⟨squares, Hrat, ⟨R⟩⟩
+  have hpack := packing_of_role_geometry T.μ squares
+    R.iSW R.iSE R.iNE R.iNW R.j1 R.j2
+    R.hdSW R.hdSW3 R.hdSW4 R.hdSE3 R.hdSE4 R.hdNE4 R.hj
+    R.onlyOwners R.onlyFillers
+  have hge := axis_rat_cover_sum T.μ R.hμ squares Hrat
+  set corners :=
+    outerContrib (squares R.iSW) T.μ + outerContrib (squares R.iSE) T.μ +
+      outerContrib (squares R.iNE) T.μ + outerContrib (squares R.iNW) T.μ
+  set CF := midContrib (squares R.j1) T.μ + midContrib (squares R.j2) T.μ
+  have hcorners : corners ≤ 8 := by
+    dsimp [corners, outerContrib]
+    exact axis_four_corner_owners_outer_le_eight
+      (squares R.iSW) (squares R.iSE) (squares R.iNE) (squares R.iNW) T.μ R.hμ
+      R.hSW R.hSE R.hNE R.hNW
+  have hCF : CF ≤ 4 := by
+    dsimp [CF, midContrib]
+    exact axis_two_filler_mid_le_four (squares R.j1) (squares R.j2) T.μ R.hμ
+  have hcover : (12 : ℚ) * T.μ ≤ corners + CF := by
+    have : ∑ k : Fin 6, axisGridContrib (squares k) T.μ = corners + CF := by
+      simpa [corners, CF, add_assoc] using hpack
+    exact le_trans hge (le_of_eq this)
+  have hstrict : CF < 4 := by
+    by_contra hne
+    have hge4 : (4 : ℚ) ≤ CF := le_of_not_gt hne
+    have hEq : CF = 4 := le_antisymm hCF hge4
+    have : (12 : ℚ) * T.μ ≤ corners + 4 := by simpa [hEq] using hcover
+    nlinarith [T.hμ, hcorners, this]
+  exact ⟨⟨corners, CF, T.hμ, hcorners, hstrict, hcover⟩⟩
+
+def axisG5k0CoverBridgeProved : Bool := false
+theorem axisG5k0CoverBridgeProved_false : axisG5k0CoverBridgeProved = false := rfl
+
 end S6.G5GeometryBridge

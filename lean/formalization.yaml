@@ -1,5 +1,5 @@
 # Catalog of manuscripts with a formalized (or partially formalized) main result.
-version: "v0.10"
+version: "v0.11"
 
 project:
   name: "ZhouNingyu327/S6-eq-2"
@@ -15,16 +15,18 @@ sources:
     id: ../preprints/Six-unit-squares-cannot-cover-a-square-of-side-greater-than-2-October-21-2026/paper.pdf
     type: article
     lean_docs: docs/001.md
-    status: partial_formalization_axis_role_packing
+    status: partial_formalization_axis_g5k0_roles
     notes: >-
       PrincipalClaim is a Prop (not Bool metadata). Proved: cover→five roles,
       pairwise-far outer mids, cover→TopClass, principal_of_class_exclusions,
-      near-end table Props (7 impossible ⇒ LivingLeafExcluded), AxisClassConstraints,
-      G5Budget (d+B<2, R2 grid contradictions), G5Exclusion_of_bridges,
-      AxisGridContribution (SW outer=2, corners≤8), G5GeometryBridge
-      (GeomExport⇒Bridge⇒G5Exclusion composition), G3/G4 budget-bridge reductions,
-      BernsteinGridLift g2_alg_lt_two. Proved Icc_subset_of_closed_of_rats; AxisGridRatCover⇒LineCover⇒∑≥12μ; axis G5k0 model under packing. Proved packing_of_role_geometry / axis G5k0 under OnlyOwners/OnlyFillers. Open: derive those from covers; G5k*GeomExport from PointwiseCover
-      (rotated corner/CF/cover); 17 living near-end leaves; G3/G4 budget realisation;
+      near-end table Props (7 impossible ⇒ LivingLeafExcluded; impossible_cases),
+      AxisClassConstraints, G5Budget, G5Exclusion_of_bridges / geomExports,
+      AxisGridContribution/Cover (ℚ→line, ∑≥12μ), packing_of_role_geometry,
+      AxisG5k0Roles ⇒ OnlyOwners/OnlyFillers ⇒ axis G5k0 False;
+      AxisG5k0CoverBridge ⇒ G5k0Bridge/G5k0GeomExport; RotatedG5k0ChordExport ⇒
+      G5k0GeomExport/Bridge; G3/G4 budget-bridge reductions; BernsteinGridLift.
+      Open: inhabit AxisG5k0CoverBridge / RotatedG5k0ChordExport from PointwiseCover;
+      17 living near-end leaves; G3/G4 budget realisation from covers;
       unconditional G1…G5Exclusion / PrincipalClaim.
       principalClaimProvedUnconditionally=false. Computer-assisted candidate;
-      not peer-reviewed. ~60–65% toward openai/math Lean top-line bar (honest).
+      not peer-reviewed. ~65–70% toward openai/math Lean top-line bar (honest).
