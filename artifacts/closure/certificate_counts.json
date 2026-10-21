@@ -5,11 +5,11 @@
   "queue_duplicate_lines": 12,
   "exact_harness_first_route": 121,
   "hand_or_bernstein_supplement": 10,
-  "exact_item3_from_queue_unique": 109,
-  "exact_or_hand_total": 245,
-  "cvc5_only_remaining_unique": 146,
+  "exact_item3_from_queue_unique": 113,
+  "exact_batch24_family_new": 26,
+  "exact_or_hand_total": 271,
+  "cvc5_only_remaining_unique": 125,
   "tracked_unique_total": 391,
-  "note": "403 is historical script-level sum; unique tracked = exact_or_hand + cvc5_remaining after deduping queue. Formalization round added 5 IBB exact; Lean A algebraic cores built.",
-  "formalization_round_new_exact_IBB": 5,
-  "lean_A_core": "built_no_sorry_2026-10-20"
+  "note": "Batch24 family added machine-checkable certs for previously (S) rows. Remaining (S)=125. Formalization/Lean track separate.",
+  "batch24_checker": "artifacts/closure/scripts/check_exact_certs_batch24.py PASS on all 26 certs"
 }

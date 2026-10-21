@@ -1,0 +1,96 @@
+{
+  "id": "check_round39_single_contact__n9__14f5e26215",
+  "file": "check_round39_single_contact",
+  "n": 9,
+  "query": "eta > 0 ; 12*eta <= 5 ; w > 0 ; 12*w <= 5 ; u == eta + w ; K*(1 - eta*eta) == 2*eta ; r <= K*u ; K*r < u/(2 - u) - (2*eta)/(1 + eta) ; 3*r >= 2*w",
+  "method": "exact-IBB-triangle3",
+  "status": "exact",
+  "certificate": {
+    "type": "rational_ibb",
+    "vars": [
+      "_u",
+      "_v",
+      "_w"
+    ],
+    "box0": [
+      [
+        "0",
+        "1"
+      ],
+      [
+        "0",
+        "1"
+      ],
+      [
+        "0",
+        "1"
+      ]
+    ],
+    "atoms": [
+      {
+        "expr": "_u*(1 - _v)",
+        "op": "<"
+      },
+      {
+        "expr": "12*_u*_v - 12*_u - 5",
+        "op": "<="
+      },
+      {
+        "expr": "-_u",
+        "op": "<"
+      },
+      {
+        "expr": "12*_u - 5",
+        "op": "<="
+      },
+      {
+        "expr": "(-2*_u**2*_v*(_v - 1) + _w*(-_u**2*_v**2 + 2*_u**2*_v - _u**2 + 1))/(-_u**2*_v**2 + 2*_u**2*_v - _u**2 + 1)",
+        "op": "<="
+      },
+      {
+        "expr": "_u*(-_v*(_u*_v - _u + 1)*(-_u**2*_v**2 + 2*_u**2*_v - _u**2 + 1) + 2*_w*(_v - 1)*(-_u*_v + 2)*(_u*_v - _u + 1) + 2*(_v - 1)*(-_u*_v + 2)*(-_u**2*_v**2 + 2*_u**2*_v - _u**2 + 1))/((-_u*_v + 2)*(_u*_v - _u + 1)*(-_u**2*_v**2 + 2*_u**2*_v - _u**2 + 1))",
+        "op": "<"
+      },
+      {
+        "expr": "2*_u - 3*_w",
+        "op": "<="
+      }
+    ],
+    "n_cells": 1,
+    "n_leaves": 1,
+    "max_depth_used": 0,
+    "leaves": [
+      {
+        "box": [
+          [
+            "0",
+            "1"
+          ],
+          [
+            "0",
+            "1"
+          ],
+          [
+            "0",
+            "1"
+          ]
+        ],
+        "depth": 0,
+        "contradiction": {
+          "poly": "_u*(1 - _v)",
+          "op": "<",
+          "range": [
+            "0",
+            "1"
+          ]
+        }
+      }
+    ],
+    "tag": "raw-triangle3",
+    "triangle_map": {
+      "w": "u",
+      "u": "u*v",
+      "r": "w"
+    }
+  }
+}

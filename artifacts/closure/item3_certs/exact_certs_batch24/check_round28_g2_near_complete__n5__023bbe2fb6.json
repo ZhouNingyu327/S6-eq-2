@@ -1,0 +1,26 @@
+{
+  "id": "check_round28_g2_near_complete__n5__023bbe2fb6",
+  "file": "check_round28_g2_near_complete",
+  "n": 5,
+  "query": "w > 0 ; 12*w < 5 ; tt > 0 ; tt*tt == w*(2 + w) ; (1 + w)*(1 - tt) + 2*w >= 1",
+  "method": "exact-Bernstein-tt-2w",
+  "status": "exact",
+  "certificate": {
+    "type": "bernstein_tt_square",
+    "poly": "w**3 + 3*w**2 - 4*w + 2",
+    "box": [
+      [
+        "0",
+        "5/12"
+      ]
+    ],
+    "coeffs": [
+      "2",
+      "13/9",
+      "17/16",
+      "1601/1728"
+    ],
+    "claim": "g>0 => 9w<(w+2)(1+w)^2 => 3w<tt(1+w) => (1+w)(1-tt)+2w<1"
+  },
+  "batch": "24d"
+}

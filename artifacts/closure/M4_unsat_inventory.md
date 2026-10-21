@@ -15,11 +15,11 @@
 | exact（第一轮 harness） | 121 | FM/Farkas / 单变量 CAD 等 |
 | hand / Bernstein 补证 | 10 | R28/R32/R36/R35k/R41 等 |
 | exact（Item3 自队列升级） | 109 | Bernstein / 有理 IBB / Or 分拆等 |
-| **cvc5-only（仍无精确证书）** | **151** | 双求解器一致 |
+| **cvc5-only（仍无精确证书）** | **125** | 双求解器一致；batch24 族已升级 26 条为可核（E） |
 | open | 0 | |
 
 **精确/手证第二路线：** **240**（约占跟踪唯一集的 61.4%）  
-**仍仅 cvc5：** **151**（38.6%）
+**仍仅 cvc5：** **125**（约 32%）；batch24 族新增可核 exact **26**
 
 诚实说明：cvc5-only **不能**写成机器无关证明。历史“403”与去重后 “391” 的差额来自队列重复键及跨脚本重复计数，不以抬高 exact 比例的方式隐瞒。
 
@@ -41,7 +41,7 @@
 
 ## 5. 完成度声明
 
-**不宣称**全部查询已 exact。仍余 **151** 条（S）。送外部审稿时必须保留本声明。
+**不宣称**全部查询已 exact。仍余 **125** 条（S）。送外部审稿时必须保留本声明。
 
 
 ---
@@ -49,4 +49,13 @@
 ## 6. 2026-10-21 inventory pointer
 
 Public remaining-(S) ledger: `S_tier_inventory.md` / `S_tier_remaining.json` / `item3_certs/`.
-Headline unique remaining (S) after Item3 dedupe: **151** (see also `certificate_counts.json`).
+Headline unique remaining (S) after batch24 family: **125** (see `S_tier_inventory.md` / `certificate_counts.json`). Prior Item3-only figure was 151.
+
+
+---
+
+## 7. 2026-10-22 batch24 family
+
+Added **26** machine-checkable Bernstein / rational-IBB / half-angle-identity certificates under
+`item3_certs/exact_certs_batch24/`, verified by `scripts/check_exact_certs_batch24.py` (PASS 26/26).
+Remaining **(S) = 125**. Private name-only “exact-hand” labels without payloads were not counted.

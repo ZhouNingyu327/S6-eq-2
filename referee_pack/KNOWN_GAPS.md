@@ -19,7 +19,7 @@ Relative to the 2026-10-21 **rereview** of commit `32e0e0f`, the API repair at `
 1. **Unconditional Lean principal claim + end-to-end faithfulness.** Reduction spine + G5 algebraic R2 spine + **geom-export⇒bridge⇒G5Exclusion composition** proved; **`G5Exclusion` still conditional** on open `G5k*GeomExport` (rotated corner≤2 / CF / cover ineq from `PointwiseCover`). G3/G4 reduced to `G3SideGapBudgetBridge`/`G4BudgetBridge` (open). G1/G2: 7/24 near-end leaves table-excluded; 17 living open. Faithfulness of every informal M3.0 covering to `flagsOfTarget*` still open.
 2. **Independent external human referee** rebuild of critical reductions (esp. early G5 geometry → algebraic premises). Internal rebuild note only: `artifacts/closure/INTERNAL_G5_rebuild.md` (+ `_zh.md`) — does **not** close this item.
 3. **Full premise-migration proof** if the optional strong normalisation candidate (M1.1–M1.3) is ever elevated to primary. Currently **deferred**; primary remains stepwise reclassification (`M1_module_migration.md`).
-4. **Remaining (S)-tier** dual-solver queries (~151 unique after Item3 ledger). Inventory: `artifacts/closure/S_tier_inventory.md` (+ JSON). No claim that leftovers are machine-independent.
+4. **Remaining (S)-tier** dual-solver queries (~125 unique after Item3 ledger). Inventory: `artifacts/closure/S_tier_inventory.md` (+ JSON). No claim that leftovers are machine-independent.
 5. Short paper §§5–7 now cite concrete module tables; further page-length expansions may still help referees.
 
 ## Advanced this round (vs `8d5dee0`)
@@ -40,3 +40,10 @@ Relative to the 2026-10-21 **rereview** of commit `32e0e0f`, the API repair at `
   `RoleSelection.hF_ne_corners`. `formalization.yaml` → `partial_formalization_reduction_spine`.
 - Prior (`9fb5ade`): Faithfulness fragments, internal G5 notes, M1 deferred, S-tier inventory,
   short-paper §§5–7 module tables.
+
+
+## 2026-10-22 batch24 (S)→(E) slice
+
+Converted **26** previously (S) dual-solver rows to checkable Bernstein/IBB/hand-identity certificates
+(`artifacts/closure/item3_certs/exact_certs_batch24/`, checker PASS).
+**Remaining (S): 125.** This does not close the gap; leftover (S) are still not machine-independent.

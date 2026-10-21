@@ -1,0 +1,33 @@
+{
+  "id": "check_round34_left_negative__n5__4b2f2e740a",
+  "file": "check_round34_left_negative",
+  "n": 5,
+  "query": "r > 0 ; 2*r < 1 ; x > 1 - r ; x < 1 ; ((1 - x)*(1 - x))/(2*x) >= (r*r)/(2*(1 - r))",
+  "method": "exact-Bernstein-halfangle-square",
+  "status": "exact",
+  "certificate": {
+    "type": "bernstein_halfangle_square",
+    "vars_map": {
+      "r": "u/2",
+      "x": "1-u/2+v*u/2"
+    },
+    "numer": "-r**2*x - r*x**2 + 2*r*x - r + x**2 - 2*x + 1",
+    "mapped": "-_u**3*_v**2/8 + _u**3*_v/8 + _u**2*_v**2/4 - _u**2*_v/2",
+    "coeffs": [
+      "0",
+      "0",
+      "0",
+      "0",
+      "0",
+      "0",
+      "0",
+      "-1/12",
+      "-1/12",
+      "0",
+      "-3/16",
+      "-1/4"
+    ],
+    "claim": "triangle-mapped numer of lhs-rhs has Bernstein coeffs <=0 => lhs<=rhs with equality only on v=0 face excluded by x>1-r"
+  },
+  "batch": "24b"
+}

@@ -1,0 +1,29 @@
+{
+  "id": "check_round28_g2_near_complete__n5__b4013f035d",
+  "file": "check_round28_g2_near_complete",
+  "n": 5,
+  "query": "w > 0 ; 12*w < 5 ; tt > 0 ; tt*tt == w*(2 + w) ; (1 + w)*(1 - tt) + 6/5*w + w/(2 - w) >= 1",
+  "method": "exact-Bernstein-tt-square-gap-endpoint",
+  "status": "exact",
+  "certificate": {
+    "type": "bernstein_tt_square_gap_endpoint",
+    "pattern": "(1+w)*(1-tt)+6/5*w+w/(2-w)>=1",
+    "gap": "w*(w*(27 - 11*w)**2 - 25*(2 - w)**2*(w + 1)**2*(w + 2))/(25*(2 - w)**2)",
+    "coeffs_num": [
+      "0",
+      "-125/9",
+      "-365/16",
+      "-12415/432",
+      "-256915/7776",
+      "-283775/7776",
+      "-117693025/2985984"
+    ],
+    "coeffs_den": [
+      "100",
+      "475/6",
+      "9025/144"
+    ],
+    "claim": "gap<=0 on [0,5/12] with not-all-zero; open w>0 and 12w<5 excludes endpoints where needed"
+  },
+  "batch": "24e"
+}

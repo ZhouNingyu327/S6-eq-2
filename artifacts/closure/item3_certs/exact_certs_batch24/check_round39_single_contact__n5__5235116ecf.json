@@ -1,0 +1,25 @@
+{
+  "id": "check_round39_single_contact__n5__5235116ecf",
+  "file": "check_round39_single_contact",
+  "n": 5,
+  "query": "t > 0 ; 2*t < 1 ; r > 0 ; 7*r < 2 ; Or(t/(2 - t) >= (2*t)/3, (r*r)/(2*(1 - r)) >= (7*r*r)/10)",
+  "method": "exact-hand-Or-endpoint",
+  "status": "exact",
+  "certificate": {
+    "type": "elementary_or_two_branches",
+    "branches": [
+      {
+        "name": "t-half",
+        "algebra": "t/(2-t)>=2t/3 & t>0 => 1/(2-t)>=2/3 => t>=1/2",
+        "contradicts": "2*t<1"
+      },
+      {
+        "name": "r-cap",
+        "algebra": "(r^2)/(2(1-r))>=(7 r^2)/10 & r>0 => 1/(2(1-r))>=7/10 => r>=2/7",
+        "contradicts": "7*r<2"
+      }
+    ],
+    "claim": "each Or branch forces the variable to the excluded closed endpoint"
+  },
+  "batch": "24c"
+}

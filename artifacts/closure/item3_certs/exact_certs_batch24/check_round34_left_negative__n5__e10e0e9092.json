@@ -1,0 +1,23 @@
+{
+  "id": "check_round34_left_negative__n5__e10e0e9092",
+  "file": "check_round34_left_negative",
+  "n": 5,
+  "query": "r > 0 ; 2*r < 1 ; x > 1 - r ; x < 1 ; (1 - x)/(1 + x) >= r/(2 - r)",
+  "method": "exact-hand-halfangle-contain",
+  "status": "exact",
+  "certificate": {
+    "type": "halfangle_contain_identity",
+    "vars": [
+      "r",
+      "x"
+    ],
+    "identity_numer": "-2*r - 2*x + 2",
+    "claim": "difference=(1-a)/(1+a)-v/(2-v) has numer proportional to (1-v-a); on a>1-v numer<0 with positive dens => difference<0, contradicts >=",
+    "dens": [
+      "1+a",
+      "2-v"
+    ],
+    "domain": "v in (0,1/2), a in (1-v,1)"
+  },
+  "batch": "24b"
+}
