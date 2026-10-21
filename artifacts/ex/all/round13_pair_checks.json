@@ -1,0 +1,60 @@
+{
+  "certificate": {
+    "parameter_rectangles": 2,
+    "polynomial_identities": 4,
+    "records": [
+      {
+        "branch": "c",
+        "polynomial": "objective",
+        "degrees": [
+          15,
+          6
+        ],
+        "minimum": "0",
+        "coefficients": 112,
+        "whole_rectangle_verified": true
+      },
+      {
+        "branch": "c",
+        "polynomial": "nonnegative LP coefficient",
+        "degrees": [
+          6,
+          2
+        ],
+        "minimum": "3013/15625",
+        "coefficients": 21,
+        "whole_rectangle_verified": true
+      },
+      {
+        "branch": "s",
+        "polynomial": "objective",
+        "degrees": [
+          15,
+          6
+        ],
+        "minimum": "0",
+        "coefficients": 112,
+        "whole_rectangle_verified": true
+      },
+      {
+        "branch": "s",
+        "polynomial": "nonnegative LP coefficient",
+        "degrees": [
+          6,
+          2
+        ],
+        "minimum": "0",
+        "coefficients": 21,
+        "whole_rectangle_verified": true
+      }
+    ]
+  },
+  "queries": [
+    {
+      "scope": "adjacent anchored corners: Lx+Sy>=2 implies Ly+Sx+x+2y-y^2<=2",
+      "result": "unsat",
+      "arithmetic": "exact nonlinear reals",
+      "seconds": 0.013190031051635742
+    }
+  ]
+}

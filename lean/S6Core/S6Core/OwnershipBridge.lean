@@ -3,6 +3,14 @@ import S6Core.TopClassExhaustiveness
 import S6Core.ChordLength
 import S6Core.RigidMotionChart
 
+/-
+  FIXME (Major 3 — OPEN, 2026-10-21 rereview): field semantics still diverge from the manuscript.
+  - kOf_rot counts only three candidate mids inside C (not four target outer mids in C∪F).
+  - fHasAnyMidCandidate_rot / fHasO records whether F contains *any* candidate mid, not whether F∋O.
+  - midsAdjacentOf_rot compares C's own edge-mid pairs, not adjacency of target outer mids.
+  - RoleSelection.ofCover still sets iF := owners.i1 (a corner host), not the sixth-tile index.
+  Renames alone do not restore manuscript fidelity. Do not treat this Lean bridge as a proof of the geometric reduction.
+-/
 /-!
 # Ownership geometric bridge (G2) — PARTIAL / NOT MANUSCRIPT-FAITHFUL YET
 

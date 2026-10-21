@@ -1,5 +1,19 @@
 # Changelog
 
+## 2026-10-21 — rereview fixes (vs `32e0e0f`)
+
+Addressed the 2026-10-21 public-repository rereview without inventing new geometry:
+
+- **R8:** shipped `artifacts/ex/all/round8_pair_bernstein_certificate.json` (45 Bernstein leaves; also under `artifacts/checkers/`).
+- **R13:** shipped `round13_pair_certificate.json`.
+- **R16:** documented generate-then-verify commands in `REPRODUCE.md` / `referee_pack/HOW_TO_REPRODUCE.md`.
+- **R6:** long-proof Markdown tangency fix `d0>0` → `d0≥0` with `c(1−α)+sβ≥μ>1` (Markdown = source of truth).
+- **Normalisation:** primary protocol = short-paper stepwise reclassification; App. A / long-proof M1 marked optional candidate; closed first quadrant + axial branch; `W` = post-preprocess free corner.
+- **Hygiene:** g3 checklist R38/R39 → long-proof anchors; reproduce docs synced; removed obsolete “ex/all not shipped” conflict.
+- **Lean Major 3:** still **open**; stronger FIXME comments only.
+
+See `referee_pack/KNOWN_GAPS.md`.
+
 ## 2026-10-21 — expert-facing repository
 
 - Expert-first README and referee guide; non-math process files removed.

@@ -752,41 +752,50 @@ the releaser does not claim mastery of every step.  See
 \section{Closure patch M1: global normalisation honesty}\label{app:M1}
 %% ============================================================
 
-The maturity revision weakened Proposition~\ref{prop:M1}: a single dominated
-enlargement is idempotent, but later $\beta$-clamps need not be the identity,
-and classification must be recomputed after enlargements that fill gaps.
-The following propositions, adapted from the Chinese closure note
-\texttt{artifacts/closure/M1\_proposition\_zh.md}, record the stronger
-\emph{intended} global protocol used by the long proof.  They are packaging
-and logical-cycle closures, not new geometric exclusions.
+\paragraph{Primary protocol (this paper).}
+Proposition~\ref{prop:M1} (stepwise reclassification after each enlargement that
+may fill a gap or create duplicate hosts) is the \emph{primary} normalisation
+protocol of the public package.  Lemma~\ref{lem:norm} already uses the
+\emph{closed} first quadrant ($c,s\ge 0$), with axis-aligned tiles handled on
+the boundary of the open first quadrant.
 
-\begin{proposition}[One-shot global corner normalisation]\label{prop:M11}
+\paragraph{Optional stronger candidate (long proof).}
+The following propositions, adapted from
+\texttt{artifacts/closure/M1\_proposition\_zh.md}, record a stronger
+\emph{optional candidate} used in parts of the long manuscript: one global
+bilateral $\beta$-clamp on each corner tile, then classify once.  They are
+\emph{not} a substitute for Proposition~\ref{prop:M1} until a module-by-module
+premise-migration argument is independently verified.  In that stronger text,
+$W$ denotes the free corner tile \emph{after} global preprocessing (not an
+un-preprocessed non-corner $F$).
+
+\begin{proposition}[One-shot global corner normalisation; candidate]\label{prop:M11}
 Apply Lemma~\ref{lem:norm} once to each corner tile $V_1,\dots,V_4$, leaving
-$C$ and $F$ fixed, and (when $c,s>0$) clamp the orthogonal parameter $\beta$
-into the interval determined by $s/c$ and $1-c/s$ as in the long manuscript.
-Then: coverage of~$T$ is nondecreasing; roles of $C$ and $F$ are unchanged
-up to non-increasing $k$; open-first-quadrant normals are unique so the
-procedure is canonical; and no corner tile acquires $O$ or two distinct outer
-mids.
+$C$ and the post-preprocess free corner $W$ fixed.  When $c,s>0$, clamp the
+orthogonal parameter $\beta$ into the interval determined by $s/c$ and
+$1-c/s$.  When $c=0$ or $s=0$ (axis-aligned), push both axial unit intervals
+to $[0,1]$ when possible; do not invoke the open-quadrant bilateral clamp.
+Then: coverage of~$T$ is nondecreasing; roles of $C$ and $W$ are unchanged up
+to non-increasing $k$; closed-first-quadrant normals with $c,s>0$ are unique;
+and no corner tile acquires $O$ or two distinct outer mids.
 \end{proposition}
 
-\begin{proposition}[Classify once after global normalisation]\label{prop:M12}
+\begin{proposition}[Classify once after global normalisation; candidate]\label{prop:M12}
 On the output of Proposition~\ref{prop:M11}, perform the G1--G5 / host /
-near--far / abutment--gap / $F\cap H$ classification of
-Section~\ref{sec:class} exactly once.  Subsequent local ``normalisation''
-steps of types (L$\alpha$) and (L$\beta$) on already-normalised corner tiles
-are the identity, so there is no ``normalise $\to$ reclassify $\to$
-normalise'' loop inside elimination modules.
+near--far / abutment--gap classification of Section~\ref{sec:class} exactly
+once.  Subsequent local ``normalisation'' steps of types (L$\alpha$) and
+(L$\beta$) on already-normalised corner tiles are the identity under the
+candidate protocol, so there is no ``normalise $\to$ reclassify $\to$
+normalise'' loop inside elimination modules \emph{if} no module requires a
+strictly non-normalised corner tile.
 \end{proposition}
 
 \begin{remark}
-Proposition~\ref{prop:M12} assumes no module requires a strictly
-\emph{non}-normalised corner tile.  The module-by-module check is recorded in
-\texttt{artifacts/closure/REVIEW\_addendum\_item2\_zh.md}.  If a future module
-needs a non-normalised intersection, that module must be rewritten or the
-global protocol delayed with a well-founded order.  Until independently
-verified, treat Propositions~\ref{prop:M11}--\ref{prop:M12} as candidate
-closure text accompanying the long proof.
+The module-by-module check is recorded in
+\texttt{artifacts/closure/REVIEW\_addendum\_item2\_zh.md}.  Until independently
+verified, treat Propositions~\ref{prop:M11}--\ref{prop:M12} as optional
+candidate closure text.  The short-paper primary claim remains
+Proposition~\ref{prop:M1}.
 \end{remark}
 
 %% ============================================================

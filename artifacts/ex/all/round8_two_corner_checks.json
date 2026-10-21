@@ -1,0 +1,512 @@
+{
+  "queries": [
+    {
+      "scope": "two physical anchored corners, S1+S2>=1: L1+L2+min(t1,t2)+(4/5)max(t1,t2)<=14/5",
+      "result": "unsat",
+      "arithmetic": "exact nonlinear reals",
+      "seconds": 1.2915644645690918
+    }
+  ],
+  "rational_certificate": {
+    "status": "45 rational boxes independently verified; full domain covered",
+    "box_count": 45,
+    "max_depth": 10,
+    "records": [
+      {
+        "path": "0000",
+        "polynomial": 0,
+        "box": [
+          "0",
+          "1/4",
+          "0",
+          "1/4"
+        ],
+        "minimum_exact_bernstein_coefficient": "25515/16"
+      },
+      {
+        "path": "000100",
+        "polynomial": 0,
+        "box": [
+          "0",
+          "1/8",
+          "1/4",
+          "3/8"
+        ],
+        "minimum_exact_bernstein_coefficient": "69255/128"
+      },
+      {
+        "path": "0001010000",
+        "polynomial": 0,
+        "box": [
+          "0",
+          "1/32",
+          "3/8",
+          "13/32"
+        ],
+        "minimum_exact_bernstein_coefficient": "1986525/8192"
+      },
+      {
+        "path": "0001010001",
+        "polynomial": 1,
+        "box": [
+          "0",
+          "1/32",
+          "13/32",
+          "7/16"
+        ],
+        "minimum_exact_bernstein_coefficient": "13478250099135/1099511627776"
+      },
+      {
+        "path": "000101001",
+        "polynomial": 0,
+        "box": [
+          "1/32",
+          "1/16",
+          "3/8",
+          "7/16"
+        ],
+        "minimum_exact_bernstein_coefficient": "22861886097802425/1125899906842624"
+      },
+      {
+        "path": "00010101",
+        "polynomial": 1,
+        "box": [
+          "0",
+          "1/16",
+          "7/16",
+          "1/2"
+        ],
+        "minimum_exact_bernstein_coefficient": "165288606711/4294967296"
+      },
+      {
+        "path": "00010110",
+        "polynomial": 0,
+        "box": [
+          "1/16",
+          "1/8",
+          "3/8",
+          "7/16"
+        ],
+        "minimum_exact_bernstein_coefficient": "485119927033497/4398046511104"
+      },
+      {
+        "path": "00010111",
+        "polynomial": 2,
+        "box": [
+          "1/16",
+          "1/8",
+          "7/16",
+          "1/2"
+        ],
+        "minimum_exact_bernstein_coefficient": "2961324694875/4294967296"
+      },
+      {
+        "path": "000110",
+        "polynomial": 0,
+        "box": [
+          "1/8",
+          "1/4",
+          "1/4",
+          "3/8"
+        ],
+        "minimum_exact_bernstein_coefficient": "2031954406875/2147483648"
+      },
+      {
+        "path": "00011100",
+        "polynomial": 0,
+        "box": [
+          "1/8",
+          "3/16",
+          "3/8",
+          "7/16"
+        ],
+        "minimum_exact_bernstein_coefficient": "4931775983625/17179869184"
+      },
+      {
+        "path": "00011101",
+        "polynomial": 2,
+        "box": [
+          "1/8",
+          "3/16",
+          "7/16",
+          "1/2"
+        ],
+        "minimum_exact_bernstein_coefficient": "695888467656075/1099511627776"
+      },
+      {
+        "path": "00011110",
+        "polynomial": 0,
+        "box": [
+          "3/16",
+          "1/4",
+          "3/8",
+          "7/16"
+        ],
+        "minimum_exact_bernstein_coefficient": "1978708355400825/4398046511104"
+      },
+      {
+        "path": "00011111",
+        "polynomial": 2,
+        "box": [
+          "3/16",
+          "1/4",
+          "7/16",
+          "1/2"
+        ],
+        "minimum_exact_bernstein_coefficient": "10094715891/16777216"
+      },
+      {
+        "path": "0010",
+        "polynomial": 0,
+        "box": [
+          "1/4",
+          "1/2",
+          "0",
+          "1/4"
+        ],
+        "minimum_exact_bernstein_coefficient": "4908225/2048"
+      },
+      {
+        "path": "001100",
+        "polynomial": 0,
+        "box": [
+          "1/4",
+          "3/8",
+          "1/4",
+          "3/8"
+        ],
+        "minimum_exact_bernstein_coefficient": "10666931067/8388608"
+      },
+      {
+        "path": "00110100",
+        "polynomial": 0,
+        "box": [
+          "1/4",
+          "5/16",
+          "3/8",
+          "7/16"
+        ],
+        "minimum_exact_bernstein_coefficient": "39312171873/67108864"
+      },
+      {
+        "path": "00110101",
+        "polynomial": 2,
+        "box": [
+          "1/4",
+          "5/16",
+          "7/16",
+          "1/2"
+        ],
+        "minimum_exact_bernstein_coefficient": "89789157997341/150323855360"
+      },
+      {
+        "path": "00110110",
+        "polynomial": 0,
+        "box": [
+          "5/16",
+          "3/8",
+          "3/8",
+          "7/16"
+        ],
+        "minimum_exact_bernstein_coefficient": "2990649199385337/4398046511104"
+      },
+      {
+        "path": "00110111",
+        "polynomial": 2,
+        "box": [
+          "5/16",
+          "3/8",
+          "7/16",
+          "1/2"
+        ],
+        "minimum_exact_bernstein_coefficient": "663349272349323/1099511627776"
+      },
+      {
+        "path": "001110",
+        "polynomial": 0,
+        "box": [
+          "3/8",
+          "1/2",
+          "1/4",
+          "3/8"
+        ],
+        "minimum_exact_bernstein_coefficient": "38808315/32768"
+      },
+      {
+        "path": "00111100",
+        "polynomial": 0,
+        "box": [
+          "3/8",
+          "7/16",
+          "3/8",
+          "7/16"
+        ],
+        "minimum_exact_bernstein_coefficient": "2971699651827225/4398046511104"
+      },
+      {
+        "path": "00111101",
+        "polynomial": 2,
+        "box": [
+          "3/8",
+          "7/16",
+          "7/16",
+          "1/2"
+        ],
+        "minimum_exact_bernstein_coefficient": "2768734408923/4294967296"
+      },
+      {
+        "path": "00111110",
+        "polynomial": 0,
+        "box": [
+          "7/16",
+          "1/2",
+          "3/8",
+          "7/16"
+        ],
+        "minimum_exact_bernstein_coefficient": "141317925/262144"
+      },
+      {
+        "path": "00111111",
+        "polynomial": 2,
+        "box": [
+          "7/16",
+          "1/2",
+          "7/16",
+          "1/2"
+        ],
+        "minimum_exact_bernstein_coefficient": "804897511706475/1099511627776"
+      },
+      {
+        "path": "01",
+        "polynomial": 2,
+        "box": [
+          "0",
+          "1/2",
+          "1/2",
+          "1"
+        ],
+        "minimum_exact_bernstein_coefficient": "0"
+      },
+      {
+        "path": "10000",
+        "polynomial": 0,
+        "box": [
+          "1/2",
+          "5/8",
+          "0",
+          "1/4"
+        ],
+        "minimum_exact_bernstein_coefficient": "12844549935/8388608"
+      },
+      {
+        "path": "100010",
+        "polynomial": 0,
+        "box": [
+          "5/8",
+          "3/4",
+          "0",
+          "1/8"
+        ],
+        "minimum_exact_bernstein_coefficient": "5491939725/8388608"
+      },
+      {
+        "path": "1000110",
+        "polynomial": 0,
+        "box": [
+          "5/8",
+          "11/16",
+          "1/8",
+          "1/4"
+        ],
+        "minimum_exact_bernstein_coefficient": "6918247180551/8589934592"
+      },
+      {
+        "path": "10001110",
+        "polynomial": 0,
+        "box": [
+          "11/16",
+          "3/4",
+          "1/8",
+          "3/16"
+        ],
+        "minimum_exact_bernstein_coefficient": "17080415325/67108864"
+      },
+      {
+        "path": "100011110",
+        "polynomial": 0,
+        "box": [
+          "11/16",
+          "23/32",
+          "3/16",
+          "1/4"
+        ],
+        "minimum_exact_bernstein_coefficient": "784768608693657/2199023255552"
+      },
+      {
+        "path": "100011111",
+        "polynomial": 2,
+        "box": [
+          "23/32",
+          "3/4",
+          "3/16",
+          "1/4"
+        ],
+        "minimum_exact_bernstein_coefficient": "99288859034448531/281474976710656"
+      },
+      {
+        "path": "100100",
+        "polynomial": 0,
+        "box": [
+          "1/2",
+          "5/8",
+          "1/4",
+          "3/8"
+        ],
+        "minimum_exact_bernstein_coefficient": "972035058555/2147483648"
+      },
+      {
+        "path": "100101",
+        "polynomial": 2,
+        "box": [
+          "1/2",
+          "5/8",
+          "3/8",
+          "1/2"
+        ],
+        "minimum_exact_bernstein_coefficient": "2554335/16384"
+      },
+      {
+        "path": "10011000",
+        "polynomial": 0,
+        "box": [
+          "5/8",
+          "11/16",
+          "1/4",
+          "5/16"
+        ],
+        "minimum_exact_bernstein_coefficient": "1427872075558347/4398046511104"
+      },
+      {
+        "path": "10011001",
+        "polynomial": 2,
+        "box": [
+          "5/8",
+          "11/16",
+          "5/16",
+          "3/8"
+        ],
+        "minimum_exact_bernstein_coefficient": "1222269320115/4294967296"
+      },
+      {
+        "path": "1001101",
+        "polynomial": 2,
+        "box": [
+          "11/16",
+          "3/4",
+          "1/4",
+          "3/8"
+        ],
+        "minimum_exact_bernstein_coefficient": "27170020163883/68719476736"
+      },
+      {
+        "path": "100111",
+        "polynomial": 2,
+        "box": [
+          "5/8",
+          "3/4",
+          "3/8",
+          "1/2"
+        ],
+        "minimum_exact_bernstein_coefficient": "892113695235/1073741824"
+      },
+      {
+        "path": "101000000",
+        "polynomial": 0,
+        "box": [
+          "3/4",
+          "25/32",
+          "0",
+          "1/16"
+        ],
+        "minimum_exact_bernstein_coefficient": "413513296985529015/1125899906842624"
+      },
+      {
+        "path": "101000001",
+        "polynomial": 2,
+        "box": [
+          "25/32",
+          "13/16",
+          "0",
+          "1/16"
+        ],
+        "minimum_exact_bernstein_coefficient": "356093136583965/1099511627776"
+      },
+      {
+        "path": "10100001",
+        "polynomial": 2,
+        "box": [
+          "3/4",
+          "13/16",
+          "1/16",
+          "1/8"
+        ],
+        "minimum_exact_bernstein_coefficient": "790873875/16777216"
+      },
+      {
+        "path": "1010001",
+        "polynomial": 2,
+        "box": [
+          "13/16",
+          "7/8",
+          "0",
+          "1/8"
+        ],
+        "minimum_exact_bernstein_coefficient": "4312650628125/4294967296"
+      },
+      {
+        "path": "101001",
+        "polynomial": 2,
+        "box": [
+          "3/4",
+          "7/8",
+          "1/8",
+          "1/4"
+        ],
+        "minimum_exact_bernstein_coefficient": "1844133075/4194304"
+      },
+      {
+        "path": "10101",
+        "polynomial": 2,
+        "box": [
+          "7/8",
+          "1",
+          "0",
+          "1/4"
+        ],
+        "minimum_exact_bernstein_coefficient": "38805684525/16777216"
+      },
+      {
+        "path": "1011",
+        "polynomial": 2,
+        "box": [
+          "3/4",
+          "1",
+          "1/4",
+          "1/2"
+        ],
+        "minimum_exact_bernstein_coefficient": "1213402275/1048576"
+      },
+      {
+        "path": "11",
+        "polynomial": 2,
+        "box": [
+          "1/2",
+          "1",
+          "1/2",
+          "1"
+        ],
+        "minimum_exact_bernstein_coefficient": "1543395/1024"
+      }
+    ]
+  }
+}

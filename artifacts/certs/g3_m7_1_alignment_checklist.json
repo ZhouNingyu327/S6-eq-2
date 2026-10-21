@@ -94,7 +94,7 @@
         "text": "RIGHT 真缺口且 F 水平空 → R37–R38 排除"
       },
       "module_hyp": {
-        "source": "peer_ready/sources/S6_attack_round38.md (hand proof + ratio)",
+        "source": "artifacts/long_proof/S6_full_proof.md#R38 (stable long-proof module; formerly peer_ready/sources/S6_attack_round38.md)",
         "text": "empty-right / negative-side exclusion; R38 ratio/4ud7 exact upgrade"
       },
       "cert_query_hyp": {
@@ -124,7 +124,7 @@
         "text": "LEFT 真缺口（两旋转、直接/桥接）→ R37–R39 排除"
       },
       "module_hyp": {
-        "source": "peer_ready/sources/S6_attack_round39.md",
+        "source": "artifacts/long_proof/S6_full_proof.md#R39 (stable long-proof module; formerly peer_ready/sources/S6_attack_round39.md)",
         "text": "LEFT right-contact / single-contact / three-meeting structure"
       },
       "cert_query_hyp": {
