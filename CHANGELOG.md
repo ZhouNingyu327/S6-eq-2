@@ -1,3 +1,11 @@
+## v0.26 — centre outer-miss + projWidth mid-miss (2026-10-22 Asia/Shanghai)
+
+- `RotatedChordMeasure`: centre tile misses all four outers when `μ²>2`
+  (`RoleSelection` / `PointwiseCover`); `projWidth_lt_mu_of_mu_sq_gt`;
+  SW mid-miss when `|c|+|s|<μ` (partial μ²≤2 path).
+- `rotatedMidPackingProved` remains false. `principalClaimProvedUnconditionally=false`.
+- Lake green. Honest bar still ~80–84%.
+
 ## v0.25 — corner mid-miss when μ²>2 (2026-10-22 Asia/Shanghai)
 
 - `RotatedChordMeasure`: SW/SE/NE/NW miss both midlines when `μ²>2`;

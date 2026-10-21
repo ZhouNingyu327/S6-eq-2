@@ -57,7 +57,8 @@ geometric proofs.
 | `|Δx|/|Δy|≤|c|+|s|`; parallel miss; `RotatedSixLineRealLift` (six lines) | **Proved** |
 | `distSq` on `containsR`; four-corner clamped outer pairs ≤2 | **Proved** |
 | Corner mid-miss when `μ²>2`; outer+mid pack skeleton | **Proved** |
-| Mid packing (`μ²≤2` / fillers); general `ChordMatrixExport` | **Open** |
+| Centre outer-miss (`μ²>2`); SW projWidth mid-miss (`|c|+|s|<μ`) | **Proved** |
+| SE/NE/NW projWidth mid-miss; filler packing; general `ChordMatrixExport` | **Open** |
 | Inhabit `RotatedSixLineMeasureLift` from `RotatedGridRatCover` | **Open** |
 | Axis/identity-C realisation ⇒ `RotatedChordCoverIneq` | **Proved conditional** |
 | `G3ParallelBudgetExport`⇒`G3SideGapDataExport`/exclusion | **Proved conditional** |
