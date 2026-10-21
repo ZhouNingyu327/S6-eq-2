@@ -25,8 +25,13 @@ Proved:
 * corner owners + two centre fillers ⇒ `AxisG5k0Roles`
 * `AxisAlignedG5k0Realisation` ⇒ `AxisG5k0CoverBridge` ⇒ G5k0 export/bridge
 
-Open: discharge `AxisAlignedG5k0Realisation` for every G5 k=0 `PointwiseCover`
-(axis alignment + world-coord `F∋O`), or inhabit `RotatedG5k0ChordExport`.
+Proved (this pass): `pullback_self` (C-chart ⇒ C=`identityPose`); axis pullback
+preserves alignment; pure translation normalises any axis tile to `identityPose`;
+body-chart packaging (`bodyChartSquares` / `BodyChartAxisAligned`) with
+world-axis ⇒ body identity-C.
+
+Open: inhabit `AxisAlignedIdentityCRealisation` / `BodyChartAxisG5k0Realisation`
+for every G5 k=0 cover, or `RotatedChordBoundPackage` from general covers.
 -/
 
 namespace S6.AxisG5k0FromCover
@@ -448,8 +453,138 @@ def axisAlignedIdentityCRealisationProved : Bool := false
 theorem axisAlignedIdentityCRealisationProved_false :
     axisAlignedIdentityCRealisationProved = false := rfl
 
+/-! ## Manuscript body-chart faithfulness (C → identityPose) -/
+
+/-- Pulling a square into its own body chart yields `identityPose`. -/
+theorem pullback_self (g : RotatedSquare) :
+    RotatedSquare.pullback g g = identityPose := by
+  simp only [RotatedSquare.pullback]
+  apply rigidMotion_eq
+  · apply unitDir_eq
+    · simp only [RigidMotion.comp, RigidMotion.inverse, UnitDir.comp, unitDirInv,
+        rotateInv, rotateBy, identityPose]
+      have hu := g.dir.hc
+      nlinarith
+    · simp only [RigidMotion.comp, RigidMotion.inverse, UnitDir.comp, unitDirInv,
+        rotateInv, rotateBy, identityPose]
+      ring
+  · simp only [RigidMotion.comp, RigidMotion.inverse, rotateInv, rotateBy, identityPose]
+    apply Prod.ext <;> ring
+
+theorem isAxisAligned_identity : isAxisAligned identityPose := by
+  simp [isAxisAligned, identityPose]
+
+/-- Body-chart pullback of two axis-aligned squares stays axis-aligned. -/
+theorem isAxisAligned_pullback_of_axis (g f : RotatedSquare)
+    (hg : isAxisAligned g) (hf : isAxisAligned f) :
+    isAxisAligned (RotatedSquare.pullback g f) := by
+  obtain ⟨hc_g, hs_g⟩ := hg
+  obtain ⟨hc_f, hs_f⟩ := hf
+  simp only [isAxisAligned, RotatedSquare.pullback, RigidMotion.comp, RigidMotion.inverse,
+    UnitDir.comp, unitDirInv, rotateInv, rotateBy, hc_g, hs_g, hc_f, hs_f]
+  constructor <;> ring
+
+theorem isAxisAligned_translate (t : ℚ × ℚ) (g : RotatedSquare)
+    (h : isAxisAligned g) : isAxisAligned (translateSquare t g) := by
+  simpa [isAxisAligned, translateSquare] using h
+
+theorem axisAligned_zero_shift_eq_identity (g : RotatedSquare)
+    (h : isAxisAligned g) (hs : g.shift = (0, 0)) : g = identityPose := by
+  obtain ⟨hc, hs0⟩ := h
+  apply rigidMotion_eq
+  · apply unitDir_eq <;> simp [identityPose, hc, hs0]
+  · simpa [identityPose] using hs
+
+theorem translate_neg_shift (g : RotatedSquare) :
+    (translateSquare (-g.shift.1, -g.shift.2) g).shift = (0, 0) := by
+  simp only [translateSquare, translate]
+  apply Prod.ext <;> ring
+
+/-- Pure translation sends any axis-aligned tile to `identityPose`. -/
+theorem translate_axis_to_identity (g : RotatedSquare) (h : isAxisAligned g) :
+    translateSquare (-g.shift.1, -g.shift.2) g = identityPose := by
+  have htr : isAxisAligned (translateSquare (-g.shift.1, -g.shift.2) g) :=
+    isAxisAligned_translate _ g h
+  exact axisAligned_zero_shift_eq_identity _ htr (translate_neg_shift g)
+
+theorem axis_tile_normalisable_to_identity (g : RotatedSquare) (h : isAxisAligned g) :
+    ∃ t : ℚ × ℚ, translateSquare t g = identityPose :=
+  ⟨(-g.shift.1, -g.shift.2), translate_axis_to_identity g h⟩
+
+/-- Six squares pulled into the centre tile's body chart. -/
+noncomputable def bodyChartSquares {T : Target} (cov : PointwiseCover T) :
+    Fin 6 → RotatedSquare :=
+  let R := RoleSelection.ofCover cov
+  fun i => RotatedSquare.pullback (R.cov.squares R.iC) (R.cov.squares i)
+
+theorem bodyChartSquares_iC {T : Target} (cov : PointwiseCover T) :
+    bodyChartSquares cov (RoleSelection.ofCover cov).iC = identityPose := by
+  dsimp only [bodyChartSquares]
+  exact pullback_self _
+
+/-- Body-chart C is always `identityPose` (chart-placement faithfulness). -/
+theorem bodyChart_C_is_identity {T : Target} (cov : PointwiseCover T) :
+    bodyChartSquares cov (RoleSelection.ofCover cov).iC = identityPose :=
+  bodyChartSquares_iC cov
+
+def BodyChartAxisAligned {T : Target} (cov : PointwiseCover T) : Prop :=
+  ∀ i : Fin 6, isAxisAligned (bodyChartSquares cov i)
+
+theorem bodyChartAxisAligned_of_world_axis {T : Target} (cov : PointwiseCover T)
+    (halign : ∀ i, isAxisAligned (cov.squares i)) :
+    BodyChartAxisAligned cov := by
+  intro i
+  dsimp only [bodyChartSquares]
+  have hcov : (RoleSelection.ofCover cov).cov = cov := rfl
+  have hiC := halign (RoleSelection.ofCover cov).iC
+  have hi := halign i
+  simpa [hcov] using isAxisAligned_pullback_of_axis _ _ hiC hi
+
+/-- World axis-aligned cover ⇒ body chart is axis-aligned with C = identity. -/
+theorem axis_world_realises_body_identityC {T : Target} (cov : PointwiseCover T)
+    (halign : ∀ i, isAxisAligned (cov.squares i)) :
+    BodyChartAxisAligned cov ∧
+      bodyChartSquares cov (RoleSelection.ofCover cov).iC = identityPose :=
+  ⟨bodyChartAxisAligned_of_world_axis cov halign, bodyChartSquares_iC cov⟩
+
+/-- Manuscript `F` is the body-chart image of world `iF`. -/
+theorem toManuscript_F_eq_bodyChartF {T : Target} (cov : PointwiseCover T) :
+    (RoleSelection.ofCover cov).toManuscript.F =
+      bodyChartSquares cov (RoleSelection.ofCover cov).iF :=
+  rfl
+
+/-- Open: every G5 k=0 cover is axis-aligned in the centre body chart. -/
+def BodyChartAxisG5k0Realisation : Prop :=
+  ∀ (T : Target) (cov : PointwiseCover T),
+    isG5Class cov →
+      (RoleSelection.ofCover cov).toManuscript.flags.k = ⟨0, by decide⟩ →
+        BodyChartAxisAligned cov
+
+theorem BodyChartAxisG5k0Realisation_of_axisRealisation
+    (h : AxisAlignedG5k0Realisation) : BodyChartAxisG5k0Realisation := by
+  intro T cov hcls hk
+  have ⟨halign, _⟩ := h T cov hcls hk
+  exact bodyChartAxisAligned_of_world_axis cov halign
+
+theorem BodyChartAxisG5k0Realisation_of_identityC
+    (h : AxisAlignedIdentityCRealisation) : BodyChartAxisG5k0Realisation :=
+  BodyChartAxisG5k0Realisation_of_axisRealisation
+    (AxisAlignedG5k0Realisation_of_identityCRealisation h)
+
+def bodyChartFaithfulnessClosed : Bool := true
+theorem bodyChartFaithfulnessClosed_true : bodyChartFaithfulnessClosed = true := rfl
+
+def axisTileTranslateToIdentityClosed : Bool := true
+theorem axisTileTranslateToIdentityClosed_true :
+    axisTileTranslateToIdentityClosed = true := rfl
+
+def bodyChartAxisG5k0RealisationProved : Bool := false
+theorem bodyChartAxisG5k0RealisationProved_false :
+    bodyChartAxisG5k0RealisationProved = false := rfl
+
 def openAxisG5k0FromCover : List String :=
-  ["AxisAlignedIdentityCRealisation (axis-align + C=identityPose for every G5 k=0 cover)",
+  ["AxisAlignedIdentityCRealisation (world axis + C=identityPose for every G5 k=0)",
+   "BodyChartAxisG5k0Realisation (axis in C-body chart for every G5 k=0)",
    "RotatedChordBoundPackage / grid cover ineq from general PointwiseCover"]
 
 end S6.AxisG5k0FromCover

@@ -192,4 +192,61 @@ theorem g3CoverBudgetRealisationProved_false :
     g3CoverBudgetRealisationProved = false := rfl
 
 
+/-! ## G3/G4 flag characterisation (Ownership grid → Prop) -/
+
+theorem classify_eq_G3_iff (o : Ownership) :
+    classify o = TopClass.G3 ↔
+      o.fHasO = false ∧ o.k = ⟨2, by decide⟩ ∧ o.midsAdjacent = false := by
+  constructor
+  · intro h
+    cases hf : o.fHasO
+    · simp [classify, hf] at h
+      match o.k, h with
+      | ⟨0, _⟩, h => cases h
+      | ⟨1, _⟩, h => revert h; cases o.midInC <;> intro h <;> cases h
+      | ⟨2, _⟩, h =>
+        cases ha : o.midsAdjacent
+        · refine ⟨rfl, rfl, rfl⟩
+        · simp [ha] at h
+    · simp [classify, hf] at h
+  · intro ⟨hf, hk, ha⟩
+    exact classify_G3_of o hf hk ha
+
+theorem classify_eq_G4_iff (o : Ownership) :
+    classify o = TopClass.G4 ↔
+      o.fHasO = false ∧ o.k = ⟨2, by decide⟩ ∧ o.midsAdjacent = true := by
+  constructor
+  · intro h
+    cases hf : o.fHasO
+    · simp [classify, hf] at h
+      match o.k, h with
+      | ⟨0, _⟩, h => cases h
+      | ⟨1, _⟩, h => revert h; cases o.midInC <;> intro h <;> cases h
+      | ⟨2, _⟩, h =>
+        cases ha : o.midsAdjacent
+        · simp [ha] at h
+        · exact ⟨rfl, rfl, rfl⟩
+    · simp [classify, hf] at h
+  · intro ⟨hf, hk, ha⟩
+    exact classify_G4_of o hf hk ha
+
+theorem isG3Class_flags {T : S6.Obligation2.Target}
+    (cov : S6.Obligation2Opens.PointwiseCover T)
+    (h : classify (S6.Obligation2Roles.RoleSelection.ofCover cov).toManuscript.flags.toOwnership =
+      TopClass.G3) :
+    let o := (S6.Obligation2Roles.RoleSelection.ofCover cov).toManuscript.flags.toOwnership
+    o.fHasO = false ∧ o.k = ⟨2, by decide⟩ ∧ o.midsAdjacent = false :=
+  (classify_eq_G3_iff _).1 h
+
+theorem isG4Class_flags {T : S6.Obligation2.Target}
+    (cov : S6.Obligation2Opens.PointwiseCover T)
+    (h : classify (S6.Obligation2Roles.RoleSelection.ofCover cov).toManuscript.flags.toOwnership =
+      TopClass.G4) :
+    let o := (S6.Obligation2Roles.RoleSelection.ofCover cov).toManuscript.flags.toOwnership
+    o.fHasO = false ∧ o.k = ⟨2, by decide⟩ ∧ o.midsAdjacent = true :=
+  (classify_eq_G4_iff _).1 h
+
+def g3g4FlagIffClosed : Bool := true
+theorem g3g4FlagIffClosed_true : g3g4FlagIffClosed = true := rfl
+
 end S6.G3G4Fragments

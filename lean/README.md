@@ -38,7 +38,11 @@ geometric proofs.
 | `AxisAlignedG5k0Realisation`⇒`AxisG5k0CoverBridge` | **Proved conditional** |
 | `isG5Class`↔`fHasO`; identity-C⇒world F∋O | **Proved** |
 | `AxisAlignedIdentityCRealisation`⇒G5k0 bridges/exports | **Proved conditional** |
-| Discharge identity-C / axis-align for every G5 k=0 cover | **Open** |
+| `pullback_self`; body-chart C=`identityPose`; axis translate→identity | **Proved** |
+| World-axis ⇒ `BodyChartAxisAligned` + body identity-C | **Proved** |
+| `BodyChartAxisG5k0Realisation` of axis/identity-C realisation | **Proved conditional** |
+| Discharge identity-C / body-chart-axis for every G5 k=0 cover | **Open** |
+| `classify_eq_G3_iff` / `classify_eq_G4_iff` (+ cover flag extracts) | **Proved** |
 | Interior ⇒ outer contrib 0 | **Proved** |
 | `G5k*GeomExport ⇒ Bridge ⇒ G5Exclusion` composition | **Proved** (`G5GeometryBridge`) |
 | `G5Exclusion` from three geometric bridges | **Proved conditional** |

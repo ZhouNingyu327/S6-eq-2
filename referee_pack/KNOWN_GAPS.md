@@ -22,6 +22,13 @@ Relative to the 2026-10-21 **rereview** of commit `32e0e0f`, the API repair at `
 4. **(S)-tier inventory — CLEARED (2026-10-22, tip `80e8ee0`).** Batch24–26f family: **151** checkable (E)/(H) certs under `artifacts/closure/item3_certs/exact_certs_batch24/` (checker `check_exact_certs_batch24.py` **PASS 151/151**). Remaining dual-solver (S) from the post-batch25 set of 91: **0**. Inventory: `S_tier_inventory.md`, `S_tier_remaining.json`, handoff `CERT_TO_LEAN_HANDOFF.md`. **Honest:** clearing (S) does **not** prove the theorem; Lean e2e faithfulness and independent external review remain open (items 1–2).
 5. Short paper §§5–7 now cite concrete module tables; further page-length expansions may still help referees.
 
+## Advanced this round (vs `5ca2d44`)
+
+- **Body-chart faithfulness:** `pullback_self` (C-chart ⇒ C=`identityPose`); axis pullback preserves alignment; pure translation normalises any axis tile to `identityPose`; `bodyChartSquares` / `BodyChartAxisAligned`; world-axis ⇒ body identity-C; manuscript F = body-chart F.
+- **G3/G4 flag iff:** `classify_eq_G3_iff` / `classify_eq_G4_iff`; `isG3Class_flags` / `isG4Class_flags` from covers.
+- Residual open: inhabit `AxisAlignedIdentityCRealisation` / `BodyChartAxisG5k0Realisation` / `RotatedChordBoundPackage`; 17 living; G3/G4 budget inhabit.
+- `principalClaimProvedUnconditionally=false`.
+
 ## Advanced this round (vs `91d6ea4`)
 
 - **G5 ⇒ fHasO** (`classify_eq_G5_iff_fHasO` / `isG5Class_fHasO`).

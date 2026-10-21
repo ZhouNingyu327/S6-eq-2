@@ -1,5 +1,14 @@
 # Changelog
 
+## 2026-10-22 — Body-chart faithfulness + G3/G4 flag iff (Lean)
+
+- `AxisG5k0FromCover`: `pullback_self`; axis pullback preserves alignment; `translate_axis_to_identity`;
+  `bodyChartSquares` / `BodyChartAxisAligned` / world-axis ⇒ body identity-C; manuscript F = body-chart F.
+- `G3G4Fragments`: `classify_eq_G3_iff` / `classify_eq_G4_iff`; cover flag extracts.
+- Docs: CONTINUATION_LEAN, formalization.yaml v0.14, README, KNOWN_GAPS.
+- `principalClaimProvedUnconditionally` remains **false**.
+- BernsteinExact* / NearEndExact* untouched (other executor).
+
 ## 2026-10-22 — (S)-tier inventory cleared to (E)/(H) (`80e8ee0`)
 
 - Batch24–26f family: **151** checkable Bernstein/IBB/hand certificates under `artifacts/closure/item3_certs/exact_certs_batch24/`.
