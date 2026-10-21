@@ -10,13 +10,17 @@ import S6Core.G5Budget
 import S6Core.G5ExclusionFrag
 import S6Core.G5GeometryBridge
 import S6Core.AxisG5k0FromCover
+import S6Core.ChordLength
+import S6Core.ObliqueChart
 
 /-!
 # Rotated chord-measure fragments (toward G5k*GeomExport)
 
 Proved: diameter `distSq ≤ 2`; Weierstrass `g2_alg < 2`;
-`RotatedG5k0ChordExport` ⇒ `G5k0GeomExport` / `G5k0Bridge`.
-Open: inhabiting `RotatedG5k0ChordExport` from `PointwiseCover`.
+`RotatedG5k0ChordExport` ⇒ `G5k0GeomExport` / `G5k0Bridge`;
+six-line chord matrix algebra; projected-width ≤ 2 on unit directions;
+axis/identity-C realisation ⇒ `RotatedChordCoverIneq`.
+Open: inhabit `RotatedChordCoverIneq` from general `PointwiseCover` (Euclidean chords).
 -/
 
 namespace S6.RotatedChordMeasure
@@ -147,6 +151,8 @@ theorem rotatedChordBoundPackageProved_false : rotatedChordBoundPackageProved = 
 
 
 open S6.AxisG5k0FromCover
+open S6.ObliqueChart
+open S6.ChordLength (UnitDir)
 
 /-- Axis / identity-C realisation ⇒ `RotatedG5k0ChordExport` (via GeomExport). -/
 theorem RotatedG5k0ChordExport_of_axisRealisation (h : AxisAlignedG5k0Realisation) :
@@ -221,6 +227,110 @@ theorem G5k0Bridge_of_coverIneq (h : RotatedChordCoverIneq) : G5k0Bridge :=
 def rotatedChordDiameterBoundsClosed : Bool := true
 theorem rotatedChordDiameterBoundsClosed_true :
     rotatedChordDiameterBoundsClosed = true := rfl
+
+
+/-! ## Six-line chord matrix + CoverIneq packaging -/
+
+/-- Explicit `Fin 6` sum (ℚ; avoids Finset friction). -/
+def sum6 (f : Fin 6 → ℚ) : ℚ :=
+  f 0 + f 1 + f 2 + f 3 + f 4 + f 5
+
+theorem sum6_le_of_le (f g : Fin 6 → ℚ) (h : ∀ i, f i ≤ g i) :
+    sum6 f ≤ sum6 g := by
+  simp only [sum6]; nlinarith [h 0, h 1, h 2, h 3, h 4, h 5]
+
+/-- Chord lengths of six squares on six target lines. -/
+structure SixLineChordMatrix where
+  μ : ℚ
+  chord : Fin 6 → Fin 6 → ℚ
+  nonneg : ∀ ℓ i, 0 ≤ chord ℓ i
+  lineCover : ∀ ℓ, (2 : ℚ) * μ ≤ sum6 (fun i => chord ℓ i)
+
+theorem SixLineChordMatrix.total_ge (M : SixLineChordMatrix) :
+    (12 : ℚ) * M.μ ≤ sum6 (fun ℓ => sum6 (fun i => M.chord ℓ i)) := by
+  have h0 := M.lineCover 0
+  have h1 := M.lineCover 1
+  have h2 := M.lineCover 2
+  have h3 := M.lineCover 3
+  have h4 := M.lineCover 4
+  have h5 := M.lineCover 5
+  simp only [sum6] at h0 h1 h2 h3 h4 h5 ⊢
+  nlinarith
+
+def SixLineChordMatrix.squareTotal (M : SixLineChordMatrix) (i : Fin 6) : ℚ :=
+  sum6 (fun ℓ => M.chord ℓ i)
+
+theorem SixLineChordMatrix.total_eq_square_sum (M : SixLineChordMatrix) :
+    sum6 (fun ℓ => sum6 (fun i => M.chord ℓ i)) =
+      sum6 (fun i => M.squareTotal i) := by
+  simp only [sum6, SixLineChordMatrix.squareTotal]
+  ring
+
+/-- Six lines covered + each square total ≤ 2 ⇒ False when μ>1. -/
+theorem SixLineChordMatrix.impossible_of_square_ub (M : SixLineChordMatrix)
+    (hμ : 1 < M.μ) (hub : ∀ i, M.squareTotal i ≤ 2) : False := by
+  have htot := M.total_ge
+  rw [M.total_eq_square_sum] at htot
+  have hsumle : sum6 (fun i => M.squareTotal i) ≤ 12 := by
+    have h := sum6_le_of_le (fun i => M.squareTotal i) (fun _ => (2 : ℚ)) hub
+    have : sum6 (fun _ : Fin 6 => (2 : ℚ)) = 12 := by simp only [sum6]; norm_num
+    linarith
+  nlinarith
+
+/-- G5k0 chord package: four corner + two mid measures. -/
+structure RotatedChordLinePackage (μ : ℚ) where
+  c1 : ℚ
+  c2 : ℚ
+  c3 : ℚ
+  c4 : ℚ
+  m1 : ℚ
+  m2 : ℚ
+  hc1 : c1 ≤ 2
+  hc2 : c2 ≤ 2
+  hc3 : c3 ≤ 2
+  hc4 : c4 ≤ 2
+  hm1 : m1 ≤ 2
+  hm2 : m2 ≤ 2
+  hcover : (12 : ℚ) * μ ≤ (c1 + c2 + c3 + c4) + (m1 + m2)
+
+theorem RotatedChordCoverIneq_of_linePackage
+    (H : ∀ (T : Target) (cov : PointwiseCover T),
+      isG5Class cov →
+        (RoleSelection.ofCover cov).toManuscript.flags.k = ⟨0, by decide⟩ →
+          Nonempty (RotatedChordLinePackage T.μ)) :
+    RotatedChordCoverIneq := by
+  intro T cov hcls hk
+  obtain ⟨P⟩ := H T cov hcls hk
+  exact ⟨P.c1, P.c2, P.c3, P.c4, P.m1, P.m2, P.hc1, P.hc2, P.hc3, P.hc4, P.hm1, P.hm2, P.hcover⟩
+
+theorem RotatedChordLinePackage_impossible {μ : ℚ} (P : RotatedChordLinePackage μ)
+    (hμ : 1 < μ) : False := by
+  nlinarith [P.hc1, P.hc2, P.hc3, P.hc4, P.hm1, P.hm2, P.hcover, hμ]
+
+/-- Axis G5k0 realisation ⇒ CoverIneq (split GeomExport corners/CF). -/
+theorem RotatedChordCoverIneq_of_axisRealisation (h : AxisAlignedG5k0Realisation) :
+    RotatedChordCoverIneq := by
+  intro T cov hcls hk
+  rcases G5k0GeomExport_of_axisRealisation h T cov hcls hk with ⟨E⟩
+  have hc : E.corners / 4 ≤ 2 := by linarith [E.hcorners]
+  have hm : E.CF / 2 ≤ 2 := by linarith [E.hCF]
+  refine ⟨E.corners / 4, E.corners / 4, E.corners / 4, E.corners / 4,
+    E.CF / 2, E.CF / 2, hc, hc, hc, hc, hm, hm, ?_⟩
+  have hsum : (E.corners / 4 + E.corners / 4 + E.corners / 4 + E.corners / 4) +
+      (E.CF / 2 + E.CF / 2) = E.corners + E.CF := by ring
+  nlinarith [E.hcover, hsum]
+
+theorem RotatedChordCoverIneq_of_identityC (h : AxisAlignedIdentityCRealisation) :
+    RotatedChordCoverIneq :=
+  RotatedChordCoverIneq_of_axisRealisation
+    (AxisAlignedG5k0Realisation_of_identityCRealisation h)
+
+def sixLineChordAlgebraClosed : Bool := true
+theorem sixLineChordAlgebraClosed_true : sixLineChordAlgebraClosed = true := rfl
+
+def rotatedChordCoverIneqFromAxisPathClosed : Bool := true
+theorem rotatedChordCoverIneqFromAxisPathClosed_true :
+    rotatedChordCoverIneqFromAxisPathClosed = true := rfl
 
 def rotatedChordCoverIneqProved : Bool := false
 theorem rotatedChordCoverIneqProved_false : rotatedChordCoverIneqProved = false := rfl

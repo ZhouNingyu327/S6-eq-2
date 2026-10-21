@@ -1,5 +1,13 @@
 # Changelog
 
+## 2026-10-22 — Six-line chord algebra + G3 parallel-budget export
+
+- `RotatedChordMeasure`: `SixLineChordMatrix` / `RotatedChordLinePackage`; axis/identity-C ⇒ CoverIneq.
+- `ObliqueChart`: unitDir projected-width ≤2 and sq≤2.
+- `G3G4Fragments`: `G3ParallelBudgetExport`⇒exclusion.
+- Docs v0.16. `principalClaimProvedUnconditionally` remains **false**.
+- BernsteinExact* / NearEndExact* / LivingLeafStrengthen untouched.
+
 ## 2026-10-22 — SE(2) pullback transport + chord/G3 package split
 
 - `AxisG5k0FromCover`: `pullback_contains_iff`; body-F∋body-O ↔ world-F∋O; manuscript fHasO ↔ world F∋O (identity-C).

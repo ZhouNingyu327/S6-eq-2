@@ -22,6 +22,41 @@ theorem projectedWidth_eq_abs_add (c s : ℚ) :
 theorem projectedWidth_unitDir (u : UnitDir) :
     projectedWidth (u.c, u.s) = |u.c| + |u.s| := rfl
 
+theorem unitDir_abs_c_le_one (u : UnitDir) : |u.c| ≤ 1 := by
+  have hc := u.hc
+  have hs2 : 0 ≤ u.s * u.s := mul_self_nonneg u.s
+  have : u.c ^ 2 ≤ 1 := by nlinarith [hc, hs2]
+  exact (sq_le_one_iff_abs_le_one u.c).1 this
+
+theorem unitDir_abs_s_le_one (u : UnitDir) : |u.s| ≤ 1 := by
+  have hc := u.hc
+  have hc2 : 0 ≤ u.c * u.c := mul_self_nonneg u.c
+  have : u.s ^ 2 ≤ 1 := by nlinarith [hc, hc2]
+  exact (sq_le_one_iff_abs_le_one u.s).1 this
+
+/-- Projected width of a unit square onto a unit direction is ≤ 2. -/
+theorem unitDir_projectedWidth_le_two (u : UnitDir) : |u.c| + |u.s| ≤ 2 := by
+  linarith [unitDir_abs_c_le_one u, unitDir_abs_s_le_one u]
+
+/-- Sharp Weierstrass: `(|c|+|s|)² ≤ 2` on the circle (AM-GM). -/
+theorem unitDir_projectedWidth_sq_le_two (u : UnitDir) :
+    (|u.c| + |u.s|) ^ 2 ≤ 2 := by
+  have hc := u.hc
+  have h1 : |u.c| ^ 2 = u.c ^ 2 := sq_abs u.c
+  have h2 : |u.s| ^ 2 = u.s ^ 2 := sq_abs u.s
+  have hamg : 2 * |u.c| * |u.s| ≤ u.c ^ 2 + u.s ^ 2 := by
+    have : 0 ≤ (|u.c| - |u.s|) ^ 2 := sq_nonneg _
+    nlinarith [h1, h2]
+  calc
+    (|u.c| + |u.s|) ^ 2 = |u.c| ^ 2 + |u.s| ^ 2 + 2 * |u.c| * |u.s| := by ring
+    _ = u.c ^ 2 + u.s ^ 2 + 2 * |u.c| * |u.s| := by rw [h1, h2]
+    _ ≤ 1 + 1 := by nlinarith [hc, hamg]
+    _ = 2 := by norm_num
+
+theorem projectedWidth_unitDir_le_two (u : UnitDir) :
+    projectedWidth (u.c, u.s) ≤ 2 := by
+  simpa [projectedWidth_unitDir] using unitDir_projectedWidth_le_two u
+
 /-- Support max as the upper corner contribution. -/
 def supportMax (n : Pt) : ℚ :=
   (if 0 ≤ n.1 then n.1 else 0) + (if 0 ≤ n.2 then n.2 else 0)

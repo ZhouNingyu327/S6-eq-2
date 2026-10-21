@@ -42,6 +42,9 @@ geometric proofs.
 | SE(2) `pullback_contains_iff`; body-F∋body-O ↔ world-F∋O | **Proved** |
 | Manuscript fHasO ↔ world F∋O (identity-C) | **Proved** |
 | `RotatedChordDiameterBounds` held; package ↔ `CoverIneq` | **Proved** |
+| Six-line chord matrix algebra; unitDir projected-width ≤2 | **Proved** |
+| Axis/identity-C realisation ⇒ `RotatedChordCoverIneq` | **Proved conditional** |
+| `G3ParallelBudgetExport`⇒`G3SideGapDataExport`/exclusion | **Proved conditional** |
 | `G3SideGapDataExport`⇒bridge/exclusion; `BudgetHyp.of` | **Proved conditional** |
 | World-axis ⇒ `BodyChartAxisAligned` + body identity-C | **Proved** |
 | `BodyChartAxisG5k0Realisation` of axis/identity-C realisation | **Proved conditional** |

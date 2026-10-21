@@ -4,6 +4,7 @@ import S6Core.CoveringGeometry
 import S6Core.M7_1Geometry
 import S6Core.MainTheorem
 import S6Core.ParallelBudget
+import S6Core.ParallelBudgetGeometry
 import S6Core.G5Budget
 import S6Core.OwnershipBridge
 open S6.TopClassExhaustiveness
@@ -301,5 +302,37 @@ theorem g3SideGapDataExportProved_false : g3SideGapDataExportProved = false := r
 
 def g3BudgetHypBuilderClosed : Bool := true
 theorem g3BudgetHypBuilderClosed_true : g3BudgetHypBuilderClosed = true := rfl
+
+
+open S6.ParallelBudgetGeometry
+
+/-- Export `ParallelBudgetData` + `vF` + cover ineq ⇒ `G3SideGapDataExport`. -/
+def G3ParallelBudgetExport : Prop :=
+  ∀ (T : S6.Obligation2.Target) (cov : S6.Obligation2Opens.PointwiseCover T),
+    classify (S6.Obligation2Roles.RoleSelection.ofCover cov).toManuscript.flags.toOwnership =
+        TopClass.G3 →
+      ∃ (D : ParallelBudgetData) (vF : ℚ),
+        vF < T.μ ∧ (12 : ℚ) * T.μ ≤ 8 + 3 * D.B + vF
+
+theorem G3SideGapDataExport_of_parallelBudget (h : G3ParallelBudgetExport) :
+    G3SideGapDataExport := by
+  intro T cov hcls
+  rcases h T cov hcls with ⟨D, vF, hv, hp⟩
+  exact ⟨D.B, vF, D.B_lt_one, hv, hp⟩
+
+theorem G3Exclusion_of_parallelBudgetExport (h : G3ParallelBudgetExport) : G3Exclusion :=
+  G3Exclusion_of_dataExport (G3SideGapDataExport_of_parallelBudget h)
+
+theorem sideGap_impossible_of_parallelBudget (μ : ℚ) (D : ParallelBudgetData) (vF : ℚ)
+    (hμ : 1 < μ) (hv : vF < μ)
+    (hp : (12 : ℚ) * μ ≤ 8 + 3 * D.B + vF) : False :=
+  sideGap_impossible (BudgetHyp.of μ D.B vF hμ D.B_lt_one hv) hp
+
+def g3ParallelBudgetExportProved : Bool := false
+theorem g3ParallelBudgetExportProved_false : g3ParallelBudgetExportProved = false := rfl
+
+def g3ParallelBudgetReductionClosed : Bool := true
+theorem g3ParallelBudgetReductionClosed_true :
+    g3ParallelBudgetReductionClosed = true := rfl
 
 end S6.G3G4Fragments
