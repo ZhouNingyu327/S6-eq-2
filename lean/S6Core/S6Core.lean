@@ -14,6 +14,7 @@ import S6Core.M7_1Geometry
 import S6Core.ParallelBudget
 import S6Core.OwnershipBridge
 import S6Core.ClassificationExample
+import S6Core.Faithfulness
 import S6Core.RigidMotionChart
 import S6Core.ObliqueChart
 import S6Core.EuclideanChord

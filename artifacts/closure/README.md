@@ -30,3 +30,12 @@
 
 ## 新发现错误
 无。
+
+
+## 2026-10-21 gap advance
+
+- `INTERNAL_G5_rebuild.md` / `_zh.md` — internal early-G5 rebuild (not external review)
+- `M1_module_migration.md` / `_zh.md` — primary vs deferred strong M1
+- `S_tier_inventory.md` / `_zh.md` / `S_tier_remaining.json` — remaining (S) ledger
+- `item3_certs/` — queue + upgrade_results_* packaged for public inventory
+- `certificate_counts.json` — headline counts

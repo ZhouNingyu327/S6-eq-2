@@ -42,3 +42,11 @@
 ## 5. 完成度声明
 
 **不宣称**全部查询已 exact。仍余 **151** 条（S）。送外部审稿时必须保留本声明。
+
+
+---
+
+## 6. 2026-10-21 inventory pointer
+
+Public remaining-(S) ledger: `S_tier_inventory.md` / `S_tier_remaining.json` / `item3_certs/`.
+Headline unique remaining (S) after Item3 dedupe: **151** (see also `certificate_counts.json`).

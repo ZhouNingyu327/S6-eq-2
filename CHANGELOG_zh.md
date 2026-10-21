@@ -1,3 +1,13 @@
+# Changelog
+
+## 2026-10-21 — 缺口推进（相对 `8672f31`）
+
+- Lean：`Faithfulness.lean` + 分类回归；README / formalization.yaml 区分已证与开放。
+- 内部 G5 重建笔记（EN+ZH）；外部审稿项保持开放。
+- 强 M1 明确为延期；主协议仍为逐步重分类。
+- Item3 升级台账与剩余 (S) 清单入库。
+- 短文 §§5–7 增加 Hyp⇒Concl 模块表。
+
 # 变更说明
 
 ## 2026-10-21 — Lean Major 3 接口 + 规范化迁移说明（相对 `5bfd66a`）

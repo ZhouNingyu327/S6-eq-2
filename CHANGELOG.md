@@ -1,5 +1,13 @@
 # Changelog
 
+## 2026-10-21 — KNOWN_GAPS advance (vs `8672f31`)
+
+- Lean: `Faithfulness.lean` + classification regressions; README / formalization.yaml state proved vs open.
+- Internal G5 rebuild notes (EN+ZH); external-referee gap kept open.
+- Strong M1 explicitly deferred; primary remains stepwise reclassification.
+- Item3 upgrade ledger + remaining (S) inventory under `artifacts/closure/`.
+- Short paper §§5–7 expanded with Hyp⇒Concl module tables.
+
 ## 2026-10-21 — Lean Major 3 API + normalisation migration note (vs `5bfd66a`)
 
 - **Ownership flags:** primary API is `flagsOfTarget` / `flagsOfTargetRotated` using the four target outer mids and `F∋O` (centre). Legacy MidCandidates wiring moved to `legacyFlagsOf*`; `flagsOfRotated` no longer feeds `fHasAnyMidCandidate` into `fHasO`.

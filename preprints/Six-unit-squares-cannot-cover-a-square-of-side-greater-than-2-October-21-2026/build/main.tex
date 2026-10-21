@@ -329,8 +329,28 @@ positive distance from~$O$, so a small neighbourhood of~$O$ is covered by~$C$
 alone and $O$ is interior to~$C$.
 \end{proof}
 
+\begin{center}
+\small
+\begin{tabular}{@{}llp{0.46\textwidth}@{}}
+\toprule
+Hyp & Modules & Concl \\
+\midrule
+G5, $k=2$ & R2 & grid contribution of $C\cup F$ $<4$ \\
+G5, $k=0$ & R3 & residual-gap split empty \\
+G5, $k=1$ & R4--R7 & reduce to interior second centre / triple abutment \\
+same leaf & R8 + Bernstein cert & inequality~\eqref{eq:M7} vs three-ray bounds \\
+\bottomrule
+\end{tabular}
+\end{center}
+\smallskip
+\noindent\textit{Long-proof anchors:} \texttt{S6\_full\_proof.md} §§R2--R8; internal rebuild note
+\texttt{artifacts/closure/INTERNAL\_G5\_rebuild.md}.
+
 \begin{proposition}[G1 impossible]\label{prop:M42}
-If the centre tile is unique, then $C\cup F$ contains at least one outer mid.
+\emph{Hypothesis.} Unique centre tile~$C$ (after Proposition~\ref{prop:M41}) and
+$k=0$ (no outer mid in $C\cup F$).
+\emph{Conclusion.} No such covering exists; hence $C\cup F$ contains at least
+one outer mid.
 \end{proposition}
 
 \begin{proof}[Proof outline]
@@ -342,8 +362,24 @@ and~$F$ with the corner contribution bound~$<8$.  Adjacent gaps are eliminated
 in R10~\S\S3--6 by real endpoints and direction constraints.
 \end{proof}
 
+\begin{center}
+\small
+\begin{tabular}{@{}llp{0.42\textwidth}@{}}
+\toprule
+Hyp & Modules & Concl \\
+\midrule
+$k=0$, triple abutment & R9 & impossible by quarter budget \\
+$k=0$, opposite gaps & R10C + R10 & $h_F>0$ then parallel budgets conflict \\
+$k=0$, adjacent gaps & R10 §§3--6 & real endpoints / directions empty \\
+\bottomrule
+\end{tabular}
+\end{center}
+
 \begin{proposition}[Centre cannot own the unique mid]\label{prop:M43}
-If $k=1$, the unique mid belonging to $C\cup F$ cannot belong to~$C$.
+\emph{Hypothesis.} $k=1$ and the unique outer mid in $C\cup F$ belongs to~$C$
+(centre-G2), including the shared-ownership subcase $C\cap F\ni\mathrm{mid}$.
+\emph{Conclusion.} No such covering exists; the unique mid must belong to~$F$
+alone.
 \end{proposition}
 
 \begin{proof}[Proof outline]
@@ -354,28 +390,51 @@ $C\cap F$ of the same mid is eliminated separately in R12~\S10 by vertical
 redundancy and a true-gap triangle constraint.
 \end{proof}
 
+\noindent\textit{Module IDs:} R11 (axial contacts); R12 (host representatives);
+R12~\S10 (shared mid).
+
 \begin{proposition}[G4 impossible]\label{prop:M51}
-No covering has $C$ and~$F$ owning distinct adjacent outer mids.
+\emph{Hypothesis.} $k=2$ with $C,F$ owning distinct \emph{adjacent} outer mids
+(class G4), normalised so $C\supset\mathrm{LEFT\,mid}$ and
+$F\supset\mathrm{BOTTOM\,mid}$.
+\emph{Conclusion.} No such covering exists.
 \end{proposition}
 
 \begin{proof}[Proof outline]
-Normalise so that $C$ owns the left mid and $F$ owns the bottom mid.  The three
-injective host representatives $(\TOP,\RIGHT)\in\{(4,3),(4,2),(3,2)\}$ are
-eliminated in modules R20--R23 by horizontal-sign analysis, forced suspension
-segments, and projection budgets on~$C$.  Shared left-mid ownership by the free
-corner tile is ruled out before the last representative.
+The three injective host representatives
+$(\TOP,\RIGHT)\in\{(4,3),(4,2),(3,2)\}$ are eliminated in modules R20--R23 by
+horizontal-sign analysis, forced suspension segments, and projection budgets
+on~$C$.  Shared left-mid ownership by the free corner tile is ruled out before
+the last representative (R20A).
 \end{proof}
+
+\begin{center}
+\small
+\begin{tabular}{@{}lll@{}}
+\toprule
+Host $(\TOP,\RIGHT)$ & Modules & Notes \\
+\midrule
+$(4,3)$ & R20, R21 & all $F$-horizontal signs \\
+$(4,2)$ & R20, R21A, R22 & suspension $J>x/3$ \\
+$(3,2)$ & R20A, R22A, R23 & shared left mid first \\
+\bottomrule
+\end{tabular}
+\end{center}
 
 \begin{proposition}[G3 impossible]\label{prop:M52}
-No covering has $C$ and~$F$ owning distinct opposite outer mids.
+\emph{Hypothesis.} $k=2$ with $C,F$ owning distinct \emph{opposite} outer mids
+(class G3), normalised so $C\supset\mathrm{LEFT\,mid}$ and
+$F\supset\mathrm{RIGHT\,mid}$.
+\emph{Conclusion.} No such covering exists.
 \end{proposition}
 
 \begin{proof}[Proof outline]
-Normalise so that $C$ owns the left mid and $F$ owns the right mid.  Three host
-representatives (after reflection) are eliminated in R24--R25 by abutment/gap
-analysis on $\TOP$ and~$\BOTTOM$, empty/nonempty vertical chords of~$F$, and a
-local exit lemma for nonempty cases.
+Three host representatives (after reflection) are eliminated in R24--R25 by
+abutment/gap analysis on $\TOP$ and~$\BOTTOM$, empty/nonempty vertical chords
+of~$F$, and a local exit lemma for nonempty cases (R24A/R25).
 \end{proof}
+
+\noindent\textit{Module IDs:} R24, R24A, R25 (three host representatives).
 
 \begin{corollary}[Universal centre forbids outer mids]\label{cor:M53}
 In any covering of~$T$ the unique centre tile contains no outer mid, and the
@@ -415,6 +474,23 @@ right-gap patterns fall to R27--R28 (both rotation signs).  A normalisation
 that fills a gap returns to an already eliminated abutment leaf
 (Appendix~\ref{app:M1}).
 \end{proof}
+
+\begin{center}
+\small
+\begin{tabular}{@{}llp{0.40\textwidth}@{}}
+\toprule
+Branch (Table~M3.1) & Modules & Concl \\
+\midrule
+RIGHT+TOP abut; $F$ horiz.\ nonempty & R13 & empty \\
+same; $F$ horiz.\ empty & R14--R16 (+R15S/R16P) & $1173$ interval boxes \\
+LEFT gap / nonempty $F$ & R17--R18 & empty \\
+TOP true gap & R19, R26 & both rotation signs \\
+RIGHT true gap & R27--R28 & both rotation signs \\
+\bottomrule
+\end{tabular}
+\end{center}
+\smallskip
+\noindent\textit{Long-proof anchors:} §§R13--R19, R26--R28; Appendix~\ref{app:M3}.
 
 %% ============================================================
 \section{Far-end reduction to standard form}\label{sec:far}
@@ -462,6 +538,23 @@ root $u>38/79$, whence $C$ avoids~$\BOTTOM$.  The three anchored corner tiles
 can contribute only their matching central half-axes, so the entire bottom gap
 and the lower tip of~$C$ are forced into the same tile~$F$.
 \end{proof}
+
+\begin{center}
+\small
+\begin{tabular}{@{}llp{0.40\textwidth}@{}}
+\toprule
+Step & Modules & Concl \\
+\midrule
+1 & R27, R29, R29N.1 & TOP abuts; only LEFT/RIGHT gap or triple abutment \\
+2 & R29N.2, R31--R36 & $F\cap H=\varnothing$ thence $F\subset\{y<0\}$ \\
+3 & R37--R39 & no LEFT/RIGHT true-gap survivors \\
+4 & R39 ($u>38/79$) & final standard form (bottom gap+$C$ tip in $F$) \\
+\bottomrule
+\end{tabular}
+\end{center}
+\smallskip
+\noindent\textit{Long-proof anchors:} Table~M3.2; frozen R29N
+(Appendix~\ref{app:M2}); §§R27--R39.
 
 %% ============================================================
 \section{Standard-form notation and four joining modes}\label{sec:std}

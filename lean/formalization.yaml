@@ -1,5 +1,5 @@
 # Catalog of manuscripts with a formalized (or partially formalized) main result.
-version: "v0.3"
+version: "v0.4"
 
 project:
   name: "ZhouNingyu327/S6-eq-2"
@@ -13,10 +13,12 @@ sources:
     id: ../preprints/Six-unit-squares-cannot-cover-a-square-of-side-greater-than-2-October-21-2026/paper.pdf
     type: article
     lean_docs: docs/001.md
-    status: partial_skeleton_metadata_only
+    status: partial_skeleton_api_fragments
     notes: >-
       Lean obligations skeleton builds with 0 sorry / extra axioms in that
       skeleton. Boolean whole-theorem flags are human-maintained status metadata,
-      not geometric theorems. Ownership/role bridges are not yet
-      manuscript-faithful (KNOWN_GAPS Major 3). A complete Lean re-proof of every
-      metric inequality is not claimed.
+      not geometric theorems. Major-3 ownership API (flagsOfTarget*, F∋O, sixth-tile
+      iF, pullback) plus Faithfulness.lean fragments and classification regressions
+      are machine-checked. End-to-end manuscript faithfulness and the geometric
+      theorem S(6)=2 in Lean remain open (KNOWN_GAPS). A complete Lean re-proof of
+      every metric inequality is not claimed.

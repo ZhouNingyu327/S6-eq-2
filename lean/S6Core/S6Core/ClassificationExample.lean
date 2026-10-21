@@ -65,4 +65,10 @@ theorem rereview_rot_k_eq_one : flags₀_rot.k = ⟨1, by decide⟩ := by native
 
 theorem rereview_rot_fHasO_false : flags₀_rot.fHasO = false := by native_decide
 
+/-- Further G5 / G1 / centre-G2 regressions: `S6Core.Faithfulness`. -/
+theorem rereview_legacy_mismatch :
+    flags₀.k ≠ legacyFlags₀.k ∧ flags₀.fHasO ≠ legacyFlags₀.fHasO := by
+  native_decide
+
 end S6.ClassificationExample
+

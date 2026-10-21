@@ -1,0 +1,15 @@
+{
+  "script_level_sum_historical": 403,
+  "cvc5_only_queue_lines": 272,
+  "cvc5_only_queue_unique": 260,
+  "queue_duplicate_lines": 12,
+  "exact_harness_first_route": 121,
+  "hand_or_bernstein_supplement": 10,
+  "exact_item3_from_queue_unique": 109,
+  "exact_or_hand_total": 245,
+  "cvc5_only_remaining_unique": 146,
+  "tracked_unique_total": 391,
+  "note": "403 is historical script-level sum; unique tracked = exact_or_hand + cvc5_remaining after deduping queue. Formalization round added 5 IBB exact; Lean A algebraic cores built.",
+  "formalization_round_new_exact_IBB": 5,
+  "lean_A_core": "built_no_sorry_2026-10-20"
+}
