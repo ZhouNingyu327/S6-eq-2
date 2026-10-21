@@ -149,4 +149,5 @@ Still honest: these lifts verify certificate algebra / payloads — **not** Prin
 
 Honest: these lifts ≠ geometric `LivingLeafExcluded` for the 17 living leaves ≠ `PrincipalClaim`.
 Forbidden (bridge executor): `MainTheorem`, `G5ExclusionFrag`, `AxisG5k0FromCover` — not edited.
+| `S6Core.NearEndAdjacentExact` | +48 R29–R32/R41 + R13 leftover payloads | lake-green |
 
