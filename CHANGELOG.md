@@ -1,3 +1,14 @@
+## v0.18 — six-line measure-lift packaging + G3 cap reduction (2026-10-22 Asia/Shanghai)
+
+- `RotatedChordMeasure`: horiz/vert chord Δ²≤2 and |Δ|≤2; `RotatedLineChordCover` with
+  `sum_ge` / `sum_le_twelve`; named open `RotatedSixLineMeasureLift` /
+  `RotatedLineMeasureLift`; bridges to CoverIneq, G5k0Bridge, GeomExport, LinePackageExport.
+- `G3G4Fragments`: `G3CapGeometryExport`, `ParallelBudgetData_of_cap`,
+  `G3SepWitnessExport_of_capSep` ⇒ ParallelBudget / exclusion.
+- Flags remain false: `rotatedSixLineMeasureLiftProved`, `g3CapGeometryExportProved`,
+  `principalClaimProvedUnconditionally`.
+- Lake green. Honest bar still ~80–84%.
+
 # Changelog
 
 ## 2026-10-22 — RotatedGridRatCover from PointwiseCover + G3 sep witness

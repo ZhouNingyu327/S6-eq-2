@@ -1,3 +1,10 @@
+## Open (v0.18)
+
+- Inhabit `RotatedSixLineMeasureLift` / `RotatedLineMeasureLift` from `RotatedGridRatCover`
+- BodyChartAxis / IdentityC for every G5 k=0
+- Inhabit `G3SepWitnessExport` / `G3CapGeometryExport` from covers
+- `principalClaimProvedUnconditionally` remains false
+
 # Known gaps
 
 Relative to the 2026-10-21 **rereview** of commit `32e0e0f`, the API repair at `8672f31`, and this gaps push.

@@ -1,5 +1,5 @@
 # Catalog of manuscripts with a formalized (or partially formalized) main result.
-version: "v0.17"
+version: "v0.18"
 
 project:
   name: "ZhouNingyu327/S6-eq-2"
@@ -15,11 +15,13 @@ sources:
     id: ../preprints/Six-unit-squares-cannot-cover-a-square-of-side-greater-than-2-October-21-2026/paper.pdf
     type: article
     lean_docs: docs/001.md
-    status: partial_formalization_rotated_grid_rat_cover
+    status: partial_formalization_six_line_measure_lift_packaging
     notes: >-
-      PrincipalClaim is a Prop. Proved as v0.16 plus RotatedGridRatCover from every
-      PointwiseCover (six-line ℚ, no axis), axis lift, meetsHoriz/Vert,
-      LinePackageExport⇒CoverIneq, G3SepWitnessExport⇒ParallelBudget/exclusion.
-      Open: Euclidean SixLineChordMatrix from rat cover; BodyChartAxis/IdentityC;
-      G3SepWitness from covers; 17 living; unconditional PrincipalClaim.
-      principalClaimProvedUnconditionally=false. ~80–84% openai/math Lean bar (honest).
+      PrincipalClaim is a Prop. Proved as v0.17 plus horiz/vert chord Δ²≤2 and |Δ|≤2,
+      RotatedLineChordCover algebra (sum≥2μ, sum≤12), RotatedSixLineMeasureLift ⇒
+      CoverIneq / G5k0Bridge / GeomExport / LinePackageExport; G3CapGeometryExport ⇒
+      ParallelBudget / SepWitness / exclusion reductions. Open: inhabit
+      RotatedSixLineMeasureLift / RotatedLineMeasureLift from RotatedGridRatCover;
+      BodyChartAxis/IdentityC; G3SepWitness from covers; 17 living; unconditional
+      PrincipalClaim. principalClaimProvedUnconditionally=false. ~80–84% openai/math
+      Lean bar (honest).

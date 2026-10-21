@@ -369,4 +369,58 @@ theorem g3SepWitnessExportProved_false : g3SepWitnessExportProved = false := rfl
 def g3SepWitnessReductionClosed : Bool := true
 theorem g3SepWitnessReductionClosed_true : g3SepWitnessReductionClosed = true := rfl
 
+
+/-- Cap geometry: oriented square + triangular-cap cuts + budget data from a G3 cover. -/
+def G3CapGeometryExport : Prop :=
+  ∀ (T : S6.Obligation2.Target) (cov : S6.Obligation2Opens.PointwiseCover T),
+    classify (S6.Obligation2Roles.RoleSelection.ofCover cov).toManuscript.flags.toOwnership =
+        TopClass.G3 →
+      ∃ (Q : OrientedUnitSquare) (H : TriangularCapCuts Q) (D : ParallelBudgetData) (vF : ℚ),
+        D.d = H.d ∧ vF < T.μ ∧ (12 : ℚ) * T.μ ≤ 8 + 3 * D.B + vF
+
+theorem G3ParallelBudgetExport_of_capGeometry (h : G3CapGeometryExport) :
+    G3ParallelBudgetExport := by
+  intro T cov hcls
+  rcases h T cov hcls with ⟨_, _, D, vF, _, hv, hp⟩
+  exact ⟨D, vF, hv, hp⟩
+
+theorem G3Exclusion_of_capGeometry (h : G3CapGeometryExport) :
+    S6.MainTheorem.G3Exclusion :=
+  G3Exclusion_of_parallelBudgetExport (G3ParallelBudgetExport_of_capGeometry h)
+
+/-- Build `ParallelBudgetData` from a triangular-cap cut + `(y,s)` witnesses. -/
+def ParallelBudgetData_of_cap (Q : OrientedUnitSquare) (H : TriangularCapCuts Q)
+    (y s : ℚ) (hy : 0 < y) (hy2 : y * y = H.d * H.d - 1)
+    (hs : 0 < s) (hs2 : s * s = 2) (hd_le : H.d ≤ s) : ParallelBudgetData :=
+  ParallelBudgetData.mk' H.d y s H.hd hy hy2 hs hs2 hd_le
+
+theorem ParallelBudgetData_of_cap_B_lt_one (Q : OrientedUnitSquare) (H : TriangularCapCuts Q)
+    (y s : ℚ) (hy : 0 < y) (hy2 : y * y = H.d * H.d - 1)
+    (hs : 0 < s) (hs2 : s * s = 2) (hd_le : H.d ≤ s) :
+    (ParallelBudgetData_of_cap Q H y s hy hy2 hs hs2 hd_le).B < 1 :=
+  (ParallelBudgetData_of_cap Q H y s hy hy2 hs hs2 hd_le).B_lt_one
+
+/-- Cap + separation witnesses ⇒ `G3SepWitnessExport`. -/
+theorem G3SepWitnessExport_of_capSep
+    (H : ∀ (T : S6.Obligation2.Target) (cov : S6.Obligation2Opens.PointwiseCover T),
+      classify (S6.Obligation2Roles.RoleSelection.ofCover cov).toManuscript.flags.toOwnership =
+          TopClass.G3 →
+        ∃ (Q : OrientedUnitSquare) (Hc : TriangularCapCuts Q) (y s vF : ℚ)
+          (hy : 0 < y) (hy2 : y * y = Hc.d * Hc.d - 1)
+          (hs : 0 < s) (hs2 : s * s = 2) (hd_le : Hc.d ≤ s),
+            vF < T.μ ∧
+              (12 : ℚ) * T.μ ≤
+                8 + 3 * (ParallelBudgetData_of_cap Q Hc y s hy hy2 hs hs2 hd_le).B + vF) :
+    G3SepWitnessExport := by
+  intro T cov hcls
+  rcases H T cov hcls with ⟨Q, Hc, y, s, vF, hy, hy2, hs, hs2, hd_le, hv, hp⟩
+  refine ⟨Hc.d, y, s, vF, Hc.hd, hy, hy2, hs, hs2, hd_le, hv, ?_⟩
+  simpa [ParallelBudgetData.mk', ParallelBudgetData_of_cap] using hp
+
+def g3CapGeometryExportProved : Bool := false
+theorem g3CapGeometryExportProved_false : g3CapGeometryExportProved = false := rfl
+
+def g3CapGeometryReductionClosed : Bool := true
+theorem g3CapGeometryReductionClosed_true : g3CapGeometryReductionClosed = true := rfl
+
 end S6.G3G4Fragments

@@ -3,6 +3,7 @@ import S6Core.Obligation2
 import S6Core.Obligation2Opens
 import S6Core.Obligation2Roles
 import S6Core.OwnershipBridge
+import S6Core.RigidMotionChart
 import S6Core.BernsteinGridLift
 import S6Core.GridContribution
 import S6Core.RotatedGridBound
@@ -13,6 +14,7 @@ import S6Core.AxisG5k0FromCover
 import S6Core.AxisGridCover
 import S6Core.ChordLength
 import S6Core.ObliqueChart
+import S6Core.IntervalCover1D
 
 /-!
 # Rotated chord-measure fragments (toward G5k*GeomExport)
@@ -23,7 +25,9 @@ six-line chord matrix algebra; projected-width ≤ 2 on unit directions;
 axis/identity-C realisation ⇒ `RotatedChordCoverIneq`.
 Proved: `RotatedGridRatCover` from every `PointwiseCover` (six-line ℚ cover, no axis hyp);
 axis lift via alignment; meet predicates; line-package export ⇒ CoverIneq.
-Open: Euclidean chord lengths / SixLineChordMatrix from rat cover (measure lift).
+Proved: horiz/vert chord Δ²≤2 and |Δ|≤2; RotatedLineChordCover algebra;
+SixLineMeasureLift ⇒ CoverIneq / G5k0Bridge / GeomExport / LinePackageExport.
+Open: inhabit RotatedSixLineMeasureLift / RotatedLineMeasureLift from rat cover.
 -/
 
 namespace S6.RotatedChordMeasure
@@ -433,5 +437,129 @@ theorem rotatedChordLinePackageExportProved_false :
 
 def rotatedChordCoverIneqProved : Bool := false
 theorem rotatedChordCoverIneqProved_false : rotatedChordCoverIneqProved = false := rfl
+
+/-! ## Euclidean chord extents + six-line measure-lift packaging -/
+
+open S6.IntervalCover1D
+open MeasureTheory Set
+
+theorem horiz_chord_sq_le_two (g : RotatedSquare) (Y x1 x2 : ℚ)
+    (h1 : RotatedSquare.contains g (x1, Y))
+    (h2 : RotatedSquare.contains g (x2, Y)) :
+    (x1 - x2) * (x1 - x2) ≤ 2 := by
+  have h := chord_distSq_le_two g (x1, Y) (x2, Y) h1 h2
+  simp only [distSq] at h
+  nlinarith
+
+theorem vert_chord_sq_le_two (g : RotatedSquare) (X y1 y2 : ℚ)
+    (h1 : RotatedSquare.contains g (X, y1))
+    (h2 : RotatedSquare.contains g (X, y2)) :
+    (y1 - y2) * (y1 - y2) ≤ 2 := by
+  have h := chord_distSq_le_two g (X, y1) (X, y2) h1 h2
+  simp only [distSq] at h
+  nlinarith
+
+/-- Horizontal chord length (absolute) ≤ 2 via diameter `distSq ≤ 2`. -/
+theorem abs_horiz_chord_le_two (g : RotatedSquare) (Y x1 x2 : ℚ)
+    (h1 : RotatedSquare.contains g (x1, Y))
+    (h2 : RotatedSquare.contains g (x2, Y)) :
+    |x1 - x2| ≤ 2 := by
+  have hsq := horiz_chord_sq_le_two g Y x1 x2 h1 h2
+  have hnn : 0 ≤ |x1 - x2| := abs_nonneg _
+  have : |x1 - x2| * |x1 - x2| ≤ (2 : ℚ) * 2 := by
+    have : |x1 - x2| * |x1 - x2| = (x1 - x2) * (x1 - x2) := by
+      simp [abs_mul_abs_self]
+    linarith
+  nlinarith
+
+theorem abs_vert_chord_le_two (g : RotatedSquare) (X y1 y2 : ℚ)
+    (h1 : RotatedSquare.contains g (X, y1))
+    (h2 : RotatedSquare.contains g (X, y2)) :
+    |y1 - y2| ≤ 2 := by
+  have hsq := vert_chord_sq_le_two g X y1 y2 h1 h2
+  have : |y1 - y2| * |y1 - y2| = (y1 - y2) * (y1 - y2) := by
+    simp [abs_mul_abs_self]
+  nlinarith
+
+/-- One target line covered by six Euclidean chord intervals of length ≤ 2. -/
+structure RotatedLineChordCover (μ : ℚ) where
+  lo : Fin 6 → ℝ
+  hi : Fin 6 → ℝ
+  hle : ∀ i, lo i ≤ hi i
+  hchord_le_two : ∀ i, hi i - lo i ≤ 2
+  hcover : Icc (0 : ℝ) ((2 : ℝ) * μ) ⊆ ⋃ i, Icc (lo i) (hi i)
+
+theorem RotatedLineChordCover.sum_ge {μ : ℚ} (hμ : 1 < μ)
+    (C : RotatedLineChordCover μ) :
+    (2 : ℝ) * μ ≤ ∑ i : Fin 6, (C.hi i - C.lo i) := by
+  have hab : (0 : ℝ) ≤ (2 : ℝ) * μ := by exact_mod_cast (by nlinarith [hμ] : (0 : ℚ) ≤ 2 * μ)
+  simpa using cover_Icc_sum_diff (0 : ℝ) ((2 : ℝ) * μ) hab C.lo C.hi C.hle C.hcover
+
+theorem RotatedLineChordCover.sum_le_twelve {μ : ℚ} (C : RotatedLineChordCover μ) :
+    ∑ i : Fin 6, (C.hi i - C.lo i) ≤ (12 : ℝ) := by
+  have hbound : ∀ i ∈ (Finset.univ : Finset (Fin 6)), C.hi i - C.lo i ≤ (2 : ℝ) :=
+    fun i _ => C.hchord_le_two i
+  have hsum := Finset.sum_le_sum hbound
+  have hconst : ∑ _i : Fin 6, (2 : ℝ) = 12 := by
+    simp [Finset.sum_const, Finset.card_univ, Fintype.card_fin]; norm_num
+  linarith
+
+/-- Open: lift one line of `RotatedGridRatCover` to a Euclidean interval cover. -/
+def RotatedLineMeasureLift : Prop :=
+  ∀ (μ : ℚ), 1 < μ → ∀ (squares : Fin 6 → RotatedSquare),
+    RotatedGridRatCover μ squares → Nonempty (RotatedLineChordCover μ)
+
+/-- Open: G5 k=0 cover exports a six-line chord matrix with per-square total ≤ 2. -/
+def RotatedSixLineMeasureLift : Prop :=
+  ∀ (T : Target) (cov : PointwiseCover T),
+    isG5Class cov →
+      (RoleSelection.ofCover cov).toManuscript.flags.k = ⟨0, by decide⟩ →
+        ∃ (M : SixLineChordMatrix),
+          M.μ = T.μ ∧ (∀ i, M.squareTotal i ≤ 2)
+
+theorem G5k0Bridge_of_sixLineMeasureLift (h : RotatedSixLineMeasureLift) :
+    G5k0Bridge := by
+  intro T cov hcls hk
+  rcases h T cov hcls hk with ⟨M, hμEq, hub⟩
+  have hμ : 1 < M.μ := by simpa [hμEq] using T.hμ
+  exact False.elim (M.impossible_of_square_ub hμ hub)
+
+theorem RotatedChordBoundPackage_of_sixLineMeasureLift (h : RotatedSixLineMeasureLift) :
+    RotatedChordBoundPackage := by
+  intro T cov hcls hk
+  rcases h T cov hcls hk with ⟨M, hμEq, hub⟩
+  have hμ : 1 < M.μ := by simpa [hμEq] using T.hμ
+  exact (M.impossible_of_square_ub hμ hub).elim
+
+theorem RotatedChordCoverIneq_of_sixLineMeasureLift (h : RotatedSixLineMeasureLift) :
+    RotatedChordCoverIneq :=
+  RotatedChordBoundPackage_of_sixLineMeasureLift h
+
+theorem G5k0GeomExport_of_sixLineMeasureLift (h : RotatedSixLineMeasureLift) :
+    G5k0GeomExport :=
+  G5k0GeomExport_of_rotatedChordExport
+    (RotatedG5k0ChordExport_of_boundPackage
+      (RotatedChordBoundPackage_of_sixLineMeasureLift h))
+
+theorem RotatedChordLinePackageExport_of_sixLineMeasureLift
+    (h : RotatedSixLineMeasureLift) : RotatedChordLinePackageExport := by
+  intro T cov hcls hk
+  rcases h T cov hcls hk with ⟨M, hμEq, hub⟩
+  have hμ : 1 < M.μ := by simpa [hμEq] using T.hμ
+  exact (M.impossible_of_square_ub hμ hub).elim
+
+def rotatedHorizVertChordClosed : Bool := true
+theorem rotatedHorizVertChordClosed_true : rotatedHorizVertChordClosed = true := rfl
+
+def rotatedLineChordCoverAlgebraClosed : Bool := true
+theorem rotatedLineChordCoverAlgebraClosed_true :
+    rotatedLineChordCoverAlgebraClosed = true := rfl
+
+def rotatedSixLineMeasureLiftProved : Bool := false
+theorem rotatedSixLineMeasureLiftProved_false :
+    rotatedSixLineMeasureLiftProved = false := rfl
+
+def rotatedLineMeasureLiftProved : Bool := false
+theorem rotatedLineMeasureLiftProved_false : rotatedLineMeasureLiftProved = false := rfl
 
 end S6.RotatedChordMeasure

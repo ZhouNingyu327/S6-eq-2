@@ -46,6 +46,10 @@ geometric proofs.
 | `RotatedGridRatCover` from every `PointwiseCover` (no axis hyp) | **Proved** |
 | Axis rat cover via rotated + alignment; `meetsHoriz`/`meetsVert` | **Proved** |
 | `RotatedChordLinePackageExport`⇒CoverIneq; `G3SepWitnessExport`⇒exclusion | **Proved conditional** |
+| horiz/vert chord Δ²≤2, `|Δ|≤2`; `RotatedLineChordCover` algebra | **Proved** |
+| `RotatedSixLineMeasureLift`⇒CoverIneq/G5k0Bridge/GeomExport | **Proved conditional** |
+| `G3CapGeometryExport`⇒ParallelBudget/SepWitness/exclusion | **Proved conditional** |
+| Inhabit `RotatedSixLineMeasureLift` from `RotatedGridRatCover` | **Open** |
 | Axis/identity-C realisation ⇒ `RotatedChordCoverIneq` | **Proved conditional** |
 | `G3ParallelBudgetExport`⇒`G3SideGapDataExport`/exclusion | **Proved conditional** |
 | `G3SideGapDataExport`⇒bridge/exclusion; `BudgetHyp.of` | **Proved conditional** |
