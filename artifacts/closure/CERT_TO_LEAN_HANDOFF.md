@@ -113,3 +113,16 @@ Usually need case-split lemmas more than Bernstein machinery.
 
 - Editing `lean/S6Core` theorem files from the cert track without coordinating the Lean executor.
 - Claiming principal claim / external review closed because (S)=0.
+
+
+## Lean lift status (BernsteinExactP1–P3)
+
+Committed modules (payload-side `native_decide` only; **not** PrincipalClaim):
+
+| Module | Scope | Status |
+| --- | --- | --- |
+| `lean/S6Core/S6Core/BernsteinExactP1.lean` | all 10 `exact-Bernstein-raw` numer/denom | lake-green |
+| `lean/S6Core/S6Core/BernsteinExactP2.lean` | 28/31 named Bernstein coeff lists (nonneg/nonpos); 3 claim-only skipped | lake-green |
+| `lean/S6Core/S6Core/BernsteinExactP3.lean` | all 10 IBB handoff certs; 195 leaf range theorems | lake-green |
+
+Wired in `lean/S6Core/S6Core.lean` next to `BernsteinGridLift` only. Manifest: `artifacts/closure/item3_certs/bernstein_lean_lift_manifest.json`.
