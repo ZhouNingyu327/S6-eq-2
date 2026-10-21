@@ -18,16 +18,16 @@ Sources (read-only): `artifacts/ex/all/check_round14_bridge.py`,
 * Junction coordinate identity (`s₂X - c₂Y = s₂ + c₂ - 1`).
 * SE2 for R14 excludes `JunctionConflict` / dual residual.
 * SE2 left-gap ⇒ `dL > 1`; with `z ∈ (0,1)`, `leftRayBound z < dL`.
-* Algebraic Z3 `leftLength` pack unsat (`LeftLengthHyps` ⇒ False).
-* Conditional: `R14SE2RealisesLeftLengthPack` ⇒
+* Algebraic Z3 packs unsat: `LeftLengthHyps`, `ABridgeHyps`, `LeftGapOwnerHyps`.
+* Conditionals: any of `R14SE2Realises{LeftLength,ABridge,LeftGapOwner}Pack` ⇒
   `R14SE2ForcesBridgeJunctionContradiction` / `BernsteinForcesRawEmpty "R14"`
-  (**not** via R-poly ≤ 0; **not** via `dL ≤ leftRayBound`).
+  (**not** via R-poly ≤ 0; SE2 has no μ / W-bridge `(A,D,U,l)` fields).
 
 ## Inventory only
 * Bridge/junction Z3 unsat scopes named; JSON holds solver results.
 
 ## Blocked
-* `R14SE2RealisesLeftLengthPack` (SE2 ⇒ (μ,l) W-bridge fields). SE2 `dL` ≠ Z3 `l`.
+* `R14SE2Realises*Pack` (SE2 ⇒ W-bridge / ownership fields). No false ID invented.
 * ∀cfg `z ∈ (0,1)` (chart alone does not force it).
 * `R14SE2ForcesBridgeJunctionContradiction` / `BernsteinForcesRawEmpty` stay false.
 
@@ -363,6 +363,117 @@ theorem bernsteinForcesRawEmpty_R14_of_leftLengthPack
   bernsteinForcesRawEmpty_R14_of_bridgeJunction
     (r14SE2ForcesBridgeJunctionContradiction_of_leftLengthPack H)
 
+/-! ## Algebraic Z3 ABridge unsat -/
+
+/-- Bridge script `A_bridge`: `μ>1`, `c,s>0`, `s·z=1-c`, plane `s·A+c·D=1`,
+W-halfplane `c(μ-D)≤s·U`, tip `A≥z+U`. -/
+structure ABridgeHyps (μ c s z A D U : ℚ) : Prop where
+  hμ : 1 < μ
+  hc : 0 < c
+  hs : 0 < s
+  hsz : s * z = 1 - c
+  hplane : s * A + c * D = 1
+  hWU : c * (μ - D) ≤ s * U
+  hA : z + U ≤ A
+
+theorem aBridgeHyps_false (μ c s z A D U : ℚ) (H : ABridgeHyps μ c s z A D U) :
+    False := by
+  -- Cleared: s·A = 1 - c·D ≥ s·(z+U) = s·z + s·U ≥ s·z + c·(μ-D)
+  have hplane' : s * A = 1 - c * D := by linarith [H.hplane]
+  have hsA : s * (z + U) ≤ s * A := by
+    exact mul_le_mul_of_nonneg_left H.hA (le_of_lt H.hs)
+  have hsU : c * (μ - D) ≤ s * U := H.hWU
+  have hcleared : s * z + c * (μ - D) ≤ 1 - c * D := by
+    linarith [hplane', hsA, hsU]
+  have hmain : s * z + μ * c ≤ 1 := by linarith
+  have hc' : c = 1 - s * z := by linarith [H.hsz]
+  have hsubst : s * z + μ * (1 - s * z) ≤ 1 := by simpa [hc'] using hmain
+  have hμpos : 0 < μ - 1 := by linarith [H.hμ]
+  have hle : μ - 1 ≤ (μ - 1) * (s * z) := by linarith [hsubst]
+  have hsz_ge : 1 ≤ s * z := (le_mul_iff_one_le_right hμpos).mp hle
+  have hsz_lt : s * z < 1 := by
+    have : s * z = 1 - c := H.hsz
+    linarith [H.hc]
+  linarith
+
+def R14ABridgePackUnsat : Prop :=
+  ∀ μ c s z A D U : ℚ, ABridgeHyps μ c s z A D U → False
+
+theorem r14ABridgePackUnsat : R14ABridgePackUnsat := aBridgeHyps_false
+
+def r14ABridgePackUnsatProved : Bool := true
+theorem r14ABridgePackUnsatProved_true : r14ABridgePackUnsatProved = true := rfl
+
+/-- OPEN: SE2 realises ABridge fields. NearEndSE2 has no `(μ,c,s,A,D,U)`. -/
+def R14SE2RealisesABridgePack : Prop :=
+  ∀ cfg : NearEndSE2 BernsteinGeometryMap.leaf_R14,
+    ∃ μ c s A D U : ℚ, ABridgeHyps μ c s cfg.z A D U
+
+def r14SE2RealisesABridgePackProved : Bool := false
+theorem r14SE2RealisesABridgePackProved_false :
+    r14SE2RealisesABridgePackProved = false := rfl
+
+theorem r14SE2ForcesBridgeJunctionContradiction_of_aBridgePack
+    (H : R14SE2RealisesABridgePack) :
+    R14SE2ForcesBridgeJunctionContradiction := by
+  intro cfg
+  obtain ⟨μ, c, s, A, D, U, h⟩ := H cfg
+  exact aBridgeHyps_false μ c s cfg.z A D U h
+
+theorem bernsteinForcesRawEmpty_R14_of_aBridgePack
+    (H : R14SE2RealisesABridgePack) :
+    BernsteinForcesRawEmpty "R14" :=
+  bernsteinForcesRawEmpty_R14_of_bridgeJunction
+    (r14SE2ForcesBridgeJunctionContradiction_of_aBridgePack H)
+
+/-! ## Algebraic Z3 leftGapOwner unsat -/
+
+/-- Bridge script `left_gap_owner`: `μ>1`, `x+y<1`, `r≥μ-x`, `u≥μ-y`, `r+u<1`. -/
+structure LeftGapOwnerHyps (μ x y r u : ℚ) : Prop where
+  hμ : 1 < μ
+  hxy : x + y < 1
+  hr : μ - x ≤ r
+  hu : μ - y ≤ u
+  hru : r + u < 1
+
+theorem leftGapOwnerHyps_false (μ x y r u : ℚ)
+    (H : LeftGapOwnerHyps μ x y r u) : False := by
+  have hsum : 2 * μ - (x + y) ≤ r + u := by linarith [H.hr, H.hu]
+  have hgt : 1 < 2 * μ - (x + y) := by linarith [H.hμ, H.hxy]
+  linarith [H.hru]
+
+def R14LeftGapOwnerPackUnsat : Prop :=
+  ∀ μ x y r u : ℚ, LeftGapOwnerHyps μ x y r u → False
+
+theorem r14LeftGapOwnerPackUnsat : R14LeftGapOwnerPackUnsat :=
+  leftGapOwnerHyps_false
+
+def r14LeftGapOwnerPackUnsatProved : Bool := true
+theorem r14LeftGapOwnerPackUnsatProved_true :
+    r14LeftGapOwnerPackUnsatProved = true := rfl
+
+/-- OPEN: SE2 realises left-gap-owner fields `(μ,x,y,r,u)`. -/
+def R14SE2RealisesLeftGapOwnerPack : Prop :=
+  ∀ _cfg : NearEndSE2 BernsteinGeometryMap.leaf_R14,
+    ∃ μ x y r u : ℚ, LeftGapOwnerHyps μ x y r u
+
+def r14SE2RealisesLeftGapOwnerPackProved : Bool := false
+theorem r14SE2RealisesLeftGapOwnerPackProved_false :
+    r14SE2RealisesLeftGapOwnerPackProved = false := rfl
+
+theorem r14SE2ForcesBridgeJunctionContradiction_of_leftGapOwnerPack
+    (H : R14SE2RealisesLeftGapOwnerPack) :
+    R14SE2ForcesBridgeJunctionContradiction := by
+  intro cfg
+  obtain ⟨μ, x, y, r, u, h⟩ := H cfg
+  exact leftGapOwnerHyps_false μ x y r u h
+
+theorem bernsteinForcesRawEmpty_R14_of_leftGapOwnerPack
+    (H : R14SE2RealisesLeftGapOwnerPack) :
+    BernsteinForcesRawEmpty "R14" :=
+  bernsteinForcesRawEmpty_R14_of_bridgeJunction
+    (r14SE2ForcesBridgeJunctionContradiction_of_leftGapOwnerPack H)
+
 /-! ## Z3 scope inventory (names only) -/
 
 inductive R14BridgeUnsatScope
@@ -402,13 +513,13 @@ def rawSE2EmptyProved : Bool := false
 theorem rawSE2EmptyProved_false : rawSE2EmptyProved = false := rfl
 
 def blockedReason : String :=
-  "CLOSED: identities; SE2 left-gap⇒dL>1; leftRayBound<dL fragment; algebraic \
-   LeftLengthHyps unsat (Z3 leftLength). BLOCKED: R14SE2RealisesLeftLengthPack \
-   (SE2⇒(μ,l); dL≠l); ∀cfg z∈(0,1); ForcesBridgeJunction. Not R-poly≤0."
+  "CLOSED: identities; dL fragment; LeftLength/ABridge/LeftGapOwner algebraic unsat. \
+   BLOCKED: SE2⇒any W-bridge/ownership pack (NearEndSE2 has no μ/(A,D,U,l)); \
+   ForcesBridgeJunction. Not R-poly≤0."
 
 def openStatus : String :=
-  "CLOSED: LeftLengthPackUnsat + identities + dL fragment. \
-   OPEN: SE2⇒LeftLengthPack; ForcesBridgeJunction; BernsteinForcesRawEmpty. \
+  "CLOSED: LeftLength+ABridge+LeftGapOwner pack unsat. \
+   OPEN: SE2⇒packs; ForcesBridgeJunction; BernsteinForcesRawEmpty. \
    Not PrincipalClaim / namedClosersDischarged."
 
 end S6.CertR14BridgeJunction

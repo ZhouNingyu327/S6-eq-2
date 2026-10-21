@@ -1,3 +1,13 @@
+## v0.26.5 — R14 ABridge + LeftGapOwner algebraic unsat (2026-10-22 Asia/Shanghai)
+
+- `CertR14BridgeJunction`: Lean-prove Z3 `A_bridge` and `left_gap_owner` packs
+  unsat (`ABridgeHyps` / `LeftGapOwnerHyps` ⇒ False).
+- Conditionals: `R14SE2Realises{ABridge,LeftGapOwner}Pack` ⇒ ForcesBridgeJunction /
+  `BernsteinForcesRawEmpty "R14"`. SE2⇒pack still OPEN (no μ / W-bridge fields on
+  `NearEndSE2`); did not invent LeftLength identification.
+- `r14SE2ForcesBridgeJunctionContradictionProved=false`;
+  `principalClaim` / `namedClosersDischarged` stay false. Lake green.
+
 ## v0.26.4 — four-corner clampedSquareTotal ≤2 under projWidth (2026-10-22 Asia/Shanghai)
 
 - `RotatedChordMeasure`: SE/NE/NW ℝ far-side + mid empties under `|c|+|s|<μ`;

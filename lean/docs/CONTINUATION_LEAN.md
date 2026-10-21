@@ -5,6 +5,7 @@
 - **v0.26.2–v0.26.4:** centre outer-miss; four-corner projWidth mid-miss;
   four-corner `clampedSquareTotal ≤2` under `|c|+|s|<μ`
 - LivingLeaf / Cert* (other track)
+- **v0.26.5 (cert):** ABridge+LeftGapOwner pack unsat; SE2⇒packs OPEN; ForcesBridgeJunction OPEN
 
 ## Next
 
