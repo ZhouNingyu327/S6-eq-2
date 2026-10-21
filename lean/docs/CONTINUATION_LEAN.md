@@ -3,19 +3,17 @@
 ## Done
 
 - Reduction spine; G5 algebra; GeomExport⇒Bridge⇒G5Exclusion
-- `Icc_subset_of_closed_of_rats`; `AxisGridRatCover`⇒`AxisGridLineCover`⇒∑≥12μ
-- **`packing_of_role_geometry`**: OnlyOwnersTouchOuter ∧ OnlyFillersTouchMid ⇒ ∑ = outer₄+mid₂
-- **`AxisG5k0Roles`**: corner containment ⇒ OnlyFillersTouchMid; interior fillers ⇒ OnlyOwnersTouchOuter
-- **`axis_G5k0_impossible_of_roles`** / `AxisG5k0CoverBridge` ⇒ `G5k0Bridge` / `G5k0GeomExport`
-- RotatedChordMeasure: `RotatedG5k0ChordExport` ⇒ `G5k0GeomExport` / `G5k0Bridge`; CF≤4⇒CF<4; export from PointwiseCover **open**
-- G1/G2: bothGap family + topGap/gap/pos excluded; `impossible_cases` / seven-list; 17 living open
-- G3EitherBudgetBridge / G3SideOrOppBridge ⇒ G3Exclusion; G4BudgetBridge ⇒ G4Exclusion (realisation open)
+- Axis packing / `AxisG5k0Roles` ⇒ OnlyOwners/OnlyFillers ⇒ axis G5k0 False
+- **`AxisG5k0FromCover`**: axis-aligned ↔ AxisSquare; centre⇒strict interior; pointwise⇒`AxisGridRatCover`; six-distinct partition; corners+centre fillers⇒roles; `AxisAlignedG5k0Realisation`⇒`AxisG5k0CoverBridge`/`G5k0Bridge`/`G5k0GeomExport`
+- RotatedChordMeasure: `RotatedChordBoundPackage`⇒`RotatedG5k0ChordExport`⇒GeomExport/Bridge; owner diameter ≤2
+- Living-leaf: `LivingLeafCertBridge`⇒`AllLivingLeavesExcluded`; closer-module inventory
+- G3/G4: grid implications; `G3CoverBudgetRealisation`⇒`G3Exclusion`
 
 ## Next
 
-1. Inhabit `AxisG5k0CoverBridge` / `RotatedG5k0ChordExport` from G5 k=0 `PointwiseCover` (role selection → axis squares / chord lengths).
-2. Discharge 17 living near-end leaves (geometry / certificates).
-3. Realise G3/G4 budget bridges from covers.
+1. Discharge `AxisAlignedG5k0Realisation` (axis align + world `F∋O`) for every G5 k=0 `PointwiseCover`, **or** inhabit `RotatedChordBoundPackage` / `RotatedG5k0ChordExport` without axis hyp.
+2. Geometry for 17 living near-end leaves (`LivingLeafCertBridge`).
+3. Inhabit `G3CoverBudgetRealisation` / `G4BudgetBridge` from covers.
 4. Unconditional `PrincipalClaim` only after all ClassExclusions close.
 
 ## Honesty

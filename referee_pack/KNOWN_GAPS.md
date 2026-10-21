@@ -22,6 +22,14 @@ Relative to the 2026-10-21 **rereview** of commit `32e0e0f`, the API repair at `
 4. **Remaining (S)-tier** dual-solver queries (~91 unique after Item3 ledger). Inventory: `artifacts/closure/S_tier_inventory.md` (+ JSON). No claim that leftovers are machine-independent.
 5. Short paper §§5–7 now cite concrete module tables; further page-length expansions may still help referees.
 
+## Advanced this round (vs `2334cde`)
+
+- **`AxisG5k0FromCover`**: axis-aligned RigidMotion↔AxisSquare; centre⇒strict interior/outer=0; axis PointwiseCover⇒`AxisGridRatCover`; Fin6 partition; corners+two centre fillers⇒`AxisG5k0Roles`; `AxisAlignedG5k0Realisation`⇒`AxisG5k0CoverBridge`/`G5k0Bridge`/`G5k0GeomExport`. Realisation from general G5 k=0 cover **open**.
+- RotatedChord: `RotatedChordBoundPackage`⇒chord export⇒GeomExport/Bridge; owner diameter. Bound package inhabit **open**.
+- Living: `LivingLeafCertBridge` packaging; 17 living geometry **open**.
+- G3: `G3CoverBudgetRealisation`⇒exclusion; cover inhabit **open**.
+- `principalClaimProvedUnconditionally=false`.
+
 ## Advanced this round (vs `86656b3`)
 
 - **OnlyOwners/OnlyFillers from axis roles**: corner-owner mid=0 + interior-filler outer=0 ⇒ `AxisG5k0Roles` ⇒ packing ⇒ axis G5k0 False; `AxisG5k0CoverBridge` ⇒ `G5k0Bridge`/`G5k0GeomExport`.

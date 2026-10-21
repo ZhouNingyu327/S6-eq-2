@@ -6,6 +6,7 @@ import S6Core.Obligation2
 import S6Core.Obligation2Opens
 import S6Core.Obligation2Roles
 import S6Core.TopClassExhaustiveness
+import S6Core.LeafCertificates
 
 /-!
 # G1/G2 near-end fragments
@@ -97,5 +98,24 @@ theorem all_bothGap_excluded :
 /-- Count: bothGap accounts for multiple of the 7 impossible leaves. -/
 def bothGapExcludedFamilyClosed : Bool := true
 theorem bothGapExcludedFamilyClosed_true : bothGapExcludedFamilyClosed = true := rfl
+
+
+open S6.LeafCertificates
+
+/-- Open: each living leaf is geometrically excluded (certificate/geometry). -/
+def LivingLeafCertBridge : Prop :=
+  ∀ ℓ : NearLeaf, living ℓ → LivingLeafExcluded ℓ
+
+theorem AllLivingLeavesExcluded_of_certBridge (h : LivingLeafCertBridge) :
+    AllLivingLeavesExcluded :=
+  fun ℓ hl => h ℓ hl hl
+
+/-- Every living leaf has a named closer module (inventory, not a geometry proof). -/
+theorem living_has_closer_module (ℓ : NearLeaf) (hl : living ℓ) :
+    closerModule ℓ ≠ "IMPOSSIBLE" :=
+  livingFlag_has_closer ℓ hl
+
+def livingLeafCertBridgeProved : Bool := false
+theorem livingLeafCertBridgeProved_false : livingLeafCertBridgeProved = false := rfl
 
 end S6.G1G2Fragments

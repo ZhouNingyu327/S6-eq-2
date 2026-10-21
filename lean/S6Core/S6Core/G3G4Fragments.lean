@@ -158,4 +158,37 @@ theorem G3Exclusion_of_sideOrOpp (h : G3SideOrOppBridge) : G3Exclusion := by
 def g3SideOrOppReductionClosed : Bool := true
 theorem g3SideOrOppReductionClosed_true : g3SideOrOppReductionClosed = true := rfl
 
+
+/-- On the finite Ownership grid, G3 ⇒ k=2 ∧ ¬fHasO ∧ ¬adjacent (machine-checked). -/
+theorem G3_implies_k2_on_grid :
+    allOwnership.all
+      (fun o => decide (classify o = TopClass.G3 →
+        o.fHasO = false ∧ o.k = ⟨2, by decide⟩ ∧ o.midsAdjacent = false)) = true := by
+  native_decide
+
+theorem G4_implies_k2_adj_on_grid :
+    allOwnership.all
+      (fun o => decide (classify o = TopClass.G4 →
+        o.fHasO = false ∧ o.k = ⟨2, by decide⟩ ∧ o.midsAdjacent = true)) = true := by
+  native_decide
+
+/-- Named open: a G3 PointwiseCover realises a side-gap BudgetHyp at T.μ. -/
+def G3CoverBudgetRealisation : Prop :=
+  ∀ (T : S6.Obligation2.Target) (cov : S6.Obligation2Opens.PointwiseCover T),
+    classify (S6.Obligation2Roles.RoleSelection.ofCover cov).toManuscript.flags.toOwnership =
+        TopClass.G3 →
+      ∃ (B vF : ℚ), ∃ hyp : BudgetHyp,
+        hyp.μ = T.μ ∧ hyp.B = B ∧ hyp.vF = vF ∧
+          (12 : ℚ) * hyp.μ ≤ 8 + 3 * hyp.B + hyp.vF
+
+theorem G3Exclusion_of_coverBudgetRealisation (h : G3CoverBudgetRealisation) :
+    G3Exclusion := by
+  intro T cov hcls
+  rcases h T cov hcls with ⟨B, vF, hyp, _, _, _, hp⟩
+  exact sideGap_impossible hyp hp
+
+def g3CoverBudgetRealisationProved : Bool := false
+theorem g3CoverBudgetRealisationProved_false :
+    g3CoverBudgetRealisationProved = false := rfl
+
 end S6.G3G4Fragments

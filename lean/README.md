@@ -34,12 +34,15 @@ geometric proofs.
 | Axis G5k0 under outer₄+mid₂ packing | **Proved conditional** |
 | Packing ∑=outer₄+mid₂ from OnlyOwners/OnlyFillers | **Proved** |
 | OnlyOwners/OnlyFillers from `AxisG5k0Roles` (corners+interior) | **Proved** |
-| Inhabit `AxisG5k0CoverBridge` / roles from PointwiseCover | **Open** |
+| Axis pointwise⇒`AxisGridRatCover`/`AxisG5k0Roles` (centre fillers) | **Proved** (`AxisG5k0FromCover`) |
+| `AxisAlignedG5k0Realisation`⇒`AxisG5k0CoverBridge` | **Proved conditional** |
+| Discharge axis realisation / chord package from general G5 k=0 cover | **Open** |
 | Interior ⇒ outer contrib 0 | **Proved** |
 | `G5k*GeomExport ⇒ Bridge ⇒ G5Exclusion` composition | **Proved** (`G5GeometryBridge`) |
 | `G5Exclusion` from three geometric bridges | **Proved conditional** |
 | `RotatedG5k0ChordExport` ⇒ `G5k*GeomExport`/`Bridge` | **Proved conditional** |
-| Inhabit rotated chord export from PointwiseCover | **Open** |
+| `RotatedChordBoundPackage`⇒`RotatedG5k0ChordExport` | **Proved conditional** |
+| Inhabit chord bound package from PointwiseCover | **Open** |
 | G3/G4 mid-split + M7.1 interface | **Proved fragments** (`G3G4Fragments`) |
 | G3/G4 budget-bridge ⇒ exclusion | **Proved conditional**; realisation **open** |
 | `g2_alg t < 2` on `(0,1/2)`; E-tier coeff nonneg | **Proved** (`BernsteinGridLift`) |
