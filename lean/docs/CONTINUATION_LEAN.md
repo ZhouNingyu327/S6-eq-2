@@ -3,16 +3,14 @@
 ## Done
 
 - **v0.20–v0.25:** axis ChordMatrixExport; real lifts; corner outer packing; corner mid-miss μ²>2
-- **v0.26:** centre outer-miss when `μ²>2` (`RoleSelection`); `projWidth_lt_mu`;
-  SW projWidth mid-miss (`|c|+|s|<μ`, some μ²≤2 cases)
+- **v0.26 / v0.26.2:** centre outer-miss when `μ²>2`; four-corner projWidth mid-miss (`|c|+|s|<μ`)
+- **v0.26.1:** Cert R14/R17 other track
 - LivingLeaf / Closer / NearEnd / BernsteinGeometryMap / Cert* (other track)
-- **R14 bridge:** identities + SE2⇒`leftRayBound<dL` fragment; ForcesBridgeJunction OPEN
-- **R17/R27:** `CertR17R27GridPos` partial grid-pos + SE2 hyps; raw-empty OPEN
 
 ## Next
 
-1. SE/NE/NW projWidth mid-miss; filler mid packing via roles →
-   `RotatedChordMatrixExport` → CoverIneq, **or** BodyChartAxis / IdentityC.
+1. Filler mid packing via roles → `RotatedChordMatrixExport` → CoverIneq,
+   **or** BodyChartAxis / IdentityC for every G5 k=0.
 2. G3SepWitness / CapGeometry from covers.
 3. Unconditional `PrincipalClaim` only after ClassExclusions close.
 

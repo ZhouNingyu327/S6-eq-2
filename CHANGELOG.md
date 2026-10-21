@@ -1,3 +1,12 @@
+## v0.26.2 — centre outer-miss + four-corner projWidth mid-miss (2026-10-22 Asia/Shanghai)
+
+- `RotatedChordMeasure`: centre tile misses all four outers when `μ²>2`
+  (`RoleSelection` / `PointwiseCover`); `projWidth_lt_mu_of_mu_sq_gt`;
+  SW/SE/NE/NW mid-miss when `|c|+|s|<μ` (partial μ²≤2);
+  `PointwiseCover_corner_mid_miss_of_projWidth`.
+- `rotatedMidPackingProved` remains false. `principalClaimProvedUnconditionally=false`.
+- Lake green. Honest bar still ~80–84%.
+
 ## v0.26.1 — R14 left-ray SE2 fragment + R17/R27 grid-pos pack (2026-10-22 Asia/Shanghai)
 
 - `CertR14BridgeJunction`: SE2 left-gap ⇒ `dL>1`; `z∈(0,1)` ⇒ `leftRayBound<dL`

@@ -38,7 +38,10 @@ vertSliceR Inf-Sup; RotatedSixLineRealLift (all six grid lines) from any rat cov
 Proved: distSq on containsR; clamped [0,2μ] lens; all four corner outer pairs ≤ 2;
 PointwiseCover corner clamped packing.
 Proved: corner mid-miss when μ²>2; corner outer+mid pack skeleton (μ²>2).
-Open: mid packing for μ²≤2 / fillers; general ChordMatrixExport; BodyChartAxis.
+Proved: centre outer-miss when μ²>2 (RoleSelection / PointwiseCover);
+projWidth mid-miss (|c|+|s|<μ) for all four corners (partial μ²≤2 path).
+Open: filler mid packing; general ChordMatrixExport; BodyChartAxis / IdentityC;
+G3 from covers; unconditional PrincipalClaim.
 -/
 
 namespace S6.RotatedChordMeasure
@@ -1018,7 +1021,7 @@ theorem axisBottomLineChordCoverClosed_true :
 
 open S6.ChordLength (UnitDir)
 open S6.RigidMotionChart (inAxisSquare rotateBy)
-open S6.ObliqueChart (unitDir_projectedWidth_le_two)
+open S6.ObliqueChart (unitDir_projectedWidth_le_two unitDir_projectedWidth_sq_le_two)
 open Set Classical
 
 def rotateInvR (u : UnitDir) (p : ℝ × ℝ) : ℝ × ℝ :=
@@ -1927,6 +1930,318 @@ theorem NW_corner_pack_outer_mid_of_mu_sq_gt (g : RotatedSquare) (μ : ℚ) (hμ
 def rotatedCornerMidMissMuSqGtClosed : Bool := true
 theorem rotatedCornerMidMissMuSqGtClosed_true :
     rotatedCornerMidMissMuSqGtClosed = true := rfl
+
+
+/-! ### Centre outer-miss (μ²>2) + projWidth mid-miss (partial μ²≤2) -/
+
+theorem centre_misses_bottom_of_mu_sq_gt (g : RotatedSquare) (μ : ℚ) (hμ2 : 2 < μ * μ)
+    (hcen : RotatedSquare.contains g (μ, μ)) (x : ℚ) :
+    ¬ RotatedSquare.contains g (x, 0) := by
+  intro ht
+  have hd := chord_distSq_le_two g (μ, μ) (x, 0) hcen ht
+  simp only [distSq] at hd
+  nlinarith [mul_self_nonneg (μ - x)]
+
+theorem centre_misses_top_of_mu_sq_gt (g : RotatedSquare) (μ : ℚ) (hμ2 : 2 < μ * μ)
+    (hcen : RotatedSquare.contains g (μ, μ)) (x : ℚ) :
+    ¬ RotatedSquare.contains g (x, 2 * μ) := by
+  intro ht
+  have hd := chord_distSq_le_two g (μ, μ) (x, 2 * μ) hcen ht
+  simp only [distSq] at hd
+  nlinarith [mul_self_nonneg (μ - x)]
+
+theorem centre_misses_left_of_mu_sq_gt (g : RotatedSquare) (μ : ℚ) (hμ2 : 2 < μ * μ)
+    (hcen : RotatedSquare.contains g (μ, μ)) (y : ℚ) :
+    ¬ RotatedSquare.contains g (0, y) := by
+  intro ht
+  have hd := chord_distSq_le_two g (μ, μ) (0, y) hcen ht
+  simp only [distSq] at hd
+  nlinarith [mul_self_nonneg (μ - y)]
+
+theorem centre_misses_right_of_mu_sq_gt (g : RotatedSquare) (μ : ℚ) (hμ2 : 2 < μ * μ)
+    (hcen : RotatedSquare.contains g (μ, μ)) (y : ℚ) :
+    ¬ RotatedSquare.contains g (2 * μ, y) := by
+  intro ht
+  have hd := chord_distSq_le_two g (μ, μ) (2 * μ, y) hcen ht
+  simp only [distSq] at hd
+  nlinarith [mul_self_nonneg (μ - y)]
+
+theorem centre_not_meets_outers_of_mu_sq_gt (g : RotatedSquare) (μ : ℚ) (hμ2 : 2 < μ * μ)
+    (hcen : RotatedSquare.contains g (μ, μ)) :
+    ¬ meetsHoriz g 0 ∧ ¬ meetsHoriz g (2 * μ) ∧
+      ¬ meetsVert g 0 ∧ ¬ meetsVert g (2 * μ) :=
+  ⟨fun ⟨x, hx⟩ => centre_misses_bottom_of_mu_sq_gt g μ hμ2 hcen x hx,
+    fun ⟨x, hx⟩ => centre_misses_top_of_mu_sq_gt g μ hμ2 hcen x hx,
+    fun ⟨y, hy⟩ => centre_misses_left_of_mu_sq_gt g μ hμ2 hcen y hy,
+    fun ⟨y, hy⟩ => centre_misses_right_of_mu_sq_gt g μ hμ2 hcen y hy⟩
+
+theorem RoleSelection_centre_not_meets_outers_of_mu_sq_gt {T : Target}
+    (R : RoleSelection T) (hμ2 : 2 < T.μ * T.μ) :
+    ¬ meetsHoriz (R.cov.squares R.iC) 0 ∧
+      ¬ meetsHoriz (R.cov.squares R.iC) (2 * T.μ) ∧
+      ¬ meetsVert (R.cov.squares R.iC) 0 ∧
+      ¬ meetsVert (R.cov.squares R.iC) (2 * T.μ) := by
+  simpa [Target.centre] using
+    centre_not_meets_outers_of_mu_sq_gt (R.cov.squares R.iC) T.μ hμ2 R.hCentre
+
+theorem PointwiseCover_centre_outer_miss_of_mu_sq_gt {T : Target} (cov : PointwiseCover T)
+    (hμ2 : 2 < T.μ * T.μ) :
+    let R := RoleSelection.ofCover cov
+    ¬ meetsHoriz (R.cov.squares R.iC) 0 ∧
+      ¬ meetsHoriz (R.cov.squares R.iC) (2 * T.μ) ∧
+      ¬ meetsVert (R.cov.squares R.iC) 0 ∧
+      ¬ meetsVert (R.cov.squares R.iC) (2 * T.μ) := by
+  intro R
+  exact RoleSelection_centre_not_meets_outers_of_mu_sq_gt R hμ2
+
+/-- (|c|+|s|)² ≤ 2 < μ² ⇒ |c|+|s| < μ. -/
+theorem projWidth_lt_mu_of_mu_sq_gt (g : RotatedSquare) (μ : ℚ)
+    (hμ : 0 < μ) (hμ2 : 2 < μ * μ) :
+    |g.dir.c| + |g.dir.s| < μ := by
+  have hsq := unitDir_projectedWidth_sq_le_two g.dir
+  have hpow : (|g.dir.c| + |g.dir.s|) ^ 2 < μ ^ 2 := by nlinarith [hsq]
+  exact lt_of_pow_lt_pow_left₀ 2 (le_of_lt hμ) hpow
+
+/-- Helper: μ ≥ 0 from projWidth < μ. -/
+theorem mu_nonneg_of_projWidth_lt (g : RotatedSquare) (μ : ℚ)
+    (hpw : |g.dir.c| + |g.dir.s| < μ) : 0 ≤ μ :=
+  le_of_lt (lt_of_le_of_lt (add_nonneg (abs_nonneg g.dir.c) (abs_nonneg g.dir.s)) hpw)
+
+/-- SW mid-miss via projected width (works for some μ²≤2 orientations). -/
+theorem SW_misses_hMid_of_projWidth (g : RotatedSquare) (μ : ℚ)
+    (hpw : |g.dir.c| + |g.dir.s| < μ)
+    (hSW : RotatedSquare.contains g (0, 0)) (x : ℚ) :
+    ¬ RotatedSquare.contains g (x, μ) := by
+  intro ht
+  have hr0 := contains_implies_containsR g (0 : ℚ) (0 : ℚ) hSW
+  have hr1 := contains_implies_containsR g x μ ht
+  have hd := abs_delta_y_containsR g ((0 : ℚ) : ℝ) ((0 : ℚ) : ℝ) (x : ℝ) ((μ : ℚ) : ℝ) hr0 hr1
+  have hμ0 : (0 : ℝ) ≤ (μ : ℝ) := by exact_mod_cast mu_nonneg_of_projWidth_lt g μ hpw
+  have hle : (μ : ℝ) ≤ (|g.dir.c| : ℝ) + (|g.dir.s| : ℝ) := by
+    have h' : |(μ : ℝ) - (0 : ℝ)| ≤ (|g.dir.c| : ℝ) + (|g.dir.s| : ℝ) := by
+      simpa [abs_sub_comm] using hd
+    rwa [sub_zero, abs_of_nonneg hμ0] at h'
+  have hpwR : (|g.dir.c| : ℝ) + (|g.dir.s| : ℝ) < (μ : ℝ) := by exact_mod_cast hpw
+  linarith
+
+theorem SW_misses_vMid_of_projWidth (g : RotatedSquare) (μ : ℚ)
+    (hpw : |g.dir.c| + |g.dir.s| < μ)
+    (hSW : RotatedSquare.contains g (0, 0)) (y : ℚ) :
+    ¬ RotatedSquare.contains g (μ, y) := by
+  intro ht
+  have hr0 := contains_implies_containsR g (0 : ℚ) (0 : ℚ) hSW
+  have hr1 := contains_implies_containsR g μ y ht
+  have hd := abs_delta_x_containsR g ((0 : ℚ) : ℝ) ((0 : ℚ) : ℝ) ((μ : ℚ) : ℝ) (y : ℝ) hr0 hr1
+  have hμ0 : (0 : ℝ) ≤ (μ : ℝ) := by exact_mod_cast mu_nonneg_of_projWidth_lt g μ hpw
+  have hle : (μ : ℝ) ≤ (|g.dir.c| : ℝ) + (|g.dir.s| : ℝ) := by
+    have h' : |(μ : ℝ) - (0 : ℝ)| ≤ (|g.dir.c| : ℝ) + (|g.dir.s| : ℝ) := by
+      simpa [abs_sub_comm] using hd
+    rwa [sub_zero, abs_of_nonneg hμ0] at h'
+  have hpwR : (|g.dir.c| : ℝ) + (|g.dir.s| : ℝ) < (μ : ℝ) := by exact_mod_cast hpw
+  linarith
+
+theorem SW_not_meets_mids_of_projWidth (g : RotatedSquare) (μ : ℚ)
+    (hpw : |g.dir.c| + |g.dir.s| < μ)
+    (hSW : RotatedSquare.contains g (0, 0)) :
+    ¬ meetsHoriz g μ ∧ ¬ meetsVert g μ :=
+  ⟨fun ⟨x, hx⟩ => SW_misses_hMid_of_projWidth g μ hpw hSW x hx,
+    fun ⟨y, hy⟩ => SW_misses_vMid_of_projWidth g μ hpw hSW y hy⟩
+
+theorem SE_misses_hMid_of_projWidth (g : RotatedSquare) (μ : ℚ)
+    (hpw : |g.dir.c| + |g.dir.s| < μ)
+    (hSE : RotatedSquare.contains g (2 * μ, 0)) (x : ℚ) :
+    ¬ RotatedSquare.contains g (x, μ) := by
+  intro ht
+  have hr0 := contains_implies_containsR g (2 * μ) (0 : ℚ) hSE
+  have hr1 := contains_implies_containsR g x μ ht
+  have hd := abs_delta_y_containsR g ((2 * μ : ℚ) : ℝ) ((0 : ℚ) : ℝ)
+    (x : ℝ) ((μ : ℚ) : ℝ) hr0 hr1
+  have hμ0 : (0 : ℝ) ≤ (μ : ℝ) := by exact_mod_cast mu_nonneg_of_projWidth_lt g μ hpw
+  have hle : (μ : ℝ) ≤ (|g.dir.c| : ℝ) + (|g.dir.s| : ℝ) := by
+    have h' : |(μ : ℝ) - (0 : ℝ)| ≤ (|g.dir.c| : ℝ) + (|g.dir.s| : ℝ) := by
+      simpa [abs_sub_comm] using hd
+    rwa [sub_zero, abs_of_nonneg hμ0] at h'
+  have hpwR : (|g.dir.c| : ℝ) + (|g.dir.s| : ℝ) < (μ : ℝ) := by exact_mod_cast hpw
+  linarith
+
+theorem SE_misses_vMid_of_projWidth (g : RotatedSquare) (μ : ℚ)
+    (hpw : |g.dir.c| + |g.dir.s| < μ)
+    (hSE : RotatedSquare.contains g (2 * μ, 0)) (y : ℚ) :
+    ¬ RotatedSquare.contains g (μ, y) := by
+  intro ht
+  have hr0 := contains_implies_containsR g (2 * μ) (0 : ℚ) hSE
+  have hr1 := contains_implies_containsR g μ y ht
+  have hd := abs_delta_x_containsR g ((2 * μ : ℚ) : ℝ) ((0 : ℚ) : ℝ)
+    ((μ : ℚ) : ℝ) (y : ℝ) hr0 hr1
+  have hμ0 : (0 : ℝ) ≤ (μ : ℝ) := by exact_mod_cast mu_nonneg_of_projWidth_lt g μ hpw
+  have hle : (μ : ℝ) ≤ (|g.dir.c| : ℝ) + (|g.dir.s| : ℝ) := by
+    have h' : |((μ : ℚ) : ℝ) - ((2 * μ : ℚ) : ℝ)| ≤
+        (|g.dir.c| : ℝ) + (|g.dir.s| : ℝ) := by
+      simpa [abs_sub_comm] using hd
+    have hμR : (0 : ℝ) ≤ (μ : ℝ) := hμ0
+    have : |((μ : ℚ) : ℝ) - ((2 * μ : ℚ) : ℝ)| = (μ : ℝ) := by
+      have : ((μ : ℚ) : ℝ) - ((2 * μ : ℚ) : ℝ) = -((μ : ℝ)) := by
+        push_cast; ring
+      rw [this, abs_neg, abs_of_nonneg hμR]
+    rwa [this] at h'
+  have hpwR : (|g.dir.c| : ℝ) + (|g.dir.s| : ℝ) < (μ : ℝ) := by exact_mod_cast hpw
+  linarith
+
+theorem SE_not_meets_mids_of_projWidth (g : RotatedSquare) (μ : ℚ)
+    (hpw : |g.dir.c| + |g.dir.s| < μ)
+    (hSE : RotatedSquare.contains g (2 * μ, 0)) :
+    ¬ meetsHoriz g μ ∧ ¬ meetsVert g μ :=
+  ⟨fun ⟨x, hx⟩ => SE_misses_hMid_of_projWidth g μ hpw hSE x hx,
+    fun ⟨y, hy⟩ => SE_misses_vMid_of_projWidth g μ hpw hSE y hy⟩
+
+theorem NE_misses_hMid_of_projWidth (g : RotatedSquare) (μ : ℚ)
+    (hpw : |g.dir.c| + |g.dir.s| < μ)
+    (hNE : RotatedSquare.contains g (2 * μ, 2 * μ)) (x : ℚ) :
+    ¬ RotatedSquare.contains g (x, μ) := by
+  intro ht
+  have hr0 := contains_implies_containsR g (2 * μ) (2 * μ) hNE
+  have hr1 := contains_implies_containsR g x μ ht
+  have hd := abs_delta_y_containsR g ((2 * μ : ℚ) : ℝ) ((2 * μ : ℚ) : ℝ)
+    (x : ℝ) ((μ : ℚ) : ℝ) hr0 hr1
+  have hμ0 : (0 : ℝ) ≤ (μ : ℝ) := by exact_mod_cast mu_nonneg_of_projWidth_lt g μ hpw
+  have hle : (μ : ℝ) ≤ (|g.dir.c| : ℝ) + (|g.dir.s| : ℝ) := by
+    have h' : |((μ : ℚ) : ℝ) - ((2 * μ : ℚ) : ℝ)| ≤
+        (|g.dir.c| : ℝ) + (|g.dir.s| : ℝ) := by
+      simpa [abs_sub_comm] using hd
+    have : |((μ : ℚ) : ℝ) - ((2 * μ : ℚ) : ℝ)| = (μ : ℝ) := by
+      have : ((μ : ℚ) : ℝ) - ((2 * μ : ℚ) : ℝ) = -((μ : ℝ)) := by
+        push_cast; ring
+      rw [this, abs_neg, abs_of_nonneg hμ0]
+    rwa [this] at h'
+  have hpwR : (|g.dir.c| : ℝ) + (|g.dir.s| : ℝ) < (μ : ℝ) := by exact_mod_cast hpw
+  linarith
+
+theorem NE_misses_vMid_of_projWidth (g : RotatedSquare) (μ : ℚ)
+    (hpw : |g.dir.c| + |g.dir.s| < μ)
+    (hNE : RotatedSquare.contains g (2 * μ, 2 * μ)) (y : ℚ) :
+    ¬ RotatedSquare.contains g (μ, y) := by
+  intro ht
+  have hr0 := contains_implies_containsR g (2 * μ) (2 * μ) hNE
+  have hr1 := contains_implies_containsR g μ y ht
+  have hd := abs_delta_x_containsR g ((2 * μ : ℚ) : ℝ) ((2 * μ : ℚ) : ℝ)
+    ((μ : ℚ) : ℝ) (y : ℝ) hr0 hr1
+  have hμ0 : (0 : ℝ) ≤ (μ : ℝ) := by exact_mod_cast mu_nonneg_of_projWidth_lt g μ hpw
+  have hle : (μ : ℝ) ≤ (|g.dir.c| : ℝ) + (|g.dir.s| : ℝ) := by
+    have h' : |((μ : ℚ) : ℝ) - ((2 * μ : ℚ) : ℝ)| ≤
+        (|g.dir.c| : ℝ) + (|g.dir.s| : ℝ) := by
+      simpa [abs_sub_comm] using hd
+    have : |((μ : ℚ) : ℝ) - ((2 * μ : ℚ) : ℝ)| = (μ : ℝ) := by
+      have : ((μ : ℚ) : ℝ) - ((2 * μ : ℚ) : ℝ) = -((μ : ℝ)) := by
+        push_cast; ring
+      rw [this, abs_neg, abs_of_nonneg hμ0]
+    rwa [this] at h'
+  have hpwR : (|g.dir.c| : ℝ) + (|g.dir.s| : ℝ) < (μ : ℝ) := by exact_mod_cast hpw
+  linarith
+
+theorem NE_not_meets_mids_of_projWidth (g : RotatedSquare) (μ : ℚ)
+    (hpw : |g.dir.c| + |g.dir.s| < μ)
+    (hNE : RotatedSquare.contains g (2 * μ, 2 * μ)) :
+    ¬ meetsHoriz g μ ∧ ¬ meetsVert g μ :=
+  ⟨fun ⟨x, hx⟩ => NE_misses_hMid_of_projWidth g μ hpw hNE x hx,
+    fun ⟨y, hy⟩ => NE_misses_vMid_of_projWidth g μ hpw hNE y hy⟩
+
+theorem NW_misses_hMid_of_projWidth (g : RotatedSquare) (μ : ℚ)
+    (hpw : |g.dir.c| + |g.dir.s| < μ)
+    (hNW : RotatedSquare.contains g (0, 2 * μ)) (x : ℚ) :
+    ¬ RotatedSquare.contains g (x, μ) := by
+  intro ht
+  have hr0 := contains_implies_containsR g (0 : ℚ) (2 * μ) hNW
+  have hr1 := contains_implies_containsR g x μ ht
+  have hd := abs_delta_y_containsR g ((0 : ℚ) : ℝ) ((2 * μ : ℚ) : ℝ)
+    (x : ℝ) ((μ : ℚ) : ℝ) hr0 hr1
+  have hμ0 : (0 : ℝ) ≤ (μ : ℝ) := by exact_mod_cast mu_nonneg_of_projWidth_lt g μ hpw
+  have hle : (μ : ℝ) ≤ (|g.dir.c| : ℝ) + (|g.dir.s| : ℝ) := by
+    have h' : |((μ : ℚ) : ℝ) - ((2 * μ : ℚ) : ℝ)| ≤
+        (|g.dir.c| : ℝ) + (|g.dir.s| : ℝ) := by
+      simpa [abs_sub_comm] using hd
+    have : |((μ : ℚ) : ℝ) - ((2 * μ : ℚ) : ℝ)| = (μ : ℝ) := by
+      have : ((μ : ℚ) : ℝ) - ((2 * μ : ℚ) : ℝ) = -((μ : ℝ)) := by
+        push_cast; ring
+      rw [this, abs_neg, abs_of_nonneg hμ0]
+    rwa [this] at h'
+  have hpwR : (|g.dir.c| : ℝ) + (|g.dir.s| : ℝ) < (μ : ℝ) := by exact_mod_cast hpw
+  linarith
+
+theorem NW_misses_vMid_of_projWidth (g : RotatedSquare) (μ : ℚ)
+    (hpw : |g.dir.c| + |g.dir.s| < μ)
+    (hNW : RotatedSquare.contains g (0, 2 * μ)) (y : ℚ) :
+    ¬ RotatedSquare.contains g (μ, y) := by
+  intro ht
+  have hr0 := contains_implies_containsR g (0 : ℚ) (2 * μ) hNW
+  have hr1 := contains_implies_containsR g μ y ht
+  have hd := abs_delta_x_containsR g ((0 : ℚ) : ℝ) ((2 * μ : ℚ) : ℝ)
+    ((μ : ℚ) : ℝ) (y : ℝ) hr0 hr1
+  have hμ0 : (0 : ℝ) ≤ (μ : ℝ) := by exact_mod_cast mu_nonneg_of_projWidth_lt g μ hpw
+  have hle : (μ : ℝ) ≤ (|g.dir.c| : ℝ) + (|g.dir.s| : ℝ) := by
+    have h' : |(μ : ℝ) - (0 : ℝ)| ≤ (|g.dir.c| : ℝ) + (|g.dir.s| : ℝ) := by
+      simpa [abs_sub_comm] using hd
+    rwa [sub_zero, abs_of_nonneg hμ0] at h'
+  have hpwR : (|g.dir.c| : ℝ) + (|g.dir.s| : ℝ) < (μ : ℝ) := by exact_mod_cast hpw
+  linarith
+
+theorem NW_not_meets_mids_of_projWidth (g : RotatedSquare) (μ : ℚ)
+    (hpw : |g.dir.c| + |g.dir.s| < μ)
+    (hNW : RotatedSquare.contains g (0, 2 * μ)) :
+    ¬ meetsHoriz g μ ∧ ¬ meetsVert g μ :=
+  ⟨fun ⟨x, hx⟩ => NW_misses_hMid_of_projWidth g μ hpw hNW x hx,
+    fun ⟨y, hy⟩ => NW_misses_vMid_of_projWidth g μ hpw hNW y hy⟩
+
+/-- Specialization: μ²>2 ⇒ projWidth < μ ⇒ SW mid-miss (alternate path). -/
+theorem SW_not_meets_mids_of_mu_sq_gt_via_proj (g : RotatedSquare) (μ : ℚ)
+    (hμ : 0 < μ) (hμ2 : 2 < μ * μ) (hSW : RotatedSquare.contains g (0, 0)) :
+    ¬ meetsHoriz g μ ∧ ¬ meetsVert g μ :=
+  SW_not_meets_mids_of_projWidth g μ (projWidth_lt_mu_of_mu_sq_gt g μ hμ hμ2) hSW
+
+theorem SE_not_meets_mids_of_mu_sq_gt_via_proj (g : RotatedSquare) (μ : ℚ)
+    (hμ : 0 < μ) (hμ2 : 2 < μ * μ) (hSE : RotatedSquare.contains g (2 * μ, 0)) :
+    ¬ meetsHoriz g μ ∧ ¬ meetsVert g μ :=
+  SE_not_meets_mids_of_projWidth g μ (projWidth_lt_mu_of_mu_sq_gt g μ hμ hμ2) hSE
+
+theorem NE_not_meets_mids_of_mu_sq_gt_via_proj (g : RotatedSquare) (μ : ℚ)
+    (hμ : 0 < μ) (hμ2 : 2 < μ * μ) (hNE : RotatedSquare.contains g (2 * μ, 2 * μ)) :
+    ¬ meetsHoriz g μ ∧ ¬ meetsVert g μ :=
+  NE_not_meets_mids_of_projWidth g μ (projWidth_lt_mu_of_mu_sq_gt g μ hμ hμ2) hNE
+
+theorem NW_not_meets_mids_of_mu_sq_gt_via_proj (g : RotatedSquare) (μ : ℚ)
+    (hμ : 0 < μ) (hμ2 : 2 < μ * μ) (hNW : RotatedSquare.contains g (0, 2 * μ)) :
+    ¬ meetsHoriz g μ ∧ ¬ meetsVert g μ :=
+  NW_not_meets_mids_of_projWidth g μ (projWidth_lt_mu_of_mu_sq_gt g μ hμ hμ2) hNW
+
+/-- When each corner owner has `|c|+|s| < μ`, all four miss both midlines. -/
+theorem PointwiseCover_corner_mid_miss_of_projWidth {T : Target} (cov : PointwiseCover T)
+    (hpw1 : |(cov.squares (cov.toCornerOwners.i1)).dir.c| +
+      |(cov.squares (cov.toCornerOwners.i1)).dir.s| < T.μ)
+    (hpw2 : |(cov.squares (cov.toCornerOwners.i2)).dir.c| +
+      |(cov.squares (cov.toCornerOwners.i2)).dir.s| < T.μ)
+    (hpw3 : |(cov.squares (cov.toCornerOwners.i3)).dir.c| +
+      |(cov.squares (cov.toCornerOwners.i3)).dir.s| < T.μ)
+    (hpw4 : |(cov.squares (cov.toCornerOwners.i4)).dir.c| +
+      |(cov.squares (cov.toCornerOwners.i4)).dir.s| < T.μ) :
+    let C := cov.toCornerOwners
+    (¬ meetsHoriz (C.squares C.i1) T.μ ∧ ¬ meetsVert (C.squares C.i1) T.μ) ∧
+      (¬ meetsHoriz (C.squares C.i2) T.μ ∧ ¬ meetsVert (C.squares C.i2) T.μ) ∧
+      (¬ meetsHoriz (C.squares C.i3) T.μ ∧ ¬ meetsVert (C.squares C.i3) T.μ) ∧
+      (¬ meetsHoriz (C.squares C.i4) T.μ ∧ ¬ meetsVert (C.squares C.i4) T.μ) := by
+  intro C
+  refine ⟨?_, ?_, ?_, ?_⟩
+  · exact SW_not_meets_mids_of_projWidth _ T.μ hpw1 (by simpa [Target.v1] using C.h1)
+  · exact SE_not_meets_mids_of_projWidth _ T.μ hpw2 (by simpa [Target.v2] using C.h2)
+  · exact NE_not_meets_mids_of_projWidth _ T.μ hpw3 (by simpa [Target.v3] using C.h3)
+  · exact NW_not_meets_mids_of_projWidth _ T.μ hpw4 (by simpa [Target.v4] using C.h4)
+
+def rotatedCentreOuterMissMuSqGtClosed : Bool := true
+theorem rotatedCentreOuterMissMuSqGtClosed_true :
+    rotatedCentreOuterMissMuSqGtClosed = true := rfl
+
+/-- Four-corner projWidth mid-miss API closed (hypothesis `|c|+|s|<μ` per tile). -/
+def rotatedProjWidthMidMissClosed : Bool := true
+theorem rotatedProjWidthMidMissClosed_true :
+    rotatedProjWidthMidMissClosed = true := rfl
 
 /-- Full mid packing for all μ>1 (incl. μ²≤2) and filler tiles still open. -/
 def rotatedMidPackingProved : Bool := false
