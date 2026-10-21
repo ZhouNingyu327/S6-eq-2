@@ -18,18 +18,19 @@ Sources (read-only): `artifacts/ex/all/check_round14_bridge.py`,
 * Junction coordinate identity (`s₂X - c₂Y = s₂ + c₂ - 1`).
 * SE2 for R14 excludes `JunctionConflict` / dual residual.
 * SE2 left-gap ⇒ `dL > 1`; with `z ∈ (0,1)`, `leftRayBound z < dL`.
-* Algebraic Z3 packs unsat: `LeftLengthHyps`, `ABridgeHyps`, `LeftGapOwnerHyps`.
-* Conditionals: any of `R14SE2Realises{LeftLength,ABridge,LeftGapOwner}Pack` ⇒
-  `R14SE2ForcesBridgeJunctionContradiction` / `BernsteinForcesRawEmpty "R14"`
-  (**not** via R-poly ≤ 0; SE2 has no μ / W-bridge `(A,D,U,l)` fields).
+* Algebraic Z3 packs unsat: `LeftLengthHyps`, `ABridgeHyps`, `LeftGapOwnerHyps`,
+  `JConditionHyps`, `SumBudgetHyps`.
+* Extended living packages `NearEndR14With*` empty (SE2 + pack hyps ⇒ False)
+  without claiming plain SE2 implies the pack fields.
+* Conditionals: `R14SE2Realises*Pack` ⇒ ForcesBridgeJunction / raw-empty
+  (**not** via R-poly ≤ 0).
 
 ## Inventory only
 * Bridge/junction Z3 unsat scopes named; JSON holds solver results.
 
 ## Blocked
-* `R14SE2Realises*Pack` (SE2 ⇒ W-bridge / ownership fields). No false ID invented.
-* ∀cfg `z ∈ (0,1)` (chart alone does not force it).
-* `R14SE2ForcesBridgeJunctionContradiction` / `BernsteinForcesRawEmpty` stay false.
+* `R14SE2Realises*Pack` (plain SE2 ⇒ pack fields). No false ID invented.
+* ∀cfg `z ∈ (0,1)`; `R14SE2ForcesBridgeJunctionContradiction` stay false.
 
 Not PrincipalClaim / namedClosersDischarged. Bridge theorem files untouched.
 -/
@@ -474,6 +475,254 @@ theorem bernsteinForcesRawEmpty_R14_of_leftGapOwnerPack
   bernsteinForcesRawEmpty_R14_of_bridgeJunction
     (r14SE2ForcesBridgeJunctionContradiction_of_leftGapOwnerPack H)
 
+/-! ## Algebraic Z3 J_condition unsat -/
+
+/-- Bridge script `J_condition`: Weierstrass `(cW,sW)`, W-halfplane,
+`2U≤(1-z)²`, `K·c·s=c+s-μ`, `K>D`. -/
+structure JConditionHyps (μ z D U K : ℚ) : Prop where
+  hμ : 1 < μ
+  hz0 : 0 < z
+  hz1 : z < 1
+  hWU : cW z * (μ - D) ≤ sW z * U
+  hU0 : 0 ≤ U
+  hU2 : 2 * U ≤ (1 - z) * (1 - z)
+  hK : K * cW z * sW z = cW z + sW z - μ
+  hKD : D < K
+
+theorem j_poly_pos_of_mem_unit (z : ℚ) (hz0 : 0 < z) (hz1 : z < 1) :
+    0 < z ^ 4 - 2 * z ^ 3 + 2 * z ^ 2 + 2 * z + 1 := by
+  have heq : z ^ 4 - 2 * z ^ 3 + 2 * z ^ 2 + 2 * z + 1
+      = z * z * (z - 1) * (z - 1) + (z + 1) * (z + 1) := by ring
+  rw [heq]
+  have h1 : 0 ≤ z * z * (z - 1) * (z - 1) := by
+    have : 0 ≤ (z * (z - 1)) ^ 2 := sq_nonneg _
+    convert this using 1; ring
+  have h2 : 0 < (z + 1) * (z + 1) := by nlinarith
+  linarith
+
+theorem sW_pos_of_mem_unit (z : ℚ) (hz0 : 0 < z) (_hz1 : z < 1) :
+    0 < sW z := by
+  simp only [sW]
+  exact div_pos (by linarith) (by nlinarith : 0 < 1 + z * z)
+
+theorem cW_sW_mul_pos_of_mem_unit (z : ℚ) (hz0 : 0 < z) (hz1 : z < 1) :
+    0 < cW z * sW z :=
+  mul_pos (cW_pos_of_mem_unit z hz0 hz1) (sW_pos_of_mem_unit z hz0 hz1)
+
+/-- `D ≥ μ - z(1-z)/(1+z)` from W-halfplane + `2U≤(1-z)²`. -/
+theorem j_condition_D_lower (μ z D U : ℚ)
+    (hz0 : 0 < z) (hz1 : z < 1)
+    (hWU : cW z * (μ - D) ≤ sW z * U)
+    (hU2 : 2 * U ≤ (1 - z) * (1 - z)) :
+    μ - z * (1 - z) / (1 + z) ≤ D := by
+  have hc := cW_pos_of_mem_unit z hz0 hz1
+  have hs := sW_pos_of_mem_unit z hz0 hz1
+  have hden : 0 < 1 + z := by linarith
+  have h2pos : 0 < 1 + z * z := by nlinarith
+  have h2 : 1 + z * z ≠ 0 := ne_of_gt h2pos
+  have hcW := cW_mul z h2
+  have hsW := sW_mul z h2
+  have hU : U ≤ (1 - z) * (1 - z) / 2 :=
+    (le_div_iff₀ (by norm_num : (0 : ℚ) < 2)).mpr (by linarith)
+  have hstep : cW z * (μ - D) ≤ sW z * ((1 - z) * (1 - z) / 2) := by
+    have : sW z * U ≤ sW z * ((1 - z) * (1 - z) / 2) :=
+      mul_le_mul_of_nonneg_left hU (le_of_lt hs)
+    linarith
+  -- Cleared form of μ-D ≤ z(1-z)/(1+z)
+  have hcleared : (μ - D) * (1 + z) ≤ z * (1 - z) := by
+    have hfac : 0 ≤ (1 + z) * (1 + z * z) :=
+      mul_nonneg (le_of_lt hden) (le_of_lt h2pos)
+    have hmul :
+        cW z * (μ - D) * ((1 + z) * (1 + z * z))
+          ≤ sW z * ((1 - z) * (1 - z) / 2) * ((1 + z) * (1 + z * z)) :=
+      mul_le_mul_of_nonneg_right hstep hfac
+    have hL :
+        cW z * (μ - D) * ((1 + z) * (1 + z * z))
+          ≤ z * (1 - z) * (1 - z) * (1 + z) := by
+      calc
+        cW z * (μ - D) * ((1 + z) * (1 + z * z))
+            ≤ sW z * ((1 - z) * (1 - z) / 2) * ((1 + z) * (1 + z * z)) := hmul
+        _ = (sW z * (1 + z * z)) * ((1 - z) * (1 - z) / 2) * (1 + z) := by ring
+        _ = (2 * z) * ((1 - z) * (1 - z) / 2) * (1 + z) := by rw [hsW]
+        _ = z * (1 - z) * (1 - z) * (1 + z) := by ring
+    have hR :
+        z * (1 - z) * (cW z * (1 + z * z))
+          = z * (1 - z) * (1 - z) * (1 + z) := by
+      rw [hcW]; ring
+    have hcancel :
+        (μ - D) * (1 + z) * (cW z * (1 + z * z))
+          ≤ z * (1 - z) * (cW z * (1 + z * z)) := by
+      calc
+        (μ - D) * (1 + z) * (cW z * (1 + z * z))
+            = cW z * (μ - D) * ((1 + z) * (1 + z * z)) := by ring
+        _ ≤ z * (1 - z) * (1 - z) * (1 + z) := hL
+        _ = z * (1 - z) * (cW z * (1 + z * z)) := by rw [← hR]
+    have hpos : 0 < cW z * (1 + z * z) := mul_pos hc h2pos
+    exact (mul_le_mul_iff_of_pos_right hpos).mp hcancel
+  have : μ - D ≤ z * (1 - z) / (1 + z) :=
+    (le_div_iff₀ hden).mpr hcleared
+  linarith
+
+theorem j_K_lt_D_lower (μ z : ℚ) (hμ : 1 < μ) (hz0 : 0 < z) (hz1 : z < 1) :
+    (cW z + sW z - μ) / (cW z * sW z) < μ - z * (1 - z) / (1 + z) := by
+  have hcs := cW_sW_mul_pos_of_mem_unit z hz0 hz1
+  have hden : 0 < 1 + z := by linarith
+  have h2pos : 0 < 1 + z * z := by nlinarith
+  have h2 : 1 + z * z ≠ 0 := ne_of_gt h2pos
+  have hpoly := j_poly_pos_of_mem_unit z hz0 hz1
+  have hμ0 : 0 < μ - 1 := by linarith
+  have hdiff :
+      (μ - z * (1 - z) / (1 + z)) * (cW z * sW z) - (cW z + sW z - μ)
+        = (μ - 1) * (z ^ 4 - 2 * z ^ 3 + 2 * z ^ 2 + 2 * z + 1)
+          / (1 + z * z) ^ 2 := by
+    simp only [cW, sW]
+    field_simp [h2, hden]
+    ring
+  have hpos : 0 <
+      (μ - 1) * (z ^ 4 - 2 * z ^ 3 + 2 * z ^ 2 + 2 * z + 1) / (1 + z * z) ^ 2 :=
+    div_pos (mul_pos hμ0 hpoly) (pow_pos h2pos 2)
+  have hmul : cW z + sW z - μ <
+      (μ - z * (1 - z) / (1 + z)) * (cW z * sW z) := by
+    linarith [hdiff, hpos]
+  exact (div_lt_iff₀ hcs).mpr hmul
+
+theorem jConditionHyps_false (μ z D U K : ℚ) (H : JConditionHyps μ z D U K) :
+    False := by
+  have hcs := cW_sW_mul_pos_of_mem_unit z H.hz0 H.hz1
+  have hD := j_condition_D_lower μ z D U H.hz0 H.hz1 H.hWU H.hU2
+  have hKeq : K = (cW z + sW z - μ) / (cW z * sW z) := by
+    refine (eq_div_iff (ne_of_gt hcs)).mpr ?_
+    have := H.hK
+    -- H.hK : (K * cW z) * sW z = cW + sW - μ
+    simpa [mul_assoc] using this
+  have hlt := j_K_lt_D_lower μ z H.hμ H.hz0 H.hz1
+  linarith [H.hKD, hD, hKeq, hlt]
+
+def R14JConditionPackUnsat : Prop :=
+  ∀ μ z D U K : ℚ, JConditionHyps μ z D U K → False
+
+theorem r14JConditionPackUnsat : R14JConditionPackUnsat := jConditionHyps_false
+
+def r14JConditionPackUnsatProved : Bool := true
+theorem r14JConditionPackUnsatProved_true : r14JConditionPackUnsatProved = true := rfl
+
+def R14SE2RealisesJConditionPack : Prop :=
+  ∀ cfg : NearEndSE2 BernsteinGeometryMap.leaf_R14,
+    ∃ μ D U K : ℚ, JConditionHyps μ cfg.z D U K
+
+def r14SE2RealisesJConditionPackProved : Bool := false
+theorem r14SE2RealisesJConditionPackProved_false :
+    r14SE2RealisesJConditionPackProved = false := rfl
+
+theorem r14SE2ForcesBridgeJunctionContradiction_of_jConditionPack
+    (H : R14SE2RealisesJConditionPack) :
+    R14SE2ForcesBridgeJunctionContradiction := by
+  intro cfg
+  obtain ⟨μ, D, U, K, h⟩ := H cfg
+  exact jConditionHyps_false μ cfg.z D U K h
+
+theorem bernsteinForcesRawEmpty_R14_of_jConditionPack
+    (H : R14SE2RealisesJConditionPack) :
+    BernsteinForcesRawEmpty "R14" :=
+  bernsteinForcesRawEmpty_R14_of_bridgeJunction
+    (r14SE2ForcesBridgeJunctionContradiction_of_jConditionPack H)
+
+/-! ## Algebraic Z3 junction sumBudget unsat -/
+
+/-- Junction script `check_sum`: `N+S+x+2y-y²≤2` with `N≥1`, `S≥0`, `x+y≥1`. -/
+structure SumBudgetHyps (x y N S : ℚ) : Prop where
+  hx0 : 0 < x
+  hx1 : x < 1
+  hy0 : 0 < y
+  hy1 : y < 1
+  hN : 1 ≤ N
+  hS : 0 ≤ S
+  hbud : N + S + x + 2 * y - y * y ≤ 2
+  hxy : 1 ≤ x + y
+
+theorem sumBudgetHyps_false (x y N S : ℚ) (H : SumBudgetHyps x y N S) : False := by
+  have hy01 : 0 < y * (1 - y) := mul_pos H.hy0 (by linarith [H.hy1])
+  have hge : 2 + y * (1 - y) ≤ N + S + x + 2 * y - y * y := by
+    -- 1+x+2y-y² = 1+x+y+y(1-y) ≥ 2+y(1-y)
+    have : 1 + x + 2 * y - y * y = 1 + x + y + y * (1 - y) := by ring
+    have : 2 + y * (1 - y) ≤ 1 + x + 2 * y - y * y := by
+      rw [this]; linarith [H.hxy]
+    linarith [H.hN, H.hS]
+  linarith [H.hbud, hy01]
+
+def R14SumBudgetPackUnsat : Prop :=
+  ∀ x y N S : ℚ, SumBudgetHyps x y N S → False
+
+theorem r14SumBudgetPackUnsat : R14SumBudgetPackUnsat := sumBudgetHyps_false
+
+def r14SumBudgetPackUnsatProved : Bool := true
+theorem r14SumBudgetPackUnsatProved_true : r14SumBudgetPackUnsatProved = true := rfl
+
+def R14SE2RealisesSumBudgetPack : Prop :=
+  ∀ _cfg : NearEndSE2 BernsteinGeometryMap.leaf_R14,
+    ∃ x y N S : ℚ, SumBudgetHyps x y N S
+
+def r14SE2RealisesSumBudgetPackProved : Bool := false
+theorem r14SE2RealisesSumBudgetPackProved_false :
+    r14SE2RealisesSumBudgetPackProved = false := rfl
+
+theorem r14SE2ForcesBridgeJunctionContradiction_of_sumBudgetPack
+    (H : R14SE2RealisesSumBudgetPack) :
+    R14SE2ForcesBridgeJunctionContradiction := by
+  intro cfg
+  obtain ⟨x, y, N, S, h⟩ := H cfg
+  exact sumBudgetHyps_false x y N S h
+
+theorem bernsteinForcesRawEmpty_R14_of_sumBudgetPack
+    (H : R14SE2RealisesSumBudgetPack) :
+    BernsteinForcesRawEmpty "R14" :=
+  bernsteinForcesRawEmpty_R14_of_bridgeJunction
+    (r14SE2ForcesBridgeJunctionContradiction_of_sumBudgetPack H)
+
+/-! ## Honest extended living packages (empty; not plain-SE2) -/
+
+/-- SE2 plus ABridge witnesses. Empty by `aBridgeHyps_false`. Does **not**
+assert that plain `NearEndSE2` supplies `(μ,c,s,A,D,U)`. -/
+structure NearEndR14WithABridge where
+  cfg : NearEndSE2 BernsteinGeometryMap.leaf_R14
+  μ : ℚ
+  c : ℚ
+  s : ℚ
+  A : ℚ
+  D : ℚ
+  U : ℚ
+  pack : ABridgeHyps μ c s cfg.z A D U
+
+theorem not_nearEndR14WithABridge : ¬ Nonempty NearEndR14WithABridge := by
+  rintro ⟨w⟩
+  exact aBridgeHyps_false w.μ w.c w.s w.cfg.z w.A w.D w.U w.pack
+
+structure NearEndR14WithLeftLength where
+  cfg : NearEndSE2 BernsteinGeometryMap.leaf_R14
+  μ : ℚ
+  l : ℚ
+  pack : LeftLengthHyps μ cfg.z l
+
+theorem not_nearEndR14WithLeftLength : ¬ Nonempty NearEndR14WithLeftLength := by
+  rintro ⟨w⟩
+  exact leftLengthHyps_false w.μ w.cfg.z w.l w.pack
+
+structure NearEndR14WithJCondition where
+  cfg : NearEndSE2 BernsteinGeometryMap.leaf_R14
+  μ : ℚ
+  D : ℚ
+  U : ℚ
+  K : ℚ
+  pack : JConditionHyps μ cfg.z D U K
+
+theorem not_nearEndR14WithJCondition : ¬ Nonempty NearEndR14WithJCondition := by
+  rintro ⟨w⟩
+  exact jConditionHyps_false w.μ w.cfg.z w.D w.U w.K w.pack
+
+def r14ExtendedPackagesEmptyProved : Bool := true
+theorem r14ExtendedPackagesEmptyProved_true :
+    r14ExtendedPackagesEmptyProved = true := rfl
+
 /-! ## Z3 scope inventory (names only) -/
 
 inductive R14BridgeUnsatScope
@@ -513,13 +762,13 @@ def rawSE2EmptyProved : Bool := false
 theorem rawSE2EmptyProved_false : rawSE2EmptyProved = false := rfl
 
 def blockedReason : String :=
-  "CLOSED: identities; dL fragment; LeftLength/ABridge/LeftGapOwner algebraic unsat. \
-   BLOCKED: SE2⇒any W-bridge/ownership pack (NearEndSE2 has no μ/(A,D,U,l)); \
+  "CLOSED: LeftLength/ABridge/LeftGapOwner/JCondition/SumBudget algebraic unsat; \
+   NearEndR14With* extended packages empty. BLOCKED: plain SE2⇒pack fields; \
    ForcesBridgeJunction. Not R-poly≤0."
 
 def openStatus : String :=
-  "CLOSED: LeftLength+ABridge+LeftGapOwner pack unsat. \
-   OPEN: SE2⇒packs; ForcesBridgeJunction; BernsteinForcesRawEmpty. \
+  "CLOSED: five algebraic packs + extended-package emptiness. \
+   OPEN: SE2⇒packs; ForcesBridgeJunction; BernsteinForcesRawEmpty; angleOrder. \
    Not PrincipalClaim / namedClosersDischarged."
 
 end S6.CertR14BridgeJunction

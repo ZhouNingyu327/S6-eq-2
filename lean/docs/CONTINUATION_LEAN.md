@@ -6,6 +6,7 @@
   four-corner `clampedSquareTotal ≤2` under `|c|+|s|<μ`
 - LivingLeaf / Cert* (other track)
 - **v0.26.5 (cert):** ABridge+LeftGapOwner pack unsat; SE2⇒packs OPEN; ForcesBridgeJunction OPEN
+- **v0.26.6 (cert):** JCondition+SumBudget unsat; NearEndR14With* empty; ForcesBridgeJunction OPEN
 
 ## Next
 

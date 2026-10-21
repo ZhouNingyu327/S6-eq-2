@@ -1,3 +1,12 @@
+## v0.26.6 — R14 JCondition + SumBudget unsat; extended packages empty (2026-10-22 Asia/Shanghai)
+
+- `CertR14BridgeJunction`: Lean-prove Z3 `J_condition` and junction `sumBudget`
+  packs unsat (`JConditionHyps` / `SumBudgetHyps` ⇒ False).
+- Honest extensions: `NearEndR14With{ABridge,LeftLength,JCondition}` empty
+  (SE2 + pack hyps ⇒ False) without claiming plain SE2 supplies W-bridge fields.
+- ForcesBridgeJunction still false; `principalClaim` / `namedClosersDischarged`
+  untouched. Lake green.
+
 ## v0.26.5 — R14 ABridge + LeftGapOwner algebraic unsat (2026-10-22 Asia/Shanghai)
 
 - `CertR14BridgeJunction`: Lean-prove Z3 `A_bridge` and `left_gap_owner` packs
