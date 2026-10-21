@@ -41,6 +41,7 @@ import S6Core.CertGeometryIdentification
 import S6Core.CertJBoxIdentification
 import S6Core.CertR14JPoly
 import S6Core.CertR14JBernstein
+import S6Core.CertR14BridgeJunction
 import S6Core.LivingLeafStrengthen
 import S6Core.G3G4Fragments
 import S6Core.G5ExclusionFrag
