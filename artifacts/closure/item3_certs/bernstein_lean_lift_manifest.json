@@ -85,5 +85,15 @@
   ],
   "p5_catalog": 60,
   "p5_numeric_certs": 4,
-  "extra": true
+  "extra": true,
+  "near_end": {
+    "round13_pair_module": "S6Core.Round13PairBernstein",
+    "round13_pair_theorems": 48,
+    "r24_28_module": "S6Core.NearEndExactR24_28",
+    "r24_28_lift_count": 20,
+    "r24_28_extra_module": "S6Core.NearEndExactR24_28Extra",
+    "r24_28_extra_lift_count": 35,
+    "living_leaf_strengthen": "S6Core.LivingLeafStrengthen",
+    "note": "native_decide payloads + LivingLeaf inventory strengthenings; \u2260 PrincipalClaim; forbidden files untouched"
+  }
 }

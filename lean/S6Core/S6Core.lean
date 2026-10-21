@@ -27,6 +27,10 @@ import S6Core.BernsteinExactP3
 import S6Core.BernsteinExactP4
 import S6Core.BernsteinExactP5
 import S6Core.BernsteinExactExtra
+import S6Core.Round13PairBernstein
+import S6Core.NearEndExactR24_28
+import S6Core.NearEndExactR24_28Extra
+import S6Core.LivingLeafStrengthen
 import S6Core.G3G4Fragments
 import S6Core.G5ExclusionFrag
 import S6Core.G5Budget

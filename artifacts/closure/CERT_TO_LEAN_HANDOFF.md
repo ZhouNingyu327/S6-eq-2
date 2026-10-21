@@ -137,3 +137,16 @@ Wired in `lean/S6Core/S6Core.lean` next to `BernsteinGridLift` only. Manifest: `
 | `BernsteinExactExtra.lean` | tip branch A/B/C rational samples + count checks | lake-green |
 
 Still honest: these lifts verify certificate algebra / payloads — **not** PrincipalClaim unconditional.
+
+## Near-end / R13–R28 Lean lifts (openai/math track)
+
+| Module | Content | Status |
+|--------|---------|--------|
+| `S6Core.Round13PairBernstein` | ~46 R13 pair Bernstein row nonneg | lake-green |
+| `S6Core.NearEndExactR24_28` | 20 uniform-sign ℚ payloads R24–28 | lake-green |
+| `S6Core.NearEndExactR24_28Extra` | +35 more R24–28 payloads | lake-green |
+| `S6Core.LivingLeafStrengthen` | 17-living list, closer multiplicities, bothGap/rightGap inventory | lake-green |
+
+Honest: these lifts ≠ geometric `LivingLeafExcluded` for the 17 living leaves ≠ `PrincipalClaim`.
+Forbidden (bridge executor): `MainTheorem`, `G5ExclusionFrag`, `AxisG5k0FromCover` — not edited.
+
