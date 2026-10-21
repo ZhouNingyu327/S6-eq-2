@@ -237,6 +237,7 @@ theorem inhabitedCloserCertCount_eq_eight : inhabitedCloserCertCount = 8 :=
 
 
 open S6.LivingLeafGeomDischarge
+open S6.BernsteinGeometryMap
 
 theorem dualResidualAnalyticComplete_true_reexport :
     dualResidualAnalyticComplete = true := dualResidualAnalyticComplete_true
@@ -269,6 +270,13 @@ theorem rawSE2EmptyProved_false_reexport :
     LivingLeafGeomDischarge.rawSE2EmptyProved = false :=
   LivingLeafGeomDischarge.rawSE2EmptyProved_false
 
+theorem allPriorityBernsteinGeometryMaps_reexport : AllPriorityBernsteinGeometryMaps :=
+  allPriorityBernsteinGeometryMaps
+
+theorem bernsteinForcesRawEmptyProved_false_reexport :
+    BernsteinGeometryMap.bernsteinForcesRawEmptyProved = false :=
+  BernsteinGeometryMap.bernsteinForcesRawEmptyProved_false
+
 theorem rawSE2ImpossibleEmptyProved_true_reexport :
     LivingLeafGeomDischarge.rawSE2ImpossibleEmptyProved = true :=
   LivingLeafGeomDischarge.rawSE2ImpossibleEmptyProved_true
@@ -293,7 +301,7 @@ theorem priority_fullGeom_R14_R17_R27_28_reexport :
 
 def openStatus : String :=
   "CLOSED: living/impossible lists, closer labels, bothGap counts, R13–R28 closer multiplicities. \
-   partialSE2UnrealisedProved; raw ¬SE2 for impossible; living rawSE2 blocked (need J). OPEN: combinatorial CloserDischarged. \
+   BernsteinGeometryMap×8; partialSE2Unrealised; living rawSE2 blocked (BernsteinForcesRawEmpty open). OPEN: combinatorial CloserDischarged. \
    Not PrincipalClaim."
 
 end S6.LivingLeafStrengthen

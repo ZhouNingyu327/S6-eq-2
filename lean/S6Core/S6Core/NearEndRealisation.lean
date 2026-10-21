@@ -753,6 +753,6 @@ def rawSE2EmptyProved : Bool := false
 theorem rawSE2EmptyProved_false : rawSE2EmptyProved = false := rfl
 
 def openStatus : String :=
-  "CLOSED: partialSE2UnrealisedProved (Bernstein region_open); ManuscriptComplete empty;    raw ¬SE2 for 7 impossible leaves; se2_excludes_dual/junction; conditional living emptiness.    BLOCKED rawSE2EmptyProved for living: SE2 fields satisfiable; need J cert→geometry map.    OPEN: combinatorial LivingLeafExcluded; not PrincipalClaim."
+  "CLOSED: partialSE2UnrealisedProved; raw ¬SE2 impossible; se2_excludes_dual;    see BernsteinGeometryMap for cert→region+dual excludes (R14/R17/R27–28+).    BLOCKED living rawSE2Empty / BernsteinForcesRawEmpty (no cert→geometry ID).    OPEN: combinatorial LivingLeafExcluded; not PrincipalClaim."
 
 end S6.NearEndRealisation

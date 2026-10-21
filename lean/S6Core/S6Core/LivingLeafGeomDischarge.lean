@@ -4,6 +4,7 @@ import S6Core.LeafCertificates
 import S6Core.NearEndRealisation
 import S6Core.NearEndGeometry
 import S6Core.LivingLeafCertDischarge
+import S6Core.BernsteinGeometryMap
 import S6Core.RigidMotionChart
 
 /-!
@@ -28,6 +29,7 @@ open S6.LeafCertificates
 open S6.NearEndRealisation
 open S6.NearEndGeometry
 open S6.LivingLeafCertDischarge
+open S6.BernsteinGeometryMap
 open S6.RigidMotionChart
 
 def leaf_R14 : NearLeaf := ⟨.bothMeet, .gap, .empty⟩
@@ -261,7 +263,19 @@ theorem rawSE2ImpossibleEmptyProved_true : rawSE2ImpossibleEmptyProved = true :=
 def rawSE2LivingEmptyProved : Bool := false
 theorem rawSE2LivingEmptyProved_false : rawSE2LivingEmptyProved = false := rfl
 
+theorem bernsteinGeometryMap_priority_reexport : AllPriorityBernsteinGeometryMaps :=
+  allPriorityBernsteinGeometryMaps
+
+theorem bernsteinGeometryMap_all_reexport : AllNamedBernsteinGeometryMaps :=
+  allNamedBernsteinGeometryMaps
+
+theorem bernsteinGeometryMapPartialProved_true_reexport :
+    bernsteinGeometryMapPartialProved = true := bernsteinGeometryMapPartialProved_true
+
+theorem bernsteinForcesRawEmptyProved_false_reexport :
+    bernsteinForcesRawEmptyProved = false := bernsteinForcesRawEmptyProved_false
+
 def openStatus : String :=
-  "CLOSED: partialSE2UnrealisedProved; GeomExcluded; raw ¬SE2 for 7 impossible;    se2_excludes_dual/junction; conditional living emptiness under dual-on-rt.    BLOCKED rawSE2EmptyProved living: SE2 satisfiable; need J cert→geometry.    OPEN: combinatorial CloserDischarged. Not PrincipalClaim."
+  "CLOSED: BernsteinGeometryMap ×8 (cert→region + SE2 excludes dual);    partialSE2UnrealisedProved; GeomExcluded.    BLOCKED BernsteinForcesRawEmpty / raw living SE2 empty (no cert→(C,rays,chart) ID).    OPEN: combinatorial CloserDischarged. Not PrincipalClaim."
 
 end S6.LivingLeafGeomDischarge
