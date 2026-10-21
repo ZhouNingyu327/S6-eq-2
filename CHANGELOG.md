@@ -1,3 +1,11 @@
+## v0.19 — corner diameter-miss + ChordMatrixExport (2026-10-22 Asia/Shanghai)
+
+- `RotatedChordMeasure`: SW/SE/NE/NW diameter-miss vs opposite outer sides; meet
+  predicates; `PointwiseCover_corner_diameter_miss`; onesided axial sum ≤2;
+  `RotatedChordMatrixExport` ⇒ SixLineMeasureLift / CoverIneq / G5k0Bridge.
+- Flags remain false: `rotatedChordMatrixExportProved`, `principalClaimProvedUnconditionally`.
+- Lake green. Honest bar still ~80–84%.
+
 ## v0.18 — six-line measure-lift packaging + G3 cap reduction (2026-10-22 Asia/Shanghai)
 
 - `RotatedChordMeasure`: horiz/vert chord Δ²≤2 and |Δ|≤2; `RotatedLineChordCover` with

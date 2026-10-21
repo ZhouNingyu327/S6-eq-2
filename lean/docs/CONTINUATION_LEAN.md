@@ -2,21 +2,17 @@
 
 ## Done
 
-- Six-line chord algebra; projected-width ≤2; axis/identity-C ⇒ CoverIneq
-- **`RotatedGridRatCover_of_pointwise`**: every PointwiseCover ⇒ six-line ℚ cover (no axis hyp)
-- Axis lift; `meetsHoriz`/`meetsVert`; LinePackageExport ⇒ CoverIneq
-- G3SepWitnessExport ⇒ ParallelBudgetExport ⇒ exclusion
-- **v0.18:** horiz/vert chord Δ²≤2, `|Δ|≤2`; `RotatedLineChordCover` algebra;
-  `RotatedSixLineMeasureLift` ⇒ CoverIneq / G5k0Bridge / GeomExport;
-  `G3CapGeometryExport` ⇒ ParallelBudget / SepWitness reductions
-- LivingLeaf / Closer / NearEndExact (other track)
+- Six-line chord algebra; `RotatedGridRatCover_of_pointwise`; measure-lift packaging
+- **v0.19:** corner diameter-miss (4 corners miss opposite outers) on every PointwiseCover;
+  onesided axial sum ≤2; `RotatedChordMatrixExport` ⇒ `RotatedSixLineMeasureLift`
+- LivingLeaf / Closer / NearEnd (other track)
 
 ## Next
 
-1. **Inhabit** `RotatedSixLineMeasureLift` / `RotatedLineMeasureLift` from `RotatedGridRatCover`
-   (Euclidean chord intervals + squareTotal ≤ 2), **or** BodyChartAxis / IdentityC for every G5 k=0.
+1. Inhabit `RotatedChordMatrixExport` / `RotatedLineMeasureLift` (Euclidean chord intervals
+   + squareTotal ≤ 2 from rat cover), **or** BodyChartAxis / IdentityC for every G5 k=0.
 2. Inhabit `G3SepWitnessExport` / `G3CapGeometryExport` from cover geometry.
-3. Living-leaf geometry (other track owns Closers / NearEndRealisation).
+3. Living-leaf (other track).
 4. Unconditional `PrincipalClaim` only after ClassExclusions close.
 
 ## Honesty

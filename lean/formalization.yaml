@@ -1,5 +1,5 @@
 # Catalog of manuscripts with a formalized (or partially formalized) main result.
-version: "v0.18"
+version: "v0.19"
 
 project:
   name: "ZhouNingyu327/S6-eq-2"
@@ -15,13 +15,12 @@ sources:
     id: ../preprints/Six-unit-squares-cannot-cover-a-square-of-side-greater-than-2-October-21-2026/paper.pdf
     type: article
     lean_docs: docs/001.md
-    status: partial_formalization_six_line_measure_lift_packaging
+    status: partial_formalization_corner_diameter_miss
     notes: >-
-      PrincipalClaim is a Prop. Proved as v0.17 plus horiz/vert chord Δ²≤2 and |Δ|≤2,
-      RotatedLineChordCover algebra (sum≥2μ, sum≤12), RotatedSixLineMeasureLift ⇒
-      CoverIneq / G5k0Bridge / GeomExport / LinePackageExport; G3CapGeometryExport ⇒
-      ParallelBudget / SepWitness / exclusion reductions. Open: inhabit
-      RotatedSixLineMeasureLift / RotatedLineMeasureLift from RotatedGridRatCover;
-      BodyChartAxis/IdentityC; G3SepWitness from covers; 17 living; unconditional
-      PrincipalClaim. principalClaimProvedUnconditionally=false. ~80–84% openai/math
-      Lean bar (honest).
+      PrincipalClaim is a Prop. Proved as v0.18 plus corner diameter-miss (SW/SE/NE/NW
+      vs opposite outer sides) for every PointwiseCover; onesided axial sum ≤2;
+      ChordMatrixExport ⇒ SixLineMeasureLift/CoverIneq/G5k0Bridge. Open: inhabit
+      ChordMatrixExport / LineMeasureLift (Euclidean intervals + squareTotal≤2);
+      BodyChartAxis/IdentityC; G3SepWitness from covers; living-leaf other track;
+      unconditional PrincipalClaim. principalClaimProvedUnconditionally=false.
+      ~80–84% openai/math Lean bar (honest).

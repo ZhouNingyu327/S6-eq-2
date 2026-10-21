@@ -27,7 +27,9 @@ Proved: `RotatedGridRatCover` from every `PointwiseCover` (six-line ℚ cover, n
 axis lift via alignment; meet predicates; line-package export ⇒ CoverIneq.
 Proved: horiz/vert chord Δ²≤2 and |Δ|≤2; RotatedLineChordCover algebra;
 SixLineMeasureLift ⇒ CoverIneq / G5k0Bridge / GeomExport / LinePackageExport.
-Open: inhabit RotatedSixLineMeasureLift / RotatedLineMeasureLift from rat cover.
+Proved: corner diameter-miss (4 corners vs opposite sides) for any PointwiseCover;
+onesided axial sum ≤2; ChordMatrixExport ⇒ SixLineMeasureLift.
+Open: inhabit ChordMatrixExport / LineMeasureLift (Euclidean intervals) from rat cover.
 -/
 
 namespace S6.RotatedChordMeasure
@@ -561,5 +563,242 @@ theorem rotatedSixLineMeasureLiftProved_false :
 
 def rotatedLineMeasureLiftProved : Bool := false
 theorem rotatedLineMeasureLiftProved_false : rotatedLineMeasureLiftProved = false := rfl
+
+
+/-! ## Corner diameter-miss + one-sided axial sum (toward squareTotal ≤ 2) -/
+
+/-- Point at height `2μ` cannot share a unit square with the SW corner when `μ > 1`. -/
+theorem contains_SW_misses_top (g : RotatedSquare) (μ : ℚ) (hμ : 1 < μ)
+    (h : RotatedSquare.contains g (0, 0)) (x : ℚ) :
+    ¬ RotatedSquare.contains g (x, 2 * μ) := by
+  intro ht
+  have hd := chord_distSq_le_two g (0, 0) (x, 2 * μ) h ht
+  simp only [distSq] at hd
+  nlinarith [sq_nonneg x, hμ]
+
+theorem contains_SW_misses_right (g : RotatedSquare) (μ : ℚ) (hμ : 1 < μ)
+    (h : RotatedSquare.contains g (0, 0)) (y : ℚ) :
+    ¬ RotatedSquare.contains g (2 * μ, y) := by
+  intro ht
+  have hd := chord_distSq_le_two g (0, 0) (2 * μ, y) h ht
+  simp only [distSq] at hd
+  nlinarith [sq_nonneg y, hμ]
+
+theorem contains_SE_misses_top (g : RotatedSquare) (μ : ℚ) (hμ : 1 < μ)
+    (h : RotatedSquare.contains g (2 * μ, 0)) (x : ℚ) :
+    ¬ RotatedSquare.contains g (x, 2 * μ) := by
+  intro ht
+  have hd := chord_distSq_le_two g (2 * μ, 0) (x, 2 * μ) h ht
+  simp only [distSq] at hd
+  nlinarith [sq_nonneg (x - 2 * μ), hμ]
+
+theorem contains_SE_misses_left (g : RotatedSquare) (μ : ℚ) (hμ : 1 < μ)
+    (h : RotatedSquare.contains g (2 * μ, 0)) (y : ℚ) :
+    ¬ RotatedSquare.contains g (0, y) := by
+  intro ht
+  have hd := chord_distSq_le_two g (2 * μ, 0) (0, y) h ht
+  simp only [distSq] at hd
+  nlinarith [sq_nonneg y, hμ]
+
+theorem contains_NE_misses_bottom (g : RotatedSquare) (μ : ℚ) (hμ : 1 < μ)
+    (h : RotatedSquare.contains g (2 * μ, 2 * μ)) (x : ℚ) :
+    ¬ RotatedSquare.contains g (x, 0) := by
+  intro ht
+  have hd := chord_distSq_le_two g (2 * μ, 2 * μ) (x, 0) h ht
+  simp only [distSq] at hd
+  nlinarith [sq_nonneg (x - 2 * μ), hμ]
+
+theorem contains_NE_misses_left (g : RotatedSquare) (μ : ℚ) (hμ : 1 < μ)
+    (h : RotatedSquare.contains g (2 * μ, 2 * μ)) (y : ℚ) :
+    ¬ RotatedSquare.contains g (0, y) := by
+  intro ht
+  have hd := chord_distSq_le_two g (2 * μ, 2 * μ) (0, y) h ht
+  simp only [distSq] at hd
+  nlinarith [sq_nonneg (y - 2 * μ), hμ]
+
+theorem contains_NW_misses_bottom (g : RotatedSquare) (μ : ℚ) (hμ : 1 < μ)
+    (h : RotatedSquare.contains g (0, 2 * μ)) (x : ℚ) :
+    ¬ RotatedSquare.contains g (x, 0) := by
+  intro ht
+  have hd := chord_distSq_le_two g (0, 2 * μ) (x, 0) h ht
+  simp only [distSq] at hd
+  nlinarith [sq_nonneg x, hμ]
+
+theorem contains_NW_misses_right (g : RotatedSquare) (μ : ℚ) (hμ : 1 < μ)
+    (h : RotatedSquare.contains g (0, 2 * μ)) (y : ℚ) :
+    ¬ RotatedSquare.contains g (2 * μ, y) := by
+  intro ht
+  have hd := chord_distSq_le_two g (0, 2 * μ) (2 * μ, y) h ht
+  simp only [distSq] at hd
+  nlinarith [sq_nonneg (y - 2 * μ), hμ]
+
+/-- Nonnegative axial extents with squared sum ≤ 2 ⇒ sum ≤ 2. -/
+theorem onesided_axial_sum_le_two (xb yb : ℚ) (hx : 0 ≤ xb) (hy : 0 ≤ yb)
+    (hsq : xb * xb + yb * yb ≤ 2) : xb + yb ≤ 2 := by
+  have hamg : 2 * xb * yb ≤ xb * xb + yb * yb := by
+    nlinarith [sq_nonneg (xb - yb)]
+  nlinarith
+
+theorem SW_onesided_axial_sum_le_two (g : RotatedSquare) (xb yb : ℚ)
+    (_h0 : RotatedSquare.contains g (0, 0))
+    (hb : RotatedSquare.contains g (xb, 0))
+    (hl : RotatedSquare.contains g (0, yb))
+    (hx : 0 ≤ xb) (hy : 0 ≤ yb) : xb + yb ≤ 2 := by
+  have hd := chord_distSq_le_two g (xb, 0) (0, yb) hb hl
+  simp only [distSq] at hd
+  exact onesided_axial_sum_le_two xb yb hx hy (by nlinarith)
+
+theorem SE_onesided_axial_sum_le_two (g : RotatedSquare) (μ xb yb : ℚ)
+    (_h0 : RotatedSquare.contains g (2 * μ, 0))
+    (hb : RotatedSquare.contains g (2 * μ - xb, 0))
+    (hr : RotatedSquare.contains g (2 * μ, yb))
+    (hx : 0 ≤ xb) (hy : 0 ≤ yb) : xb + yb ≤ 2 := by
+  have hd := chord_distSq_le_two g (2 * μ - xb, 0) (2 * μ, yb) hb hr
+  simp only [distSq] at hd
+  exact onesided_axial_sum_le_two xb yb hx hy (by nlinarith)
+
+theorem NE_onesided_axial_sum_le_two (g : RotatedSquare) (μ xb yb : ℚ)
+    (_h0 : RotatedSquare.contains g (2 * μ, 2 * μ))
+    (ht : RotatedSquare.contains g (2 * μ - xb, 2 * μ))
+    (hr : RotatedSquare.contains g (2 * μ, 2 * μ - yb))
+    (hx : 0 ≤ xb) (hy : 0 ≤ yb) : xb + yb ≤ 2 := by
+  have hd := chord_distSq_le_two g (2 * μ - xb, 2 * μ) (2 * μ, 2 * μ - yb) ht hr
+  simp only [distSq] at hd
+  exact onesided_axial_sum_le_two xb yb hx hy (by nlinarith)
+
+
+theorem NW_onesided_axial_sum_le_two (g : RotatedSquare) (μ xb yb : ℚ)
+    (_h0 : RotatedSquare.contains g (0, 2 * μ))
+    (ht : RotatedSquare.contains g (xb, 2 * μ))
+    (hl : RotatedSquare.contains g (0, 2 * μ - yb))
+    (hx : 0 ≤ xb) (hy : 0 ≤ yb) : xb + yb ≤ 2 := by
+  have hd := chord_distSq_le_two g (xb, 2 * μ) (0, 2 * μ - yb) ht hl
+  simp only [distSq] at hd
+  exact onesided_axial_sum_le_two xb yb hx hy (by nlinarith)
+
+theorem meetsHoriz_SW_not_top (g : RotatedSquare) (μ : ℚ) (hμ : 1 < μ)
+    (h : RotatedSquare.contains g (0, 0)) : ¬ meetsHoriz g (2 * μ) := by
+  rintro ⟨x, hx⟩; exact contains_SW_misses_top g μ hμ h x hx
+
+theorem meetsVert_SW_not_right (g : RotatedSquare) (μ : ℚ) (hμ : 1 < μ)
+    (h : RotatedSquare.contains g (0, 0)) : ¬ meetsVert g (2 * μ) := by
+  rintro ⟨y, hy⟩; exact contains_SW_misses_right g μ hμ h y hy
+
+theorem meetsHoriz_SE_not_top (g : RotatedSquare) (μ : ℚ) (hμ : 1 < μ)
+    (h : RotatedSquare.contains g (2 * μ, 0)) : ¬ meetsHoriz g (2 * μ) := by
+  rintro ⟨x, hx⟩; exact contains_SE_misses_top g μ hμ h x hx
+
+theorem meetsVert_SE_not_left (g : RotatedSquare) (μ : ℚ) (hμ : 1 < μ)
+    (h : RotatedSquare.contains g (2 * μ, 0)) : ¬ meetsVert g 0 := by
+  rintro ⟨y, hy⟩; exact contains_SE_misses_left g μ hμ h y hy
+
+theorem meetsHoriz_NE_not_bottom (g : RotatedSquare) (μ : ℚ) (hμ : 1 < μ)
+    (h : RotatedSquare.contains g (2 * μ, 2 * μ)) : ¬ meetsHoriz g 0 := by
+  rintro ⟨x, hx⟩; exact contains_NE_misses_bottom g μ hμ h x hx
+
+theorem meetsVert_NE_not_left (g : RotatedSquare) (μ : ℚ) (hμ : 1 < μ)
+    (h : RotatedSquare.contains g (2 * μ, 2 * μ)) : ¬ meetsVert g 0 := by
+  rintro ⟨y, hy⟩; exact contains_NE_misses_left g μ hμ h y hy
+
+theorem meetsHoriz_NW_not_bottom (g : RotatedSquare) (μ : ℚ) (hμ : 1 < μ)
+    (h : RotatedSquare.contains g (0, 2 * μ)) : ¬ meetsHoriz g 0 := by
+  rintro ⟨x, hx⟩; exact contains_NW_misses_bottom g μ hμ h x hx
+
+theorem meetsVert_NW_not_right (g : RotatedSquare) (μ : ℚ) (hμ : 1 < μ)
+    (h : RotatedSquare.contains g (0, 2 * μ)) : ¬ meetsVert g (2 * μ) := by
+  rintro ⟨y, hy⟩; exact contains_NW_misses_right g μ hμ h y hy
+
+/-- Every `PointwiseCover`'s corner owners miss the opposite outer sides (`μ>1`). -/
+theorem PointwiseCover_corner_diameter_miss {T : Target} (cov : PointwiseCover T) :
+    let C := cov.toCornerOwners
+    (¬ meetsHoriz (C.squares C.i1) (2 * T.μ)) ∧
+      (¬ meetsVert (C.squares C.i1) (2 * T.μ)) ∧
+      (¬ meetsHoriz (C.squares C.i2) (2 * T.μ)) ∧
+      (¬ meetsVert (C.squares C.i2) 0) ∧
+      (¬ meetsHoriz (C.squares C.i3) 0) ∧
+      (¬ meetsVert (C.squares C.i3) 0) ∧
+      (¬ meetsHoriz (C.squares C.i4) 0) ∧
+      (¬ meetsVert (C.squares C.i4) (2 * T.μ)) := by
+  intro C
+  have hμ := T.hμ
+  refine ⟨?_, ?_, ?_, ?_, ?_, ?_, ?_, ?_⟩
+  · exact meetsHoriz_SW_not_top _ T.μ hμ (by simpa [Target.v1] using C.h1)
+  · exact meetsVert_SW_not_right _ T.μ hμ (by simpa [Target.v1] using C.h1)
+  · exact meetsHoriz_SE_not_top _ T.μ hμ (by simpa [Target.v2] using C.h2)
+  · exact meetsVert_SE_not_left _ T.μ hμ (by simpa [Target.v2] using C.h2)
+  · exact meetsHoriz_NE_not_bottom _ T.μ hμ (by simpa [Target.v3] using C.h3)
+  · exact meetsVert_NE_not_left _ T.μ hμ (by simpa [Target.v3] using C.h3)
+  · exact meetsHoriz_NW_not_bottom _ T.μ hμ (by simpa [Target.v4] using C.h4)
+  · exact meetsVert_NW_not_right _ T.μ hμ (by simpa [Target.v4] using C.h4)
+
+theorem corner_onesided_sums_of_samples (gSW gSE gNE gNW : RotatedSquare) (μ : ℚ)
+    (hSW : RotatedSquare.contains gSW (0, 0))
+    (hSE : RotatedSquare.contains gSE (2 * μ, 0))
+    (hNE : RotatedSquare.contains gNE (2 * μ, 2 * μ))
+    (hNW : RotatedSquare.contains gNW (0, 2 * μ))
+    (bSW lSW bSE rSE tNE rNE tNW lNW : ℚ)
+    (hbSW : RotatedSquare.contains gSW (bSW, 0))
+    (hlSW : RotatedSquare.contains gSW (0, lSW))
+    (hbSE : RotatedSquare.contains gSE (2 * μ - bSE, 0))
+    (hrSE : RotatedSquare.contains gSE (2 * μ, rSE))
+    (htNE : RotatedSquare.contains gNE (2 * μ - tNE, 2 * μ))
+    (hrNE : RotatedSquare.contains gNE (2 * μ, 2 * μ - rNE))
+    (htNW : RotatedSquare.contains gNW (tNW, 2 * μ))
+    (hlNW : RotatedSquare.contains gNW (0, 2 * μ - lNW))
+    (hnn : 0 ≤ bSW ∧ 0 ≤ lSW ∧ 0 ≤ bSE ∧ 0 ≤ rSE ∧
+      0 ≤ tNE ∧ 0 ≤ rNE ∧ 0 ≤ tNW ∧ 0 ≤ lNW) :
+    bSW + lSW ≤ 2 ∧ bSE + rSE ≤ 2 ∧ tNE + rNE ≤ 2 ∧ tNW + lNW ≤ 2 :=
+  ⟨SW_onesided_axial_sum_le_two gSW bSW lSW hSW hbSW hlSW hnn.1 hnn.2.1,
+    SE_onesided_axial_sum_le_two gSE μ bSE rSE hSE hbSE hrSE hnn.2.2.1 hnn.2.2.2.1,
+    NE_onesided_axial_sum_le_two gNE μ tNE rNE hNE htNE hrNE hnn.2.2.2.2.1 hnn.2.2.2.2.2.1,
+    NW_onesided_axial_sum_le_two gNW μ tNW lNW hNW htNW hlNW
+      hnn.2.2.2.2.2.2.1 hnn.2.2.2.2.2.2.2⟩
+
+def SixLineChordMatrix.mk' (μ : ℚ) (chord : Fin 6 → Fin 6 → ℚ)
+    (nonneg : ∀ ℓ i, 0 ≤ chord ℓ i)
+    (lineCover : ∀ ℓ, (2 : ℚ) * μ ≤ sum6 (fun i => chord ℓ i)) :
+    SixLineChordMatrix :=
+  ⟨μ, chord, nonneg, lineCover⟩
+
+/-- Open: export chord table with line covers + squareTotal ≤ 2. -/
+def RotatedChordMatrixExport : Prop :=
+  ∀ (T : Target) (cov : PointwiseCover T),
+    isG5Class cov →
+      (RoleSelection.ofCover cov).toManuscript.flags.k = ⟨0, by decide⟩ →
+        ∃ (chord : Fin 6 → Fin 6 → ℚ),
+          (∀ ℓ i, 0 ≤ chord ℓ i) ∧
+          (∀ ℓ, (2 : ℚ) * T.μ ≤ sum6 (fun i => chord ℓ i)) ∧
+          (∀ i, sum6 (fun ℓ => chord ℓ i) ≤ 2)
+
+theorem RotatedSixLineMeasureLift_of_chordMatrixExport
+    (h : RotatedChordMatrixExport) : RotatedSixLineMeasureLift := by
+  intro T cov hcls hk
+  rcases h T cov hcls hk with ⟨chord, hnn, hline, hub⟩
+  refine ⟨SixLineChordMatrix.mk' T.μ chord hnn hline, rfl, ?_⟩
+  intro i
+  simpa [SixLineChordMatrix.squareTotal, SixLineChordMatrix.mk'] using hub i
+
+theorem G5k0Bridge_of_chordMatrixExport (h : RotatedChordMatrixExport) : G5k0Bridge :=
+  G5k0Bridge_of_sixLineMeasureLift (RotatedSixLineMeasureLift_of_chordMatrixExport h)
+
+theorem RotatedChordCoverIneq_of_chordMatrixExport (h : RotatedChordMatrixExport) :
+    RotatedChordCoverIneq :=
+  RotatedChordCoverIneq_of_sixLineMeasureLift
+    (RotatedSixLineMeasureLift_of_chordMatrixExport h)
+
+def rotatedCornerDiameterMissClosed : Bool := true
+theorem rotatedCornerDiameterMissClosed_true :
+    rotatedCornerDiameterMissClosed = true := rfl
+
+def rotatedOnesidedAxialSumClosed : Bool := true
+theorem rotatedOnesidedAxialSumClosed_true : rotatedOnesidedAxialSumClosed = true := rfl
+
+def pointwiseCoverCornerDiameterMissClosed : Bool := true
+theorem pointwiseCoverCornerDiameterMissClosed_true :
+    pointwiseCoverCornerDiameterMissClosed = true := rfl
+
+def rotatedChordMatrixExportProved : Bool := false
+theorem rotatedChordMatrixExportProved_false :
+    rotatedChordMatrixExportProved = false := rfl
 
 end S6.RotatedChordMeasure

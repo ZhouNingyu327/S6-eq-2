@@ -49,6 +49,9 @@ geometric proofs.
 | horiz/vert chord Δ²≤2, `|Δ|≤2`; `RotatedLineChordCover` algebra | **Proved** |
 | `RotatedSixLineMeasureLift`⇒CoverIneq/G5k0Bridge/GeomExport | **Proved conditional** |
 | `G3CapGeometryExport`⇒ParallelBudget/SepWitness/exclusion | **Proved conditional** |
+| Corner diameter-miss (4 corners vs opposite outers) on any cover | **Proved** |
+| Onesided axial sum ≤2; `ChordMatrixExport`⇒SixLineMeasureLift | **Proved conditional** |
+| Inhabit `RotatedChordMatrixExport` / LineMeasureLift from rat cover | **Open** |
 | Inhabit `RotatedSixLineMeasureLift` from `RotatedGridRatCover` | **Open** |
 | Axis/identity-C realisation ⇒ `RotatedChordCoverIneq` | **Proved conditional** |
 | `G3ParallelBudgetExport`⇒`G3SideGapDataExport`/exclusion | **Proved conditional** |
