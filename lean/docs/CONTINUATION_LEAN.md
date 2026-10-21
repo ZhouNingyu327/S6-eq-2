@@ -2,19 +2,19 @@
 
 ## Done
 
-- **v0.26.2–v0.26.4:** centre outer-miss; four-corner projWidth mid-miss;
-  four-corner `clampedSquareTotal ≤2` under `|c|+|s|<μ`
-- LivingLeaf / Cert* (other track)
-- **v0.26.5 (cert):** ABridge+LeftGapOwner pack unsat; SE2⇒packs OPEN; ForcesBridgeJunction OPEN
-- **v0.26.6 (cert):** JCondition+SumBudget unsat; NearEndR14With* empty; ForcesBridgeJunction OPEN
+- **v0.26.4:** four-corner `clampedSquareTotal ≤2` under projWidth
+- **v0.26.6:** μ²>2 auto corner pack; centre outer clamped=0; chord ≤ projWidth;
+  mid-sum ≤ 2·projWidth; same-dir ⇒ body-chart axis-aligned (IdentityC packaging)
+- Cert* / LivingLeaf (other track)
 
 ## Next
 
-1. Filler mid packing → `RotatedChordMatrixExport` → CoverIneq,
-   **or** BodyChartAxis / IdentityC for every G5 k=0.
-2. G3SepWitness / CapGeometry — `s*s=2` over ℚ uninhabitable; need ℝ lift.
+1. Filler mid ≤2 (or roles charge) → `RotatedChordMatrixExport`; **or**
+   inhabit `BodyChartAxisG5k0Realisation` (common-dir / axis in C-body for every G5 k=0).
+2. G3Sep/Cap — `s*s=2` over ℚ uninhabitable; need ℝ export or B-only side-gap.
 3. Unconditional `PrincipalClaim` only after ClassExclusions close.
 
 ## Honesty
 
 `principalClaimProvedUnconditionally` stays **false**. PrincipalClaim not claimed proved.
+Centre/filler Euclidean mid-sum can exceed 2 at 45°; packing uses roles / projWidth / body chart.
