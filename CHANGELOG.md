@@ -1,3 +1,12 @@
+## v0.24 — four-corner clamped outer packing (2026-10-22 Asia/Shanghai)
+
+- `RotatedChordMeasure`: SE/NE/NW clamped outer pairs ≤2; helpers
+  `clamped*Len_le_hi` / `_le_two_mu_sub_lo`; `PointwiseCover_corner_clamped_outer_le_two`.
+  Flag `rotatedCornerClampedOuterPackingProved=true`.
+- Still open: mid packing; general `ChordMatrixExport`;
+  `principalClaimProvedUnconditionally=false`.
+- Lake green. Honest bar still ~80–84%.
+
 ## v0.23 — SW clamped outer packing toward squareTotal≤2 (2026-10-22 Asia/Shanghai)
 
 - `RotatedChordMeasure`: `distSq_containsR_le_two`; Inf/Sup endpoints in closed slices;
