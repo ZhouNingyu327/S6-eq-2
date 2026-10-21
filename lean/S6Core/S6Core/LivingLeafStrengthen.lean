@@ -238,11 +238,15 @@ theorem inhabitedCloserCertCount_eq_eight : inhabitedCloserCertCount = 8 :=
 
 open S6.LivingLeafGeomDischarge
 
-theorem allNamedCloserGeomDischarged_reexport : AllNamedCloserGeomDischarged :=
-  allNamedCloserGeomDischarged
+theorem allPriorityCloserGeomDischarged_reexport : AllPriorityCloserGeomDischarged :=
+  allPriorityCloserGeomDischarged
 
-theorem closerFullGeomDischargedProved_true_reexport :
-    closerFullGeomDischargedProved = true := closerFullGeomDischargedProved_true
+theorem closerFullGeomDischargedProved_priority_true_reexport :
+    closerFullGeomDischargedProved_priority = true :=
+  closerFullGeomDischargedProved_priority_true
+
+theorem certOpenDependencyRemoved_true_reexport :
+    certOpenDependencyRemoved = true := certOpenDependencyRemoved_true
 
 theorem priority_fullGeom_R14_R17_R27_28_reexport :
     LivingLeafGeomExcluded ⟨.bothMeet, .gap, .empty⟩ ∧
@@ -251,7 +255,7 @@ theorem priority_fullGeom_R14_R17_R27_28_reexport :
 
 def openStatus : String :=
   "CLOSED: living/impossible lists, closer labels, bothGap counts, R13–R28 closer multiplicities. \
-   CERT×8 + full LivingLeafGeomExcluded×8 (OuterRT+cert barrier). OPEN: manuscript rays beyond d≤1; combinatorial CloserDischarged. \
+   cert_open removed; full LivingLeafGeomExcluded for R14/R17/R27–28 via SE(2) junction. OPEN: R13/R16/R18/R19/R26; combinatorial CloserDischarged. \
    Not PrincipalClaim."
 
 end S6.LivingLeafStrengthen

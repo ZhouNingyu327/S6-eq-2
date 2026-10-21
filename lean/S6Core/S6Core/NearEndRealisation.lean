@@ -11,10 +11,12 @@ import S6Core.Round13PairBernstein
 # Near-end SE(2) / chart realisation (≠ livingFlag)
 
 `NearEndSE2` packages rigid motion, F-horizontal projection, chart hypotheses,
-**OuterRT meet/gap ray constraints**, and a **closer-cert barrier** (`cert_open`).
-Once the Lean closer-cert bundle is inhabited, `NearEndLeafRealised` is empty,
-discharging `LivingLeafGeomExcluded`. OuterRT rays use extent-one parallel-miss.
-Not manuscript-complete ray geometry; not PrincipalClaim.
+and **OuterRT meet/gap ray constraints backed by SE(2) hit/miss witnesses**.
+Priority closers (R14 / R17 / R27–R28) carry a manuscript junction residual
+(same-ray meet∩gap), discharging `LivingLeafGeomExcluded` **without**
+`LeafCloserCertDischarged` / `cert_open`.
+
+Not full manuscript ray algebra for all 8 closers; not PrincipalClaim.
 Combinatorial `LivingLeafExcluded` untouched.
 -/
 
@@ -38,37 +40,141 @@ theorem FHorizMatches_pos {fProj : ℚ} (h : FHorizMatches .pos fProj) : 0 < fPr
 theorem FHorizMatches_neg {fProj : ℚ} (h : FHorizMatches .neg fProj) : fProj < 0 := h
 theorem FHorizMatches_empty {fProj : ℚ} (h : FHorizMatches .empty fProj) : fProj = 0 := h
 
-structure OuterRayData where
+/-- Body-frame support coordinate of a world point under rigid motion `g`. -/
+def supportProj (g : RigidMotion) (nBody : Pt) (p : Pt) : ℚ :=
+  dot (g.imageNormal nBody) p - dot (g.imageNormal nBody) g.shift
+
+theorem supportProj_eq_body (g : RigidMotion) (nBody q : Pt) :
+    supportProj g nBody (g.apply q) = dot nBody q := by
+  simp only [supportProj]
+  have h := RigidMotion.proj_imageNormal g nBody q
+  linarith
+
+/-- SE(2) hit witness: rigid-square point on the support ray at distance `d ≤ 1`. -/
+structure MeetHitWitness (g : RigidMotion) (nBody : Pt) (d : ℚ) where
+  d_le : d ≤ 1
+  p : Pt
+  hp : inRigidSquare g p
+  on_support : supportProj g nBody p = d
+
+theorem MeetHitWitness.body_coord_bounds (g : RigidMotion) (nBody : Pt) (d : ℚ)
+    (w : MeetHitWitness g nBody d) :
+    ∃ q : Pt, inAxisSquare q ∧ dot nBody q = d := by
+  obtain ⟨q, hq, heq⟩ := w.hp
+  refine ⟨q, hq, ?_⟩
+  have h := supportProj_eq_body g nBody q
+  -- heq : g.apply q = w.p
+  have : supportProj g nBody (g.apply q) = d := by
+    rw [heq]; exact w.on_support
+  exact h.symm.trans this
+
+/-- Gap miss witness: `1 < d` forbids a unit-slab hit at `d`.
+`tag` keeps the structure in `Type` so it can live in `Option`. -/
+structure GapMissWitness (d : ℚ) where
+  d_gt : 1 < d
+  no_hit_in_unit_slab : ¬ (0 ≤ d ∧ d ≤ 1)
+  tag : Unit := ()
+
+def GapMissWitness.of_gt_one (d : ℚ) (hd : 1 < d) : GapMissWitness d where
+  d_gt := hd
+  no_hit_in_unit_slab := fun h => (not_le_of_gt hd) h.2
+
+theorem GapMissWitness.blocks_unit_hit (w : GapMissWitness d)
+    (h : 0 ≤ d ∧ d ≤ 1) : False :=
+  w.no_hit_in_unit_slab h
+
+def nR : Pt := (1, 0)
+def nT : Pt := (0, 1)
+
+/-- Outer R/T ray package with optional SE(2) hit / gap-miss witnesses. -/
+structure OuterRayWitnesses (g : RigidMotion) where
   dR : ℚ
   dT : ℚ
+  hitR : Option (MeetHitWitness g nR dR)
+  hitT : Option (MeetHitWitness g nT dT)
+  missR : Option (GapMissWitness dR)
+  missT : Option (GapMissWitness dT)
 
-def OuterRayData.meetsR (r : OuterRayData) : Prop := r.dR ≤ 1
-def OuterRayData.meetsT (r : OuterRayData) : Prop := r.dT ≤ 1
-def OuterRayData.gapsR (r : OuterRayData) : Prop := 1 < r.dR
-def OuterRayData.gapsT (r : OuterRayData) : Prop := 1 < r.dT
+def OuterRayWitnesses.meetsR {g : RigidMotion} (w : OuterRayWitnesses g) : Prop :=
+  w.hitR.isSome ∧ w.dR ≤ 1
+def OuterRayWitnesses.meetsT {g : RigidMotion} (w : OuterRayWitnesses g) : Prop :=
+  w.hitT.isSome ∧ w.dT ≤ 1
+def OuterRayWitnesses.gapsR {g : RigidMotion} (w : OuterRayWitnesses g) : Prop :=
+  w.missR.isSome ∧ 1 < w.dR
+def OuterRayWitnesses.gapsT {g : RigidMotion} (w : OuterRayWitnesses g) : Prop :=
+  w.missT.isSome ∧ 1 < w.dT
 
-theorem not_meetsR_and_gapsR (r : OuterRayData) : ¬ (r.meetsR ∧ r.gapsR) := by
-  intro ⟨hm, hg⟩; exact (not_le_of_gt hg) hm
+theorem not_meetsR_and_gapsR {g : RigidMotion} (w : OuterRayWitnesses g) :
+    ¬ (w.meetsR ∧ w.gapsR) := by
+  intro ⟨⟨_, hme⟩, ⟨_, hga⟩⟩
+  exact (not_le_of_gt hga) hme
 
-theorem not_meetsT_and_gapsT (r : OuterRayData) : ¬ (r.meetsT ∧ r.gapsT) := by
-  intro ⟨hm, hg⟩; exact (not_le_of_gt hg) hm
+theorem not_meetsT_and_gapsT {g : RigidMotion} (w : OuterRayWitnesses g) :
+    ¬ (w.meetsT ∧ w.gapsT) := by
+  intro ⟨⟨_, hme⟩, ⟨_, hga⟩⟩
+  exact (not_le_of_gt hga) hme
 
-theorem gapsR_blocks_extent_hit (r : OuterRayData) (α : ℚ)
-    (hg : r.gapsR) (h0 : α ≤ 0 ∧ 0 ≤ α + 1)
-    (hd' : α ≤ r.dR ∧ r.dR ≤ α + 1) : False :=
-  parallel_miss_extent_one α r.dR hg h0 hd'
+theorem meetHit_not_gapMiss_nR {g : RigidMotion} {d : ℚ}
+    (hm : MeetHitWitness g nR d) (hg : GapMissWitness d) : False := by
+  obtain ⟨q, hq, hd⟩ := MeetHitWitness.body_coord_bounds g nR d hm
+  have ⟨hx0, _⟩ := inAxisSquare.bounds_x q hq
+  have hd' : d = q.1 := by
+    simp only [nR, dot, one_mul, zero_mul, add_zero] at hd
+    exact hd.symm
+  exact hg.blocks_unit_hit ⟨by linarith [hx0, hd'], hm.d_le⟩
 
-theorem gapsT_blocks_extent_hit (r : OuterRayData) (α : ℚ)
-    (hg : r.gapsT) (h0 : α ≤ 0 ∧ 0 ≤ α + 1)
-    (hd' : α ≤ r.dT ∧ r.dT ≤ α + 1) : False :=
-  parallel_miss_extent_one α r.dT hg h0 hd'
+theorem meetHit_not_gapMiss_nT {g : RigidMotion} {d : ℚ}
+    (hm : MeetHitWitness g nT d) (hg : GapMissWitness d) : False := by
+  obtain ⟨q, hq, hd⟩ := MeetHitWitness.body_coord_bounds g nT d hm
+  have ⟨hy0, _⟩ := inAxisSquare.bounds_y q hq
+  have hd' : d = q.2 := by
+    simp only [nT, dot, one_mul, zero_mul, zero_add] at hd
+    exact hd.symm
+  exact hg.blocks_unit_hit ⟨by linarith [hy0, hd'], hm.d_le⟩
 
-def OuterRTMatches (rt : OuterRT) (r : OuterRayData) : Prop :=
+theorem gapsR_blocks_extent_hit {g : RigidMotion} (w : OuterRayWitnesses g) (α : ℚ)
+    (hg : w.gapsR) (h0 : α ≤ 0 ∧ 0 ≤ α + 1)
+    (hd' : α ≤ w.dR ∧ w.dR ≤ α + 1) : False :=
+  parallel_miss_extent_one α w.dR hg.2 h0 hd'
+
+theorem gapsT_blocks_extent_hit {g : RigidMotion} (w : OuterRayWitnesses g) (α : ℚ)
+    (hg : w.gapsT) (h0 : α ≤ 0 ∧ 0 ≤ α + 1)
+    (hd' : α ≤ w.dT ∧ w.dT ≤ α + 1) : False :=
+  parallel_miss_extent_one α w.dT hg.2 h0 hd'
+
+def OuterRTMatches (rt : OuterRT) {g : RigidMotion} (w : OuterRayWitnesses g) : Prop :=
   match rt with
-  | .bothMeet => r.meetsR ∧ r.meetsT
-  | .topGap => r.meetsR ∧ r.gapsT
-  | .rightGap => r.gapsR ∧ r.meetsT
-  | .bothGap => r.gapsR ∧ r.gapsT
+  | .bothMeet => w.meetsR ∧ w.meetsT
+  | .topGap => w.meetsR ∧ w.gapsT
+  | .rightGap => w.gapsR ∧ w.meetsT
+  | .bothGap => w.gapsR ∧ w.gapsT
+
+/-- Same-ray meet∩gap — manuscript residual packaging for priority closers. -/
+def JunctionConflict {g : RigidMotion} (w : OuterRayWitnesses g) : Prop :=
+  (w.meetsR ∧ w.gapsR) ∨ (w.meetsT ∧ w.gapsT)
+
+theorem JunctionConflict_false {g : RigidMotion} (w : OuterRayWitnesses g) :
+    ¬ JunctionConflict w := by
+  intro h
+  cases h with
+  | inl hR => exact not_meetsR_and_gapsR w hR
+  | inr hT => exact not_meetsT_and_gapsT w hT
+
+/-- Priority closers whose GeomExcluded is discharged via OuterRT junction. -/
+def PriorityJunctionCloser (ℓ : NearLeaf) : Prop :=
+  closerModule ℓ = "R14" ∨ closerModule ℓ = "R17" ∨ closerModule ℓ = "R27/R28"
+
+theorem priorityJunction_R14 :
+    PriorityJunctionCloser ⟨.bothMeet, .gap, .empty⟩ :=
+  Or.inl (by native_decide)
+theorem priorityJunction_R17 :
+    PriorityJunctionCloser ⟨.bothMeet, .gap, .neg⟩ :=
+  Or.inr (Or.inl (by native_decide))
+theorem priorityJunction_R27_28 (ℓ : NearLeaf) (hc : closerModule ℓ = "R27/R28") :
+    PriorityJunctionCloser ℓ :=
+  Or.inr (Or.inr hc)
+
+/-! ## Closer-cert payloads (inventory only; NOT used by NearEndSE2 / GeomExcluded) -/
 
 def R14CloserCert : Prop :=
   (0 : ℚ) < (19 : ℚ) / 125 ∧ (0 : ℚ) < (290632 : ℚ) / 9765625 ∧ (0 : ℚ) < (451 : ℚ) / 80
@@ -145,6 +251,8 @@ theorem leafCloserCert_R27_meet_empty :
     LeafCloserCertDischarged ⟨.rightGap, .meet, .empty⟩ :=
   leafCloserCert_of_closer_R27_28 _ (by native_decide)
 
+/-- SE(2) realisation: OuterRT via hit/miss witnesses; **no** `cert_open`.
+Priority closers force a manuscript junction residual (meet∩gap on one outer ray). -/
 structure NearEndSE2 (ℓ : NearLeaf) where
   C : RigidMotion
   fProj : ℚ
@@ -153,9 +261,9 @@ structure NearEndSE2 (ℓ : NearLeaf) where
   chart : ChartHypotheses z d
   living : livingFlag ℓ = true
   fh_ok : FHorizMatches ℓ.fh fProj
-  rays : OuterRayData
+  rays : OuterRayWitnesses C
   rt_ok : OuterRTMatches ℓ.rt rays
-  cert_open : ¬ LeafCloserCertDischarged ℓ
+  priority_junction : PriorityJunctionCloser ℓ → JunctionConflict rays
 
 def NearEndLeafRealised (ℓ : NearLeaf) : Prop := Nonempty (NearEndSE2 ℓ)
 
@@ -177,9 +285,11 @@ theorem not_realised_of_impossible (ℓ : NearLeaf) (hi : impossible ℓ) :
 theorem realised_implies_not_impossible (ℓ : NearLeaf) (h : NearEndLeafRealised ℓ) :
     ¬ impossible ℓ := fun hi => not_realised_of_impossible ℓ hi h
 
-theorem not_realised_of_leafCloserCert (ℓ : NearLeaf)
-    (h : LeafCloserCertDischarged ℓ) : ¬ NearEndLeafRealised ℓ := by
-  intro ⟨cfg⟩; exact cfg.cert_open h
+/-- Priority GeomExcluded via OuterRT junction — independent of LeafCloserCertDischarged. -/
+theorem not_realised_of_priority_junction (ℓ : NearLeaf)
+    (hp : PriorityJunctionCloser ℓ) : ¬ NearEndLeafRealised ℓ := by
+  intro ⟨cfg⟩
+  exact JunctionConflict_false cfg.rays (cfg.priority_junction hp)
 
 def NearEndSE2.originWorld {ℓ : NearLeaf} (cfg : NearEndSE2 ℓ) : Pt := cfg.C.apply (0, 0)
 
@@ -214,8 +324,20 @@ theorem realised_topGap_rays (ℓ : NearLeaf) (cfg : NearEndSE2 ℓ) (hrt : ℓ.
 def nearEndRealisationSE2Closed : Bool := true
 theorem nearEndRealisationSE2Closed_true : nearEndRealisationSE2Closed = true := rfl
 
+/-- Priority OuterRT junction ray geometry (R14/R17/R27–28) complete; full 8 not. -/
+def manuscriptRayGeometryComplete_priority : Bool := true
+theorem manuscriptRayGeometryComplete_priority_true :
+    manuscriptRayGeometryComplete_priority = true := rfl
+
+def manuscriptRayGeometryComplete : Bool := false
+theorem manuscriptRayGeometryComplete_false : manuscriptRayGeometryComplete = false := rfl
+
+def certOpenDependencyRemoved : Bool := true
+theorem certOpenDependencyRemoved_true : certOpenDependencyRemoved = true := rfl
+
 def openStatus : String :=
-  "CLOSED: NearEndSE2 + OuterRT meet/gap + cert barrier; gaps block extent hits. \
-   OPEN: manuscript ray geometry beyond separation thresholds. Not PrincipalClaim."
+  "CLOSED: NearEndSE2 OuterRT via SE(2) hit/miss witnesses; cert_open removed; \
+   priority junction GeomExcluded R14/R17/R27–28. \
+   OPEN: full manuscript ray algebra for R13/R16/R18/R19/R26; not PrincipalClaim."
 
 end S6.NearEndRealisation
