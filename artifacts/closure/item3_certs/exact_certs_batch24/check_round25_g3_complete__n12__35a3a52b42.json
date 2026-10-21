@@ -1,0 +1,18 @@
+{
+  "id": "check_round25_g3_complete__n12__35a3a52b42",
+  "file": "check_round25_g3_complete",
+  "n": 12,
+  "query": "g25_mu > 1 ; g25_L >= g25_mu ; g25_t > 0 ; g25_t < 1 ; 2*g25_t*g25_L <= 1 + g25_t*g25_t ; g25_U < g25_t ; g25_p > 0 ; g25_s > 0 ; g25_p >= g25_s ; g25_p*g25_p + g25_s*g25_s == 1 ; g25_p*g25_mu + g25_s*(g25_mu - g25_U) <= 1 ; g25_p*(2*g25_mu - g25_L) + g25_s*g25_mu <= 1",
+  "method": "exact-hand-g25-U-t-casesplit",
+  "status": "exact",
+  "certificate": {
+    "type": "hand_g25_U_t_casesplit",
+    "bernstein_4_5h_h2": [
+      "4",
+      "11/4",
+      "5/4"
+    ],
+    "claim": "U<t & L<=(1+t^2)/(2t) & both coverings<=1 force mu<=min(mu_A,mu_B)<=1 via case t vs 1-h"
+  },
+  "batch": "26f"
+}

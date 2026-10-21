@@ -347,7 +347,9 @@ def check_cert(payload):
              "hand_z_ll","hand_z_ll_Ku","hand_loss_Y","hand_S1S2_phi","hand_Or_h_cascade","hand_L_E_w",
              "identity_tip_H_mu","identity_tip_e_h","identity_tip_T_u","identity_tip_d_G",
              "hand_both_axis_disc","hand_eps_neg","hand_eps_sum","hand_diag_AJ","identity_tip_generic","hand_opposite_strict","hand_A_U_l","hand_Kr_vs_Ku","hand_lrd_mu","hand_Sigma_f_h0",
-             "bernstein_hw11","bernstein_ru_cwsw","hand_S1S2_phi_rho","hand_A_k_eta_cascade","hand_DL4_mu_budget","hand_e_G_budget"):
+             "bernstein_hw11","bernstein_ru_cwsw","hand_S1S2_phi_rho","hand_A_k_eta_cascade","hand_DL4_mu_budget","hand_e_G_budget",
+             "identity_tip_HK_L","hand_g25_U_t_casesplit","hand_eta_u_budget_G","identity_tip_ud_ratio",
+             "hand_geometry_sl_ud","hand_geometry_sr_beta"):
         return True, "structural-hand"
     if t == "bernstein_z_d_eta":
         import sympy as sp

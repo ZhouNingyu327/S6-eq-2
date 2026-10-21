@@ -1,5 +1,5 @@
-<!-- auto-status batch26e -->
-**Status 2026-10-22 Asia/Shanghai:** exact batch24–26e family = **144** (checker PASS); remaining (S) = **7** (was 91 at `006fb96`).
+<!-- auto-status batch26f -->
+**Status 2026-10-22 Asia/Shanghai:** exact batch24–26f family = **151** (checker PASS); remaining (S) from post-batch25 set of 91 = **0**.
 
 # M4：z3-UNSAT 步骤清单与第二路线状态（peer_ready 定稿计数）
 

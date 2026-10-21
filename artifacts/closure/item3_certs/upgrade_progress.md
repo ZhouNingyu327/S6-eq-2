@@ -5,10 +5,9 @@
 | Milestone | Exact family | (S) left |
 | --- | --- | --- |
 | tip `006fb96` (batch25) | 60 | 91 |
-| batch26/26b/26c | 121 | 30 |
-| batch26d | 142 | 9 |
-| batch26e (current) | 144 | 7 |
+| tip `f493430` (batch26–26e) | 144 | 7 |
+| batch26f (current) | 151 | **0** |
 
-Checker: `artifacts/closure/scripts/check_exact_certs_batch24.py` → PASS 144/144.
+Checker: `artifacts/closure/scripts/check_exact_certs_batch24.py` → PASS 151/151.
 
-Still open (7): see `still_S_after_batch26e.jsonl`.
+Still open: **none** (`still_S_after_batch26f.jsonl` empty).

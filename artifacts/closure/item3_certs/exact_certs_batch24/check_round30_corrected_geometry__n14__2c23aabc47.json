@@ -1,0 +1,13 @@
+{
+  "id": "check_round30_corrected_geometry__n14__2c23aabc47",
+  "file": "check_round30_corrected_geometry",
+  "n": 14,
+  "query": "mu > 1 ; l > 0 ; r > 0 ; d > 0 ; 1/2 <= u ; l < mu ; r < mu ; c >= s ; s > 0 ; c*c + s*s == 1 ; s*l <= c*d ; c*r + s*u <= 1 ; c*(l + r) <= 1 ; l + r - d > mu",
+  "method": "exact-hand-geometry-sl-ud",
+  "status": "exact",
+  "certificate": {
+    "type": "hand_geometry_sl_ud",
+    "claim": "max l(1-s/c)+r =1/c-s^2/(2c^2)<1<mu via u>=1/2 and s^2>2c(1-c)"
+  },
+  "batch": "26f"
+}

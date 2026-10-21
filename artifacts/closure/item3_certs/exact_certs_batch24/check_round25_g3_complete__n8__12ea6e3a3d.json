@@ -1,0 +1,27 @@
+{
+  "id": "check_round25_g3_complete__n8__12ea6e3a3d",
+  "file": "check_round25_g3_complete",
+  "n": 8,
+  "query": "g25_mu > 1 ; g25_L >= g25_mu ; g25_L*g25_L <= 2 ; g25_p > 0 ; g25_s >= 0 ; g25_p >= g25_s ; g25_p*g25_p + g25_s*g25_s == 1 ; g25_s*(2*g25_mu - g25_L) + g25_p*g25_mu <= 1",
+  "method": "exact-Bernstein-g25-chord",
+  "status": "exact",
+  "certificate": {
+    "type": "bernstein_g25_chord",
+    "numer_coeffs": [
+      "0",
+      "0",
+      "16/75",
+      "48/125",
+      "224/625"
+    ],
+    "denom_coeffs": [
+      "1",
+      "1",
+      "79/75",
+      "29/25",
+      "841/625"
+    ],
+    "claim": "LHS>=mu(p+2s)-s*sqrt2; (p+2s-1)^2>=2s^2 on p>=s arc, mu>1 lifts endpoint"
+  },
+  "batch": "26f"
+}

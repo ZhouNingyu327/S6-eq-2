@@ -1,12 +1,12 @@
 {
   "script_level_sum_historical": 403,
   "exact_item3_from_queue_unique": 113,
-  "exact_batch24_26e_family_new": 144,
-  "cvc5_only_remaining_unique": 7,
+  "exact_batch24_26f_family_new": 151,
+  "cvc5_only_remaining_unique": 0,
   "tracked_unique_total": 391,
-  "exact_or_hand_total_approx": 257,
-  "note": "Batch24\u201326e family added 144 checkable certs (PASS 144/144). Remaining (S)=7 (was 91 after batch25 / tip 006fb96).",
-  "batch24_26e_checker": "artifacts/closure/scripts/check_exact_certs_batch24.py PASS on all 144 certs",
+  "exact_or_hand_total_approx": 264,
+  "note": "Batch24\u201326f family added 151 checkable certs (PASS 151/151). Remaining (S)=0 from the post-batch25 set of 91.",
+  "batch24_26f_checker": "artifacts/closure/scripts/check_exact_certs_batch24.py PASS on all 151 certs",
   "baseline_after_batch25_S": 91,
-  "converted_since_batch25": 84
+  "converted_since_batch25": 91
 }

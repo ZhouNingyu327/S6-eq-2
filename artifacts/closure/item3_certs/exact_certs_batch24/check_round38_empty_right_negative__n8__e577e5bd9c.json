@@ -1,0 +1,13 @@
+{
+  "id": "check_round38_empty_right_negative__n8__e577e5bd9c",
+  "file": "check_round38_empty_right_negative",
+  "n": 8,
+  "query": "eta > 0 ; 4*eta < 1 ; u > 0 ; 28*u < 15 ; d > 0 ; z < (4*u*d)/7 ; (2*eta)/(1 + eta) + d < z + u/(2 - u) ; (8*eta)/5 + (34*d)/49 >= (28*u)/41",
+  "method": "exact-hand-eta-u-budget-G",
+  "status": "exact",
+  "certificate": {
+    "type": "hand_eta_u_budget_G",
+    "claim": "2eta/(1+eta)>8eta/5 (eta<1/4); +A d with A=1-4u/7 exceeds u/(2-u) via budget 28u/41"
+  },
+  "batch": "26f"
+}
