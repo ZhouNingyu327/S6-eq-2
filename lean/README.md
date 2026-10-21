@@ -25,6 +25,11 @@ geometric proofs.
 | Near-end 7 impossible / 17 living table as Props | **Proved** (`NearEndGeometry`) |
 | Parallel-budget algebra + `B(d) < 1` fragments | **Proved** (existing modules) |
 | Axis `k=2` mids cannot both sit in C (or both in F) | **Proved** (`AxisClassConstraints`) |
+| `d+B(d)<2`; R2 grid hyp ⇒ False | **Proved** (`G5Budget`) |
+| `G5Exclusion` from three geometric bridges | **Proved conditional** (`G5Exclusion_of_bridges`) |
+| G5 geometric bridges `G5k0/k1/k2Bridge` | **Open** |
+| G3/G4 mid-split + M7.1 interface | **Proved fragments** (`G3G4Fragments`) |
+| `g2_alg<2` under bridge; E-tier coeff nonneg | **Proved** (`BernsteinGridLift`) |
 | `RoleSelection.hF_ne_corners` (sixth tile ≠ corners) | **Proved** |
 | `G1Exclusion` … `G5Exclusion` | **Open** (named Props) |
 | Unconditional `PrincipalClaim` | **Open** (`principalClaimProvedUnconditionally = false`) |

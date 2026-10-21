@@ -16,13 +16,17 @@ Relative to the 2026-10-21 **rereview** of commit `32e0e0f`, the API repair at `
 
 ## Still open
 
-1. **Unconditional Lean principal claim + end-to-end faithfulness.** `MainTheorem.PrincipalClaim` is stated as a Prop and the reduction spine (`principal_of_class_exclusions`, pairwise-far outer mids, five roles, near-end Props) is proved; **`G1…G5Exclusion` remain open**, so the claim is not closed unconditionally. Faithfulness of every informal M3.0 covering to `flagsOfTarget*` is still open.
+1. **Unconditional Lean principal claim + end-to-end faithfulness.** Reduction spine + **G5 algebraic R2 spine** proved; **`G5Exclusion` only conditional on open geometric bridges** `G5k0/k1/k2Bridge`; `G1…G4Exclusion` open. Faithfulness of every informal M3.0 covering to `flagsOfTarget*` still open.
 2. **Independent external human referee** rebuild of critical reductions (esp. early G5 geometry → algebraic premises). Internal rebuild note only: `artifacts/closure/INTERNAL_G5_rebuild.md` (+ `_zh.md`) — does **not** close this item.
 3. **Full premise-migration proof** if the optional strong normalisation candidate (M1.1–M1.3) is ever elevated to primary. Currently **deferred**; primary remains stepwise reclassification (`M1_module_migration.md`).
 4. **Remaining (S)-tier** dual-solver queries (~151 unique after Item3 ledger). Inventory: `artifacts/closure/S_tier_inventory.md` (+ JSON). No claim that leftovers are machine-independent.
 5. Short paper §§5–7 now cite concrete module tables; further page-length expansions may still help referees.
 
-## Advanced this round (vs `9fb5ade`)
+## Advanced this round (vs `634f591`)
+
+- Lean **G5Budget / G5ExclusionFrag / G3G4Fragments / BernsteinGridLift**: `d+B<2`, R2 grid contradictions, conditional `G5Exclusion_of_bridges`, G3/G4 mid-split+M7.1, E-tier Bernstein coeff nonneg + `g2_alg` bridge lemma. G5 geometric bridges still **open**.
+
+## Prior (vs `9fb5ade`)
 
 - Lean **MainTheorem / CoveringGeometry / NearEndGeometry**: principal claim as Prop;
   conditional closure; pairwise-far outer mids; five-role theorem; near-end Props;

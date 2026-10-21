@@ -13,13 +13,17 @@
 
 ## 仍开放
 
-1. **无条件 Lean 主定理 + 端到端忠实性。** `PrincipalClaim` 已是 Prop，约化骨架已证；`G1…G5Exclusion` 仍开放。长稿忠实性仍开放。
+1. **无条件 Lean 主定理 + 端到端忠实性。** 约化骨架 + G5 代数 R2 脊已证；`G5Exclusion` 仅在开放几何桥 `G5k0/k1/k2Bridge` 下成立；`G1…G4Exclusion` 仍开放。长稿忠实性仍开放。
 2. **外部独立人类审稿**（早期 G5 几何→代数）。仅有内部重建笔记 `INTERNAL_G5_rebuild_zh.md`，**不关闭**本项。
 3. 强规范化若升格所需的逐模块迁移证明（当前延期）。
 4. 剩余约 **151** 条 (S) 级双求解器查询（清单见 `S_tier_inventory_zh.md`）。
 5. 短文 §§5–7 已加模块表；篇幅上仍可再扩。
 
-## 本轮推进（相对 `9fb5ade`）
+## 本轮推进（相对 `634f591`）
+
+- Lean：`G5Budget` / `G5ExclusionFrag` / `G3G4Fragments` / `BernsteinGridLift`。
+
+## 此前（相对 `9fb5ade`）
 
 - Lean：`MainTheorem` / `CoveringGeometry` / `NearEndGeometry` / `G5Fragments`；`hF_ne_corners`；`formalization.yaml` → `partial_formalization_reduction_spine`。
 - 此前（`9fb5ade`）：忠实性片段、内部 G5、M1 延期、(S) 清单、短文模块表。
