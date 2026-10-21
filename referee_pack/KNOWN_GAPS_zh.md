@@ -1,5 +1,12 @@
 # 已知缺口
 
+## 本轮推进（相对 `8d5dee0`）
+
+- `AxisGridContribution` / `G5GeometryBridge`：轴对齐外角贡献、geom-export⇒bridge⇒G5Exclusion 组合已证；旋转弦测度导出仍开。
+- Near-end 7/24 表不可能叶 ⇒ LivingLeafExcluded；17 living 仍开。
+- G3/G4 预算桥细化；`principalClaimProvedUnconditionally=false`。
+
+
 相对 2026-10-21 对 `32e0e0f` 的复审、`8672f31` 的 API 修复，以及本轮缺口推进。
 
 | 事项 | 状态（本推送后） |

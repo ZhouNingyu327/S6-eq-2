@@ -9,15 +9,20 @@
 - **`G5ExclusionFrag`**: `G5Exclusion_of_bridges` (conditional); bridges open
 - **`G3G4Fragments`**: mid-split + M7.1 re-exports; G3/G4 bridges open
 - **`BernsteinGridLift`**: **`g2_alg_lt_two` unconditional** (Weierstrass identity proved); E-tier short-cap coeff nonneg
+- **`AxisGridContribution`**: clamp lengths, SW outer contrib = 2, four-corners ≤8, abstract grid cover impossible
+- **`G5GeometryBridge`**: `RigidSquareGridExport → G5GridHyp → False`;
+  `G5k*GeomExport ⇒ G5k*Bridge ⇒ G5Exclusion` (proved composition);
+  axis outer/corner fragments closed; rotated chord-measure exports still open
+- **`NearEndGeometry`**: 7 table-impossible leaves ⇒ `LivingLeafExcluded` (vacuous); 17 living open
+- **`G3G4Fragments` budget reduction**: `G3SideGapBudgetBridge` / `G4BudgetBridge` ⇒ exclusions;
+  M7.1 sideGap/noSideGap algebraic discharge wired
 
 ## Next (priority)
 
-1. **Discharge `G5k2Bridge` / `G5k0Bridge` / `G5k1Bridge`** from `PointwiseCover` geometry
-   (export corners≤8, CF bounds, `BudgetHyp` from rigid squares) — this closes `G5Exclusion`.
-2. **G1/G2 exclusions** via near-end living-leaf geometry + certificates.
-3. **G3/G4**: turn M7.1 boolean exclusions into geometric `False` for covers.
-4. ~~Prove `G2AlgBridge` algebraically~~ **done**; optional: Euclidean chord-sum reading.
-5. Only then attempt unconditional `PrincipalClaim`.
+1. **Discharge `G5k0/k1/k2GeomExport`** from `PointwiseCover` (rotated corner ≤2, CF bounds, cover ineq) — closes `G5Exclusion`.
+2. **G1/G2**: exclude the 17 living near-end leaves geometrically / via certificates.
+3. **G3/G4**: realise `G3SideGapBudgetBridge` / `G4BudgetBridge` from covers (M7.1 metric packing).
+4. Only then attempt unconditional `PrincipalClaim`.
 
 ## Honesty
 

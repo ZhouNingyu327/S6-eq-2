@@ -24,6 +24,8 @@ import S6Core.BernsteinGridLift
 import S6Core.G3G4Fragments
 import S6Core.G5ExclusionFrag
 import S6Core.G5Budget
+import S6Core.AxisGridContribution
+import S6Core.G5GeometryBridge
 import S6Core.RigidMotionChart
 import S6Core.ObliqueChart
 import S6Core.EuclideanChord

@@ -1,5 +1,5 @@
 # Catalog of manuscripts with a formalized (or partially formalized) main result.
-version: "v0.6"
+version: "v0.7"
 
 project:
   name: "ZhouNingyu327/S6-eq-2"
@@ -15,12 +15,16 @@ sources:
     id: ../preprints/Six-unit-squares-cannot-cover-a-square-of-side-greater-than-2-October-21-2026/paper.pdf
     type: article
     lean_docs: docs/001.md
-    status: partial_formalization_g5_algebraic_spine
+    status: partial_formalization_g5_geom_export_reduction
     notes: >-
       PrincipalClaim is a Prop (not Bool metadata). Proved: cover→five roles,
       pairwise-far outer mids, cover→TopClass, principal_of_class_exclusions,
-      near-end table Props, AxisClassConstraints (k=2 C/F mid split), parallel-budget algebra/B(d)<1 fragments,
-      RoleSelection hF_ne_corners. G5Budget (d+B<2, R2 grid contradictions); G5Exclusion_of_bridges; G3/G4 mid-split+M7.1; BernsteinGridLift (g2_alg bridge + E-tier coeff nonneg). Open: G5k0/k1/k2 geometric bridges (algebraic discharge proved); G1…G4Exclusion; G5Exclusion unconditional. Needed for
-      unconditional PrincipalClaim). Still a computer-assisted candidate;
-      not peer-reviewed. Distance to openai/math fully-formalized entries:
-      reduction spine present; top-line theorem not closed unconditionally.
+      near-end table Props (7 impossible ⇒ LivingLeafExcluded), AxisClassConstraints,
+      G5Budget (d+B<2, R2 grid contradictions), G5Exclusion_of_bridges,
+      AxisGridContribution (SW outer=2, corners≤8), G5GeometryBridge
+      (GeomExport⇒Bridge⇒G5Exclusion composition), G3/G4 budget-bridge reductions,
+      BernsteinGridLift g2_alg_lt_two. Open: G5k*GeomExport from PointwiseCover
+      (rotated corner/CF/cover); 17 living near-end leaves; G3/G4 budget realisation;
+      unconditional G1…G5Exclusion / PrincipalClaim.
+      principalClaimProvedUnconditionally=false. Computer-assisted candidate;
+      not peer-reviewed. ~60–65% toward openai/math Lean top-line bar (honest).

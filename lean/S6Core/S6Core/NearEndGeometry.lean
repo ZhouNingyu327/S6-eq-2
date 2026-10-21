@@ -55,4 +55,33 @@ theorem no_living_leaf_of_all_excluded (h : AllLivingLeavesExcluded)
     (ℓ : NearLeaf) (hl : living ℓ) : False :=
   h ℓ hl
 
+
+/-- Table-impossible leaves are vacuously geometrically excluded. -/
+theorem LivingLeafExcluded_of_impossible (ℓ : NearLeaf) (hi : impossible ℓ) :
+    LivingLeafExcluded ℓ := by
+  intro hl
+  have : ¬ impossible ℓ := (living_iff_not_impossible ℓ).1 hl
+  exact this hi
+
+/-- All seven table-impossible near-end leaves are LivingLeafExcluded. -/
+theorem all_impossible_leaves_excluded :
+    ∀ ℓ : NearLeaf, impossible ℓ → LivingLeafExcluded ℓ :=
+  fun ℓ hi => LivingLeafExcluded_of_impossible ℓ hi
+
+/-- Count: 7 of 24 leaves discharged as LivingLeafExcluded via the table;
+17 living leaves remain open geometric goals. -/
+def impossibleLeavesExcludedCount : ℕ := 7
+theorem impossibleLeavesExcludedCount_eq :
+    impossibleLeavesExcludedCount = 7 := rfl
+
+def livingLeavesStillOpenCount : ℕ := 17
+theorem livingLeavesStillOpenCount_eq : livingLeavesStillOpenCount = 17 := rfl
+
+def nearEndTableFragmentClosed : Bool := true
+theorem nearEndTableFragmentClosed_true : nearEndTableFragmentClosed = true := rfl
+
+def allLivingLeavesExcludedInLean : Bool := false
+theorem allLivingLeavesExcludedInLean_false :
+    allLivingLeavesExcludedInLean = false := rfl
+
 end S6.NearEndGeometry

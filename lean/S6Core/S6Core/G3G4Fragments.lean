@@ -3,6 +3,8 @@ import S6Core.AxisClassConstraints
 import S6Core.CoveringGeometry
 import S6Core.M7_1Geometry
 import S6Core.MainTheorem
+import S6Core.ParallelBudget
+import S6Core.G5Budget
 import S6Core.OwnershipBridge
 open S6.TopClassExhaustiveness
 open S6.Exhaustiveness
@@ -72,5 +74,52 @@ theorem g3g4MidSplitClosed_true : g3g4MidSplitClosed = true := rfl
 
 def g3g4BridgesProvedInLean : Bool := false
 theorem g3g4BridgesProvedInLean_false : g3g4BridgesProvedInLean = false := rfl
+
+
+open S6.ParallelBudget
+open S6.G5Budget
+
+/-- Finer G3 bridge: a G3 cover realises a side-gap `BudgetHyp` covering ineq. -/
+def G3SideGapBudgetBridge : Prop :=
+  ∀ (T : S6.Obligation2.Target) (cov : S6.Obligation2Opens.PointwiseCover T),
+    classify (S6.Obligation2Roles.RoleSelection.ofCover cov).toManuscript.flags.toOwnership =
+        TopClass.G3 →
+      ∃ hyp : BudgetHyp, (12 : ℚ) * hyp.μ ≤ 8 + 3 * hyp.B + hyp.vF
+
+/-- Finer G4 bridge: a G4 cover realises no-side-gap or opposite-mid budget. -/
+def G4BudgetBridge : Prop :=
+  ∀ (T : S6.Obligation2.Target) (cov : S6.Obligation2Opens.PointwiseCover T),
+    classify (S6.Obligation2Roles.RoleSelection.ofCover cov).toManuscript.flags.toOwnership =
+        TopClass.G4 →
+      (∃ (B : ℚ), B < 1 ∧ (12 : ℚ) * T.μ ≤ 8 + 2 * B + 2 * T.μ) ∨
+        Nonempty G5OppositeMidHyp
+
+theorem G3Exclusion_of_sideGapBudget (h : G3SideGapBudgetBridge) : G3Exclusion := by
+  intro T cov hcls
+  rcases h T cov hcls with ⟨hyp, hp⟩
+  exact sideGap_impossible hyp hp
+
+theorem G4Exclusion_of_budget (h : G4BudgetBridge) : G4Exclusion := by
+  intro T cov hcls
+  rcases h T cov hcls with hB | hOpp
+  · rcases hB with ⟨B, hBlt, hp⟩
+    exact noSideGap_impossible T.μ B T.hμ hBlt hp
+  · exact hOpp.elim fun H => H.impossible
+
+/-- M7.1 right-gap narrative + BudgetHyp covering ⇒ False (algebraic step). -/
+theorem m71_sideGap_budget_impossible (hyp : BudgetHyp)
+    (hp : (12 : ℚ) * hyp.μ ≤ 8 + 3 * hyp.B + hyp.vF) : False :=
+  sideGap_impossible hyp hp
+
+/-- M7.1 no-side-gap algebraic discharge. -/
+theorem m71_noSideGap_budget_impossible (μ B : ℚ) (hμ : 1 < μ) (hB : B < 1)
+    (hp : (12 : ℚ) * μ ≤ 8 + 2 * B + 2 * μ) : False :=
+  noSideGap_impossible μ B hμ hB hp
+
+def g3g4BudgetReductionClosed : Bool := true
+theorem g3g4BudgetReductionClosed_true : g3g4BudgetReductionClosed = true := rfl
+
+def openG3G4BudgetBridges : List String :=
+  ["G3SideGapBudgetBridge", "G4BudgetBridge"]
 
 end S6.G3G4Fragments
