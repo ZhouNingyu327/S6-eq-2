@@ -12,13 +12,11 @@ namespace S6.IntervalCover1D
 
 open MeasureTheory Set Real
 
-/-- Length of a closed interval, floored at 0. -/
 def iLen (lo hi : ℝ) : ℝ := max (hi - lo) 0
 
 theorem iLen_of_le (lo hi : ℝ) (hle : lo ≤ hi) : iLen lo hi = hi - lo :=
   max_eq_left (sub_nonneg.mpr hle)
 
-/-- Finite closed-interval cover of `[a,b]` ⇒ sum of lengths ≥ `b - a`. -/
 theorem cover_Icc_sum_lengths {ι : Type*} [Fintype ι] (a b : ℝ) (_hab : a ≤ b)
     (lo hi : ι → ℝ) (hle : ∀ i, lo i ≤ hi i)
     (hcover : Icc a b ⊆ ⋃ i, Icc (lo i) (hi i)) :
@@ -44,7 +42,7 @@ theorem cover_Icc_sum_lengths {ι : Type*} [Fintype ι] (a b : ℝ) (_hab : a �
     Finset.sum_nonneg fun i _ => hnonneg i
   exact (ENNReal.ofReal_le_ofReal_iff hsum_nonneg).mp hchain
 
-theorem cover_Icc_sum_diff {ι : Type*} [Fintype ι] (a b : ℝ) (_hab : a ≤ b)
+theorem cover_Icc_sum_diff {ι : Type*} [Fintype ι] (a b : ℝ) (hab : a ≤ b)
     (lo hi : ι → ℝ) (hle : ∀ i, lo i ≤ hi i)
     (hcover : Icc a b ⊆ ⋃ i, Icc (lo i) (hi i)) :
     b - a ≤ ∑ i, (hi i - lo i) := by
@@ -52,10 +50,7 @@ theorem cover_Icc_sum_diff {ι : Type*} [Fintype ι] (a b : ℝ) (_hab : a ≤ b
   simp_rw [iLen_of_le _ _ (hle _)] at h
   exact h
 
-/-- Empty-slot convention: if `lo i > hi i`, treat as empty (length 0) and
-exclude from the cover union by using `Icc (min lo hi) (max lo hi)` only when
-valid — callers should pass `hle`. -/
-theorem cover_Icc_sum_diff_of_valid {ι : Type*} [Fintype ι] (a b : ℝ) (_hab : a ≤ b)
+theorem cover_Icc_sum_diff_of_valid {ι : Type*} [Fintype ι] (a b : ℝ) (hab : a ≤ b)
     (lo hi : ι → ℝ) (hle : ∀ i, lo i ≤ hi i)
     (hcover : Icc a b ⊆ ⋃ i, Icc (lo i) (hi i)) :
     b - a ≤ ∑ i, (hi i - lo i) :=

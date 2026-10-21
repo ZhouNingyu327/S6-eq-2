@@ -275,4 +275,53 @@ theorem axis_line_cover_impossible_of_corner_cf
 def axisGridCoverIneqClosed : Bool := true
 theorem axisGridCoverIneqClosed_true : axisGridCoverIneqClosed = true := rfl
 
+
+/-! ## ℚ point on bottom → real interval membership -/
+
+theorem contains_bottom_mem_interval (s : AxisSquare) (μ : ℚ) (q : ℚ)
+    (hq0 : 0 ≤ q) (hqL : q ≤ 2 * μ) (hc : s.contains (q, 0)) :
+    (q : ℝ) ∈ bottomInterval s μ := by
+  have hmeets : s.y ≤ 0 ∧ 0 ≤ s.y + 1 := by
+    simp only [AxisSquare.contains] at hc
+    exact ⟨hc.1.2, hc.2⟩
+  have hx : s.x ≤ q ∧ q ≤ s.x + 1 := by
+    simp only [AxisSquare.contains] at hc
+    exact ⟨hc.1.1.1, hc.1.1.2⟩
+  simp only [bottomInterval, hmeets, ↓reduceIte, bottomLo, bottomHi, mem_Icc]
+  constructor
+  · exact max_le (by exact_mod_cast hx.1) (by exact_mod_cast hq0)
+  · exact le_min (by exact_mod_cast hx.2) (by exact_mod_cast hqL)
+
+theorem contains_top_mem_interval (s : AxisSquare) (μ : ℚ) (q : ℚ)
+    (hq0 : 0 ≤ q) (hqL : q ≤ 2 * μ) (hc : s.contains (q, 2 * μ)) :
+    (q : ℝ) ∈ topInterval s μ := by
+  have hmeets : s.y ≤ 2 * μ ∧ 2 * μ ≤ s.y + 1 := by
+    simp only [AxisSquare.contains] at hc
+    exact ⟨hc.1.2, hc.2⟩
+  have hx : s.x ≤ q ∧ q ≤ s.x + 1 := by
+    simp only [AxisSquare.contains] at hc
+    exact ⟨hc.1.1.1, hc.1.1.2⟩
+  simp only [topInterval, hmeets, ↓reduceIte, mem_Icc]
+  constructor
+  · exact max_le (by exact_mod_cast hx.1) (by exact_mod_cast hq0)
+  · exact le_min (by exact_mod_cast hx.2) (by exact_mod_cast hqL)
+
+/-- Finite union of bottom intervals is closed. -/
+theorem bottomUnion_isClosed (μ : ℚ) (squares : Fin 6 → AxisSquare) :
+    IsClosed (⋃ i, bottomInterval (squares i) μ) :=
+  isClosed_iUnion_of_finite fun i => by
+    simp only [bottomInterval]; split_ifs
+    · exact isClosed_Icc
+    · exact isClosed_empty
+
+/-- All rationals on the bottom edge lie in the real union, given a ℚ cover. -/
+theorem bottom_rats_subset_union (μ : ℚ) (squares : Fin 6 → AxisSquare)
+    (hQ : ∀ q : ℚ, 0 ≤ q → q ≤ 2 * μ → ∃ i, (squares i).contains (q, 0)) :
+    ((↑) : ℚ → ℝ) '' {q : ℚ | 0 ≤ q ∧ q ≤ 2 * μ} ⊆
+      ⋃ i, bottomInterval (squares i) μ := by
+  intro x hx
+  rcases hx with ⟨q, ⟨hq0, hqL⟩, rfl⟩
+  rcases hQ q hq0 hqL with ⟨i, hi⟩
+  exact mem_iUnion.mpr ⟨i, contains_bottom_mem_interval (squares i) μ q hq0 hqL hi⟩
+
 end S6.AxisGridCover

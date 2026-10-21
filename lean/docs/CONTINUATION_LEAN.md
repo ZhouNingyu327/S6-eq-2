@@ -12,7 +12,8 @@
 - **`G5GeometryBridge`**: GeomExport⇒Bridge⇒G5Exclusion composition; axis packages
 - **`IntervalCover1D`**: finite closed-interval cover ⇒ sum lengths (Lebesgue)
 - **`AxisGridCover`**: `AxisGridLineCover` ⇒ `∑ axisGridContrib ≥ 12μ` (six lines);
-  + corners≤8 + CF≤4 split ⇒ False
+  + corners≤8 + CF≤4 split ⇒ False;
+  ℚ bottom/top point → real interval membership; rats⊆union; bottomUnion closed
 - **`NearEndGeometry` / `G1G2Fragments`**: 7 impossible ⇒ LivingLeafExcluded; G1/G2 bridges named
 - **`G3G4Fragments`**: SideGap/Budget bridges ⇒ exclusions
 - **`RotatedGridBound`**: diameter + g2_alg re-exports; chord-measure export open
