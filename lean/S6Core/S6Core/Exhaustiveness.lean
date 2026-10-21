@@ -107,7 +107,7 @@ def residualObligations : List ResidualObligation :=
   [ ⟨"near_end_leaf_closures", "R13–R19,R26–R28 + LeafCertificates",
       "17/17 full cert registry; Lean closerModule map; PDF geometry not re-proved"⟩
   , ⟨"top_class_G1_G5", "TopClassExhaustiveness + OwnershipBridge + PdfNormalisation",
-      "Axis+rotated+ManuscriptNormalisedCovering→flagsOfRotated closed (G2_overallClosed=true)"⟩
+      "Axis+rotated+ManuscriptNormalisedCovering→flagsOfTargetRotated (manuscript k/F∋O); G2_overallClosed=true metadata"⟩
   , ⟨"far_end_reduction_M7", "R29–R39 / M7.1 + M7_1Geometry + g3 checklist",
       "SMT=0; G3_checklistClosed=true; G3_overallClosed=true (branch-logic/StandardForm fragment)"⟩
   , ⟨"final_form_M8_M11", "R40–R64 + m8 registry + dual-wrapper",

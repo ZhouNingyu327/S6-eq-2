@@ -109,9 +109,12 @@ theorem centre_owner_ne_all_corners (T : Target) (C : CornerOwners T) (iC : Fin 
 
 /-! ## Standard outer midpoints of T -/
 
-/-- Manuscript-style outer mid candidates: bottom, right, top edge mids of `T`. -/
+/-- Three-mid helper (bottom, right, top) for body-chart demos.
+Classification uses `TargetMids.outerMids` (all four) via `flagsOfTarget*`. -/
 def standardMids (T : Target) : MidCandidates :=
   ⟨(T.μ, 0), (2 * T.μ, T.μ), (T.μ, 2 * T.μ)⟩
+
+def targetMidsOf (T : Target) : TargetMids := ⟨T.μ⟩
 
 theorem standardMids_in_target (T : Target) :
     inTarget T (standardMids T).m0 ∧
@@ -189,26 +192,32 @@ structure RoleSelection (T : Target) where
   hC_ne_corners :
     iC ≠ owners.i1 ∧ iC ≠ owners.i2 ∧ iC ≠ owners.i3 ∧ iC ≠ owners.i4
 
-/-
-  FIXME (Major 3 — OPEN, 2026-10-21 rereview): field semantics still diverge from the manuscript.
-  - kOf_rot counts only three candidate mids inside C (not four target outer mids in C∪F).
-  - fHasAnyMidCandidate_rot / fHasO records whether F contains *any* candidate mid, not whether F∋O.
-  - midsAdjacentOf_rot compares C's own edge-mid pairs, not adjacency of target outer mids.
-  - RoleSelection.ofCover still sets iF := owners.i1 (a corner host), not the sixth-tile index.
-  Renames alone do not restore manuscript fidelity. Do not treat this Lean bridge as a proof of the geometric reduction.
--/
-/-
-FIXME (referee Major 3.3): `ofCover` currently sets `iF := owners.i1` and
-`iA := owners.i2` (corner hosts), not the sixth index outside the four corner
-hosts and the centre host. `toManuscript` then hands those blocks to
-`ManuscriptNormalisedCovering` while mid candidates are already in the centre
-tile's body chart, without a common rigid motion. This is **not** a faithful
-role selection for the manuscript. Do not cite `pointwiseCover_reaches_normalised`
-as geometric reduction.
--/
+/-! ## Sixth tile = manuscript non-corner, non-centre block `F` -/
 
-/-- Uses **body-chart** standard mids of the centre square.
-WARNING: role indices are provisional (see FIXME above). -/
+/-- Among any five labels in `Fin 6` there is a sixth distinct index. -/
+lemma exists_index_outside_five (a b c d e : Fin 6) :
+    ∃ i : Fin 6, i ≠ a ∧ i ≠ b ∧ i ≠ c ∧ i ≠ d ∧ i ≠ e := by
+  classical
+  let s : Finset (Fin 6) := {a, b, c, d, e}
+  have hs : s.card ≤ 5 := by
+    simpa using List.toFinset_card_le ([a, b, c, d, e] : List (Fin 6))
+  have : ∃ i : Fin 6, i ∉ s := by
+    by_contra h
+    push_neg at h
+    have hu : s = Finset.univ := Finset.eq_univ_iff_forall.2 h
+    have hc := congrArg Finset.card hu
+    -- card s = 6, but card s ≤ 5
+    have : s.card = 6 := by simpa [Finset.card_univ, Fintype.card_fin] using hc
+    linarith
+  rcases this with ⟨i, hi⟩
+  refine ⟨i, ?_, ?_, ?_, ?_, ?_⟩
+  all_goals
+    intro hEq
+    apply hi
+    simp [s, hEq]
+
+/-- `iF` = sixth tile; `iA` = a corner host (packaging only; flags ignore `A`).
+Mids are already in the centre body chart; `toManuscript` also pulls `F`/`A`. -/
 noncomputable def RoleSelection.ofCover {T : Target} (cov : PointwiseCover T) :
     RoleSelection T := by
   let owners := cov.toCornerOwners
@@ -219,20 +228,25 @@ noncomputable def RoleSelection.ofCover {T : Target} (cov : PointwiseCover T) :
   have hcenO : RotatedSquare.contains (owners.squares iC) (Target.centre T) := by
     simpa [hsq] using hcen
   have hne := centre_owner_ne_all_corners T owners iC hcenO
-  have pd := owners_pairwise_distinct T owners
-  exact
+  have hex := exists_index_outside_five owners.i1 owners.i2 owners.i3 owners.i4 iC
+  let iF := Classical.choose hex
+  have hiF := Classical.choose_spec hex
+  let iA : Fin 6 := owners.i1
+  refine
     { cov := cov
       owners := owners
       iC := iC
-      iF := owners.i1
-      iA := owners.i2
+      iF := iF
+      iA := iA
       mids := standardMidsInBodyChart T (cov.squares iC)
       hsq := hsq
       hCentre := hcen
-      hCF := hne.1
-      hCA := hne.2.1
-      hFA := pd.1
+      hCF := ?_
+      hCA := hne.1
+      hFA := ?_
       hC_ne_corners := hne }
+  · intro h; exact (hiF.2.2.2.2 h.symm)
+  · exact hiF.1
 
 theorem RoleSelection_centre_ne_corners {T : Target} (R : RoleSelection T) :
     R.iC ≠ R.owners.i1 ∧ R.iC ≠ R.owners.i2 ∧
@@ -241,7 +255,12 @@ theorem RoleSelection_centre_ne_corners {T : Target} (R : RoleSelection T) :
 
 def RoleSelection.toManuscript {T : Target} (R : RoleSelection T) :
     ManuscriptNormalisedCovering :=
-  ⟨R.cov.squares R.iF, R.cov.squares R.iA, R.mids⟩
+  let g := R.cov.squares R.iC
+  -- One rigid motion: pull free blocks into the centre body chart; mids already there.
+  ⟨T.μ,
+    RotatedSquare.pullback g (R.cov.squares R.iF),
+    RotatedSquare.pullback g (R.cov.squares R.iA),
+    R.mids⟩
 
 theorem RoleSelection_reaches_topClass {T : Target} (R : RoleSelection T) :
     ∃ tc : S6.Exhaustiveness.TopClass,
@@ -267,6 +286,7 @@ theorem RoleSelection_mids_eq_standard_of_identity {T : Target}
 
 /-! ## Flags -/
 
+/-- Status: sixth-tile `iF` + body-chart pullback wired; full PDF faithfulness still open. -/
 def open_roleSelection_and_mids_from_geometry_CLOSED : Bool := true
 theorem open_roleSelection_CLOSED_true :
     open_roleSelection_and_mids_from_geometry_CLOSED = true := rfl

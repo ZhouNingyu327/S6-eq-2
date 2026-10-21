@@ -1,5 +1,14 @@
 # 变更说明
 
+## 2026-10-21 — Lean Major 3 接口 + 规范化迁移说明（相对 `5bfd66a`）
+
+- **分类标志：** 默认 API 改为 `flagsOfTarget*`（四个目标外中点 + `F∋O`）；旧 MidCandidates 接线仅留在 `legacyFlagsOf*`。
+- **回归例子：** `ClassificationExample.lean` 复审局部例子在新 API 下为 `k=1`、`fHasO=false`。
+- **角色：** `iF`=第六块；`toManuscript` 用同一 `pullback` 把自由块拉到中心体坐标。
+- **规范化：** 增加 `M1_module_migration_zh.md`；长稿“后续恒等”限定为可选强方案。
+- **不声称：** 端到端忠实性定理、外部审稿、或强 M1 升格。
+
+
 ## 2026-10-21 — 复审修订（相对 `32e0e0f`）
 
 按 2026-10-21 公开仓复审意见修改（不发明新几何）：

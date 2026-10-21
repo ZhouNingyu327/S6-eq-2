@@ -185,9 +185,13 @@ theorem centre_placement_body_chart {T : Target} (cov : PointwiseCover T) (iC : 
 /-- Assemble manuscript form from role indices (coordinates = body chart of iC,
 as in the G2 modelling note). -/
 def manuscriptOfRoles {T : Target} (cov : PointwiseCover T)
-    (_iC iF iA : Fin 6) (mids : MidCandidates) :
+    (iC iF iA : Fin 6) (mids : MidCandidates) :
     ManuscriptNormalisedCovering :=
-  ⟨cov.squares iF, cov.squares iA, mids⟩
+  let g := cov.squares iC
+  ⟨T.μ,
+    RotatedSquare.pullback g (cov.squares iF),
+    RotatedSquare.pullback g (cov.squares iA),
+    mids⟩
 
 theorem open3_centre_to_manuscript {T : Target} (cov : PointwiseCover T)
     (iC iF iA : Fin 6) (mids : MidCandidates) :

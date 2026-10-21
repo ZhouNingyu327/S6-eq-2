@@ -1,5 +1,14 @@
 # Changelog
 
+## 2026-10-21 — Lean Major 3 API + normalisation migration note (vs `5bfd66a`)
+
+- **Ownership flags:** primary API is `flagsOfTarget` / `flagsOfTargetRotated` using the four target outer mids and `F∋O` (centre). Legacy MidCandidates wiring moved to `legacyFlagsOf*`; `flagsOfRotated` no longer feeds `fHasAnyMidCandidate` into `fHasO`.
+- **Regression:** `ClassificationExample.lean` — rereview counterexample now has `k=1`, `fHasO=false` (legacy still `k=0`, `fHasO=true`).
+- **Roles:** `RoleSelection.ofCover` uses the sixth Fin-6 index as `iF`; `toManuscript` / `manuscriptOfRoles` apply one `RotatedSquare.pullback` into the centre body chart.
+- **Normalisation:** `artifacts/closure/M1_module_migration.md` (+ zh); long-proof “later = id” scoped to optional strong scheme.
+- **Not claimed:** end-to-end geometric faithfulness theorem, external peer review, or elevation of strong M1.
+
+
 ## 2026-10-21 — rereview fixes (vs `32e0e0f`)
 
 Addressed the 2026-10-21 public-repository rereview without inventing new geometry:

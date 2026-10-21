@@ -123,7 +123,7 @@ This list is documentation; emptiness of a parallel metadata list must not be
 read as mathematical discharge. -/
 def open_items_for_confirmed_theorem : List String :=
   [ "independent external peer review",
-    "ownership/role Lean bridge faithful to manuscript k / F∋O / sixth tile",
+    "end-to-end Lean faithfulness of ownership/role reduction (API flagsOfTarget* + sixth-tile iF repaired; full geometric theorem open)",
     "stepwise normalisation / β-clamp global argument in the short paper",
     "optional full Lean re-proof of every certificate metric inequality",
     "complete public delivery of every cited geometric reduction" ]

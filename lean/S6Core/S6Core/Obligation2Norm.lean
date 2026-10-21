@@ -258,9 +258,9 @@ structure NormalisationWitness (T : Target) where
 
 /-- **Proved conditional:** a `NormalisationWitness` yields
 `ManuscriptNormalisedCovering` (G2 Ownership fragment entry). -/
-def NormalisationWitness.toManuscript (W : NormalisationWitness T) :
+def NormalisationWitness.toManuscript {T : Target} (W : NormalisationWitness T) :
     ManuscriptNormalisedCovering :=
-  ⟨W.F, W.A, W.mids⟩
+  ⟨T.μ, W.F, W.A, W.mids⟩
 
 theorem NormalisationWitness_reaches_topClass (T : Target)
     (W : NormalisationWitness T) :

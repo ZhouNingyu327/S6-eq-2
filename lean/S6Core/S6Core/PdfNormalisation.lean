@@ -6,13 +6,14 @@ import S6Core.ChordLength
 /-!
 # PDF dominance-normalisation fragment (G2)
 
-After the manuscript places one square as the coordinate unit square (dominance /
-G2 normalisation), a covering is `F`, `A` as rotated unit squares plus mid
-candidates. Ownership flags are exactly `flagsOfRotated`.
+After the manuscript places the centre tile `C` as the coordinate unit square,
+a covering is represented by `F`, `A` as rotated unit squares together with the
+target half-side `μ`. Ownership flags are `flagsOfTargetRotated` on
+`(identityPose, F, A)` — manuscript `k` / `F∋O` / adjacency on the four
+target outer mids.
 
 **Model assumption (outside Lean):** every informal M3.0 covering is brought to
-this form by the paper's own coordinate choice. Inside Lean, that form is
-`ManuscriptNormalisedCovering`, and the flags lemma is proved.
+this form by the paper's own coordinate choice.
 -/
 
 namespace S6.PdfNormalisation
@@ -37,40 +38,43 @@ theorem identityPose_contains_iff (p : S6.RigidMotionChart.Pt) :
     RotatedSquare.contains identityPose p ↔ inAxisSquare p := by
   simp [RotatedSquare.contains, identityPose_toBody]
 
-/-- Covering after the paper places `C` as the unit square at the origin. -/
+/-- Covering after placing `C` as the unit square at the origin.
+Flags use target outer mids of `[0,2μ]²`, not MidCandidates. -/
 structure ManuscriptNormalisedCovering where
+  μ : ℚ
   F : RotatedSquare
   A : RotatedSquare
-  mids : MidCandidates
+  /-- Optional transport field (body-chart mids); **ignored by `flags`**. -/
+  mids : MidCandidates := ⟨(0, 0), (0, 0), (0, 0)⟩
+
+def ManuscriptNormalisedCovering.target (c : ManuscriptNormalisedCovering) : TargetMids :=
+  ⟨c.μ⟩
 
 def ManuscriptNormalisedCovering.toRotated (c : ManuscriptNormalisedCovering) :
     RotatedCovering :=
   ⟨identityPose, c.F, c.A⟩
 
+/-- Manuscript-faithful flags (does **not** call `fHasAnyMidCandidate`). -/
 def ManuscriptNormalisedCovering.flags (c : ManuscriptNormalisedCovering) :
     CoveringFlags :=
-  flagsOfRotated c.toRotated c.mids
+  flagsOfTargetRotated c.target c.toRotated
 
-/-- **pdf_normalisation fragment:** normalised covering admits
-`RotatedCovering × MidCandidates` with matching flags. -/
 theorem pdf_normalisation_to_rotated_covering
     (c : ManuscriptNormalisedCovering) :
-    ∃ (cov : RotatedCovering) (m : MidCandidates),
-      flagsOfRotated cov m = c.flags :=
-  ⟨c.toRotated, c.mids, rfl⟩
+    ∃ (T : TargetMids) (cov : RotatedCovering),
+      flagsOfTargetRotated T cov = c.flags :=
+  ⟨c.target, c.toRotated, rfl⟩
 
 theorem manuscript_normalised_induces_topClass
     (c : ManuscriptNormalisedCovering) :
     ∃ tc : TopClass, classify c.flags.toOwnership = tc :=
-  rotated_covering_induces_topClass c.toRotated c.mids
+  rotated_covering_induces_topClass c.target c.toRotated
 
-/-- Any already-rotated covering is an M3.0-style covering in this model. -/
-theorem rotated_covering_is_m3_style (cov : RotatedCovering) (m : MidCandidates) :
-    ∃ (cov' : RotatedCovering) (m' : MidCandidates),
-      flagsOfRotated cov' m' = flagsOfRotated cov m :=
-  ⟨cov, m, rfl⟩
+theorem rotated_covering_is_m3_style (T : TargetMids) (cov : RotatedCovering) :
+    ∃ (T' : TargetMids) (cov' : RotatedCovering),
+      flagsOfTargetRotated T' cov' = flagsOfTargetRotated T cov :=
+  ⟨T, cov, rfl⟩
 
-/-- Flag: formal M3.0-style / dominance-normalised fragment closed. -/
 def fullPdfNormalisationClosed : Bool := true
 def G2_overallClosed : Bool := true
 
@@ -78,8 +82,8 @@ theorem G2_pdf_normalisation_closed : fullPdfNormalisationClosed = true := rfl
 theorem G2_overallClosed_true : G2_overallClosed = true := rfl
 
 def modellingNote : String :=
-  "M3.0-style covering := RotatedCovering (or ManuscriptNormalisedCovering \
-   after placing C as unit square). Informal PDF → this model is the paper's \
-   normalisation step, taken as the reading of M3.0 in Lean."
+  "M3.0-style covering := RotatedCovering with TargetMids (or \
+   ManuscriptNormalisedCovering after placing C as unit square). \
+   Flags = flagsOfTargetRotated (four outer mids + F∋O)."
 
 end S6.PdfNormalisation

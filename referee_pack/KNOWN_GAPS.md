@@ -1,32 +1,25 @@
 # Known gaps
 
-Relative to the 2026-10-21 **rereview** of commit `32e0e0f` (and the earlier review of `9930699`).
+Relative to the 2026-10-21 **rereview** of commit `32e0e0f` / `5bfd66a`, plus this round’s Lean Major‑3 repair.
 
-| Review item | Ask | Status after this push |
+| Review item | Ask | Status |
 | --- | --- | --- |
-| R8 certificate delivery | Ship `round8_pair_bernstein_certificate.json`; clean `certificate()` | **Shipped** under `artifacts/ex/all/` (+ `artifacts/checkers/` copy). |
-| R13 coefficients | Ship JSON or deterministic generator | **Shipped** `round13_pair_certificate.json`. |
-| R16 reproduce docs | Document two-step generate + Fraction verify | **Documented** in `HOW_TO_REPRODUCE.md` / `artifacts/REPRODUCE.md`. |
-| R6 tangency typo | `d0>0` → `d0≥0`; use `c(1−α)+sβ≥μ>1` | **Fixed** in `artifacts/long_proof/S6_full_proof.md` (Markdown = source of truth). |
-| Normalisation protocol | One primary story; closed quadrant; W identity | **Primary = short-paper stepwise reclassification (Prop. 3.3).** App. A / long-proof M1 = optional candidate; closed quadrant + axial branch + W = post-preprocess free corner. Full module-migration proof still **open**. |
-| g3 / REPRODUCE hygiene | R38/R39 paths; drop “ex/all not shipped” | **Addressed.** |
-| Lean Major 3 | Faithful k / F∋O / sixth tile | **Still open** (comments strengthened; no semantic fix claimed). |
-| Π quantifier | ∃ε | Fixed earlier. |
-| Lean Bool metadata | Honesty | Fixed earlier. |
+| R8 / R13 / R16 / R6 / reproduce hygiene | Ship certs; fix tangency; docs | **Done** (prior push `5bfd66a`). |
+| Normalisation protocol | One primary story + migration note | **Primary = stepwise reclassification.** Strong M1 optional. Module-family migration note: `artifacts/closure/M1_module_migration.md`. Full premise-migration **proofs** still open. |
+| Lean Major 3 | Faithful `k` / `F∋O` / sixth tile / body-chart motion | **API repaired this round** (`flagsOfTarget*`, `fContainsO`, sixth-tile `iF`, `pullback`). Rereview counterexample now classifies as `k=1`, `fHasO=false` under the primary API (`ClassificationExample.lean`). Legacy MidCandidates wiring kept only under `legacyFlagsOf*`. **Not claimed:** a completed proof that every geometric covering’s roles match the manuscript end-to-end. |
+| Π quantifier / Bool metadata | Honesty | Fixed earlier. |
 
 ## Still open
 
-1. Manuscript-faithful Lean ownership/role selection (Major 3).
+1. End-to-end Lean proof that arbitrary coverings reduce with the new faithful flags (existence of roles + faithfulness theorem) — API fix ≠ full geometric theorem.
 2. Independent external human referee rebuild of critical reductions (esp. early G5 geometry → algebraic premises).
-3. Full premise-migration proof if the optional strong normalisation candidate is ever elevated to primary.
+3. Premise-migration **proofs** if the optional strong normalisation candidate is elevated to primary.
 4. Reducing remaining (S)-tier dual-solver queries to (E)/(H).
-5. Short paper still outlines §§5–7 to long-proof module IDs (page length).
+5. Short paper still outlines §§5–7 to long-proof module IDs.
 
-## Closed this round (vs `32e0e0f` rereview)
+## Closed / improved this round (vs `5bfd66a`)
 
-- R8 necessary Bernstein certificate delivered and runnable on a clean tree.
-- R13 certificate delivered.
-- R16 generation steps documented.
-- R6 tangency strictness corrected in the long-proof Markdown.
-- Normalisation primary protocol unified in short paper / App. A / long proof / M1 note.
-- Reproduce docs and g3 R38/R39 anchors synced.
+- Manuscript-faithful ownership flag definitions are the default Lean API.
+- Rereview local counterexample is a machine-checked regression test under the new API (and a witness that legacy wiring still mismatches).
+- Sixth-tile role selection + consistent body-chart `pullback` for free blocks.
+- Normalisation module-migration note shipped; long-proof “later = id” wording scoped to the optional strong scheme.

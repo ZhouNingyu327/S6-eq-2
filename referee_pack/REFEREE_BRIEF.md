@@ -27,7 +27,7 @@ Everything in the 30-minute path, plus:
 
 8. Read `artifacts/long_proof/S6_full_proof.pdf` (or `.md`) along the elimination order G5→…→double-direct.
 9. Verify companion JSONs for R42/R54/R55/R64 next to checkers; unpack `artifacts/ex_all.tar.gz` if needed (`SHA256SUMS.txt`).
-10. Optional: `cd lean/S6Core && lake build` — skeleton only; see KNOWN_GAPS Major 3.
+10. Optional: `cd lean/S6Core && lake build` — skeleton; ownership flags now manuscript-oriented (`ClassificationExample`); full faithfulness still open (KNOWN_GAPS).
 11. Optional: audit notes under `artifacts/still_S/` and `artifacts/audit/`.
 
 ## Priority mathematical gates
@@ -37,7 +37,7 @@ Everything in the 30-minute path, plus:
 3. **R29N frozen (M2)** — no citation of withdrawn note §5.
 4. **μ→1⁺ strictness** — exclusions use μ>1, not a fixed δ-gap.
 5. **Certificate tiers (M4)** — (E)/(H)/(S); (S) ≠ machine-independent.
-6. **Lean fidelity (open)** — ownership/role bridge still not manuscript-faithful (Major 3).
+6. **Lean fidelity (partial)** — default ownership/role API repaired; end-to-end faithfulness theorem still open (Major 3).
 
 ## Suggested editorial outcomes
 
