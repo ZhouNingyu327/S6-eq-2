@@ -1,5 +1,5 @@
 # Catalog of manuscripts with a formalized (or partially formalized) main result.
-version: "v0.26.2"
+version: "v0.26.3"
 
 project:
   name: "ZhouNingyu327/S6-eq-2"
@@ -15,10 +15,10 @@ sources:
     id: ../preprints/Six-unit-squares-cannot-cover-a-square-of-side-greater-than-2-October-21-2026/paper.pdf
     type: article
     lean_docs: docs/001.md
-    status: partial_formalization_centre_outer_miss_projwidth_mid
+    status: partial_formalization_sw_clamped_square_total_projwidth
     notes: >-
-      PrincipalClaim is a Prop. Proved as v0.25 plus centre outer-miss when μ²>2
-      (RoleSelection / PointwiseCover); four-corner projWidth mid-miss (|c|+|s|<μ)
-      (partial μ²≤2 path). Open: filler mid packing; ChordMatrixExport;
-      BodyChartAxis/IdentityC; G3 from covers; unconditional PrincipalClaim.
+      PrincipalClaim is a Prop. Proved as v0.26.2 plus SW clampedSquareTotal ≤2 under
+      projWidth (ℝ mid/top/right empty ⇒ clamped 0; outer pair ≤2). Open: SE/NE/NW
+      clampedSquareTotal; filler packing; ChordMatrixExport; BodyChartAxis/IdentityC;
+      G3 (s²=2 over ℚ blocked); unconditional PrincipalClaim.
       principalClaimProvedUnconditionally=false. ~80–84% openai/math Lean bar (honest).

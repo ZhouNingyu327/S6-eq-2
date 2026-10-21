@@ -1,3 +1,14 @@
+## v0.26.3 — R14 LeftLengthHyps algebraic unsat (2026-10-22 Asia/Shanghai)
+
+- `CertR14BridgeJunction`: Lean-prove Z3 `left_length` pack unsat
+  (`LeftLengthHyps` ⇒ False); W-endpoint lower bound on C left-ray `l`
+  exceeds `leftRayBound` when `μ>1`, `z∈(0,1)`.
+- Conditional: `R14SE2RealisesLeftLengthPack` ⇒ ForcesBridgeJunction /
+  `BernsteinForcesRawEmpty "R14"`. Did **not** invent `dL ≤ leftRayBound`
+  (SE2 `dL` ≠ Z3 `l`).
+- `r14SE2ForcesBridgeJunctionContradictionProved=false`;
+  `principalClaim` / `namedClosersDischarged` stay false. Lake green.
+
 ## v0.26.2 — centre outer-miss + four-corner projWidth mid-miss (2026-10-22 Asia/Shanghai)
 
 - `RotatedChordMeasure`: centre tile misses all four outers when `μ²>2`
