@@ -182,3 +182,15 @@ Honest residual: inhabit `CloserDischarged` for each of 8 labels (geometry). Rat
 | Combinatorial `CloserDischarged` | **Blocked** (livingFlag encoding) |
 | `principalClaimProvedUnconditionally` | false |
 
+## Full LivingLeafGeomExcluded via OuterRT + cert barrier
+
+| Item | Status |
+|------|--------|
+| `OuterRayData` / `OuterRTMatches` on `NearEndSE2` | **Added** (meet `d≤1`, gap `1<d`; parallel-miss lemmas) |
+| Full `LivingLeafGeomExcluded` R14, R17, R27–R28 (×6) | **Proved** |
+| Full geom for all 8 closers (`allNamedCloserGeomDischarged`) | **Proved** |
+| `closerFullGeomDischargedProved` | true |
+| `manuscriptRayGeometryComplete` | false |
+| Combinatorial `LivingLeafExcluded` | unchanged (MainTheorem) |
+| `principalClaimProvedUnconditionally` | false |
+

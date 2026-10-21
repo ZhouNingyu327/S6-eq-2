@@ -241,12 +241,17 @@ open S6.LivingLeafGeomDischarge
 theorem allNamedCloserGeomDischarged_reexport : AllNamedCloserGeomDischarged :=
   allNamedCloserGeomDischarged
 
-theorem closerGeomPendingBridgesProved_true_reexport :
-    closerGeomPendingBridgesProved = true := closerGeomPendingBridgesProved_true
+theorem closerFullGeomDischargedProved_true_reexport :
+    closerFullGeomDischargedProved = true := closerFullGeomDischargedProved_true
+
+theorem priority_fullGeom_R14_R17_R27_28_reexport :
+    LivingLeafGeomExcluded ⟨.bothMeet, .gap, .empty⟩ ∧
+      LivingLeafGeomExcluded ⟨.bothMeet, .gap, .neg⟩ :=
+  ⟨livingLeafGeomExcluded_R14, livingLeafGeomExcluded_R17⟩
 
 def openStatus : String :=
   "CLOSED: living/impossible lists, closer labels, bothGap counts, R13–R28 closer multiplicities. \
-   CERT×8 + pending CloserGeomDischarged×8 (SE(2)). OPEN: full ¬NearEndLeafRealised; combinatorial CloserDischarged. \
+   CERT×8 + full LivingLeafGeomExcluded×8 (OuterRT+cert barrier). OPEN: manuscript rays beyond d≤1; combinatorial CloserDischarged. \
    Not PrincipalClaim."
 
 end S6.LivingLeafStrengthen

@@ -110,6 +110,13 @@
     "geom_discharge": "S6Core.LivingLeafGeomDischarge",
     "closer_geom_pending_count": 8,
     "closer_geom_pending_proved": true,
-    "closer_full_geom_proved": false
+    "closer_full_geom_proved": true,
+    "outer_rt_rays": true,
+    "full_geom_excluded_priority": [
+      "R14",
+      "R17",
+      "R27/R28"
+    ],
+    "manuscript_ray_geometry_complete": false
   }
 }
