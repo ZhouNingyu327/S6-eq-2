@@ -22,6 +22,14 @@ Relative to the 2026-10-21 **rereview** of commit `32e0e0f`, the API repair at `
 4. **(S)-tier inventory — CLEARED (2026-10-22, tip `80e8ee0`).** Batch24–26f family: **151** checkable (E)/(H) certs under `artifacts/closure/item3_certs/exact_certs_batch24/` (checker `check_exact_certs_batch24.py` **PASS 151/151**). Remaining dual-solver (S) from the post-batch25 set of 91: **0**. Inventory: `S_tier_inventory.md`, `S_tier_remaining.json`, handoff `CERT_TO_LEAN_HANDOFF.md`. **Honest:** clearing (S) does **not** prove the theorem; Lean e2e faithfulness and independent external review remain open (items 1–2).
 5. Short paper §§5–7 now cite concrete module tables; further page-length expansions may still help referees.
 
+## Advanced this round (vs `f40f4c7`)
+
+- **`RotatedGridRatCover_of_pointwise`**: every PointwiseCover ⇒ six-line ℚ cover (rotated, no axis-align).
+- Axis lift `AxisGridRatCover_of_rotated_axis` / `_via_rotated`; `meetsHoriz`/`meetsVert`.
+- `RotatedChordLinePackageExport`⇒CoverIneq; **`G3SepWitnessExport`**⇒ParallelBudgetExport/exclusion.
+- Residual: Euclidean chord measure lift; BodyChartAxis inhabit; G3 sep from covers; living (other track).
+- `principalClaimProvedUnconditionally=false`.
+
 ## Advanced this round (vs `ba3dc2a`)
 
 - **Six-line chord algebra:** `SixLineChordMatrix` total ≥ 12μ; square-ub ≤2 ⇒ impossible; `RotatedChordLinePackage`⇒CoverIneq.

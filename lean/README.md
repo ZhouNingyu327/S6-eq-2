@@ -43,6 +43,9 @@ geometric proofs.
 | Manuscript fHasO ↔ world F∋O (identity-C) | **Proved** |
 | `RotatedChordDiameterBounds` held; package ↔ `CoverIneq` | **Proved** |
 | Six-line chord matrix algebra; unitDir projected-width ≤2 | **Proved** |
+| `RotatedGridRatCover` from every `PointwiseCover` (no axis hyp) | **Proved** |
+| Axis rat cover via rotated + alignment; `meetsHoriz`/`meetsVert` | **Proved** |
+| `RotatedChordLinePackageExport`⇒CoverIneq; `G3SepWitnessExport`⇒exclusion | **Proved conditional** |
 | Axis/identity-C realisation ⇒ `RotatedChordCoverIneq` | **Proved conditional** |
 | `G3ParallelBudgetExport`⇒`G3SideGapDataExport`/exclusion | **Proved conditional** |
 | `G3SideGapDataExport`⇒bridge/exclusion; `BudgetHyp.of` | **Proved conditional** |

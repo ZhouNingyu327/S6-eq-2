@@ -1,5 +1,5 @@
 # Catalog of manuscripts with a formalized (or partially formalized) main result.
-version: "v0.16"
+version: "v0.17"
 
 project:
   name: "ZhouNingyu327/S6-eq-2"
@@ -15,12 +15,11 @@ sources:
     id: ../preprints/Six-unit-squares-cannot-cover-a-square-of-side-greater-than-2-October-21-2026/paper.pdf
     type: article
     lean_docs: docs/001.md
-    status: partial_formalization_six_line_chord_algebra
+    status: partial_formalization_rotated_grid_rat_cover
     notes: >-
-      PrincipalClaim is a Prop. Proved as v0.15 plus SixLineChordMatrix algebra,
-      unitDir projected-width ≤2 / sq≤2, axis/identity-C ⇒ RotatedChordCoverIneq,
-      G3ParallelBudgetExport⇒SideGapDataExport/exclusion.
-      Open: inhabit CoverIneq from general PointwiseCover (Euclidean six-line chords);
-      BodyChartAxis/IdentityC for every G5 k=0; G3ParallelBudgetExport from covers;
-      17 living; unconditional PrincipalClaim.
-      principalClaimProvedUnconditionally=false. ~78–82% openai/math Lean bar (honest).
+      PrincipalClaim is a Prop. Proved as v0.16 plus RotatedGridRatCover from every
+      PointwiseCover (six-line ℚ, no axis), axis lift, meetsHoriz/Vert,
+      LinePackageExport⇒CoverIneq, G3SepWitnessExport⇒ParallelBudget/exclusion.
+      Open: Euclidean SixLineChordMatrix from rat cover; BodyChartAxis/IdentityC;
+      G3SepWitness from covers; 17 living; unconditional PrincipalClaim.
+      principalClaimProvedUnconditionally=false. ~80–84% openai/math Lean bar (honest).

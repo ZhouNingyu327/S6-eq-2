@@ -335,4 +335,38 @@ def g3ParallelBudgetReductionClosed : Bool := true
 theorem g3ParallelBudgetReductionClosed_true :
     g3ParallelBudgetReductionClosed = true := rfl
 
+
+/-- Build `ParallelBudgetData` from separation witnesses. -/
+def ParallelBudgetData.mk' (d y s : ℚ)
+    (hd : 1 < d) (hy : 0 < y) (hy2 : y * y = d * d - 1)
+    (hs : 0 < s) (hs2 : s * s = 2) (hd_le_s : d ≤ s) : ParallelBudgetData :=
+  ⟨d, y, s, hd, hy, hy2, hs, hs2, hd_le_s⟩
+
+/-- Separation witnesses `(d,y,s,vF)` from a G3 cover. -/
+def G3SepWitnessExport : Prop :=
+  ∀ (T : S6.Obligation2.Target) (cov : S6.Obligation2Opens.PointwiseCover T),
+    classify (S6.Obligation2Roles.RoleSelection.ofCover cov).toManuscript.flags.toOwnership =
+        TopClass.G3 →
+      ∃ (d y s vF : ℚ) (hd : 1 < d) (hy : 0 < y) (hy2 : y * y = d * d - 1)
+        (hs : 0 < s) (hs2 : s * s = 2) (hd_le : d ≤ s),
+          vF < T.μ ∧
+            (12 : ℚ) * T.μ ≤
+              8 + 3 * (ParallelBudgetData.mk' d y s hd hy hy2 hs hs2 hd_le).B + vF
+
+theorem G3ParallelBudgetExport_of_sepWitness (h : G3SepWitnessExport) :
+    G3ParallelBudgetExport := by
+  intro T cov hcls
+  rcases h T cov hcls with ⟨d, y, s, vF, hd, hy, hy2, hs, hs2, hd_le, hv, hp⟩
+  exact ⟨ParallelBudgetData.mk' d y s hd hy hy2 hs hs2 hd_le, vF, hv, hp⟩
+
+theorem G3Exclusion_of_sepWitness (h : G3SepWitnessExport) :
+    S6.MainTheorem.G3Exclusion :=
+  G3Exclusion_of_parallelBudgetExport (G3ParallelBudgetExport_of_sepWitness h)
+
+def g3SepWitnessExportProved : Bool := false
+theorem g3SepWitnessExportProved_false : g3SepWitnessExportProved = false := rfl
+
+def g3SepWitnessReductionClosed : Bool := true
+theorem g3SepWitnessReductionClosed_true : g3SepWitnessReductionClosed = true := rfl
+
 end S6.G3G4Fragments

@@ -1,5 +1,12 @@
 # Changelog
 
+## 2026-10-22 — RotatedGridRatCover from PointwiseCover + G3 sep witness
+
+- `RotatedChordMeasure`: `RotatedGridRatCover_of_pointwise`; axis lift; meetsHoriz/Vert; LinePackageExport⇒CoverIneq.
+- `G3G4Fragments`: `G3SepWitnessExport`⇒ParallelBudgetExport/exclusion; `ParallelBudgetData.mk'`.
+- Docs v0.17. `principalClaimProvedUnconditionally` remains **false**.
+- BernsteinExact* / NearEndExact* / LivingLeaf* / Closer* untouched.
+
 ## 2026-10-22 — Six-line chord algebra + G3 parallel-budget export
 
 - `RotatedChordMeasure`: `SixLineChordMatrix` / `RotatedChordLinePackage`; axis/identity-C ⇒ CoverIneq.

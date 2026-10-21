@@ -10,6 +10,7 @@ import S6Core.G5Budget
 import S6Core.G5ExclusionFrag
 import S6Core.G5GeometryBridge
 import S6Core.AxisG5k0FromCover
+import S6Core.AxisGridCover
 import S6Core.ChordLength
 import S6Core.ObliqueChart
 
@@ -20,7 +21,9 @@ Proved: diameter `distSq ≤ 2`; Weierstrass `g2_alg < 2`;
 `RotatedG5k0ChordExport` ⇒ `G5k0GeomExport` / `G5k0Bridge`;
 six-line chord matrix algebra; projected-width ≤ 2 on unit directions;
 axis/identity-C realisation ⇒ `RotatedChordCoverIneq`.
-Open: inhabit `RotatedChordCoverIneq` from general `PointwiseCover` (Euclidean chords).
+Proved: `RotatedGridRatCover` from every `PointwiseCover` (six-line ℚ cover, no axis hyp);
+axis lift via alignment; meet predicates; line-package export ⇒ CoverIneq.
+Open: Euclidean chord lengths / SixLineChordMatrix from rat cover (measure lift).
 -/
 
 namespace S6.RotatedChordMeasure
@@ -98,7 +101,7 @@ def rotatedG5k0ChordExportProved : Bool := false
 theorem rotatedG5k0ChordExportProved_false : rotatedG5k0ChordExportProved = false := rfl
 
 def openRotatedChordExports : List String :=
-  ["RotatedChordCoverIneq from PointwiseCover (geometric chord measures)",
+  ["RotatedChordLinePackageExport / Euclidean chords from RotatedGridRatCover",
    "g2_alg geometric reading as outer chord sum"]
 
 
@@ -151,6 +154,7 @@ theorem rotatedChordBoundPackageProved_false : rotatedChordBoundPackageProved = 
 
 
 open S6.AxisG5k0FromCover
+open S6.AxisGridCover
 open S6.ObliqueChart
 open S6.ChordLength (UnitDir)
 
@@ -331,6 +335,101 @@ theorem sixLineChordAlgebraClosed_true : sixLineChordAlgebraClosed = true := rfl
 def rotatedChordCoverIneqFromAxisPathClosed : Bool := true
 theorem rotatedChordCoverIneqFromAxisPathClosed_true :
     rotatedChordCoverIneqFromAxisPathClosed = true := rfl
+
+
+/-! ## Rotated six-line ℚ cover from PointwiseCover -/
+
+/-- ℚ pointwise cover of the six target grid lines by rotated squares. -/
+structure RotatedGridRatCover (μ : ℚ) (squares : Fin 6 → RotatedSquare) : Prop where
+  bottom : ∀ q : ℚ, 0 ≤ q → q ≤ 2 * μ → ∃ i, RotatedSquare.contains (squares i) (q, 0)
+  top : ∀ q : ℚ, 0 ≤ q → q ≤ 2 * μ → ∃ i, RotatedSquare.contains (squares i) (q, 2 * μ)
+  left : ∀ q : ℚ, 0 ≤ q → q ≤ 2 * μ → ∃ i, RotatedSquare.contains (squares i) (0, q)
+  right : ∀ q : ℚ, 0 ≤ q → q ≤ 2 * μ → ∃ i, RotatedSquare.contains (squares i) (2 * μ, q)
+  hMid : ∀ q : ℚ, 0 ≤ q → q ≤ 2 * μ → ∃ i, RotatedSquare.contains (squares i) (q, μ)
+  vMid : ∀ q : ℚ, 0 ≤ q → q ≤ 2 * μ → ∃ i, RotatedSquare.contains (squares i) (μ, q)
+
+/-- Every `PointwiseCover` induces a rotated six-line ℚ cover (no axis-align). -/
+theorem RotatedGridRatCover_of_pointwise (T : Target) (cov : PointwiseCover T) :
+    RotatedGridRatCover T.μ cov.squares where
+  bottom := fun q hq0 hq1 => cov.covers (q, 0) (grid_point_in_target_bottom T q hq0 hq1)
+  top := fun q hq0 hq1 => cov.covers (q, 2 * T.μ) (grid_point_in_target_top T q hq0 hq1)
+  left := fun q hq0 hq1 => cov.covers (0, q) (grid_point_in_target_left T q hq0 hq1)
+  right := fun q hq0 hq1 => cov.covers (2 * T.μ, q) (grid_point_in_target_right T q hq0 hq1)
+  hMid := fun q hq0 hq1 => cov.covers (q, T.μ) (grid_point_in_target_hMid T q hq0 hq1)
+  vMid := fun q hq0 hq1 => cov.covers (T.μ, q) (grid_point_in_target_vMid T q hq0 hq1)
+
+theorem AxisGridRatCover_of_rotated_axis (μ : ℚ) (squares : Fin 6 → RotatedSquare)
+    (H : RotatedGridRatCover μ squares)
+    (halign : ∀ i, isAxisAligned (squares i)) :
+    AxisGridRatCover μ (fun i => toAxisSquare (squares i)) where
+  bottom := by
+    intro q hq0 hq1
+    rcases H.bottom q hq0 hq1 with ⟨i, hi⟩
+    exact ⟨i, (axisAligned_contains_iff (squares i) (halign i) (q, 0)).mp hi⟩
+  top := by
+    intro q hq0 hq1
+    rcases H.top q hq0 hq1 with ⟨i, hi⟩
+    exact ⟨i, (axisAligned_contains_iff (squares i) (halign i) (q, 2 * μ)).mp hi⟩
+  left := by
+    intro q hq0 hq1
+    rcases H.left q hq0 hq1 with ⟨i, hi⟩
+    exact ⟨i, (axisAligned_contains_iff (squares i) (halign i) (0, q)).mp hi⟩
+  right := by
+    intro q hq0 hq1
+    rcases H.right q hq0 hq1 with ⟨i, hi⟩
+    exact ⟨i, (axisAligned_contains_iff (squares i) (halign i) (2 * μ, q)).mp hi⟩
+  hMid := by
+    intro q hq0 hq1
+    rcases H.hMid q hq0 hq1 with ⟨i, hi⟩
+    exact ⟨i, (axisAligned_contains_iff (squares i) (halign i) (q, μ)).mp hi⟩
+  vMid := by
+    intro q hq0 hq1
+    rcases H.vMid q hq0 hq1 with ⟨i, hi⟩
+    exact ⟨i, (axisAligned_contains_iff (squares i) (halign i) (μ, q)).mp hi⟩
+
+theorem AxisGridRatCover_of_pointwise_via_rotated (T : Target) (cov : PointwiseCover T)
+    (halign : ∀ i, isAxisAligned (cov.squares i)) :
+    AxisGridRatCover T.μ (axisSquaresOf cov) := by
+  have H := RotatedGridRatCover_of_pointwise T cov
+  have h := AxisGridRatCover_of_rotated_axis T.μ cov.squares H halign
+  unfold axisSquaresOf
+  exact h
+
+def meetsHoriz (g : RotatedSquare) (Y : ℚ) : Prop :=
+  ∃ x : ℚ, RotatedSquare.contains g (x, Y)
+
+def meetsVert (g : RotatedSquare) (X : ℚ) : Prop :=
+  ∃ y : ℚ, RotatedSquare.contains g (X, y)
+
+theorem meetsHoriz_of_contains (g : RotatedSquare) (x Y : ℚ)
+    (h : RotatedSquare.contains g (x, Y)) : meetsHoriz g Y := ⟨x, h⟩
+
+theorem meetsVert_of_contains (g : RotatedSquare) (X y : ℚ)
+    (h : RotatedSquare.contains g (X, y)) : meetsVert g X := ⟨y, h⟩
+
+theorem ratCover_bottom_meets (μ : ℚ) (squares : Fin 6 → RotatedSquare)
+    (H : RotatedGridRatCover μ squares) (q : ℚ) (hq0 : 0 ≤ q) (hq1 : q ≤ 2 * μ) :
+    ∃ i, meetsHoriz (squares i) 0 := by
+  rcases H.bottom q hq0 hq1 with ⟨i, hi⟩
+  exact ⟨i, meetsHoriz_of_contains _ q 0 hi⟩
+
+/-- Open residual: export a `RotatedChordLinePackage` from covers (Euclidean chords). -/
+def RotatedChordLinePackageExport : Prop :=
+  ∀ (T : Target) (cov : PointwiseCover T),
+    isG5Class cov →
+      (RoleSelection.ofCover cov).toManuscript.flags.k = ⟨0, by decide⟩ →
+        Nonempty (RotatedChordLinePackage T.μ)
+
+theorem RotatedChordCoverIneq_of_linePackageExport (h : RotatedChordLinePackageExport) :
+    RotatedChordCoverIneq :=
+  RotatedChordCoverIneq_of_linePackage h
+
+def rotatedGridRatCoverClosed : Bool := true
+theorem rotatedGridRatCoverClosed_true : rotatedGridRatCoverClosed = true := rfl
+
+def rotatedChordLinePackageExportProved : Bool := false
+theorem rotatedChordLinePackageExportProved_false :
+    rotatedChordLinePackageExportProved = false := rfl
 
 def rotatedChordCoverIneqProved : Bool := false
 theorem rotatedChordCoverIneqProved_false : rotatedChordCoverIneqProved = false := rfl
