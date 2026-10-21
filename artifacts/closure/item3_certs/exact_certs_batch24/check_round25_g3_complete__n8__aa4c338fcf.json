@@ -1,0 +1,23 @@
+{
+  "id": "check_round25_g3_complete__n8__aa4c338fcf",
+  "file": "check_round25_g3_complete",
+  "n": 8,
+  "query": "g25_x > 0 ; g25_x < 1 ; g25_a > 0 ; g25_a < 1 ; g25_S4 < (1 - g25_x)/(1 + g25_x) ; g25_U < g25_a ; g25_S4 + g25_U > 1 ; g25_a <= g25_x",
+  "method": "exact-Bernstein-g25-S4U",
+  "status": "exact",
+  "certificate": {
+    "type": "bernstein_sum_cap_g25_S4U",
+    "gap": "(-g25_x*(g25_x + 1) + 2*g25_x)/(g25_x + 1)",
+    "numer_coeffs": [
+      "0",
+      "1/2",
+      "0"
+    ],
+    "denom_coeffs": [
+      "1",
+      "2"
+    ],
+    "claim": "S4+U < (1-x)/(1+x)+a <= (1-x)/(1+x)+x <=1"
+  },
+  "batch": "25b"
+}

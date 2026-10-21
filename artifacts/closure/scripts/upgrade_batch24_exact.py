@@ -217,9 +217,10 @@ def elim_deg1_any_coeff(o):
                 continue
             ee = sp.expand(e)
             for s in sorted(ee.free_symbols, key=str):
-                if sp.degree(ee, s) != 1:
+                if safe_deg(ee, s) != 1:
                     continue
-                P = sp.Poly(ee, s)
+                te = sp.together(ee)
+                P = sp.Poly(sp.expand(sp.numer(te)), s)
                 lc = sp.expand(P.LC())
                 tc = sp.expand(P.TC())
                 # s = -tc/lc
@@ -555,6 +556,14 @@ def try_bernstein_single_poly(o, fs, box):
     return None
 
 
+def safe_deg(expr, var):
+    try:
+        te = sp.together(expr)
+        num = sp.expand(sp.numer(te))
+        return sp.degree(num, var)
+    except Exception:
+        return -1
+
 def minw_reduce_univariate(o, fs):
     """If constraints include w >= alpha*a+beta and f(a)*w + g(a) < 0 with f>0, reduce to univariate."""
     if len(fs) != 2:
@@ -567,7 +576,7 @@ def minw_reduce_univariate(o, fs):
         for w in fs:
             a = [v for v in fs if v != w][0]
             ee = sp.expand(e)
-            if sp.degree(ee, w) != 1:
+            if safe_deg(ee, w) != 1:
                 continue
             Pw = sp.Poly(ee, w)
             lc = sp.expand(Pw.LC())
@@ -596,7 +605,7 @@ def minw_reduce_univariate(o, fs):
         ee = sp.expand(e)
         for w in fs:
             a = [v for v in fs if v != w][0]
-            if sp.degree(ee, w) != 1:
+            if safe_deg(ee, w) != 1:
                 continue
             Pw = sp.Poly(ee, w)
             f = sp.expand(Pw.LC())

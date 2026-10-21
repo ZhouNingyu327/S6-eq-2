@@ -1,0 +1,63 @@
+{
+  "id": "check_round29_no_top_structure__n6__866f1cfbe2",
+  "file": "check_round29_no_top_structure",
+  "n": 6,
+  "query": "t >= z ; z > 0 ; t < 1 ; u > 1 - t ; hc > 1 + 2*t - t*t + 2*z - z*z ; hc + u*u <= 2",
+  "method": "exact-Bernstein-raw",
+  "status": "exact",
+  "certificate": {
+    "type": "bernstein_box",
+    "vars": [
+      "hc",
+      "t",
+      "u",
+      "z"
+    ],
+    "box": [
+      [
+        "0",
+        "1"
+      ],
+      [
+        "0",
+        "1"
+      ],
+      [
+        "0",
+        "1"
+      ],
+      [
+        "0",
+        "1"
+      ]
+    ],
+    "expr": "-hc - t**2 + 2*t - z**2 + 2*z + 1",
+    "op": "<",
+    "numer_coeffs": [
+      "1",
+      "2",
+      "2",
+      "2",
+      "3",
+      "3",
+      "2",
+      "3",
+      "3",
+      "0",
+      "1",
+      "1",
+      "1",
+      "2",
+      "2",
+      "1",
+      "2",
+      "2"
+    ],
+    "denom_coeffs": [
+      "1"
+    ],
+    "claim": "numer_nonneg_denom_pos_implies_strict_ineq_impossible",
+    "tag": "raw"
+  },
+  "batch": "25"
+}

@@ -1,0 +1,14 @@
+{
+  "id": "check_round32_right_positive__n8__1a2974db56",
+  "file": "check_round32_right_positive",
+  "n": 8,
+  "query": "c >= s ; s > 0 ; c*c + s*s == 1 ; u > 0 ; 2*u < 1 ; l > 0 ; c*l <= s*u ; 2*l >= 1",
+  "method": "exact-hand-cl-su-half",
+  "status": "exact",
+  "certificate": {
+    "type": "hand_cl_su_half",
+    "algebra": "l>=1/2,u<1/2,c*l<=s*u => c/2 <= c*l <= s*u < s/2 => c<s, contradict c>=s",
+    "claim": "strict contradiction"
+  },
+  "batch": "25b"
+}

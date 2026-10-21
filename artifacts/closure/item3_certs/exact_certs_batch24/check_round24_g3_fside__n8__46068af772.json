@@ -1,0 +1,16 @@
+{
+  "id": "check_round24_g3_fside__n8__46068af772",
+  "file": "check_round24_g3_fside",
+  "n": 8,
+  "query": "r24_a > 0 ; r24_a < 1 ; r24_h > 0 ; r24_h < 1 ; r24_G*(1 + r24_h) == 1 - r24_h ; r24_d < r24_G ; r24_d > 1 - r24_a ; r24_h*(2 - r24_a) >= r24_a",
+  "method": "exact-hand-g25-hx-identity",
+  "status": "exact",
+  "certificate": {
+    "type": "identity_g25_hx",
+    "hmin": "r24_a/(2 - r24_a)",
+    "identity": "(1-a/(2-a))/(1+a/(2-a))=1-a",
+    "mono": "d/dh (1-h)/(1+h)<0",
+    "claim": "h>=a/(2-a)=>G<=1-a, no d with 1-a<d<G"
+  },
+  "batch": "25b"
+}

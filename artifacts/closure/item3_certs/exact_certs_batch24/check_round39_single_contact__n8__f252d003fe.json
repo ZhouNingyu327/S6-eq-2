@@ -1,0 +1,13 @@
+{
+  "id": "check_round39_single_contact__n8__f252d003fe",
+  "file": "check_round39_single_contact",
+  "n": 8,
+  "query": "r > 0 ; 2*r < 1 ; K > 0 ; u > 0 ; d > 0 ; r <= K*u ; K*r <= d ; (r*r)/(2*(1 - r)) >= u*d",
+  "method": "exact-hand-rr-ud",
+  "status": "exact",
+  "certificate": {
+    "type": "hand_rr_ud",
+    "claim": "ud>=K u r >= r^2 so r^2/(2(1-r))>=r^2 => r>=1/2 contradict 2r<1"
+  },
+  "batch": "25c"
+}

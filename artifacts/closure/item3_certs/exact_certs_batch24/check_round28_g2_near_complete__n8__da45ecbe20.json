@@ -1,0 +1,15 @@
+{
+  "id": "check_round28_g2_near_complete__n8__da45ecbe20",
+  "file": "check_round28_g2_near_complete",
+  "n": 8,
+  "query": "d > 0 ; d < 1 ; H > 1 - d ; H < 1 ; sw*(1 + H*H) == 2*H ; A >= 0 ; sw*A <= 1 ; A >= 1 + (d*d)/(2*(1 - d))",
+  "method": "exact-hand-swA-endpoint",
+  "status": "exact",
+  "certificate": {
+    "type": "identity_swA_endpoint",
+    "identity": "(1+(1-d)^2)/(2(1-d)) = 1 + d^2/(2(1-d))",
+    "mono": "H |-> (1+H^2)/(2H) decreasing on (0,1)",
+    "claim": "H>1-d => 1/sw < A_lower"
+  },
+  "batch": "25b"
+}

@@ -1,0 +1,13 @@
+{
+  "id": "check_round36_nonempty_closed__n5__5343cc3cdc",
+  "file": "check_round36_nonempty_closed",
+  "n": 5,
+  "query": "E >= 0 ; Y >= 0 ; eps1 > 0 ; eps2 >= 0 ; -eps1 - 32/25*(E*E + Y*eps2) >= 0",
+  "method": "exact-hand-eps-sum",
+  "status": "exact",
+  "certificate": {
+    "type": "hand_eps_neg",
+    "claim": "-eps1 - (32/25)(... ) >=0 with eps1>0 and (...)>=0 impossible"
+  },
+  "batch": "25c"
+}

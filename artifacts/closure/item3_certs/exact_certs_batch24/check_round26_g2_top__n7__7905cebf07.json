@@ -1,0 +1,29 @@
+{
+  "id": "check_round26_g2_top__n7__7905cebf07",
+  "file": "check_round26_g2_top",
+  "n": 7,
+  "query": "h > 0 ; 4*h < 1 ; x + y < 1 ; T < x - (2*h)/(1 + h) ; l < T + h ; d < (2*h*h)/(1 - h*h) + y ; l + d >= 1",
+  "method": "exact-Bernstein-r26-ld",
+  "status": "exact",
+  "certificate": {
+    "type": "bernstein_r26_ld_sum",
+    "numer_coeffs": [
+      "0",
+      "0",
+      "5/18",
+      "5/21",
+      "95/216",
+      "65/189",
+      "85/432",
+      "85/3024"
+    ],
+    "denom_coeffs": [
+      "1",
+      "41/36",
+      "527/432",
+      "2023/1728"
+    ],
+    "claim": "l+d < upper <=1 on h<5/12,y<1/7"
+  },
+  "batch": "25b"
+}

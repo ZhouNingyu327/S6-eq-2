@@ -1,0 +1,23 @@
+{
+  "id": "check_round24_g3_fside__n6__2711c86cff",
+  "file": "check_round24_g3_fside",
+  "n": 6,
+  "query": "r24_u >= 0 ; r24_u < 1 ; r24_T > 1 - r24_u ; r24_T < 1 ; r24_cornerD < r24_U + (1 - r24_T)/(1 + r24_T) ; r24_cornerD >= r24_U + r24_u/(2 - r24_u)",
+  "method": "exact-hand-halfangle-contain",
+  "status": "exact",
+  "certificate": {
+    "type": "halfangle_contain_identity",
+    "vars": [
+      "r24_u",
+      "r24_T"
+    ],
+    "identity_numer": "-2*r24_T - 2*r24_u + 2",
+    "claim": "T>1-u => (1-T)/(1+T)<u/(2-u) => no cornerD",
+    "dens": [
+      "1+T",
+      "2-u"
+    ],
+    "domain": "u in (0,1), T in (1-u,1)"
+  },
+  "batch": "25b"
+}

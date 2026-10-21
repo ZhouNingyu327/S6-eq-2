@@ -1,0 +1,19 @@
+{
+  "id": "check_round35_positive_H__n6__934f6ba957",
+  "file": "check_round35_positive_H",
+  "n": 6,
+  "query": "mu > 1 ; L2 > 1 ; L2 < 3 ; k*(3 - L2) == L2 - 1 ; A + L2 >= 2*mu ; A <= (1 - k)/(1 + k)",
+  "method": "exact-Bernstein-A-L2",
+  "status": "exact",
+  "certificate": {
+    "type": "bernstein_A_L2",
+    "numer_coeffs": [
+      "0"
+    ],
+    "denom_coeffs": [
+      "1"
+    ],
+    "claim": "A+L2 <= (1-k)/(1+k)+L2 <=2 < 2mu"
+  },
+  "batch": "25c"
+}

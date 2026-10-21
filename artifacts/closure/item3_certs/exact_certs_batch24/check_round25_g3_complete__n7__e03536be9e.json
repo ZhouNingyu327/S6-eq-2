@@ -1,0 +1,15 @@
+{
+  "id": "check_round25_g3_complete__n7__e03536be9e",
+  "file": "check_round25_g3_complete",
+  "n": 7,
+  "query": "g25_x > 0 ; g25_x < 1 ; g25_a > g25_x ; g25_a < 1 ; g25_S2 < (1 - g25_a)/(1 + g25_a) ; g25_E3 < (2*g25_x)/(1 + g25_x) ; g25_S2 + g25_E3 > 1",
+  "method": "exact-hand-g25-S2E3",
+  "status": "exact",
+  "certificate": {
+    "type": "identity_g25_S2E3",
+    "identity": "(1-x)/(1+x)+2x/(1+x)=1",
+    "mono": "a>x => (1-a)/(1+a)<(1-x)/(1+x)",
+    "claim": "S2+E3 < 1 for a>x"
+  },
+  "batch": "25b"
+}

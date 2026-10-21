@@ -1,0 +1,20 @@
+{
+  "id": "check_round28_g2_near_complete__n6__4094708312",
+  "file": "check_round28_g2_near_complete",
+  "n": 6,
+  "query": "h > 0 ; h < 1 ; d > 0 ; w > d + (h*(1 - h))/(1 + h) ; l < d + (6/5*h*(1 - h))/(1 + h) ; l + d >= 2*w",
+  "method": "exact-hand-r28-ld-2w",
+  "status": "exact",
+  "certificate": {
+    "type": "hand_r28_ld_vs_2w",
+    "tip": "h*(1 - h)/(h + 1)",
+    "algebra": "l+d < 2d+(6/5)tip and 2w > 2d+2 tip => need (6/5)tip > 2 tip, false for tip>0",
+    "gap_coeffs": [
+      "0",
+      "-2",
+      "0"
+    ],
+    "claim": "(6/5-2)*tip < 0 on (0,1)"
+  },
+  "batch": "25b"
+}
