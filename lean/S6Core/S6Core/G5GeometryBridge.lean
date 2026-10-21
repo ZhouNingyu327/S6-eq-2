@@ -194,10 +194,10 @@ theorem axis_G5Grid_impossible_of_bounds (μ corners CF : ℚ) (hμ : 1 < μ)
     (hcover : (12 : ℚ) * μ ≤ corners + CF) : False :=
   axis_style_grid_impossible μ corners CF hμ hcorners hCF hcover
 
-/-- If an axis cover exports CF<4 and the grid is covered by the four corner
-outer contribs plus CF, then that cover is impossible. -/
+/-- Axis cover: four corner-owners (outer≤2 each) + CF≤4 + cover ineq ⇒ False.
+Uses non-strict CF≤4 (two filler mid-sums), which still beats `12μ > 12`. -/
 theorem axis_cover_impossible_of_cf_export
-    (sSW sSE sNE sNW : AxisSquare) (μ CF : ℚ) (hμ : 1 < μ) (hCF : CF < 4)
+    (sSW sSE sNE sNW : AxisSquare) (μ CF : ℚ) (hμ : 1 < μ) (hCF : CF ≤ 4)
     (hSW : sSW.contains (0, 0)) (hSE : sSE.contains (2 * μ, 0))
     (hNE : sNE.contains (2 * μ, 2 * μ)) (hNW : sNW.contains (0, 2 * μ))
     (hcover :
@@ -213,7 +213,25 @@ theorem axis_cover_impossible_of_cf_export
       (bottomLen sNE μ + topLen sNE μ + leftLen sNE μ + rightLen sNE μ) +
       (bottomLen sNW μ + topLen sNW μ + leftLen sNW μ + rightLen sNW μ)
   have hcorners := axis_corners_le_eight_of_owners sSW sSE sNE sNW μ hμ hSW hSE hNE hNW
-  exact axis_G5Grid_impossible_of_bounds μ corners CF hμ hcorners hCF hcover
+  exact axis_grid_cover_impossible_le μ corners CF hμ hcorners hCF hcover
+
+/-- Specialisation: CF = sum of two filler mid contribs (each ≤2). -/
+theorem axis_cover_impossible_of_two_fillers
+    (sSW sSE sNE sNW s1 s2 : AxisSquare) (μ : ℚ) (hμ : 1 < μ)
+    (hSW : sSW.contains (0, 0)) (hSE : sSE.contains (2 * μ, 0))
+    (hNE : sNE.contains (2 * μ, 2 * μ)) (hNW : sNW.contains (0, 2 * μ))
+    (hcover :
+      (12 : ℚ) * μ ≤
+        (bottomLen sSW μ + topLen sSW μ + leftLen sSW μ + rightLen sSW μ) +
+          (bottomLen sSE μ + topLen sSE μ + leftLen sSE μ + rightLen sSE μ) +
+          (bottomLen sNE μ + topLen sNE μ + leftLen sNE μ + rightLen sNE μ) +
+          (bottomLen sNW μ + topLen sNW μ + leftLen sNW μ + rightLen sNW μ) +
+          ((hMidLen s1 μ + vMidLen s1 μ) + (hMidLen s2 μ + vMidLen s2 μ))) :
+    False := by
+  have hCF := axis_two_filler_mid_le_four s1 s2 μ hμ
+  exact axis_cover_impossible_of_cf_export sSW sSE sNE sNW μ
+    ((hMidLen s1 μ + vMidLen s1 μ) + (hMidLen s2 μ + vMidLen s2 μ))
+    hμ hCF hSW hSE hNE hNW hcover
 
 def axisFourCornerBoundClosed : Bool := true
 theorem axisFourCornerBoundClosed_true : axisFourCornerBoundClosed = true := rfl

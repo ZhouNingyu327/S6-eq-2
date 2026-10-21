@@ -189,4 +189,20 @@ theorem noSideGap_impossible (μ B : ℚ) (hμ : 1 < μ) (hB : B < 1)
     (hp : (12 : ℚ) * μ ≤ 8 + 2 * B + 2 * μ) : False :=
   noSideGap_covering_impossible μ B hμ hB hp
 
+
+/-- Same contradiction with non-strict `CF ≤ 4` (since `8+4=12 < 12μ`). -/
+structure G5GridHypLe where
+  μ : ℚ
+  corners : ℚ
+  CF : ℚ
+  hμ : 1 < μ
+  hcorners : corners ≤ 8
+  hCF : CF ≤ 4
+  hcover : (12 : ℚ) * μ ≤ corners + CF
+
+theorem G5GridHypLe.impossible (H : G5GridHypLe) : False := by
+  have h12 : (12 : ℚ) < 12 * H.μ := by nlinarith [H.hμ]
+  have htot : H.corners + H.CF ≤ 12 := by nlinarith [H.hcorners, H.hCF]
+  nlinarith [H.hcover, h12, htot]
+
 end S6.G5Budget

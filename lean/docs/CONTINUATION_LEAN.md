@@ -20,7 +20,7 @@
 
 ## Next (priority)
 
-1. **Discharge `G5k0/k1/k2GeomExport`** from `PointwiseCover` (rotated corner ≤2, CF bounds, cover ineq) — closes `G5Exclusion`.
+1. **Discharge `G5k0/k1/k2GeomExport`** from `PointwiseCover` — axis corners≤8+CF≤4 algebra closed; need grid-cover ineq from covers + rotated rigid-square contrib ≤2 — closes `G5Exclusion`.
 2. **G1/G2**: exclude the 17 living near-end leaves geometrically / via certificates.
 3. **G3/G4**: realise `G3SideGapBudgetBridge` / `G4BudgetBridge` from covers (M7.1 metric packing).
 4. Only then attempt unconditional `PrincipalClaim`.

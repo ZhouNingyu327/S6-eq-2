@@ -152,6 +152,16 @@ def gridLen (μ : ℚ) : ℚ := 12 * μ
 theorem gridLen_gt_twelve (μ : ℚ) (hμ : 1 < μ) : (12 : ℚ) < gridLen μ := by
   simp only [gridLen]; nlinarith
 
+
+/-- With corners≤8 and CF≤4 (non-strict), covering `12μ ≤ corners+CF` is
+impossible for `μ>1` because `corners+CF ≤ 12 < 12μ`. -/
+theorem axis_grid_cover_impossible_le (μ corners CF : ℚ) (hμ : 1 < μ)
+    (hcorners : corners ≤ 8) (hCF : CF ≤ 4)
+    (hcover : gridLen μ ≤ corners + CF) : False := by
+  have h12 := gridLen_gt_twelve μ hμ
+  simp only [gridLen] at hcover h12
+  nlinarith
+
 theorem axis_grid_cover_impossible (μ corners CF : ℚ) (hμ : 1 < μ)
     (hcorners : corners ≤ 8) (hCF : CF < 4)
     (hcover : gridLen μ ≤ corners + CF) : False := by
