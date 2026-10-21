@@ -11,3 +11,7 @@
 **/lake-packages/
 **/build/*.pdf
 !preprints/**/paper.pdf
+
+__pycache__/
+*.pyc
+lean/S6Core/.lake/
