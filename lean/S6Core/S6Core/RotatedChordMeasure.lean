@@ -35,7 +35,8 @@ Proved: real containsR/horizSliceR Inf-Sup chords; RotatedLineMeasureLift from a
 RotatedGridRatCover (bottom line Euclidean cover).
 Proved: |Δx|/|Δy| ≤ |c|+|s|; parallel miss bottom↔top and left↔right (μ>1);
 vertSliceR Inf-Sup; RotatedSixLineRealLift (all six grid lines) from any rat cover.
-Open: general ChordMatrixExport (squareTotal≤2 packing); BodyChartAxis/IdentityC.
+Proved: distSq on containsR; clamped [0,2μ] chord lens; SW outer pair sum ≤ 2.
+Open: SE/NE/NW clamped pairs; mid packing; general ChordMatrixExport; BodyChartAxis.
 -/
 
 namespace S6.RotatedChordMeasure
@@ -1495,5 +1496,139 @@ theorem rotatedSixLineRealLiftProved_true : rotatedSixLineRealLiftProved = true 
 
 def rotatedParallelMissClosed : Bool := true
 theorem rotatedParallelMissClosed_true : rotatedParallelMissClosed = true := rfl
+
+
+/-! ## Clamped outer packing (toward squareTotal ≤ 2) -/
+
+theorem onesided_axial_sum_le_two_real (xb yb : ℝ) (hx : 0 ≤ xb) (hy : 0 ≤ yb)
+    (hsq : xb * xb + yb * yb ≤ 2) : xb + yb ≤ 2 := by
+  have hamg : 2 * xb * yb ≤ xb * xb + yb * yb := by
+    nlinarith [sq_nonneg (xb - yb)]
+  nlinarith
+
+theorem distSq_containsR_le_two (g : RotatedSquare) (x₁ y₁ x₂ y₂ : ℝ)
+    (h1 : containsR g (x₁, y₁)) (h2 : containsR g (x₂, y₂)) :
+    (x₁ - x₂) * (x₁ - x₂) + (y₁ - y₂) * (y₁ - y₂) ≤ 2 := by
+  obtain ⟨hu1, hu1b, hv1, hv1b⟩ := h1
+  obtain ⟨hu2, hu2b, hv2, hv2b⟩ := h2
+  have hc : (g.dir.c : ℝ) * (g.dir.c : ℝ) + (g.dir.s : ℝ) * (g.dir.s : ℝ) = 1 := by
+    exact_mod_cast g.dir.hc
+  have e1x := applyR_x_of_toBodyR g x₁ y₁
+  have e1y := applyR_y_of_toBodyR g x₁ y₁
+  have e2x := applyR_x_of_toBodyR g x₂ y₂
+  have e2y := applyR_y_of_toBodyR g x₂ y₂
+  set du := (toBodyR g (x₁, y₁)).1 - (toBodyR g (x₂, y₂)).1
+  set dv := (toBodyR g (x₁, y₁)).2 - (toBodyR g (x₂, y₂)).2
+  have hdx : x₁ - x₂ = (g.dir.c : ℝ) * du - (g.dir.s : ℝ) * dv := by
+    simp only [du, dv]; linarith
+  have hdy : y₁ - y₂ = (g.dir.s : ℝ) * du + (g.dir.c : ℝ) * dv := by
+    simp only [du, dv]; linarith
+  have hrot :
+      ((g.dir.c : ℝ) * du - (g.dir.s : ℝ) * dv) *
+          ((g.dir.c : ℝ) * du - (g.dir.s : ℝ) * dv) +
+        ((g.dir.s : ℝ) * du + (g.dir.c : ℝ) * dv) *
+          ((g.dir.s : ℝ) * du + (g.dir.c : ℝ) * dv) =
+        ((g.dir.c : ℝ) * (g.dir.c : ℝ) + (g.dir.s : ℝ) * (g.dir.s : ℝ)) *
+          (du * du + dv * dv) := by ring
+  have hEq : (x₁ - x₂) * (x₁ - x₂) + (y₁ - y₂) * (y₁ - y₂) = du * du + dv * dv := by
+    rw [hdx, hdy, hrot, hc]; ring
+  have hdu : |du| ≤ 1 := by
+    simp only [du]
+    cases' le_total (toBodyR g (x₁, y₁)).1 (toBodyR g (x₂, y₂)).1 with h h
+    · rw [abs_of_nonpos (sub_nonpos.mpr h)]; linarith
+    · rw [abs_of_nonneg (sub_nonneg.mpr h)]; linarith
+  have hdv : |dv| ≤ 1 := by
+    simp only [dv]
+    cases' le_total (toBodyR g (x₁, y₁)).2 (toBodyR g (x₂, y₂)).2 with h h
+    · rw [abs_of_nonpos (sub_nonpos.mpr h)]; linarith
+    · rw [abs_of_nonneg (sub_nonneg.mpr h)]; linarith
+  have hdu2 : du * du ≤ 1 := by have := sq_abs du; nlinarith [hdu]
+  have hdv2 : dv * dv ≤ 1 := by have := sq_abs dv; nlinarith [hdv]
+  nlinarith [hEq]
+
+theorem horizChordHi_mem (g : RotatedSquare) (Y : ℚ)
+    (hne : (horizSliceR g Y).Nonempty) :
+    horizChordHi g Y ∈ horizSliceR g Y := by
+  dsimp [horizChordHi]; simp only [hne]
+  exact (horizSliceR_isClosed g Y).csSup_mem hne (horizSliceR_bddAbove g Y hne)
+
+theorem vertChordHi_mem (g : RotatedSquare) (X : ℚ)
+    (hne : (vertSliceR g X).Nonempty) :
+    vertChordHi g X ∈ vertSliceR g X := by
+  dsimp [vertChordHi]; simp only [hne]
+  exact (vertSliceR_isClosed g X).csSup_mem hne (vertSliceR_bddAbove g X hne)
+
+noncomputable def clampedHorizLen (g : RotatedSquare) (Y μ : ℚ) : ℝ :=
+  let lo := max (horizChordLo g Y) 0
+  let hi := min (horizChordHi g Y) ((2 : ℝ) * μ)
+  max (hi - lo) 0
+
+noncomputable def clampedVertLen (g : RotatedSquare) (X μ : ℚ) : ℝ :=
+  let lo := max (vertChordLo g X) 0
+  let hi := min (vertChordHi g X) ((2 : ℝ) * μ)
+  max (hi - lo) 0
+
+theorem SW_clamped_outer_sum_le_two (g : RotatedSquare) (μ : ℚ) (_hμ : 1 < μ)
+    (hSW : RotatedSquare.contains g (0, 0)) :
+    clampedHorizLen g 0 μ + clampedVertLen g 0 μ ≤ 2 := by
+  have hr0 := contains_implies_containsR g (0 : ℚ) (0 : ℚ) hSW
+  have hneB : (horizSliceR g (0 : ℚ)).Nonempty := ⟨((0 : ℚ) : ℝ), hr0⟩
+  have hneL : (vertSliceR g (0 : ℚ)).Nonempty := ⟨((0 : ℚ) : ℝ), hr0⟩
+  have hHiB := horizChordHi_mem g 0 hneB
+  have hHiL := vertChordHi_mem g 0 hneL
+  have h0B : ((0 : ℚ) : ℝ) ∈ horizSliceR g 0 := hr0
+  have h0L : ((0 : ℚ) : ℝ) ∈ vertSliceR g 0 := hr0
+  have hleB : horizChordLo g 0 ≤ ((0 : ℚ) : ℝ) := (slice_subset_chordIcc g 0 h0B).1
+  have hgeB : ((0 : ℚ) : ℝ) ≤ horizChordHi g 0 := (slice_subset_chordIcc g 0 h0B).2
+  have hleL : vertChordLo g 0 ≤ ((0 : ℚ) : ℝ) := (slice_subset_vertChordIcc g 0 h0L).1
+  have hgeL : ((0 : ℚ) : ℝ) ≤ vertChordHi g 0 := (slice_subset_vertChordIcc g 0 h0L).2
+  have hB : containsR g (horizChordHi g 0, ((0 : ℚ) : ℝ)) := hHiB
+  have hL : containsR g (((0 : ℚ) : ℝ), vertChordHi g 0) := hHiL
+  have hsq := distSq_containsR_le_two g (horizChordHi g 0) ((0 : ℚ) : ℝ)
+    ((0 : ℚ) : ℝ) (vertChordHi g 0) hB hL
+  have hsq' : horizChordHi g 0 * horizChordHi g 0 + vertChordHi g 0 * vertChordHi g 0 ≤ 2 := by
+    convert hsq using 1; ring
+  have hx0 : (0 : ℝ) ≤ horizChordHi g 0 := by exact_mod_cast hgeB
+  have hy0 : (0 : ℝ) ≤ vertChordHi g 0 := by exact_mod_cast hgeL
+  have hsum := onesided_axial_sum_le_two_real (horizChordHi g 0) (vertChordHi g 0) hx0 hy0 hsq'
+  have hb : clampedHorizLen g 0 μ ≤ horizChordHi g 0 := by
+    change max (min (horizChordHi g 0) ((2 : ℝ) * μ) - max (horizChordLo g 0) 0) 0 ≤
+      horizChordHi g 0
+    have hlo : max (horizChordLo g 0) (0 : ℝ) = 0 := max_eq_right (by exact_mod_cast hleB)
+    rw [hlo, sub_zero]
+    exact max_le (min_le_left _ _) hx0
+  have hl : clampedVertLen g 0 μ ≤ vertChordHi g 0 := by
+    change max (min (vertChordHi g 0) ((2 : ℝ) * μ) - max (vertChordLo g 0) 0) 0 ≤
+      vertChordHi g 0
+    have hlo : max (vertChordLo g 0) (0 : ℝ) = 0 := max_eq_right (by exact_mod_cast hleL)
+    rw [hlo, sub_zero]
+    exact max_le (min_le_left _ _) hy0
+  linarith
+
+theorem horizChordLo_mem (g : RotatedSquare) (Y : ℚ)
+    (hne : (horizSliceR g Y).Nonempty) :
+    horizChordLo g Y ∈ horizSliceR g Y := by
+  dsimp [horizChordLo]; simp only [hne]
+  exact (horizSliceR_isClosed g Y).csInf_mem hne (horizSliceR_bddBelow g Y hne)
+
+theorem vertChordLo_mem (g : RotatedSquare) (X : ℚ)
+    (hne : (vertSliceR g X).Nonempty) :
+    vertChordLo g X ∈ vertSliceR g X := by
+  dsimp [vertChordLo]; simp only [hne]
+  exact (vertSliceR_isClosed g X).csInf_mem hne (vertSliceR_bddBelow g X hne)
+
+theorem SW_clamped_outer_packing_held (g : RotatedSquare) (μ : ℚ) (hμ : 1 < μ)
+    (hSW : RotatedSquare.contains g (0, 0)) :
+    clampedHorizLen g 0 μ + clampedVertLen g 0 μ ≤ 2 :=
+  SW_clamped_outer_sum_le_two g μ hμ hSW
+
+def rotatedSWClampedOuterPackingClosed : Bool := true
+theorem rotatedSWClampedOuterPackingClosed_true :
+    rotatedSWClampedOuterPackingClosed = true := rfl
+
+/-- Open residual: SE/NE/NW clamped outer pairs; mid packing; ℚ ChordMatrixExport. -/
+def rotatedCornerClampedOuterPackingProved : Bool := false
+theorem rotatedCornerClampedOuterPackingProved_false :
+    rotatedCornerClampedOuterPackingProved = false := rfl
 
 end S6.RotatedChordMeasure

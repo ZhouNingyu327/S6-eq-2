@@ -55,7 +55,8 @@ geometric proofs.
 | Roles ⇒ per-square `axisGridContrib ≤ 2`; axis bottom LineChordCover | **Proved** |
 | Real `containsR`/Inf-Sup chords; `RotatedLineMeasureLift` from any rat cover | **Proved** |
 | `|Δx|/|Δy|≤|c|+|s|`; parallel miss; `RotatedSixLineRealLift` (six lines) | **Proved** |
-| `RotatedChordMatrixExport` for general (non-axis) covers | **Open** |
+| `distSq` on `containsR`; SW clamped outer (bottom+left) sum ≤2 | **Proved** |
+| SE/NE/NW clamped outer pairs; mid packing; general `ChordMatrixExport` | **Open** |
 | Inhabit `RotatedSixLineMeasureLift` from `RotatedGridRatCover` | **Open** |
 | Axis/identity-C realisation ⇒ `RotatedChordCoverIneq` | **Proved conditional** |
 | `G3ParallelBudgetExport`⇒`G3SideGapDataExport`/exclusion | **Proved conditional** |

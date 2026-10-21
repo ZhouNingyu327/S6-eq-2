@@ -1,3 +1,11 @@
+## v0.23 — SW clamped outer packing toward squareTotal≤2 (2026-10-22 Asia/Shanghai)
+
+- `RotatedChordMeasure`: `distSq_containsR_le_two`; Inf/Sup endpoints in closed slices;
+  `clampedHorizLen`/`clampedVertLen` on `[0,2μ]`; SW corner `bottom+left` clamped sum ≤2.
+- Still open: SE/NE/NW pairs; mid packing; general `ChordMatrixExport`;
+  `principalClaimProvedUnconditionally=false`.
+- Lake green. Honest bar still ~80–84%.
+
 ## v0.22 — six-line real lift + parallel miss (2026-10-22 Asia/Shanghai)
 
 - `RotatedChordMeasure`: `|Δx|/|Δy| ≤ |c|+|s|`; parallel miss bottom↔top and
