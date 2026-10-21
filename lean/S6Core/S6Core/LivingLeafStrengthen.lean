@@ -3,6 +3,7 @@ import S6Core.NearEndGeometry
 import S6Core.Exhaustiveness
 import S6Core.LeafCertificates
 import S6Core.LivingLeafCloserBridge
+import S6Core.LivingLeafCertDischarge
 
 /-!
 # LivingLeaf strengthenings (table + closer inventory)
@@ -223,9 +224,19 @@ theorem AllLivingClosersDischarged_of_named_reexport
 theorem open_closer_discharge_count_eq_eight :
     openCloserDischargeCount = 8 := openCloserDischargeCount_eq
 
+
+open S6.LivingLeafCertDischarge
+
+/-- Re-export: all 8 closer cert bundles inhabited. -/
+theorem allNamedCloserCertsDischarged_reexport : AllNamedCloserCertsDischarged :=
+  allNamedCloserCertsDischarged
+
+theorem inhabitedCloserCertCount_eq_eight : inhabitedCloserCertCount = 8 :=
+  inhabitedCloserCertCount_eq
+
 def openStatus : String :=
   "CLOSED: living/impossible lists, closer labels, bothGap counts, R13–R28 closer multiplicities. \
-   OPEN: inhabit CloserDischarged for 8 labels ⇒ AllLivingClosersDischarged (17 leaves). \
+   CERT: CloserCertDischarged ×8 inhabited. OPEN: CloserGeomBridge / reformulate LivingLeafExcluded (blocked by livingFlag). \
    Not PrincipalClaim."
 
 end S6.LivingLeafStrengthen

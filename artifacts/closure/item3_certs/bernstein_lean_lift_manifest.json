@@ -101,6 +101,10 @@
     "closer_bridge": "S6Core.LivingLeafCloserBridge",
     "rational_checks": "S6Core.NearEndRationalChecks",
     "open_closer_discharge_count": 8,
-    "named_closers_discharged_proved": false
+    "named_closers_discharged_proved": false,
+    "cert_discharge": "S6Core.LivingLeafCertDischarge",
+    "inhabited_closer_certs": 8,
+    "named_closer_certs_discharged_proved": true,
+    "closer_discharged_encoding_note": "LivingLeafExcluded:=living\u2192False blocked for livingFlag=true leaves"
   }
 }

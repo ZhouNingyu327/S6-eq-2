@@ -159,3 +159,15 @@ Forbidden (bridge executor): `MainTheorem`, `G5ExclusionFrag`, `AxisG5k0FromCove
 | `S6Core.NearEndRationalChecks` | R14 min_R/P + R16–R19 ℚ/√2-sq inequalities (`native_decide`) | lake-green |
 
 Honest residual: inhabit `CloserDischarged` for each of 8 labels (geometry). Rational payloads ≠ living `LivingLeafExcluded`. `principalClaimProvedUnconditionally` stays false. Forbidden files not edited.
+
+## CloserCertDischarged ×8 (openai/math)
+
+| Item | Status |
+|------|--------|
+| `CloserCertDischarged` for R13,R14,R16,R17,R18,R19,R26,R27/R28 | **Inhabited** (`LivingLeafCertDischarge`) |
+| `CloserDischarged` (→ `LivingLeafExcluded`) | **Blocked**: livingFlag=true ⇒ LivingLeafExcluded ↔ False |
+| `CloserGeomBridge` / `NearEndLeafRealised` | Open (opaque realisation) |
+| `namedCloserCertsDischargedProved` | true |
+| `namedClosersDischargedProved` | false |
+| `principalClaimProvedUnconditionally` | false |
+
