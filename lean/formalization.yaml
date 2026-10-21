@@ -1,9 +1,11 @@
 # Catalog of manuscripts with a formalized (or partially formalized) main result.
-version: "v0.4"
+version: "v0.5"
 
 project:
   name: "ZhouNingyu327/S6-eq-2"
-  description: "Lean skeleton accompanying a computer-assisted candidate argument for S(6)=2."
+  description: >-
+    Lean formalization toward S(6)=2: geometric principal claim stated as Prop,
+    reduction spine proved, class exclusions still open (candidate argument).
   authors: ["Ningyu Zhou"]
   license: "Apache-2.0"
 
@@ -13,12 +15,12 @@ sources:
     id: ../preprints/Six-unit-squares-cannot-cover-a-square-of-side-greater-than-2-October-21-2026/paper.pdf
     type: article
     lean_docs: docs/001.md
-    status: partial_skeleton_api_fragments
+    status: partial_formalization_reduction_spine
     notes: >-
-      Lean obligations skeleton builds with 0 sorry / extra axioms in that
-      skeleton. Boolean whole-theorem flags are human-maintained status metadata,
-      not geometric theorems. Major-3 ownership API (flagsOfTarget*, F∋O, sixth-tile
-      iF, pullback) plus Faithfulness.lean fragments and classification regressions
-      are machine-checked. End-to-end manuscript faithfulness and the geometric
-      theorem S(6)=2 in Lean remain open (KNOWN_GAPS). A complete Lean re-proof of
-      every metric inequality is not claimed.
+      PrincipalClaim is a Prop (not Bool metadata). Proved: cover→five roles,
+      pairwise-far outer mids, cover→TopClass, principal_of_class_exclusions,
+      near-end table Props, parallel-budget algebra/B(d)<1 fragments,
+      RoleSelection hF_ne_corners. Open: G1…G5Exclusion (needed for
+      unconditional PrincipalClaim). Still a computer-assisted candidate;
+      not peer-reviewed. Distance to openai/math fully-formalized entries:
+      reduction spine present; top-line theorem not closed unconditionally.

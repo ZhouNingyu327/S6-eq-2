@@ -8,17 +8,18 @@
 | R16 复现说明 | **已写入** |
 | R6 相切笔误 | **已改** |
 | 规范化协议 | **主协议=逐步重分类**；强 M1=可选/**延期**；迁移证明仍开放 |
-| Lean Major 3 | **API + 部分忠实性模块已交付**；端到端几何忠实性仍开放 |
+| Lean Major 3 / 主定理 | **Prop 主声明 + 约化骨架已交付**；`G1…G5Exclusion` 与无条件主定理仍开放 |
 | g3 / REPRODUCE | **已同步** |
 
 ## 仍开放
 
-1. Lean 端到端忠实性（部分模块见 `Faithfulness.lean`）；几何定理未进 Lean。
+1. **无条件 Lean 主定理 + 端到端忠实性。** `PrincipalClaim` 已是 Prop，约化骨架已证；`G1…G5Exclusion` 仍开放。长稿忠实性仍开放。
 2. **外部独立人类审稿**（早期 G5 几何→代数）。仅有内部重建笔记 `INTERNAL_G5_rebuild_zh.md`，**不关闭**本项。
 3. 强规范化若升格所需的逐模块迁移证明（当前延期）。
 4. 剩余约 **151** 条 (S) 级双求解器查询（清单见 `S_tier_inventory_zh.md`）。
 5. 短文 §§5–7 已加模块表；篇幅上仍可再扩。
 
-## 本轮推进（相对 `8672f31`）
+## 本轮推进（相对 `9fb5ade`）
 
-- Lean 忠实性片段与回归；内部 G5 笔记；强 M1 延期口径；Item3/(S) 清单入库；短文 §§5–7 模块表。
+- Lean：`MainTheorem` / `CoveringGeometry` / `NearEndGeometry` / `G5Fragments`；`hF_ne_corners`；`formalization.yaml` → `partial_formalization_reduction_spine`。
+- 此前（`9fb5ade`）：忠实性片段、内部 G5、M1 延期、(S) 清单、短文模块表。

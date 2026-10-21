@@ -16,16 +16,16 @@ Relative to the 2026-10-21 **rereview** of commit `32e0e0f`, the API repair at `
 
 ## Still open
 
-1. **End-to-end Lean faithfulness** of every informal M3.0 covering to `flagsOfTarget*` / `RoleSelection.ofCover` (partial module: `lean/S6Core/S6Core/Faithfulness.lean`; geometric theorem not in Lean).
+1. **Unconditional Lean principal claim + end-to-end faithfulness.** `MainTheorem.PrincipalClaim` is stated as a Prop and the reduction spine (`principal_of_class_exclusions`, pairwise-far outer mids, five roles, near-end Props) is proved; **`G1…G5Exclusion` remain open**, so the claim is not closed unconditionally. Faithfulness of every informal M3.0 covering to `flagsOfTarget*` is still open.
 2. **Independent external human referee** rebuild of critical reductions (esp. early G5 geometry → algebraic premises). Internal rebuild note only: `artifacts/closure/INTERNAL_G5_rebuild.md` (+ `_zh.md`) — does **not** close this item.
 3. **Full premise-migration proof** if the optional strong normalisation candidate (M1.1–M1.3) is ever elevated to primary. Currently **deferred**; primary remains stepwise reclassification (`M1_module_migration.md`).
 4. **Remaining (S)-tier** dual-solver queries (~151 unique after Item3 ledger). Inventory: `artifacts/closure/S_tier_inventory.md` (+ JSON). No claim that leftovers are machine-independent.
 5. Short paper §§5–7 now cite concrete module tables; further page-length expansions may still help referees.
 
-## Advanced this round (vs `8672f31`)
+## Advanced this round (vs `9fb5ade`)
 
-- Lean: `Faithfulness.lean` + extra ClassificationExample / G5·G1·centre-G2 regressions; README + `formalization.yaml` updated (proved vs open).
-- Internal G5 rebuild notes (EN+ZH); item 2 kept honestly open.
-- Strong M1 demoted as deferred with explicit migration checklist.
-- Item3 upgrade ledger + S-tier remaining inventory shipped under `artifacts/closure/`.
-- Short paper §§5–7 expanded with Hyp⇒Concl tables pointing at long-proof module IDs.
+- Lean **MainTheorem / CoveringGeometry / NearEndGeometry**: principal claim as Prop;
+  conditional closure; pairwise-far outer mids; five-role theorem; near-end Props;
+  `RoleSelection.hF_ne_corners`. `formalization.yaml` → `partial_formalization_reduction_spine`.
+- Prior (`9fb5ade`): Faithfulness fragments, internal G5 notes, M1 deferred, S-tier inventory,
+  short-paper §§5–7 module tables.

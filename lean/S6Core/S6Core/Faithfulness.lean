@@ -1,6 +1,7 @@
 import Mathlib.Tactic
 import S6Core.OwnershipBridge
 import S6Core.Obligation2Roles
+import S6Core.Obligation2Norm
 import S6Core.PdfNormalisation
 import S6Core.ClassificationExample
 import S6Core.TopClassExhaustiveness
@@ -36,6 +37,7 @@ open S6.OwnershipBridge
 open S6.Obligation2
 open S6.Obligation2Opens
 open S6.Obligation2Roles
+open S6.Obligation2Norm
 open S6.PdfNormalisation
 open S6.TopClassExhaustiveness
 open S6.Exhaustiveness
@@ -149,5 +151,32 @@ theorem endToEndFaithfulnessProvedInLean_false :
 /-- Partial Major-3 API fragments closed; full geometric faithfulness open. -/
 def major3_apiFragmentsClosed : Bool := true
 theorem major3_apiFragmentsClosed_true : major3_apiFragmentsClosed = true := rfl
+
+
+/-! ## Additional role contracts (openai/math push) -/
+
+theorem ofCover_owners_pairwise {T : Target} (cov : PointwiseCover T) :
+    (RoleSelection.ofCover cov).owners.i1 ≠ (RoleSelection.ofCover cov).owners.i2 ∧
+      (RoleSelection.ofCover cov).owners.i1 ≠ (RoleSelection.ofCover cov).owners.i3 ∧
+        (RoleSelection.ofCover cov).owners.i1 ≠ (RoleSelection.ofCover cov).owners.i4 ∧
+          (RoleSelection.ofCover cov).owners.i2 ≠ (RoleSelection.ofCover cov).owners.i3 ∧
+            (RoleSelection.ofCover cov).owners.i2 ≠ (RoleSelection.ofCover cov).owners.i4 ∧
+              (RoleSelection.ofCover cov).owners.i3 ≠ (RoleSelection.ofCover cov).owners.i4 :=
+  owners_pairwise_distinct T (RoleSelection.ofCover cov).owners
+
+theorem ofCover_iF_outside_five {T : Target} (cov : PointwiseCover T) :
+    (RoleSelection.ofCover cov).iF ≠ (RoleSelection.ofCover cov).owners.i1 ∧
+      (RoleSelection.ofCover cov).iF ≠ (RoleSelection.ofCover cov).owners.i2 ∧
+        (RoleSelection.ofCover cov).iF ≠ (RoleSelection.ofCover cov).owners.i3 ∧
+          (RoleSelection.ofCover cov).iF ≠ (RoleSelection.ofCover cov).owners.i4 ∧
+            (RoleSelection.ofCover cov).iF ≠ (RoleSelection.ofCover cov).iC := by
+  have hF := RoleSelection_F_ne_corners (RoleSelection.ofCover cov)
+  exact ⟨hF.1, hF.2.1, hF.2.2.1, hF.2.2.2, Ne.symm (RoleSelection.ofCover cov).hCF⟩
+
+theorem ofCover_roles_all_distinct {T : Target} (cov : PointwiseCover T) :
+    (RoleSelection.ofCover cov).iC ≠ (RoleSelection.ofCover cov).iF ∧
+      (RoleSelection.ofCover cov).iC ≠ (RoleSelection.ofCover cov).iA ∧
+        (RoleSelection.ofCover cov).iF ≠ (RoleSelection.ofCover cov).iA :=
+  roleSelection_distinct_roles (RoleSelection.ofCover cov)
 
 end S6.Faithfulness

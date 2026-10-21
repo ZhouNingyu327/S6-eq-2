@@ -15,6 +15,10 @@ import S6Core.ParallelBudget
 import S6Core.OwnershipBridge
 import S6Core.ClassificationExample
 import S6Core.Faithfulness
+import S6Core.CoveringGeometry
+import S6Core.MainTheorem
+import S6Core.NearEndGeometry
+import S6Core.G5Fragments
 import S6Core.RigidMotionChart
 import S6Core.ObliqueChart
 import S6Core.EuclideanChord

@@ -191,6 +191,9 @@ structure RoleSelection (T : Target) where
   hFA : iF ≠ iA
   hC_ne_corners :
     iC ≠ owners.i1 ∧ iC ≠ owners.i2 ∧ iC ≠ owners.i3 ∧ iC ≠ owners.i4
+  /-- Sixth tile misses the four corner owners (manuscript `F`). -/
+  hF_ne_corners :
+    iF ≠ owners.i1 ∧ iF ≠ owners.i2 ∧ iF ≠ owners.i3 ∧ iF ≠ owners.i4
 
 /-! ## Sixth tile = manuscript non-corner, non-centre block `F` -/
 
@@ -244,14 +247,21 @@ noncomputable def RoleSelection.ofCover {T : Target} (cov : PointwiseCover T) :
       hCF := ?_
       hCA := hne.1
       hFA := ?_
-      hC_ne_corners := hne }
+      hC_ne_corners := hne
+      hF_ne_corners := ?_ }
   · intro h; exact (hiF.2.2.2.2 h.symm)
   · exact hiF.1
+  · exact ⟨hiF.1, hiF.2.1, hiF.2.2.1, hiF.2.2.2.1⟩
 
 theorem RoleSelection_centre_ne_corners {T : Target} (R : RoleSelection T) :
     R.iC ≠ R.owners.i1 ∧ R.iC ≠ R.owners.i2 ∧
       R.iC ≠ R.owners.i3 ∧ R.iC ≠ R.owners.i4 :=
   R.hC_ne_corners
+
+theorem RoleSelection_F_ne_corners {T : Target} (R : RoleSelection T) :
+    R.iF ≠ R.owners.i1 ∧ R.iF ≠ R.owners.i2 ∧
+      R.iF ≠ R.owners.i3 ∧ R.iF ≠ R.owners.i4 :=
+  R.hF_ne_corners
 
 def RoleSelection.toManuscript {T : Target} (R : RoleSelection T) :
     ManuscriptNormalisedCovering :=
