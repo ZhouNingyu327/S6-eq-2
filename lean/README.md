@@ -58,8 +58,8 @@ geometric proofs.
 | `distSq` on `containsR`; four-corner clamped outer pairs ≤2 | **Proved** |
 | Corner mid-miss when `μ²>2`; outer+mid pack skeleton | **Proved** |
 | Centre outer-miss (`μ²>2`); four-corner projWidth mid-miss (`|c|+|s|<μ`) | **Proved** |
-| SW `clampedSquareTotal ≤2` under projWidth (mids/top/right empty) | **Proved** |
-| SE/NE/NW clampedSquareTotal; filler packing; general `ChordMatrixExport` | **Open** |
+| Four-corner `clampedSquareTotal ≤2` under projWidth | **Proved** |
+| Filler mid packing; general `ChordMatrixExport`; BodyChartAxis / IdentityC | **Open** |
 | Inhabit `RotatedSixLineMeasureLift` from `RotatedGridRatCover` | **Open** |
 | Axis/identity-C realisation ⇒ `RotatedChordCoverIneq` | **Proved conditional** |
 | `G3ParallelBudgetExport`⇒`G3SideGapDataExport`/exclusion | **Proved conditional** |

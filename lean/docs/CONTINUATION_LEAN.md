@@ -2,16 +2,15 @@
 
 ## Done
 
-- **v0.26.2:** centre outer-miss; four-corner projWidth mid-miss
-- **v0.26.3:** `clampedHoriz/VertLen_eq_zero_of_empty`; SW ℝ top/right/mid empty under
-  projWidth; `SW_clampedSquareTotal_le_two_of_projWidth`
+- **v0.26.2–v0.26.4:** centre outer-miss; four-corner projWidth mid-miss;
+  four-corner `clampedSquareTotal ≤2` under `|c|+|s|<μ`
 - LivingLeaf / Cert* (other track)
 
 ## Next
 
-1. SE/NE/NW `clampedSquareTotal ≤2` under projWidth; filler mid packing →
-   `RotatedChordMatrixExport` → CoverIneq, **or** BodyChartAxis / IdentityC.
-2. G3SepWitness / CapGeometry — note `s*s=2` over ℚ is uninhabitable; need ℝ lift.
+1. Filler mid packing → `RotatedChordMatrixExport` → CoverIneq,
+   **or** BodyChartAxis / IdentityC for every G5 k=0.
+2. G3SepWitness / CapGeometry — `s*s=2` over ℚ uninhabitable; need ℝ lift.
 3. Unconditional `PrincipalClaim` only after ClassExclusions close.
 
 ## Honesty

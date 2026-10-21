@@ -40,9 +40,9 @@ PointwiseCover corner clamped packing.
 Proved: corner mid-miss when μ²>2; corner outer+mid pack skeleton (μ²>2).
 Proved: centre outer-miss when μ²>2 (RoleSelection / PointwiseCover);
 projWidth mid-miss (|c|+|s|<μ) for all four corners (partial μ²≤2 path).
-Proved: SW clampedSquareTotal ≤2 under projWidth (mids/top/right empty).
-Open: SE/NE/NW clampedSquareTotal; filler packing; ChordMatrixExport;
-BodyChartAxis / IdentityC; G3 from covers; unconditional PrincipalClaim.
+Proved: four-corner clampedSquareTotal ≤2 under projWidth (mids+far sides empty).
+Open: filler packing; ChordMatrixExport; BodyChartAxis / IdentityC;
+G3 from covers (s²=2/ℚ blocked); unconditional PrincipalClaim.
 -/
 
 namespace S6.RotatedChordMeasure
@@ -2383,5 +2383,356 @@ theorem SW_clampedSquareTotal_le_two_of_projWidth (g : RotatedSquare) (μ : ℚ)
 def rotatedSWClampedSquareTotalProjWidthClosed : Bool := true
 theorem rotatedSWClampedSquareTotalProjWidthClosed_true :
     rotatedSWClampedSquareTotalProjWidthClosed = true := rfl
+
+
+/-! ### SE/NE/NW clampedSquareTotal ≤ 2 under projWidth -/
+
+theorem containsR_SE_misses_top (g : RotatedSquare) (μ : ℚ) (hμ : 1 < μ)
+    (hSE : RotatedSquare.contains g (2 * μ, 0)) (x : ℝ) :
+    ¬ containsR g (x, ((2 * μ : ℚ) : ℝ)) := by
+  intro ht
+  have hr0 := contains_implies_containsR g (2 * μ) (0 : ℚ) hSE
+  have hd := abs_delta_y_le_two g ((2 * μ : ℚ) : ℝ) ((0 : ℚ) : ℝ) x ((2 * μ : ℚ) : ℝ) hr0 ht
+  have hgap : (2 : ℝ) < ((2 * μ : ℚ) : ℝ) := by exact_mod_cast (by nlinarith [hμ] : (2 : ℚ) < 2 * μ)
+  have hnn : (0 : ℝ) ≤ ((2 * μ : ℚ) : ℝ) := by
+    exact_mod_cast (by nlinarith [hμ] : (0 : ℚ) ≤ 2 * μ)
+  have hlen : ((2 * μ : ℚ) : ℝ) ≤ (2 : ℝ) := by
+    have h' : |((2 * μ : ℚ) : ℝ) - (0 : ℝ)| ≤ (2 : ℝ) := by simpa [abs_sub_comm] using hd
+    rwa [sub_zero, abs_of_nonneg hnn] at h'
+  linarith
+
+theorem containsR_SE_misses_left (g : RotatedSquare) (μ : ℚ) (hμ : 1 < μ)
+    (hSE : RotatedSquare.contains g (2 * μ, 0)) (y : ℝ) :
+    ¬ containsR g (((0 : ℚ) : ℝ), y) := by
+  intro ht
+  have hr0 := contains_implies_containsR g (2 * μ) (0 : ℚ) hSE
+  have hd := abs_delta_x_le_two g ((2 * μ : ℚ) : ℝ) ((0 : ℚ) : ℝ) ((0 : ℚ) : ℝ) y hr0 ht
+  have hgap : (2 : ℝ) < ((2 * μ : ℚ) : ℝ) := by exact_mod_cast (by nlinarith [hμ] : (2 : ℚ) < 2 * μ)
+  have hnn : (0 : ℝ) ≤ ((2 * μ : ℚ) : ℝ) := by
+    exact_mod_cast (by nlinarith [hμ] : (0 : ℚ) ≤ 2 * μ)
+  have hlen : ((2 * μ : ℚ) : ℝ) ≤ (2 : ℝ) := by
+    have h' : |((0 : ℚ) : ℝ) - ((2 * μ : ℚ) : ℝ)| ≤ (2 : ℝ) := by
+      simpa [abs_sub_comm] using hd
+    have heq : |((0 : ℚ) : ℝ) - ((2 * μ : ℚ) : ℝ)| = ((2 * μ : ℚ) : ℝ) := by
+      have h : ((0 : ℚ) : ℝ) - ((2 * μ : ℚ) : ℝ) = -((2 * μ : ℚ) : ℝ) := by ring
+      rw [h, abs_neg, abs_of_nonneg hnn]
+    rwa [heq] at h'
+  linarith
+
+theorem containsR_SE_misses_hMid_of_projWidth (g : RotatedSquare) (μ : ℚ)
+    (hpw : |g.dir.c| + |g.dir.s| < μ)
+    (hSE : RotatedSquare.contains g (2 * μ, 0)) (x : ℝ) :
+    ¬ containsR g (x, (μ : ℝ)) := by
+  intro ht
+  have hr0 := contains_implies_containsR g (2 * μ) (0 : ℚ) hSE
+  have hd := abs_delta_y_containsR g ((2 * μ : ℚ) : ℝ) ((0 : ℚ) : ℝ) x (μ : ℝ) hr0 ht
+  have hμ0 : (0 : ℝ) ≤ (μ : ℝ) := by exact_mod_cast mu_nonneg_of_projWidth_lt g μ hpw
+  have hle : (μ : ℝ) ≤ (|g.dir.c| : ℝ) + (|g.dir.s| : ℝ) := by
+    have h' : |(μ : ℝ) - (0 : ℝ)| ≤ (|g.dir.c| : ℝ) + (|g.dir.s| : ℝ) := by
+      simpa [abs_sub_comm] using hd
+    rwa [sub_zero, abs_of_nonneg hμ0] at h'
+  have hpwR : (|g.dir.c| : ℝ) + (|g.dir.s| : ℝ) < (μ : ℝ) := by exact_mod_cast hpw
+  linarith
+
+theorem containsR_SE_misses_vMid_of_projWidth (g : RotatedSquare) (μ : ℚ)
+    (hpw : |g.dir.c| + |g.dir.s| < μ)
+    (hSE : RotatedSquare.contains g (2 * μ, 0)) (y : ℝ) :
+    ¬ containsR g ((μ : ℝ), y) := by
+  intro ht
+  have hr0 := contains_implies_containsR g (2 * μ) (0 : ℚ) hSE
+  have hd := abs_delta_x_containsR g ((2 * μ : ℚ) : ℝ) ((0 : ℚ) : ℝ) (μ : ℝ) y hr0 ht
+  have hμ0 : (0 : ℝ) ≤ (μ : ℝ) := by exact_mod_cast mu_nonneg_of_projWidth_lt g μ hpw
+  have hle : (μ : ℝ) ≤ (|g.dir.c| : ℝ) + (|g.dir.s| : ℝ) := by
+    have h' : |(μ : ℝ) - ((2 * μ : ℚ) : ℝ)| ≤ (|g.dir.c| : ℝ) + (|g.dir.s| : ℝ) := by
+      simpa [abs_sub_comm] using hd
+    have heq : |(μ : ℝ) - ((2 * μ : ℚ) : ℝ)| = (μ : ℝ) := by
+      have h : (μ : ℝ) - ((2 * μ : ℚ) : ℝ) = -((μ : ℝ)) := by push_cast; ring
+      rw [h, abs_neg, abs_of_nonneg hμ0]
+    rwa [heq] at h'
+  have hpwR : (|g.dir.c| : ℝ) + (|g.dir.s| : ℝ) < (μ : ℝ) := by exact_mod_cast hpw
+  linarith
+
+theorem SE_horizSliceR_top_empty (g : RotatedSquare) (μ : ℚ) (hμ : 1 < μ)
+    (hSE : RotatedSquare.contains g (2 * μ, 0)) :
+    horizSliceR g (2 * μ) = ∅ := by
+  ext x; exact ⟨fun hx => (containsR_SE_misses_top g μ hμ hSE x hx).elim, fun h => h.elim⟩
+
+theorem SE_vertSliceR_left_empty (g : RotatedSquare) (μ : ℚ) (hμ : 1 < μ)
+    (hSE : RotatedSquare.contains g (2 * μ, 0)) :
+    vertSliceR g 0 = ∅ := by
+  ext y; exact ⟨fun hy => (containsR_SE_misses_left g μ hμ hSE y hy).elim, fun h => h.elim⟩
+
+theorem SE_horizSliceR_hMid_empty_of_projWidth (g : RotatedSquare) (μ : ℚ)
+    (hpw : |g.dir.c| + |g.dir.s| < μ)
+    (hSE : RotatedSquare.contains g (2 * μ, 0)) :
+    horizSliceR g μ = ∅ := by
+  ext x; exact ⟨fun hx => (containsR_SE_misses_hMid_of_projWidth g μ hpw hSE x hx).elim,
+    fun h => h.elim⟩
+
+theorem SE_vertSliceR_vMid_empty_of_projWidth (g : RotatedSquare) (μ : ℚ)
+    (hpw : |g.dir.c| + |g.dir.s| < μ)
+    (hSE : RotatedSquare.contains g (2 * μ, 0)) :
+    vertSliceR g μ = ∅ := by
+  ext y; exact ⟨fun hy => (containsR_SE_misses_vMid_of_projWidth g μ hpw hSE y hy).elim,
+    fun h => h.elim⟩
+
+theorem SE_clampedSquareTotal_le_two_of_projWidth (g : RotatedSquare) (μ : ℚ)
+    (hμ : 1 < μ) (hpw : |g.dir.c| + |g.dir.s| < μ)
+    (hSE : RotatedSquare.contains g (2 * μ, 0)) :
+    clampedSquareTotal g μ ≤ 2 := by
+  have hOuter := SE_clamped_outer_sum_le_two g μ hμ hSE
+  have hTop := clampedHorizLen_eq_zero_of_empty g (2 * μ) μ (SE_horizSliceR_top_empty g μ hμ hSE)
+  have hLeft := clampedVertLen_eq_zero_of_empty g 0 μ (SE_vertSliceR_left_empty g μ hμ hSE)
+  have hHM := clampedHorizLen_eq_zero_of_empty g μ μ
+    (SE_horizSliceR_hMid_empty_of_projWidth g μ hpw hSE)
+  have hVM := clampedVertLen_eq_zero_of_empty g μ μ
+    (SE_vertSliceR_vMid_empty_of_projWidth g μ hpw hSE)
+  -- SE outer pack is bottom + right
+  simp only [clampedSquareTotal, hTop, hLeft, hHM, hVM, add_zero]
+  -- goal: clampedHorizLen g 0 μ + 0 + 0 + clampedVertLen g (2μ) μ + 0 + 0 ≤ 2
+  -- = clampedHorizLen g 0 μ + clampedVertLen g (2 * μ) μ ≤ 2
+  simpa [add_comm, add_left_comm, add_assoc] using hOuter
+
+theorem containsR_NE_misses_bottom (g : RotatedSquare) (μ : ℚ) (hμ : 1 < μ)
+    (hNE : RotatedSquare.contains g (2 * μ, 2 * μ)) (x : ℝ) :
+    ¬ containsR g (x, ((0 : ℚ) : ℝ)) := by
+  intro ht
+  have hr0 := contains_implies_containsR g (2 * μ) (2 * μ) hNE
+  have hd := abs_delta_y_le_two g ((2 * μ : ℚ) : ℝ) ((2 * μ : ℚ) : ℝ) x ((0 : ℚ) : ℝ) hr0 ht
+  have hgap : (2 : ℝ) < ((2 * μ : ℚ) : ℝ) := by exact_mod_cast (by nlinarith [hμ] : (2 : ℚ) < 2 * μ)
+  have hnn : (0 : ℝ) ≤ ((2 * μ : ℚ) : ℝ) := by
+    exact_mod_cast (by nlinarith [hμ] : (0 : ℚ) ≤ 2 * μ)
+  have hlen : ((2 * μ : ℚ) : ℝ) ≤ (2 : ℝ) := by
+    have h' : |((0 : ℚ) : ℝ) - ((2 * μ : ℚ) : ℝ)| ≤ (2 : ℝ) := by simpa [abs_sub_comm] using hd
+    have heq : |((0 : ℚ) : ℝ) - ((2 * μ : ℚ) : ℝ)| = ((2 * μ : ℚ) : ℝ) := by
+      have h : ((0 : ℚ) : ℝ) - ((2 * μ : ℚ) : ℝ) = -((2 * μ : ℚ) : ℝ) := by ring
+      rw [h, abs_neg, abs_of_nonneg hnn]
+    rwa [heq] at h'
+  linarith
+
+theorem containsR_NE_misses_left (g : RotatedSquare) (μ : ℚ) (hμ : 1 < μ)
+    (hNE : RotatedSquare.contains g (2 * μ, 2 * μ)) (y : ℝ) :
+    ¬ containsR g (((0 : ℚ) : ℝ), y) := by
+  intro ht
+  have hr0 := contains_implies_containsR g (2 * μ) (2 * μ) hNE
+  have hd := abs_delta_x_le_two g ((2 * μ : ℚ) : ℝ) ((2 * μ : ℚ) : ℝ) ((0 : ℚ) : ℝ) y hr0 ht
+  have hgap : (2 : ℝ) < ((2 * μ : ℚ) : ℝ) := by exact_mod_cast (by nlinarith [hμ] : (2 : ℚ) < 2 * μ)
+  have hnn : (0 : ℝ) ≤ ((2 * μ : ℚ) : ℝ) := by
+    exact_mod_cast (by nlinarith [hμ] : (0 : ℚ) ≤ 2 * μ)
+  have hlen : ((2 * μ : ℚ) : ℝ) ≤ (2 : ℝ) := by
+    have h' : |((0 : ℚ) : ℝ) - ((2 * μ : ℚ) : ℝ)| ≤ (2 : ℝ) := by
+      simpa [abs_sub_comm] using hd
+    have heq : |((0 : ℚ) : ℝ) - ((2 * μ : ℚ) : ℝ)| = ((2 * μ : ℚ) : ℝ) := by
+      have h : ((0 : ℚ) : ℝ) - ((2 * μ : ℚ) : ℝ) = -((2 * μ : ℚ) : ℝ) := by ring
+      rw [h, abs_neg, abs_of_nonneg hnn]
+    rwa [heq] at h'
+  linarith
+
+theorem containsR_NE_misses_hMid_of_projWidth (g : RotatedSquare) (μ : ℚ)
+    (hpw : |g.dir.c| + |g.dir.s| < μ)
+    (hNE : RotatedSquare.contains g (2 * μ, 2 * μ)) (x : ℝ) :
+    ¬ containsR g (x, (μ : ℝ)) := by
+  intro ht
+  have hr0 := contains_implies_containsR g (2 * μ) (2 * μ) hNE
+  have hd := abs_delta_y_containsR g ((2 * μ : ℚ) : ℝ) ((2 * μ : ℚ) : ℝ) x (μ : ℝ) hr0 ht
+  have hμ0 : (0 : ℝ) ≤ (μ : ℝ) := by exact_mod_cast mu_nonneg_of_projWidth_lt g μ hpw
+  have hle : (μ : ℝ) ≤ (|g.dir.c| : ℝ) + (|g.dir.s| : ℝ) := by
+    have h' : |(μ : ℝ) - ((2 * μ : ℚ) : ℝ)| ≤ (|g.dir.c| : ℝ) + (|g.dir.s| : ℝ) := by
+      simpa [abs_sub_comm] using hd
+    have heq : |(μ : ℝ) - ((2 * μ : ℚ) : ℝ)| = (μ : ℝ) := by
+      have h : (μ : ℝ) - ((2 * μ : ℚ) : ℝ) = -((μ : ℝ)) := by push_cast; ring
+      rw [h, abs_neg, abs_of_nonneg hμ0]
+    rwa [heq] at h'
+  have hpwR : (|g.dir.c| : ℝ) + (|g.dir.s| : ℝ) < (μ : ℝ) := by exact_mod_cast hpw
+  linarith
+
+theorem containsR_NE_misses_vMid_of_projWidth (g : RotatedSquare) (μ : ℚ)
+    (hpw : |g.dir.c| + |g.dir.s| < μ)
+    (hNE : RotatedSquare.contains g (2 * μ, 2 * μ)) (y : ℝ) :
+    ¬ containsR g ((μ : ℝ), y) := by
+  intro ht
+  have hr0 := contains_implies_containsR g (2 * μ) (2 * μ) hNE
+  have hd := abs_delta_x_containsR g ((2 * μ : ℚ) : ℝ) ((2 * μ : ℚ) : ℝ) (μ : ℝ) y hr0 ht
+  have hμ0 : (0 : ℝ) ≤ (μ : ℝ) := by exact_mod_cast mu_nonneg_of_projWidth_lt g μ hpw
+  have hle : (μ : ℝ) ≤ (|g.dir.c| : ℝ) + (|g.dir.s| : ℝ) := by
+    have h' : |(μ : ℝ) - ((2 * μ : ℚ) : ℝ)| ≤ (|g.dir.c| : ℝ) + (|g.dir.s| : ℝ) := by
+      simpa [abs_sub_comm] using hd
+    have heq : |(μ : ℝ) - ((2 * μ : ℚ) : ℝ)| = (μ : ℝ) := by
+      have h : (μ : ℝ) - ((2 * μ : ℚ) : ℝ) = -((μ : ℝ)) := by push_cast; ring
+      rw [h, abs_neg, abs_of_nonneg hμ0]
+    rwa [heq] at h'
+  have hpwR : (|g.dir.c| : ℝ) + (|g.dir.s| : ℝ) < (μ : ℝ) := by exact_mod_cast hpw
+  linarith
+
+theorem NE_horizSliceR_bottom_empty (g : RotatedSquare) (μ : ℚ) (hμ : 1 < μ)
+    (hNE : RotatedSquare.contains g (2 * μ, 2 * μ)) :
+    horizSliceR g 0 = ∅ := by
+  ext x; exact ⟨fun hx => (containsR_NE_misses_bottom g μ hμ hNE x hx).elim, fun h => h.elim⟩
+
+theorem NE_vertSliceR_left_empty (g : RotatedSquare) (μ : ℚ) (hμ : 1 < μ)
+    (hNE : RotatedSquare.contains g (2 * μ, 2 * μ)) :
+    vertSliceR g 0 = ∅ := by
+  ext y; exact ⟨fun hy => (containsR_NE_misses_left g μ hμ hNE y hy).elim, fun h => h.elim⟩
+
+theorem NE_horizSliceR_hMid_empty_of_projWidth (g : RotatedSquare) (μ : ℚ)
+    (hpw : |g.dir.c| + |g.dir.s| < μ)
+    (hNE : RotatedSquare.contains g (2 * μ, 2 * μ)) :
+    horizSliceR g μ = ∅ := by
+  ext x; exact ⟨fun hx => (containsR_NE_misses_hMid_of_projWidth g μ hpw hNE x hx).elim,
+    fun h => h.elim⟩
+
+theorem NE_vertSliceR_vMid_empty_of_projWidth (g : RotatedSquare) (μ : ℚ)
+    (hpw : |g.dir.c| + |g.dir.s| < μ)
+    (hNE : RotatedSquare.contains g (2 * μ, 2 * μ)) :
+    vertSliceR g μ = ∅ := by
+  ext y; exact ⟨fun hy => (containsR_NE_misses_vMid_of_projWidth g μ hpw hNE y hy).elim,
+    fun h => h.elim⟩
+
+theorem NE_clampedSquareTotal_le_two_of_projWidth (g : RotatedSquare) (μ : ℚ)
+    (hμ : 1 < μ) (hpw : |g.dir.c| + |g.dir.s| < μ)
+    (hNE : RotatedSquare.contains g (2 * μ, 2 * μ)) :
+    clampedSquareTotal g μ ≤ 2 := by
+  have hOuter := NE_clamped_outer_sum_le_two g μ hμ hNE
+  have hBot := clampedHorizLen_eq_zero_of_empty g 0 μ (NE_horizSliceR_bottom_empty g μ hμ hNE)
+  have hLeft := clampedVertLen_eq_zero_of_empty g 0 μ (NE_vertSliceR_left_empty g μ hμ hNE)
+  have hHM := clampedHorizLen_eq_zero_of_empty g μ μ
+    (NE_horizSliceR_hMid_empty_of_projWidth g μ hpw hNE)
+  have hVM := clampedVertLen_eq_zero_of_empty g μ μ
+    (NE_vertSliceR_vMid_empty_of_projWidth g μ hpw hNE)
+  simp only [clampedSquareTotal, hBot, hLeft, hHM, hVM, add_zero]
+  simpa [add_comm, add_left_comm, add_assoc] using hOuter
+
+theorem containsR_NW_misses_bottom (g : RotatedSquare) (μ : ℚ) (hμ : 1 < μ)
+    (hNW : RotatedSquare.contains g (0, 2 * μ)) (x : ℝ) :
+    ¬ containsR g (x, ((0 : ℚ) : ℝ)) := by
+  intro ht
+  have hr0 := contains_implies_containsR g (0 : ℚ) (2 * μ) hNW
+  have hd := abs_delta_y_le_two g ((0 : ℚ) : ℝ) ((2 * μ : ℚ) : ℝ) x ((0 : ℚ) : ℝ) hr0 ht
+  have hgap : (2 : ℝ) < ((2 * μ : ℚ) : ℝ) := by exact_mod_cast (by nlinarith [hμ] : (2 : ℚ) < 2 * μ)
+  have hnn : (0 : ℝ) ≤ ((2 * μ : ℚ) : ℝ) := by
+    exact_mod_cast (by nlinarith [hμ] : (0 : ℚ) ≤ 2 * μ)
+  have hlen : ((2 * μ : ℚ) : ℝ) ≤ (2 : ℝ) := by
+    have h' : |((0 : ℚ) : ℝ) - ((2 * μ : ℚ) : ℝ)| ≤ (2 : ℝ) := by simpa [abs_sub_comm] using hd
+    have heq : |((0 : ℚ) : ℝ) - ((2 * μ : ℚ) : ℝ)| = ((2 * μ : ℚ) : ℝ) := by
+      have h : ((0 : ℚ) : ℝ) - ((2 * μ : ℚ) : ℝ) = -((2 * μ : ℚ) : ℝ) := by ring
+      rw [h, abs_neg, abs_of_nonneg hnn]
+    rwa [heq] at h'
+  linarith
+
+theorem containsR_NW_misses_right (g : RotatedSquare) (μ : ℚ) (hμ : 1 < μ)
+    (hNW : RotatedSquare.contains g (0, 2 * μ)) (y : ℝ) :
+    ¬ containsR g (((2 * μ : ℚ) : ℝ), y) := by
+  intro ht
+  have hr0 := contains_implies_containsR g (0 : ℚ) (2 * μ) hNW
+  have hd := abs_delta_x_le_two g ((0 : ℚ) : ℝ) ((2 * μ : ℚ) : ℝ) ((2 * μ : ℚ) : ℝ) y hr0 ht
+  have hgap : (2 : ℝ) < ((2 * μ : ℚ) : ℝ) := by exact_mod_cast (by nlinarith [hμ] : (2 : ℚ) < 2 * μ)
+  have hnn : (0 : ℝ) ≤ ((2 * μ : ℚ) : ℝ) := by
+    exact_mod_cast (by nlinarith [hμ] : (0 : ℚ) ≤ 2 * μ)
+  have hlen : ((2 * μ : ℚ) : ℝ) ≤ (2 : ℝ) := by
+    have h' : |((2 * μ : ℚ) : ℝ) - (0 : ℝ)| ≤ (2 : ℝ) := by simpa [abs_sub_comm] using hd
+    rwa [sub_zero, abs_of_nonneg hnn] at h'
+  linarith
+
+theorem containsR_NW_misses_hMid_of_projWidth (g : RotatedSquare) (μ : ℚ)
+    (hpw : |g.dir.c| + |g.dir.s| < μ)
+    (hNW : RotatedSquare.contains g (0, 2 * μ)) (x : ℝ) :
+    ¬ containsR g (x, (μ : ℝ)) := by
+  intro ht
+  have hr0 := contains_implies_containsR g (0 : ℚ) (2 * μ) hNW
+  have hd := abs_delta_y_containsR g ((0 : ℚ) : ℝ) ((2 * μ : ℚ) : ℝ) x (μ : ℝ) hr0 ht
+  have hμ0 : (0 : ℝ) ≤ (μ : ℝ) := by exact_mod_cast mu_nonneg_of_projWidth_lt g μ hpw
+  have hle : (μ : ℝ) ≤ (|g.dir.c| : ℝ) + (|g.dir.s| : ℝ) := by
+    have h' : |(μ : ℝ) - ((2 * μ : ℚ) : ℝ)| ≤ (|g.dir.c| : ℝ) + (|g.dir.s| : ℝ) := by
+      simpa [abs_sub_comm] using hd
+    have heq : |(μ : ℝ) - ((2 * μ : ℚ) : ℝ)| = (μ : ℝ) := by
+      have h : (μ : ℝ) - ((2 * μ : ℚ) : ℝ) = -((μ : ℝ)) := by push_cast; ring
+      rw [h, abs_neg, abs_of_nonneg hμ0]
+    rwa [heq] at h'
+  have hpwR : (|g.dir.c| : ℝ) + (|g.dir.s| : ℝ) < (μ : ℝ) := by exact_mod_cast hpw
+  linarith
+
+theorem containsR_NW_misses_vMid_of_projWidth (g : RotatedSquare) (μ : ℚ)
+    (hpw : |g.dir.c| + |g.dir.s| < μ)
+    (hNW : RotatedSquare.contains g (0, 2 * μ)) (y : ℝ) :
+    ¬ containsR g ((μ : ℝ), y) := by
+  intro ht
+  have hr0 := contains_implies_containsR g (0 : ℚ) (2 * μ) hNW
+  have hd := abs_delta_x_containsR g ((0 : ℚ) : ℝ) ((2 * μ : ℚ) : ℝ) (μ : ℝ) y hr0 ht
+  have hμ0 : (0 : ℝ) ≤ (μ : ℝ) := by exact_mod_cast mu_nonneg_of_projWidth_lt g μ hpw
+  have hle : (μ : ℝ) ≤ (|g.dir.c| : ℝ) + (|g.dir.s| : ℝ) := by
+    have h' : |(μ : ℝ) - (0 : ℝ)| ≤ (|g.dir.c| : ℝ) + (|g.dir.s| : ℝ) := by
+      simpa [abs_sub_comm] using hd
+    rwa [sub_zero, abs_of_nonneg hμ0] at h'
+  have hpwR : (|g.dir.c| : ℝ) + (|g.dir.s| : ℝ) < (μ : ℝ) := by exact_mod_cast hpw
+  linarith
+
+theorem NW_horizSliceR_bottom_empty (g : RotatedSquare) (μ : ℚ) (hμ : 1 < μ)
+    (hNW : RotatedSquare.contains g (0, 2 * μ)) :
+    horizSliceR g 0 = ∅ := by
+  ext x; exact ⟨fun hx => (containsR_NW_misses_bottom g μ hμ hNW x hx).elim, fun h => h.elim⟩
+
+theorem NW_vertSliceR_right_empty (g : RotatedSquare) (μ : ℚ) (hμ : 1 < μ)
+    (hNW : RotatedSquare.contains g (0, 2 * μ)) :
+    vertSliceR g (2 * μ) = ∅ := by
+  ext y; exact ⟨fun hy => (containsR_NW_misses_right g μ hμ hNW y hy).elim, fun h => h.elim⟩
+
+theorem NW_horizSliceR_hMid_empty_of_projWidth (g : RotatedSquare) (μ : ℚ)
+    (hpw : |g.dir.c| + |g.dir.s| < μ)
+    (hNW : RotatedSquare.contains g (0, 2 * μ)) :
+    horizSliceR g μ = ∅ := by
+  ext x; exact ⟨fun hx => (containsR_NW_misses_hMid_of_projWidth g μ hpw hNW x hx).elim,
+    fun h => h.elim⟩
+
+theorem NW_vertSliceR_vMid_empty_of_projWidth (g : RotatedSquare) (μ : ℚ)
+    (hpw : |g.dir.c| + |g.dir.s| < μ)
+    (hNW : RotatedSquare.contains g (0, 2 * μ)) :
+    vertSliceR g μ = ∅ := by
+  ext y; exact ⟨fun hy => (containsR_NW_misses_vMid_of_projWidth g μ hpw hNW y hy).elim,
+    fun h => h.elim⟩
+
+theorem NW_clampedSquareTotal_le_two_of_projWidth (g : RotatedSquare) (μ : ℚ)
+    (hμ : 1 < μ) (hpw : |g.dir.c| + |g.dir.s| < μ)
+    (hNW : RotatedSquare.contains g (0, 2 * μ)) :
+    clampedSquareTotal g μ ≤ 2 := by
+  have hOuter := NW_clamped_outer_sum_le_two g μ hμ hNW
+  have hBot := clampedHorizLen_eq_zero_of_empty g 0 μ (NW_horizSliceR_bottom_empty g μ hμ hNW)
+  have hRight := clampedVertLen_eq_zero_of_empty g (2 * μ) μ (NW_vertSliceR_right_empty g μ hμ hNW)
+  have hHM := clampedHorizLen_eq_zero_of_empty g μ μ
+    (NW_horizSliceR_hMid_empty_of_projWidth g μ hpw hNW)
+  have hVM := clampedVertLen_eq_zero_of_empty g μ μ
+    (NW_vertSliceR_vMid_empty_of_projWidth g μ hpw hNW)
+  simp only [clampedSquareTotal, hBot, hRight, hHM, hVM, add_zero]
+  simpa [add_comm, add_left_comm, add_assoc] using hOuter
+
+/-- All four corners: clampedSquareTotal ≤ 2 under per-tile `|c|+|s|<μ`. -/
+theorem PointwiseCover_corner_clampedSquareTotal_of_projWidth {T : Target}
+    (cov : PointwiseCover T) (hμ : 1 < T.μ)
+    (hpw1 : |(cov.squares (cov.toCornerOwners.i1)).dir.c| +
+      |(cov.squares (cov.toCornerOwners.i1)).dir.s| < T.μ)
+    (hpw2 : |(cov.squares (cov.toCornerOwners.i2)).dir.c| +
+      |(cov.squares (cov.toCornerOwners.i2)).dir.s| < T.μ)
+    (hpw3 : |(cov.squares (cov.toCornerOwners.i3)).dir.c| +
+      |(cov.squares (cov.toCornerOwners.i3)).dir.s| < T.μ)
+    (hpw4 : |(cov.squares (cov.toCornerOwners.i4)).dir.c| +
+      |(cov.squares (cov.toCornerOwners.i4)).dir.s| < T.μ) :
+    let C := cov.toCornerOwners
+    clampedSquareTotal (C.squares C.i1) T.μ ≤ 2 ∧
+      clampedSquareTotal (C.squares C.i2) T.μ ≤ 2 ∧
+      clampedSquareTotal (C.squares C.i3) T.μ ≤ 2 ∧
+      clampedSquareTotal (C.squares C.i4) T.μ ≤ 2 := by
+  intro C
+  refine ⟨?_, ?_, ?_, ?_⟩
+  · exact SW_clampedSquareTotal_le_two_of_projWidth _ T.μ hμ hpw1
+      (by simpa [Target.v1] using C.h1)
+  · exact SE_clampedSquareTotal_le_two_of_projWidth _ T.μ hμ hpw2
+      (by simpa [Target.v2] using C.h2)
+  · exact NE_clampedSquareTotal_le_two_of_projWidth _ T.μ hμ hpw3
+      (by simpa [Target.v3] using C.h3)
+  · exact NW_clampedSquareTotal_le_two_of_projWidth _ T.μ hμ hpw4
+      (by simpa [Target.v4] using C.h4)
+
+def rotatedCornerClampedSquareTotalProjWidthClosed : Bool := true
+theorem rotatedCornerClampedSquareTotalProjWidthClosed_true :
+    rotatedCornerClampedSquareTotalProjWidthClosed = true := rfl
 
 end S6.RotatedChordMeasure

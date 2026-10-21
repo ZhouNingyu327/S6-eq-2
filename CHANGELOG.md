@@ -1,3 +1,11 @@
+## v0.26.4 — four-corner clampedSquareTotal ≤2 under projWidth (2026-10-22 Asia/Shanghai)
+
+- `RotatedChordMeasure`: SE/NE/NW ℝ far-side + mid empties under `|c|+|s|<μ`;
+  `*_clampedSquareTotal_le_two_of_projWidth`;
+  `PointwiseCover_corner_clampedSquareTotal_of_projWidth`.
+- `rotatedMidPackingProved` remains false (fillers). `principalClaimProvedUnconditionally=false`.
+- Lake green. Honest bar still ~80–84%.
+
 ## v0.26.3 — R14 LeftLengthHyps algebraic unsat (2026-10-22 Asia/Shanghai)
 
 - `CertR14BridgeJunction`: Lean-prove Z3 `left_length` pack unsat
