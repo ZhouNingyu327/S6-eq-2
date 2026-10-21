@@ -159,4 +159,149 @@ theorem axis_grid_cover_impossible (μ corners CF : ℚ) (hμ : 1 < μ)
   simp only [gridLen] at hcover h12
   nlinarith
 
+/-! ## Corner-owner outer bound (axis) -/
+
+/-- An axis square that contains the target SW corner `(0,0)` cannot meet
+the top or right outer sides when `μ > 1`, and meets bottom+left in length ≤1
+each ⇒ outer contribution ≤ 2. -/
+theorem axis_contains_origin_outer_le_two (s : AxisSquare) (μ : ℚ) (hμ : 1 < μ)
+    (hO : s.contains (0, 0)) :
+    bottomLen s μ + topLen s μ + leftLen s μ + rightLen s μ ≤ 2 := by
+  -- From contains (0,0): s.x ≤ 0 ≤ s.x+1 and s.y ≤ 0 ≤ s.y+1
+  have hx0 : s.x ≤ 0 := by
+    simp only [AxisSquare.contains] at hO; exact hO.1.1.1
+  have hx1 : (0 : ℚ) ≤ s.x + 1 := by
+    simp only [AxisSquare.contains] at hO; exact hO.1.1.2
+  have hy0 : s.y ≤ 0 := by
+    simp only [AxisSquare.contains] at hO; exact hO.1.2
+  have hy1 : (0 : ℚ) ≤ s.y + 1 := by
+    simp only [AxisSquare.contains] at hO; exact hO.2
+  -- top: needs 2μ ∈ [s.y, s.y+1]; but s.y+1 ≤ 1 < 2 ≤ 2μ
+  have htop : topLen s μ = 0 := by
+    simp only [topLen]
+    have h : ¬ (s.y ≤ 2 * μ ∧ 2 * μ ≤ s.y + 1) := by
+      intro ⟨_, h2⟩
+      have : s.y + 1 ≤ 1 := by nlinarith [hy0]
+      nlinarith [hμ, h2, this]
+    rw [ite_eq_right h]
+  -- right: needs 2μ ∈ [s.x, s.x+1]; similarly impossible
+  have hright : rightLen s μ = 0 := by
+    simp only [rightLen]
+    have h : ¬ (s.x ≤ 2 * μ ∧ 2 * μ ≤ s.x + 1) := by
+      intro ⟨_, h2⟩
+      have : s.x + 1 ≤ 1 := by nlinarith [hx0]
+      nlinarith [hμ, h2, this]
+    rw [ite_eq_right h]
+  have hb := bottomLen_le_one s μ hμ
+  have hl := leftLen_le_one s μ hμ
+  nlinarith [htop, hright, hb, hl]
+
+def seCornerAt (μ : ℚ) : AxisSquare := ⟨2 * μ - 1, 0⟩
+def neCornerAt (μ : ℚ) : AxisSquare := ⟨2 * μ - 1, 2 * μ - 1⟩
+def nwCornerAt (μ : ℚ) : AxisSquare := ⟨0, 2 * μ - 1⟩
+
+theorem se_contains_se (μ : ℚ) (_hμ : 1 < μ) :
+    (seCornerAt μ).contains (2 * μ, 0) := by
+  simp only [AxisSquare.contains, seCornerAt]
+  refine ⟨⟨⟨?_, ?_⟩, ?_⟩, ?_⟩ <;> nlinarith [hμ]
+
+theorem axis_contains_se_outer_le_two (s : AxisSquare) (μ : ℚ) (hμ : 1 < μ)
+    (hSE : s.contains (2 * μ, 0)) :
+    bottomLen s μ + topLen s μ + leftLen s μ + rightLen s μ ≤ 2 := by
+  have hx0 : s.x ≤ 2 * μ := by
+    simp only [AxisSquare.contains] at hSE; exact hSE.1.1.1
+  have hx1 : 2 * μ ≤ s.x + 1 := by
+    simp only [AxisSquare.contains] at hSE; exact hSE.1.1.2
+  have hy0 : s.y ≤ 0 := by
+    simp only [AxisSquare.contains] at hSE; exact hSE.1.2
+  have hy1 : (0 : ℚ) ≤ s.y + 1 := by
+    simp only [AxisSquare.contains] at hSE; exact hSE.2
+  have htop : topLen s μ = 0 := by
+    simp only [topLen]
+    have h : ¬ (s.y ≤ 2 * μ ∧ 2 * μ ≤ s.y + 1) := by
+      intro ⟨_, h2⟩
+      have : s.y + 1 ≤ 1 := by nlinarith [hy0]
+      nlinarith [hμ, h2, this]
+    rw [ite_eq_right h]
+  have hleft : leftLen s μ = 0 := by
+    simp only [leftLen]
+    have h : ¬ (s.x ≤ 0 ∧ 0 ≤ s.x + 1) := by
+      intro ⟨h1, _⟩
+      -- s.x ≤ 0 and 2μ ≤ s.x+1 ≤ 1 ⇒ 2μ ≤ 1, contradict μ>1
+      nlinarith [hμ, h1, hx1]
+    rw [ite_eq_right h]
+  have hb := bottomLen_le_one s μ hμ
+  have hr := rightLen_le_one s μ hμ
+  nlinarith [htop, hleft, hb, hr]
+
+theorem axis_contains_ne_outer_le_two (s : AxisSquare) (μ : ℚ) (hμ : 1 < μ)
+    (hNE : s.contains (2 * μ, 2 * μ)) :
+    bottomLen s μ + topLen s μ + leftLen s μ + rightLen s μ ≤ 2 := by
+  have hx0 : s.x ≤ 2 * μ := by
+    simp only [AxisSquare.contains] at hNE; exact hNE.1.1.1
+  have hx1 : 2 * μ ≤ s.x + 1 := by
+    simp only [AxisSquare.contains] at hNE; exact hNE.1.1.2
+  have hy0 : s.y ≤ 2 * μ := by
+    simp only [AxisSquare.contains] at hNE; exact hNE.1.2
+  have hy1 : 2 * μ ≤ s.y + 1 := by
+    simp only [AxisSquare.contains] at hNE; exact hNE.2
+  have hbot : bottomLen s μ = 0 := by
+    simp only [bottomLen]
+    have h : ¬ (s.y ≤ 0 ∧ 0 ≤ s.y + 1) := by
+      intro ⟨h1, _⟩
+      nlinarith [hμ, h1, hy1]
+    rw [ite_eq_right h]
+  have hleft : leftLen s μ = 0 := by
+    simp only [leftLen]
+    have h : ¬ (s.x ≤ 0 ∧ 0 ≤ s.x + 1) := by
+      intro ⟨h1, _⟩
+      nlinarith [hμ, h1, hx1]
+    rw [ite_eq_right h]
+  have ht := topLen_le_one s μ hμ
+  have hr := rightLen_le_one s μ hμ
+  nlinarith [hbot, hleft, ht, hr]
+
+theorem axis_contains_nw_outer_le_two (s : AxisSquare) (μ : ℚ) (hμ : 1 < μ)
+    (hNW : s.contains (0, 2 * μ)) :
+    bottomLen s μ + topLen s μ + leftLen s μ + rightLen s μ ≤ 2 := by
+  have hx0 : s.x ≤ 0 := by
+    simp only [AxisSquare.contains] at hNW; exact hNW.1.1.1
+  have hx1 : (0 : ℚ) ≤ s.x + 1 := by
+    simp only [AxisSquare.contains] at hNW; exact hNW.1.1.2
+  have hy0 : s.y ≤ 2 * μ := by
+    simp only [AxisSquare.contains] at hNW; exact hNW.1.2
+  have hy1 : 2 * μ ≤ s.y + 1 := by
+    simp only [AxisSquare.contains] at hNW; exact hNW.2
+  have hbot : bottomLen s μ = 0 := by
+    simp only [bottomLen]
+    have h : ¬ (s.y ≤ 0 ∧ 0 ≤ s.y + 1) := by
+      intro ⟨h1, _⟩
+      nlinarith [hμ, h1, hy1]
+    rw [ite_eq_right h]
+  have hright : rightLen s μ = 0 := by
+    simp only [rightLen]
+    have h : ¬ (s.x ≤ 2 * μ ∧ 2 * μ ≤ s.x + 1) := by
+      intro ⟨_, h2⟩
+      have : s.x + 1 ≤ 1 := by nlinarith [hx0]
+      nlinarith [hμ, h2, this]
+    rw [ite_eq_right h]
+  have ht := topLen_le_one s μ hμ
+  have hl := leftLen_le_one s μ hμ
+  nlinarith [hbot, hright, ht, hl]
+
+/-- Four axis tiles owning the four target corners ⇒ outer corner budget ≤ 8. -/
+theorem axis_four_corner_owners_outer_le_eight
+    (sSW sSE sNE sNW : AxisSquare) (μ : ℚ) (hμ : 1 < μ)
+    (hSW : sSW.contains (0, 0)) (hSE : sSE.contains (2 * μ, 0))
+    (hNE : sNE.contains (2 * μ, 2 * μ)) (hNW : sNW.contains (0, 2 * μ)) :
+    (bottomLen sSW μ + topLen sSW μ + leftLen sSW μ + rightLen sSW μ) +
+      (bottomLen sSE μ + topLen sSE μ + leftLen sSE μ + rightLen sSE μ) +
+      (bottomLen sNE μ + topLen sNE μ + leftLen sNE μ + rightLen sNE μ) +
+      (bottomLen sNW μ + topLen sNW μ + leftLen sNW μ + rightLen sNW μ) ≤ 8 := by
+  have h1 := axis_contains_origin_outer_le_two sSW μ hμ hSW
+  have h2 := axis_contains_se_outer_le_two sSE μ hμ hSE
+  have h3 := axis_contains_ne_outer_le_two sNE μ hμ hNE
+  have h4 := axis_contains_nw_outer_le_two sNW μ hμ hNW
+  nlinarith
+
 end S6.AxisGridContribution

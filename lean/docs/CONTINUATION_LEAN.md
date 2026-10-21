@@ -9,7 +9,8 @@
 - **`G5ExclusionFrag`**: `G5Exclusion_of_bridges` (conditional); bridges open
 - **`G3G4Fragments`**: mid-split + M7.1 re-exports; G3/G4 bridges open
 - **`BernsteinGridLift`**: **`g2_alg_lt_two` unconditional** (Weierstrass identity proved); E-tier short-cap coeff nonneg
-- **`AxisGridContribution`**: clamp lengths, SW outer contrib = 2, four-corners ≤8, abstract grid cover impossible
+- **`AxisGridContribution`**: clamp lengths, SW outer contrib = 2, four-corners ≤8, abstract grid cover impossible;
+  **any** axis square containing a target corner has outer contrib ≤2; four corner-owners ⇒ ≤8
 - **`G5GeometryBridge`**: `RigidSquareGridExport → G5GridHyp → False`;
   `G5k*GeomExport ⇒ G5k*Bridge ⇒ G5Exclusion` (proved composition);
   axis outer/corner fragments closed; rotated chord-measure exports still open

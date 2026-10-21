@@ -175,4 +175,47 @@ def openG5GeomExports : List String :=
 def axisCornerOuterFragmentClosed : Bool := true
 theorem axisCornerOuterFragmentClosed_true : axisCornerOuterFragmentClosed = true := rfl
 
+
+/-! ## Axis four-corner owners ⇒ corners ≤ 8 (feeds G5k0GeomExport) -/
+
+theorem axis_corners_le_eight_of_owners
+    (sSW sSE sNE sNW : AxisSquare) (μ : ℚ) (hμ : 1 < μ)
+    (hSW : sSW.contains (0, 0)) (hSE : sSE.contains (2 * μ, 0))
+    (hNE : sNE.contains (2 * μ, 2 * μ)) (hNW : sNW.contains (0, 2 * μ)) :
+    (bottomLen sSW μ + topLen sSW μ + leftLen sSW μ + rightLen sSW μ) +
+      (bottomLen sSE μ + topLen sSE μ + leftLen sSE μ + rightLen sSE μ) +
+      (bottomLen sNE μ + topLen sNE μ + leftLen sNE μ + rightLen sNE μ) +
+      (bottomLen sNW μ + topLen sNW μ + leftLen sNW μ + rightLen sNW μ) ≤ 8 :=
+  axis_four_corner_owners_outer_le_eight sSW sSE sNE sNW μ hμ hSW hSE hNE hNW
+
+/-- Axis model: corners≤8 + CF<4 + cover ineq ⇒ False (unconditional algebra). -/
+theorem axis_G5Grid_impossible_of_bounds (μ corners CF : ℚ) (hμ : 1 < μ)
+    (hcorners : corners ≤ 8) (hCF : CF < 4)
+    (hcover : (12 : ℚ) * μ ≤ corners + CF) : False :=
+  axis_style_grid_impossible μ corners CF hμ hcorners hCF hcover
+
+/-- If an axis cover exports CF<4 and the grid is covered by the four corner
+outer contribs plus CF, then that cover is impossible. -/
+theorem axis_cover_impossible_of_cf_export
+    (sSW sSE sNE sNW : AxisSquare) (μ CF : ℚ) (hμ : 1 < μ) (hCF : CF < 4)
+    (hSW : sSW.contains (0, 0)) (hSE : sSE.contains (2 * μ, 0))
+    (hNE : sNE.contains (2 * μ, 2 * μ)) (hNW : sNW.contains (0, 2 * μ))
+    (hcover :
+      (12 : ℚ) * μ ≤
+        (bottomLen sSW μ + topLen sSW μ + leftLen sSW μ + rightLen sSW μ) +
+          (bottomLen sSE μ + topLen sSE μ + leftLen sSE μ + rightLen sSE μ) +
+          (bottomLen sNE μ + topLen sNE μ + leftLen sNE μ + rightLen sNE μ) +
+          (bottomLen sNW μ + topLen sNW μ + leftLen sNW μ + rightLen sNW μ) + CF) :
+    False := by
+  set corners :=
+    (bottomLen sSW μ + topLen sSW μ + leftLen sSW μ + rightLen sSW μ) +
+      (bottomLen sSE μ + topLen sSE μ + leftLen sSE μ + rightLen sSE μ) +
+      (bottomLen sNE μ + topLen sNE μ + leftLen sNE μ + rightLen sNE μ) +
+      (bottomLen sNW μ + topLen sNW μ + leftLen sNW μ + rightLen sNW μ)
+  have hcorners := axis_corners_le_eight_of_owners sSW sSE sNE sNW μ hμ hSW hSE hNE hNW
+  exact axis_G5Grid_impossible_of_bounds μ corners CF hμ hcorners hCF hcover
+
+def axisFourCornerBoundClosed : Bool := true
+theorem axisFourCornerBoundClosed_true : axisFourCornerBoundClosed = true := rfl
+
 end S6.G5GeometryBridge
