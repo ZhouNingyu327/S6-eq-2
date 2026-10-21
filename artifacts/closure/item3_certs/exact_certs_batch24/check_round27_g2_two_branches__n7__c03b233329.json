@@ -1,0 +1,13 @@
+{
+  "id": "check_round27_g2_two_branches__n7__c03b233329",
+  "file": "check_round27_g2_two_branches",
+  "n": 7,
+  "query": "mu > 1 ; p >= s ; s > 0 ; p*p + s*s == 1 ; h*(1 + p) == s ; p*(u - e) >= s*mu ; p*mu + s*(u - e) <= 1",
+  "method": "exact-hand-opposite-strict",
+  "status": "exact",
+  "certificate": {
+    "type": "hand_opposite_strict",
+    "claim": "X>= (s/p)mu => covering >= mu/p >1 for mu>1>p? actually p<=1, mu>1 => mu/p>1"
+  },
+  "batch": "26b"
+}

@@ -1,0 +1,14 @@
+{
+  "id": "check_round24_g3_fside__n9__5dc2b0bf35",
+  "file": "check_round24_g3_fside",
+  "n": 9,
+  "query": "r24_p > 0 ; r24_s > 0 ; r24_p >= r24_s ; r24_p*r24_p + r24_s*r24_s == 1 ; r24_h*(1 + r24_p) == r24_s ; r24_mu > 1 ; r24_s*r24_mu + r24_p*r24_d <= 1 ; r24_G*(1 + r24_h) == 1 - r24_h ; r24_d >= r24_G",
+  "method": "exact-hand-tip-d-G",
+  "status": "exact",
+  "certificate": {
+    "type": "identity_tip_d_G",
+    "identity": "s + p*G =1 when G=(1-h)/(1+h), h=s/(1+p)",
+    "claim": "mu>1 => s*mu+p*G >1"
+  },
+  "batch": "26"
+}

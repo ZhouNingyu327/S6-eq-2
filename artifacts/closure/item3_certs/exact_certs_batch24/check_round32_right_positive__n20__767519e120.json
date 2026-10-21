@@ -1,0 +1,13 @@
+{
+  "id": "check_round32_right_positive__n20__767519e120",
+  "file": "check_round32_right_positive",
+  "n": 20,
+  "query": "c >= s ; s > 0 ; c*c + s*s == 1 ; mu > 1 ; l > 0 ; r > 0 ; u > 0 ; d > 0 ; l < mu ; r < mu ; u < mu ; d < mu ; alpha < 0 ; alpha > -1 ; beta < 0 ; beta > -1 ; l + r - d > mu ; e > 0 ; s*d == -alpha ; c*l <= -alpha",
+  "method": "exact-hand-opposite-strict",
+  "status": "exact",
+  "certificate": {
+    "type": "hand_opposite_strict",
+    "claim": "c>=s => d>=(c/s)l from c*l<=s*d=-alpha; then l+r-d <= r + l(1-c/s) <= r < mu, contradict l+r-d>mu"
+  },
+  "batch": "26e"
+}

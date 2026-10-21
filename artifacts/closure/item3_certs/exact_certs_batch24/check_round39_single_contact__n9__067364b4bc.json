@@ -1,0 +1,24 @@
+{
+  "id": "check_round39_single_contact__n9__067364b4bc",
+  "file": "check_round39_single_contact",
+  "n": 9,
+  "query": "mu > 1 ; d > 0 ; d < 1 ; b >= 2*mu - Sigma ; v >= mu - d ; b > 0 ; v > 0 ; b*v <= 1 ; Sigma <= 2 - 1/(1 - d)",
+  "method": "exact-Bernstein-bv-product",
+  "status": "exact",
+  "certificate": {
+    "type": "bernstein_bv_product",
+    "numer_coeffs": [
+      "0",
+      "0",
+      "0",
+      "3",
+      "6/5",
+      "51/50",
+      "14",
+      "34/5",
+      "71/25"
+    ],
+    "claim": "(2mu-Sigma_max)(mu-d)>1"
+  },
+  "batch": "26"
+}

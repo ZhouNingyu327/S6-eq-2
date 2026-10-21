@@ -1,0 +1,21 @@
+{
+  "id": "check_round24_g3_fside__n7__ce41334842",
+  "file": "check_round24_g3_fside",
+  "n": 7,
+  "query": "r24_mu > 1 ; r24_r >= 0 ; r24_r < 1 ; r24_b >= 2*r24_mu - r24_S ; r24_f >= r24_mu - r24_r ; r24_b + r24_f*r24_f <= 2 ; r24_S <= (1 - r24_r)*(1 - r24_r)",
+  "method": "exact-Bernstein-bvv",
+  "status": "exact",
+  "certificate": {
+    "type": "bernstein_bvv",
+    "numer_coeffs": [
+      "0",
+      "0",
+      "4",
+      "2",
+      "12",
+      "8"
+    ],
+    "claim": "min b+f^2>2 on mu>1"
+  },
+  "batch": "26d"
+}

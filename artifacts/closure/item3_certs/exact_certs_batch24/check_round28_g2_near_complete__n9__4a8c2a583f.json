@@ -1,0 +1,15 @@
+{
+  "id": "check_round28_g2_near_complete__n9__4a8c2a583f",
+  "file": "check_round28_g2_near_complete",
+  "n": 9,
+  "query": "mu > 1 ; d > 0 ; d < 1 ; cw > 0 ; sw > 0 ; cw*cw + sw*sw == 1 ; H*(1 + cw) == sw ; cw*mu + sw*(mu - d) <= 1 ; H <= 1 - d",
+  "method": "exact-hand-tip-H-mu",
+  "status": "exact",
+  "certificate": {
+    "type": "identity_tip_H_mu",
+    "identity": "at d=1-H, mu=1: cw+sw*H =1 under H=sw/(1+cw)",
+    "mono": "d(lhs)/d(mu)=cw+sw>0",
+    "claim": "mu>1 => covering LHS>1 at maximal d=1-H, and smaller d only worse"
+  },
+  "batch": "26"
+}

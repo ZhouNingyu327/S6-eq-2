@@ -1,0 +1,13 @@
+{
+  "id": "check_round34_left_negative__n19__5983357ba3",
+  "file": "check_round34_left_negative",
+  "n": 19,
+  "query": "c >= s ; s > 0 ; c*c + s*s == 1 ; mu > 1 ; l > 0 ; r > 0 ; u > 0 ; d > 0 ; l < mu ; r < mu ; u < mu ; d < mu ; l + r - d > mu ; c*d == -beta ; d < 1/c - mu ; Or(s*u == alpha + 1, c*u == beta + 1) ; s*u <= alpha + 1 ; c*u <= beta + 1 ; s*u != alpha + 1",
+  "method": "exact-hand-Or-h-cascade",
+  "status": "exact",
+  "certificate": {
+    "type": "hand_Or_h_cascade",
+    "claim": "Or forces c*u=beta+1 => d=1/c-u <1/c-mu => u>mu vs u<mu"
+  },
+  "batch": "26d"
+}

@@ -79,3 +79,8 @@ Converted **60** previously (S) dual-solver rows to checkable Bernstein/IBB/hand
 ## 2026-10-22 batch25 continuation
 
 Checkable cert family total **60** (PASS). **Remaining (S): 91.** Not a theorem claim.
+
+
+## Batch24–26e certificate track (2026-10-22 Asia/Shanghai)
+
+Machine-checkable exact/hand certs in `artifacts/closure/item3_certs/exact_certs_batch24/`: **144** (checker PASS 144/144). Remaining dual-solver (S) from the post-batch25 set of 91: **7**. Does **not** close the theorem; Lean/lake remains a separate gap.

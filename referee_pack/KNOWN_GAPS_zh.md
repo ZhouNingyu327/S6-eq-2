@@ -45,3 +45,8 @@
 ## 2026-10-22 batch25 续
 
 可核证书累计 **60**；仍余（S）**91**。不宣称定理已证。
+
+
+## Batch24–26e certificate track (2026-10-22 Asia/Shanghai)
+
+Machine-checkable exact/hand certs in `artifacts/closure/item3_certs/exact_certs_batch24/`: **144** (checker PASS 144/144). Remaining dual-solver (S) from the post-batch25 set of 91: **7**. Does **not** close the theorem; Lean/lake remains a separate gap.

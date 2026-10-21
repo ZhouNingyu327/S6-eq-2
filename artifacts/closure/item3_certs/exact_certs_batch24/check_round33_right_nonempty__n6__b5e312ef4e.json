@@ -1,0 +1,13 @@
+{
+  "id": "check_round33_right_nonempty__n6__b5e312ef4e",
+  "file": "check_round33_right_nonempty",
+  "n": 6,
+  "query": "v > 0 ; 1 - phi > (5*v)/4 ; 1 - phi < l - rho ; l <= K*u ; z < (8*rho)/5 ; 5*z >= 8*K*u - 10*v",
+  "method": "exact-hand-A-k-eta-cascade",
+  "status": "exact",
+  "certificate": {
+    "type": "hand_A_k_eta_cascade",
+    "claim": "5v/4 < l-rho <=Ku-rho but z-bounds force Ku-rho < 5v/4"
+  },
+  "batch": "26d"
+}

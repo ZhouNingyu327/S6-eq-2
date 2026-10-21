@@ -1,0 +1,13 @@
+{
+  "id": "check_round38_empty_right_negative__n9__ef016f4d30",
+  "file": "check_round38_empty_right_negative",
+  "n": 9,
+  "query": "u > 0 ; u < 1 ; d > 0 ; K > 0 ; l > 0 ; l <= K*u ; K*l <= d ; z < (4*l*l)/7 ; z >= d",
+  "method": "exact-hand-z-ll",
+  "status": "exact",
+  "certificate": {
+    "type": "hand_z_ll_Ku",
+    "claim": "K*l <=d <=z <4l^2/7 => K<4l/7<=4Ku/7 => u>7/4 if K>0, contradict u<1"
+  },
+  "batch": "26"
+}

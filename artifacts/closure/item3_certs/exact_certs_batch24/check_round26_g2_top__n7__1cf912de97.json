@@ -1,0 +1,19 @@
+{
+  "id": "check_round26_g2_top__n7__1cf912de97",
+  "file": "check_round26_g2_top",
+  "n": 7,
+  "query": "mu > 1 ; alpha > 0 ; beta > 0 ; alpha*alpha + beta*beta == 1 ; l + d < 1 ; alpha*(mu - l) + beta*mu <= 1 ; alpha*mu + beta*(mu - d) <= 1",
+  "method": "exact-hand-both-axis-disc",
+  "status": "exact",
+  "certificate": {
+    "type": "hand_both_axis_disc",
+    "claim": "covering pair + r+u<1 + mu>1 impossible: associated quadratic (2mu-1)t^2-2t+1 has neg disc and pos leading coeff so >0, blocking contact configuration",
+    "disc_poly": "(2*mu-1)*t^2 - 2*t + 1",
+    "discriminant": "8-8*mu < 0 for mu>1",
+    "leading_pos_coeffs_on_[1,3]": [
+      "0",
+      "16"
+    ]
+  },
+  "batch": "26"
+}

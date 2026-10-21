@@ -1,0 +1,13 @@
+{
+  "id": "check_round32_right_positive__n8__95d87ec436",
+  "file": "check_round32_right_positive",
+  "n": 8,
+  "query": "mu > 1 ; e == mu - A ; A < z + u/(2 - u) ; z + u/(2 - u) < 1 - G ; d > 0 ; e + d < G ; u > 0 ; u < 1",
+  "method": "exact-hand-e-G-budget",
+  "status": "exact",
+  "certificate": {
+    "type": "hand_e_G_budget",
+    "claim": "e>mu-1+G => e+d>mu-1+G not <G for mu>1"
+  },
+  "batch": "26c"
+}

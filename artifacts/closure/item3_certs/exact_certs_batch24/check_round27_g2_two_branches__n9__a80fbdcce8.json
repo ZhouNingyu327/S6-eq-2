@@ -1,0 +1,18 @@
+{
+  "id": "check_round27_g2_two_branches__n9__a80fbdcce8",
+  "file": "check_round27_g2_two_branches",
+  "n": 9,
+  "query": "mu > 1 ; d > 0 ; 12*d < 1 ; cw > 0 ; sw > 0 ; cw*cw + sw*sw == 1 ; hw*(1 + cw) == sw ; cw*mu + sw*(mu - d) <= 1 ; 12*hw <= 11",
+  "method": "exact-Bernstein-hw11",
+  "status": "exact",
+  "certificate": {
+    "type": "bernstein_hw11",
+    "numer_coeffs": [
+      "0",
+      "11/12",
+      "11/72"
+    ],
+    "claim": "cw+sw>=1 on hw<=11/12 with = only at 0; mu>1 => covering>1 even at d=0"
+  },
+  "batch": "26c"
+}

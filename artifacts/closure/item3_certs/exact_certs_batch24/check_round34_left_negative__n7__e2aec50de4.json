@@ -1,0 +1,13 @@
+{
+  "id": "check_round34_left_negative__n7__e2aec50de4",
+  "file": "check_round34_left_negative",
+  "n": 7,
+  "query": "c >= s ; s > 0 ; c*c + s*s == 1 ; mu > 1 ; eta*(1 + c) == s ; -c*mu + s*(L1 - mu) >= s*u - 1 ; L1 <= 1 + u - eta",
+  "method": "exact-hand-tip-T-u",
+  "status": "exact",
+  "certificate": {
+    "type": "identity_tip_T_u",
+    "claim": "at L1=1+u-eta, mu=1 LHS-RHS=0; mu>1 breaks"
+  },
+  "batch": "26d"
+}

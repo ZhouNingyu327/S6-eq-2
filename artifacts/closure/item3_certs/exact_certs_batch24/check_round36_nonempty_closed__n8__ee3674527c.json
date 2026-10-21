@@ -1,0 +1,13 @@
+{
+  "id": "check_round36_nonempty_closed__n8__ee3674527c",
+  "file": "check_round36_nonempty_closed",
+  "n": 8,
+  "query": "mu > 1 ; D + L4 >= 2*mu ; D < mu - h1 + r/(2 - r) ; L4 < 1 + (u*u)/(2*(1 - u)) ; u > 0 ; 2*u < 1 ; r > 0 ; h1 >= (u*u)/(2*(1 - u)) + r/(2 - r)",
+  "method": "exact-hand-DL4-mu-budget",
+  "status": "exact",
+  "certificate": {
+    "type": "hand_DL4_mu_budget",
+    "claim": "D+L4 < mu+1 < 2mu for mu>1"
+  },
+  "batch": "26c"
+}

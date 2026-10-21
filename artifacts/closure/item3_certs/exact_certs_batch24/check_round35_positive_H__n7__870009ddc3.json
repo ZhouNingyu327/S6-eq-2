@@ -1,0 +1,13 @@
+{
+  "id": "check_round35_positive_H__n7__870009ddc3",
+  "file": "check_round35_positive_H",
+  "n": 7,
+  "query": "x > 0 ; x < 1 ; rho*(1 + x) == x*(1 - x) ; S1 <= phi ; S2 < (1 - x)/(1 + x) ; S1 + S2 > 2 - x - r ; 1 - phi >= r - rho",
+  "method": "exact-hand-S1S2-phi-rho",
+  "status": "exact",
+  "certificate": {
+    "type": "hand_S1S2_phi_rho",
+    "claim": "S1+S2 < 1-(r-rho)+(1-x)/(1+x) = 2-x-r (eq at rho); strict empty"
+  },
+  "batch": "26d"
+}

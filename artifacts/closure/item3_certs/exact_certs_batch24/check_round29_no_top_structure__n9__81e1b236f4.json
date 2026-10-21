@@ -1,0 +1,14 @@
+{
+  "id": "check_round29_no_top_structure__n9__81e1b236f4",
+  "file": "check_round29_no_top_structure",
+  "n": 9,
+  "query": "mu > 1 ; B < 1 ; hc >= 4*mu - B - S1 - S2 - U1 - U2 ; U1 < a ; U2 < x ; L4 + S1 + a + 2*z - z*z <= 2 ; L3 + S2 + x + 2*t - t*t <= 2 ; L3 + L4 >= 2*mu ; hc <= 1 + 2*z - z*z + 2*t - t*t",
+  "method": "exact-hand-hc-4mu",
+  "status": "exact",
+  "certificate": {
+    "type": "hand_hc_4mu",
+    "claim": "From L3+L4>=2mu and L4+S1+a+(2z-z^2)<=2, L3+S2+x+(2t-t^2)<=2, U1<a,U2<x,B<1: get Q+R<=4-2mu and R+Q>4mu-2 => mu<1",
+    "algebra": "Q=S1+S2+a+x, R=(2z-z^2)+(2t-t^2); hc>4mu-1-Q and hc<=1+R => R+Q>4mu-2; also 2mu<=4-Q-R"
+  },
+  "batch": "26"
+}

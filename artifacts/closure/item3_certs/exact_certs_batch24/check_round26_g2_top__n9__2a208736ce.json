@@ -1,0 +1,13 @@
+{
+  "id": "check_round26_g2_top__n9__2a208736ce",
+  "file": "check_round26_g2_top",
+  "n": 9,
+  "query": "mu > 1 ; alpha > 0 ; beta > 0 ; alpha*alpha + beta*beta == 1 ; l > 0 ; l < 1 ; alpha*(mu - l) + beta*mu <= 1 ; beta*(A - U) + alpha*mu <= 1 ; A >= U + l/(2 - l)",
+  "method": "exact-hand-A-U-l",
+  "status": "exact",
+  "certificate": {
+    "type": "hand_A_U_l",
+    "claim": "A-U>=l/(2-l) plays tip role with unit (alpha,beta); with mu>1 covering pair impossible (same both-axis/tip family)"
+  },
+  "batch": "26b"
+}

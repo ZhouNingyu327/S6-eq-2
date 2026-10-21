@@ -1,0 +1,13 @@
+{
+  "id": "check_round30_corrected_geometry__n13__93f00e5371",
+  "file": "check_round30_corrected_geometry",
+  "n": 13,
+  "query": "x1 >= 0 ; y1 >= 0 ; x2 >= 0 ; y2 >= 0 ; x3 >= 0 ; y3 >= 0 ; x1 <= 1 ; y1 <= 1 ; x2 <= 1 ; y2 <= 1 ; x3 <= 1 ; y3 <= 1 ; (x2 - x1)*(y3 - y1) - (x3 - x1)*(y2 - y1) > 1",
+  "method": "exact-hand-triangle-area",
+  "status": "exact",
+  "certificate": {
+    "type": "hand_triangle_area",
+    "claim": "any triangle in unit square has area <=1/2, so |det|<=1, cannot be >1"
+  },
+  "batch": "26"
+}

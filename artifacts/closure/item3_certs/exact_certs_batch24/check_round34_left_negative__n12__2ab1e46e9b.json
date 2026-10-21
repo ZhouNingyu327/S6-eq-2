@@ -1,0 +1,13 @@
+{
+  "id": "check_round34_left_negative__n12__2ab1e46e9b",
+  "file": "check_round34_left_negative",
+  "n": 12,
+  "query": "u > 0 ; 2*u < 1 ; w > u*u ; w == v*v ; v > 0 ; phi < 1 - v ; S1 <= phi ; S1 + S2 > 1 ; S2 < (1 - x)/(1 + x) ; x > 0 ; x < 1 ; x >= (1 - u)/(1 + u)",
+  "method": "exact-hand-S1S2-phi",
+  "status": "exact",
+  "certificate": {
+    "type": "hand_S1S2_phi",
+    "claim": "S1+S2<(1-v)+(1-x)/(1+x)<=1-v+u<1 since v>u"
+  },
+  "batch": "26d"
+}

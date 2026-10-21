@@ -1,0 +1,13 @@
+{
+  "id": "check_round35_positive_H__n7__da8400507d",
+  "file": "check_round35_positive_H",
+  "n": 7,
+  "query": "x > 0 ; x < 1 ; rho*(1 + x) == x*(1 - x) ; S1 < 1 ; S2 < (1 - x)/(1 + x) ; S1 + S2 > 2 - x - r ; rho >= r",
+  "method": "exact-Bernstein-S1S2-rho",
+  "status": "exact",
+  "certificate": {
+    "type": "bernstein_S1S2_rho",
+    "claim": "S1+S2<1+(1-x)/(1+x)<=2-x-rho<=2-x-r"
+  },
+  "batch": "26c"
+}

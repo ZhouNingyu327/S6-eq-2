@@ -1,0 +1,13 @@
+{
+  "id": "check_round30_corrected_geometry__n7__474e1e316d",
+  "file": "check_round30_corrected_geometry",
+  "n": 7,
+  "query": "mu > 1 ; l < mu ; K > 0 ; K <= 1 ; r <= K*d ; d >= 0 ; l + r - d > mu",
+  "method": "exact-hand-lrd-mu",
+  "status": "exact",
+  "certificate": {
+    "type": "hand_lrd_mu",
+    "claim": "l+r-d <= l+(K-1)d <=l <mu"
+  },
+  "batch": "26b"
+}

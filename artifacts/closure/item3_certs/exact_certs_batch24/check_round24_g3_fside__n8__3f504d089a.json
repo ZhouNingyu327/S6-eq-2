@@ -1,0 +1,15 @@
+{
+  "id": "check_round24_g3_fside__n8__3f504d089a",
+  "file": "check_round24_g3_fside",
+  "n": 8,
+  "query": "r24_p > 0 ; r24_s > 0 ; r24_p >= r24_s ; r24_p*r24_p + r24_s*r24_s == 1 ; r24_h*(1 + r24_p) == r24_s ; r24_mu > 1 ; r24_p*r24_mu + r24_s*r24_u <= 1 ; r24_u >= r24_h",
+  "method": "exact-hand-tip-e-h",
+  "status": "exact",
+  "certificate": {
+    "type": "identity_tip_e_h",
+    "identity": "p + s*h =1 when h=s/(1+p), p^2+s^2=1",
+    "mono": "coeff of mu is p+0; wait covering p*mu+s*e with e>=h: min LHS at e=h is p*mu+s*h; d/dmu =p>0",
+    "claim": "mu>1 => p*mu+s*h >1"
+  },
+  "batch": "26"
+}

@@ -1,0 +1,13 @@
+{
+  "id": "check_round36_nonempty_closed__n6__3ccebd49b2",
+  "file": "check_round36_nonempty_closed",
+  "n": 6,
+  "query": "Sigma > 1 + f ; f >= h0 - r ; h0 > 1 - u/(2 - u) ; u > 0 ; u < 1 ; 2 - Sigma >= u/(2 - u) + r",
+  "method": "exact-hand-Sigma-f-h0",
+  "status": "exact",
+  "certificate": {
+    "type": "hand_Sigma_f_h0",
+    "claim": "Sigma>1+h0-r>2-u/(2-u)-r => 2-Sigma < u/(2-u)+r contradict lower bound"
+  },
+  "batch": "26b"
+}

@@ -1,0 +1,13 @@
+{
+  "id": "check_round38_empty_right_negative__n10__e5a408ec96",
+  "file": "check_round38_empty_right_negative",
+  "n": 10,
+  "query": "c >= s ; s > 0 ; c*c + s*s == 1 ; mu > 1 ; e > 0 ; s*d == alpha + 1 ; c*u == beta + 1 ; c*mu - s*e <= alpha + 1 ; s*mu + c*e <= beta + 1 ; u + d < 1",
+  "method": "exact-hand-AMGM-ud",
+  "status": "exact",
+  "certificate": {
+    "type": "hand_AMGM_ud",
+    "claim": "coverings => u+d >= c/s+s/c >=2 >1"
+  },
+  "batch": "26d"
+}

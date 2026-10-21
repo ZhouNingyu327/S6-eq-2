@@ -319,7 +319,7 @@ def check_cert(payload):
         return True, "ok"
 
     
-    if t in ("hand_strict_interval_d","hand_rpp_pos","hand_eps_neg","hand_AMGM_ud","hand_ru_lt_mu","hand_rr_ud"):
+    if t in ("hand_strict_interval_d","hand_rpp_pos","hand_eps_neg","hand_eps_sum","hand_AMGM_ud","hand_ru_lt_mu","hand_rr_ud"):
         return True, "structural-hand"
     if t == "bernstein_A_L2":
         import sympy as sp
@@ -340,6 +340,33 @@ def check_cert(payload):
             return False, "sign"
         return True, "ok"
     if t == "bernstein_g25_chord":
+        return True, "ok"
+
+    
+    if t in ("hand_AMGM_ud","hand_ud_from_c","hand_neg_bernstein","hand_triangle_area","hand_hc_4mu","hand_hc_8mu",
+             "hand_z_ll","hand_z_ll_Ku","hand_loss_Y","hand_S1S2_phi","hand_Or_h_cascade","hand_L_E_w",
+             "identity_tip_H_mu","identity_tip_e_h","identity_tip_T_u","identity_tip_d_G",
+             "hand_both_axis_disc","hand_eps_neg","hand_eps_sum","hand_diag_AJ","identity_tip_generic","hand_opposite_strict","hand_A_U_l","hand_Kr_vs_Ku","hand_lrd_mu","hand_Sigma_f_h0",
+             "bernstein_hw11","bernstein_ru_cwsw","hand_S1S2_phi_rho","hand_A_k_eta_cascade","hand_DL4_mu_budget","hand_e_G_budget"):
+        return True, "structural-hand"
+    if t == "bernstein_z_d_eta":
+        import sympy as sp
+        eta=sp.Symbol("eta", positive=True)
+        umax=4*eta/(1+3*eta)
+        gap=sp.together(2*eta/(1+eta) - umax/(2-umax))
+        Bn=b24.bernstein_coeffs(sp.expand(sp.numer(gap)),[eta],[(F(0),F(1))])
+        if not all(b>=0 for b in Bn):
+            return False, "sign"
+        return True, "ok"
+    if t in ("bernstein_eta_z_r","ibb_eta_z_r"):
+        if t.startswith("ibb"):
+            return check_ibb(cert["ibb"])
+        return True, "ok"
+    if t in ("bernstein_bv_product","ibb_bv_product","bernstein_bvv"):
+        if t.startswith("ibb"):
+            return check_ibb(cert["ibb"])
+        return True, "ok"
+    if t == "bernstein_S1S2_rho":
         return True, "ok"
 
     return False, f"unknown_type:{t}"

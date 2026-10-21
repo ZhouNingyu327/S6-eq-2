@@ -1,0 +1,13 @@
+{
+  "id": "check_round25_g3_complete__n7__2e0fbdd037",
+  "file": "check_round25_g3_complete",
+  "n": 7,
+  "query": "g25_x > 0 ; g25_x < 1 ; g25_w < 1 - g25_a ; g25_x < g25_w ; g25_d > 1 - g25_a ; g25_d < g25_h ; g25_h*(2 - g25_x) < g25_x",
+  "method": "exact-hand-opposite-strict",
+  "status": "exact",
+  "certificate": {
+    "type": "hand_opposite_strict",
+    "claim": "x<w<1-a<d<h<x/(2-x) forces x>1 vs x<1"
+  },
+  "batch": "26d"
+}
