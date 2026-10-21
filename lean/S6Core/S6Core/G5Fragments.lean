@@ -63,4 +63,25 @@ theorem faithfulness_g5_sketch :
     classify flags_g5.toOwnership = TopClass.G5 :=
   g5_class
 
+
+/-- If `μ² > 2` and a square contains the centre, it contains no outer mid. -/
+theorem centre_owner_misses_all_outer_mids_of_mu_sq (T : Target) (g : RotatedSquare)
+    (hμ2 : (2 : ℚ) < T.μ * T.μ)
+    (hc : RotatedSquare.contains g (Target.centre T)) :
+    ¬ RotatedSquare.contains g (midBottom T) ∧
+      ¬ RotatedSquare.contains g (midRight T) ∧
+        ¬ RotatedSquare.contains g (midTop T) ∧
+          ¬ RotatedSquare.contains g (midLeft T) := by
+  refine ⟨?_, ?_, ?_, ?_⟩
+  · intro hb; exact no_square_centre_and_bottom_of_mu_sq T g hμ2 hc hb
+  · intro hr; exact no_square_centre_and_right_of_mu_sq T g hμ2 hc hr
+  · intro ht
+    have hfar : (2 : ℚ) < distSq (Target.centre T) (midTop T) := by
+      simp only [distSq, Target.centre, midTop]; nlinarith [hμ2]
+    exact cannot_cover_far g _ _ hfar hc ht
+  · intro hl
+    have hfar : (2 : ℚ) < distSq (Target.centre T) (midLeft T) := by
+      simp only [distSq, Target.centre, midLeft]; nlinarith [hμ2]
+    exact cannot_cover_far g _ _ hfar hc hl
+
 end S6.G5Fragments
