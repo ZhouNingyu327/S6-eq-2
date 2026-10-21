@@ -165,4 +165,39 @@ theorem axis_square_not_both_bottom_top (T : TargetMids) (s : AxisSquare)
     simp only [TargetMids.midBottom, TargetMids.midTop]; nlinarith [hμ]
   nlinarith
 
+
+theorem axis_square_not_both_right_left (T : TargetMids) (s : AxisSquare)
+    (hμ : 1 < T.μ)
+    (hr : s.contains T.midRight) (hl : s.contains T.midLeft) : False := by
+  have hx : |T.midRight.1 - T.midLeft.1| ≤ (1 : ℚ) := by
+    simp only [TargetMids.midRight, TargetMids.midLeft, AxisSquare.contains] at hr hl
+    exact abs_le.2 ⟨by nlinarith, by nlinarith⟩
+  have hy : |T.midRight.2 - T.midLeft.2| ≤ (1 : ℚ) := by
+    simp only [TargetMids.midRight, TargetMids.midLeft, AxisSquare.contains] at hr hl
+    exact abs_le.2 ⟨by nlinarith, by nlinarith⟩
+  have hx2 := abs_le_one_sq (T.midRight.1 - T.midLeft.1) hx
+  have hy2 := abs_le_one_sq (T.midRight.2 - T.midLeft.2) hy
+  have hfar : (2 : ℚ) <
+      (T.midRight.1 - T.midLeft.1) * (T.midRight.1 - T.midLeft.1) +
+        (T.midRight.2 - T.midLeft.2) * (T.midRight.2 - T.midLeft.2) := by
+    simp only [TargetMids.midRight, TargetMids.midLeft]; nlinarith [hμ]
+  nlinarith
+
+theorem axis_square_not_both_top_left (T : TargetMids) (s : AxisSquare)
+    (hμ : 1 < T.μ)
+    (ht : s.contains T.midTop) (hl : s.contains T.midLeft) : False := by
+  have hx : |T.midTop.1 - T.midLeft.1| ≤ (1 : ℚ) := by
+    simp only [TargetMids.midTop, TargetMids.midLeft, AxisSquare.contains] at ht hl
+    exact abs_le.2 ⟨by nlinarith, by nlinarith⟩
+  have hy : |T.midTop.2 - T.midLeft.2| ≤ (1 : ℚ) := by
+    simp only [TargetMids.midTop, TargetMids.midLeft, AxisSquare.contains] at ht hl
+    exact abs_le.2 ⟨by nlinarith, by nlinarith⟩
+  have hx2 := abs_le_one_sq (T.midTop.1 - T.midLeft.1) hx
+  have hy2 := abs_le_one_sq (T.midTop.2 - T.midLeft.2) hy
+  have hfar : (2 : ℚ) <
+      (T.midTop.1 - T.midLeft.1) * (T.midTop.1 - T.midLeft.1) +
+        (T.midTop.2 - T.midLeft.2) * (T.midTop.2 - T.midLeft.2) := by
+    simp only [TargetMids.midTop, TargetMids.midLeft]; nlinarith [hμ]
+  nlinarith
+
 end S6.CoveringGeometry

@@ -19,6 +19,7 @@ import S6Core.CoveringGeometry
 import S6Core.MainTheorem
 import S6Core.NearEndGeometry
 import S6Core.G5Fragments
+import S6Core.AxisClassConstraints
 import S6Core.RigidMotionChart
 import S6Core.ObliqueChart
 import S6Core.EuclideanChord

@@ -7,6 +7,7 @@
 - Outer-mid pairwise far + five roles
 - Near-end Props
 - `hF_ne_corners`
+- `AxisClassConstraints` (k=2 mid split across C/F)
 
 ## Next Lean milestones (priority order)
 

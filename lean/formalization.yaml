@@ -19,7 +19,7 @@ sources:
     notes: >-
       PrincipalClaim is a Prop (not Bool metadata). Proved: cover→five roles,
       pairwise-far outer mids, cover→TopClass, principal_of_class_exclusions,
-      near-end table Props, parallel-budget algebra/B(d)<1 fragments,
+      near-end table Props, AxisClassConstraints (k=2 C/F mid split), parallel-budget algebra/B(d)<1 fragments,
       RoleSelection hF_ne_corners. Open: G1…G5Exclusion (needed for
       unconditional PrincipalClaim). Still a computer-assisted candidate;
       not peer-reviewed. Distance to openai/math fully-formalized entries:

@@ -24,6 +24,7 @@ geometric proofs.
 | `principal_of_class_exclusions` (conditional main theorem) | **Proved** |
 | Near-end 7 impossible / 17 living table as Props | **Proved** (`NearEndGeometry`) |
 | Parallel-budget algebra + `B(d) < 1` fragments | **Proved** (existing modules) |
+| Axis `k=2` mids cannot both sit in C (or both in F) | **Proved** (`AxisClassConstraints`) |
 | `RoleSelection.hF_ne_corners` (sixth tile ≠ corners) | **Proved** |
 | `G1Exclusion` … `G5Exclusion` | **Open** (named Props) |
 | Unconditional `PrincipalClaim` | **Open** (`principalClaimProvedUnconditionally = false`) |
