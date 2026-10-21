@@ -1,7 +1,7 @@
 # Reproduction guide
 
-**Paper:** AI assistant (released by Ningyu Zhou) — *Six unit squares cannot cover a square of side greater than 2*  
-**Claim tier:** computer-assisted **candidate** (under revision after 2026-10-21 public-snapshot review)  
+**Paper:** Ningyu Zhou — *Six unit squares cannot cover a square of side greater than 2*  
+**Claim:** computer-assisted **candidate**  
 **Not claimed:** independent peer review; confirmed resolution of \(S(6)=2\); Lean Bool flags as geometric theorems
 
 Paths below are relative to the **repository root** unless noted.

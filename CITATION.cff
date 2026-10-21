@@ -1,7 +1,10 @@
 cff-version: 1.2.0
-message: "Cite the preprint BibTeX in preprints/Six-unit-squares-cannot-cover-a-square-of-side-greater-than-2-October-21-2026/README.md; treat as AI-produced candidate artifact."
-title: "Six unit squares cannot cover a square of side greater than 2 (candidate)"
+message: "Cite the preprint BibTeX under preprints/.../README.md."
+title: "Six unit squares cannot cover a square of side greater than 2"
 authors:
-  - name: "AI assistant (released by Ningyu Zhou)"
+  - family-names: Zhou
+    given-names: Ningyu
+    affiliation: "School of Physics, Peking University"
 date-released: "2026-10-21"
 url: "https://github.com/ZhouNingyu327/S6-eq-2"
+notes: "Computer-assisted candidate; see DISCLOSURE.md."

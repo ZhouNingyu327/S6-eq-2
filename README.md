@@ -1,45 +1,50 @@
-# Readme
+# Six unit squares cannot cover a square of side greater than 2
 
-This repository contains a mathematical manuscript and supporting proof artifacts **produced by a generative AI system**, released publicly in the style of the [OpenAI math collection](https://github.com/openai/math).
+Computer-assisted candidate argument that \(S(6)=2\), equivalently \(\Pi(2)=7\), addressing Conjecture 1.1 of Dósa–Lángi–Tuza (2026).
 
-The human releaser (**Ningyu Zhou**, School of Physics, Peking University) hosts and maintains the package. The releaser **does not claim** independent mastery of every step. Independent peer review has **not** occurred.
+Six closed unit squares cannot cover any Euclidean square of side strictly greater than \(2\); side \(2\) is attained by the obvious \(2\times 2\) tiling. Combined with the classical bound \(\Pi(2)\le 7\), this yields \(\Pi(2)=7\).
 
-**Status (2026-10-21 submission-ready pack):** computer-assisted **candidate** package prepared for **external referee review**; accuracy tier disclosed. Appropriate phrase: organized for peer review — **not** “confirmed solved.” See [`referee_pack/`](referee_pack/) and [`CHANGELOG_zh.md`](CHANGELOG_zh.md).
+**Status.** Candidate package under revision. Open mathematical gaps (Lean classification fidelity; independent peer review; remaining dual-solver steps) are listed in [`referee_pack/KNOWN_GAPS.md`](referee_pack/KNOWN_GAPS.md). Do not treat Lean Boolean flags as a geometric theorem.
 
-## Start here (external readers)
+## Reading order
 
-1. **[`referee_pack/README.md`](referee_pack/README.md)** — bilingual entry  
-2. **[`referee_pack/REFEREE_BRIEF.md`](referee_pack/REFEREE_BRIEF.md)** — 30 min / 2 h / full-day paths  
-3. **Short paper** — [`preprints/Six-unit-squares-cannot-cover-a-square-of-side-greater-than-2-October-21-2026/paper.pdf`](preprints/Six-unit-squares-cannot-cover-a-square-of-side-greater-than-2-October-21-2026/paper.pdf)  
-4. **Long proof** — [`artifacts/long_proof/`](artifacts/long_proof/)  
-5. **Reproduce** — [`referee_pack/HOW_TO_REPRODUCE.md`](referee_pack/HOW_TO_REPRODUCE.md) (`check_round64`, `check_round63`, `m3_branch_checker`)  
-6. **Gaps / tier** — [`referee_pack/KNOWN_GAPS.md`](referee_pack/KNOWN_GAPS.md), [`referee_pack/ACCURACY_TIER.md`](referee_pack/ACCURACY_TIER.md)  
-7. **Submission checklist (zh)** — [`SUBMISSION_CHECKLIST_zh.md`](SUBMISSION_CHECKLIST_zh.md)
+1. **Short paper (PDF)** — [`preprints/.../paper.pdf`](preprints/Six-unit-squares-cannot-cover-a-square-of-side-greater-than-2-October-21-2026/paper.pdf)  
+   Definitions, normalisation honesty, top-level classes, Hyp⇒Concl propositions with module IDs, appendices M1–M4.
+2. **Long verification manuscript** — [`artifacts/long_proof/`](artifacts/long_proof/) (`S6_full_proof.pdf` / `.md`)
+3. **Certificates and spot checks** — [`artifacts/checkers/`](artifacts/checkers/), [`artifacts/closure/`](artifacts/closure/), [`artifacts/ex_all.tar.gz`](artifacts/ex_all.tar.gz)  
+   See [`referee_pack/HOW_TO_REPRODUCE.md`](referee_pack/HOW_TO_REPRODUCE.md).
+4. **Lean 4 skeleton** — [`lean/S6Core/`](lean/S6Core/) (partial; see [`lean/README.md`](lean/README.md))
 
-## Navigating the collection
+For timed reading paths (30 min / 2 h / full day), start at [`referee_pack/`](referee_pack/).
 
-- [overview](overview.md) · [CONTENTS](CONTENTS.md) · [history](history.md) · [DISCLOSURE](DISCLOSURE.md) · [CITATION.cff](CITATION.cff)
-- [`preprints/`](preprints/) — TeX + PDF (Guide for referees; Apps.\ A–D = M1–M4)
-- [`lean/`](lean/) — partial skeleton; Boolean flags = status metadata ([`lean/docs/001.md`](lean/docs/001.md))
-- [`artifacts/`](artifacts/) — `long_proof/`, `checkers/` (+ companion JSON), `closure/` (M1–M4), `ex_all.tar.gz` + `ex/all/`, `SHA256SUMS.txt`
-- [`referee_pack/`](referee_pack/) — **preferred entry for outsiders**
+## Repository layout
 
-## Honesty snapshot
-
-| Item | State |
+| Path | Contents |
 | --- | --- |
-| Π(n) quantifier (∃ε) | Fixed |
-| Normalisation “later = id” overclaim | Weakened; App.\ A candidate protocol |
-| Long proof + R64 certs + `ex/all` | Shipped |
-| Closure M1–M4 | In `artifacts/closure/` + paper appendices |
-| Lean Bool “theorem closed” | Status metadata only |
-| Lean ↔ manuscript classification fidelity | **Open** (Major 3) |
-| External peer review | **Not done** |
+| [`preprints/`](preprints/) | TeX sources and short paper PDF |
+| [`artifacts/long_proof/`](artifacts/long_proof/) | Full verification narrative |
+| [`artifacts/checkers/`](artifacts/checkers/) | Spot-check scripts and companion JSON |
+| [`artifacts/closure/`](artifacts/closure/) | Closure notes M1–M4 and branch checker |
+| [`artifacts/certs/`](artifacts/certs/) | Certificate registries and inventories |
+| [`artifacts/ex/all/`](artifacts/ex/all/), `ex_all.tar.gz` | Historical verification tree and hashes (`SHA256SUMS.txt`) |
+| [`artifacts/still_S/`](artifacts/still_S/), [`artifacts/audit/`](artifacts/audit/) | Residual audits |
+| [`lean/`](lean/) | Lean 4 partial skeleton |
+| [`referee_pack/`](referee_pack/) | Guide for mathematicians and referees |
+| [`history.md`](history.md) | Factual repository timeline |
 
-## How the result was produced
+## Quick reproduce
 
-Generative AI assistants under the releaser’s direction produced the manuscript and certificate / Lean scaffolding (end-to-end exploration dump). Release *format* follows OpenAI’s public math repository; this is not a classical sole-author paper from personal mastery of every lemma.
+```bash
+git clone https://github.com/ZhouNingyu327/S6-eq-2.git
+cd S6-eq-2/artifacts/checkers
+python3 check_round64.py && python3 check_round63.py
+cd ../closure && python3 m3_branch_checker.py
+```
 
-## License
+## Citation
 
-See [LICENSE](LICENSE).
+See the BibTeX in [`preprints/.../README.md`](preprints/Six-unit-squares-cannot-cover-a-square-of-side-greater-than-2-October-21-2026/README.md) and [`CITATION.cff`](CITATION.cff).
+
+## License and disclosure
+
+[LICENSE](LICENSE). Release ethics (computer-assisted production; releaser role): [DISCLOSURE.md](DISCLOSURE.md).

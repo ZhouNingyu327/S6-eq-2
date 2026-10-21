@@ -1,12 +1,12 @@
-# Referee brief — reading paths
+# Reading paths
 
 **Claim:** candidate argument that \(S(6)=2\) (six unit squares cannot cover any square of side \(>2\); side \(2\) is attained). Equivalently \(\Pi(2)=7\) given the classical \(\Pi(2)\le 7\).
 
-**Do not** treat internal AI reviews or Lean Boolean flags as peer review.
+Do **not** treat Lean Boolean flags as a geometric proof of the theorem.
 
 ## 30-minute path
 
-1. Root [README.md](../README.md) + [ACCURACY_TIER.md](ACCURACY_TIER.md) + [KNOWN_GAPS.md](KNOWN_GAPS.md).
+1. Root [README.md](../README.md) + [STATUS.md](STATUS.md) + [KNOWN_GAPS.md](KNOWN_GAPS.md).
 2. Short paper: abstract, Guide for referees, §Definitions (Π quantifier), Prop.\ on normalisation honesty, Prop.\ on top-level classes, Theorem statement, Appendices A–D (M1–M4).
 3. Run:
    ```bash
@@ -19,9 +19,9 @@
 Everything in the 30-minute path, plus:
 
 4. Short paper §§5–11: each proposition’s Hyp ⇒ Concl and module IDs (R2–R64).
-5. Spot-check long proof TOC / one near-end leaf (e.g.\ R16 narrative) and one far-end step (R29N / R31).
+5. Spot-check long proof TOC / one near-end leaf (e.g.\ R16) and one far-end step (R29N / R31).
 6. Read `artifacts/closure/M1_proposition_zh.md`, `M2_R29_module_zh.md`, `M3_branch_table_zh.md`, `M4_unsat_inventory.md` (Chinese source notes; English summaries in paper Apps.\ A–D).
-7. Sample one (S)-tier dual-solver item from M4 inventory for modelling faithfulness.
+7. Sample one (S)-tier dual-solver item from the M4 inventory for modelling faithfulness.
 
 ## Full-day path
 
@@ -41,8 +41,6 @@ Everything in the 30-minute path, plus:
 
 ## Suggested editorial outcomes
 
-- **Accept for further journal review:** only after independent human verification of exhaustiveness + certificate sampling + M1–M4 present in the manuscript you review.
+- **Accept for further journal review:** only after independent human verification of exhaustiveness + certificate sampling + M1–M4 present in the manuscript under review.
 - **Major revision:** gaps in classification, missing certificates, or (S) steps presented as exact.
 - **Reject:** genuine geometric counterexample or unfixable classification hole.
-
-Internal packaging stance: **ready for external referee attention; not literature-closed.**

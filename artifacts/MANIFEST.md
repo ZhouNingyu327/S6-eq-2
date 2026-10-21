@@ -7,6 +7,6 @@
 | `certs/` | Registries / inventories |
 | `still_S/` | Audit notes; b23d replaced by manifest |
 | `audit/` | G3 checklist script (repo-relative) |
-| `DOWNLOADS/` | Omitted `ex/all/` hash inventory |
+| `DOWNLOADS/` | Hash inventory for `ex/all` |
 | `REPRODUCE.md` | Clean-clone reproduce guide |
 | `THEOREM_CORE_summary.md` | Short core summary (may predate maturity fix wording) |

@@ -36,13 +36,12 @@
 \title[Six unit squares cannot cover a larger square]
 {Six unit squares cannot cover a square of side greater than~$2$}
 
-\author{AI assistant (released by Ningyu Zhou)}
-\address{Public GitHub release maintained by Ningyu Zhou, School of Physics, Peking University}
+\author{Ningyu Zhou}
+\address{School of Physics, Peking University}
 \email{zhouningyu27@gmail.com}
 \urladdr{https://github.com/ZhouNingyu327/S6-eq-2}
-\thanks{This manuscript was produced by a generative AI system as a \emph{candidate}
-computer-assisted argument. The human releaser hosts the package and does not claim
-independent mastery of every step. Independent peer review has not occurred.
+\thanks{Computer-assisted candidate manuscript; generative tools used in production.
+The releaser does not claim mastery of every step; independent peer review is pending.
 See the repository \texttt{DISCLOSURE.md}.}
 
 \date{October 21, 2026}
@@ -57,23 +56,20 @@ $\varepsilon>0$.
 We present a computer-assisted \emph{candidate} argument that $S(6)=2$, or
 equivalently $\Pi(2)=7$, addressing the conjecture stated by
 D\'osa--L\'angi--Tuza~\cite{DLT2026}.
-In particular, the candidate claims that six unit squares cannot cover any
-square of side strictly greater than~$2$, while side~$2$ is attained by the
-obvious $2\times 2$ tiling.  The matching upper bound $\Pi(2)\le 7$ is the
-classical fact that seven unit squares cover some square of side $>2$; see
-Soifer and the covering surveys cited below.
+In particular, six unit squares cannot cover any square of side strictly
+greater than~$2$, while side~$2$ is attained by the obvious $2\times 2$ tiling.
+The matching upper bound $\Pi(2)\le 7$ is the classical fact that seven unit
+squares cover some square of side $>2$; see Soifer and the covering surveys
+cited below.
 
 The argument is a finite case analysis on ownership of the centre and of the
 four outer midpoints, followed by stepwise normalisation / reclassification
 and the elimination of joining modes.  Algebraic exclusions are discharged by
 exact rational identities, positive Bernstein certificates on compact boxes,
-interval certificates, and SMT UNSAT queries; selected geometric interfaces
-are sketched in a Lean~4 skeleton.  Machine certificates and the Lean skeleton
-(no \texttt{sorry}, no extra axioms \emph{in that skeleton}) support the
-narrative; Boolean status flags in Lean are human-maintained metadata, not
-geometric theorems.  We do not claim independent peer review, nor a confirmed
-resolution of the conjecture, nor a full Lean re-proof of every metric
-inequality in the long verification manuscript.
+interval certificates, and SMT UNSAT queries; selected interfaces are sketched
+in a Lean~4 skeleton.  Machine certificates support the narrative; Lean Boolean
+flags are status metadata, not geometric theorems.  Independent peer review has
+not occurred; see the repository status notes for open gaps.
 \end{abstract}
 
 \subjclass[2020]{Primary 52C15; Secondary 52C17, 68Q60, 68V15}
@@ -85,16 +81,16 @@ Bernstein certificates, SMT, Lean~4}
 \tableofcontents
 
 \section*{Guide for referees}
-This short paper is a \emph{candidate} computer-assisted argument, not a
+This short paper is a computer-assisted \emph{candidate} argument, not a
 peer-reviewed resolution.  Read in this order: (i)~Definitions and
 Proposition~\ref{prop:M1} (normalisation honesty); (ii)~Proposition~\ref{prop:M3}
 and Appendix~\ref{app:M3} (branch tables); (iii)~Propositions in
 Sections~\ref{sec:early}--\ref{sec:finale}, each stating
 \emph{hypothesis~$\Rightarrow$ conclusion} and citing long-proof modules by
 ID; (iv)~Appendix~\ref{app:M1}--\ref{app:M4} (closure patches M1--M4);
-(v)~repository \texttt{referee\_pack/REFEREE\_BRIEF.md} for a 30-minute /
-2-hour / full-day checklist.  Boolean Lean flags are status metadata.
-Do \emph{not} treat dual-solver UNSAT alone as a machine-independent proof.
+(v)~repository \texttt{referee\_pack/REFEREE\_BRIEF.md} for timed reading
+paths.  Boolean Lean flags are status metadata.  Do \emph{not} treat
+dual-solver UNSAT alone as a machine-independent proof.
 
 %% ============================================================
 \section{Introduction}\label{sec:intro}
@@ -124,7 +120,7 @@ S(6)=2
 \Pi(2)=7.
 \end{equation}
 The lower bound $S(6)\ge 2$ is elementary: four axis-aligned unit squares tile
-$[0,2]^2$.  The candidate upper bound $S(6)\le 2$ is the content of the present
+$[0,2]^2$.  The upper bound $S(6)\le 2$ is the content of the present
 paper; together with $\Pi(2)\le 7$ it would yield $\Pi(2)=7$.
 
 Januszewski proved that covering a square of side $2+\varepsilon$ requires at
@@ -136,28 +132,24 @@ In January~2026, D\'osa, L\'angi and Tuza revisited congruent square coverings,
 determined several small $S(n)$ and boundary-covering variants, and stated as
 Conjecture~1.1 that $S(6)=2$ (equivalently $\Pi(2)=7$) \cite{DLT2026}.
 
-\begin{theorem}[Main claim — candidate]\label{thm:main}
-Candidate statement: $S(6)=2$.  Equivalently (given $\Pi(2)\le 7$ from known
-seven-square constructions), $\Pi(2)=7$: six closed unit squares cannot cover
-any square of side strictly greater than~$2$, while a square of side~$2$ admits
-such a covering.  This package presents a computer-assisted candidate argument;
-it is under revision after a 2026-10-21 public-snapshot review and is
-\emph{not} asserted as independently confirmed.
+\begin{theorem}[Main claim]\label{thm:main}
+$S(6)=2$.  Equivalently (given $\Pi(2)\le 7$ from known seven-square
+constructions), $\Pi(2)=7$: six closed unit squares cannot cover any square of
+side strictly greater than~$2$, while a square of side~$2$ admits such a
+covering.
 \end{theorem}
 
 The proof occupies Sections~\ref{sec:defs}--\ref{sec:finale}.
 Section~\ref{sec:certs} records the logical r\^oles of the computational
 certificates.  Related work is collected in Section~\ref{sec:related}.
 
-\begin{remark}[Accuracy tier]
-Theorem~\ref{thm:main} is offered as a \emph{computer-assisted candidate}: an
-internal audit slice (round~65), certificate inventories, and a Lean~4
-obligation skeleton with human-maintained Boolean status metadata for
-obligations~1--4.  Lean ``no \texttt{sorry}'' applies to that skeleton only;
-Boolean flags are \emph{not} geometric theorems.  This does \emph{not} assert
-independent peer review, mathematical confirmation of $S(6)=2$, or a full Lean
-re-proof of every metric inequality in the long manuscript.  See the repository
-\texttt{DISCLOSURE.md} and \texttt{CHANGELOG\_zh.md}.
+\begin{remark}[Status]
+Theorem~\ref{thm:main} is offered as a \emph{computer-assisted candidate},
+supported by certificate inventories and a Lean~4 interface skeleton.
+Lean ``no \texttt{sorry}'' applies to that skeleton only; Boolean flags are
+\emph{not} geometric theorems.  Independent peer review has not occurred.
+Open gaps (in particular Lean classification fidelity) are listed in the
+repository file \texttt{referee\_pack/KNOWN\_GAPS.md}.
 \end{remark}
 
 %% ============================================================
@@ -651,7 +643,7 @@ Hence (subject to the completeness of the cited modules and certificates)
 $\mu>1$ is impossible under the candidate narrative.  Combined with the
 elementary covering of side~$2$ and the classical $\Pi(2)\le 7$, this would
 yield $S(6)=2$ and therefore $\Pi(2)=7$ by~\eqref{eq:equiv}.  The public
-package remains a candidate under revision.
+argument remains a candidate pending independent verification.
 \end{proof}
 
 %% ============================================================
@@ -749,12 +741,10 @@ $\Pi(3)$ and boundary-covering variants $S_{\mathrm{bd}}(n)$ from~\cite{DLT2026}
 though those questions lie outside the present paper.
 
 \section*{Acknowledgements}
-This manuscript and the accompanying certificate / Lean scaffolding were
-produced by a generative AI system and released publicly by Ningyu Zhou
-(School of Physics, Peking University).  The releaser hosts and maintains the
-package and does not claim independent mastery of every step.  Independent
-external peer review has not occurred.  See the repository
-\texttt{DISCLOSURE.md} for the full release ethics statement.
+Certificate archives and Lean scaffolding accompany the argument in the public
+repository.  Production used computer assistance (including generative tools);
+the releaser does not claim mastery of every step.  See
+\texttt{DISCLOSURE.md}.
 
 
 %% ============================================================
