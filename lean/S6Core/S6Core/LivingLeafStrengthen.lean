@@ -2,6 +2,7 @@ import Mathlib.Tactic
 import S6Core.NearEndGeometry
 import S6Core.Exhaustiveness
 import S6Core.LeafCertificates
+import S6Core.LivingLeafCloserBridge
 
 /-!
 # LivingLeaf strengthenings (table + closer inventory)
@@ -206,9 +207,25 @@ theorem livingClosers_rightGap_R27_28 :
       (fun ℓ => decide ((ℓ, "R27/R28") ∈ livingClosers)) = true := by
   native_decide
 
+
+open S6.LivingLeafCloserBridge
+
+/-- Re-export: named closer discharges ⇒ all living leaves excluded. -/
+theorem AllLivingLeavesExcluded_of_namedClosers_reexport
+    (h : AllNamedClosersDischarged) : AllLivingLeavesExcluded :=
+  AllLivingLeavesExcluded_of_namedClosers h
+
+theorem AllLivingClosersDischarged_of_named_reexport
+    (h : AllNamedClosersDischarged) : AllLivingClosersDischarged :=
+  AllLivingClosersDischarged_of_named h
+
+/-- Residual: 8 closer labels still need geometric discharge. -/
+theorem open_closer_discharge_count_eq_eight :
+    openCloserDischargeCount = 8 := openCloserDischargeCount_eq
+
 def openStatus : String :=
   "CLOSED: living/impossible lists, closer labels, bothGap counts, R13–R28 closer multiplicities. \
-   OPEN: geometric LivingLeafExcluded for each of the 17 living leaves. \
+   OPEN: inhabit CloserDischarged for 8 labels ⇒ AllLivingClosersDischarged (17 leaves). \
    Not PrincipalClaim."
 
 end S6.LivingLeafStrengthen

@@ -151,3 +151,11 @@ Honest: these lifts ≠ geometric `LivingLeafExcluded` for the 17 living leaves 
 Forbidden (bridge executor): `MainTheorem`, `G5ExclusionFrag`, `AxisG5k0FromCover` — not edited.
 | `S6Core.NearEndAdjacentExact` | +48 R29–R32/R41 + R13 leftover payloads | lake-green |
 
+## LivingLeaf closer bridge + rational checks (openai/math)
+
+| Module | Content | Status |
+|--------|---------|--------|
+| `S6Core.LivingLeafCloserBridge` | `CloserDischarged` ×8 ⇒ `AllLivingClosersDischarged` / `AllLivingLeavesExcluded`; per-leaf conditionals | lake-green |
+| `S6Core.NearEndRationalChecks` | R14 min_R/P + R16–R19 ℚ/√2-sq inequalities (`native_decide`) | lake-green |
+
+Honest residual: inhabit `CloserDischarged` for each of 8 labels (geometry). Rational payloads ≠ living `LivingLeafExcluded`. `principalClaimProvedUnconditionally` stays false. Forbidden files not edited.

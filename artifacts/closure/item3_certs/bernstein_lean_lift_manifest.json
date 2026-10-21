@@ -97,6 +97,10 @@
     "note": "native_decide payloads + LivingLeaf inventory strengthenings; \u2260 PrincipalClaim; forbidden files untouched",
     "living_leaf_strengthen_theorems": "closer multiplicities + livingClosers membership R13/R14/R26",
     "adjacent_module": "S6Core.NearEndAdjacentExact",
-    "adjacent_lift_count": 48
+    "adjacent_lift_count": 48,
+    "closer_bridge": "S6Core.LivingLeafCloserBridge",
+    "rational_checks": "S6Core.NearEndRationalChecks",
+    "open_closer_discharge_count": 8,
+    "named_closers_discharged_proved": false
   }
 }
