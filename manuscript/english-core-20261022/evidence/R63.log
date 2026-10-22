@@ -1,0 +1,12 @@
+{
+  "result": "passed",
+  "new_algebraic_identities": 7,
+  "replayed_algebraic_identities": 8,
+  "positive_exact_comparisons": 14,
+  "new_polynomial_certificates": 0,
+  "UNSAT": 0,
+  "new_theorem": "Entire remaining right-W bridge excluded; in remaining double-direct W contains neither R nor Q2",
+  "remaining_mechanism": "positive-C double-direct, W avoids QU and Q2 and R, 1/10 < z < 1/5",
+  "not_proved": "entire double-direct, G2 or S(6)=2",
+  "global_bound": "2 <= S(6) < 2.03"
+}

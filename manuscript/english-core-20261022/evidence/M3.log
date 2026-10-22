@@ -1,0 +1,4 @@
+allowed 24 live 17 impossible 7
+missing set()
+extra set()
+PASS: M3.1 Boolean grid covered (live + explicit impossible)

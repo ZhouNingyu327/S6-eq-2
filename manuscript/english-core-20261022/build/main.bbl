@@ -1,0 +1,59 @@
+\providecommand{\bysame}{\leavevmode\hbox to3em{\hrulefill}\thinspace}
+\providecommand{\MR}{\relax\ifhmode\unskip\space\fi MR }
+% \MRhref is called by the amsart/book/proc definition of \MR.
+\providecommand{\MRhref}[2]{%
+  \href{http://www.ams.org/mathscinet-getitem?mr=#1}{#2}
+}
+\providecommand{\href}[2]{#2}
+\begin{thebibliography}{1}
+
+\bibitem{AMSComputerAssisted}
+{American Mathematical Society}, \emph{Guidelines for the submission,
+  refereeing and publication of computer-assisted proofs}, Council minutes, 3
+  January 2017, p.~32.
+  \url{https://www.ams.org/about-us/governance/council-meetings/council-minutes0117.pdf},
+  2017, Accessed 2026-10-21.
+
+\bibitem{ChungGraham2009}
+Fan Chung and Ron Graham, \emph{Packing equal squares into a large square},
+  Journal of Combinatorial Theory, Series A \textbf{116} (2009), no.~6,
+  1167--1175, Asymptotic packing waste $W(x)$; cash challenges do not apply to
+  $S(6)=2$.
+
+\bibitem{ChungGraham2020}
+\bysame, \emph{Efficient packings of unit squares in a large square}, Discrete
+  \& Computational Geometry \textbf{64} (2020), 690--699, Asymptotic regime;
+  cited only to distinguish from $S(6)=2$.
+
+\bibitem{DLT2026}
+Gy\"orgy D\'osa, Zsolt L\'angi, and Zsolt Tuza, \emph{Covering a square by
+  congruent squares}, arXiv:2601.16535. \url{https://arxiv.org/abs/2601.16535},
+  2026, States Conjecture~1.1 that $S(6)=2$ (equivalently $\Pi(2)=7$) without
+  proof; proves several exact small values and boundary-covering analogues.
+
+\bibitem{FriedmanCovering}
+Erich Friedman and David Paterson, \emph{Covering squares with unit squares},
+  \url{https://erich-friedman.github.io/papers/covering/covering.html},
+  Author-hosted version; accessed 2026-10-21.
+
+\bibitem{FriedmanPaterson2006}
+\bysame, \emph{Covering squares with unit squares}, Geombinatorics \textbf{XV}
+  (2006), no.~3, Discusses constructions and small-case covering phenomena
+  related to $S(n)$.
+
+\bibitem{Januszewski2009}
+Janusz Januszewski, \emph{A note on covering a square of side length
+  {$2+\varepsilon$} with unit squares}, The American Mathematical Monthly
+  \textbf{116} (2009), no.~2, 174--178.
+
+\bibitem{SoiferCoverUp}
+Alexander Soifer, \emph{Cover-up squared}, Geombinatorics (2005), Series of
+  notes on covering a square of side $n+\varepsilon$ with unit squares; see
+  also Open Problem Garden entry ``Covering a square with unit squares''.
+
+\bibitem{Soifer2006}
+\bysame, \emph{Covering a square of side {$n+\varepsilon$} with unit squares},
+  Journal of Combinatorial Theory, Series A \textbf{113} (2006), no.~2,
+  380--383.
+
+\end{thebibliography}

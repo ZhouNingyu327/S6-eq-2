@@ -1,5 +1,23 @@
 # Six unit squares cannot cover a square of side greater than 2
 
+## Start here: illustrated English manuscript
+
+**[Read the English core draft (PDF, 19 pages)](manuscript/english-core-20261022/S6_English_Core_20261022.pdf)**
+**22 October 2026, draft 0.1** - unified notation, one normalization protocol,
+eight geometric diagrams, and a single logical reading order.
+
+[Download PDF](https://github.com/ZhouNingyu327/S6-eq-2/raw/refs/heads/main/manuscript/english-core-20261022/S6_English_Core_20261022.pdf)
+| [Editable source package](manuscript/S6_English_Core_20261022.zip)
+| [Scope, notation, and review obligations](manuscript/english-core-20261022/README.md)
+
+**Scope:** this is the English **core draft**, not the completed detailed
+English proof. The full English technical appendix is being edited.
+Several propositions still depend on the cited detailed R-modules.
+This publication does not certify the full geometric chain or claim independent
+peer validation of the proposed theorem.
+
+---
+
 Computer-assisted candidate argument that \(S(6)=2\), equivalently \(\Pi(2)=7\), addressing Conjecture 1.1 of Dósa–Lángi–Tuza (2026).
 
 Six closed unit squares cannot cover any Euclidean square of side strictly greater than \(2\); side \(2\) is attained by the obvious \(2\times 2\) tiling. Combined with the classical bound \(\Pi(2)\le 7\), this yields \(\Pi(2)=7\).
@@ -8,12 +26,13 @@ Six closed unit squares cannot cover any Euclidean square of side strictly great
 
 ## Reading order
 
-1. **Short paper (PDF)** — [`preprints/.../paper.pdf`](preprints/Six-unit-squares-cannot-cover-a-square-of-side-greater-than-2-October-21-2026/paper.pdf)  
+1. **New illustrated English core (PDF)** - [19-page draft, 22 October 2026](manuscript/english-core-20261022/S6_English_Core_20261022.pdf). Start here for notation, diagrams and the logical route.
+2. **Earlier short paper (PDF)** — [`preprints/.../paper.pdf`](preprints/Six-unit-squares-cannot-cover-a-square-of-side-greater-than-2-October-21-2026/paper.pdf)
    Definitions, normalisation honesty, top-level classes, Hyp⇒Concl propositions with module IDs, appendices M1–M4.
-2. **Long verification manuscript** — [`artifacts/long_proof/`](artifacts/long_proof/) (`S6_full_proof.pdf` / `.md`)
-3. **Certificates and spot checks** — [`artifacts/checkers/`](artifacts/checkers/), [`artifacts/closure/`](artifacts/closure/), [`artifacts/ex_all.tar.gz`](artifacts/ex_all.tar.gz)  
+3. **Detailed source manuscript (English edition in preparation)** — [`artifacts/long_proof/`](artifacts/long_proof/) (`S6_full_proof.pdf` / `.md`)
+4. **Certificates and spot checks** — [`artifacts/checkers/`](artifacts/checkers/), [`artifacts/closure/`](artifacts/closure/), [`artifacts/ex_all.tar.gz`](artifacts/ex_all.tar.gz)
    See [`referee_pack/HOW_TO_REPRODUCE.md`](referee_pack/HOW_TO_REPRODUCE.md).
-4. **Lean 4 formalization (partial)** — [`lean/S6Core/`](lean/S6Core/): principal claim as Prop + proved reduction spine; class exclusions open (see [`lean/README.md`](lean/README.md))
+5. **Lean 4 formalization (partial)** — [`lean/S6Core/`](lean/S6Core/): principal claim as Prop + proved reduction spine; class exclusions open (see [`lean/README.md`](lean/README.md))
 
 For timed reading paths (30 min / 2 h / full day), start at [`referee_pack/`](referee_pack/).
 

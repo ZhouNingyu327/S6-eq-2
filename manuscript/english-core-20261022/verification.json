@@ -1,0 +1,38 @@
+{
+  "edition": "English core review draft 0.1",
+  "source_commit": "99408eed4ddf3e42bef727e64fae22971e8bc768",
+  "pages": 19,
+  "figures_pdf": 8,
+  "figures_svg": 8,
+  "core_pdf_sha256": "cee79a373ae6622f4df862f73492639a87af1157b6fb7b09f590539a20763af7",
+  "compiler": "Tectonic 0.17.0 local successful build",
+  "editor_compiler": "timed out; not counted as success",
+  "unresolved_references": 0,
+  "overfull_boxes": 0,
+  "pdf_cjk_characters": 0,
+  "visual_review": {
+    "all_pages_contact_sheet": true,
+    "larger_scale_pages": [
+      5,
+      6,
+      7,
+      12,
+      13,
+      14,
+      15
+    ]
+  },
+  "selected_replays": {
+    "R63": "pass",
+    "R64": "pass",
+    "M3": "pass: 24 allowed = 17 live + 7 impossible",
+    "exact_hand_batch": "151 pass, 0 fail"
+  },
+  "geometric_chain_independently_verified": false,
+  "main_theorem_fully_formalized": false,
+  "full_english_technical_appendix_included": false,
+  "translation_drafts": "rejected; excluded from this release",
+  "additional_emails_sent": false,
+  "github_pushed_at_local_build": false,
+  "publication_note": "This build record precedes the separate GitHub publication step."
+}

@@ -1,0 +1,20 @@
+{
+  "result": "passed",
+  "deduplicated_rational_targets": 14,
+  "new_polynomial_reconstructions": 28,
+  "new_positive_rational_coefficients": 114,
+  "support_identities_checked": 12,
+  "positive_exact_constants": 11,
+  "positive_corner_margins": 4,
+  "corner_margins": {
+    "1/4 1/10": "369/7700",
+    "1/4 1/5": "7/396",
+    "1/3 1/10": "167/7084",
+    "1/3 1/5": "11/252"
+  },
+  "UNSAT": 0,
+  "local_theorem": "All positive-C double-direct configurations in the current normalized middle-z model excluded, including h=0",
+  "angle_coverage": "[0,1/4], [1/4,1/3], [1/3,sqrt(2)-1]",
+  "global_proof_status": "Candidate full closure conditional on historical global reduction; comprehensive audit pending",
+  "S6_equals_2_announced": false
+}
