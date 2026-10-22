@@ -1,0 +1,113 @@
+{
+  "id": "check_round38_empty_right_negative__n8__93e5a9a520",
+  "file": "check_round38_empty_right_negative",
+  "n": 8,
+  "query": "c >= s ; s > 0 ; c*c + s*s == 1 ; eta*(1 + c) == s ; K*c == s ; r == (1 - s*u)/c ; r < 1 ; u <= eta",
+  "method": "exact-IBB-triangle3",
+  "status": "exact",
+  "certificate": {
+    "type": "rational_ibb",
+    "vars": [
+      "_u",
+      "_v",
+      "_w"
+    ],
+    "box0": [
+      [
+        "0",
+        "1"
+      ],
+      [
+        "0",
+        "1"
+      ],
+      [
+        "0",
+        "1"
+      ]
+    ],
+    "atoms": [
+      {
+        "expr": "_u*(_u*_v - _v + 1)",
+        "op": "<="
+      },
+      {
+        "expr": "-_u*(_u*_v + 1)",
+        "op": "<"
+      },
+      {
+        "expr": "_u**2*_v**2 + _u**2*(_u*_v + 1)**2 - 1",
+        "op": "=="
+      },
+      {
+        "expr": "(-_u**2*_v*_w - _u*_v - _u*_w + 1)/(_u*_v)",
+        "op": "<"
+      },
+      {
+        "expr": "-_u + _w",
+        "op": "<="
+      }
+    ],
+    "n_cells": 3,
+    "n_leaves": 2,
+    "max_depth_used": 1,
+    "leaves": [
+      {
+        "box": [
+          [
+            "0",
+            "1/2"
+          ],
+          [
+            "0",
+            "1"
+          ],
+          [
+            "0",
+            "1"
+          ]
+        ],
+        "depth": 1,
+        "contradiction": {
+          "poly": "_u**2*_v**2 + _u**2*(_u*_v + 1)**2 - 1",
+          "op": "==",
+          "range": [
+            "-1",
+            "-3/16"
+          ]
+        }
+      },
+      {
+        "box": [
+          [
+            "1/2",
+            "1"
+          ],
+          [
+            "0",
+            "1"
+          ],
+          [
+            "0",
+            "1"
+          ]
+        ],
+        "depth": 1,
+        "contradiction": {
+          "poly": "_u*(_u*_v - _v + 1)",
+          "op": "<=",
+          "range": [
+            "1/4",
+            "1"
+          ]
+        }
+      }
+    ],
+    "tag": "raw-triangle3",
+    "triangle_map": {
+      "eta_": "u",
+      "c": "u*v",
+      "u": "w"
+    }
+  }
+}

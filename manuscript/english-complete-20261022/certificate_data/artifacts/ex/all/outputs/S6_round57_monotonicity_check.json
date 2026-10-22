@@ -1,0 +1,9 @@
+{
+  "result": "passed",
+  "scope": "Unfrozen arithmetic identities; geometric monotonicity proof is in round57 working notes",
+  "domain": "negative C, eta_C >= 3/10, actual theta <= 45 degrees, tau <= 1/5",
+  "derivative_upper_bound": "-597/23762",
+  "q_argument_upper_margin": "597/47524",
+  "new_angle_exclusion": false,
+  "whole_problem": "open"
+}

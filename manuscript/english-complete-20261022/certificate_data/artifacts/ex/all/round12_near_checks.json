@@ -1,0 +1,74 @@
+[
+  {
+    "scope": "near left gap and bottom gap: weak SE traces redundant, C/V2 boundary budget deficient",
+    "result": "unsat",
+    "arithmetic": "exact linear reals",
+    "seconds": 0.0016617774963378906
+  },
+  {
+    "scope": "near left gap and bottom meet force D+U3<1, so F cannot contain the upper critical endpoint",
+    "result": "unsat",
+    "arithmetic": "exact linear reals",
+    "seconds": 0.001027822494506836
+  },
+  {
+    "scope": "near left gap and bottom meet: C forced to contain right/up endpoints, violating long-chord budget",
+    "result": "unsat",
+    "arithmetic": "exact linear reals",
+    "seconds": 0.0010335445404052734
+  },
+  {
+    "scope": "near top gap, F horizontal middle empty: A>mu, hence weak corner acquires bottom anchor",
+    "result": "unsat",
+    "arithmetic": "exact linear reals",
+    "seconds": 0.0011649131774902344
+  },
+  {
+    "scope": "near top gap, F horizontal middle empty: anchored weak corner and left meet contradict C parallel budget",
+    "result": "unsat",
+    "arithmetic": "exact linear reals",
+    "seconds": 0.00119781494140625
+  },
+  {
+    "scope": "near right gap, F upper middle zero: NW boundary already deficient",
+    "result": "unsat",
+    "arithmetic": "exact linear reals",
+    "seconds": 0.0010523796081542969
+  },
+  {
+    "scope": "near right gap, F upper middle positive: right-gap/vertical parallel budget closes NW boundary",
+    "result": "unsat",
+    "arithmetic": "exact linear reals",
+    "seconds": 0.0010199546813964844
+  },
+  {
+    "scope": "near all right/top/left meets: strict corner chain forces a positive bottom gap",
+    "result": "unsat",
+    "arithmetic": "exact linear reals",
+    "seconds": 0.0011391639709472656
+  },
+  {
+    "scope": "near all three meets, F bottom left and no horizontal middle: C bottom/right parallel contradiction",
+    "result": "unsat",
+    "arithmetic": "exact linear reals",
+    "seconds": 0.0012462139129638672
+  },
+  {
+    "scope": "near all three meets, F bottom right and no horizontal middle: full C horizontal trace contradicts chain",
+    "result": "unsat",
+    "arithmetic": "exact linear reals",
+    "seconds": 0.0011849403381347656
+  },
+  {
+    "scope": "near all three meets, F avoids bottom and positive horizontal axis: C long-chord/right budget deficient",
+    "result": "unsat",
+    "arithmetic": "exact linear reals",
+    "seconds": 0.0012578964233398438
+  },
+  {
+    "scope": "near all three meets, F contains a positive horizontal point: C/W left-middle budget deficient",
+    "result": "unsat",
+    "arithmetic": "exact linear reals",
+    "seconds": 0.0011773109436035156
+  }
+]

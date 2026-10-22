@@ -1,0 +1,14 @@
+[
+  {
+    "scope": "centre tile touching bottom right half cannot touch any left outer-edge point",
+    "result": "unsat",
+    "arithmetic": "exact nonlinear reals",
+    "seconds": 0.0047969818115234375
+  },
+  {
+    "scope": "all other outer traces redundant: four corners plus two bottom-touching centre tiles cannot cover six-line grid",
+    "result": "unsat",
+    "arithmetic": "exact linear reals",
+    "geometry_input": "redundancy of every nonbottom outer trace must be proved separately"
+  }
+]

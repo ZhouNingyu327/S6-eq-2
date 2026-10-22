@@ -1,0 +1,35 @@
+{
+  "id": "check_round38_empty_right_negative__n7__4c3efcd813",
+  "file": "check_round38_empty_right_negative",
+  "n": 7,
+  "query": "l > 0 ; 2*l < 1 ; K > 0 ; 15*K < 8 ; u > 0 ; l <= K*u ; l/(2 - l) >= (16*u)/45",
+  "method": "exact-Bernstein-lKu-phi",
+  "status": "exact",
+  "certificate": {
+    "type": "bernstein_lKu_phi_charts",
+    "phi": "16*K*u + 45*K - 32",
+    "claim": "l<=Ku & l/(2-l)>=16u/45 => phi=45K-32+16Ku>=0; phi<=0 on Ku<=1/2,K<=8/15 with =0 only at excluded strict corner",
+    "chart1_map": {
+      "K": "(8/15)p",
+      "u": "(15/16)q"
+    },
+    "chart1_coeffs": [
+      "-32",
+      "-32",
+      "-8",
+      "0"
+    ],
+    "chart2_expr_u2phi": "_r*_s/2 - 2*_r + 30*_s - 30",
+    "chart2_map": {
+      "u": "15/16+r/16",
+      "K": "(1/2)/u * s"
+    },
+    "chart2_coeffs": [
+      "-30",
+      "0",
+      "-32",
+      "-3/2"
+    ]
+  },
+  "batch": "25"
+}

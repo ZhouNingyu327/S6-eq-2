@@ -1,0 +1,15 @@
+{
+  "id": "check_round27_g2_two_branches__n7__6261e6939e",
+  "file": "check_round27_g2_two_branches",
+  "n": 7,
+  "query": "mu > 1 ; p >= s ; s > 0 ; p*p + s*s == 1 ; h*(1 + p) == s ; p*mu + s*e <= 1 ; e >= h",
+  "method": "exact-hand-tip-e-h",
+  "status": "exact",
+  "certificate": {
+    "type": "identity_tip_e_h",
+    "identity": "p + s*h =1 when h=s/(1+p), p^2+s^2=1",
+    "mono": "coeff of mu is p+0; wait covering p*mu+s*e with e>=h: min LHS at e=h is p*mu+s*h; d/dmu =p>0",
+    "claim": "mu>1 => p*mu+s*h >1"
+  },
+  "batch": "26"
+}

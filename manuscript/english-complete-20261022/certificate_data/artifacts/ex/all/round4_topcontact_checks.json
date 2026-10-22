@@ -1,0 +1,14 @@
+[
+  {
+    "scope": "centre tile with top-left outer point cannot touch right edge",
+    "result": "unsat",
+    "arithmetic": "exact nonlinear reals",
+    "seconds": 0.004454135894775391
+  },
+  {
+    "scope": "centre tile with top-left outer point cannot touch left lower half, including midpoint",
+    "result": "unsat",
+    "arithmetic": "exact nonlinear reals",
+    "seconds": 0.0032699108123779297
+  }
+]

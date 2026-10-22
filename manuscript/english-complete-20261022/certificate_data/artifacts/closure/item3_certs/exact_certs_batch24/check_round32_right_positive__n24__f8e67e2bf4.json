@@ -1,0 +1,13 @@
+{
+  "id": "check_round32_right_positive__n24__f8e67e2bf4",
+  "file": "check_round32_right_positive",
+  "n": 24,
+  "query": "c >= s ; s > 0 ; c*c + s*s == 1 ; mu > 1 ; l > 0 ; r > 0 ; u > 0 ; d > 0 ; l < mu ; r < mu ; u < mu ; d < mu ; alpha < 0 ; alpha > -1 ; beta < 0 ; beta > -1 ; l + r - d > mu ; e > 0 ; c*d == -beta ; d < 1/c - mu ; Or(-s*u == alpha, c*u == beta + 1) ; -s*u >= alpha ; c*u <= beta + 1 ; -s*u != alpha",
+  "method": "exact-hand-Or-h-cascade",
+  "status": "exact",
+  "certificate": {
+    "type": "hand_Or_h_cascade",
+    "claim": "Or forces c*u=beta+1 => d=1/c-u <1/c-mu => u>mu vs u<mu"
+  },
+  "batch": "26d"
+}

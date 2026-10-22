@@ -1,0 +1,21 @@
+{
+  "id": "check_round26_g2_top__n7__69e7323738",
+  "file": "check_round26_g2_top",
+  "n": 7,
+  "query": "mu > 1 ; d >= 0 ; d < 1 ; v >= mu - d ; bF >= 2*mu - Sigma ; bF + v*v <= 2 ; Sigma <= (1 - d)*(1 - d)",
+  "method": "exact-Bernstein-bvv",
+  "status": "exact",
+  "certificate": {
+    "type": "bernstein_bvv",
+    "numer_coeffs": [
+      "0",
+      "0",
+      "4",
+      "2",
+      "12",
+      "8"
+    ],
+    "claim": "min bF+v^2>2"
+  },
+  "batch": "26c"
+}

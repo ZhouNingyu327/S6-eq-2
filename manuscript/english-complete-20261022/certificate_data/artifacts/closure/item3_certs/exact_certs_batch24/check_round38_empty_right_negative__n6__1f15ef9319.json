@@ -1,0 +1,13 @@
+{
+  "id": "check_round38_empty_right_negative__n6__1f15ef9319",
+  "file": "check_round38_empty_right_negative",
+  "n": 6,
+  "query": "c >= s ; s > 0 ; c*c + s*s == 1 ; c*d == -beta ; c*u == beta + 1 ; u + d < 1",
+  "method": "exact-hand-ud-from-c",
+  "status": "exact",
+  "certificate": {
+    "type": "hand_ud_from_c",
+    "claim": "c(u+d)=1 => u+d=1/c>=1 since c<=1 on circle c>=s>0, contradict u+d<1"
+  },
+  "batch": "26"
+}

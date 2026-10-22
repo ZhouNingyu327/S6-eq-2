@@ -1,0 +1,6 @@
+{
+  "result": "unsat",
+  "seconds": 0.009,
+  "scope": "universal single-tile star inequality",
+  "exact_real_arithmetic": true
+}

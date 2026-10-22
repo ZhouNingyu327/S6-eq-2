@@ -1,0 +1,13 @@
+{
+  "id": "check_round33_right_nonempty__n7__74e689a85b",
+  "file": "check_round33_right_nonempty",
+  "n": 7,
+  "query": "a > 0 ; a < 1 ; rho*(1 + a) == a*(1 - a) ; S1 < (1 - a)/(1 + a) ; S2 <= phi ; S1 + S2 > 2 - a - l ; 1 - phi >= l - rho",
+  "method": "exact-hand-S1S2-phi-rho",
+  "status": "exact",
+  "certificate": {
+    "type": "hand_S1S2_phi_rho",
+    "claim": "symmetric in a,l"
+  },
+  "batch": "26c"
+}

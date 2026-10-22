@@ -1,0 +1,14 @@
+{
+  "id": "check_round29_far_top_complete__n8__71fd7bb4ee",
+  "file": "check_round29_far_top_complete",
+  "n": 8,
+  "query": "mu > 1 ; c >= s ; s > 0 ; c*c + s*s == 1 ; h*(1 + c) == s ; E >= 0 ; c*mu + s*(r - E) <= 1 ; r >= h + E",
+  "method": "exact-hand-tip-e-h",
+  "status": "exact",
+  "certificate": {
+    "type": "identity_tip_generic",
+    "claim": "r-E>=h",
+    "method_tag": "exact-hand-tip-e-h"
+  },
+  "batch": "26b"
+}

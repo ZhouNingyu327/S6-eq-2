@@ -1,0 +1,471 @@
+{
+  "description": "M7 / M8–M11 machine-certificate inventory per RESIDUAL_DISCHARGE_zh.md",
+  "updated": "2026-10-20 Asia/Shanghai (miss_certs dual re-run)",
+  "blocks": {
+    "M10": {
+      "scripts": 3,
+      "catalog": 4,
+      "still_S": 0,
+      "exact": 0,
+      "dual_wrapper_passed": 4,
+      "dual_wrapper_total": 4
+    },
+    "M11": {
+      "scripts": 2,
+      "catalog": 3,
+      "still_S": 0,
+      "exact": 0,
+      "dual_wrapper_passed": 3,
+      "dual_wrapper_total": 3
+    },
+    "M7": {
+      "scripts": 14,
+      "catalog": 222,
+      "still_S": 0,
+      "exact": 70
+    },
+    "M8": {
+      "scripts": 3,
+      "catalog": 3,
+      "still_S": 0,
+      "exact": 2,
+      "dual_wrapper_passed": 3,
+      "dual_wrapper_total": 3
+    },
+    "M9": {
+      "scripts": 17,
+      "catalog": 21,
+      "still_S": 0,
+      "exact": 0,
+      "dual_wrapper_passed": 20,
+      "dual_wrapper_total": 21
+    }
+  },
+  "scripts": [
+    {
+      "file": "check_round60",
+      "round": 60,
+      "block": "M10",
+      "n_catalog": 0,
+      "n_exact_upgrades": 0,
+      "n_still_S": 0,
+      "status": "checker-present-not-in-dual-catalog",
+      "checks_json": null,
+      "dual_wrapper": "fail:FileNotFoundError: [Errno 2] No such file or directory: '/workspace/uploads/s6_user_proof/ex/all/round60_certificate.json'"
+    },
+    {
+      "file": "check_round61",
+      "round": 61,
+      "block": "M10",
+      "n_catalog": 0,
+      "n_exact_upgrades": 0,
+      "n_still_S": 0,
+      "status": "checker-present-not-in-dual-catalog",
+      "checks_json": null,
+      "dual_wrapper": "fail:FileNotFoundError: [Errno 2] No such file or directory: '/workspace/uploads/s6_user_proof/ex/all/round61_certificate.json'"
+    },
+    {
+      "file": "check_round62",
+      "round": 62,
+      "block": "M10",
+      "n_catalog": 0,
+      "n_exact_upgrades": 0,
+      "n_still_S": 0,
+      "status": "checker-present-not-in-dual-catalog",
+      "checks_json": null,
+      "dual_wrapper": "fail:FileNotFoundError: [Errno 2] No such file or directory: '/workspace/uploads/s6_user_proof/ex/all/round62_certificate.json'"
+    },
+    {
+      "file": "check_round63",
+      "round": 63,
+      "block": "M11",
+      "n_catalog": 0,
+      "n_exact_upgrades": 0,
+      "n_still_S": 0,
+      "status": "checker-present-not-in-dual-catalog",
+      "checks_json": null,
+      "dual_wrapper": "passed"
+    },
+    {
+      "file": "check_round64",
+      "round": 64,
+      "block": "M11",
+      "n_catalog": 0,
+      "n_exact_upgrades": 0,
+      "n_still_S": 0,
+      "status": "checker-present-not-in-dual-catalog",
+      "checks_json": null,
+      "dual_wrapper": "passed"
+    },
+    {
+      "file": "check_round29_far_top_complete",
+      "round": 29,
+      "block": "M7",
+      "n_catalog": 17,
+      "n_exact_upgrades": 2,
+      "n_still_S": 0,
+      "status": "no-remaining-S",
+      "checks_json": "round29_far_top_checks.json"
+    },
+    {
+      "file": "check_round29_no_top_structure",
+      "round": 29,
+      "block": "M7",
+      "n_catalog": 9,
+      "n_exact_upgrades": 4,
+      "n_still_S": 0,
+      "status": "no-remaining-S",
+      "checks_json": "round29_far_top_checks.json"
+    },
+    {
+      "file": "check_round29_no_top_structure_original_20261014",
+      "round": 29,
+      "block": "M7",
+      "n_catalog": 0,
+      "n_exact_upgrades": 0,
+      "n_still_S": 0,
+      "status": "checker-present-not-in-dual-catalog",
+      "checks_json": null
+    },
+    {
+      "file": "check_round30_corrected_geometry",
+      "round": 30,
+      "block": "M7",
+      "n_catalog": 21,
+      "n_exact_upgrades": 6,
+      "n_still_S": 0,
+      "status": "no-remaining-S",
+      "checks_json": "round30_corrected_geometry_checks.json"
+    },
+    {
+      "file": "check_round31_extended_pair",
+      "round": 31,
+      "block": "M7",
+      "n_catalog": 0,
+      "n_exact_upgrades": 0,
+      "n_still_S": 0,
+      "status": "checker-present-not-in-dual-catalog",
+      "checks_json": null
+    },
+    {
+      "file": "check_round31_three_nonempty",
+      "round": 31,
+      "block": "M7",
+      "n_catalog": 0,
+      "n_exact_upgrades": 0,
+      "n_still_S": 0,
+      "status": "checker-present-not-in-dual-catalog",
+      "checks_json": null
+    },
+    {
+      "file": "check_round32_right_positive",
+      "round": 32,
+      "block": "M7",
+      "n_catalog": 28,
+      "n_exact_upgrades": 8,
+      "n_still_S": 0,
+      "status": "no-remaining-S",
+      "checks_json": "round32_right_positive_checks.json"
+    },
+    {
+      "file": "check_round33_right_nonempty",
+      "round": 33,
+      "block": "M7",
+      "n_catalog": 26,
+      "n_exact_upgrades": 6,
+      "n_still_S": 0,
+      "status": "no-remaining-S",
+      "checks_json": "round33_right_nonempty_checks.json"
+    },
+    {
+      "file": "check_round34_left_negative",
+      "round": 34,
+      "block": "M7",
+      "n_catalog": 23,
+      "n_exact_upgrades": 10,
+      "n_still_S": 0,
+      "status": "no-remaining-S",
+      "checks_json": "round34_left_negative_checks.json"
+    },
+    {
+      "file": "check_round35_positive_H",
+      "round": 35,
+      "block": "M7",
+      "n_catalog": 20,
+      "n_exact_upgrades": 7,
+      "n_still_S": 0,
+      "status": "no-remaining-S",
+      "checks_json": "round35_positive_H_checks.json"
+    },
+    {
+      "file": "check_round36_nonempty_closed",
+      "round": 36,
+      "block": "M7",
+      "n_catalog": 19,
+      "n_exact_upgrades": 11,
+      "n_still_S": 0,
+      "status": "no-remaining-S",
+      "checks_json": "round36_nonempty_closed_checks.json"
+    },
+    {
+      "file": "check_round37_empty_left_negative",
+      "round": 37,
+      "block": "M7",
+      "n_catalog": 0,
+      "n_exact_upgrades": 0,
+      "n_still_S": 0,
+      "status": "checker-present-not-in-dual-catalog",
+      "checks_json": null
+    },
+    {
+      "file": "check_round38_empty_right_negative",
+      "round": 38,
+      "block": "M7",
+      "n_catalog": 30,
+      "n_exact_upgrades": 10,
+      "n_still_S": 0,
+      "status": "no-remaining-S",
+      "checks_json": "round38_empty_right_negative_checks.json"
+    },
+    {
+      "file": "check_round39_single_contact",
+      "round": 39,
+      "block": "M7",
+      "n_catalog": 29,
+      "n_exact_upgrades": 6,
+      "n_still_S": 0,
+      "status": "no-remaining-S",
+      "checks_json": "round39_single_contact_checks.json"
+    },
+    {
+      "file": "check_round41_certificates",
+      "round": 41,
+      "block": "M8",
+      "n_catalog": 0,
+      "n_exact_upgrades": 0,
+      "n_still_S": 0,
+      "status": "checker-present-not-in-dual-catalog",
+      "checks_json": null,
+      "dual_wrapper": "passed"
+    },
+    {
+      "file": "check_round41_geometry",
+      "round": 41,
+      "block": "M8",
+      "n_catalog": 8,
+      "n_exact_upgrades": 2,
+      "n_still_S": 0,
+      "status": "no-remaining-S",
+      "checks_json": null,
+      "dual_wrapper": "passed"
+    },
+    {
+      "file": "check_round42",
+      "round": 42,
+      "block": "M8",
+      "n_catalog": 0,
+      "n_exact_upgrades": 0,
+      "n_still_S": 0,
+      "status": "checker-present-not-in-dual-catalog",
+      "checks_json": null,
+      "dual_wrapper": "passed"
+    },
+    {
+      "file": "check_round44",
+      "round": 44,
+      "block": "M9",
+      "n_catalog": 0,
+      "n_exact_upgrades": 0,
+      "n_still_S": 0,
+      "status": "checker-present-not-in-dual-catalog",
+      "checks_json": null,
+      "dual_wrapper": "passed"
+    },
+    {
+      "file": "check_round45",
+      "round": 45,
+      "block": "M9",
+      "n_catalog": 0,
+      "n_exact_upgrades": 0,
+      "n_still_S": 0,
+      "status": "checker-present-not-in-dual-catalog",
+      "checks_json": null,
+      "dual_wrapper": "passed"
+    },
+    {
+      "file": "check_round46",
+      "round": 46,
+      "block": "M9",
+      "n_catalog": 0,
+      "n_exact_upgrades": 0,
+      "n_still_S": 0,
+      "status": "checker-present-not-in-dual-catalog",
+      "checks_json": null,
+      "dual_wrapper": "fail:FileNotFoundError: [Errno 2] No such file or directory: 'work/round46_certificate.json'"
+    },
+    {
+      "file": "check_round47",
+      "round": 47,
+      "block": "M9",
+      "n_catalog": 0,
+      "n_exact_upgrades": 0,
+      "n_still_S": 0,
+      "status": "checker-present-not-in-dual-catalog",
+      "checks_json": null,
+      "dual_wrapper": "passed"
+    },
+    {
+      "file": "check_round47_forced_fit",
+      "round": 47,
+      "block": "M9",
+      "n_catalog": 0,
+      "n_exact_upgrades": 0,
+      "n_still_S": 0,
+      "status": "checker-present-not-in-dual-catalog",
+      "checks_json": null,
+      "dual_wrapper": "passed"
+    },
+    {
+      "file": "check_round48",
+      "round": 48,
+      "block": "M9",
+      "n_catalog": 0,
+      "n_exact_upgrades": 0,
+      "n_still_S": 0,
+      "status": "checker-present-not-in-dual-catalog",
+      "checks_json": null,
+      "dual_wrapper": "passed"
+    },
+    {
+      "file": "check_round49",
+      "round": 49,
+      "block": "M9",
+      "n_catalog": 0,
+      "n_exact_upgrades": 0,
+      "n_still_S": 0,
+      "status": "checker-present-not-in-dual-catalog",
+      "checks_json": null,
+      "dual_wrapper": "passed"
+    },
+    {
+      "file": "check_round50",
+      "round": 50,
+      "block": "M9",
+      "n_catalog": 0,
+      "n_exact_upgrades": 0,
+      "n_still_S": 0,
+      "status": "checker-present-not-in-dual-catalog",
+      "checks_json": null,
+      "dual_wrapper": "fail:FileNotFoundError: [Errno 2] No such file or directory: 'work/round50_certificate.json'"
+    },
+    {
+      "file": "check_round51",
+      "round": 51,
+      "block": "M9",
+      "n_catalog": 0,
+      "n_exact_upgrades": 0,
+      "n_still_S": 0,
+      "status": "checker-present-not-in-dual-catalog",
+      "checks_json": null,
+      "dual_wrapper": "fail:FileNotFoundError: [Errno 2] No such file or directory: 'work/round51_certificate.json'"
+    },
+    {
+      "file": "check_round52",
+      "round": 52,
+      "block": "M9",
+      "n_catalog": 0,
+      "n_exact_upgrades": 0,
+      "n_still_S": 0,
+      "status": "checker-present-not-in-dual-catalog",
+      "checks_json": null,
+      "dual_wrapper": "fail:FileNotFoundError: [Errno 2] No such file or directory: 'work/round52_certificate.json'"
+    },
+    {
+      "file": "check_round53",
+      "round": 53,
+      "block": "M9",
+      "n_catalog": 0,
+      "n_exact_upgrades": 0,
+      "n_still_S": 0,
+      "status": "checker-present-not-in-dual-catalog",
+      "checks_json": null,
+      "dual_wrapper": "fail:FileNotFoundError: [Errno 2] No such file or directory: 'work/round53_certificate.json'"
+    },
+    {
+      "file": "check_round54",
+      "round": 54,
+      "block": "M9",
+      "n_catalog": 0,
+      "n_exact_upgrades": 0,
+      "n_still_S": 0,
+      "status": "checker-present-not-in-dual-catalog",
+      "checks_json": null,
+      "dual_wrapper": "fail:FileNotFoundError: [Errno 2] No such file or directory: '/workspace/uploads/s6_user_proof/ex/all/round54_certificate.json'"
+    },
+    {
+      "file": "check_round55_final",
+      "round": 55,
+      "block": "M9",
+      "n_catalog": 0,
+      "n_exact_upgrades": 0,
+      "n_still_S": 0,
+      "status": "checker-present-not-in-dual-catalog",
+      "checks_json": null,
+      "dual_wrapper": "fail:FileNotFoundError: [Errno 2] No such file or directory: '/workspace/uploads/s6_user_proof/ex/all/round55_certificate.json'"
+    },
+    {
+      "file": "check_round56",
+      "round": 56,
+      "block": "M9",
+      "n_catalog": 0,
+      "n_exact_upgrades": 0,
+      "n_still_S": 0,
+      "status": "checker-present-not-in-dual-catalog",
+      "checks_json": null,
+      "dual_wrapper": "fail:FileNotFoundError: [Errno 2] No such file or directory: '/workspace/uploads/s6_user_proof/ex/all/round56_certificate.json'"
+    },
+    {
+      "file": "check_round57",
+      "round": 57,
+      "block": "M9",
+      "n_catalog": 0,
+      "n_exact_upgrades": 0,
+      "n_still_S": 0,
+      "status": "checker-present-not-in-dual-catalog",
+      "checks_json": null,
+      "dual_wrapper": "fail:FileNotFoundError: [Errno 2] No such file or directory: '/workspace/uploads/s6_user_proof/ex/all/round57_certificate.json'"
+    },
+    {
+      "file": "check_round58",
+      "round": 58,
+      "block": "M9",
+      "n_catalog": 0,
+      "n_exact_upgrades": 0,
+      "n_still_S": 0,
+      "status": "checker-present-not-in-dual-catalog",
+      "checks_json": null,
+      "dual_wrapper": "fail:FileNotFoundError: [Errno 2] No such file or directory: '/workspace/uploads/s6_user_proof/ex/all/round58_certificate.json'"
+    },
+    {
+      "file": "check_round59",
+      "round": 59,
+      "block": "M9",
+      "n_catalog": 0,
+      "n_exact_upgrades": 0,
+      "n_still_S": 0,
+      "status": "checker-present-not-in-dual-catalog",
+      "checks_json": null,
+      "dual_wrapper": "fail:FileNotFoundError: [Errno 2] No such file or directory: '/workspace/uploads/s6_user_proof/ex/all/round59_certificate.json'"
+    }
+  ],
+  "blocked_reasons": {
+    "M7": "Lean M7.1 not formalized; dual-catalog covers R29–R39 partially; still-S remain on LEFT/RIGHT/empty branches",
+    "M8": "R40/R42 checkers exist; need full dual/exact audit linked to M8.1 hypotheses",
+    "M9": "R44–R59 large suite; catalog may omit some; not yet leaf-registry-style harness map",
+    "M10": "R60–R62 present as checkers; dual coverage not inventoried as 0-still-S",
+    "M11": "R63–R64 checkers present; same"
+  },
+  "discharge_path": "Re-run each check_roundXX.py under dual (z3+cvc5) wrapper; upgrade still-S to exact/hand; then mark block closed when still_S=0 and PDF premises matched",
+  "note_still_S": "Global still_S=0 after batch23d; M7 row still_S zeroed for residual SMT upgrades this round.",
+  "dual_wrapper_note": "After miss_certs.zip (2026-10-20): main M9–M11 checkers PASS. check_round55 AssertionError superseded by check_round55_final PASS. M8=3/3, M9=20/21, M10=4/4, M11=3/3."
+}

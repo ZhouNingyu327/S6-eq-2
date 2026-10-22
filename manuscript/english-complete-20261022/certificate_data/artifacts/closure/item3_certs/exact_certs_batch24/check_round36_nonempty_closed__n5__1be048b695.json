@@ -1,0 +1,47 @@
+{
+  "id": "check_round36_nonempty_closed__n5__1be048b695",
+  "file": "check_round36_nonempty_closed",
+  "n": 5,
+  "query": "t > 0 ; t < 1 ; x >= 0 ; x <= (1 - t)/(1 + t) ; x + ((1 - x)/(1 + x) - t)/(2 - (1 - x)/(1 + x) + t) >\n(1 - t)/(1 + t)",
+  "method": "exact-Bernstein-r36-halfangle",
+  "status": "exact",
+  "certificate": {
+    "type": "bernstein_r36_halfangle",
+    "map": {
+      "t": "u",
+      "h": "u+(1-u)v",
+      "x": "(1-h)/(1+h)"
+    },
+    "diff": "rhs-lhs",
+    "numer_coeffs": [
+      "0",
+      "3/2",
+      "0",
+      "0",
+      "2/3",
+      "0",
+      "0",
+      "0",
+      "0",
+      "0",
+      "0",
+      "0"
+    ],
+    "denom_coeffs": [
+      "2",
+      "5/2",
+      "2",
+      "10/3",
+      "11/3",
+      "10/3",
+      "16/3",
+      "16/3",
+      "16/3",
+      "8",
+      "8",
+      "8"
+    ],
+    "claim": "rhs-lhs >=0 on domain => strict > impossible"
+  },
+  "batch": "25"
+}

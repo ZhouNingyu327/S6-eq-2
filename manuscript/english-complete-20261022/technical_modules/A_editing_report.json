@@ -1,0 +1,244 @@
+{
+  "editor": "A: english_foundations",
+  "date": "2026-10-22",
+  "complete_ids": [
+    "R3",
+    "R4",
+    "R5",
+    "R6",
+    "R7",
+    "R8",
+    "R9",
+    "R10C",
+    "R10",
+    "R11",
+    "R12",
+    "R20",
+    "R20A",
+    "R21",
+    "R21A",
+    "R22",
+    "R22A",
+    "R23"
+  ],
+  "method": "Manual English mathematical translation and reconstruction from the assigned extracted Chinese source modules; no machine translation, network translation, Git mutation, historical-source editing, or PDF build.",
+  "substantive_content": "Definitions, actual host choices and duplicates, hypotheses, geometric arguments, case splits, equations, exact constants, local numbering, certificate domains and identifiers, source qualifications, and counterexamples retained. Some adjacent equations are combined into one display or a mathematically explicit inline statement.",
+  "editorial_changes": [
+    "Preserved source-local section numbers, including historical gaps in numbering. Each module has exactly its own R anchor, without next-module or appendix spillover.",
+    "Reserved kappa for midpoint count; source-local auxiliary kappa/k ratios renamed rho, and complementary-angle k renamed nu where needed, with explicit correspondence.",
+    "Used eta for central half-angle, tau for designated free-corner half-angle in R11, and chi for source-local eta(a) in R22A/R23. Source R23 lambda length renamed ell_+ explicitly, leaving lambda(t) as the global slope function.",
+    "R3 source ray-length D_C/R_F renamed d_C/r_F to avoid collision with actual axial-point names.",
+    "Translated [0,2mu]^2 charts explicitly identified as translations of the centered target; later modules use centered coordinates.",
+    "Restored missing inline math delimiters in R3-R9, replaced every corner-midpoint juxtaposition with explicit membership, and repaired R20 inline tag rendering.",
+    "Removed repeated process narration, nonproof research suggestions, and unneeded figure captions; no proof premise intentionally omitted."
+  ],
+  "limitations": [
+    {
+      "scope": "all assigned modules",
+      "description": "Candidate-proof translation, not independent verification of geometry, symbolic identities, SMT results, Bernstein coefficients, or completeness of archived certificate artifacts. Source check statuses are attributed to the source."
+    },
+    {
+      "scope": "R8, R9, R10, R20 section 7",
+      "description": "Exact polynomial definitions, parameter regions, positive denominator conditions, certificate structure and source identifiers retained. Full certificate files and historical checkers remain explicit local review dependencies; not independently rerun here."
+    },
+    {
+      "scope": "R11 sections 7-10",
+      "description": "Supplementary historical route. The source gives target-containment rationale for two W beta adjustments but no complete output-reclassification transfer retaining the preceding gap/endpoints/representative. The exact local protocol obligation is stated. R12 uses only R11.3-5 and endpoint propagation, so its final closure bypasses this route."
+    },
+    {
+      "scope": "R9 section 7",
+      "description": "Central-box exclusivity is stated only as a consequence of completed G5 exclusion, never as a premise of R8 or its root/certificate inputs."
+    },
+    {
+      "scope": "R10",
+      "description": "Original defective opposite-gap section 2 is not reproduced; R10 explicitly requires the corrected R10C proof that h_F>0 before the aggregate parallel-chord argument."
+    },
+    {
+      "scope": "R6",
+      "description": "Corrected d_0>=0 retained, including singleton tangency. Empty versus nonempty parallel chords are distinguished throughout."
+    }
+  ],
+  "syntax_checks": [
+    {
+      "id": "R3",
+      "characters": 11315,
+      "single_correct_anchor": true,
+      "cjk_count": 0,
+      "inline_delimiters_balanced": true,
+      "display_delimiters_balanced": true,
+      "unrendered_commands": [],
+      "host_juxtaposition": false
+    },
+    {
+      "id": "R4",
+      "characters": 12021,
+      "single_correct_anchor": true,
+      "cjk_count": 0,
+      "inline_delimiters_balanced": true,
+      "display_delimiters_balanced": true,
+      "unrendered_commands": [],
+      "host_juxtaposition": false
+    },
+    {
+      "id": "R5",
+      "characters": 6900,
+      "single_correct_anchor": true,
+      "cjk_count": 0,
+      "inline_delimiters_balanced": true,
+      "display_delimiters_balanced": true,
+      "unrendered_commands": [],
+      "host_juxtaposition": false
+    },
+    {
+      "id": "R6",
+      "characters": 7771,
+      "single_correct_anchor": true,
+      "cjk_count": 0,
+      "inline_delimiters_balanced": true,
+      "display_delimiters_balanced": true,
+      "unrendered_commands": [],
+      "host_juxtaposition": false
+    },
+    {
+      "id": "R7",
+      "characters": 6453,
+      "single_correct_anchor": true,
+      "cjk_count": 0,
+      "inline_delimiters_balanced": true,
+      "display_delimiters_balanced": true,
+      "unrendered_commands": [],
+      "host_juxtaposition": false
+    },
+    {
+      "id": "R8",
+      "characters": 7579,
+      "single_correct_anchor": true,
+      "cjk_count": 0,
+      "inline_delimiters_balanced": true,
+      "display_delimiters_balanced": true,
+      "unrendered_commands": [],
+      "host_juxtaposition": false
+    },
+    {
+      "id": "R9",
+      "characters": 12015,
+      "single_correct_anchor": true,
+      "cjk_count": 0,
+      "inline_delimiters_balanced": true,
+      "display_delimiters_balanced": true,
+      "unrendered_commands": [],
+      "host_juxtaposition": false
+    },
+    {
+      "id": "R10C",
+      "characters": 2290,
+      "single_correct_anchor": true,
+      "cjk_count": 0,
+      "inline_delimiters_balanced": true,
+      "display_delimiters_balanced": true,
+      "unrendered_commands": [],
+      "host_juxtaposition": false
+    },
+    {
+      "id": "R10",
+      "characters": 9541,
+      "single_correct_anchor": true,
+      "cjk_count": 0,
+      "inline_delimiters_balanced": true,
+      "display_delimiters_balanced": true,
+      "unrendered_commands": [],
+      "host_juxtaposition": false
+    },
+    {
+      "id": "R11",
+      "characters": 13226,
+      "single_correct_anchor": true,
+      "cjk_count": 0,
+      "inline_delimiters_balanced": true,
+      "display_delimiters_balanced": true,
+      "unrendered_commands": [],
+      "host_juxtaposition": false
+    },
+    {
+      "id": "R12",
+      "characters": 16601,
+      "single_correct_anchor": true,
+      "cjk_count": 0,
+      "inline_delimiters_balanced": true,
+      "display_delimiters_balanced": true,
+      "unrendered_commands": [],
+      "host_juxtaposition": false
+    },
+    {
+      "id": "R20",
+      "characters": 11085,
+      "single_correct_anchor": true,
+      "cjk_count": 0,
+      "inline_delimiters_balanced": true,
+      "display_delimiters_balanced": true,
+      "unrendered_commands": [],
+      "host_juxtaposition": false
+    },
+    {
+      "id": "R20A",
+      "characters": 5088,
+      "single_correct_anchor": true,
+      "cjk_count": 0,
+      "inline_delimiters_balanced": true,
+      "display_delimiters_balanced": true,
+      "unrendered_commands": [],
+      "host_juxtaposition": false
+    },
+    {
+      "id": "R21",
+      "characters": 12589,
+      "single_correct_anchor": true,
+      "cjk_count": 0,
+      "inline_delimiters_balanced": true,
+      "display_delimiters_balanced": true,
+      "unrendered_commands": [],
+      "host_juxtaposition": false
+    },
+    {
+      "id": "R21A",
+      "characters": 5796,
+      "single_correct_anchor": true,
+      "cjk_count": 0,
+      "inline_delimiters_balanced": true,
+      "display_delimiters_balanced": true,
+      "unrendered_commands": [],
+      "host_juxtaposition": false
+    },
+    {
+      "id": "R22",
+      "characters": 7239,
+      "single_correct_anchor": true,
+      "cjk_count": 0,
+      "inline_delimiters_balanced": true,
+      "display_delimiters_balanced": true,
+      "unrendered_commands": [],
+      "host_juxtaposition": false
+    },
+    {
+      "id": "R22A",
+      "characters": 8589,
+      "single_correct_anchor": true,
+      "cjk_count": 0,
+      "inline_delimiters_balanced": true,
+      "display_delimiters_balanced": true,
+      "unrendered_commands": [],
+      "host_juxtaposition": false
+    },
+    {
+      "id": "R23",
+      "characters": 9262,
+      "single_correct_anchor": true,
+      "cjk_count": 0,
+      "inline_delimiters_balanced": true,
+      "display_delimiters_balanced": true,
+      "unrendered_commands": [],
+      "host_juxtaposition": false
+    }
+  ],
+  "validation_scope": "Assigned-file structural/textual checks only; no claim of full mathematical validation or independent certificate replay."
+}

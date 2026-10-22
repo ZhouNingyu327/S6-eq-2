@@ -1,0 +1,22 @@
+[
+  {
+    "scope": "right critical tip cannot belong to C",
+    "result": "unsat",
+    "arithmetic": "exact linear reals"
+  },
+  {
+    "scope": "upper critical tip in F: C cannot dominate the left horizontal coverage",
+    "result": "unsat",
+    "arithmetic": "exact linear reals"
+  },
+  {
+    "scope": "upper critical tip in C: its long-chord trace excludes left horizontal dominance",
+    "result": "unsat",
+    "arithmetic": "exact linear reals"
+  },
+  {
+    "scope": "both central useful traces below 2 cannot complete the six-line target grid",
+    "result": "unsat",
+    "arithmetic": "exact linear reals"
+  }
+]

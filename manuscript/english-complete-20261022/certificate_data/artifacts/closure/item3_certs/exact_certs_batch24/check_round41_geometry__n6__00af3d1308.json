@@ -1,0 +1,14 @@
+{
+  "id": "check_round41_geometry__n6__00af3d1308",
+  "file": "check_round41_geometry",
+  "n": 6,
+  "query": "c >= s ; 12/17 <= s ; rho > 0 ; u > e ; Or(c*rho + s*(u - e) <= 1, s*rho + c*(u - e) <= 1) ; 17/12 < rho + u - e",
+  "method": "exact-hand-r41-proj-min",
+  "status": "exact",
+  "certificate": {
+    "type": "hand_r41_proj_min",
+    "claim": "same with (rho, u-e) playing role of (r,u); min >= s(rho+u-e) >1",
+    "algebra": "identical to r41 proj min with L=rho+u-e"
+  },
+  "batch": "25"
+}

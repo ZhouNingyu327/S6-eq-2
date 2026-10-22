@@ -1,0 +1,13 @@
+{
+  "status": "all exact C-side small checks passed",
+  "queries": [],
+  "totals": {
+    "UNSAT": 0,
+    "NRA": 0,
+    "LRA": 0,
+    "symbolic_identities": 6,
+    "constants": 0
+  },
+  "scope": "C-side G3 F vertical empty excluded; nonempty F necessary bridge ownership",
+  "not_proved": "Entire C-side G3, diagonal G3, remaining G2, S(6)=2"
+}

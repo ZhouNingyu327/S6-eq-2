@@ -1,0 +1,255 @@
+{
+  "status": "all exact small checks passed",
+  "queries": [
+    {
+      "name": "C halfangle h<5/12",
+      "theory": "QF_NRA",
+      "result": "unsat",
+      "seconds": 0.008109319000141113
+    },
+    {
+      "name": "C small upper ray u<h",
+      "theory": "QF_NRA",
+      "result": "unsat",
+      "seconds": 0.005544374998862622
+    },
+    {
+      "name": "C large lower ray d<g(h)",
+      "theory": "QF_NRA",
+      "result": "unsat",
+      "seconds": 0.26776203400004306
+    },
+    {
+      "name": "C joint upper-left/down rays lambda+d<g(h)",
+      "theory": "QF_NRA",
+      "result": "unsat",
+      "seconds": 0.1710513930011075
+    },
+    {
+      "name": "C joint lower-left/up rays rho+u<h",
+      "theory": "QF_NRA",
+      "result": "unsat",
+      "seconds": 0.004827822000152082
+    },
+    {
+      "name": "C horizontal chord implies r<delta(h)",
+      "theory": "QF_NRA",
+      "result": "unsat",
+      "seconds": 0.004911709000225528
+    },
+    {
+      "name": "real F right chord and root ray imply S>(1-r)^2",
+      "theory": "QF_NRA",
+      "result": "unsat",
+      "seconds": 0.024155627001164248
+    },
+    {
+      "name": "real F right chord diameter implies S>4/7",
+      "theory": "QF_NRA",
+      "result": "unsat",
+      "seconds": 0.0028180200006318046
+    },
+    {
+      "name": "P derivative hand bound on [0,1/3]",
+      "theory": "QF_NRA",
+      "result": "unsat",
+      "seconds": 0.018820539000444114
+    },
+    {
+      "name": "P positive on [0,1/3]",
+      "theory": "QF_NRA",
+      "result": "unsat",
+      "seconds": 0.03317393399993307
+    },
+    {
+      "name": "Q derivative hand bound on [0,1/3]",
+      "theory": "QF_NRA",
+      "result": "unsat",
+      "seconds": 0.009541245000946219
+    },
+    {
+      "name": "Q positive on [0,1/3]",
+      "theory": "QF_NRA",
+      "result": "unsat",
+      "seconds": 0.017495145000793855
+    },
+    {
+      "name": "large h A>=3/10",
+      "theory": "QF_NRA",
+      "result": "unsat",
+      "seconds": 0.0030507939991366584
+    },
+    {
+      "name": "Ab>=A on halfangle domain",
+      "theory": "QF_NRA",
+      "result": "unsat",
+      "seconds": 0.0034169789996667532
+    },
+    {
+      "name": "original corner inner endpoint forces T>1-u",
+      "theory": "QF_NRA",
+      "result": "unsat",
+      "seconds": 0.0038354120006260928
+    },
+    {
+      "name": "bridge projection and angle imply D<U+q(u)",
+      "theory": "QF_NRA",
+      "result": "unsat",
+      "seconds": 0.003152692999719875
+    },
+    {
+      "name": "q(q(t))<=q(t) on [0,1]",
+      "theory": "QF_NRA",
+      "result": "unsat",
+      "seconds": 0.003053555999940727
+    },
+    {
+      "name": "small-h M slack excludes J<=h/24",
+      "theory": "QF_LRA",
+      "result": "unsat",
+      "seconds": 0.0018558499996288447
+    },
+    {
+      "name": "large-h M bound excludes J<=h/24",
+      "theory": "QF_LRA",
+      "result": "unsat",
+      "seconds": 0.001283145000343211
+    },
+    {
+      "name": "cosine kappa cap implies w<2a/3 for a<=2/5",
+      "theory": "QF_NRA",
+      "result": "unsat",
+      "seconds": 0.0030136000004858943
+    },
+    {
+      "name": "global kappa cap implies w<2a/3 for a>=2/5",
+      "theory": "QF_LRA",
+      "result": "unsat",
+      "seconds": 0.0011020249985449482
+    },
+    {
+      "name": "epsilon<80a/209 from both hand kappa caps",
+      "theory": "QF_NRA",
+      "result": "unsat",
+      "seconds": 0.0031135520002862904
+    },
+    {
+      "name": "negative C rotation small-angle denominator >2",
+      "theory": "QF_NRA",
+      "result": "unsat",
+      "seconds": 0.0022031839998817304
+    },
+    {
+      "name": "negative C rotation epsilon<h/24",
+      "theory": "QF_NRA",
+      "result": "unsat",
+      "seconds": 0.0033219389988516923
+    },
+    {
+      "name": "positive C rotation lower axis gives h<a/(2-a)",
+      "theory": "QF_NRA",
+      "result": "unsat",
+      "seconds": 0.0034756329987430945
+    },
+    {
+      "name": "positive C rotation r<Delta(a)",
+      "theory": "QF_NRA",
+      "result": "unsat",
+      "seconds": 0.003933583000616636
+    },
+    {
+      "name": "positive C rotation q(h)<a/(4-3a)",
+      "theory": "QF_NRA",
+      "result": "unsat",
+      "seconds": 0.003611819000070682
+    },
+    {
+      "name": "small-a F root estimate 2Delta<=9a/11",
+      "theory": "QF_NRA",
+      "result": "unsat",
+      "seconds": 0.0022009929998603184
+    },
+    {
+      "name": "middle-a Ys cap w<3/14",
+      "theory": "QF_NRA",
+      "result": "unsat",
+      "seconds": 0.0030993740001576953
+    },
+    {
+      "name": "middle-a epsilon<1/10",
+      "theory": "QF_NRA",
+      "result": "unsat",
+      "seconds": 0.0025537519995850744
+    },
+    {
+      "name": "large-a Ys cap w<1/7",
+      "theory": "QF_NRA",
+      "result": "unsat",
+      "seconds": 0.0029617050004162593
+    },
+    {
+      "name": "large-a epsilon<1/24",
+      "theory": "QF_NRA",
+      "result": "unsat",
+      "seconds": 0.0025442489986744476
+    }
+  ],
+  "totals": {
+    "UNSAT": 32,
+    "NRA": 29,
+    "LRA": 3,
+    "symbolic_identities": 30,
+    "constants": 15
+  },
+  "symbolic_identities": [
+    "M simplified",
+    "M derivative",
+    "small M budget polynomial",
+    "small T0 budget polynomial",
+    "A simplified",
+    "A-3/10 sign",
+    "Ab-A sign",
+    "bridge convexity chain rule",
+    "g second derivative",
+    "q second derivative",
+    "convex corner 0-0",
+    "convex corner 0-1",
+    "convex corner 0-2",
+    "convex corner 0-3",
+    "convex corner 1-0",
+    "convex corner 1-1",
+    "convex corner 1-2",
+    "convex corner 1-3",
+    "convex corner 2-0",
+    "convex corner 2-1",
+    "convex corner 2-2",
+    "convex corner 2-3",
+    "convex corner 3-0",
+    "convex corner 3-1",
+    "convex corner 3-2",
+    "convex corner 3-3",
+    "Ys derivative",
+    "Ys(1-h)",
+    "delta of a/(2-a)",
+    "q of a/(2-a)"
+  ],
+  "constants": {
+    "P(1/3)": true,
+    "Q(1/3)": true,
+    "M(1/3)": true,
+    "409/720<4/7": true,
+    "10/7>sqrt2": true,
+    "7/13<4/7": true,
+    "8/15<4/7": true,
+    "10/17<2/3": true,
+    "80/209<2/5": true,
+    "125/3402<1/24": true,
+    "1060/1189>9/11": true,
+    "121/599<3/14": true,
+    "18/187<1/10": true,
+    "274/493<4/7": true,
+    "139/456<1/3": true
+  },
+  "scope": "G3 TOP V3 / BOTTOM V2 hand proof scalar checks; ownership reviewed separately",
+  "not_proved": "Other G3 representatives; remaining G2; S(6)=2"
+}

@@ -1,0 +1,10 @@
+{
+  "private": true,
+  "name": "s6-english-manuscript-renderer",
+  "version": "1.0.0",
+  "dependencies": {
+    "markdown-it": "14.1.0",
+    "katex": "0.16.22",
+    "puppeteer-core": "24.25.0"
+  }
+}

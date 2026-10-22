@@ -1,0 +1,15 @@
+{
+  "id": "check_round26_g2_top__n6__80214261b3",
+  "file": "check_round26_g2_top",
+  "n": 6,
+  "query": "h > 0 ; 4*h < 1 ; T < x - (2*h)/(1 + h) ; l < T + h ; d < (2*h*(h + T))/(1 - h*h) ; Or(l >= x - (h*(1 - h))/(1 + h),\n   d >= (2*h*(x - (h*(1 - h))/(1 + h)))/(1 - h*h))",
+  "method": "exact-hand-Or-h-cascade",
+  "status": "exact",
+  "certificate": {
+    "type": "hand_Or_h_cascade",
+    "claim": "both Or branches contradicted by strict T/l/d upper bounds; tip identities cancel",
+    "algebra_branch1": "l < T+h < x - h(1-h)/(1+h)",
+    "algebra_branch2": "d < 2h(h+T)/(1-h^2) < 2h(x-tip)/(1-h^2)"
+  },
+  "batch": "26"
+}

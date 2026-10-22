@@ -1,0 +1,22 @@
+{
+  "id": "check_round36_nonempty_closed__n6__068a36fcc7",
+  "file": "check_round36_nonempty_closed",
+  "n": 6,
+  "query": "u > 0 ; x > 0 ; x < 1 ; Sigma < 1 - u + (1 - x)/(1 + x) ; Sigma > 2 - x - h1 ; h1 <= u",
+  "method": "exact-Bernstein-Sigma-gap",
+  "status": "exact",
+  "certificate": {
+    "type": "bernstein_Sigma_gap",
+    "numer_coeffs": [
+      "0",
+      "-1/2",
+      "0"
+    ],
+    "denom_coeffs": [
+      "1",
+      "2"
+    ],
+    "claim": "even at h1=u, lower 2-x-u >= upper 1-u+(1-x)/(1+x)"
+  },
+  "batch": "25c"
+}

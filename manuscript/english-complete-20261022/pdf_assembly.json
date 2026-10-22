@@ -1,0 +1,307 @@
+{
+  "pdf": "S6_Complete_English_Candidate_20261022.pdf",
+  "pages": 277,
+  "core_pages": 19,
+  "technical_pages": 258,
+  "modules": 72,
+  "formulas_rendered": 9833,
+  "formula_parse_errors": 0,
+  "broken_internal_links": 0,
+  "link_annotations_preserved": 301,
+  "named_link_destinations_resolved_before_merge": 294,
+  "minimum_scaled_math_pt": 9.005583849479956,
+  "cjk_characters": 0,
+  "all_72_module_bookmarks_present": true,
+  "sha256": "79d3bd6182d3cbb05810ec327708cd1f121fff93a8435ef7a773f03217997e65",
+  "module_locations": {
+    "R2": {
+      "page": 22,
+      "title": "R2. Fundamental grid and chord budgets"
+    },
+    "R3": {
+      "page": 27,
+      "title": "R3. Cyclic midpoint hosts and the remaining G5representatives"
+    },
+    "R4": {
+      "page": 32,
+      "title": "R4. Central boundary contacts and reductions of the one-midpoint case"
+    },
+    "R5": {
+      "page": 37,
+      "title": "R5. Excluding the near representative with three joined outeredges"
+    },
+    "R6": {
+      "page": 41,
+      "title": "R6. Exclusion of every near G5 one-midpoint representative"
+    },
+    "R7": {
+      "page": 45,
+      "title": "R7. Boundary exclusion and redundancy in the far G5representative"
+    },
+    "R8": {
+      "page": 48,
+      "title": "R8. The final far-case inequality and exclusion of G5"
+    },
+    "R9": {
+      "page": 52,
+      "title": "R9. Exclusion of the G1 three-join configuration"
+    },
+    "R10C": {
+      "page": 57,
+      "title": "R10C. Nonempty-chord correction for opposite G1 gaps"
+    },
+    "R10": {
+      "page": 58,
+      "title": "R10. Completion of the G1 exclusion"
+    },
+    "R11": {
+      "page": 62,
+      "title": "R11. Interior-point obstruction and reduction of a far G2representative"
+    },
+    "R12": {
+      "page": 68,
+      "title": "R12. The noncentral non-corner tile must contain an outermidpoint"
+    },
+    "R20": {
+      "page": 75,
+      "title": "R20. Opposite and adjacent midpoint representatives in G3and G4"
+    },
+    "R20A": {
+      "page": 79,
+      "title": "R20A. Excluding a duplicated left midpoint in the same-side G4representative"
+    },
+    "R21": {
+      "page": 82,
+      "title": "R21. Excluding T8 and refining the remaining midpointrepresentatives"
+    },
+    "R21A": {
+      "page": 87,
+      "title": "R21A. A strict lower bound for the floating vertical chord indiagonal G4"
+    },
+    "R22": {
+      "page": 90,
+      "title": "R22. Actual bridge endpoints exclude the diagonal G4representative"
+    },
+    "R22A": {
+      "page": 93,
+      "title": "R22A. Two genuine gaps are forced in the same-side G4representative"
+    },
+    "R23": {
+      "page": 97,
+      "title": "R23. Completion of the G4 exclusion"
+    },
+    "R24": {
+      "page": 101,
+      "title": "R24. Exclusion of the G3 representative with both hosts on theF side"
+    },
+    "R24A": {
+      "page": 105,
+      "title": "R24A. Reduction of the G3 representative with both hosts onthe C side"
+    },
+    "R25": {
+      "page": 108,
+      "title": "R25. Excluding all three G3 host representatives"
+    },
+    "R13": {
+      "page": 112,
+      "title": "R13. Adjacent-corner budgets and necessary restrictions in G2"
+    },
+    "R14": {
+      "page": 116,
+      "title": "R14. Forced seams, disappearance of a vertical section, and thenear left gap"
+    },
+    "R15": {
+      "page": 121,
+      "title": "R15. Continuous angle restrictions and a long-leg-freeintersection in the near residual case"
+    },
+    "R15S": {
+      "page": 125,
+      "title": "R15S. Angle separation and interior displacement of the nearintersection"
+    },
+    "R16P": {
+      "page": 126,
+      "title": "R16P. Projection premises for the near intersection"
+    },
+    "R16": {
+      "page": 127,
+      "title": "R16. Exclusion of the near G2 three-join branch"
+    },
+    "R16A": {
+      "page": 130,
+      "title": "R16A. Gap ownership and intersections with a nonempty nearhorizontal section"
+    },
+    "R17": {
+      "page": 132,
+      "title": "R17. Excluding the negative horizontal branch by overlap andprojections"
+    },
+    "R18": {
+      "page": 135,
+      "title": "R18. Excluding the positive horizontal type and classifying theremaining near gaps"
+    },
+    "R19": {
+      "page": 138,
+      "title": "R19. Top-gap endpoints replace the old angle cascade"
+    },
+    "R26": {
+      "page": 142,
+      "title": "R26. Closing the entire near G2 top-gap representative"
+    },
+    "R27": {
+      "page": 147,
+      "title": "R27. One rotation branch each for near right gaps and far topgaps"
+    },
+    "R28": {
+      "page": 151,
+      "title": "R28. Excluding the entire near G2 representative"
+    },
+    "R29": {
+      "page": 155,
+      "title": "R29. Excluding every standardized far top-gap representative"
+    },
+    "R29N": {
+      "page": 158,
+      "title": "R29N. Three far edge states and the corrected paralleldirections"
+    },
+    "R30": {
+      "page": 160,
+      "title": "R30. Correcting parallel directions and strengthening actualfar axial constraints"
+    },
+    "R31": {
+      "page": 163,
+      "title": "R31. Excluding far three joins with a nonempty F horizontalsection"
+    },
+    "R32": {
+      "page": 166,
+      "title": "R32. Excluding a right gap with a positive F horizontal section"
+    },
+    "R33": {
+      "page": 169,
+      "title": "R33. Excluding every right gap with a nonempty F horizontalsection"
+    },
+    "R34": {
+      "page": 172,
+      "title": "R34. Excluding a left gap with a negative F horizontal section"
+    },
+    "R35": {
+      "page": 174,
+      "title": "R35. The last nonempty-horizontal family requires a two-tilerelay"
+    },
+    "R36": {
+      "page": 176,
+      "title": "R36. Excluding all nonempty F horizontal mechanisms"
+    },
+    "R37": {
+      "page": 179,
+      "title": "R37. A global axial-root cap and two empty-horizontal side-gaprotation exclusions"
+    },
+    "R38": {
+      "page": 183,
+      "title": "R38. Closing all right gaps and the left double-bridge subclass"
+    },
+    "R39": {
+      "page": 187,
+      "title": "R39. Closing the LEFT true gap and excluding BOTTOM contactin the three-contact form"
+    },
+    "R40": {
+      "page": 192,
+      "title": "R40. A forced interior seam point in the three-contact form"
+    },
+    "R41": {
+      "page": 195,
+      "title": "R41. Near-diagonal double-direct contact and auxiliary seamcomparisons"
+    },
+    "R42": {
+      "page": 199,
+      "title": "R42. A normalized seam point in the same central tile and apositive-rotation interval"
+    },
+    "R43": {
+      "page": 204,
+      "title": "R43. Small-angle double-direct exclusion for both rotations"
+    },
+    "R44": {
+      "page": 207,
+      "title": "R44. A forced top seam point for an upper bridge withoutrepeated TOP midpoint"
+    },
+    "R45": {
+      "page": 210,
+      "title": "R45. Excluding two bridges by  and reducing fourmechanisms to three"
+    },
+    "R46": {
+      "page": 213,
+      "title": "R46. Rotation separation for an upper bridge and actual lowerinterfaces of "
+    },
+    "R47": {
+      "page": 217,
+      "title": "R47. A long bottom chord and exact five-point constraints forthe same "
+    },
+    "R48": {
+      "page": 220,
+      "title": "R48. Continuous-cover reductions and actual upper tripleintersections"
+    },
+    "R49": {
+      "page": 224,
+      "title": "R49. A continuous small-angle exclusion for a right bridge inboth rotations"
+    },
+    "R50": {
+      "page": 227,
+      "title": "R50. Enlarging the two-rotation right-bridge exclusion to "
+    },
+    "R51": {
+      "page": 229,
+      "title": "R51. Enlarging the two-rotation right-bridge exclusion to "
+    },
+    "R52": {
+      "page": 232,
+      "title": "R52. Small-angle upper-bridge exclusion and a uniform anglelower bound"
+    },
+    "R53": {
+      "page": 235,
+      "title": "R53. A universal actual relation between the left seam and thebottom short leg"
+    },
+    "R54": {
+      "page": 237,
+      "title": "R54. A complete near-diagonal exclusion when  contains theupper endpoint"
+    },
+    "R55": {
+      "page": 240,
+      "title": "R55. Excluding the entire positive-rotation class with "
+    },
+    "R56": {
+      "page": 245,
+      "title": "R56. A continuous high-angle exclusion for negative rotationwith "
+    },
+    "R57": {
+      "page": 248,
+      "title": "R57. An actual lower-left exit point excludes a middle negative-rotation range"
+    },
+    "R58": {
+      "page": 251,
+      "title": "R58. Extending the negative-rotation exclusion to "
+    },
+    "R59": {
+      "page": 254,
+      "title": "R59. Excluding the entire upper-bridge mechanism"
+    },
+    "R60": {
+      "page": 257,
+      "title": "R60. Excluding every negative rotation in the two remainingmechanisms"
+    },
+    "R61": {
+      "page": 260,
+      "title": "R61. An asymmetric triangle in the same  reduces thepositive-rotation remainder"
+    },
+    "R62": {
+      "page": 264,
+      "title": "R62. Excluding all small  and confining the commonremainder to an open strip"
+    },
+    "R63": {
+      "page": 267,
+      "title": "R63. Excluding the entire right bridge and leaving only positivedouble-direct contact"
+    },
+    "R64": {
+      "page": 270,
+      "title": "R64. Excluding all positive rotations in the middle- double-direct form"
+    }
+  },
+  "mathematical_validity_checked": false
+}

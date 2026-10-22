@@ -1,0 +1,41 @@
+{
+  "agent": "english_final_mechanisms",
+  "date": "2026-10-22",
+  "status": "complete",
+  "modules": ["R39", "R40", "R41", "R42", "R43", "R44", "R45", "R46", "R47", "R48", "R49", "R50", "R51", "R52", "R53", "R54", "R55", "R56", "R57", "R58", "R59", "R60", "R61", "R62", "R63", "R64"],
+  "source_directory": "work/s6_english_module_source",
+  "output_directory": "work/S6_english_20261022/manuscript/technical_modules",
+  "method": "Manually reconstructed English proofs from the assigned source modules, after reading NOTATION.md, the sole normalization protocol, and R2 style. No network translation, automatic translation, new geometric theorem, or independent global verification was performed.",
+  "preserved": [
+    "Actual original C and F, genuine axial and boundary exit points, closedness and convexity arguments, and all source numbered substantive sections.",
+    "Explicit branch scope, direct versus bridged contact premises, endpoint cases, denominator signs, full continuous parameter domains, exact substantial formulas, constants, and certificate sizes and identities.",
+    "R42 local h=lambda(z), distinct from the central half-angle eta; R56's full mu-dependent bound before both T_R coordinate estimates; R57's alpha>eta premise and actual E1 height independent of d.",
+    "No transfer of W-containing-Q_U angle or leg bounds to a general right bridge; no one-shot simultaneous clamp premise.",
+    "R64 is solely a middle-z positive double-direct exclusion. Its scalar checks are not presented as proving earlier host or normalization reductions.",
+    "The parent's appended R42 Section 6 and typesetting correction in R48 were preserved."
+  ],
+  "editorial_changes": [
+    "Converted narrative headings, mathematical prose, and inline math text to English with explicit math delimiters.",
+    "Used eta for C half-angle and tau for W half-angle; later slope functions use lambda. Earlier locally defined K, k, and R42 h remain explicit slope aliases where their source expressions are protected.",
+    "Renamed the source numerical constant kappa=71/50 to mathcal K, and local threshold H=7/12 to H_*, so neither is confused with midpoint count or central target segments.",
+    "Used R_C, U_C, D_C and Q_R for actual central or corner points where practical, while retaining source-specific seam and auxiliary names.",
+    "Condensed repeated progress logs and repeated source-status prose while retaining certificate references and substantive arithmetic records.",
+    "Omitted the trailing R64 source index and endmatter because the parent is generating a unified English index and endmatter."
+  ],
+  "checks": {
+    "all_26_files_saved": true,
+    "all_required_ID_anchors_present": true,
+    "CJK_character_count": 0,
+    "inline_math_delimiter_counts_balanced_in_each_file": true,
+    "display_math_delimiter_counts_balanced_in_each_file": true,
+    "local_source_comparison": "Performed during manual reconstruction and a final targeted own-file review. Corrected two own-draft transcription issues before delivery: R51 Delta_z<K/100<1/300 and R57's two identical denominator forms.",
+    "PDF_or_full_build": "Not performed, as assigned. Parent handles rendering and KaTeX QA.",
+    "arithmetic_replay_claims": "Source-reported unless expressly attributed to the parent's fresh R42 replay; no new independent arithmetic replay claimed by this agent."
+  },
+  "remaining_review_obligations": [
+    "The overall main theorem remains a candidate subject to geometric premise-transfer review. Local arithmetic certificates do not validate the global normalization and reclassification route.",
+    "Historical top-anchored dominating representatives and the newly acquired RIGHT-midpoint branch exclusion referenced in R40, R41, and R44 retain their original prerequisite dependencies; this translation does not invent a missing replacement or classification proof.",
+    "Most modules identify complete certificate expressions, parameter charts, degrees, positive denominators, and coefficient counts rather than duplicating every archived coefficient vector. Exact archived arithmetic records remain the audit objects. The parent supplemented R42 with its complete coefficient records.",
+    "No new missing local mathematical premise was identified beyond the expressly retained source scope and dependency obligations."
+  ]
+}

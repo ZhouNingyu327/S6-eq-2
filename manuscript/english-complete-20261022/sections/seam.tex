@@ -1,0 +1,42 @@
+\begin{proof}[The unit-scale seam remains in the original tile]
+Put $k_a=\lambda(a)$, $k_z=\lambda(z)$ and $S=S_4$.
+The real-scale seam construction supplies
+\[
+ X_\mu=\frac{b(a)+S-2\mu}{k_a-k_z},\qquad
+ e_\mu=\mu-S-k_zX_\mu,\qquad
+ P_\mu=(-\mu+X_\mu,e_\mu)\in C.
+\]
+Its membership is the actual geometric exit argument in technical lemma
+R40, not a claim that the intersection of two extended supporting lines
+automatically belongs to $C$.
+The negative horizontal corner endpoint also belongs to $C$:
+\[
+ Q_L=(-\ell_\mu,0),\qquad
+ \ell_\mu=\mu-a+\frac{\mu-1}{k_a}.
+\]
+The support identities give
+$0<X_1<a$ and $e_1>k_z(1-z-a)>0$, together with
+\[
+ e_\mu-e_1=(\mu-1)\left(1+\frac{2k_z}{k_a-k_z}\right)>0.
+\]
+Since $P_\mu\in V_1$ and $V_1$ contains the lower-left target corner,
+$e_\mu+\mu\le\sqrt2$. The already established $u>38/79$ yields
+\[
+ 0<e_1<\sqrt2-1<5/12<38/79<u,
+\]
+so $(0,e_1)\in C$.
+The first upper support of $V_1$ gives the exact identities
+\[
+ \mu-X_\mu=\ell_\mu+\frac{e_\mu}{k_a},\qquad
+ 1-X_1=(1-a)+\frac{e_1}{k_a}.
+\]
+The segment $Q_LP_\mu\subset C$ contains, at height $e_1$,
+\[
+ Z=(-\ell_\mu-e_1/k_a,e_1).
+\]
+Since $\ell_\mu-(1-a)=(\mu-1)(1+1/k_a)>0$, the point
+$P_1=(-1+X_1,e_1)$ lies between $Z$ and $(0,e_1)$.
+Convexity proves that $P_1$ belongs to the same original $C$.
+No tile, target, or family has been rescaled to $\mu=1$.
+\end{proof}
+

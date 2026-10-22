@@ -1,0 +1,40 @@
+{
+  "queries": [],
+  "symbolic_identities": [
+    "one minus G",
+    "angle balance gap",
+    "angle P second derivative",
+    "Gamma threshold",
+    "Gamma square gap",
+    "W-down endpoint0 threshold",
+    "W-down endpoint0 square gap",
+    "W-down endpointw threshold",
+    "W-down endpointw square gap",
+    "final-grid square gap",
+    "delta(q)=Delta",
+    "q convexity",
+    "Delta convexity",
+    "grid endpoint convexity"
+  ],
+  "constants": [
+    "P at 2/9",
+    "P prime at 2/9",
+    "P tangent intercept",
+    "R3 endpoint",
+    "R3 derivative lower",
+    "P5 lower",
+    "P7 quadratic endpoint",
+    "q plus Delta upper",
+    "sqrt2-1<5/12",
+    "kappa(sqrt2)<4/15"
+  ],
+  "totals": {
+    "UNSAT": 0,
+    "NRA": 0,
+    "LRA": 0,
+    "symbolic_identities": 14,
+    "constants": 10
+  },
+  "scope": "Complete near G2 exclusion, with actual endpoint geometry audited separately",
+  "not_proved": "Remaining far G2 and S(6)=2"
+}

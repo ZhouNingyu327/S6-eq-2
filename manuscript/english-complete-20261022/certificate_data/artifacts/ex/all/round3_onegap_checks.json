@@ -1,0 +1,21 @@
+[
+  {
+    "scope": "bottom-gap block cannot cover top critical tip",
+    "result": "unsat",
+    "geometry_input": "distance forces sum of the indicated legs below 1"
+  },
+  {
+    "scope": "bottom-gap block cannot cover left critical tip",
+    "result": "unsat",
+    "geometry_input": "distance forces sum of the indicated legs below 1"
+  },
+  {
+    "scope": "top-tip block cannot also cover bottom critical tip",
+    "result": "unsat",
+    "diameter_upper": "10/7"
+  },
+  {
+    "scope": "both centre blocks cannot touch the sole gapped outer edge",
+    "result": "unsat"
+  }
+]

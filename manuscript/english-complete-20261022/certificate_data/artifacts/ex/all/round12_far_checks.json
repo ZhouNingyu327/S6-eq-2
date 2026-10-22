@@ -1,0 +1,20 @@
+[
+  {
+    "scope": "left outer point and top-right point force the top midpoint, mu>1",
+    "result": "unsat",
+    "arithmetic": "exact nonlinear reals",
+    "seconds": 0.004025936126708984
+  },
+  {
+    "scope": "left-gap branch, F upper middle trace has zero length: NE boundary budget is deficient",
+    "result": "unsat",
+    "arithmetic": "exact linear reals",
+    "seconds": 0.0011699199676513672
+  },
+  {
+    "scope": "left-gap branch, F upper middle trace positive: left-gap/vertical parallel budget closes NE boundary",
+    "result": "unsat",
+    "arithmetic": "exact linear reals",
+    "seconds": 0.001032114028930664
+  }
+]

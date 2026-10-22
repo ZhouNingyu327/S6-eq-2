@@ -1,0 +1,13 @@
+{
+  "id": "check_round36_nonempty_closed__n7__80741ce867",
+  "file": "check_round36_nonempty_closed",
+  "n": 7,
+  "query": "c > 0 ; s > 0 ; c*c + s*s == 1 ; mu > 1 ; c*(mu - h0) + s*mu <= 1 ; tau*s == 1 - c ; h0 <= 1 - (1 - tau)/(1 + tau)",
+  "method": "exact-hand-tip-T-u",
+  "status": "exact",
+  "certificate": {
+    "type": "identity_tip_T_u",
+    "claim": "at h0=1-G, mu=1 covering=1; mu>1 forces >1"
+  },
+  "batch": "26c"
+}

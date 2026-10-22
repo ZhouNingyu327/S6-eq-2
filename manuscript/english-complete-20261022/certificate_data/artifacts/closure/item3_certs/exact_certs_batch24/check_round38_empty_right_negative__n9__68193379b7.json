@@ -1,0 +1,36 @@
+{
+  "id": "check_round38_empty_right_negative__n9__68193379b7",
+  "file": "check_round38_empty_right_negative",
+  "n": 9,
+  "query": "17/60 < eta ; 3/10 > eta ; K*(1 - eta*eta) == 2*eta ; 43/60 > u ; u > 0 ; u < 1 ; r > 1 - u/(2 - u) ; d >= K*r ; Or(289/1155 >= d, 43/77 <= (1 - eta)/(1 + eta))",
+  "method": "exact-Bernstein-or-eta-d",
+  "status": "exact",
+  "certificate": {
+    "type": "or_eta_d_split",
+    "branch2": {
+      "numer_coeffs": [
+        "0",
+        "-2"
+      ],
+      "denom_coeffs": [
+        "5929/60",
+        "1001/10"
+      ],
+      "claim": "(1-eta)/(1+eta) <= 43/77 on [17/60,3/10], strict interior <"
+    },
+    "branch1": {
+      "numer_coeffs": [
+        "83521/3600",
+        "6613/200",
+        "4301/100"
+      ],
+      "denom_coeffs": [
+        "254947/240",
+        "42273/40",
+        "21021/20"
+      ],
+      "claim": "K*(34/77) > 289/1155 on eta interval (using max u=43/60)"
+    }
+  },
+  "batch": "25b"
+}

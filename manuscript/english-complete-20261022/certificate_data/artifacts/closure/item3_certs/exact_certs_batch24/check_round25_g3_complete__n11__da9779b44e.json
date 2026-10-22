@@ -1,0 +1,13 @@
+{
+  "id": "check_round25_g3_complete__n11__da9779b44e",
+  "file": "check_round25_g3_complete",
+  "n": 11,
+  "query": "g25_mu > 1 ; g25_L >= g25_mu ; g25_L*g25_L <= 2 ; g25_p > 0 ; g25_s > 0 ; g25_p >= g25_s ; g25_p*g25_p + g25_s*g25_s == 1 ; g25_H*(1 + g25_p) == g25_s ; g25_p*(2*g25_mu - g25_L) + g25_s*g25_mu <= 1 ; g25_K*(3 - g25_L) == g25_L - 1 ; g25_H >= g25_K",
+  "method": "exact-hand-tip-HK-L",
+  "status": "exact",
+  "certificate": {
+    "type": "identity_tip_HK_L",
+    "claim": "H>=K => L<=(3H+1)/(H+1); Weierstrass covering p(2-L)+s =1 at mu=1; mu>1 forces >1"
+  },
+  "batch": "26f"
+}

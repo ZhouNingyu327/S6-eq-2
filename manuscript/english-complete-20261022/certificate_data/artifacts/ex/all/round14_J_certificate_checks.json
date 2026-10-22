@@ -1,0 +1,23 @@
+{
+  "result": "passed",
+  "rectangles": 12,
+  "rational_coefficients": 316,
+  "branches": [
+    {
+      "branch": "c",
+      "rectangles": 1,
+      "area": "1"
+    },
+    {
+      "branch": "m",
+      "rectangles": 10,
+      "area": "1"
+    },
+    {
+      "branch": "s",
+      "rectangles": 1,
+      "area": "1"
+    }
+  ],
+  "identities": "both N caps and z monotonicity verified"
+}

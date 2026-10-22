@@ -1,0 +1,86 @@
+[
+  {
+    "scope": "axis propagation: unit containing (-l,0) and (mu,y), mu>1,l>0, must contain origin",
+    "result": "unsat",
+    "arithmetic": "exact nonlinear reals",
+    "seconds": 0.00475001335144043
+  },
+  {
+    "scope": "F bottom and horizontal middle both nonempty: effective grid budget <12mu",
+    "result": "unsat",
+    "arithmetic": "exact linear reals",
+    "seconds": 0.0008456707000732422
+  },
+  {
+    "scope": "F bottom right, horizontal middle empty: C left half-gap and left tip violate parallel sections",
+    "result": "unsat",
+    "arithmetic": "exact linear reals",
+    "seconds": 0.0005028247833251953
+  },
+  {
+    "scope": "F bottom left, horizontal middle empty: complete right/up middle coverage contradicts two meets",
+    "result": "unsat",
+    "arithmetic": "exact linear reals",
+    "seconds": 0.0010559558868408203
+  },
+  {
+    "scope": "F avoids bottom: full C bottom gap excludes C from left critical tip",
+    "result": "unsat",
+    "arithmetic": "exact linear reals",
+    "seconds": 0.0008611679077148438
+  },
+  {
+    "scope": "C-only right middle coverage forces weak-corner H>0",
+    "result": "unsat",
+    "arithmetic": "exact linear reals",
+    "seconds": 0.0008969306945800781
+  },
+  {
+    "scope": "H>0 permits weak top/H parallel bound and implies D<S1",
+    "result": "unsat",
+    "arithmetic": "exact linear reals",
+    "seconds": 0.0009241104125976562
+  },
+  {
+    "scope": "left meet plus D<S1 forbids top meet, so F must own top far endpoint",
+    "result": "unsat",
+    "arithmetic": "exact linear reals",
+    "seconds": 0.0010106563568115234
+  },
+  {
+    "scope": "F left tip and top far endpoint have horizontal span >1, and vertical span mu>1",
+    "result": "unsat",
+    "arithmetic": "exact linear reals",
+    "seconds": 0.00046443939208984375
+  },
+  {
+    "scope": "remaining left-gap branch: C and corners cannot cover all upper middle, so F touches positive vertical axis",
+    "result": "unsat",
+    "arithmetic": "exact linear reals",
+    "seconds": 0.001073598861694336
+  },
+  {
+    "scope": "right-gap endpoint geometry excludes all weak-corner half-angles in [1/3,7/8]",
+    "result": "unsat",
+    "arithmetic": "exact nonlinear reals",
+    "seconds": 0.009542465209960938
+  },
+  {
+    "scope": "remaining high-angle branch has S2<1/2",
+    "result": "unsat",
+    "arithmetic": "exact nonlinear reals",
+    "seconds": 0.002118825912475586
+  },
+  {
+    "scope": "small weak angle: C cannot contain (1/3,2u/3) after right-gap endpoint calibration",
+    "result": "unsat",
+    "arithmetic": "exact nonlinear reals",
+    "seconds": 0.0016367435455322266
+  },
+  {
+    "scope": "left endpoint l>4/5 plus interior witness (1/3,2u/3) force center",
+    "result": "unsat",
+    "arithmetic": "exact nonlinear reals",
+    "seconds": 0.003312826156616211
+  }
+]

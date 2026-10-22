@@ -1,0 +1,71 @@
+{
+  "result": "passed",
+  "charts": 9,
+  "identities": 9,
+  "checker": "r41/check_round41_certificates.py + independent rebuild",
+  "charts_detail": [
+    {
+      "chart": "small a, cosine envelope",
+      "degrees": [
+        8,
+        3
+      ]
+    },
+    {
+      "chart": "Ka<=1, short-leg envelope",
+      "degrees": [
+        8,
+        3
+      ]
+    },
+    {
+      "chart": "Ka>=1, short-leg envelope",
+      "degrees": [
+        10,
+        3
+      ]
+    },
+    {
+      "chart": "Ka>=1 low z R2",
+      "degrees": [
+        7,
+        4
+      ]
+    },
+    {
+      "chart": "Ka<=1 very low z",
+      "degrees": [
+        2,
+        3
+      ]
+    },
+    {
+      "chart": "Ka<=1 low a",
+      "degrees": [
+        2,
+        3
+      ]
+    },
+    {
+      "chart": "Ka<=1 high a objective",
+      "degrees": [
+        2,
+        2
+      ]
+    },
+    {
+      "chart": "Ka<=1 separator lower a",
+      "degrees": [
+        2,
+        4
+      ]
+    },
+    {
+      "chart": "Ka<=1 separator upper a",
+      "degrees": [
+        2,
+        4
+      ]
+    }
+  ]
+}

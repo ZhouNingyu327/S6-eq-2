@@ -1,0 +1,28 @@
+{
+  "reviewer": "B / english_residual",
+  "scope": "One bounded source-correspondence check of C's R56 mu-linked T_R/B_act argument and R57 alpha > eta denominator domain. This is not full geometric or certificate validation.",
+  "status": "checked_no_discrepancy",
+  "files_read_only": [
+    "work/s6_english_module_source/R56.md",
+    "work/S6_english_20261022/manuscript/technical_modules/R56.md",
+    "work/s6_english_module_source/R57.md",
+    "work/S6_english_20261022/manuscript/technical_modules/R57.md"
+  ],
+  "checks": [
+    {
+      "module": "R56",
+      "location": "Section 2, equations (2)-(3)",
+      "result": "checked_no_discrepancy",
+      "details": "The English text preserves X = mu - xi, Y = upsilon + mu, the actual supports, B_act = 2 mu - b(tau) + lambda(tau) D, and D >= 2 mu - b(z). It retains B_act >= B_z + 2(1 + lambda(tau))(mu - 1), followed by upsilon >= B_z - 1 - lambda(tau) X + (1 + 2 lambda(tau))(mu - 1) > B - 1 - lambda(tau) X_*. Thus it does not infer the second coordinate bound merely from B_act > B, and it keeps both bounds attached to the same actual T_R."
+    },
+    {
+      "module": "R57",
+      "location": "Section 1 equation (4), Section 2 equations (5)-(9)",
+      "result": "checked_no_discrepancy",
+      "details": "The English text states a > alpha > eta before deriving V(a), and proves alpha > eta on eta in [3/10,3/8], tau in (0,1/5] through the positive endpoint bounds of -19 eta^2 + 10 eta - 1. It retains D = 1 - alpha, 0 < D <= 407/600 < 1, 0 < X < 1, -1 < P < H_* < 1, and A > a > alpha > eta. The positive denominator for V(A) is therefore justified on actual configurations. Its certificate construction preserves T_d > 0, Q_d > 0, M > 0, N > eta M and explicitly does not require these configuration-dependent signs at arbitrary relaxed parameter points. It also preserves the source's allowance of auxiliary A > 1 without treating A as a physical angle."
+    }
+  ],
+  "discrepancies": [],
+  "mutations_to_reviewed_files": false,
+  "limitations": "Source and English exposition were compared. No claim is made that the underlying certificate files, polynomial coefficients, global premise transfer or geometric theorem have been independently validated."
+}

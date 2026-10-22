@@ -1,0 +1,14 @@
+{
+  "id": "check_round32_right_positive__n7__08bd663cda",
+  "file": "check_round32_right_positive",
+  "n": 7,
+  "query": "c >= s ; s > 0 ; c*c + s*s == 1 ; mu > 1 ; G*c == 1 - s ; s*mu + c*(e + d) <= 1 ; e + d >= G",
+  "method": "exact-hand-tip-d-G",
+  "status": "exact",
+  "certificate": {
+    "type": "identity_tip_d_G",
+    "identity": "s + p*G =1 when G=(1-h)/(1+h), h=s/(1+p)",
+    "claim": "mu>1 => s*mu+p*G >1"
+  },
+  "batch": "26"
+}

@@ -1,0 +1,12 @@
+[
+  {
+    "scope": "near W, three meets: free corner bottom leg A<1",
+    "result": "unsat",
+    "arithmetic": "exact linear reals"
+  },
+  {
+    "scope": "free-corner horizontal middle chord H_W<S2",
+    "result": "unsat",
+    "arithmetic": "exact linear reals"
+  }
+]

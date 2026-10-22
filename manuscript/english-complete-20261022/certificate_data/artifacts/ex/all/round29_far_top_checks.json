@@ -1,0 +1,228 @@
+{
+  "queries": [],
+  "symbolic_identities": [
+    "q first",
+    "q second",
+    "g first",
+    "g second",
+    "G second",
+    "A-q(h) positive identity",
+    "R hh numerator",
+    "R EE",
+    "Phi+3E square gap",
+    "bridge lower l endpoint WITH q(3E)",
+    "bridge upper l endpoint (generic q argument)",
+    "T EE chain"
+  ],
+  "constants": [
+    {
+      "name": "R hh P coarse corner",
+      "value": "-1/9"
+    },
+    {
+      "name": "K small endpoint",
+      "value": "120/209"
+    },
+    {
+      "name": "R EE upper",
+      "value": "28800/43681"
+    },
+    {
+      "name": "R EE margin below 3/4",
+      "value": "15843/174724"
+    },
+    {
+      "name": "D EE lower",
+      "value": "1"
+    },
+    {
+      "name": "U EE lower",
+      "value": "15/8"
+    },
+    {
+      "name": "32/209 below 1/6",
+      "value": "17/1254"
+    },
+    {
+      "name": "small corner 0,0 gap D",
+      "value": "0"
+    },
+    {
+      "name": "small corner 0,0 gap U",
+      "value": "0"
+    },
+    {
+      "name": "small corner 0,0 gap W",
+      "value": "0"
+    },
+    {
+      "name": "small corner 0,1/6 gap D",
+      "value": "15/77"
+    },
+    {
+      "name": "small corner 0,1/6 gap U",
+      "value": "111/805"
+    },
+    {
+      "name": "small corner 0,1/6 gap W",
+      "value": "23/93"
+    },
+    {
+      "name": "small corner 4/15,0 gap D",
+      "value": "2391322/15332031"
+    },
+    {
+      "name": "small corner 4/15,0 gap U",
+      "value": "1068439/4717548"
+    },
+    {
+      "name": "small corner 4/15,0 gap W",
+      "value": "1899716/13672153"
+    },
+    {
+      "name": "small corner 4/15,1/6 gap D",
+      "value": "10416321/371594267"
+    },
+    {
+      "name": "small corner 4/15,1/6 gap U",
+      "value": "69032193/3470848579"
+    },
+    {
+      "name": "small corner 4/15,1/6 gap W",
+      "value": "57363/3887609"
+    },
+    {
+      "name": "large corner 4/15,0 gap D",
+      "value": "31/1404"
+    },
+    {
+      "name": "large corner 4/15,0 gap U",
+      "value": "5/54"
+    },
+    {
+      "name": "large corner 4/15,0 gap W",
+      "value": "19/3756"
+    },
+    {
+      "name": "large corner 4/15,1/6 gap D",
+      "value": "4805/102084"
+    },
+    {
+      "name": "large corner 4/15,1/6 gap U",
+      "value": "37117/953508"
+    },
+    {
+      "name": "large corner 4/15,1/6 gap W",
+      "value": "397/11748"
+    },
+    {
+      "name": "large corner 5/12,0 gap D",
+      "value": "125/2052"
+    },
+    {
+      "name": "large corner 5/12,0 gap U",
+      "value": "205/1188"
+    },
+    {
+      "name": "large corner 5/12,0 gap W",
+      "value": "95/1284"
+    },
+    {
+      "name": "large corner 5/12,1/6 gap D",
+      "value": "1165/36516"
+    },
+    {
+      "name": "large corner 5/12,1/6 gap U",
+      "value": "11453/311460"
+    },
+    {
+      "name": "large corner 5/12,1/6 gap W",
+      "value": "13/228"
+    }
+  ],
+  "small_corners": [
+    {
+      "h": "0",
+      "E": "0",
+      "gaps": [
+        "0",
+        "0",
+        "0"
+      ]
+    },
+    {
+      "h": "0",
+      "E": "1/6",
+      "gaps": [
+        "15/77",
+        "111/805",
+        "23/93"
+      ]
+    },
+    {
+      "h": "4/15",
+      "E": "0",
+      "gaps": [
+        "2391322/15332031",
+        "1068439/4717548",
+        "1899716/13672153"
+      ]
+    },
+    {
+      "h": "4/15",
+      "E": "1/6",
+      "gaps": [
+        "10416321/371594267",
+        "69032193/3470848579",
+        "57363/3887609"
+      ]
+    }
+  ],
+  "large_corners": [
+    {
+      "h": "4/15",
+      "E": "0",
+      "gaps": [
+        "31/1404",
+        "5/54",
+        "19/3756"
+      ]
+    },
+    {
+      "h": "4/15",
+      "E": "1/6",
+      "gaps": [
+        "4805/102084",
+        "37117/953508",
+        "397/11748"
+      ]
+    },
+    {
+      "h": "5/12",
+      "E": "0",
+      "gaps": [
+        "125/2052",
+        "205/1188",
+        "95/1284"
+      ]
+    },
+    {
+      "h": "5/12",
+      "E": "1/6",
+      "gaps": [
+        "1165/36516",
+        "11453/311460",
+        "13/228"
+      ]
+    }
+  ],
+  "totals": {
+    "UNSAT": 0,
+    "NRA": 0,
+    "LRA": 0,
+    "symbolic_identities": 12,
+    "constants": 31
+  },
+  "scope": "Complete standardized far TOP real-gap exclusion, combined with round27",
+  "not_proved": "Far no-TOP residuals; entire G2; S(6)=2"
+}

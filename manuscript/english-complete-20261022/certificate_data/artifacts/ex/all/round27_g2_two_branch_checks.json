@@ -1,0 +1,52 @@
+{
+  "scope": "Near G2 RIGHT gap / positive C entire branch; far G2 TOP gap / negative C entire branch",
+  "queries": [],
+  "symbolic_identities": [
+    "near e<h inversion",
+    "near eta derivative",
+    "near h-e small endpoint gap",
+    "near hG monotone",
+    "far Ys complement",
+    "far Ab dominates A",
+    "far A derivative",
+    "far A>h/2 gap",
+    "far bridge convex endpoint omega=0",
+    "far negative bridge endpoint omega=h",
+    "far M margin h/20",
+    "far T0 margin h/20",
+    "far M derivative"
+  ],
+  "constants": [
+    "near hG(4/15)",
+    "near lower y>3/20",
+    "near eta(3/20)>1/10",
+    "near cubic first endpoint",
+    "near cubic last endpoint",
+    "near Yc(4/15)<1/12",
+    "near long/short constants",
+    "near W A bound",
+    "near Sigma bound",
+    "near root scalar gap",
+    "near Wdown bottom gap",
+    "near Wdown contradiction",
+    "near negative H final grid cap",
+    "far Pm endpoint",
+    "far Pt endpoint",
+    "far small error",
+    "far M third",
+    "far T0 third",
+    "far first large maximum",
+    "far first large diameter",
+    "far M three eighths",
+    "far T0 three eighths",
+    "far last large maximum",
+    "far last large diameter"
+  ],
+  "totals": {
+    "UNSAT": 0,
+    "NRA": 0,
+    "LRA": 0,
+    "symbolic_identities": 13,
+    "constants": 24
+  }
+}

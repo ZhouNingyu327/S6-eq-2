@@ -1,0 +1,34 @@
+{
+  "id": "check_round27_g2_two_branches__n4__ba4d19a580",
+  "file": "check_round27_g2_two_branches",
+  "n": 4,
+  "query": "11/12 < hw ; hw < 1 ; sw*(1 + hw*hw) == 2*hw ; 265*sw <= 264",
+  "method": "exact-Bernstein-raw",
+  "status": "exact",
+  "certificate": {
+    "type": "bernstein_box_strict_endpoint",
+    "vars": [
+      "hw"
+    ],
+    "box": [
+      [
+        "11/12",
+        "1"
+      ]
+    ],
+    "expr": "2*(-132*hw**2 + 265*hw - 132)/(hw**2 + 1)",
+    "op": "<=",
+    "numer_coeffs": [
+      "0",
+      "23/12",
+      "2"
+    ],
+    "denom_coeffs": [
+      "265/144",
+      "23/12",
+      "2"
+    ],
+    "claim": "numer_nonneg_zeros_only_on_strictly_excluded_endpoint",
+    "tag": "raw"
+  }
+}

@@ -1,0 +1,15 @@
+{
+  "id": "check_round41_geometry__n6__25f77a859a",
+  "file": "check_round41_geometry",
+  "n": 6,
+  "query": "c >= s ; 12/17 <= s ; r > 0 ; u > 0 ; Or(s*r + c*u <= 1, c*r + s*u <= 1) ; 17/12 < r + u",
+  "method": "exact-hand-r41-proj-min",
+  "status": "exact",
+  "certificate": {
+    "type": "hand_r41_proj_min",
+    "claim": "with c>=s>0, min(s*r+c*u,c*r+s*u) >= s(r+u) > (12/17)*(17/12)=1",
+    "algebra": "for L=r+u, min_r min(s*r+c*(L-r), c*r+s*(L-r)) = s*L at an endpoint",
+    "strict": "r+u>17/12 and s>=12/17 => s(r+u)>1, so both Or branches false"
+  },
+  "batch": "25"
+}

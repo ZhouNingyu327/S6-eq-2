@@ -1,0 +1,80 @@
+{
+  "scope": "G4 hosts top TR/right BR with TL also containing left midpoint: entire branch excluded",
+  "status": "all exact checks passed",
+  "queries": [
+    {
+      "name": "nonpositive F horizontal contradicts C exterior-midpoint ray bound",
+      "theory": "QF_LRA",
+      "result": "unsat",
+      "seconds": 0.0011357879993738607
+    },
+    {
+      "name": "positive C orientation cannot reach forced upper ray",
+      "theory": "QF_NRA",
+      "result": "unsat",
+      "seconds": 0.0032271439995383844
+    },
+    {
+      "name": "negative C orientation forces h < y/(2-y)",
+      "theory": "QF_NRA",
+      "result": "unsat",
+      "seconds": 0.002265028000692837
+    },
+    {
+      "name": "left midpoint and small rotation force RC < y^2",
+      "theory": "QF_NRA",
+      "result": "unsat",
+      "seconds": 0.0017868080003609066
+    },
+    {
+      "name": "kappa < t",
+      "theory": "QF_NRA",
+      "result": "unsat",
+      "seconds": 0.0015464259995496832
+    },
+    {
+      "name": "kappa < 1-t",
+      "theory": "QF_NRA",
+      "result": "unsat",
+      "seconds": 0.001987528999961796
+    },
+    {
+      "name": "top-meeting fourth-order delta < y^2",
+      "theory": "QF_NRA",
+      "result": "unsat",
+      "seconds": 0.0017852510000011534
+    },
+    {
+      "name": "bottom meeting implies y+delta < x/2",
+      "theory": "QF_NRA",
+      "result": "unsat",
+      "seconds": 0.0016253499998128973
+    },
+    {
+      "name": "bottom host short left leg contradicts left-edge coverage",
+      "theory": "QF_LRA",
+      "result": "unsat",
+      "seconds": 0.000654670000585611
+    },
+    {
+      "name": "F gap endpoints and axis connection violate parallel budget",
+      "theory": "QF_NRA",
+      "result": "unsat",
+      "seconds": 0.002161182999770972
+    }
+  ],
+  "query_count": 10,
+  "NRA_queries": 8,
+  "LRA_queries": 2,
+  "symbolic_identity_checks": 3,
+  "constant_checks": {
+    "sqrt(2)-1 < 11/15": true,
+    "4/15 < 1/2": true,
+    "193/225 >5/6": true,
+    "34/75 <1/2": true,
+    "4/15 <1/3": true
+  },
+  "proof_method": "hand inequalities; C's real left midpoint simplifies the old double-meeting mechanism",
+  "not_proved": "remaining G4 (3,2), other G3/G4; G2; S(6)=2",
+  "no_search": "no covering search, angle samples, pose optimization or interval subdivision"
+}

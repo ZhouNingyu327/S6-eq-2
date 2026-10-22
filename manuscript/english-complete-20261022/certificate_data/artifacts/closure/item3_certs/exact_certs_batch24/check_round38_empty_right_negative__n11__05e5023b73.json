@@ -1,0 +1,13 @@
+{
+  "id": "check_round38_empty_right_negative__n11__05e5023b73",
+  "file": "check_round38_empty_right_negative",
+  "n": 11,
+  "query": "u > 0 ; u < 1 ; eta > 0 ; eta < 1 ; d > 0 ; e == (1 - eta)/(1 + eta) - d ; e > 0 ; e < 1 ; z < e/(2 - e) ; u + z > 1 ; (2*eta)/(1 + eta) + d >= u/(2 - u)",
+  "method": "exact-hand-e-G-budget",
+  "status": "exact",
+  "certificate": {
+    "type": "hand_e_G_budget",
+    "claim": "e<=2(1-u)/(2-u) from 1-e>=u/(2-u) but e>2(1-u)/(2-u) from z"
+  },
+  "batch": "26d"
+}

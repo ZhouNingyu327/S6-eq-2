@@ -1,0 +1,38 @@
+{
+  "id": "check_round38_empty_right_negative__n6__d76911a30a",
+  "file": "check_round38_empty_right_negative",
+  "n": 6,
+  "query": "c >= s ; s > 0 ; c*c + s*s == 1 ; s*d == alpha + 1 ; s*u == -alpha ; u + d < 1",
+  "method": "exact-Bernstein-cleared",
+  "status": "exact",
+  "certificate": {
+    "type": "bernstein_box",
+    "vars": [
+      "c",
+      "s"
+    ],
+    "box": [
+      [
+        "0",
+        "1"
+      ],
+      [
+        "0",
+        "1"
+      ]
+    ],
+    "expr": "-s**2 + s",
+    "op": "<",
+    "numer_coeffs": [
+      "0",
+      "1/2",
+      "0"
+    ],
+    "denom_coeffs": [
+      "1"
+    ],
+    "claim": "numer_nonneg_denom_pos_implies_strict_ineq_impossible",
+    "tag": "cleared"
+  },
+  "batch": "24c"
+}

@@ -1,0 +1,61 @@
+{
+  "id": "check_round35_positive_H__n8__622d8fa357",
+  "file": "check_round35_positive_H",
+  "n": 8,
+  "query": "v > 0 ; k > 0 ; 5*k < 8*K*u - 10*v ; u > 0 ; 2*u < 1 ; K > 0 ; K <= 1 ; 5*v >= 2",
+  "method": "exact-Bernstein-raw",
+  "status": "exact",
+  "certificate": {
+    "type": "bernstein_box",
+    "vars": [
+      "K",
+      "k",
+      "u",
+      "v"
+    ],
+    "box": [
+      [
+        "0",
+        "1"
+      ],
+      [
+        "0",
+        "1"
+      ],
+      [
+        "0",
+        "1/2"
+      ],
+      [
+        "2/5",
+        "1"
+      ]
+    ],
+    "expr": "-8*K*u + 5*k + 10*v",
+    "op": "<",
+    "numer_coeffs": [
+      "4",
+      "10",
+      "4",
+      "10",
+      "9",
+      "15",
+      "9",
+      "15",
+      "4",
+      "10",
+      "0",
+      "6",
+      "9",
+      "15",
+      "5",
+      "11"
+    ],
+    "denom_coeffs": [
+      "1"
+    ],
+    "claim": "numer_nonneg_denom_pos_implies_strict_ineq_impossible",
+    "tag": "raw"
+  },
+  "batch": "25"
+}

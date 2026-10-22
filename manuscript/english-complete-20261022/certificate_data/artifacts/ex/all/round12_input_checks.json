@@ -1,0 +1,49 @@
+{
+  "queries": [
+    {
+      "scope": "full arbitrary unit: (-l,0) and (mu,y), l>0,mu>1, force origin",
+      "result": "unsat",
+      "arithmetic": "exact nonlinear reals",
+      "seconds": 0.00653076171875
+    },
+    {
+      "scope": "two nonempty parallel sections at distance mu>1 have total length strictly below 1",
+      "result": "unsat",
+      "arithmetic": "exact nonlinear reals",
+      "seconds": 0.004092693328857422
+    },
+    {
+      "scope": "universal long-chord/full-cross-section/terminal-ray total strictly below 2",
+      "result": "unsat",
+      "arithmetic": "exact nonlinear reals",
+      "seconds": 0.005006313323974609
+    }
+  ],
+  "identities_and_classification": {
+    "corner_grid_endpoint_identities": "passed",
+    "valid_midpoint_injections": [
+      [
+        2,
+        3,
+        1
+      ],
+      [
+        2,
+        3,
+        4
+      ],
+      [
+        2,
+        4,
+        1
+      ],
+      [
+        3,
+        4,
+        1
+      ]
+    ],
+    "reflection_orbits": 2,
+    "new_perimeter_and_chain_identities": "passed"
+  }
+}

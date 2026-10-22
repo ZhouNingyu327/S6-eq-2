@@ -1,0 +1,14 @@
+{
+  "id": "check_round32_right_positive__n7__3c07d9e01b",
+  "file": "check_round32_right_positive",
+  "n": 7,
+  "query": "cw > 0 ; sw > 0 ; cw*cw + sw*sw == 1 ; mu > 1 ; cw*mu + sw*(mu - u) <= 1 ; T*sw == 1 - cw ; T <= 1 - u",
+  "method": "exact-hand-tip-T-u",
+  "status": "exact",
+  "certificate": {
+    "type": "identity_tip_T_u",
+    "identity": "at u=1-T, mu=1 covering =1",
+    "claim": "mu>1 => covering >1 at max u=1-T"
+  },
+  "batch": "26"
+}

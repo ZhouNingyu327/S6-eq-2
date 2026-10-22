@@ -1,0 +1,30 @@
+{
+  "date": "2026-10-22",
+  "pdf_sha256": "79d3bd6182d3cbb05810ec327708cd1f121fff93a8435ef7a773f03217997e65",
+  "review_type": "Final bounded visual review plus all-page automated checks",
+  "earlier_reports": [
+    "visual_A.json",
+    "visual_B.json",
+    "visual_C.json",
+    "visual_A_final.json",
+    "visual_B_final.json",
+    "visual_C_final.json"
+  ],
+  "parent_inspected_final_images": {
+    "large-057.png": "42098ad1fea699aefa73fb394cd3b66d886acf79a24255e561153fda30d3bee3",
+    "large-014.png": "e7a72e4dc8251e34aadc0c8b225211b5f634e1baaeceb38f50d647dae422481e",
+    "extra-202.png": "cdf41c39dc8198e29147b6a1c7a7233c5edcc244d61e3d92306bea6211668d39",
+    "extra-203.png": "8ec474b93861676d2aa914c894e78d73c92dc2673a23029a51765755b757285f",
+    "contact-03.png": "c67a8089e23dcace91d49e2c9485cfd8c4cff698eed972095e61ed96708468af",
+    "large-270.png": "c96f38e95d6623b12653913a63d57f5e468c64222f7e652749e7e98b0c9f3403",
+    "large-220.png": "cfece9f99568275b7f8a51ef3d661d960e4958500564c4eff0eba8d19c0e7f90"
+  },
+  "resolved_findings": {
+    "R64_equation_1": "Three-row display now has a clear equation-number gutter; parent and C final check.",
+    "R48_punctuation": "Sentence-ending period retained with A_i; parent and C final check.",
+    "R10C_source_path_spacing": "A correctly found the first fix did not apply to bare paths. The paths were subsequently made inline code. Parent inspected regenerated final p57 and contact03: excessive justification is resolved."
+  },
+  "scope": "Three agents reviewed all 12 contact sheets and selected large pages. The last change only typeset two R10C paths as code; parent inspected that regenerated page and its contact sheet. All 277 latest pages were rendered and their word bounds checked. Coarse contacts are not character-level audits.",
+  "remaining_blocking_visual_findings": [],
+  "mathematical_validity_checked": false
+}

@@ -1,0 +1,15 @@
+{
+  "updated": "2026-10-20T23:12+08:00",
+  "obligation": 4,
+  "status": "inventory_started",
+  "note": "Started because o2 role residual closed (sharper mid-transport remains) and o3 batch2 progressed. Full O4 faithfulness NOT claimed.",
+  "near_end_leaf_registry": "formalization/certs/near_end_leaf_certificate_registry.json",
+  "m8_m11_inventories": [
+    "formalization/certs/m10_certificate_registry.json",
+    "formalization/certs/m11_certificate_registry.json",
+    "formalization/certs/m8_certificate_registry.json",
+    "formalization/certs/m9_certificate_registry.json",
+    "formalization/certs/near_end_leaf_certificate_registry.json"
+  ],
+  "sample_near_scripts_count": 40
+}

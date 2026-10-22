@@ -1,0 +1,13 @@
+{
+  "id": "check_round36_nonempty_closed__n6__430ae40550",
+  "file": "check_round36_nonempty_closed",
+  "n": 6,
+  "query": "eta >= 0 ; Y >= 0 ; u >= 0 ; eps1 >= 0 ; eps2 >= 0 ; -24/(1 + 3*eta)**3 - 32/25*(eps1*eps1 + Y*u*eps2) >= 0",
+  "method": "exact-hand-neg-sum",
+  "status": "exact",
+  "certificate": {
+    "type": "hand_neg_bernstein",
+    "claim": "LHS is -positive -positive >=0 impossible (eta>=0, eps>=0,Y>=0,u>=0)"
+  },
+  "batch": "26"
+}

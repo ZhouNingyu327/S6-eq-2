@@ -1,0 +1,44 @@
+[
+  {
+    "scope": "unit-square sections on two orthogonal positive rays have total length <=2",
+    "result": "unsat",
+    "arithmetic": "exact nonlinear reals",
+    "seconds": 0.005757331848144531
+  },
+  {
+    "scope": "unit containing (-d,0) and (0,T>=mu>1) must also contain (0,mu)",
+    "result": "unsat",
+    "arithmetic": "exact nonlinear reals",
+    "seconds": 0.0023708343505859375
+  },
+  {
+    "scope": "previous meet forces opposite midpoint-tip vertical/horizontal span >3/2>sqrt2",
+    "result": "unsat",
+    "arithmetic": "exact linear reals",
+    "seconds": 0.0006971359252929688
+  },
+  {
+    "scope": "three meets force S2+U4<1, excluding the gap owner from the left middle tip",
+    "result": "unsat",
+    "arithmetic": "exact linear reals",
+    "seconds": 0.0007832050323486328
+  },
+  {
+    "scope": "central gap owner: other extra absent from the southeast quarter; perimeter contradiction",
+    "result": "unsat",
+    "arithmetic": "exact linear reals",
+    "seconds": 0.0007359981536865234
+  },
+  {
+    "scope": "noncentral gap owner: central SE rays charged to corner V3 deficit; perimeter contradiction",
+    "result": "unsat",
+    "arithmetic": "exact linear reals",
+    "seconds": 0.0012326240539550781
+  },
+  {
+    "scope": "noncentral gap owner: central SE rays charged to corner V4 deficit; perimeter contradiction",
+    "result": "unsat",
+    "arithmetic": "exact linear reals",
+    "seconds": 0.0009229183197021484
+  }
+]

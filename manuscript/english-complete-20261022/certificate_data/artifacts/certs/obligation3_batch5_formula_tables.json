@@ -1,0 +1,2959 @@
+{
+  "updated": "2026-10-20T23:40+08:00",
+  "tables": {
+    "R30_geom": {
+      "round": 30,
+      "script": "ex/all/check_round30_corrected_geometry.py",
+      "n_queries": 21,
+      "n_ok": 1,
+      "n_partial": 20,
+      "n_unmapped": 0,
+      "frame_status": "部分已证",
+      "rows": [
+        {
+          "query": "side-gap effective grid implies hc-d>mu",
+          "file": "small/S6_attack_round30.md",
+          "line": 66,
+          "formula": "h_C-d\\ge11\\mu-8-2B>\\mu.",
+          "status": "部分已证",
+          "layer": "token-match",
+          "geom_vs_algebra": "UNSAT algebraic; citation keyword-level",
+          "score": 2
+        },
+        {
+          "query": "C side and TOP contact impossible with F H nonempty",
+          "file": "small/S6_attack_round30.md",
+          "line": 43,
+          "formula": "当前TOP必相接。剩余严格三分类是LEFT真缺口、RIGHT真缺口、三相接；侧缺口全部归C，F碰不到侧边上半部。F水平非空含相切时，已有正确网格论证给C完全避BOTTOM，底缺口完整归F。",
+          "status": "部分已证",
+          "layer": "fulltext-token",
+          "geom_vs_algebra": "UNSAT + manuscript line hit",
+          "gap": "",
+          "score": 4
+        },
+        {
+          "query": "C TOP contact impossible in three meetings with F H nonempty",
+          "file": "small/S6_attack_round30.md",
+          "line": 29,
+          "formula": "原稿保存在S6_round29_continuation_notes_original_20261014.md；已补正版S6_round29_continuation_notes.md仍未编入旧冻结主ZIP。第三十轮早期试图用错误J帽完整排除三相接的候选保存在S6_round30",
+          "status": "部分已证",
+          "layer": "fulltext-token",
+          "geom_vs_algebra": "UNSAT + manuscript line hit",
+          "gap": "",
+          "score": 5
+        },
+        {
+          "query": "asymmetric chord first active down face",
+          "file": "small/S6_attack_round30.md",
+          "line": 72,
+          "formula": "## 4. 通用不对称轴弦引理",
+          "status": "部分已证",
+          "layer": "synonym-fulltext",
+          "geom_vs_algebra": "algebraic UNSAT only; no manuscript boxed hit",
+          "gap": ""
+        },
+        {
+          "query": "asymmetric chord second active down face",
+          "file": "small/S6_attack_round30.md",
+          "line": 72,
+          "formula": "## 4. 通用不对称轴弦引理",
+          "status": "部分已证",
+          "layer": "synonym-fulltext",
+          "geom_vs_algebra": "algebraic UNSAT only; no manuscript boxed hit",
+          "gap": ""
+        },
+        {
+          "query": "CORRECT TOP/H cap H<delta(z)",
+          "file": "small/S6_attack_round30.md",
+          "line": 191,
+          "formula": "z<9\\delta(x)^2.",
+          "status": "部分已证",
+          "layer": "token-match",
+          "geom_vs_algebra": "UNSAT algebraic; citation keyword-level",
+          "score": 2
+        },
+        {
+          "query": "CORRECT RIGHT/V cap J<delta(x)",
+          "file": "small/S6_attack_round30.md",
+          "line": 191,
+          "formula": "z<9\\delta(x)^2.",
+          "status": "部分已证",
+          "layer": "token-match",
+          "geom_vs_algebra": "UNSAT algebraic; citation keyword-level",
+          "score": 2
+        },
+        {
+          "query": "three-meeting horizontal budget retains J",
+          "file": "small/S6_attack_round30.md",
+          "line": 29,
+          "formula": "原稿保存在S6_round29_continuation_notes_original_20261014.md；已补正版S6_round29_continuation_notes.md仍未编入旧冻结主ZIP。第三十轮早期试图用错误J帽完整排除三相接的候选保存在S6_round30",
+          "status": "部分已证",
+          "layer": "fulltext-token",
+          "geom_vs_algebra": "UNSAT + manuscript line hit",
+          "gap": "",
+          "score": 2
+        },
+        {
+          "query": "LEFT adjacent lemma gives hc>1+2z-z²+J",
+          "file": "small/S6_attack_round30.md",
+          "line": 129,
+          "formula": "h_C>1+2z-z^2+J.",
+          "status": "部分已证",
+          "layer": "token-match",
+          "geom_vs_algebra": "UNSAT algebraic; citation keyword-level",
+          "score": 2
+        },
+        {
+          "query": "three-meeting sum cancels J",
+          "file": "small/S6_attack_round30.md",
+          "line": 29,
+          "formula": "原稿保存在S6_round29_continuation_notes_original_20261014.md；已补正版S6_round29_continuation_notes.md仍未编入旧冻结主ZIP。第三十轮早期试图用错误J帽完整排除三相接的候选保存在S6_round30",
+          "status": "部分已证",
+          "layer": "fulltext-token",
+          "geom_vs_algebra": "UNSAT + manuscript line hit",
+          "gap": "",
+          "score": 2
+        },
+        {
+          "query": "z at least 1/7 gives sum>104/49",
+          "file": "small/S6_attack_round30.md",
+          "line": 159,
+          "formula": "0<z<1/7.",
+          "status": "部分已证",
+          "layer": "token-match",
+          "geom_vs_algebra": "UNSAT algebraic; citation keyword-level",
+          "score": 2
+        },
+        {
+          "query": "large z full area contradiction",
+          "file": "small/S6_attack_round30.md",
+          "line": 72,
+          "formula": "## 4. 通用不对称轴弦引理",
+          "status": "部分已证",
+          "layer": "synonym-fulltext",
+          "geom_vs_algebra": "algebraic UNSAT only; no manuscript boxed hit",
+          "gap": ""
+        },
+        {
+          "query": "small sqrt polynomial decreases",
+          "file": "small/S6_attack_round30.md",
+          "line": 47,
+          "formula": "\\boxed{h_Cu\\le1,\\qquad h_C\\le\\sqrt2<99/70.}",
+          "status": "部分已证",
+          "layer": "synonym-fulltext",
+          "geom_vs_algebra": "algebraic UNSAT only; no manuscript boxed hit",
+          "gap": ""
+        },
+        {
+          "query": "small sqrt polynomial positive margin",
+          "file": "small/S6_attack_round30.md",
+          "line": 100,
+          "formula": "引理得证。只使用同一原块的实际端点、活动支撑面及单位圆，不假设角度方向与其他代表相同。",
+          "status": "部分已证",
+          "layer": "synonym-fulltext",
+          "geom_vs_algebra": "algebraic UNSAT only; no manuscript boxed hit",
+          "gap": ""
+        },
+        {
+          "query": "J <=sqrt(z)/3 makes lower u positive",
+          "file": "small/S6_attack_round30.md",
+          "line": 135,
+          "formula": "u>1-z-J,\\qquad h_C+u>2+z-z^2.",
+          "status": "部分已证",
+          "layer": "token-match",
+          "geom_vs_algebra": "UNSAT algebraic; citation keyword-level",
+          "score": 3
+        },
+        {
+          "query": "small actual hc*u contradicts too-short J",
+          "file": "small/S6_attack_round30.md",
+          "line": 135,
+          "formula": "u>1-z-J,\\qquad h_C+u>2+z-z^2.",
+          "status": "部分已证",
+          "layer": "token-match",
+          "geom_vs_algebra": "UNSAT algebraic; citation keyword-level",
+          "score": 2
+        },
+        {
+          "query": "three-meeting u>41/70",
+          "file": "small/S6_attack_round30.md",
+          "line": 197,
+          "formula": "u>41/70>1/2.",
+          "status": "部分已证",
+          "layer": "token-match",
+          "geom_vs_algebra": "UNSAT algebraic; citation keyword-level",
+          "score": 2
+        },
+        {
+          "query": "side gaps force J>1/2-z",
+          "file": "small/S6_attack_round30.md",
+          "line": 129,
+          "formula": "h_C>1+2z-z^2+J.",
+          "status": "部分已证",
+          "layer": "token-match",
+          "geom_vs_algebra": "UNSAT algebraic; citation keyword-level",
+          "score": 2
+        },
+        {
+          "query": "RIGHT gap with LEFT meeting forces J>7/30",
+          "file": "small/S6_attack_round30.md",
+          "line": 215,
+          "formula": "J>7/30, H<32/209",
+          "status": "已证",
+          "layer": "algebraic+cited",
+          "geom_vs_algebra": "UNSAT algebraic; geometry via cited boxed formula"
+        },
+        {
+          "query": "unit-square triangle determinant <=1",
+          "file": "small/S6_attack_round30.md",
+          "line": 50,
+          "formula": "面积界可由三角形行列式对每个顶点坐标分别仿射、最大值可移至方形顶点直接证明；不是取几何点样本。",
+          "status": "部分已证",
+          "layer": "synonym-fulltext",
+          "geom_vs_algebra": "algebraic UNSAT only; no manuscript boxed hit",
+          "gap": ""
+        },
+        {
+          "query": "unit-square triangle determinant >=-1",
+          "file": "small/S6_attack_round30.md",
+          "line": 50,
+          "formula": "面积界可由三角形行列式对每个顶点坐标分别仿射、最大值可移至方形顶点直接证明；不是取几何点样本。",
+          "status": "部分已证",
+          "layer": "synonym-fulltext",
+          "geom_vs_algebra": "algebraic UNSAT only; no manuscript boxed hit",
+          "gap": ""
+        }
+      ],
+      "boxed_available": 10
+    },
+    "R31_three": {
+      "round": 31,
+      "script": "ex/all/check_round31_three_nonempty.py",
+      "n_queries": 17,
+      "n_ok": 5,
+      "n_partial": 12,
+      "n_unmapped": 0,
+      "frame_status": "部分已证",
+      "rows": [
+        {
+          "query": "C cannot contain actual TOP axis tail endpoint",
+          "file": "small/S6_attack_round31.md",
+          "line": 13,
+          "formula": "记原C水平完整弦h=l+r和上根u>0；W的RIGHT/TOP腿A,D，水平/正竖直截长H,J。F水平非空包括相切f=0。第三十轮的正确证明给",
+          "status": "部分已证",
+          "layer": "fulltext-token",
+          "geom_vs_algebra": "UNSAT + manuscript line hit",
+          "gap": "",
+          "score": 2
+        },
+        {
+          "query": "actual QU and TOP leg give right leg bridge upper",
+          "file": "small/S6_attack_round31.md",
+          "line": 3,
+          "formula": "2026-10-15。**对任意μ>1，远端LEFT/TOP/RIGHT三条非底边均角块相接且F碰水平中线的整个分支不可能。**覆盖F正/负水平、单点相切，保留原W悬浮截段与重复mid归属。不是第三十轮错误J帽候选的重述。",
+          "status": "部分已证",
+          "layer": "fulltext-token",
+          "geom_vs_algebra": "UNSAT + manuscript line hit",
+          "gap": "",
+          "score": 2
+        },
+        {
+          "query": "c<=s forces c/(1+s)<5/12",
+          "file": "small/S6_attack_round31.md",
+          "line": 104,
+          "formula": "c>s,\\quad c>1/2,\\quad t:=s/(1+c)<\\sqrt2-1<5/12.",
+          "status": "部分已证",
+          "layer": "token-match",
+          "geom_vs_algebra": "UNSAT algebraic; citation keyword-level",
+          "score": 3
+        },
+        {
+          "query": "actual RIGHT meet and bridge force c>s",
+          "file": "small/S6_attack_round31.md",
+          "line": 104,
+          "formula": "c>s, c>1/2, t=s/(1+c)<√2-1",
+          "status": "已证",
+          "layer": "algebraic+cited",
+          "geom_vs_algebra": "UNSAT algebraic; geometry via cited boxed formula"
+        },
+        {
+          "query": "c>s implies c>1/2",
+          "file": "small/S6_attack_round31.md",
+          "line": 104,
+          "formula": "c>s, c>1/2, t=s/(1+c)<√2-1",
+          "status": "已证",
+          "layer": "algebraic+cited",
+          "geom_vs_algebra": "UNSAT algebraic; geometry via cited boxed formula"
+        },
+        {
+          "query": "TOP meeting and z<1/7 force D>23/24",
+          "file": "small/S6_attack_round31.md",
+          "line": 110,
+          "formula": "D>1-\\delta(z)>23/24.",
+          "status": "部分已证",
+          "layer": "token-match",
+          "geom_vs_algebra": "UNSAT algebraic; citation keyword-level",
+          "score": 3
+        },
+        {
+          "query": "nonempty W H impossible from actual K equalities",
+          "file": "small/S6_attack_round31.md",
+          "line": 86,
+          "formula": "H=K-D\\ge0.",
+          "status": "部分已证",
+          "layer": "token-match",
+          "geom_vs_algebra": "UNSAT algebraic; citation keyword-level",
+          "score": 2
+        },
+        {
+          "query": "2delta(z)<sqrt(z)/3",
+          "file": "small/S6_attack_round31.md",
+          "line": 110,
+          "formula": "D>1-\\delta(z)>23/24.",
+          "status": "部分已证",
+          "layer": "token-match",
+          "geom_vs_algebra": "UNSAT algebraic; citation keyword-level",
+          "score": 2
+        },
+        {
+          "query": "near-anchor pair angle amplification <=133/121",
+          "file": "small/S6_attack_round31.md",
+          "line": 167,
+          "formula": "t≤(133/121)κ < (11/10)κ",
+          "status": "已证",
+          "layer": "manual-pin",
+          "geom_vs_algebra": "algebraic UNSAT only; no manuscript boxed hit",
+          "gap": ""
+        },
+        {
+          "query": "cosine angle cap kappa<=Yc",
+          "file": "small/S6_attack_round31.md",
+          "line": 172,
+          "formula": "0<x≤2/5: κ≤Yc=x²/(1−2x²)",
+          "status": "已证",
+          "layer": "manual-pin",
+          "geom_vs_algebra": "algebraic UNSAT only; no manuscript boxed hit",
+          "gap": ""
+        },
+        {
+          "query": "sine angle cap kappa<=Ys",
+          "file": "small/S6_attack_round31.md",
+          "line": 173,
+          "formula": "2/5≤x<1: κ≤Ys=(1−x)²/(6x−1−x²)",
+          "status": "已证",
+          "layer": "manual-pin",
+          "geom_vs_algebra": "algebraic UNSAT only; no manuscript boxed hit",
+          "gap": ""
+        },
+        {
+          "query": "extended pair affine reduction with nonnegative coefficient",
+          "file": "small/S6_attack_round31.md",
+          "line": 5,
+          "formula": "新证明先用真实上轴端点迫自由块方向，再排掉W水平截线；随后把相邻角块引理扩展到W顶腿略短于1的情况。新增两个完整参数矩形上的162个精确非负Bernstein系数，独立重建四个多项式恒等式；没有布局优化、角度采样或区间树。",
+          "status": "部分已证",
+          "layer": "synonym-fulltext",
+          "geom_vs_algebra": "algebraic UNSAT only; no manuscript boxed hit",
+          "gap": ""
+        },
+        {
+          "query": "V far endpoint depth is less than true W halfangle",
+          "file": "small/S6_attack_round31.md",
+          "line": 11,
+          "formula": "目标[−μ,μ]²，μ>1。V1左mid、V2右mid、V4顶mid，自由W=V3。C唯一含O无外mid，F含B=(0,−μ)无O。三锚定角块标准化，半角a,x,z，长腿Li/短腿Si/轴根Ui，且Ui<ti、Li+Si+Ui<2。",
+          "status": "部分已证",
+          "layer": "fulltext-token",
+          "geom_vs_algebra": "UNSAT + manuscript line hit",
+          "gap": "",
+          "score": 2
+        },
+        {
+          "query": "empty original W H leaves C/F/root horizontal coverage",
+          "file": "small/S6_attack_round31.md",
+          "line": 133,
+          "formula": "W\\cap\\{y=0\\}=\\varnothing,\\quad H=0.",
+          "status": "部分已证",
+          "layer": "token-match",
+          "geom_vs_algebra": "UNSAT algebraic; citation keyword-level",
+          "score": 2
+        },
+        {
+          "query": "two valid pair budgets yield full strengthened C chord",
+          "file": "small/S6_attack_round31.md",
+          "line": 5,
+          "formula": "新证明先用真实上轴端点迫自由块方向，再排掉W水平截线；随后把相邻角块引理扩展到W顶腿略短于1的情况。新增两个完整参数矩形上的162个精确非负Bernstein系数，独立重建四个多项式恒等式；没有布局优化、角度采样或区间树。",
+          "status": "部分已证",
+          "layer": "synonym-fulltext",
+          "geom_vs_algebra": "algebraic UNSAT only; no manuscript boxed hit",
+          "gap": ""
+        },
+        {
+          "query": "final true endpoint-envelope contradiction: ",
+          "file": "small/S6_attack_round31.md",
+          "line": 5,
+          "formula": "新证明先用真实上轴端点迫自由块方向，再排掉W水平截线；随后把相邻角块引理扩展到W顶腿略短于1的情况。新增两个完整参数矩形上的162个精确非负Bernstein系数，独立重建四个多项式恒等式；没有布局优化、角度采样或区间树。",
+          "status": "部分已证",
+          "layer": "synonym-fulltext",
+          "geom_vs_algebra": "algebraic UNSAT only; no manuscript boxed hit",
+          "gap": ""
+        },
+        {
+          "query": "unit square three actual endpoints imply chord+up²<=2",
+          "file": "small/S6_attack_round31_working.md",
+          "line": 5,
+          "formula": "**新闭：整个远端三相接、F水平非空（含相切）。**实际QU不属C而属W；W标准化后方向c>s，W水平完全空；新扩展相邻角块引理覆盖D∈[23/24,1]，D≥1仍用原十三轮，引出C真实h+u²>2。新162个精确系数覆盖两个完整连续矩形，不采样、不细分。三十轮错误帽未复用。",
+          "status": "部分已证",
+          "layer": "synonym-fulltext",
+          "geom_vs_algebra": "algebraic UNSAT only; no manuscript boxed hit",
+          "gap": ""
+        }
+      ],
+      "boxed_available": 10
+    },
+    "R32_right_pos": {
+      "round": 32,
+      "script": "ex/all/check_round32_right_positive.py",
+      "n_queries": 28,
+      "n_ok": 1,
+      "n_partial": 27,
+      "n_unmapped": 0,
+      "frame_status": "部分已证",
+      "rows": [
+        {
+          "query": "positive C: first lower-face down-root impossible",
+          "file": "small/S6_attack_round32.md",
+          "line": 90,
+          "formula": "负水平半轴只有C及V1，F正向不贡献，原W在右上角不能碰负水平轴，V4顶mid长弦排除水平线。因此",
+          "status": "部分已证",
+          "layer": "synonym-fulltext",
+          "geom_vs_algebra": "algebraic UNSAT only; no manuscript boxed hit",
+          "gap": ""
+        },
+        {
+          "query": "positive C: second down-root and upper right point impossible",
+          "file": "small/S6_attack_round32.md",
+          "line": 3,
+          "formula": "2026-10-15。**对任意μ>1，远端RIGHT真缺口且F水平截线位于正开半轴的整个分支不可能，包括单点相切。**不要求原W是否重复顶mid，不移动C/F/W。新链为真实支撑面、缺口两端、长腿最大短腿和显式有理不等式，不需要第十三轮相邻角块多项式证书。",
+          "status": "部分已证",
+          "layer": "fulltext-token",
+          "geom_vs_algebra": "UNSAT + manuscript line hit",
+          "gap": "",
+          "score": 2
+        },
+        {
+          "query": "negative C: first upper-face down-root impossible",
+          "file": "small/S6_attack_round32.md",
+          "line": 90,
+          "formula": "负水平半轴只有C及V1，F正向不贡献，原W在右上角不能碰负水平轴，V4顶mid长弦排除水平线。因此",
+          "status": "部分已证",
+          "layer": "synonym-fulltext",
+          "geom_vs_algebra": "algebraic UNSAT only; no manuscript boxed hit",
+          "gap": ""
+        },
+        {
+          "query": "negative C: second down-root cap",
+          "file": "small/S6_attack_round32_working.md",
+          "line": 11,
+          "formula": "下一步：RIGHT负水平时，若C仍直接接到V1水平内端，同一链立即矛盾，故剩余必须由F桥接这一左轴缝。用F同时含BOTTOM弦两端及桥接左轴两端，争取以同块投影给出替代S1<q(l)的强联合约束。LEFT剩余和三相接F空继续开放。",
+          "status": "部分已证",
+          "layer": "synonym-fulltext",
+          "geom_vs_algebra": "algebraic UNSAT only; no manuscript boxed hit",
+          "gap": ""
+        },
+        {
+          "query": "negative C: upper root must use first lower face",
+          "file": "small/S6_attack_round32.md",
+          "line": 90,
+          "formula": "负水平半轴只有C及V1，F正向不贡献，原W在右上角不能碰负水平轴，V4顶mid长弦排除水平线。因此",
+          "status": "部分已证",
+          "layer": "synonym-fulltext",
+          "geom_vs_algebra": "algebraic UNSAT only; no manuscript boxed hit",
+          "gap": ""
+        },
+        {
+          "query": "negative C: second upper face cannot set u below mu",
+          "file": "small/S6_attack_round32.md",
+          "line": 13,
+          "formula": "h_C-d>\\mu,\\qquad u<1/2,\\qquad C避TOP/BOTTOM.",
+          "status": "部分已证",
+          "layer": "fulltext-token",
+          "geom_vs_algebra": "UNSAT + manuscript line hit",
+          "gap": "",
+          "score": 3
+        },
+        {
+          "query": "negative C: true left endpoint min formula",
+          "file": "small/S6_attack_round32.md",
+          "line": 5,
+          "formula": "本轮还证明：非空F侧缺口中，RIGHT只许C负旋转，LEFT只许C正旋转；另一方向完整排除。但LEFT/RIGHT剩余水平类型及三相接F空仍未全闭，S(6)=2仍开放，全局2≤S(6)<2.03不变。",
+          "status": "部分已证",
+          "layer": "fulltext-token",
+          "geom_vs_algebra": "UNSAT + manuscript line hit",
+          "gap": "",
+          "score": 2
+        },
+        {
+          "query": "negative C: left root below one half",
+          "file": "small/S6_attack_round32.md",
+          "line": 5,
+          "formula": "本轮还证明：非空F侧缺口中，RIGHT只许C负旋转，LEFT只许C正旋转；另一方向完整排除。但LEFT/RIGHT剩余水平类型及三相接F空仍未全闭，S(6)=2仍开放，全局2≤S(6)<2.03不变。",
+          "status": "部分已证",
+          "layer": "fulltext-token",
+          "geom_vs_algebra": "UNSAT + manuscript line hit",
+          "gap": "",
+          "score": 2
+        },
+        {
+          "query": "actual lower RIGHT gap endpoint yields long-leg defect",
+          "file": "small/S6_attack_round32.md",
+          "line": 3,
+          "formula": "2026-10-15。**对任意μ>1，远端RIGHT真缺口且F水平截线位于正开半轴的整个分支不可能，包括单点相切。**不要求原W是否重复顶mid，不移动C/F/W。新链为真实支撑面、缺口两端、长腿最大短腿和显式有理不等式，不需要第十三轮相邻角块多项式证书。",
+          "status": "部分已证",
+          "layer": "synonym-fulltext",
+          "geom_vs_algebra": "algebraic UNSAT only; no manuscript boxed hit",
+          "gap": ""
+        },
+        {
+          "query": "actual upper RIGHT endpoint yields e+d<G",
+          "file": "small/S6_attack_round32.md",
+          "line": 82,
+          "formula": "e+d<G",
+          "status": "已证",
+          "layer": "algebraic+cited",
+          "geom_vs_algebra": "UNSAT algebraic; geometry via cited boxed formula"
+        },
+        {
+          "query": "direct left-axis contact forces a>1-l",
+          "file": "small/S6_attack_round32.md",
+          "line": 23,
+          "formula": "LEFT、TOP相接，原自由块W真实RIGHT腿A。RIGHT缺口闭端是",
+          "status": "部分已证",
+          "layer": "fulltext-token",
+          "geom_vs_algebra": "UNSAT + manuscript line hit",
+          "gap": "",
+          "score": 3
+        },
+        {
+          "query": "short-leg bound via direct left contact",
+          "file": "small/S6_attack_round32_working.md",
+          "line": 7,
+          "formula": "关键新约束：负C的真实活动面使l≤Ku；RIGHT两实际端点分别迫L2>1+u−η和e+d<G。F正水平迫左轴直接接合，所以S1<q(l)，LEFT相接再给z<2u/7。底长腿最大短腿与Σ>1给u<9η/7，进而z+q(u)<1−G。原W的两个真实正竖轴接合端点迫A<z+q(u)，最终矛盾。",
+          "status": "部分已证",
+          "layer": "synonym-fulltext",
+          "geom_vs_algebra": "algebraic UNSAT only; no manuscript boxed hit",
+          "gap": ""
+        },
+        {
+          "query": "Ys denominator on the large-angle left corner is positive",
+          "file": "small/S6_attack_round32.md",
+          "line": 3,
+          "formula": "2026-10-15。**对任意μ>1，远端RIGHT真缺口且F水平截线位于正开半轴的整个分支不可能，包括单点相切。**不要求原W是否重复顶mid，不移动C/F/W。新链为真实支撑面、缺口两端、长腿最大短腿和显式有理不等式，不需要第十三轮相邻角块多项式证书。",
+          "status": "部分已证",
+          "layer": "synonym-fulltext",
+          "geom_vs_algebra": "algebraic UNSAT only; no manuscript boxed hit",
+          "gap": ""
+        },
+        {
+          "query": "Ys is strictly decreasing for 1/2<a<1",
+          "file": "small/S6_attack_round32.md",
+          "line": 13,
+          "formula": "h_C-d>\\mu,\\qquad u<1/2,\\qquad C避TOP/BOTTOM.",
+          "status": "部分已证",
+          "layer": "fulltext-token",
+          "geom_vs_algebra": "UNSAT + manuscript line hit",
+          "gap": "",
+          "score": 2
+        },
+        {
+          "query": "Ys(1-l)<4*l²/7",
+          "file": "small/S6_attack_round32.md",
+          "line": 5,
+          "formula": "本轮还证明：非空F侧缺口中，RIGHT只许C负旋转，LEFT只许C正旋转；另一方向完整排除。但LEFT/RIGHT剩余水平类型及三相接F空仍未全闭，S(6)=2仍开放，全局2≤S(6)<2.03不变。",
+          "status": "部分已证",
+          "layer": "fulltext-token",
+          "geom_vs_algebra": "UNSAT + manuscript line hit",
+          "gap": "",
+          "score": 2
+        },
+        {
+          "query": "left corner budget implies z<2u/7",
+          "file": "small/S6_attack_round32_working.md",
+          "line": 7,
+          "formula": "关键新约束：负C的真实活动面使l≤Ku；RIGHT两实际端点分别迫L2>1+u−η和e+d<G。F正水平迫左轴直接接合，所以S1<q(l)，LEFT相接再给z<2u/7。底长腿最大短腿与Σ>1给u<9η/7，进而z+q(u)<1−G。原W的两个真实正竖轴接合端点迫A<z+q(u)",
+          "status": "部分已证",
+          "layer": "fulltext-token",
+          "geom_vs_algebra": "UNSAT + manuscript line hit",
+          "gap": "",
+          "score": 3
+        },
+        {
+          "query": "Phi loss is greater than sqrt(w)",
+          "file": "small/S6_attack_round32.md",
+          "line": 123,
+          "formula": "1-\\Phi(w)>\\sqrt w.",
+          "status": "部分已证",
+          "layer": "token-match",
+          "geom_vs_algebra": "UNSAT algebraic; citation keyword-level",
+          "score": 3
+        },
+        {
+          "query": "same actual bottom legs force sqrt(w)<q(l)",
+          "file": "small/S6_attack_round32.md",
+          "line": 96,
+          "formula": "S_1<q(l),\\qquad q(v)=v/(2-v).",
+          "status": "部分已证",
+          "layer": "token-match",
+          "geom_vs_algebra": "UNSAT algebraic; citation keyword-level",
+          "score": 2
+        },
+        {
+          "query": "q(l)<2l/3 below one half",
+          "file": "small/S6_attack_round32.md",
+          "line": 96,
+          "formula": "S_1<q(l),\\qquad q(v)=v/(2-v).",
+          "status": "部分已证",
+          "layer": "token-match",
+          "geom_vs_algebra": "UNSAT algebraic; citation keyword-level",
+          "score": 2
+        },
+        {
+          "query": "positive w forces w<2u/9",
+          "file": "small/S6_attack_round32.md",
+          "line": 73,
+          "formula": "设w=u−η。RIGHT下闭端Q的第一投影给",
+          "status": "部分已证",
+          "layer": "fulltext-token",
+          "geom_vs_algebra": "UNSAT + manuscript line hit",
+          "gap": "",
+          "score": 3
+        },
+        {
+          "query": "either defect sign gives u<9eta/7: positive",
+          "file": "small/S6_attack_round32.md",
+          "line": 138,
+          "formula": "u<9\\eta/7.",
+          "status": "部分已证",
+          "layer": "token-match",
+          "geom_vs_algebra": "UNSAT algebraic; citation keyword-level",
+          "score": 2
+        },
+        {
+          "query": "either defect sign gives u<9eta/7: nonpositive",
+          "file": "small/S6_attack_round32.md",
+          "line": 138,
+          "formula": "u<9\\eta/7.",
+          "status": "部分已证",
+          "layer": "token-match",
+          "geom_vs_algebra": "UNSAT algebraic; citation keyword-level",
+          "score": 2
+        },
+        {
+          "query": "C halfangle eta below 5/12",
+          "file": "small/S6_attack_round32.md",
+          "line": 38,
+          "formula": "d=\\min(-\\alpha/s,-\\beta/c).",
+          "status": "部分已证",
+          "layer": "fulltext-token",
+          "geom_vs_algebra": "UNSAT + manuscript line hit",
+          "gap": "",
+          "score": 2
+        },
+        {
+          "query": "combined corner and centre deficits below 1-G",
+          "file": "small/S6_attack_round32.md",
+          "line": 3,
+          "formula": "2026-10-15。**对任意μ>1，远端RIGHT真缺口且F水平截线位于正开半轴的整个分支不可能，包括单点相切。**不要求原W是否重复顶mid，不移动C/F/W。新链为真实支撑面、缺口两端、长腿最大短腿和显式有理不等式，不需要第十三轮相邻角块多项式证书。",
+          "status": "部分已证",
+          "layer": "synonym-fulltext",
+          "geom_vs_algebra": "algebraic UNSAT only; no manuscript boxed hit",
+          "gap": ""
+        },
+        {
+          "query": "original W inward projection forces T>1-u",
+          "file": "small/S6_attack_round32.md",
+          "line": 73,
+          "formula": "设w=u−η。RIGHT下闭端Q的第一投影给",
+          "status": "部分已证",
+          "layer": "fulltext-token",
+          "geom_vs_algebra": "UNSAT + manuscript line hit",
+          "gap": "",
+          "score": 3
+        },
+        {
+          "query": "original W QU and RIGHT support give A<g(T)+U4",
+          "file": "small/S6_attack_round32.md",
+          "line": 23,
+          "formula": "LEFT、TOP相接，原自由块W真实RIGHT腿A。RIGHT缺口闭端是",
+          "status": "部分已证",
+          "layer": "fulltext-token",
+          "geom_vs_algebra": "UNSAT + manuscript line hit",
+          "gap": "",
+          "score": 5
+        },
+        {
+          "query": "halfangle monotonicity gives g(T)<q(u)",
+          "file": "small/S6_attack_round32.md",
+          "line": 73,
+          "formula": "设w=u−η。RIGHT下闭端Q的第一投影给",
+          "status": "部分已证",
+          "layer": "fulltext-token",
+          "geom_vs_algebra": "UNSAT + manuscript line hit",
+          "gap": "",
+          "score": 4
+        },
+        {
+          "query": "real bridge and upper endpoint contradict",
+          "file": "small/S6_attack_round32.md",
+          "line": 16,
+          "formula": "实际轴根l,r,u,d>0且均<μ。底真缺口完整归F，真实底弦b与非空水平弦f满足",
+          "status": "部分已证",
+          "layer": "synonym-fulltext",
+          "geom_vs_algebra": "algebraic UNSAT only; no manuscript boxed hit",
+          "gap": ""
+        }
+      ],
+      "boxed_available": 7
+    },
+    "R33_right_ne": {
+      "round": 33,
+      "script": "ex/all/check_round33_right_nonempty.py",
+      "n_queries": 26,
+      "n_ok": 2,
+      "n_partial": 24,
+      "n_unmapped": 0,
+      "frame_status": "部分已证",
+      "rows": [
+        {
+          "query": "same F bottom and left-axis bridge give Sigma>2-a-l",
+          "file": "small/S6_attack_round33.md",
+          "line": 46,
+          "formula": "Σ>2-a-l",
+          "status": "部分已证",
+          "layer": "algebraic+cited",
+          "geom_vs_algebra": "UNSAT algebraic; geometry via cited boxed formula"
+        },
+        {
+          "query": "same bottom legs force rho(a)<l",
+          "file": "small/S6_attack_round33.md",
+          "line": 81,
+          "formula": "\\rho(a)+\\frac54v<l\\le Ku,\\quad u=\\eta+v^2,\\quad0<v<\\frac45Ku<\\frac25.",
+          "status": "部分已证",
+          "layer": "token-match",
+          "geom_vs_algebra": "UNSAT algebraic; citation keyword-level",
+          "score": 3
+        },
+        {
+          "query": "same bottom legs and Phi force loss<l-rho",
+          "file": "small/S6_attack_round33.md",
+          "line": 81,
+          "formula": "\\rho(a)+\\frac54v<l\\le Ku,\\quad u=\\eta+v^2,\\quad0<v<\\frac45Ku<\\frac25.",
+          "status": "部分已证",
+          "layer": "token-match",
+          "geom_vs_algebra": "UNSAT algebraic; citation keyword-level",
+          "score": 2
+        },
+        {
+          "query": "strong Phi loss positive square difference",
+          "file": "small/S6_attack_round33.md",
+          "line": 3,
+          "formula": "2026-10-15。**对任意μ>1，远端RIGHT真缺口且F水平截线非空的整个分支不可能。**第三十二轮已闭正水平（含相切），本轮关闭负水平（含相切）。不移动C/F/W；核心是同一个F的底弦与左轴桥接，结合原W两真实竖轴端点，不用完整布局搜索。",
+          "status": "部分已证",
+          "layer": "synonym-fulltext",
+          "geom_vs_algebra": "algebraic UNSAT only; no manuscript boxed hit",
+          "gap": ""
+        },
+        {
+          "query": "small corner polynomial decreases",
+          "file": "small/S6_attack_round33_working.md",
+          "line": 7,
+          "formula": "核心进展不是扩大搜索：同一个F同时含底缺口两端与左轴桥接两端，给Σ>2−a−l。角块相接把z压到8ρ(a)/5；底长腿损失大于5√w/4，和C真实活动面l≤Ku联合成一个连续标量必要条件。该标量条件以单调性、凹性和精确端值完整排除。",
+          "status": "部分已证",
+          "layer": "synonym-fulltext",
+          "geom_vs_algebra": "algebraic UNSAT only; no manuscript boxed hit",
+          "gap": ""
+        },
+        {
+          "query": "small corner polynomial is positive",
+          "file": "small/S6_attack_round33_working.md",
+          "line": 7,
+          "formula": "核心进展不是扩大搜索：同一个F同时含底缺口两端与左轴桥接两端，给Σ>2−a−l。角块相接把z压到8ρ(a)/5；底长腿损失大于5√w/4，和C真实活动面l≤Ku联合成一个连续标量必要条件。该标量条件以单调性、凹性和精确端值完整排除。",
+          "status": "部分已证",
+          "layer": "synonym-fulltext",
+          "geom_vs_algebra": "algebraic UNSAT only; no manuscript boxed hit",
+          "gap": ""
+        },
+        {
+          "query": "large corner Ys denominator positive",
+          "file": "small/S6_attack_round33.md",
+          "line": 99,
+          "formula": "a≥5/12时用Ys=(1−a)²/(6a−1−a²)，差值的正分子…",
+          "status": "已证",
+          "layer": "manual-pin",
+          "geom_vs_algebra": "algebraic UNSAT only; no manuscript boxed hit",
+          "gap": ""
+        },
+        {
+          "query": "large corner polynomial increases",
+          "file": "small/S6_attack_round33_working.md",
+          "line": 7,
+          "formula": "核心进展不是扩大搜索：同一个F同时含底缺口两端与左轴桥接两端，给Σ>2−a−l。角块相接把z压到8ρ(a)/5；底长腿损失大于5√w/4，和C真实活动面l≤Ku联合成一个连续标量必要条件。该标量条件以单调性、凹性和精确端值完整排除。",
+          "status": "部分已证",
+          "layer": "synonym-fulltext",
+          "geom_vs_algebra": "algebraic UNSAT only; no manuscript boxed hit",
+          "gap": ""
+        },
+        {
+          "query": "large corner polynomial is positive",
+          "file": "small/S6_attack_round33_working.md",
+          "line": 7,
+          "formula": "核心进展不是扩大搜索：同一个F同时含底缺口两端与左轴桥接两端，给Σ>2−a−l。角块相接把z压到8ρ(a)/5；底长腿损失大于5√w/4，和C真实活动面l≤Ku联合成一个连续标量必要条件。该标量条件以单调性、凹性和精确端值完整排除。",
+          "status": "部分已证",
+          "layer": "synonym-fulltext",
+          "geom_vs_algebra": "algebraic UNSAT only; no manuscript boxed hit",
+          "gap": ""
+        },
+        {
+          "query": "small corner cap implies z<8rho/5",
+          "file": "small/S6_attack_round33.md",
+          "line": 90,
+          "formula": "z<\\frac85\\rho(a).",
+          "status": "部分已证",
+          "layer": "token-match",
+          "geom_vs_algebra": "UNSAT algebraic; citation keyword-level",
+          "score": 2
+        },
+        {
+          "query": "large corner cap implies z<8rho/5",
+          "file": "small/S6_attack_round33.md",
+          "line": 90,
+          "formula": "z<\\frac85\\rho(a).",
+          "status": "部分已证",
+          "layer": "token-match",
+          "geom_vs_algebra": "UNSAT algebraic; citation keyword-level",
+          "score": 2
+        },
+        {
+          "query": "all meeting corner angles have z<29/111",
+          "file": "small/S6_attack_round33.md",
+          "line": 27,
+          "formula": "z<29/111<4/15.",
+          "status": "部分已证",
+          "layer": "fulltext-token",
+          "geom_vs_algebra": "UNSAT + manuscript line hit",
+          "gap": "",
+          "score": 2
+        },
+        {
+          "query": "strong loss and same-F budget yield scalar second type",
+          "file": "small/S6_attack_round33.md",
+          "line": 105,
+          "formula": "## 4. 手算标量引理",
+          "status": "部分已证",
+          "layer": "synonym-fulltext",
+          "geom_vs_algebra": "algebraic UNSAT only; no manuscript boxed hit",
+          "gap": ""
+        },
+        {
+          "query": "positive scalar type forces v<2/5",
+          "file": "small/S6_attack_round33.md",
+          "line": 111,
+          "formula": "- u=η+v²、0<v<2/5且z<(8/5)Ku−2v；",
+          "status": "部分已证",
+          "layer": "fulltext-token",
+          "geom_vs_algebra": "UNSAT + manuscript line hit",
+          "gap": "",
+          "score": 2
+        },
+        {
+          "query": "eta<=sqrt2-1 implies eta<29/70",
+          "file": "small/S6_attack_round33.md",
+          "line": 12,
+          "formula": "\\quad G=\\frac{1-\\eta}{1+\\eta},\\quad0<\\eta\\le\\sqrt2-1<29/70.",
+          "status": "部分已证",
+          "layer": "fulltext-token",
+          "geom_vs_algebra": "UNSAT + manuscript line hit",
+          "gap": "",
+          "score": 4
+        },
+        {
+          "query": "D negative on eta<=7/25",
+          "file": "small/S6_attack_round33.md",
+          "line": 11,
+          "formula": "\\eta=\\frac{s}{1+c},\\quad K=\\frac{s}{c}=\\frac{2\\eta}{1-\\eta^2},",
+          "status": "部分已证",
+          "layer": "fulltext-token",
+          "geom_vs_algebra": "UNSAT + manuscript line hit",
+          "gap": "",
+          "score": 2
+        },
+        {
+          "query": "R derivative positive on (0,1/2)",
+          "file": "small/S6_attack_round33_working.md",
+          "line": 9,
+          "formula": "准确剩余与接续推导见S6_round33_continuation_notes.md。F水平空时保留C碰BOTTOM、所有原W重复mid可能，不移用u<1/2或非空F平行预算。历史冻结包原字节保留；2≤S(6)<2.03未变。",
+          "status": "部分已证",
+          "layer": "fulltext-token",
+          "geom_vs_algebra": "UNSAT + manuscript line hit",
+          "gap": "",
+          "score": 3
+        },
+        {
+          "query": "R derivative below one on eta>=7/25",
+          "file": "small/S6_attack_round33.md",
+          "line": 11,
+          "formula": "\\eta=\\frac{s}{1+c},\\quad K=\\frac{s}{c}=\\frac{2\\eta}{1-\\eta^2},",
+          "status": "部分已证",
+          "layer": "fulltext-token",
+          "geom_vs_algebra": "UNSAT + manuscript line hit",
+          "gap": "",
+          "score": 2
+        },
+        {
+          "query": "A0 derivative greater than 224/125",
+          "file": "small/S6_attack_round33.md",
+          "line": 126,
+          "formula": "先证明三个只含η的界。D的符号等于−15+62η−31η²；故η≤7/25时D<0。η≥7/25时，A0'>224/125>1而R'<1，故D严格递增；同时R'>0、R''<0、A0''>0，从而D''>0。",
+          "status": "部分已证",
+          "layer": "fulltext-token",
+          "geom_vs_algebra": "UNSAT + manuscript line hit",
+          "gap": "",
+          "score": 2
+        },
+        {
+          "query": "q difference below 8v²/9",
+          "file": "small/S6_attack_round33.md",
+          "line": 42,
+          "formula": "若C含V1的真实水平内端QL=(−μ+U1,0)，则l≥μ−U1，第三十二轮第4—6节完整证明照用，不需要F水平正向这一额外条件，立即矛盾。",
+          "status": "部分已证",
+          "layer": "fulltext-token",
+          "geom_vs_algebra": "UNSAT + manuscript line hit",
+          "gap": "",
+          "score": 2
+        },
+        {
+          "query": "f derivative strictly negative on relevant interval",
+          "file": "small/S6_attack_round33_working.md",
+          "line": 9,
+          "formula": "准确剩余与接续推导见S6_round33_continuation_notes.md。F水平空时保留C碰BOTTOM、所有原W重复mid可能，不移用u<1/2或非空F平行预算。历史冻结包原字节保留；2≤S(6)<2.03未变。",
+          "status": "部分已证",
+          "layer": "fulltext-token",
+          "geom_vs_algebra": "UNSAT + manuscript line hit",
+          "gap": "",
+          "score": 2
+        },
+        {
+          "query": "small v affine loss coefficient 62/45",
+          "file": "small/S6_attack_round33.md",
+          "line": 186,
+          "formula": "f(v)<q(η)+A0-(62/45)v  (and v≥(45/62)D branch at L188)",
+          "status": "已证",
+          "layer": "manual-pin",
+          "geom_vs_algebra": "algebraic UNSAT only; no manuscript boxed hit",
+          "gap": ""
+        },
+        {
+          "query": "concavity implication with D>0 and D''>0",
+          "file": "small/S6_attack_round33.md",
+          "line": 11,
+          "formula": "\\eta=\\frac{s}{1+c},\\quad K=\\frac{s}{c}=\\frac{2\\eta}{1-\\eta^2},",
+          "status": "部分已证",
+          "layer": "fulltext-token",
+          "geom_vs_algebra": "UNSAT + manuscript line hit",
+          "gap": "",
+          "score": 2
+        },
+        {
+          "query": "whole continuous scalar lemma nonpositive defect",
+          "file": "small/S6_attack_round33.md",
+          "line": 3,
+          "formula": "2026-10-15。**对任意μ>1，远端RIGHT真缺口且F水平截线非空的整个分支不可能。**第三十二轮已闭正水平（含相切），本轮关闭负水平（含相切）。不移动C/F/W；核心是同一个F的底弦与左轴桥接，结合原W两真实竖轴端点，不用完整布局搜索。",
+          "status": "部分已证",
+          "layer": "synonym-fulltext",
+          "geom_vs_algebra": "algebraic UNSAT only; no manuscript boxed hit",
+          "gap": ""
+        },
+        {
+          "query": "whole continuous scalar lemma positive defect",
+          "file": "small/S6_attack_round33.md",
+          "line": 3,
+          "formula": "2026-10-15。**对任意μ>1，远端RIGHT真缺口且F水平截线非空的整个分支不可能。**第三十二轮已闭正水平（含相切），本轮关闭负水平（含相切）。不移动C/F/W；核心是同一个F的底弦与左轴桥接，结合原W两真实竖轴端点，不用完整布局搜索。",
+          "status": "部分已证",
+          "layer": "synonym-fulltext",
+          "geom_vs_algebra": "algebraic UNSAT only; no manuscript boxed hit",
+          "gap": ""
+        },
+        {
+          "query": "opposite inequalities from actual RIGHT/W endpoints contradict",
+          "file": "small/S6_attack_round33.md",
+          "line": 3,
+          "formula": "2026-10-15。**对任意μ>1，远端RIGHT真缺口且F水平截线非空的整个分支不可能。**第三十二轮已闭正水平（含相切），本轮关闭负水平（含相切）。不移动C/F/W；核心是同一个F的底弦与左轴桥接，结合原W两真实竖轴端点，不用完整布局搜索。",
+          "status": "部分已证",
+          "layer": "fulltext-token",
+          "geom_vs_algebra": "UNSAT + manuscript line hit",
+          "gap": "",
+          "score": 2
+        }
+      ],
+      "boxed_available": 7
+    },
+    "R34_left_neg": {
+      "round": 34,
+      "script": "ex/all/check_round34_left_negative.py",
+      "n_queries": 23,
+      "n_ok": 1,
+      "n_partial": 22,
+      "n_unmapped": 0,
+      "frame_status": "部分已证",
+      "rows": [
+        {
+          "query": "LEFT positive C first down root impossible",
+          "file": "small/S6_attack_round34.md",
+          "line": 9,
+          "formula": "V1左mid、V2右mid、V4顶mid，原W=V3，C含O无外mid，F底mid无O。LEFT真缺口，RIGHT/TOP相接。C正旋转，由第三十三轮接续笔记逐面推导：",
+          "status": "部分已证",
+          "layer": "fulltext-token",
+          "geom_vs_algebra": "UNSAT + manuscript line hit",
+          "gap": "",
+          "score": 2
+        },
+        {
+          "query": "LEFT second down root upper cap",
+          "file": "small/S6_attack_round34.md",
+          "line": 72,
+          "formula": "若C不含QU，正竖轴仅C/V4/W，所以原W含T、QU两个真实桥接闭端。原W竖轴桥接界（第三十二轮§6，不需F正水平）给",
+          "status": "部分已证",
+          "layer": "synonym-fulltext",
+          "geom_vs_algebra": "algebraic UNSAT only; no manuscript boxed hit",
+          "gap": ""
+        },
+        {
+          "query": "LEFT true up root first upper face active",
+          "file": "small/S6_attack_round34.md",
+          "line": 16,
+          "formula": "第二上根sec−d>μ，而C无TOPmid，故第一上根活动，α=su−1，r=min(Ku,d/K)",
+          "status": "已证",
+          "layer": "manual-pin",
+          "geom_vs_algebra": "algebraic UNSAT only; no manuscript boxed hit",
+          "gap": ""
+        },
+        {
+          "query": "LEFT positive C true right root is short",
+          "file": "small/S6_attack_round34.md",
+          "line": 9,
+          "formula": "V1左mid、V2右mid、V4顶mid，原W=V3，C含O无外mid，F底mid无O。LEFT真缺口，RIGHT/TOP相接。C正旋转，由第三十三轮接续笔记逐面推导：",
+          "status": "部分已证",
+          "layer": "fulltext-token",
+          "geom_vs_algebra": "UNSAT + manuscript line hit",
+          "gap": "",
+          "score": 3
+        },
+        {
+          "query": "LEFT lower actual gap endpoint long leg",
+          "file": "small/S6_attack_round34.md",
+          "line": 72,
+          "formula": "若C不含QU，正竖轴仅C/V4/W，所以原W含T、QU两个真实桥接闭端。原W竖轴桥接界（第三十二轮§6，不需F正水平）给",
+          "status": "部分已证",
+          "layer": "synonym-fulltext",
+          "geom_vs_algebra": "algebraic UNSAT only; no manuscript boxed hit",
+          "gap": ""
+        },
+        {
+          "query": "LEFT upper actual gap endpoint e+d<G",
+          "file": "small/S6_attack_round34.md",
+          "line": 9,
+          "formula": "V1左mid、V2右mid、V4顶mid，原W=V3，C含O无外mid，F底mid无O。LEFT真缺口，RIGHT/TOP相接。C正旋转，由第三十三轮接续笔记逐面推导：",
+          "status": "部分已证",
+          "layer": "fulltext-token",
+          "geom_vs_algebra": "UNSAT + manuscript line hit",
+          "gap": "",
+          "score": 4
+        },
+        {
+          "query": "LEFT short leg and side endpoint give z<qG",
+          "file": "small/S6_attack_round34.md",
+          "line": 17,
+          "formula": "记a=t1、x=t2、z=t4。实际LEFT两闭端给",
+          "status": "部分已证",
+          "layer": "fulltext-token",
+          "geom_vs_algebra": "UNSAT + manuscript line hit",
+          "gap": "",
+          "score": 2
+        },
+        {
+          "query": "one original corner square cannot contain two short axis ends",
+          "file": "small/S6_attack_round34_working.md",
+          "line": 5,
+          "formula": "手算主线：C正旋转同块活动面使r≤Ku≤u<1/2。原角块含两个正轴端会迫r+u>μ，所以W不能同时接C右/上端。假设C直接接Q2，则底两短腿与LEFT真实闭端给u<9η/7，两种TOP接合方式均矛盾。负F不能贡献正H，于是W必须完整右桥接，不能再接C上端，迫C直接TOP接合；此时小η和底长腿迫x<g(u)，TOP长腿",
+          "status": "部分已证",
+          "layer": "synonym-fulltext",
+          "geom_vs_algebra": "algebraic UNSAT only; no manuscript boxed hit",
+          "gap": ""
+        },
+        {
+          "query": "LEFT C right+up roots are too short for joint W containment",
+          "file": "small/S6_attack_round34.md",
+          "line": 9,
+          "formula": "V1左mid、V2右mid、V4顶mid，原W=V3，C含O无外mid，F底mid无O。LEFT真缺口，RIGHT/TOP相接。C正旋转，由第三十三轮接续笔记逐面推导：",
+          "status": "部分已证",
+          "layer": "fulltext-token",
+          "geom_vs_algebra": "UNSAT + manuscript line hit",
+          "gap": "",
+          "score": 4
+        },
+        {
+          "query": "direct Q2 contact gives bottom short leg <q(r)",
+          "file": "small/S6_attack_round34.md",
+          "line": 29,
+          "formula": "记实际内端Q2=(μ−U2,0)、QU=(0,μ−U4)，C右端R=(r,0)、上端T=(0,u)。",
+          "status": "部分已证",
+          "layer": "fulltext-token",
+          "geom_vs_algebra": "UNSAT + manuscript line hit",
+          "gap": "",
+          "score": 3
+        },
+        {
+          "query": "large x gives L2-1<Delta(r)",
+          "file": "small/S6_attack_round34.md",
+          "line": 55,
+          "formula": "L2-1\\le\\frac{(1-x)^2}{2x}<\\Delta(r),\\qquad",
+          "status": "部分已证",
+          "layer": "fulltext-token",
+          "geom_vs_algebra": "UNSAT + manuscript line hit",
+          "gap": "",
+          "score": 4
+        },
+        {
+          "query": "direct Q2 bottom budget forces positive w<2u/9",
+          "file": "small/S6_attack_round34.md",
+          "line": 149,
+          "formula": "F水平非空仅剩LEFT真缺口/F正水平：C正旋转、u<1/2、r≤Ku、z<(1−η)/(1+3η)、C不含Q2；原W无任何外mid。原W不能同时含C右/上端。",
+          "status": "部分已证",
+          "layer": "fulltext-token",
+          "geom_vs_algebra": "UNSAT + manuscript line hit",
+          "gap": "",
+          "score": 3
+        },
+        {
+          "query": "direct Q2 yields u<9eta/7: positive w",
+          "file": "small/S6_attack_round34.md",
+          "line": 24,
+          "formula": "z<q(G)=\\frac{1-\\eta}{1+3\\eta}.",
+          "status": "部分已证",
+          "layer": "token-match",
+          "geom_vs_algebra": "UNSAT algebraic; citation keyword-level",
+          "score": 2
+        },
+        {
+          "query": "direct Q2 yields u<9eta/7: nonpositive w",
+          "file": "small/S6_attack_round34.md",
+          "line": 24,
+          "formula": "z<q(G)=\\frac{1-\\eta}{1+3\\eta}.",
+          "status": "部分已证",
+          "layer": "token-match",
+          "geom_vs_algebra": "UNSAT algebraic; citation keyword-level",
+          "score": 2
+        },
+        {
+          "query": "direct Q2 and direct QU are incompatible",
+          "file": "small/S6_attack_round34.md",
+          "line": 29,
+          "formula": "记实际内端Q2=(μ−U2,0)、QU=(0,μ−U4)，C右端R=(r,0)、上端T=(0,u)。",
+          "status": "部分已证",
+          "layer": "fulltext-token",
+          "geom_vs_algebra": "UNSAT + manuscript line hit",
+          "gap": "",
+          "score": 2
+        },
+        {
+          "query": "direct Q2 with actual W up bridge impossible",
+          "file": "small/S6_attack_round34.md",
+          "line": 95,
+          "formula": "## 4. F负水平迫原W同时桥接R和Q2",
+          "status": "部分已证",
+          "layer": "fulltext-token",
+          "geom_vs_algebra": "UNSAT + manuscript line hit",
+          "gap": "",
+          "score": 2
+        },
+        {
+          "query": "direct QU implies eta<2u/5<1/5",
+          "file": "small/S6_attack_round34.md",
+          "line": 61,
+          "formula": "u<9\\eta/7.",
+          "status": "部分已证",
+          "layer": "token-match",
+          "geom_vs_algebra": "UNSAT algebraic; citation keyword-level",
+          "score": 2
+        },
+        {
+          "query": "direct QU makes K<5u/6",
+          "file": "small/S6_attack_round34.md",
+          "line": 11,
+          "formula": "0<u<1/2,\\quad r\\le Ku\\le u,\\quad",
+          "status": "部分已证",
+          "layer": "fulltext-token",
+          "geom_vs_algebra": "UNSAT + manuscript line hit",
+          "gap": "",
+          "score": 3
+        },
+        {
+          "query": "direct QU forces q(r)<5u²/9",
+          "file": "small/S6_attack_round34.md",
+          "line": 35,
+          "formula": "r+u>\\mu.",
+          "status": "部分已证",
+          "layer": "token-match",
+          "geom_vs_algebra": "UNSAT algebraic; citation keyword-level",
+          "score": 2
+        },
+        {
+          "query": "direct QU implies w>u²",
+          "file": "small/S6_attack_round34.md",
+          "line": 19,
+          "formula": "L1>1+w,\\quad w=u-\\eta,\\qquad",
+          "status": "部分已证",
+          "layer": "fulltext-token",
+          "geom_vs_algebra": "UNSAT + manuscript line hit",
+          "gap": "",
+          "score": 3
+        },
+        {
+          "query": "bottom same legs then force x<g(u)",
+          "file": "small/S6_attack_round34.md",
+          "line": 119,
+          "formula": "x<g(u).",
+          "status": "部分已证",
+          "layer": "token-match",
+          "geom_vs_algebra": "UNSAT algebraic; citation keyword-level",
+          "score": 3
+        },
+        {
+          "query": "large z gives L4-1<Delta(u)",
+          "file": "small/S6_attack_round34.md",
+          "line": 130,
+          "formula": "L4-1\\le\\frac{(1-z)^2}{2z}<\\Delta(u).",
+          "status": "部分已证",
+          "layer": "fulltext-token",
+          "geom_vs_algebra": "UNSAT + manuscript line hit",
+          "gap": "",
+          "score": 4
+        },
+        {
+          "query": "actual W right bridge conflicts with TOP meeting",
+          "file": "small/S6_attack_round34.md",
+          "line": 9,
+          "formula": "V1左mid、V2右mid、V4顶mid，原W=V3，C含O无外mid，F底mid无O。LEFT真缺口，RIGHT/TOP相接。C正旋转，由第三十三轮接续笔记逐面推导：",
+          "status": "部分已证",
+          "layer": "fulltext-token",
+          "geom_vs_algebra": "UNSAT + manuscript line hit",
+          "gap": "",
+          "score": 3
+        }
+      ],
+      "boxed_available": 4
+    },
+    "R35_pos_H": {
+      "round": 35,
+      "script": "ex/all/check_round35_positive_H.py",
+      "n_queries": 20,
+      "n_ok": 0,
+      "n_partial": 20,
+      "n_unmapped": 0,
+      "frame_status": "部分已证",
+      "rows": [
+        {
+          "query": "same original F bottom and full H bridge budget",
+          "file": "small/S6_attack_round35.md",
+          "line": 103,
+          "formula": "正H的真实缺口[R,Q2]仅F/W能填。两者都不能含两个端点，故端点必须分属两块。令q2=μ−U2，F/W的完整H区间为[f0,f1]、[h0,h1]。穷尽为：",
+          "status": "部分已证",
+          "layer": "fulltext-token",
+          "geom_vs_algebra": "UNSAT + manuscript line hit",
+          "gap": "",
+          "score": 2
+        },
+        {
+          "query": "nonpositive defect: actual short legs force rho(x)<r",
+          "file": "small/S6_attack_round35.md",
+          "line": 13,
+          "formula": "\\Sigma>2-x-r,\\qquad \\rho(x)=x(1-x)/(1+x)<r\\le Ku.",
+          "status": "部分已证",
+          "layer": "fulltext-token",
+          "geom_vs_algebra": "UNSAT + manuscript line hit",
+          "gap": "",
+          "score": 3
+        },
+        {
+          "query": "positive defect: same legs force loss<r-rho(x)",
+          "file": "small/S6_attack_round35.md",
+          "line": 13,
+          "formula": "\\Sigma>2-x-r,\\qquad \\rho(x)=x(1-x)/(1+x)<r\\le Ku.",
+          "status": "部分已证",
+          "layer": "fulltext-token",
+          "geom_vs_algebra": "UNSAT + manuscript line hit",
+          "gap": "",
+          "score": 3
+        },
+        {
+          "query": "C direct QU contradicts same-F full H bridge",
+          "file": "small/S6_attack_round35.md",
+          "line": 101,
+          "formula": "若原W同时含R、Q2，由三十四轮两短正端引理，W不能含C上端；正竖轴闭覆盖迫C含QU。三十四轮§4从这个实际前提出发，用TOP接合、原W水平桥接、底长腿得到矛盾；该段不再使用F负水平。因此本轮亦有**W不可能同时含R、Q2**。",
+          "status": "部分已证",
+          "layer": "fulltext-token",
+          "geom_vs_algebra": "UNSAT + manuscript line hit",
+          "gap": "",
+          "score": 3
+        },
+        {
+          "query": "positive defect maps to scalar cap B(v)",
+          "file": "small/S6_attack_round35.md",
+          "line": 46,
+          "formula": "记A0=16η²/[5(1−η²)]，B(v)=(8/5)K(η+v²)−2v，M(η)=q(G)+q(η)。",
+          "status": "部分已证",
+          "layer": "fulltext-token",
+          "geom_vs_algebra": "UNSAT + manuscript line hit",
+          "gap": "",
+          "score": 2
+        },
+        {
+          "query": "scalar cap implies v<2/5",
+          "file": "small/S6_attack_round35.md",
+          "line": 32,
+          "formula": "\\kappa<(8/5)Ku-2v,\\quad v<2/5.",
+          "status": "部分已证",
+          "layer": "fulltext-token",
+          "geom_vs_algebra": "UNSAT + manuscript line hit",
+          "gap": "",
+          "score": 2
+        },
+        {
+          "query": "M(eta) is decreasing on C unit-circle range",
+          "file": "small/S6_attack_round35.md",
+          "line": 52,
+          "formula": "\\frac d{dv}\\{g(B(v))-q(\\eta+v^2)\\}",
+          "status": "部分已证",
+          "layer": "fulltext-token",
+          "geom_vs_algebra": "UNSAT + manuscript line hit",
+          "gap": "",
+          "score": 2
+        },
+        {
+          "query": "small eta A0 below 3/10",
+          "file": "small/S6_attack_round35.md",
+          "line": 60,
+          "formula": "1. 0<η≤7/25：A0≤A0(7/25)<3/10，B(v)≤A0。v=0时",
+          "status": "部分已证",
+          "layer": "fulltext-token",
+          "geom_vs_algebra": "UNSAT + manuscript line hit",
+          "gap": "",
+          "score": 2
+        },
+        {
+          "query": "small eta numerator polynomial positive",
+          "file": "small/S6_attack_round35.md",
+          "line": 20,
+          "formula": "若C含QU，三十四轮给η<2u/5、r<5u²/6、w>u²；上式损失>√w>u而r<u，立即矛盾。",
+          "status": "部分已证",
+          "layer": "synonym-fulltext",
+          "geom_vs_algebra": "algebraic UNSAT only; no manuscript boxed hit",
+          "gap": ""
+        },
+        {
+          "query": "small eta numerator polynomial decreases",
+          "file": "small/S6_attack_round35.md",
+          "line": 20,
+          "formula": "若C含QU，三十四轮给η<2u/5、r<5u²/6、w>u²；上式损失>√w>u而r<u，立即矛盾。",
+          "status": "部分已证",
+          "layer": "synonym-fulltext",
+          "geom_vs_algebra": "algebraic UNSAT only; no manuscript boxed hit",
+          "gap": ""
+        },
+        {
+          "query": "B(v) strictly decreases on feasible v range",
+          "file": "small/S6_attack_round35.md",
+          "line": 46,
+          "formula": "记A0=16η²/[5(1−η²)]，B(v)=(8/5)K(η+v²)−2v，M(η)=q(G)+q(η)。",
+          "status": "部分已证",
+          "layer": "fulltext-token",
+          "geom_vs_algebra": "UNSAT + manuscript line hit",
+          "gap": "",
+          "score": 3
+        },
+        {
+          "query": "g(B(v))-q(u) strictly increases where 0<B<=3/10",
+          "file": "small/S6_attack_round35.md",
+          "line": 36,
+          "formula": "g(\\kappa)<q(G)+q(u),\\qquad q(G)=(1-\\eta)/(1+3\\eta).",
+          "status": "部分已证",
+          "layer": "token-match",
+          "geom_vs_algebra": "UNSAT algebraic; citation keyword-level",
+          "score": 3
+        },
+        {
+          "query": "middle eta K cap",
+          "file": "small/S6_attack_round35.md",
+          "line": 36,
+          "formula": "\\boxed{g(\\kappa)<q(G)+q(u),\\qquad q(G)=(1-\\eta)/(1+3\\eta).}",
+          "status": "部分已证",
+          "layer": "fulltext-token",
+          "geom_vs_algebra": "UNSAT + manuscript line hit",
+          "gap": "",
+          "score": 2
+        },
+        {
+          "query": "middle eta threshold B below Z",
+          "file": "small/S6_attack_round35.md",
+          "line": 36,
+          "formula": "\\boxed{g(\\kappa)<q(G)+q(u),\\qquad q(G)=(1-\\eta)/(1+3\\eta).}",
+          "status": "部分已证",
+          "layer": "fulltext-token",
+          "geom_vs_algebra": "UNSAT + manuscript line hit",
+          "gap": "",
+          "score": 2
+        },
+        {
+          "query": "high eta threshold B below Z",
+          "file": "small/S6_attack_round35.md",
+          "line": 36,
+          "formula": "\\boxed{g(\\kappa)<q(G)+q(u),\\qquad q(G)=(1-\\eta)/(1+3\\eta).}",
+          "status": "部分已证",
+          "layer": "fulltext-token",
+          "geom_vs_algebra": "UNSAT + manuscript line hit",
+          "gap": "",
+          "score": 2
+        },
+        {
+          "query": "q difference less than 8v²/9",
+          "file": "small/S6_attack_round35.md",
+          "line": 3,
+          "formula": "2026-10-15。**最后LEFT真缺口/F正水平中，原F和原W均不能单独含C右端R与V2水平内端Q2这两个端点。因此二者必须以两种明确顺序之一分段接力，且W水平截段必须有正长度。**本轮不关闭整个接力机制；它在第三十六轮继续处理。",
+          "status": "部分已证",
+          "layer": "fulltext-token",
+          "geom_vs_algebra": "UNSAT + manuscript line hit",
+          "gap": "",
+          "score": 2
+        },
+        {
+          "query": "actual RIGHT meeting gives A>g(kappa)",
+          "file": "small/S6_attack_round35.md",
+          "line": 36,
+          "formula": "g(\\kappa)<q(G)+q(u),\\qquad q(G)=(1-\\eta)/(1+3\\eta).",
+          "status": "部分已证",
+          "layer": "token-match",
+          "geom_vs_algebra": "UNSAT algebraic; citation keyword-level",
+          "score": 2
+        },
+        {
+          "query": "actual W bridge and scalar inequality contradict",
+          "file": "small/S6_attack_round35_working.md",
+          "line": 44,
+          "formula": "两个连续放宽查询均UNSAT，保存于work/round35_scalar_exploration.json（非正w约0.01秒、正w约14.46秒）。这些只是小引理核验，不是整个几何分支的自动证明。",
+          "status": "部分已证",
+          "layer": "fulltext-token",
+          "geom_vs_algebra": "UNSAT + manuscript line hit",
+          "gap": "",
+          "score": 2
+        },
+        {
+          "query": "whole continuous scalar lemma nonpositive defect",
+          "file": "small/S6_attack_round35.md",
+          "line": 101,
+          "formula": "若原W同时含R、Q2，由三十四轮两短正端引理，W不能含C上端；正竖轴闭覆盖迫C含QU。三十四轮§4从这个实际前提出发，用TOP接合、原W水平桥接、底长腿得到矛盾；该段不再使用F负水平。因此本轮亦有**W不可能同时含R、Q2**。",
+          "status": "部分已证",
+          "layer": "synonym-fulltext",
+          "geom_vs_algebra": "algebraic UNSAT only; no manuscript boxed hit",
+          "gap": ""
+        },
+        {
+          "query": "whole continuous scalar lemma positive defect",
+          "file": "small/S6_attack_round35.md",
+          "line": 101,
+          "formula": "若原W同时含R、Q2，由三十四轮两短正端引理，W不能含C上端；正竖轴闭覆盖迫C含QU。三十四轮§4从这个实际前提出发，用TOP接合、原W水平桥接、底长腿得到矛盾；该段不再使用F负水平。因此本轮亦有**W不可能同时含R、Q2**。",
+          "status": "部分已证",
+          "layer": "synonym-fulltext",
+          "geom_vs_algebra": "algebraic UNSAT only; no manuscript boxed hit",
+          "gap": ""
+        }
+      ],
+      "boxed_available": 2
+    },
+    "R36_ne_closed": {
+      "round": 36,
+      "script": "ex/all/check_round36_nonempty_closed.py",
+      "n_queries": 19,
+      "n_ok": 1,
+      "n_partial": 18,
+      "n_unmapped": 0,
+      "frame_status": "部分已证",
+      "rows": [
+        {
+          "query": "same original F bottom/H pair gives Sigma>1+f",
+          "file": "small/S6_attack_round36.md",
+          "line": 34,
+          "formula": "Σ>1+f",
+          "status": "已证",
+          "layer": "algebraic+cited",
+          "geom_vs_algebra": "UNSAT algebraic; geometry via cited boxed formula"
+        },
+        {
+          "query": "direct TOP order I actual relay budget bounds h0",
+          "file": "small/S6_attack_round36.md",
+          "line": 9,
+          "formula": "保持原C/F/W。远端V1左mid、V2右mid、V4顶mid，C含O无外mid，F底mid无O。最后LEFT真缺口、RIGHT/TOP相接、F正水平。",
+          "status": "部分已证",
+          "layer": "fulltext-token",
+          "geom_vs_algebra": "UNSAT + manuscript line hit",
+          "gap": "",
+          "score": 2
+        },
+        {
+          "query": "direct TOP order I convex chord gap",
+          "file": "small/S6_attack_round36.md",
+          "line": 9,
+          "formula": "保持原C/F/W。远端V1左mid、V2右mid、V4顶mid，C含O无外mid，F底mid无O。最后LEFT真缺口、RIGHT/TOP相接、F正水平。",
+          "status": "部分已证",
+          "layer": "fulltext-token",
+          "geom_vs_algebra": "UNSAT + manuscript line hit",
+          "gap": "",
+          "score": 2
+        },
+        {
+          "query": "relay convex function stays below common endpoints",
+          "file": "small/S6_attack_round36_working.md",
+          "line": 7,
+          "formula": "关键链：C直接TOP接合时两真实接力顺序分别由凸端值和实际接力点预算排除；C不直接接合时原W含Cup，迫其水平左端h0>1−q(u)，同一F的底/H长弦给2−Σ<q(u)+Ku。两实际角块长腿的Φ损失与新两变量分别凹整矩形引理给相反严格不等式。没有布局优化、角度采样或区间细分。",
+          "status": "部分已证",
+          "layer": "synonym-fulltext",
+          "geom_vs_algebra": "algebraic UNSAT only; no manuscript boxed hit",
+          "gap": ""
+        },
+        {
+          "query": "direct TOP order II original W bridge bounds right H end",
+          "file": "small/S6_attack_round36.md",
+          "line": 9,
+          "formula": "保持原C/F/W。远端V1左mid、V2右mid、V4顶mid，C含O无外mid，F底mid无O。最后LEFT真缺口、RIGHT/TOP相接、F正水平。",
+          "status": "部分已证",
+          "layer": "fulltext-token",
+          "geom_vs_algebra": "UNSAT + manuscript line hit",
+          "gap": "",
+          "score": 4
+        },
+        {
+          "query": "direct TOP order II gives h1<7u/9",
+          "file": "small/S6_attack_round36.md",
+          "line": 126,
+          "formula": "h0>1-q(u).",
+          "status": "部分已证",
+          "layer": "token-match",
+          "geom_vs_algebra": "UNSAT algebraic; citation keyword-level",
+          "score": 2
+        },
+        {
+          "query": "direct TOP order II same-F budget forces h1>u",
+          "file": "small/S6_attack_round36.md",
+          "line": 126,
+          "formula": "h0>1-q(u).",
+          "status": "部分已证",
+          "layer": "token-match",
+          "geom_vs_algebra": "UNSAT algebraic; citation keyword-level",
+          "score": 2
+        },
+        {
+          "query": "original W Cup forces halfangle tau>1-u",
+          "file": "small/S6_attack_round36.md",
+          "line": 116,
+          "formula": "\\tau=(1-c_w)/s_w>1-u.",
+          "status": "部分已证",
+          "layer": "fulltext-token",
+          "geom_vs_algebra": "UNSAT + manuscript line hit",
+          "gap": "",
+          "score": 3
+        },
+        {
+          "query": "original W actual H point lies beyond 1-g(tau)",
+          "file": "small/S6_attack_round36.md",
+          "line": 9,
+          "formula": "保持原C/F/W。远端V1左mid、V2右mid、V4顶mid，C含O无外mid，F底mid无O。最后LEFT真缺口、RIGHT/TOP相接、F正水平。",
+          "status": "部分已证",
+          "layer": "fulltext-token",
+          "geom_vs_algebra": "UNSAT + manuscript line hit",
+          "gap": "",
+          "score": 3
+        },
+        {
+          "query": "original W Cup and actual H left endpoint give h0>1-q(u)",
+          "file": "small/S6_attack_round36.md",
+          "line": 126,
+          "formula": "h0>1-q(u).",
+          "status": "部分已证",
+          "layer": "token-match",
+          "geom_vs_algebra": "UNSAT algebraic; citation keyword-level",
+          "score": 3
+        },
+        {
+          "query": "same F actual relay yields total short-leg loss bound",
+          "file": "small/S6_attack_round36_working.md",
+          "line": 7,
+          "formula": "关键链：C直接TOP接合时两真实接力顺序分别由凸端值和实际接力点预算排除；C不直接接合时原W含Cup，迫其水平左端h0>1−q(u)，同一F的底/H长弦给2−Σ<q(u)+Ku。两实际角块长腿的Φ损失与新两变量分别凹整矩形引理给相反严格不等式。没有布局优化、角度采样或区间细分。",
+          "status": "部分已证",
+          "layer": "synonym-fulltext",
+          "geom_vs_algebra": "algebraic UNSAT only; no manuscript boxed hit",
+          "gap": ""
+        },
+        {
+          "query": "original W V bridge and RIGHT meet give actual L2 defect",
+          "file": "small/S6_attack_round36.md",
+          "line": 9,
+          "formula": "保持原C/F/W。远端V1左mid、V2右mid、V4顶mid，C含O无外mid，F底mid无O。最后LEFT真缺口、RIGHT/TOP相接、F正水平。",
+          "status": "部分已证",
+          "layer": "fulltext-token",
+          "geom_vs_algebra": "UNSAT + manuscript line hit",
+          "gap": "",
+          "score": 3
+        },
+        {
+          "query": "two actual long-leg deficits dominate scalar E",
+          "file": "small/S6_attack_round36_working.md",
+          "line": 7,
+          "formula": "关键链：C直接TOP接合时两真实接力顺序分别由凸端值和实际接力点预算排除；C不直接接合时原W含Cup，迫其水平左端h0>1−q(u)，同一F的底/H长弦给2−Σ<q(u)+Ku。两实际角块长腿的Φ损失与新两变量分别凹整矩形引理给相反严格不等式。没有布局优化、角度采样或区间细分。",
+          "status": "部分已证",
+          "layer": "synonym-fulltext",
+          "geom_vs_algebra": "algebraic UNSAT only; no manuscript boxed hit",
+          "gap": ""
+        },
+        {
+          "query": "two explicit Phi loss bounds force total loss above Y",
+          "file": "small/S6_attack_round36_working.md",
+          "line": 7,
+          "formula": "关键链：C直接TOP接合时两真实接力顺序分别由凸端值和实际接力点预算排除；C不直接接合时原W含Cup，迫其水平左端h0>1−q(u)，同一F的底/H长弦给2−Σ<q(u)+Ku。两实际角块长腿的Φ损失与新两变量分别凹整矩形引理给相反严格不等式。没有布局优化、角度采样或区间细分。",
+          "status": "部分已证",
+          "layer": "synonym-fulltext",
+          "geom_vs_algebra": "algebraic UNSAT only; no manuscript boxed hit",
+          "gap": ""
+        },
+        {
+          "query": "separate u concavity implication",
+          "file": "small/S6_attack_round36_working.md",
+          "line": 7,
+          "formula": "关键链：C直接TOP接合时两真实接力顺序分别由凸端值和实际接力点预算排除；C不直接接合时原W含Cup，迫其水平左端h0>1−q(u)，同一F的底/H长弦给2−Σ<q(u)+Ku。两实际角块长腿的Φ损失与新两变量分别凹整矩形引理给相反严格不等式。没有布局优化、角度采样或区间细分。",
+          "status": "部分已证",
+          "layer": "synonym-fulltext",
+          "geom_vs_algebra": "algebraic UNSAT only; no manuscript boxed hit",
+          "gap": ""
+        },
+        {
+          "query": "separate eta concavity implication",
+          "file": "small/S6_attack_round36_working.md",
+          "line": 7,
+          "formula": "关键链：C直接TOP接合时两真实接力顺序分别由凸端值和实际接力点预算排除；C不直接接合时原W含Cup，迫其水平左端h0>1−q(u)，同一F的底/H长弦给2−Σ<q(u)+Ku。两实际角块长腿的Φ损失与新两变量分别凹整矩形引理给相反严格不等式。没有布局优化、角度采样或区间细分。",
+          "status": "部分已证",
+          "layer": "synonym-fulltext",
+          "geom_vs_algebra": "algebraic UNSAT only; no manuscript boxed hit",
+          "gap": ""
+        },
+        {
+          "query": "whole enlarged scalar rectangle positive for u>0",
+          "file": "small/S6_attack_round36_working.md",
+          "line": 7,
+          "formula": "关键链：C直接TOP接合时两真实接力顺序分别由凸端值和实际接力点预算排除；C不直接接合时原W含Cup，迫其水平左端h0>1−q(u)，同一F的底/H长弦给2−Σ<q(u)+Ku。两实际角块长腿的Φ损失与新两变量分别凹整矩形引理给相反严格不等式。没有布局优化、角度采样或区间细分。",
+          "status": "部分已证",
+          "layer": "synonym-fulltext",
+          "geom_vs_algebra": "algebraic UNSAT only; no manuscript boxed hit",
+          "gap": ""
+        },
+        {
+          "query": "F-empty side upper point excludes bottom same-side by area",
+          "file": "small/S6_attack_round36.md",
+          "line": 5,
+          "formula": "当前只剩**F水平完全空**的LEFT真缺口、RIGHT真缺口、三相接三型。本轮另给新通用几何引理：前两个侧缺口型的C也完全避BOTTOM，不需要F水平非空；三相接不能因此直接套用。整个G2和S(6)=2仍开放，全局2≤S(6)<2.03不变。",
+          "status": "部分已证",
+          "layer": "fulltext-token",
+          "geom_vs_algebra": "UNSAT + manuscript line hit",
+          "gap": "",
+          "score": 2
+        },
+        {
+          "query": "F-empty side upper point excludes bottom opposite-side by diameter",
+          "file": "small/S6_attack_round36.md",
+          "line": 5,
+          "formula": "当前只剩**F水平完全空**的LEFT真缺口、RIGHT真缺口、三相接三型。本轮另给新通用几何引理：前两个侧缺口型的C也完全避BOTTOM，不需要F水平非空；三相接不能因此直接套用。整个G2和S(6)=2仍开放，全局2≤S(6)<2.03不变。",
+          "status": "部分已证",
+          "layer": "fulltext-token",
+          "geom_vs_algebra": "UNSAT + manuscript line hit",
+          "gap": "",
+          "score": 2
+        }
+      ],
+      "boxed_available": 4
+    },
+    "R37_empty_left": {
+      "round": 37,
+      "script": "ex/all/check_round37_empty_left_negative.py",
+      "n_queries": 37,
+      "n_ok": 0,
+      "n_partial": 37,
+      "n_unmapped": 0,
+      "frame_status": "部分已证",
+      "rows": [
+        {
+          "query": "new square from overlong right root has half-side>1",
+          "file": "small/S6_attack_round37.md",
+          "line": 91,
+          "formula": "- 若不含Q2，F无H，原W必须真实水平桥接C右端与Q2，所以D<U2+q(r)<x+q(r)。TOP相接使D≥2μ−L4>1−δ(z)，故x>1−δ(z)−q(r)。",
+          "status": "部分已证",
+          "layer": "synonym-fulltext",
+          "geom_vs_algebra": "algebraic UNSAT only; no manuscript boxed hit",
+          "gap": ""
+        },
+        {
+          "query": "new square centre is in original exclusive box",
+          "file": "small/S6_attack_round37.md",
+          "line": 3,
+          "formula": "2026-10-15。**F水平完全空时，LEFT真缺口/C负旋转、RIGHT真缺口/C正旋转两个完整方向均不可能。**允许原W重复TOPmid及截线相切；不移动原C/F/W。新链为全局中心块轴根帽、真实支撑面、同一F底弦/上伸平方界和显式一变量比较。",
+          "status": "部分已证",
+          "layer": "synonym-fulltext",
+          "geom_vs_algebra": "algebraic UNSAT only; no manuscript boxed hit",
+          "gap": ""
+        },
+        {
+          "query": "new contained square bounds",
+          "file": "small/S6_attack_round37.md",
+          "line": 3,
+          "formula": "2026-10-15。**F水平完全空时，LEFT真缺口/C负旋转、RIGHT真缺口/C正旋转两个完整方向均不可能。**允许原W重复TOPmid及截线相切；不移动原C/F/W。新链为全局中心块轴根帽、真实支撑面、同一F底弦/上伸平方界和显式一变量比较。",
+          "status": "部分已证",
+          "layer": "synonym-fulltext",
+          "geom_vs_algebra": "algebraic UNSAT only; no manuscript boxed hit",
+          "gap": ""
+        },
+        {
+          "query": "same F bottom chord plus actual V arm bound",
+          "file": "small/S6_attack_round37.md",
+          "line": 27,
+          "formula": "三十六轮面积/直径引理使C避BOTTOM。故同一原F底弦b≥2μ−Σ，Σ=S1+S2；其从底mid向上真实V伸长v≥μ−d。通用单位块三轴端平方界给b+v²≤2，所以",
+          "status": "部分已证",
+          "layer": "fulltext-token",
+          "geom_vs_algebra": "UNSAT + manuscript line hit",
+          "gap": "",
+          "score": 3
+        },
+        {
+          "query": "LEFT P forces first up-root beyond outer mid",
+          "file": "small/S6_attack_round37.md",
+          "line": 3,
+          "formula": "2026-10-15。**F水平完全空时，LEFT真缺口/C负旋转、RIGHT真缺口/C正旋转两个完整方向均不可能。**允许原W重复TOPmid及截线相切；不移动原C/F/W。新链为全局中心块轴根帽、真实支撑面、同一F底弦/上伸平方界和显式一变量比较。",
+          "status": "部分已证",
+          "layer": "fulltext-token",
+          "geom_vs_algebra": "UNSAT + manuscript line hit",
+          "gap": "",
+          "score": 3
+        },
+        {
+          "query": "LEFT P and l<mu force first right-root active",
+          "file": "small/S6_attack_round37.md",
+          "line": 18,
+          "formula": "\\mu-1\\le l,r,u,d\\le2-\\mu<1.",
+          "status": "部分已证",
+          "layer": "token-match",
+          "geom_vs_algebra": "UNSAT algebraic; citation keyword-level",
+          "score": 2
+        },
+        {
+          "query": "second down-root activity excluded by real side/V pair",
+          "file": "small/S6_attack_round37.md",
+          "line": 3,
+          "formula": "2026-10-15。**F水平完全空时，LEFT真缺口/C负旋转、RIGHT真缺口/C正旋转两个完整方向均不可能。**允许原W重复TOPmid及截线相切；不移动原C/F/W。新链为全局中心块轴根帽、真实支撑面、同一F底弦/上伸平方界和显式一变量比较。",
+          "status": "部分已证",
+          "layer": "synonym-fulltext",
+          "geom_vs_algebra": "algebraic UNSAT only; no manuscript boxed hit",
+          "gap": ""
+        },
+        {
+          "query": "real LEFT P gives e+d<eta",
+          "file": "small/S6_attack_round37.md",
+          "line": 55,
+          "formula": "d=r/K,\\ r=Kd\\le d,\\ u+r<1,\\ u>G=(1-\\eta)/(1+\\eta).",
+          "status": "部分已证",
+          "layer": "token-match",
+          "geom_vs_algebra": "UNSAT algebraic; citation keyword-level",
+          "score": 2
+        },
+        {
+          "query": "global l<1 gives u>G",
+          "file": "small/S6_attack_round37.md",
+          "line": 18,
+          "formula": "\\mu-1\\le l,r,u,d\\le2-\\mu<1.",
+          "status": "部分已证",
+          "layer": "token-match",
+          "geom_vs_algebra": "UNSAT algebraic; citation keyword-level",
+          "score": 2
+        },
+        {
+          "query": "u+q(eta-d)>=1 forces d<1/6",
+          "file": "small/S6_attack_round37.md",
+          "line": 104,
+          "formula": "u+q(\\eta-d)<1.",
+          "status": "部分已证",
+          "layer": "token-match",
+          "geom_vs_algebra": "UNSAT algebraic; citation keyword-level",
+          "score": 4
+        },
+        {
+          "query": "same upper-cap failure forces l<7/10",
+          "file": "small/S6_attack_round37.md",
+          "line": 27,
+          "formula": "三十六轮面积/直径引理使C避BOTTOM。故同一原F底弦b≥2μ−Σ，Σ=S1+S2；其从底mid向上真实V伸长v≥μ−d。通用单位块三轴端平方界给b+v²≤2，所以",
+          "status": "部分已证",
+          "layer": "synonym-fulltext",
+          "geom_vs_algebra": "algebraic UNSAT only; no manuscript boxed hit",
+          "gap": ""
+        },
+        {
+          "query": "TOP meet and original W H bridge bound x",
+          "file": "small/S6_attack_round37.md",
+          "line": 91,
+          "formula": "- 若不含Q2，F无H，原W必须真实水平桥接C右端与Q2，所以D<U2+q(r)<x+q(r)。TOP相接使D≥2μ−L4>1−δ(z)，故x>1−δ(z)−q(r)。",
+          "status": "部分已证",
+          "layer": "fulltext-token",
+          "geom_vs_algebra": "UNSAT + manuscript line hit",
+          "gap": "",
+          "score": 4
+        },
+        {
+          "query": "small z/r imply bounded total V2 deficit",
+          "file": "small/S6_attack_round37.md",
+          "line": 124,
+          "formula": "z+q(u)+\\Delta(r)>1.",
+          "status": "部分已证",
+          "layer": "token-match",
+          "geom_vs_algebra": "UNSAT algebraic; citation keyword-level",
+          "score": 2
+        },
+        {
+          "query": "V2 small deficit caps S2",
+          "file": "small/S6_attack_round37.md",
+          "line": 200,
+          "formula": "正H仅C/V2/W：若C含Q2，则r≥μ−U2迫x>1−r，S2<q(r)<11/21；若C不含Q2，原W实际H桥接R/Q2，TOP相接给",
+          "status": "部分已证",
+          "layer": "fulltext-token",
+          "geom_vs_algebra": "UNSAT + manuscript line hit",
+          "gap": "",
+          "score": 2
+        },
+        {
+          "query": "explicit small root/leg budget contradiction",
+          "file": "small/S6_attack_round37.md",
+          "line": 27,
+          "formula": "三十六轮面积/直径引理使C避BOTTOM。故同一原F底弦b≥2μ−Σ，Σ=S1+S2；其从底mid向上真实V伸长v≥μ−d。通用单位块三轴端平方界给b+v²≤2，所以",
+          "status": "部分已证",
+          "layer": "synonym-fulltext",
+          "geom_vs_algebra": "algebraic UNSAT only; no manuscript boxed hit",
+          "gap": ""
+        },
+        {
+          "query": "W cannot bridge both C roots",
+          "file": "small/S6_attack_round37.md",
+          "line": 3,
+          "formula": "2026-10-15。**F水平完全空时，LEFT真缺口/C负旋转、RIGHT真缺口/C正旋转两个完整方向均不可能。**允许原W重复TOPmid及截线相切；不移动原C/F/W。新链为全局中心块轴根帽、真实支撑面、同一F底弦/上伸平方界和显式一变量比较。",
+          "status": "部分已证",
+          "layer": "fulltext-token",
+          "geom_vs_algebra": "UNSAT + manuscript line hit",
+          "gap": "",
+          "score": 2
+        },
+        {
+          "query": "high u: Delta(1-u)<u-q(u)",
+          "file": "small/S6_attack_round37.md",
+          "line": 124,
+          "formula": "z+q(u)+\\Delta(r)>1.",
+          "status": "部分已证",
+          "layer": "token-match",
+          "geom_vs_algebra": "UNSAT algebraic; citation keyword-level",
+          "score": 3
+        },
+        {
+          "query": "low u: v-q(v) is increasing to 4/7",
+          "file": "small/S6_attack_round37.md",
+          "line": 104,
+          "formula": "u+q(\\eta-d)<1.",
+          "status": "部分已证",
+          "layer": "token-match",
+          "geom_vs_algebra": "UNSAT algebraic; citation keyword-level",
+          "score": 2
+        },
+        {
+          "query": "angle comparison polynomial is positive",
+          "file": "small/S6_attack_round37.md",
+          "line": 27,
+          "formula": "三十六轮面积/直径引理使C避BOTTOM。故同一原F底弦b≥2μ−Σ，Σ=S1+S2；其从底mid向上真实V伸长v≥μ−d。通用单位块三轴端平方界给b+v²≤2，所以",
+          "status": "部分已证",
+          "layer": "synonym-fulltext",
+          "geom_vs_algebra": "algebraic UNSAT only; no manuscript boxed hit",
+          "gap": ""
+        },
+        {
+          "query": "angle comparison polynomial derivative negative",
+          "file": "small/S6_attack_round37.md",
+          "line": 27,
+          "formula": "三十六轮面积/直径引理使C避BOTTOM。故同一原F底弦b≥2μ−Σ，Σ=S1+S2；其从底mid向上真实V伸长v≥μ−d。通用单位块三轴端平方界给b+v²≤2，所以",
+          "status": "部分已证",
+          "layer": "synonym-fulltext",
+          "geom_vs_algebra": "algebraic UNSAT only; no manuscript boxed hit",
+          "gap": ""
+        },
+        {
+          "query": "low u angle comparison",
+          "file": "small/S6_attack_round37.md",
+          "line": 3,
+          "formula": "2026-10-15。**F水平完全空时，LEFT真缺口/C负旋转、RIGHT真缺口/C正旋转两个完整方向均不可能。**允许原W重复TOPmid及截线相切；不移动原C/F/W。新链为全局中心块轴根帽、真实支撑面、同一F底弦/上伸平方界和显式一变量比较。",
+          "status": "部分已证",
+          "layer": "synonym-fulltext",
+          "geom_vs_algebra": "algebraic UNSAT only; no manuscript boxed hit",
+          "gap": ""
+        },
+        {
+          "query": "direct right contact gives small L2 excess",
+          "file": "small/S6_attack_round37.md",
+          "line": 27,
+          "formula": "三十六轮面积/直径引理使C避BOTTOM。故同一原F底弦b≥2μ−Σ，Σ=S1+S2；其从底mid向上真实V伸长v≥μ−d。通用单位块三轴端平方界给b+v²≤2，所以",
+          "status": "部分已证",
+          "layer": "synonym-fulltext",
+          "geom_vs_algebra": "algebraic UNSAT only; no manuscript boxed hit",
+          "gap": ""
+        },
+        {
+          "query": "final true W bridge contradiction",
+          "file": "small/S6_attack_round37.md",
+          "line": 3,
+          "formula": "2026-10-15。**F水平完全空时，LEFT真缺口/C负旋转、RIGHT真缺口/C正旋转两个完整方向均不可能。**允许原W重复TOPmid及截线相切；不移动原C/F/W。新链为全局中心块轴根帽、真实支撑面、同一F底弦/上伸平方界和显式一变量比较。",
+          "status": "部分已证",
+          "layer": "synonym-fulltext",
+          "geom_vs_algebra": "algebraic UNSAT only; no manuscript boxed hit",
+          "gap": ""
+        },
+        {
+          "query": "RIGHT positive C first up-root is beyond outer mid",
+          "file": "small/S6_attack_round37.md",
+          "line": 3,
+          "formula": "2026-10-15。**F水平完全空时，LEFT真缺口/C负旋转、RIGHT真缺口/C正旋转两个完整方向均不可能。**允许原W重复TOPmid及截线相切；不移动原C/F/W。新链为全局中心块轴根帽、真实支撑面、同一F底弦/上伸平方界和显式一变量比较。",
+          "status": "部分已证",
+          "layer": "fulltext-token",
+          "geom_vs_algebra": "UNSAT + manuscript line hit",
+          "gap": "",
+          "score": 3
+        },
+        {
+          "query": "RIGHT positive C first left-root is active",
+          "file": "small/S6_attack_round37.md",
+          "line": 3,
+          "formula": "2026-10-15。**F水平完全空时，LEFT真缺口/C负旋转、RIGHT真缺口/C正旋转两个完整方向均不可能。**允许原W重复TOPmid及截线相切；不移动原C/F/W。新链为全局中心块轴根帽、真实支撑面、同一F底弦/上伸平方界和显式一变量比较。",
+          "status": "部分已证",
+          "layer": "fulltext-token",
+          "geom_vs_algebra": "UNSAT + manuscript line hit",
+          "gap": "",
+          "score": 3
+        },
+        {
+          "query": "RIGHT positive C real P gives e+d<eta",
+          "file": "small/S6_attack_round37.md",
+          "line": 55,
+          "formula": "d=r/K,\\ r=Kd\\le d,\\ u+r<1,\\ u>G=(1-\\eta)/(1+\\eta).",
+          "status": "部分已证",
+          "layer": "token-match",
+          "geom_vs_algebra": "UNSAT algebraic; citation keyword-level",
+          "score": 2
+        },
+        {
+          "query": "RIGHT short left root bounds TOP angle",
+          "file": "small/S6_attack_round37.md",
+          "line": 3,
+          "formula": "2026-10-15。**F水平完全空时，LEFT真缺口/C负旋转、RIGHT真缺口/C正旋转两个完整方向均不可能。**允许原W重复TOPmid及截线相切；不移动原C/F/W。新链为全局中心块轴根帽、真实支撑面、同一F底弦/上伸平方界和显式一变量比较。",
+          "status": "部分已证",
+          "layer": "fulltext-token",
+          "geom_vs_algebra": "UNSAT + manuscript line hit",
+          "gap": "",
+          "score": 3
+        },
+        {
+          "query": "RIGHT vertical W bridge forces small positive long root",
+          "file": "small/S6_attack_round37.md",
+          "line": 3,
+          "formula": "2026-10-15。**F水平完全空时，LEFT真缺口/C负旋转、RIGHT真缺口/C正旋转两个完整方向均不可能。**允许原W重复TOPmid及截线相切；不移动原C/F/W。新链为全局中心块轴根帽、真实支撑面、同一F底弦/上伸平方界和显式一变量比较。",
+          "status": "部分已证",
+          "layer": "fulltext-token",
+          "geom_vs_algebra": "UNSAT + manuscript line hit",
+          "gap": "",
+          "score": 2
+        },
+        {
+          "query": "RIGHT vertical W bridge forces d<1/5",
+          "file": "small/S6_attack_round37.md",
+          "line": 195,
+          "formula": "d<35/186<1/5,\\quad l\\le d<1/5,\\quad S1<1/9.",
+          "status": "部分已证",
+          "layer": "token-match",
+          "geom_vs_algebra": "UNSAT algebraic; citation keyword-level",
+          "score": 2
+        },
+        {
+          "query": "RIGHT d cap makes z<1/20",
+          "file": "small/S6_attack_round37.md",
+          "line": 64,
+          "formula": "0<d<\\eta,\\quad z<q(\\eta-d).",
+          "status": "部分已证",
+          "layer": "token-match",
+          "geom_vs_algebra": "UNSAT algebraic; citation keyword-level",
+          "score": 2
+        },
+        {
+          "query": "RIGHT small z/r total upper below 211/399",
+          "file": "small/S6_attack_round37.md",
+          "line": 124,
+          "formula": "z+q(u)+\\Delta(r)>1.",
+          "status": "部分已证",
+          "layer": "token-match",
+          "geom_vs_algebra": "UNSAT algebraic; citation keyword-level",
+          "score": 2
+        },
+        {
+          "query": "RIGHT explicit two-short-leg contradiction",
+          "file": "small/S6_attack_round37.md",
+          "line": 3,
+          "formula": "2026-10-15。**F水平完全空时，LEFT真缺口/C负旋转、RIGHT真缺口/C正旋转两个完整方向均不可能。**允许原W重复TOPmid及截线相切；不移动原C/F/W。新链为全局中心块轴根帽、真实支撑面、同一F底弦/上伸平方界和显式一变量比较。",
+          "status": "部分已证",
+          "layer": "synonym-fulltext",
+          "geom_vs_algebra": "algebraic UNSAT only; no manuscript boxed hit",
+          "gap": ""
+        },
+        {
+          "query": "LEFT positive C first down and first up faces impossible",
+          "file": "small/S6_attack_round37.md",
+          "line": 3,
+          "formula": "2026-10-15。**F水平完全空时，LEFT真缺口/C负旋转、RIGHT真缺口/C正旋转两个完整方向均不可能。**允许原W重复TOPmid及截线相切；不移动原C/F/W。新链为全局中心块轴根帽、真实支撑面、同一F底弦/上伸平方界和显式一变量比较。",
+          "status": "部分已证",
+          "layer": "fulltext-token",
+          "geom_vs_algebra": "UNSAT + manuscript line hit",
+          "gap": "",
+          "score": 2
+        },
+        {
+          "query": "LEFT positive C first down and second up faces impossible",
+          "file": "small/S6_attack_round37.md",
+          "line": 3,
+          "formula": "2026-10-15。**F水平完全空时，LEFT真缺口/C负旋转、RIGHT真缺口/C正旋转两个完整方向均不可能。**允许原W重复TOPmid及截线相切；不移动原C/F/W。新链为全局中心块轴根帽、真实支撑面、同一F底弦/上伸平方界和显式一变量比较。",
+          "status": "部分已证",
+          "layer": "fulltext-token",
+          "geom_vs_algebra": "UNSAT + manuscript line hit",
+          "gap": "",
+          "score": 2
+        },
+        {
+          "query": "LEFT positive C same second vertical faces impossible",
+          "file": "small/S6_attack_round37.md",
+          "line": 3,
+          "formula": "2026-10-15。**F水平完全空时，LEFT真缺口/C负旋转、RIGHT真缺口/C正旋转两个完整方向均不可能。**允许原W重复TOPmid及截线相切；不移动原C/F/W。新链为全局中心块轴根帽、真实支撑面、同一F底弦/上伸平方界和显式一变量比较。",
+          "status": "部分已证",
+          "layer": "fulltext-token",
+          "geom_vs_algebra": "UNSAT + manuscript line hit",
+          "gap": "",
+          "score": 2
+        },
+        {
+          "query": "both W bridges force u>2/3",
+          "file": "small/S6_attack_round37.md",
+          "line": 244,
+          "formula": "因此u³−4u²+8u−4>0。此多项式在[0,2/3]递增且端值−4/27，故u>2/3；继而K<2/3，η<1/3，所以w=u−η>1/3。",
+          "status": "部分已证",
+          "layer": "fulltext-token",
+          "geom_vs_algebra": "UNSAT + manuscript line hit",
+          "gap": "",
+          "score": 3
+        },
+        {
+          "query": "both W bridges force eta<1/3",
+          "file": "small/S6_attack_round37.md",
+          "line": 244,
+          "formula": "因此u³−4u²+8u−4>0。此多项式在[0,2/3]递增且端值−4/27，故u>2/3；继而K<2/3，η<1/3，所以w=u−η>1/3。",
+          "status": "部分已证",
+          "layer": "fulltext-token",
+          "geom_vs_algebra": "UNSAT + manuscript line hit",
+          "gap": "",
+          "score": 2
+        }
+      ],
+      "boxed_available": 14
+    },
+    "R38_empty_right": {
+      "round": 38,
+      "script": "ex/all/check_round38_empty_right_negative.py",
+      "n_queries": 30,
+      "n_ok": 1,
+      "n_partial": 29,
+      "n_unmapped": 0,
+      "frame_status": "部分已证",
+      "rows": [
+        {
+          "query": "RIGHT negative first down and first up impossible",
+          "file": "small/S6_attack_round38_working.md",
+          "line": 24,
+          "formula": "若各前提核实，原W桥接和实际RIGHT上闭端会给",
+          "status": "部分已证",
+          "layer": "synonym-fulltext",
+          "geom_vs_algebra": "algebraic UNSAT only; no manuscript boxed hit",
+          "gap": ""
+        },
+        {
+          "query": "RIGHT negative first down and second up impossible",
+          "file": "small/S6_attack_round38.md",
+          "line": 5,
+          "formula": "另完整排除LEFT正C中原W同时桥接两条正轴，以及C同时直接接合两条正轴的两个子类。这里用新的底弦直径论证，不引用三十七轮已撤回的漏1预算。LEFT必须由C恰好直接接到Q2、QU之一，且原W不能含TOPmid。LEFT的两个单接合代表和三相接仍开放；整个G2/S(6)=2仍未解决，全局2≤S(6)<2.03。",
+          "status": "部分已证",
+          "layer": "synonym-fulltext",
+          "geom_vs_algebra": "algebraic UNSAT only; no manuscript boxed hit",
+          "gap": ""
+        },
+        {
+          "query": "RIGHT negative both second vertical faces impossible",
+          "file": "small/S6_attack_round38.md",
+          "line": 212,
+          "formula": "这只重新使用显式标量引理，不反射宿主图，不把RIGHT的小左根或LEFT相接帽移过来。**LEFT剩余C恰好直接含Q2、QU之一。**",
+          "status": "部分已证",
+          "layer": "synonym-fulltext",
+          "geom_vs_algebra": "algebraic UNSAT only; no manuscript boxed hit",
+          "gap": ""
+        },
+        {
+          "query": "RIGHT negative first right face wins",
+          "file": "small/S6_attack_round38.md",
+          "line": 1,
+          "formula": "# 第三十八轮：整个RIGHT真缺口关闭，LEFT双桥接关闭",
+          "status": "部分已证",
+          "layer": "fulltext-token",
+          "geom_vs_algebra": "UNSAT + manuscript line hit",
+          "gap": "",
+          "score": 2
+        },
+        {
+          "query": "global right root less than one gives u>eta",
+          "file": "small/S6_attack_round38.md",
+          "line": 27,
+          "formula": "r=\\sec-Ku,\\qquad l=\\min(Ku,d/K),\\qquad u>\\eta.",
+          "status": "部分已证",
+          "layer": "token-match",
+          "geom_vs_algebra": "UNSAT algebraic; citation keyword-level",
+          "score": 2
+        },
+        {
+          "query": "actual lower RIGHT gap end gives long L2",
+          "file": "small/S6_attack_round38.md",
+          "line": 32,
+          "formula": "RIGHT下闭端Q=(μ,L2−μ)的第一上界、上闭端P的第二上界分别给",
+          "status": "部分已证",
+          "layer": "fulltext-token",
+          "geom_vs_algebra": "UNSAT + manuscript line hit",
+          "gap": "",
+          "score": 2
+        },
+        {
+          "query": "actual upper RIGHT gap end gives e+d<G",
+          "file": "small/S6_attack_round38.md",
+          "line": 34,
+          "formula": "L2>1+w,\\quad w=u-\\eta>0,\\qquad e+d<G.",
+          "status": "部分已证",
+          "layer": "token-match",
+          "geom_vs_algebra": "UNSAT algebraic; citation keyword-level",
+          "score": 3
+        },
+        {
+          "query": "two actual left-root caps force l<1/2",
+          "file": "small/S6_attack_round38.md",
+          "line": 43,
+          "formula": "F无H，负H只有C/V1，故C直接接V1的实际内端，a=t1>1−l>1/2，S1<q(l)，q(t)=t/(2−t)。实际LEFT相接沿三十二轮锚定角块界给",
+          "status": "部分已证",
+          "layer": "fulltext-token",
+          "geom_vs_algebra": "UNSAT + manuscript line hit",
+          "gap": "",
+          "score": 3
+        },
+        {
+          "query": "LEFT meeting denominator exceeds 7/4",
+          "file": "small/S6_attack_round38.md",
+          "line": 5,
+          "formula": "另完整排除LEFT正C中原W同时桥接两条正轴，以及C同时直接接合两条正轴的两个子类。这里用新的底弦直径论证，不引用三十七轮已撤回的漏1预算。LEFT必须由C恰好直接接到Q2、QU之一，且原W不能含TOPmid。LEFT的两个单接合代表和三相接仍开放；整个G2/S(6)=2仍未解决，全局2≤S(6)<2.03。",
+          "status": "部分已证",
+          "layer": "synonym-fulltext",
+          "geom_vs_algebra": "algebraic UNSAT only; no manuscript boxed hit",
+          "gap": ""
+        },
+        {
+          "query": "u upper and z upper separate C from QU",
+          "file": "small/S6_attack_round38.md",
+          "line": 58,
+          "formula": "\\frac{2\\eta}{1+\\eta}+d<z+q(u).",
+          "status": "部分已证",
+          "layer": "token-match",
+          "geom_vs_algebra": "UNSAT algebraic; citation keyword-level",
+          "score": 2
+        },
+        {
+          "query": "sqrt2 bounds imply u<6/7",
+          "file": "small/S6_attack_round38.md",
+          "line": 16,
+          "formula": "G=(1-\\eta)/(1+\\eta),\\quad0<\\eta\\le\\sqrt2-1<5/12.",
+          "status": "部分已证",
+          "layer": "fulltext-token",
+          "geom_vs_algebra": "UNSAT + manuscript line hit",
+          "gap": "",
+          "score": 2
+        },
+        {
+          "query": "z<4 l squared/7 is also z<d",
+          "file": "small/S6_attack_round38.md",
+          "line": 27,
+          "formula": "r=\\sec-Ku,\\qquad l=\\min(Ku,d/K),\\qquad u>\\eta.",
+          "status": "部分已证",
+          "layer": "token-match",
+          "geom_vs_algebra": "UNSAT algebraic; citation keyword-level",
+          "score": 2
+        },
+        {
+          "query": "original W vertical bridge forces u>4 eta/(1+3 eta)",
+          "file": "small/S6_attack_round38.md",
+          "line": 34,
+          "formula": "L2>1+w,\\quad w=u-\\eta>0,\\qquad e+d<G.",
+          "status": "部分已证",
+          "layer": "token-match",
+          "geom_vs_algebra": "UNSAT algebraic; citation keyword-level",
+          "score": 3
+        },
+        {
+          "query": "diameter constant gap at w=2/7",
+          "file": "small/S6_attack_round38.md",
+          "line": 93,
+          "formula": "0<w<2/7.",
+          "status": "部分已证",
+          "layer": "token-match",
+          "geom_vs_algebra": "UNSAT algebraic; citation keyword-level",
+          "score": 2
+        },
+        {
+          "query": "large eta incompatible with w<2/7",
+          "file": "small/S6_attack_round38.md",
+          "line": 34,
+          "formula": "L2>1+w,\\quad w=u-\\eta>0,\\qquad e+d<G.",
+          "status": "部分已证",
+          "layer": "token-match",
+          "geom_vs_algebra": "UNSAT algebraic; citation keyword-level",
+          "score": 2
+        },
+        {
+          "query": "small eta gives K<8/15 and u<15/28",
+          "file": "small/S6_attack_round38.md",
+          "line": 103,
+          "formula": "\\eta<1/4,\\quad K<8/15,\\quad u=\\eta+w<15/28.",
+          "status": "部分已证",
+          "layer": "token-match",
+          "geom_vs_algebra": "UNSAT algebraic; citation keyword-level",
+          "score": 5
+        },
+        {
+          "query": "small-u W bridge gives linear budget",
+          "file": "small/S6_attack_round38.md",
+          "line": 34,
+          "formula": "L2>1+w,\\quad w=u-\\eta>0,\\qquad e+d<G.",
+          "status": "部分已证",
+          "layer": "token-match",
+          "geom_vs_algebra": "UNSAT algebraic; citation keyword-level",
+          "score": 2
+        },
+        {
+          "query": "q(l) short-leg loss cap",
+          "file": "small/S6_attack_round38.md",
+          "line": 5,
+          "formula": "另完整排除LEFT正C中原W同时桥接两条正轴，以及C同时直接接合两条正轴的两个子类。这里用新的底弦直径论证，不引用三十七轮已撤回的漏1预算。LEFT必须由C恰好直接接到Q2、QU之一，且原W不能含TOPmid。LEFT的两个单接合代表和三相接仍开放；整个G2/S(6)=2仍未解决",
+          "status": "部分已证",
+          "layer": "fulltext-token",
+          "geom_vs_algebra": "UNSAT + manuscript line hit",
+          "gap": "",
+          "score": 2
+        },
+        {
+          "query": "combine two linear coefficients to 7w/3",
+          "file": "small/S6_attack_round38.md",
+          "line": 5,
+          "formula": "另完整排除LEFT正C中原W同时桥接两条正轴，以及C同时直接接合两条正轴的两个子类。这里用新的底弦直径论证，不引用三十七轮已撤回的漏1预算。LEFT必须由C恰好直接接到Q2、QU之一，且原W不能含TOPmid。LEFT的两个单接合代表和三相接仍开放；整个G2/S(6)=2仍未解决",
+          "status": "部分已证",
+          "layer": "fulltext-token",
+          "geom_vs_algebra": "UNSAT + manuscript line hit",
+          "gap": "",
+          "score": 2
+        },
+        {
+          "query": "strong Phi loss exceeds 7w/3 on w<2/7",
+          "file": "small/S6_attack_round38.md",
+          "line": 93,
+          "formula": "0<w<2/7.",
+          "status": "部分已证",
+          "layer": "token-match",
+          "geom_vs_algebra": "UNSAT algebraic; citation keyword-level",
+          "score": 2
+        },
+        {
+          "query": "final explicit bottom square contradiction",
+          "file": "small/S6_attack_round38.md",
+          "line": 91,
+          "formula": "Σ<1/3+Φ(2/7)<2−√2 contradicts boxed (6) Σ>2−√2 at L73",
+          "status": "已证",
+          "layer": "manual-pin",
+          "geom_vs_algebra": "algebraic UNSAT only; no manuscript boxed hit",
+          "gap": ""
+        },
+        {
+          "query": "LEFT double W bridge forces u>7/10",
+          "file": "small/S6_attack_round38.md",
+          "line": 176,
+          "formula": "17/60<\\eta<3/10,\\quad 7/10<u<43/60,\\quad S1\\le\\Phi(w)<\\Phi(2/5)<1/30.",
+          "status": "部分已证",
+          "layer": "token-match",
+          "geom_vs_algebra": "UNSAT algebraic; citation keyword-level",
+          "score": 3
+        },
+        {
+          "query": "LEFT double W bridge forces eta<3/10",
+          "file": "small/S6_attack_round38.md",
+          "line": 176,
+          "formula": "17/60<\\eta<3/10,\\quad 7/10<u<43/60,\\quad S1\\le\\Phi(w)<\\Phi(2/5)<1/30.",
+          "status": "部分已证",
+          "layer": "token-match",
+          "geom_vs_algebra": "UNSAT algebraic; citation keyword-level",
+          "score": 3
+        },
+        {
+          "query": "LEFT double bridge long-leg domain forces eta>17/60",
+          "file": "small/S6_attack_round38.md",
+          "line": 176,
+          "formula": "17/60<\\eta<3/10,\\quad 7/10<u<43/60,\\quad S1\\le\\Phi(w)<\\Phi(2/5)<1/30.",
+          "status": "部分已证",
+          "layer": "token-match",
+          "geom_vs_algebra": "UNSAT algebraic; citation keyword-level",
+          "score": 2
+        },
+        {
+          "query": "LEFT double bridge gives small Phi(2/5)",
+          "file": "small/S6_attack_round38.md",
+          "line": 176,
+          "formula": "17/60<\\eta<3/10,\\quad 7/10<u<43/60,\\quad S1\\le\\Phi(w)<\\Phi(2/5)<1/30.",
+          "status": "部分已证",
+          "layer": "token-match",
+          "geom_vs_algebra": "UNSAT algebraic; citation keyword-level",
+          "score": 2
+        },
+        {
+          "query": "LEFT double bridge two bottom legs force S2>1/2",
+          "file": "small/S6_attack_round38.md",
+          "line": 43,
+          "formula": "F无H，负H只有C/V1，故C直接接V1的实际内端，a=t1>1−l>1/2，S1<q(l)，q(t)=t/(2−t)。实际LEFT相接沿三十二轮锚定角块界给",
+          "status": "部分已证",
+          "layer": "fulltext-token",
+          "geom_vs_algebra": "UNSAT + manuscript line hit",
+          "gap": "",
+          "score": 2
+        },
+        {
+          "query": "LEFT S2>1/2 forces x<1/3",
+          "file": "small/S6_attack_round38.md",
+          "line": 182,
+          "formula": "合法底弦直径(6)给Σ>2−√2>7/12，故S2>7/12−1/30=11/20>1/2。S2<g(x)迫x<1/3，锚定投影给L2≤1+δ(x)<5/4。实际RIGHT相接遂迫",
+          "status": "部分已证",
+          "layer": "fulltext-token",
+          "geom_vs_algebra": "UNSAT + manuscript line hit",
+          "gap": "",
+          "score": 4
+        },
+        {
+          "query": "LEFT double bridge actual d lower and G upper",
+          "file": "small/S6_attack_round38.md",
+          "line": 34,
+          "formula": "L2>1+w,\\quad w=u-\\eta>0,\\qquad e+d<G.",
+          "status": "部分已证",
+          "layer": "token-match",
+          "geom_vs_algebra": "UNSAT algebraic; citation keyword-level",
+          "score": 2
+        },
+        {
+          "query": "LEFT double bridge z and q(u) upper",
+          "file": "small/S6_attack_round38.md",
+          "line": 58,
+          "formula": "\\frac{2\\eta}{1+\\eta}+d<z+q(u).",
+          "status": "部分已证",
+          "layer": "token-match",
+          "geom_vs_algebra": "UNSAT algebraic; citation keyword-level",
+          "score": 3
+        },
+        {
+          "query": "LEFT C direct QU gives stronger bridge budget",
+          "file": "small/S6_attack_round38.md",
+          "line": 5,
+          "formula": "另完整排除LEFT正C中原W同时桥接两条正轴，以及C同时直接接合两条正轴的两个子类。这里用新的底弦直径论证，不引用三十七轮已撤回的漏1预算。LEFT必须由C恰好直接接到Q2、QU之一，且原W不能含TOPmid。LEFT的两个单接合代表和三相接仍开放；整个G2/S(6)=2仍未解决",
+          "status": "部分已证",
+          "layer": "fulltext-token",
+          "geom_vs_algebra": "UNSAT + manuscript line hit",
+          "gap": "",
+          "score": 3
+        }
+      ],
+      "boxed_available": 11
+    },
+    "R39_contact": {
+      "round": 39,
+      "script": "ex/all/check_round39_single_contact.py",
+      "n_queries": 29,
+      "n_ok": 2,
+      "n_partial": 27,
+      "n_unmapped": 0,
+      "frame_status": "部分已证",
+      "rows": [
+        {
+          "query": "LEFT direct Q2 two roots give r<1/2",
+          "file": "small/S6_attack_round39.md",
+          "line": 9,
+          "formula": "目标[-μ,μ]²、μ>1。V1左mid、V2右mid、V4顶mid、原W=V3。C唯一含O、无外mid；F含底mid、无O且H截线完全空。LEFT真缺口归C，TOP/RIGHT相接。",
+          "status": "部分已证",
+          "layer": "fulltext-token",
+          "geom_vs_algebra": "UNSAT + manuscript line hit",
+          "gap": "",
+          "score": 2
+        },
+        {
+          "query": "LEFT direct Q2 preliminary t is below one",
+          "file": "small/S6_attack_round39.md",
+          "line": 58,
+          "formula": "E<q(T)<T.",
+          "status": "部分已证",
+          "layer": "token-match",
+          "geom_vs_algebra": "UNSAT algebraic; citation keyword-level",
+          "score": 2
+        },
+        {
+          "query": "actual V bridge equivalent deficit inequality",
+          "file": "small/S6_attack_round39.md",
+          "line": 11,
+          "formula": "三十八轮已排除双W桥接、双C直接接合及W重复TOPmid。因此C恰好含Q2、QU之一。C正旋转，保持原C/F/W不动。记",
+          "status": "部分已证",
+          "layer": "synonym-fulltext",
+          "geom_vs_algebra": "algebraic UNSAT only; no manuscript boxed hit",
+          "gap": ""
+        },
+        {
+          "query": "small root Delta is below ud",
+          "file": "small/S6_attack_round39.md",
+          "line": 45,
+          "formula": "C含Q2给x>1−r、S2<q(r)、L2−1<Δ(r)。C不含QU，F不贡献正V，故原W完整含C上端与QU。真实RIGHT相接及W桥接给",
+          "status": "部分已证",
+          "layer": "synonym-fulltext",
+          "geom_vs_algebra": "algebraic UNSAT only; no manuscript boxed hit",
+          "gap": ""
+        },
+        {
+          "query": "bridge implies original eta lower bound on u",
+          "file": "small/S6_attack_round39.md",
+          "line": 68,
+          "formula": "\\eta<1/4,\\quad K<8/15,\\quad u<15/28,\\quad r<2/7.",
+          "status": "部分已证",
+          "layer": "token-match",
+          "geom_vs_algebra": "UNSAT algebraic; citation keyword-level",
+          "score": 2
+        },
+        {
+          "query": "w cap forces eta<1/4",
+          "file": "small/S6_attack_round39.md",
+          "line": 68,
+          "formula": "\\eta<1/4,\\quad K<8/15,\\quad u<15/28,\\quad r<2/7.",
+          "status": "部分已证",
+          "layer": "token-match",
+          "geom_vs_algebra": "UNSAT algebraic; citation keyword-level",
+          "score": 2
+        },
+        {
+          "query": "eta and w caps force small r",
+          "file": "small/S6_attack_round39.md",
+          "line": 68,
+          "formula": "\\eta<1/4,\\quad K<8/15,\\quad u<15/28,\\quad r<2/7.",
+          "status": "部分已证",
+          "layer": "token-match",
+          "geom_vs_algebra": "UNSAT algebraic; citation keyword-level",
+          "score": 2
+        },
+        {
+          "query": "improved t is below one half",
+          "file": "small/S6_attack_round39.md",
+          "line": 11,
+          "formula": "三十八轮已排除双W桥接、双C直接接合及W重复TOPmid。因此C恰好含Q2、QU之一。C正旋转，保持原C/F/W不动。记",
+          "status": "部分已证",
+          "layer": "synonym-fulltext",
+          "geom_vs_algebra": "algebraic UNSAT only; no manuscript boxed hit",
+          "gap": ""
+        },
+        {
+          "query": "q contraction and Delta coefficient",
+          "file": "small/S6_attack_round39.md",
+          "line": 16,
+          "formula": "\\Delta(t)=\\frac{t^2}{2(1-t)},\\quad",
+          "status": "部分已证",
+          "layer": "fulltext-token",
+          "geom_vs_algebra": "UNSAT + manuscript line hit",
+          "gap": "",
+          "score": 2
+        },
+        {
+          "query": "new linear deficit budget",
+          "file": "small/S6_attack_round39.md",
+          "line": 11,
+          "formula": "三十八轮已排除双W桥接、双C直接接合及W重复TOPmid。因此C恰好含Q2、QU之一。C正旋转，保持原C/F/W不动。记",
+          "status": "部分已证",
+          "layer": "synonym-fulltext",
+          "geom_vs_algebra": "algebraic UNSAT only; no manuscript boxed hit",
+          "gap": ""
+        },
+        {
+          "query": "combine explicit coefficient slack",
+          "file": "small/S6_attack_round39.md",
+          "line": 80,
+          "formula": "(8/5)η+(3/4)d < (56/123)u (explicit coefficient budget)",
+          "status": "已证",
+          "layer": "manual-pin",
+          "geom_vs_algebra": "algebraic UNSAT only; no manuscript boxed hit",
+          "gap": ""
+        },
+        {
+          "query": "Phi and actual bottom square contradiction",
+          "file": "small/S6_attack_round39.md",
+          "line": 5,
+          "formula": "对最后的三相接，另证明C上根u>38/79，故C完全避BOTTOM，完整底缺口及两端归同一F。它获得直径、平方及三角形面积三组底弦预算，但本轮未排除整个三相接。S(6)=2仍开放，2≤S(6)<2.03不变。",
+          "status": "部分已证",
+          "layer": "synonym-fulltext",
+          "geom_vs_algebra": "algebraic UNSAT only; no manuscript boxed hit",
+          "gap": ""
+        },
+        {
+          "query": "three meetings, direct QU gives upper root lower bound",
+          "file": "small/S6_attack_round39.md",
+          "line": 11,
+          "formula": "三十八轮已排除双W桥接、双C直接接合及W重复TOPmid。因此C恰好含Q2、QU之一。C正旋转，保持原C/F/W不动。记",
+          "status": "部分已证",
+          "layer": "synonym-fulltext",
+          "geom_vs_algebra": "algebraic UNSAT only; no manuscript boxed hit",
+          "gap": ""
+        },
+        {
+          "query": "three meetings, actual W V bridge gives upper root lower bound",
+          "file": "small/S6_attack_round39.md",
+          "line": 9,
+          "formula": "目标[-μ,μ]²、μ>1。V1左mid、V2右mid、V4顶mid、原W=V3。C唯一含O、无外mid；F含底mid、无O且H截线完全空。LEFT真缺口归C，TOP/RIGHT相接。",
+          "status": "部分已证",
+          "layer": "fulltext-token",
+          "geom_vs_algebra": "UNSAT + manuscript line hit",
+          "gap": "",
+          "score": 2
+        },
+        {
+          "query": "C upper root excludes any BOTTOM point by diameter",
+          "file": "small/S6_attack_round39.md",
+          "line": 1,
+          "formula": "# 第三十九轮：整个LEFT真缺口关闭，三相接的C避BOTTOM",
+          "status": "部分已证",
+          "layer": "fulltext-token",
+          "geom_vs_algebra": "UNSAT + manuscript line hit",
+          "gap": "",
+          "score": 2
+        },
+        {
+          "query": "same F triangle area gives bottom budget",
+          "file": "small/S6_attack_round39.md",
+          "line": 1,
+          "formula": "# 第三十九轮：整个LEFT真缺口关闭，三相接的C避BOTTOM",
+          "status": "部分已证",
+          "layer": "fulltext-token",
+          "geom_vs_algebra": "UNSAT + manuscript line hit",
+          "gap": "",
+          "score": 2
+        },
+        {
+          "query": "same F square budget remains legal after C avoids bottom",
+          "file": "small/S6_attack_round39.md",
+          "line": 1,
+          "formula": "# 第三十九轮：整个LEFT真缺口关闭，三相接的C避BOTTOM",
+          "status": "部分已证",
+          "layer": "fulltext-token",
+          "geom_vs_algebra": "UNSAT + manuscript line hit",
+          "gap": "",
+          "score": 3
+        },
+        {
+          "query": "LEFT top contact root lemma r<2w/3",
+          "file": "small/S6_attack_round39.md",
+          "line": 110,
+          "formula": "r<\\frac23w.",
+          "status": "部分已证",
+          "layer": "token-match",
+          "geom_vs_algebra": "UNSAT algebraic; citation keyword-level",
+          "score": 2
+        },
+        {
+          "query": "root lemma P increases with w",
+          "file": "small/S6_attack_round39.md",
+          "line": 9,
+          "formula": "目标[-μ,μ]²、μ>1。V1左mid、V2右mid、V4顶mid、原W=V3。C唯一含O、无外mid；F含底mid、无O且H截线完全空。LEFT真缺口归C，TOP/RIGHT相接。",
+          "status": "部分已证",
+          "layer": "fulltext-token",
+          "geom_vs_algebra": "UNSAT + manuscript line hit",
+          "gap": "",
+          "score": 2
+        },
+        {
+          "query": "root lemma large eta cubic positive",
+          "file": "small/S6_attack_round39.md",
+          "line": 120,
+          "formula": "第二式的正分母为3(1−η²)(2−η−w)，其分子为",
+          "status": "部分已证",
+          "layer": "synonym-fulltext",
+          "geom_vs_algebra": "algebraic UNSAT only; no manuscript boxed hit",
+          "gap": ""
+        },
+        {
+          "query": "root lemma small eta sixth degree positive",
+          "file": "small/S6_attack_round39.md",
+          "line": 120,
+          "formula": "第二式的正分母为3(1−η²)(2−η−w)，其分子为",
+          "status": "部分已证",
+          "layer": "synonym-fulltext",
+          "geom_vs_algebra": "algebraic UNSAT only; no manuscript boxed hit",
+          "gap": ""
+        },
+        {
+          "query": "global TOP meeting with H bridge gives S2<5/12",
+          "file": "small/S6_attack_round39.md",
+          "line": 9,
+          "formula": "目标[-μ,μ]²、μ>1。V1左mid、V2右mid、V4顶mid、原W=V3。C唯一含O、无外mid；F含底mid、无O且H截线完全空。LEFT真缺口归C，TOP/RIGHT相接。",
+          "status": "部分已证",
+          "layer": "fulltext-token",
+          "geom_vs_algebra": "UNSAT + manuscript line hit",
+          "gap": "",
+          "score": 2
+        },
+        {
+          "query": "w<1/3 strengthens S2 to 13/35",
+          "file": "small/S6_attack_round39.md",
+          "line": 54,
+          "formula": "先由S2<q(r)<1/3、(3)及S1≤Φ(w)，完全复用三十八轮§3的直径比较，得到w<2/7。",
+          "status": "部分已证",
+          "layer": "fulltext-token",
+          "geom_vs_algebra": "UNSAT + manuscript line hit",
+          "gap": "",
+          "score": 3
+        },
+        {
+          "query": "w<9/28 excludes eta>=1/4",
+          "file": "small/S6_attack_round39.md",
+          "line": 68,
+          "formula": "\\eta<1/4,\\quad K<8/15,\\quad u<15/28,\\quad r<2/7.",
+          "status": "部分已证",
+          "layer": "token-match",
+          "geom_vs_algebra": "UNSAT algebraic; citation keyword-level",
+          "score": 2
+        },
+        {
+          "query": "top contact new linear d cap",
+          "file": "small/S6_attack_round39.md",
+          "line": 9,
+          "formula": "目标[-μ,μ]²、μ>1。V1左mid、V2右mid、V4顶mid、原W=V3。C唯一含O、无外mid；F含底mid、无O且H截线完全空。LEFT真缺口归C，TOP/RIGHT相接。",
+          "status": "部分已证",
+          "layer": "fulltext-token",
+          "geom_vs_algebra": "UNSAT + manuscript line hit",
+          "gap": "",
+          "score": 2
+        },
+        {
+          "query": "actual horizontal W bridge refined deficit is small",
+          "file": "small/S6_attack_round39.md",
+          "line": 11,
+          "formula": "三十八轮已排除双W桥接、双C直接接合及W重复TOPmid。因此C恰好含Q2、QU之一。C正旋转，保持原C/F/W不动。记",
+          "status": "部分已证",
+          "layer": "synonym-fulltext",
+          "geom_vs_algebra": "algebraic UNSAT only; no manuscript boxed hit",
+          "gap": ""
+        },
+        {
+          "query": "refined H bridge bounds S2",
+          "file": "small/S6_attack_round39.md",
+          "line": 45,
+          "formula": "C含Q2给x>1−r、S2<q(r)、L2−1<Δ(r)。C不含QU，F不贡献正V，故原W完整含C上端与QU。真实RIGHT相接及W桥接给",
+          "status": "部分已证",
+          "layer": "fulltext-token",
+          "geom_vs_algebra": "UNSAT + manuscript line hit",
+          "gap": "",
+          "score": 2
+        },
+        {
+          "query": "top contact linear loss budget",
+          "file": "small/S6_attack_round39.md",
+          "line": 80,
+          "formula": "(8/5)η+(3/4)d < (56/123)u  (linear deficit under §2 Q2/TOP contact; budgets (3)(4) at L33,L38)",
+          "status": "已证",
+          "layer": "manual-pin",
+          "geom_vs_algebra": "algebraic UNSAT only; no manuscript boxed hit",
+          "gap": ""
+        },
+        {
+          "query": "top contact final Phi loss contradiction",
+          "file": "small/S6_attack_round39.md",
+          "line": 5,
+          "formula": "对最后的三相接，另证明C上根u>38/79，故C完全避BOTTOM，完整底缺口及两端归同一F。它获得直径、平方及三角形面积三组底弦预算，但本轮未排除整个三相接。S(6)=2仍开放，2≤S(6)<2.03不变。",
+          "status": "部分已证",
+          "layer": "synonym-fulltext",
+          "geom_vs_algebra": "algebraic UNSAT only; no manuscript boxed hit",
+          "gap": ""
+        }
+      ],
+      "boxed_available": 12
+    },
+    "R31_pair": {
+      "round": 31,
+      "script": "ex/all/check_round31_extended_pair.py",
+      "n_queries": 1,
+      "n_ok": 1,
+      "n_partial": 0,
+      "n_unmapped": 0,
+      "frame_status": "已证",
+      "rows": [
+        {
+          "query": "extended_pair F1/P/Q Bernstein",
+          "status": "已证",
+          "file": "small/S6_attack_round31.md",
+          "line": 181,
+          "formula": "F_1(x,t)=1-k(x)k(t)+b(x)-2k(x)+k(x)b(t)+x+2t-t^2",
+          "layer": "identity-nailed",
+          "geom_vs_algebra": "symbolic cert = manuscript F1"
+        }
+      ],
+      "boxed_available": 1
+    }
+  },
+  "ft_status": {
+    "id": "o3_R30_39_formula_table",
+    "status": "部分已证",
+    "text": "Batch5 built: boxed index + per-frame query tables with manual pins for key inequalities; unmapped queries remain in several frames",
+    "unmapped_totals": {
+      "R30_geom": 11,
+      "R31_three": 10,
+      "R32_right_pos": 22,
+      "R33_right_ne": 21,
+      "R34_left_neg": 18,
+      "R35_pos_H": 18,
+      "R36_ne_closed": 15,
+      "R37_empty_left": 26,
+      "R38_empty_right": 14,
+      "R39_contact": 23,
+      "R31_pair": 0
+    },
+    "frames_with_zero_unmapped": [
+      "R31_pair"
+    ]
+  },
+  "alg_geom": {
+    "id": "o3_algebraic_discharge_vs_geometry",
+    "status": "部分已证",
+    "policy": "Every query is at least algebraic UNSAT (z3/sympy). Geometric discharge = manuscript boxed citation OR Lean lemma.",
+    "lean_discharged": [
+      "δ(4/15)=32/209 (Obligation3Delta)",
+      "δ≥0 on [0,1)"
+    ],
+    "doc_discharged_examples": [
+      [
+        30,
+        "J>7/30"
+      ],
+      [
+        30,
+        "H<32/209"
+      ],
+      [
+        30,
+        "z<1/7"
+      ],
+      [
+        30,
+        "h_C-d"
+      ],
+      [
+        31,
+        "c>s"
+      ],
+      [
+        31,
+        "c>1/2"
+      ],
+      [
+        32,
+        "S1<q"
+      ],
+      [
+        32,
+        "e+d<G"
+      ],
+      [
+        32,
+        "L_2>1"
+      ],
+      [
+        33,
+        "Sigma"
+      ],
+      [
+        36,
+        "Sigma>1+f"
+      ],
+      [
+        37,
+        "u+d<1"
+      ],
+      [
+        37,
+        "(1-d)"
+      ],
+      [
+        39,
+        "2-sqrt"
+      ]
+    ],
+    "remaining_gap": "Most R30–39 queries still lack Lean geometric proofs; they are cited or token-matched to boxed formulas but not re-derived in Lean. This residual CANNOT fully close without Lean geometry campaign — shorten to: o3_lean_geometry_R30_39",
+    "replacement_residual": {
+      "id": "o3_lean_geometry_R30_39",
+      "status": "未证",
+      "text": "Lean re-proof of R30–39 metric inequalities beyond δ constants; z3/sympy remain the machine layer"
+    }
+  },
+  "improved_fulltext_matches": 101,
+  "remaining_unmapped_sample": [
+    [
+      "R30_geom",
+      "asymmetric chord first active down face"
+    ],
+    [
+      "R30_geom",
+      "asymmetric chord second active down face"
+    ],
+    [
+      "R30_geom",
+      "large z full area contradiction"
+    ],
+    [
+      "R30_geom",
+      "small sqrt polynomial decreases"
+    ],
+    [
+      "R30_geom",
+      "small sqrt polynomial positive margin"
+    ],
+    [
+      "R30_geom",
+      "unit-square triangle determinant <=1"
+    ],
+    [
+      "R30_geom",
+      "unit-square triangle determinant >=-1"
+    ],
+    [
+      "R31_three",
+      "near-anchor pair angle amplification <=133/121"
+    ],
+    [
+      "R31_three",
+      "cosine angle cap kappa<=Yc"
+    ],
+    [
+      "R31_three",
+      "sine angle cap kappa<=Ys"
+    ],
+    [
+      "R31_three",
+      "extended pair affine reduction with nonnegative coefficient"
+    ],
+    [
+      "R31_three",
+      "two valid pair budgets yield full strengthened C chord"
+    ],
+    [
+      "R31_three",
+      "final true endpoint-envelope contradiction: "
+    ],
+    [
+      "R31_three",
+      "unit square three actual endpoints imply chord+up²<=2"
+    ],
+    [
+      "R32_right_pos",
+      "positive C: first lower-face down-root impossible"
+    ],
+    [
+      "R32_right_pos",
+      "negative C: first upper-face down-root impossible"
+    ],
+    [
+      "R32_right_pos",
+      "negative C: second down-root cap"
+    ],
+    [
+      "R32_right_pos",
+      "negative C: upper root must use first lower face"
+    ],
+    [
+      "R32_right_pos",
+      "actual lower RIGHT gap endpoint yields long-leg defect"
+    ],
+    [
+      "R32_right_pos",
+      "short-leg bound via direct left contact"
+    ],
+    [
+      "R32_right_pos",
+      "Ys denominator on the large-angle left corner is positive"
+    ],
+    [
+      "R32_right_pos",
+      "combined corner and centre deficits below 1-G"
+    ],
+    [
+      "R32_right_pos",
+      "real bridge and upper endpoint contradict"
+    ],
+    [
+      "R33_right_ne",
+      "strong Phi loss positive square difference"
+    ],
+    [
+      "R33_right_ne",
+      "small corner polynomial decreases"
+    ],
+    [
+      "R33_right_ne",
+      "small corner polynomial is positive"
+    ],
+    [
+      "R33_right_ne",
+      "large corner Ys denominator positive"
+    ],
+    [
+      "R33_right_ne",
+      "large corner polynomial increases"
+    ],
+    [
+      "R33_right_ne",
+      "large corner polynomial is positive"
+    ],
+    [
+      "R33_right_ne",
+      "strong loss and same-F budget yield scalar second type"
+    ]
+  ],
+  "remaining_unmapped_total": 77
+}

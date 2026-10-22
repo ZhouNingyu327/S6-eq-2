@@ -1,0 +1,48 @@
+{
+  "id": "check_round39_single_contact__n9__ebdef6d8b7",
+  "file": "check_round39_single_contact",
+  "n": 9,
+  "query": "u > 0 ; 7*u < 4 ; r > 0 ; 2*r < 1 ; K > 0 ; 15*K < 8 ; r <= K*u ; t == (u*u)/(2*(1 - u)) + r/(2 - r) ; Or(t >= (46*u)/45, 2/3 <= t)",
+  "method": "exact-Bernstein-or-t-budget",
+  "status": "exact",
+  "certificate": {
+    "type": "bernstein_or_t_budget",
+    "t_at_max_r": "u*(u*(15 - 4*u) - 8*u + 8)/(2*(1 - u)*(15 - 4*u))",
+    "gaps": {
+      "lt_2_3": {
+        "numer_coeffs": [
+          "60",
+          "860/21",
+          "3140/147",
+          "1188/343"
+        ],
+        "denom_coeffs": [
+          "90",
+          "402/7",
+          "1602/49"
+        ],
+        "all_num_pos": true,
+        "all_num_nonneg": true,
+        "den_pos": true
+      },
+      "lt_46u45": {
+        "numer_coeffs": [
+          "0",
+          "1360/7",
+          "24112/147",
+          "3936/343"
+        ],
+        "denom_coeffs": [
+          "1350",
+          "6030/7",
+          "24030/49"
+        ],
+        "all_num_pos": false,
+        "all_num_nonneg": true,
+        "den_pos": true
+      }
+    },
+    "claim": "nonneg gaps; strict domain excludes zeros"
+  },
+  "batch": "25"
+}

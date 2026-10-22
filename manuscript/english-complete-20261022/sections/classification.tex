@@ -1,0 +1,46 @@
+\begin{proof}[Geometric exhaustiveness and host representatives]
+Every tile contains at most one outer midpoint, so the union $C\cup F$
+contains at most two distinct such points. If $F$ contains $O$, assign G5
+before inspecting this count. Otherwise $\kappa=0,1,2$ gives the asserted
+alternatives. When $\kappa=1$, membership in $C$ takes precedence, including
+shared membership in $C\cap F$; only exclusive membership in $F$ enters
+residual G2. For $\kappa=2$, the two midpoints are either adjacent or
+opposite, and each belongs to a different non-corner tile.
+
+A midpoint not contained in $C\cup F$ must have a corner host among the
+same four chosen corner tiles. A target corner not adjacent to its side
+is at distance $\sqrt5\,\mu>\sqrt2$ from that midpoint, and so cannot be
+its host. Distinct midpoints cannot choose the same tile, by the
+unit-square diameter bound. Thus choosing one available adjacent host
+for each unsupplied midpoint automatically gives an injective host map;
+multiple available hosts are not discarded.
+
+For residual G2 place the $F$ midpoint on $\BOTTOM$ by a target symmetry.
+The left, top and right midpoint hosts belong respectively to
+$\{1,4\},\{3,4\},\{2,3\}$. Removing repeated host indices leaves precisely:
+\begin{center}\small
+\begin{tabular}{@{}cccl@{}}
+\toprule
+RIGHT host & TOP host & LEFT host & Representative\\\midrule
+$2$ & $3$ & $4$ & near, $W=V_1$\\
+$3$ & $4$ & $1$ & reflection of near\\
+$2$ & $4$ & $1$ & far, $W=V_3$\\
+$2$ & $3$ & $1$ & reflection of far\\
+\bottomrule
+\end{tabular}
+\end{center}
+Reflection in the vertical central axis fixes the bottom midpoint and
+pairs the indicated rows. It need not preserve a chosen corner index;
+indices are relabelled by the reflected target geometry.
+
+For adjacent owned midpoints, put those of $C,F$ on LEFT and BOTTOM.
+The two unsupplied hosts have
+$(\TOP,\RIGHT)\in\{(4,3),(4,2),(3,2)\}$.
+For opposite owned midpoints, put those of $C,F$ on LEFT and RIGHT.
+The four choices of bottom and top hosts reduce under horizontal
+reflection to the three representatives
+$(\BOTTOM,\TOP)=(2,3),(1,4),(1,3)$.
+These are host choices in actual coverings, not Boolean assumptions
+about a newly invented layout.
+\end{proof}
+

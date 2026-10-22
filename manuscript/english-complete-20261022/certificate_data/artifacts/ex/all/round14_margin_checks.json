@@ -1,0 +1,44 @@
+[
+  {
+    "scope": "strengthened Phi proof identities and complete positive polynomial certificates",
+    "result": "exact identities passed",
+    "Bernstein_coefficients": [
+      "2",
+      "19/12",
+      "7/6",
+      "10993/13824",
+      "73009/145152",
+      "300181/995328",
+      "16469/93312",
+      "27810283/286654464",
+      "4202143/107495424"
+    ],
+    "P": "8*t**8 - 23*t**7 - 40*t**6 + 50*t**5 + 26*t**4 - 35*t**3 + 8*t - 2",
+    "Q": "2*t**4 - 27*t**3 + 101*t**2 - 49*t + 5"
+  },
+  {
+    "scope": "new P(t)<0 on entire [0,5/12]",
+    "result": "unsat",
+    "seconds": 0.002901315689086914
+  },
+  {
+    "scope": "new Q(t)>0 on entire [5/12,1]",
+    "result": "unsat",
+    "seconds": 0.0017249584197998047
+  },
+  {
+    "scope": "kappa^2/3 > 2w^2/(1-3w^2)",
+    "result": "unsat",
+    "seconds": 0.0020012855529785156
+  },
+  {
+    "scope": "C three-axis parabola forces H-S2>Phi",
+    "result": "unsat",
+    "seconds": 0.0017960071563720703
+  },
+  {
+    "scope": "F triangle violates unit-square maximum area in left-gap branch",
+    "result": "unsat",
+    "seconds": 0.0019145011901855469
+  }
+]

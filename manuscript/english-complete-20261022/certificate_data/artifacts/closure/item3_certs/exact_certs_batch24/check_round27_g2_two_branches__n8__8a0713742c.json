@@ -1,0 +1,14 @@
+{
+  "id": "check_round27_g2_two_branches__n8__8a0713742c",
+  "file": "check_round27_g2_two_branches",
+  "n": 8,
+  "query": "mu > 1 ; p >= s ; s > 0 ; p*p + s*s == 1 ; h*(1 + p) == s ; E >= 0 ; s*E + p*(mu + d) <= 1 ; d*(1 - h*h) >= 2*h*h",
+  "method": "exact-hand-tip-d-hh",
+  "status": "exact",
+  "certificate": {
+    "type": "identity_tip_generic",
+    "claim": "d>=2h^2/(1-h^2)=H_tan",
+    "method_tag": "exact-hand-tip-d-hh"
+  },
+  "batch": "26b"
+}

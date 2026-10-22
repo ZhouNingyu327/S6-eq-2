@@ -1,0 +1,13 @@
+{
+  "id": "check_round36_nonempty_closed__n8__c518656041",
+  "file": "check_round36_nonempty_closed",
+  "n": 8,
+  "query": "Sigma > 1 + f ; f >= h0 - r ; Sigma < 1 - u + (1 - x)/(1 + x) ; r < (5*u*u)/6 ; t == u - (5*u*u)/6 ; x > 0 ; x < 1 ; h0 >= (1 - x)/(1 + x) - t",
+  "method": "exact-hand-Sigma-f-h0",
+  "status": "exact",
+  "certificate": {
+    "type": "hand_Sigma_f_h0",
+    "claim": "lower Sigma>1+G-t-r > 1-u+G >upper since t+r<u"
+  },
+  "batch": "26d"
+}

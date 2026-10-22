@@ -1,0 +1,23 @@
+{
+  "id": "check_round32_right_positive__n5__f4e3c86535",
+  "file": "check_round32_right_positive",
+  "n": 5,
+  "query": "u > 0 ; u < 1 ; T > 1 - u ; T < 1 ; (1 - T)/(1 + T) >= u/(2 - u)",
+  "method": "exact-hand-halfangle-contain",
+  "status": "exact",
+  "certificate": {
+    "type": "halfangle_contain_identity",
+    "vars": [
+      "u",
+      "T"
+    ],
+    "identity_numer": "-2*T - 2*u + 2",
+    "claim": "difference=(1-a)/(1+a)-v/(2-v) has numer proportional to (1-v-a); on a>1-v numer<0 with positive dens => difference<0, contradicts >=",
+    "dens": [
+      "1+a",
+      "2-v"
+    ],
+    "domain": "v in (0,1/2), a in (1-v,1)"
+  },
+  "batch": "24b"
+}

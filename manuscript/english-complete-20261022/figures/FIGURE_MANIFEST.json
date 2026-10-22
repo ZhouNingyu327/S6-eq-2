@@ -1,0 +1,42 @@
+[
+  {
+    "id": "01_target",
+    "description": "Four corners, four outer midpoints, and two central segments.",
+    "type": "Exact schematic or labelled incidence diagram; not a feasible six-square covering."
+  },
+  {
+    "id": "02_normalization",
+    "description": "Exact squares with c=4/5,s=3/5; containment is asserted only in the target quadrant.",
+    "type": "Exact schematic or labelled incidence diagram; not a feasible six-square covering."
+  },
+  {
+    "id": "03_parallel_chords",
+    "description": "Exact unit square and vertical lines at distance 6/5; both chords have positive length.",
+    "type": "Exact schematic or labelled incidence diagram; not a feasible six-square covering."
+  },
+  {
+    "id": "04_host_representatives",
+    "description": "Arrows indicate chosen hosts; no tile shape or exclusive ownership is asserted.",
+    "type": "Exact schematic or labelled incidence diagram; not a feasible six-square covering."
+  },
+  {
+    "id": "05_gap_endpoints",
+    "description": "One-dimensional gap diagram; closure applies only when the entire open gap lies in one fixed closed tile.",
+    "type": "Exact schematic or labelled incidence diagram; not a feasible six-square covering."
+  },
+  {
+    "id": "06_dependency_order",
+    "description": "Arrows state the proposed dependency order; arithmetic checks do not certify these geometric implications.",
+    "type": "Exact schematic or labelled incidence diagram; not a feasible six-square covering."
+  },
+  {
+    "id": "07_final_axes",
+    "description": "Exact unit tiles illustrating axial endpoints, a bottom tile below H_0, and the same-tile convention.",
+    "type": "Exact schematic or labelled incidence diagram; not a feasible six-square covering."
+  },
+  {
+    "id": "08_joining_modes",
+    "description": "The four membership predicates are exhaustive; interval endpoints are schematic, not a feasible covering.",
+    "type": "Exact schematic or labelled incidence diagram; not a feasible six-square covering."
+  }
+]

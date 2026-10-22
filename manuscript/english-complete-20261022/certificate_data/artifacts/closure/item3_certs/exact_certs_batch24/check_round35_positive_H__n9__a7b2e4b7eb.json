@@ -1,0 +1,13 @@
+{
+  "id": "check_round35_positive_H__n9__a7b2e4b7eb",
+  "file": "check_round35_positive_H",
+  "n": 9,
+  "query": "k > 0 ; k < 1 ; u > 0 ; u < 1 ; eta > 0 ; A > (1 - k)/(1 + k) ; A < z + u/(2 - u) ; z < (1 - eta)/(1 + 3*eta) ; (1 - k)/(1 + k) > (1 - eta)/(1 + 3*eta) + u/(2 - u)",
+  "method": "exact-hand-A-k-eta-cascade",
+  "status": "exact",
+  "certificate": {
+    "type": "hand_A_k_eta_cascade",
+    "claim": "lower on A exceeds upper via z bound and given k-vs-eta ineq"
+  },
+  "batch": "26c"
+}

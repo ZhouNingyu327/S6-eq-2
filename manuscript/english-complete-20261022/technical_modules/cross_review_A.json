@@ -1,0 +1,37 @@
+{
+  "reviewer": "A: english_foundations",
+  "date": "2026-10-22",
+  "review_type": "Bounded source-to-English cross-check; no edits to B modules; not full geometry validation or certificate replay.",
+  "checked_modules": [
+    {
+      "id": "R16P",
+      "source": "work/s6_english_module_source/R16P.md",
+      "english": "work/S6_english_20261022/manuscript/technical_modules/R16P.md",
+      "points_checked": [
+        "r<X<=1 and 0<Y<u: strict/weak signs retained; u=1-y remains explicitly auxiliary rather than the actual upper reach.",
+        "The continuous sigma estimate, factorization at 2/3, and Y<40/81<11/15<=1-y retained with correct signs.",
+        "X<=1 derived from actual X_mu<=mu and strict horizontal difference, then convex combination; no assumption on actual C horizontal projection substituted.",
+        "l0<1, d<=1, D*>=D_W, z>=1/10 monotonicity restriction, and small-z separate A<=z+K bound retained.",
+        "The empty-horizontal angle domain is not automatically transferred to the negative-horizontal addendum; this limitation is retained."
+      ],
+      "mathematical_translation_discrepancies_found": [],
+      "editorial_observation": "The English module omits the source exact result-file identifier work/round16_Q0_height_premise_check.json when attributing the extra UNSAT query. Add it to preserve source traceability. The auxiliary r,u here equal the r_0,u_0 used in English R16; a short explicit correspondence would improve cross-module notation."
+    },
+    {
+      "id": "R29N",
+      "source": "work/s6_english_module_source/R29N.md",
+      "english": "work/S6_english_20261022/manuscript/technical_modules/R29N.md",
+      "points_checked": [
+        "Three actual outer states are exhaustive; bottom retained separately; F empty/positive/negative horizontal cases retained.",
+        "Only a nonempty F horizontal intersection, including tangency, excludes bottom contact of C; empty case is explicitly not included.",
+        "The three same-F budgets and strict consequences for Sigma are retained without changing inequality signs.",
+        "The maximum of U4,U3 is used only for genuinely shared top-midpoint origins; actual C chord h_C is distinguished from auxiliary quantities.",
+        "The R13 266-coefficient certificate dependency is explicitly retained.",
+        "Correct pairs TOP/H0 and RIGHT/V0 are retained. H<delta(z) applies from top joining; J<delta(x) requires right joining. Former swapped bounds are explicitly withdrawn, and cannot be rescued by algebraic UNSAT.",
+        "J>0 is restricted to three joins and nonempty F horizontal section; no shared-root maximum is applied to its floating remainder."
+      ],
+      "mathematical_translation_discrepancies_found": []
+    }
+  ],
+  "conclusion": "No discrepancy found in the checked strict/weak signs, actual/auxiliary distinctions, nonempty parallel pairings, or withdrawn-direction bounds. One source-result identifier omission and one optional auxiliary-name correspondence improvement noted for R16P. No claim of full geometry validation."
+}

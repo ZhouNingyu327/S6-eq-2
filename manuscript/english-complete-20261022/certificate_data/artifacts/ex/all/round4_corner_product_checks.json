@@ -1,0 +1,20 @@
+[
+  {
+    "scope": "anchored corner S+U+S*U<1",
+    "result": "unsat",
+    "arithmetic": "exact nonlinear reals",
+    "seconds": 0.006758451461791992
+  },
+  {
+    "scope": "anchored corner L+(3/4)*U<7/4",
+    "result": "unsat",
+    "arithmetic": "exact nonlinear reals",
+    "seconds": 0.003325939178466797
+  },
+  {
+    "scope": "anchored corner L+U/sqrt(2)<1+1/sqrt(2)",
+    "result": "unsat",
+    "arithmetic": "exact nonlinear reals",
+    "seconds": 0.00881195068359375
+  }
+]

@@ -1,0 +1,26 @@
+[
+  {
+    "scope": "right adjacent meeting forces t3<t2",
+    "result": "unsat",
+    "seconds": 0.004803657531738281
+  },
+  {
+    "scope": "round13 adjacent budget forces t2+t3<1",
+    "result": "unsat",
+    "seconds": 0.002130746841430664
+  },
+  {
+    "scope": "actual junction lies strictly right of qR and below qU inside target",
+    "result": "unsat",
+    "seconds": 0.003106832504272461
+  },
+  {
+    "scope": "coordinate decrease keeps reduced point below upper hull edge",
+    "result": "unsat",
+    "seconds": 0.001735687255859375
+  },
+  {
+    "scope": "junction coordinates, mu monotonicity, wedge exclusion and triangle areas",
+    "result": "exact symbolic identities passed"
+  }
+]

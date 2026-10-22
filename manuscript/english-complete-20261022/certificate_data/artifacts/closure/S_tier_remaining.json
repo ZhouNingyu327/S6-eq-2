@@ -1,0 +1,14 @@
+{
+  "as_of": "2026-10-22 Asia/Shanghai",
+  "cert_tip": "80e8ee0",
+  "unique_tracked_keys": 264,
+  "exact_from_item3_unique_before_batch24": 113,
+  "exact_batch24_26f_family": 151,
+  "exact_from_item3_plus_family_unique": 264,
+  "cvc5_only_remaining_unique": 0,
+  "remaining_by_check_file": {},
+  "checker": "artifacts/closure/scripts/check_exact_certs_batch24.py",
+  "checker_result": "PASS 151/151",
+  "note": "Post-batch25 set of 91 (S) fully converted to (E)/(H). Does not prove the theorem; Lean e2e and external review still open.",
+  "handoff": "artifacts/closure/CERT_TO_LEAN_HANDOFF.md"
+}

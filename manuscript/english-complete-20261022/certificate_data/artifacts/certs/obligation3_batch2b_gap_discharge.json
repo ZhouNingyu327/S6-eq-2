@@ -1,0 +1,30 @@
+{
+  "updated": "2026-10-20T23:20+08:00",
+  "batch": "2b_gap_discharge",
+  "gaps_closed": [
+    {
+      "id": "delta_definition_chain",
+      "status": "已证",
+      "definition": "δ(z) := 2z²/(1−z²) = (1+z²)/(1−z²) − 1  (normalized corner long-leg protrusion beyond 1)",
+      "sources": [
+        "small/S6_attack_round29.md §1 eq (3): 0≤E<L4−1≤δ(z)<32/209<1/6",
+        "ex/all/check_round29_far_top_complete.py query LEFT meeting: L*(1−z²)≤1+z² ∧ z<4/15 ∧ refute E≥32/209",
+        "ex/all/check_round29_no_top_structure.py CORRECTED TOP/H: HH*(1−z²)≥2z² encodes H≥δ(z)"
+      ],
+      "link_to_obligation1": "δ is NOT the parallel-chord B(μ). B bounds chord-sum for d>1 parallel lines (ParallelBudgetGeometry). δ bounds excess long-leg length of a dominated corner with half-angle z. Queries named H<delta(z) use parallel budget B together with δ as the geometric upper target for the free chord H.",
+      "verification": "δ(4/15) = 32/209 = 32/209; δ(4/15) < 1/6 = True"
+    },
+    {
+      "id": "E_lt_32_209_provenance",
+      "status": "已证",
+      "chain": "LEFT meet ⇒ z < κ(L1) < 4/15 (round29 text) ⇒ δ(z) ≤ δ(4/15) = 32/209 (δ increasing on (0,1)) ⇒ E < L4−1 ≤ δ(z) < 32/209",
+      "sources": [
+        "small/S6_attack_round29.md lines 38–42 (eq 3)",
+        "small/S6_round29_geometric_review.md item 12: LEFT相接…E<32/209<1/6",
+        "check_round29_far_top_complete.py: exact('32/209 below 1/6', Rational(1,6)-Rational(32,209))",
+        "check_round29_far_top_complete.py query encodes UNSAT of (z<4/15 ∧ L≤(1+z²)/(1−z²) ∧ E=L−μ ∧ E≥32/209) — note E=L−μ vs manuscript E=L4−μ; script uses L as L4 proxy with μ>1 so E<L−1 when L≤(1+z²)/(1−z²) needs μ≥1 which holds"
+      ],
+      "caveat": "Script uses E==L-mu with L*(1-z*z)<=1+z*z; manuscript uses E=L4−μ and L4−1≤δ(z). Faithfulness: both bound excess by δ(z); identifying L with L4 and using μ>1 so L−μ < L−1 when comparing to δ is the modelling step recorded as 部分→已证 with this citation."
+    }
+  ]
+}

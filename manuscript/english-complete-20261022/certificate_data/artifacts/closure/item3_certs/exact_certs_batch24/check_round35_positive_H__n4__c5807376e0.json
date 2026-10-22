@@ -1,0 +1,34 @@
+{
+  "id": "check_round35_positive_H__n4__c5807376e0",
+  "file": "check_round35_positive_H",
+  "n": 4,
+  "query": "eta > 0 ; 8*eta <= 3 ; K*(1 - eta*eta) == 2*eta ; 55*K > 48",
+  "method": "exact-Bernstein-raw",
+  "status": "exact",
+  "certificate": {
+    "type": "bernstein_box",
+    "vars": [
+      "eta_"
+    ],
+    "box": [
+      [
+        "0",
+        "3/8"
+      ]
+    ],
+    "expr": "2*(-24*eta_**2 - 55*eta_ + 24)/(1 - eta_**2)",
+    "op": "<",
+    "numer_coeffs": [
+      "48",
+      "219/8",
+      "0"
+    ],
+    "denom_coeffs": [
+      "1",
+      "1",
+      "55/64"
+    ],
+    "claim": "numer_nonneg_denom_pos_implies_strict_ineq_impossible",
+    "tag": "raw"
+  }
+}

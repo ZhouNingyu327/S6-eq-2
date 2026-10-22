@@ -1,0 +1,20 @@
+{
+  "queries": [
+    {
+      "scope": "full upper-right chord plus left/right/up centre rays is strictly below 2",
+      "result": "unsat",
+      "arithmetic": "exact nonlinear reals",
+      "seconds": 0.03807687759399414
+    },
+    {
+      "scope": "independent direct point containment and right-midpoint exclusion imply the same trace bound",
+      "result": "unsat",
+      "arithmetic": "exact nonlinear reals",
+      "seconds": 0.01607060432434082
+    }
+  ],
+  "symbolic": {
+    "scope": "rational trace reductions and strict final sign identity",
+    "result": "exact identities verified"
+  }
+}

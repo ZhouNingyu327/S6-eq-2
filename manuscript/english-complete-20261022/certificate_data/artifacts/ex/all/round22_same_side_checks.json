@@ -1,0 +1,200 @@
+{
+  "status": "all exact checks passed",
+  "queries": [
+    {
+      "name": "right meeting puts top angle y below Delta(k)",
+      "theory": "QF_NRA",
+      "result": "unsat",
+      "seconds": 0.004306326999540033
+    },
+    {
+      "name": "nonpositive F: C cannot contain the top-axis inner endpoint",
+      "theory": "QF_NRA",
+      "result": "unsat",
+      "seconds": 0.0024804980002954835
+    },
+    {
+      "name": "original TL corner containing qU bounds its left leg",
+      "theory": "QF_NRA",
+      "result": "unsat",
+      "seconds": 0.0023308330000872957
+    },
+    {
+      "name": "original TL corner bridging C up-ray forces u>1-T",
+      "theory": "QF_NRA",
+      "result": "unsat",
+      "seconds": 0.001903452000078687
+    },
+    {
+      "name": "nonpositive F and left gap contradict actual C long chord",
+      "theory": "QF_NRA",
+      "result": "unsat",
+      "seconds": 0.001960886000233586
+    },
+    {
+      "name": "left meeting: coarse free-corner angle T<3/7",
+      "theory": "QF_NRA",
+      "result": "unsat",
+      "seconds": 0.001712665999548335
+    },
+    {
+      "name": "first feedback puts y<81/5264",
+      "theory": "QF_NRA",
+      "result": "unsat",
+      "seconds": 0.0018908120000560302
+    },
+    {
+      "name": "left meeting: refined T<2/7",
+      "theory": "QF_NRA",
+      "result": "unsat",
+      "seconds": 0.001496566000241728
+    },
+    {
+      "name": "refined feedback y<T/165",
+      "theory": "QF_NRA",
+      "result": "unsat",
+      "seconds": 0.0021461389997057267
+    },
+    {
+      "name": "left meeting raises actual L1",
+      "theory": "QF_NRA",
+      "result": "unsat",
+      "seconds": 0.0015293739998014644
+    },
+    {
+      "name": "left long leg cosine cap forces w>7T/5",
+      "theory": "QF_NRA",
+      "result": "unsat",
+      "seconds": 0.0017460270000810851
+    },
+    {
+      "name": "q>2T from the new w bound",
+      "theory": "QF_NRA",
+      "result": "unsat",
+      "seconds": 0.0016443839995190501
+    },
+    {
+      "name": "C right connection and nonempty V2 parallel traces give S2<r",
+      "theory": "QF_LRA",
+      "result": "unsat",
+      "seconds": 0.000649523999527446
+    },
+    {
+      "name": "left meet nonpositive F violates bottom chord parabola",
+      "theory": "QF_NRA",
+      "result": "unsat",
+      "seconds": 0.0020708960000774823
+    },
+    {
+      "name": "F positive horizontal plus bottom midpoint cannot touch left edge",
+      "theory": "QF_NRA",
+      "result": "unsat",
+      "seconds": 0.001610242999959155
+    },
+    {
+      "name": "positive F, bottom meet, qU in C forces S1>1+r-y",
+      "theory": "QF_LRA",
+      "result": "unsat",
+      "seconds": 0.0006996109996180166
+    },
+    {
+      "name": "positive F, bottom meet, qU in W forces S1>1+r-y",
+      "theory": "QF_LRA",
+      "result": "unsat",
+      "seconds": 0.000519625999913842
+    },
+    {
+      "name": "bottom meet/right meet angle cascade contradicts forced S1",
+      "theory": "QF_NRA",
+      "result": "unsat",
+      "seconds": 0.0016050419999373844
+    },
+    {
+      "name": "positive F: right cascade gives eta(a)>y/3",
+      "theory": "QF_NRA",
+      "result": "unsat",
+      "seconds": 0.0015496550004172605
+    },
+    {
+      "name": "left meeting: T<73/137 without the QR-in-C assumption",
+      "theory": "QF_NRA",
+      "result": "unsat",
+      "seconds": 0.0020555310002237093
+    },
+    {
+      "name": "positive rotation of C excluded for T<73/137",
+      "theory": "QF_NRA",
+      "result": "unsat",
+      "seconds": 0.0026007249998656334
+    },
+    {
+      "name": "C negative orientation gives half-angle bound for full new T domain",
+      "theory": "QF_NRA",
+      "result": "unsat",
+      "seconds": 0.0021816850003233412
+    },
+    {
+      "name": "C actual right ray is <Delta(T) for full new T domain",
+      "theory": "QF_NRA",
+      "result": "unsat",
+      "seconds": 0.002056473999800801
+    },
+    {
+      "name": "C actual downward ray is <h",
+      "theory": "QF_NRA",
+      "result": "unsat",
+      "seconds": 0.0017496099999334547
+    },
+    {
+      "name": "positive F left meet, T<=y: r<eta(a)",
+      "theory": "QF_NRA",
+      "result": "unsat",
+      "seconds": 0.0025094560005527455
+    },
+    {
+      "name": "positive F left meet, T>y: left cosine cap yields w>T/2",
+      "theory": "QF_NRA",
+      "result": "unsat",
+      "seconds": 0.0029668130000573
+    },
+    {
+      "name": "positive F left meet, T>y: q>Delta(T)",
+      "theory": "QF_NRA",
+      "result": "unsat",
+      "seconds": 0.0016988010002023657
+    },
+    {
+      "name": "positive F left meet: r<eta forces b+f>1",
+      "theory": "QF_LRA",
+      "result": "unsat",
+      "seconds": 0.0006916199999977835
+    },
+    {
+      "name": "positive F left meet: q>r forces b+f>1",
+      "theory": "QF_LRA",
+      "result": "unsat",
+      "seconds": 0.0006504829998448258
+    }
+  ],
+  "query_count": 29,
+  "NRA_queries": 24,
+  "LRA_queries": 5,
+  "symbolic_checks": 6,
+  "constant_checks": {
+    "33/79<3/7": true,
+    "Delta(9/56)=81/5264": true,
+    "3/7+81/5264<4/9": true,
+    "Delta(2/7)=2/35": true,
+    "Delta(k)/k<1/33 for k<2/35": true,
+    "5369/8415>14/25": true,
+    "1/5+7/6=41/30<2": true,
+    "64/137>sqrt(2)-1": true,
+    "positive left cosine polynomial at 73/137": true,
+    "positive chord polynomial at 73/137": true
+  },
+  "scope": "G4 same-side top TR/right BR excludes all nonpositive F horizontal; positive F requires both left and bottom corner gaps",
+  "proof_method": "actual left gap/top-axis endpoints; reciprocal half-angle feedback; F bottom chord parabola",
+  "round13_pair_certificate_needed": false,
+  "not_proved": "G4 same-side F positive horizontal with left and bottom gaps; remaining G2/G3; S(6)=2",
+  "no_search": "no placements, fixed target points, angle samples or interval trees"
+}

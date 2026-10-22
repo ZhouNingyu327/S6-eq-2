@@ -1,0 +1,143 @@
+[
+  {
+    "name": "cosine cap",
+    "x_range": [
+      "0",
+      "2/5"
+    ],
+    "expression": "(45*x**3 - 119*x**2 + 70*x - 12)/(4*(x - 2)*(x - 1)**2*(x + 1))",
+    "parts": [
+      {
+        "part": "numerator",
+        "polynomial_degree": 3,
+        "bernstein_degree": 12,
+        "coefficients": [
+          "12",
+          "29/3",
+          "2096/275",
+          "8047/1375",
+          "17924/4125",
+          "849/275",
+          "568/275",
+          "19/15",
+          "932/1375",
+          "393/1375",
+          "64/825",
+          "1/25",
+          "4/25"
+        ]
+      },
+      {
+        "part": "denominator",
+        "polynomial_degree": 4,
+        "bernstein_degree": 4,
+        "coefficients": [
+          "8",
+          "34/5",
+          "412/75",
+          "534/125",
+          "2016/625"
+        ]
+      }
+    ]
+  },
+  {
+    "name": "fixed middle cap",
+    "x_range": [
+      "2/5",
+      "3/7"
+    ],
+    "expression": "(231*x**3 - 542*x**2 + 529*x - 138)/(100*(x - 2)*(x - 1)*(x + 1))",
+    "parts": [
+      {
+        "part": "numerator",
+        "polynomial_degree": 3,
+        "bernstein_degree": 3,
+        "coefficients": [
+          "208/125",
+          "127/35",
+          "4058/735",
+          "360/49"
+        ]
+      },
+      {
+        "part": "denominator",
+        "polynomial_degree": 3,
+        "bernstein_degree": 3,
+        "coefficients": [
+          "672/5",
+          "2780/21",
+          "19160/147",
+          "44000/343"
+        ]
+      }
+    ]
+  },
+  {
+    "name": "sine cap",
+    "x_range": [
+      "3/7",
+      "1/2"
+    ],
+    "expression": "(x - 1)*(4*x**4 - 37*x**3 + 119*x**2 - 62*x + 8)/(16*x**2*(x - 2))",
+    "parts": [
+      {
+        "part": "numerator",
+        "polynomial_degree": 5,
+        "bernstein_degree": 5,
+        "coefficients": [
+          "4880/16807",
+          "5444/12005",
+          "1231/1960",
+          "227/280",
+          "559/560",
+          "19/16"
+        ]
+      },
+      {
+        "part": "denominator",
+        "polynomial_degree": 3,
+        "bernstein_degree": 3,
+        "coefficients": [
+          "1584/343",
+          "248/49",
+          "116/21",
+          "6"
+        ]
+      }
+    ]
+  },
+  {
+    "name": "sine derivative",
+    "x_range": [
+      "3/7",
+      "1/2"
+    ],
+    "expression": "-(8*x**4 - 33*x**3 - 16*x**2 + 33*x - 8)/(8*x*(x - 1)*(x + 1))",
+    "parts": [
+      {
+        "part": "numerator",
+        "polynomial_degree": 4,
+        "bernstein_degree": 4,
+        "coefficients": [
+          "2104/2401",
+          "1291/1372",
+          "1133/1176",
+          "211/224",
+          "7/8"
+        ]
+      },
+      {
+        "part": "denominator",
+        "polynomial_degree": 3,
+        "bernstein_degree": 3,
+        "coefficients": [
+          "960/343",
+          "424/147",
+          "62/21",
+          "3"
+        ]
+      }
+    ]
+  }
+]

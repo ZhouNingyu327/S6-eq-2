@@ -1,0 +1,19 @@
+{
+  "id": "check_round38_empty_right_negative__n7__4fa680734e",
+  "file": "check_round38_empty_right_negative",
+  "n": 7,
+  "query": "u > 0 ; u < 1 ; d > 0 ; eta > 0 ; z < d ; (2*eta)/(1 + eta) + d < z + u/(2 - u) ; u <= (4*eta)/(1 + 3*eta)",
+  "method": "exact-Bernstein-z-d-eta",
+  "status": "exact",
+  "certificate": {
+    "type": "bernstein_z_d_eta",
+    "numer_coeffs": [
+      "0"
+    ],
+    "denom_coeffs": [
+      "1"
+    ],
+    "claim": "z<d sharpens to (2eta)/(1+eta)<u/(2-u), but u<=4eta/(1+3eta) => u/(2-u)<=(2eta)/(1+eta)"
+  },
+  "batch": "26"
+}

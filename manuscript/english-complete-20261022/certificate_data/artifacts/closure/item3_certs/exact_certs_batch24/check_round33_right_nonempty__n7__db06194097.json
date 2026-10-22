@@ -1,0 +1,16 @@
+{
+  "id": "check_round33_right_nonempty__n7__db06194097",
+  "file": "check_round33_right_nonempty",
+  "n": 7,
+  "query": "a > 0 ; a < 1 ; rho*(1 + a) == a*(1 - a) ; S1 < (1 - a)/(1 + a) ; S2 < 1 ; S1 + S2 > 2 - a - l ; rho >= l",
+  "method": "exact-Bernstein-S1S2-rho",
+  "status": "exact",
+  "certificate": {
+    "type": "bernstein_S1S2_rho",
+    "numer_coeffs": [
+      "0"
+    ],
+    "claim": "S1+S2 < upper <= lower <= 2-a-l"
+  },
+  "batch": "26"
+}

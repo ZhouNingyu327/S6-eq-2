@@ -1,0 +1,21 @@
+{
+  "id": "check_round39_single_contact__n7__60049c9a90",
+  "file": "check_round39_single_contact",
+  "n": 7,
+  "query": "mu > 1 ; d > 0 ; d < 1 ; b >= 2*mu - Sigma ; v >= mu - d ; b + v*v <= 2 ; Sigma <= (1 - d)*(1 - d)",
+  "method": "exact-Bernstein-bvv",
+  "status": "exact",
+  "certificate": {
+    "type": "bernstein_bvv",
+    "numer_coeffs": [
+      "0",
+      "0",
+      "4",
+      "2",
+      "12",
+      "8"
+    ],
+    "claim": "min(b+v^2)>2"
+  },
+  "batch": "26"
+}

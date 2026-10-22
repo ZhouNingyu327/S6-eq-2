@@ -1,0 +1,80 @@
+{
+  "result": "passed",
+  "UNSAT": 0,
+  "algebraic_identities": 8,
+  "identity_names": [
+    "symmetric I representation",
+    "I increasing up to half",
+    "I divided by m decreases",
+    "horizontal short-leg gap",
+    "q shift",
+    "I at two over nine",
+    "I ratio at two over nine",
+    "scalar E decomposition"
+  ],
+  "full_polynomial_reconstructions": 1,
+  "positive_rational_coefficients": 5,
+  "constant_count": 14,
+  "constants": [
+    {
+      "name": "F lower bound exceeds two-thirds",
+      "exact": "115993/991875"
+    },
+    {
+      "name": "q argument m plus delta below one",
+      "exact": "571/1150"
+    },
+    {
+      "name": "small minimum from I cutoff",
+      "exact": "107/50600"
+    },
+    {
+      "name": "small minimum I ratio",
+      "exact": "19/2640"
+    },
+    {
+      "name": "other parameter exceeds three-quarters",
+      "exact": "503/20700"
+    },
+    {
+      "name": "small plus delta below quarter",
+      "exact": "503/20700"
+    },
+    {
+      "name": "wrong order positive cosine contradiction",
+      "exact": "197/8162"
+    },
+    {
+      "name": "wrong order negative sine contradiction",
+      "exact": "545/848"
+    },
+    {
+      "name": "positive tau delta improvement",
+      "exact": "2/21"
+    },
+    {
+      "name": "positive C a contradiction",
+      "exact": "161/960"
+    },
+    {
+      "name": "small x derivative negativity",
+      "exact": "102/77"
+    },
+    {
+      "name": "negative scalar against delta",
+      "exact": "17/300"
+    },
+    {
+      "name": "positive root coefficient",
+      "exact": "67/120"
+    },
+    {
+      "name": "F height positive",
+      "exact": "343/575"
+    }
+  ],
+  "new_closed_subclass": "W contains QU: both C rotations eta_C in [0,1/24]",
+  "global_consequence": "Combining rounds43/51/52, every remaining C has eta_C>1/24, delta_C>2/575",
+  "angle_degrees_threshold": 4.771888060777625,
+  "not_proved": "Whole upper-W bridge, whole remaining mechanisms, G2 or S(6)=2"
+}

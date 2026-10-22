@@ -1,0 +1,121 @@
+{
+  "status": "all exact checks passed",
+  "queries": [
+    {
+      "name": "a corner's positive facet gives K<1",
+      "theory": "QF_NRA",
+      "result": "unsat",
+      "seconds": 0.003888956000082544
+    },
+    {
+      "name": "corner cannot bridge both positive axes past C",
+      "theory": "QF_LRA",
+      "result": "unsat",
+      "seconds": 0.0008839140000418411
+    },
+    {
+      "name": "C contains qU: joint bottom contradiction",
+      "theory": "QF_NRA",
+      "result": "unsat",
+      "seconds": 0.003028960999472474
+    },
+    {
+      "name": "C contains qU: 2d upper coefficient",
+      "theory": "QF_NRA",
+      "result": "unsat",
+      "seconds": 0.0016896600000109174
+    },
+    {
+      "name": "C contains qU: joint coefficient is below 15/7",
+      "theory": "QF_LRA",
+      "result": "unsat",
+      "seconds": 0.0005972500002826564
+    },
+    {
+      "name": "qR in C plus horizontal diameter gives k<3/7",
+      "theory": "QF_NRA",
+      "result": "unsat",
+      "seconds": 0.0017289499992330093
+    },
+    {
+      "name": "right meet and real nonempty parallel traces give J<Delta(k)",
+      "theory": "QF_LRA",
+      "result": "unsat",
+      "seconds": 0.0007269409998116316
+    },
+    {
+      "name": "k<3/7 gives Delta(k)<9/56",
+      "theory": "QF_NRA",
+      "result": "unsat",
+      "seconds": 0.0015121470005396986
+    },
+    {
+      "name": "x+J<359/840<3/7",
+      "theory": "QF_LRA",
+      "result": "unsat",
+      "seconds": 0.000562385000193899
+    },
+    {
+      "name": "vertical coverage forces u>4/7",
+      "theory": "QF_LRA",
+      "result": "unsat",
+      "seconds": 0.0007608830001117894
+    },
+    {
+      "name": "C positive rotation excluded by u>4/7",
+      "theory": "QF_NRA",
+      "result": "unsat",
+      "seconds": 0.0018972589996337774
+    },
+    {
+      "name": "C negative rotation yields half angle bound from real u",
+      "theory": "QF_NRA",
+      "result": "unsat",
+      "seconds": 0.0019988829999419977
+    },
+    {
+      "name": "C actual right ray is <Delta(z)",
+      "theory": "QF_NRA",
+      "result": "unsat",
+      "seconds": 0.0016449610002382542
+    },
+    {
+      "name": "Delta(t)<3t/8 on 0<t<3/7",
+      "theory": "QF_NRA",
+      "result": "unsat",
+      "seconds": 0.0017561620006745216
+    },
+    {
+      "name": "feedback lower/upper floating length contradiction",
+      "theory": "QF_LRA",
+      "result": "unsat",
+      "seconds": 0.0005540060001294478
+    },
+    {
+      "name": "entire qR scalar chain is inconsistent",
+      "theory": "QF_NRA",
+      "result": "unsat",
+      "seconds": 0.002204430999881879
+    }
+  ],
+  "query_count": 16,
+  "NRA_queries": 10,
+  "LRA_queries": 6,
+  "symbolic_identity_checks": 4,
+  "constant_checks": {
+    "qU joint coefficient below 15/7": true,
+    "sqrt(2)-1 <3/7": true,
+    "4/7 >sqrt(2)-1": true,
+    "Delta(3/7)=9/56": true,
+    "4/15+9/56=359/840<3/7": true,
+    "9/64<1/4": true
+  },
+  "qU_positive_margin": "4432/19019",
+  "corner_identity_condition": "Xmax+Ymax-K has residual mu*(1-c^2-s^2)/(cs), zero on the unit circle.",
+  "scope": "Full G4 diagonal top TL/right BR excluded, including empty and negative F horizontal; positive case inherited.",
+  "proof_method": "actual corner bridge endpoints force qU or qR into C; bottom chord contradiction and complementary-angle feedback",
+  "free_corner_standardization_needed": false,
+  "new_core_round13_pair_certificate_needed": false,
+  "no_search": "no poses, target points, angle samples or interval partition",
+  "not_proved": "same-side G4 top TR/right BR; remaining G2/G3; S(6)=2"
+}

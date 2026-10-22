@@ -1,0 +1,150 @@
+{
+  "status": "all exact checks passed",
+  "queries": [
+    {
+      "name": "eta<kappa and cosine cap imply a>1/3",
+      "theory": "QF_NRA",
+      "result": "unsat",
+      "seconds": 0.003327597000861715
+    },
+    {
+      "name": "eta<kappa and sine cap imply a<1/2",
+      "theory": "QF_NRA",
+      "result": "unsat",
+      "seconds": 0.0019186899999112939
+    },
+    {
+      "name": "eta>1/6 on 1/3<a<1/2",
+      "theory": "QF_NRA",
+      "result": "unsat",
+      "seconds": 0.0013578070002040477
+    },
+    {
+      "name": "no bottom-midpoint corner: F trace budget forces r>eta",
+      "theory": "QF_LRA",
+      "result": "unsat",
+      "seconds": 0.000988580000012007
+    },
+    {
+      "name": "bottom-midpoint corner: left trace pin gives LB-1<Delta(z)",
+      "theory": "QF_NRA",
+      "result": "unsat",
+      "seconds": 0.0016846329999680165
+    },
+    {
+      "name": "bottom-midpoint corner: F trace budget forces r+LB-1>eta",
+      "theory": "QF_LRA",
+      "result": "unsat",
+      "seconds": 0.000662754000586574
+    },
+    {
+      "name": "r+Delta(y-r)>eta implies eta<y",
+      "theory": "QF_NRA",
+      "result": "unsat",
+      "seconds": 0.0015698280003562104
+    },
+    {
+      "name": "qU in C, no bottom-midpoint corner: r<Delta(y) conflicts with r>eta",
+      "theory": "QF_NRA",
+      "result": "unsat",
+      "seconds": 0.002417611000055331
+    },
+    {
+      "name": "qU in C, bottom-midpoint corner: double Delta below eta",
+      "theory": "QF_NRA",
+      "result": "unsat",
+      "seconds": 0.002170020000448858
+    },
+    {
+      "name": "qU in W plus real left-gap C endpoint gives eta(T)<y-r",
+      "theory": "QF_NRA",
+      "result": "unsat",
+      "seconds": 0.0020287749994167825
+    },
+    {
+      "name": "bottom-midpoint case: z-Delta(z)<1/10 forces z<3/28",
+      "theory": "QF_NRA",
+      "result": "unsat",
+      "seconds": 0.0013856080004188698
+    },
+    {
+      "name": "bottom-midpoint case: r+Delta(z)>eta forces r>3/20",
+      "theory": "QF_NRA",
+      "result": "unsat",
+      "seconds": 0.001676846000009391
+    },
+    {
+      "name": "no bottom-midpoint case: r>eta gives z<3/28",
+      "theory": "QF_LRA",
+      "result": "unsat",
+      "seconds": 0.0005373390004024259
+    },
+    {
+      "name": "eta(T)<3/28 splits into T<1/7 or T>3/4",
+      "theory": "QF_NRA",
+      "result": "unsat",
+      "seconds": 0.001619815999220009
+    },
+    {
+      "name": "small free-corner angle gives r<1/84, contradicting lower bound",
+      "theory": "QF_NRA",
+      "result": "unsat",
+      "seconds": 0.001655286000641354
+    },
+    {
+      "name": "large free-corner angle bounds D<43/105",
+      "theory": "QF_NRA",
+      "result": "unsat",
+      "seconds": 0.0017067329999918002
+    },
+    {
+      "name": "long C horizontal chord forces h>5/19",
+      "theory": "QF_NRA",
+      "result": "unsat",
+      "seconds": 0.0017215310008396045
+    },
+    {
+      "name": "positive C rotation bounds actual left upper ray lambda<7/12",
+      "theory": "QF_NRA",
+      "result": "unsat",
+      "seconds": 0.002382812999712769
+    },
+    {
+      "name": "negative C rotation bounds actual left upper ray lambda<7/12",
+      "theory": "QF_NRA",
+      "result": "unsat",
+      "seconds": 0.0021430590004456462
+    },
+    {
+      "name": "large T: real left-gap endpoint contradicts C left upper bound",
+      "theory": "QF_LRA",
+      "result": "unsat",
+      "seconds": 0.0004971250000380678
+    }
+  ],
+  "query_count": 20,
+  "NRA_queries": 16,
+  "LRA_queries": 4,
+  "symbolic_identity_checks": 7,
+  "constant_checks": {
+    "cosine comparison at a=1/3": true,
+    "sine comparison at a=1/2": true,
+    "Delta(3/28)=9/1400": true,
+    "3/28-9/1400=141/1400>1/10": true,
+    "1/6-9/1400=673/4200>3/20": true,
+    "Delta(1/7)=1/84<3/20": true,
+    "g(3/4)=1/7": true,
+    "1/7+4/15=43/105": true,
+    "(5/19)^2<3/43": true,
+    "g(5/19)=7/12": true,
+    "62/105-7/12=1/140>0": true,
+    "1/10<3/28": true,
+    "2 Delta(4/15)=16/165<1/6": true,
+    "sqrt(2)-1<7/12": true
+  },
+  "scope": "Last G4 same-side positive-horizontal left/bottom two-gap case excluded; entire G4 closes with prior cases.",
+  "proof_method": "midpoint-host split, parallel bottom/horizontal traces, real top bridge, free-angle dichotomy and C left-upper projection",
+  "round13_pair_certificate_needed": false,
+  "not_proved": "remaining G2/G3; S(6)=2",
+  "no_search": "no placements, fixed target points, angle samples or interval trees"
+}

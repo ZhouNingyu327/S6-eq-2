@@ -1,0 +1,40 @@
+{
+  "updated": "2026-10-20T23:40+08:00",
+  "scope": "R32–R39 remote side/empty/contact frames",
+  "common": {
+    "mu": "half-side of target T=[-μ,μ]² (Lean often [0,2μ]²)",
+    "c,s": "unit direction of C (c²+s²=1); often c≥s>0",
+    "h or η": "h=s/(1+c) half-angle proxy; η same family",
+    "K": "K=2h/(1-h²) (or 2η/(1-η²))",
+    "G": "G=(1-h)/(1+h)",
+    "q(t)": "q(t)=t/(2-t)",
+    "g(t)": "g(t)=(1-t)/(1+t)",
+    "B": "parallel-chord budget B(μ)<1 (obligation1)",
+    "delta(z), δ(z)": "2z²/(1-z²) long-leg protrusion (Obligation3Delta)",
+    "Phi, Φ": "long-leg short bound Φ(E)=(1+E)(1-√(E(2+E)))",
+    "l,r,u,d": "C actual axis extents (left,right,up,down) from O",
+    "h_C": "C horizontal chord length through relevant height",
+    "S1,S2,Σ": "bottom short legs / their sum",
+    "z,t,x,a": "corner half-angle / adjacent-corner parameters",
+    "J,H,D,A": "RIGHT/TOP free chord and complementary segments",
+    "F": "free block (bottom mid, often); F∩H = F horizontal intersection",
+    "W": "free corner / original V3 in far notation",
+    "E": "excess L4-μ or similar protrusion",
+    "w": "u-η or similar residual height",
+    "v": "auxiliary √-type residual in R33",
+    "rho, ρ": "R33 density/angle bound function of a",
+    "kappa, κ": "angle cap",
+    "f": "F horizontal chord length when nonempty"
+  },
+  "per_frame_poses": {
+    "R32_right_pos": "RIGHT gap positive; LEFT meet; F H status per M3; C avoids TOP/BOTTOM when F H nonempty",
+    "R33_right_ne": "RIGHT nonempty branch; uses z+q(u), Σ, Φ(w)",
+    "R34_left_neg": "LEFT negative horizontal; z<q(G); r+u>μ",
+    "R35_pos_H": "positive H; g(κ)<q(G)+q(u)",
+    "R36_ne_closed": "nonempty closed; Σ>1+f; D>1-Δ(u)",
+    "R37_empty_left": "F H empty + LEFT; axis extents in [μ-1,2-μ]; Σ>(1-d)²",
+    "R38_empty_right": "F H empty + RIGHT; L2>1+w; e+d<G",
+    "R39_contact": "single contact → last standard form; Σ>2-√2; η,K,u,r caps"
+  },
+  "status": "已证"
+}

@@ -1,0 +1,13 @@
+{
+  "id": "check_round33_right_nonempty__n5__b0135108ed",
+  "file": "check_round33_right_nonempty",
+  "n": 5,
+  "query": "d > 0 ; z + u/(2 - u) > 1 - G + d ; z + u/(2 - u) < 1 - G ; u > 0 ; u < 1",
+  "method": "exact-hand-strict-interval-d",
+  "status": "exact",
+  "certificate": {
+    "type": "hand_strict_interval_d",
+    "claim": "same LHS >1-G+d and <1-G => d<0, contradict d>0"
+  },
+  "batch": "25c"
+}

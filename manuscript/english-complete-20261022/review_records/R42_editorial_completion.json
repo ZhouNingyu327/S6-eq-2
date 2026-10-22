@@ -1,0 +1,8 @@
+{
+  "source": "artifacts/checkers/round42_interval_certificate.json",
+  "records": 9,
+  "full_polynomial_reconstructions": 18,
+  "nonnegative_coefficients": 56,
+  "existing_certificate_replayed": true,
+  "new_geometric_exclusion": false
+}

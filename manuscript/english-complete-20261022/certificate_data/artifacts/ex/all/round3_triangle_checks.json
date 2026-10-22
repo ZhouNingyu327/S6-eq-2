@@ -1,0 +1,13 @@
+[
+  {
+    "scope": "unit square containing (d,-mu),(-x,0),(0,y), mu>1, d,x,y>=0 has x+y<1",
+    "result": "unsat",
+    "arithmetic": "exact nonlinear reals",
+    "seconds": 0.012116432189941406
+  },
+  {
+    "scope": "adjacent exceptional branch contradicts the triangle restriction",
+    "result": "unsat",
+    "arithmetic": "exact linear reals"
+  }
+]

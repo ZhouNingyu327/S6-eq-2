@@ -1,0 +1,28 @@
+[
+  {
+    "scope": "unit square three-ray bound x+y+(3/4)r<=2; no x,y,r<=1 assumed",
+    "result": "unsat",
+    "arithmetic": "exact nonlinear reals",
+    "seconds": 0.0535888671875
+  },
+  {
+    "scope": "L-1<(3/4)(1-t), t=(1-c)/s, L<=min(1/c,1/s)",
+    "result": "unsat",
+    "arithmetic": "exact nonlinear reals",
+    "seconds": 0.0023050308227539062
+  },
+  {
+    "scope": "bottom-gap block cannot contain right critical tip in three-meet case",
+    "result": "unsat",
+    "arithmetic": "exact linear reals"
+  },
+  {
+    "scope": "one-gap final contradiction from three meets, corner ratio, weighted rays",
+    "result": "unsat",
+    "arithmetic": "exact linear reals"
+  },
+  {
+    "scope": "hand-proof dual coefficients and polynomial expansion",
+    "result": "exact symbolic identities passed"
+  }
+]

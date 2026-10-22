@@ -1,0 +1,641 @@
+{
+  "description": "Near-end living leaves → modules + check scripts/harness UNSAT + geometric hypotheses. Inventory audit, not full Lean geometry.",
+  "n_leaves": 17,
+  "n_machine_linked": 17,
+  "n_harness_all_unsat": 7,
+  "n_z3_script_all_unsat_additional": 10,
+  "n_with_exact_or_hand_upgrades": 7,
+  "n_full_cert_or_harness": 17,
+  "updated": "2026-10-20 Asia/Shanghai",
+  "leaves": [
+    {
+      "leaf": {
+        "rt": "bothMeet",
+        "left": "meet",
+        "fh": "pos"
+      },
+      "modules": "R13",
+      "geometric_hypotheses": {
+        "rt": "outer R and T both meet the square",
+        "left": "left ray meets",
+        "fh": "F has positive horizontal component (rightward)",
+        "closer": "R13 pair/closures: positive F projection + three-ray budgets",
+        "assumes": "Near-end G2 normalisation; centre mid in C; F-horizontal sign +"
+      },
+      "scripts": [
+        {
+          "script": "check_round13_closures.py",
+          "status": "z3-script-all-unsat",
+          "n_unsat": 8,
+          "n_rows": 8,
+          "checks_json": "round13_closure_checks.json",
+          "solver": "z3-script",
+          "n_exact_or_hand_upgrades": 0
+        },
+        {
+          "script": "check_round13_pair.py",
+          "status": "script-present",
+          "n_unsat": 0,
+          "n_rows": 0
+        }
+      ],
+      "machine_checked": true,
+      "harness_all_unsat": false,
+      "z3_script_all_unsat": true,
+      "has_exact_or_hand_upgrades": false
+    },
+    {
+      "leaf": {
+        "rt": "bothMeet",
+        "left": "meet",
+        "fh": "neg"
+      },
+      "modules": "R13",
+      "geometric_hypotheses": {
+        "rt": "outer R and T both meet",
+        "left": "left ray meets",
+        "fh": "F has negative horizontal component",
+        "closer": "R13",
+        "assumes": "Near-end G2; centre mid in C; F-horizontal sign −"
+      },
+      "scripts": [
+        {
+          "script": "check_round13_closures.py",
+          "status": "z3-script-all-unsat",
+          "n_unsat": 8,
+          "n_rows": 8,
+          "checks_json": "round13_closure_checks.json",
+          "solver": "z3-script",
+          "n_exact_or_hand_upgrades": 0
+        },
+        {
+          "script": "check_round13_pair.py",
+          "status": "script-present",
+          "n_unsat": 0,
+          "n_rows": 0
+        }
+      ],
+      "machine_checked": true,
+      "harness_all_unsat": false,
+      "z3_script_all_unsat": true,
+      "has_exact_or_hand_upgrades": false
+    },
+    {
+      "leaf": {
+        "rt": "bothMeet",
+        "left": "gap",
+        "fh": "empty"
+      },
+      "modules": "R14",
+      "geometric_hypotheses": {
+        "rt": "R and T both meet",
+        "left": "left gap",
+        "fh": "F horizontal empty (axis-aligned F)",
+        "closer": "R14 J-certificate / bridge / junction",
+        "assumes": "Near-end G2; left status gap; F axis-aligned"
+      },
+      "scripts": [
+        {
+          "script": "check_round14_J_certificate.py",
+          "status": "exact-certificate-json-passed",
+          "n_unsat": 0,
+          "n_rows": 1,
+          "result": "passed",
+          "rectangles": 12,
+          "checks_json": "round14_J_certificate_checks.json",
+          "certificate_json": "round14_J_certificate.json",
+          "solver": "exact-rational-Bernstein-rectangles"
+        },
+        {
+          "script": "check_round14_bridge.py",
+          "status": "z3-script-all-unsat-or-exact-id",
+          "n_unsat": 6,
+          "n_rows": 7,
+          "checks_json": "round14_bridge_checks.json",
+          "solver": "z3-script+exact-identity",
+          "n_exact_identity": 1
+        },
+        {
+          "script": "check_round14_junction.py",
+          "status": "z3-script-all-unsat-or-exact-id",
+          "n_unsat": 4,
+          "n_rows": 5,
+          "checks_json": "round14_junction_checks.json",
+          "solver": "z3-script+exact-identity",
+          "n_exact_identity": 1
+        },
+        {
+          "script": "check_round14_margin.py",
+          "status": "z3-script-all-unsat-or-exact-id",
+          "n_unsat": 5,
+          "n_rows": 6,
+          "checks_json": "round14_margin_checks.json",
+          "solver": "z3-script+exact-identity",
+          "n_exact_identity": 1
+        },
+        {
+          "script": "check_round14_relaxation_example.py",
+          "status": "demo-script-excluded",
+          "n_unsat": 0,
+          "n_rows": 0,
+          "note": "relaxation example; not a leaf-closing query suite"
+        }
+      ],
+      "machine_checked": true,
+      "harness_all_unsat": false,
+      "z3_script_all_unsat": true,
+      "has_exact_or_hand_upgrades": false
+    },
+    {
+      "leaf": {
+        "rt": "bothMeet",
+        "left": "meet",
+        "fh": "empty"
+      },
+      "modules": "R16",
+      "geometric_hypotheses": {
+        "rt": "R and T both meet",
+        "left": "left meets",
+        "fh": "F horizontal empty",
+        "closer": "R16 gap-phase / geometric reduction / interval cover",
+        "assumes": "Near-end G2; F axis-aligned; both outer meet"
+      },
+      "scripts": [
+        {
+          "script": "check_round16_gap_phase.py",
+          "status": "z3-script-all-unsat",
+          "n_unsat": 8,
+          "n_rows": 8,
+          "checks_json": "round16_gap_phase_checks.json",
+          "solver": "z3-script",
+          "n_exact_or_hand_upgrades": 0
+        },
+        {
+          "script": "check_round16_geometric_reduction.py",
+          "status": "z3-script-all-unsat",
+          "n_unsat": 5,
+          "n_rows": 5,
+          "checks_json": "round16_geometric_reduction_checks.json",
+          "solver": "z3-script",
+          "n_exact_or_hand_upgrades": 0
+        },
+        {
+          "script": "check_round16_interval_cover.py",
+          "status": "script-present",
+          "n_unsat": 0,
+          "n_rows": 0
+        }
+      ],
+      "machine_checked": true,
+      "harness_all_unsat": false,
+      "z3_script_all_unsat": true,
+      "has_exact_or_hand_upgrades": false
+    },
+    {
+      "leaf": {
+        "rt": "bothMeet",
+        "left": "gap",
+        "fh": "neg"
+      },
+      "modules": "R17",
+      "geometric_hypotheses": {
+        "rt": "R and T both meet",
+        "left": "left gap",
+        "fh": "F horizontal negative",
+        "closer": "R17 analytic negative projection",
+        "assumes": "Near-end G2; left gap; F sign −"
+      },
+      "scripts": [
+        {
+          "script": "check_round17_analytic_negative.py",
+          "status": "z3-script-all-unsat",
+          "n_unsat": 9,
+          "n_rows": 9,
+          "checks_json": "round17_analytic_negative_checks.json",
+          "solver": "z3-script",
+          "n_exact_or_hand_upgrades": 0
+        }
+      ],
+      "machine_checked": true,
+      "harness_all_unsat": false,
+      "z3_script_all_unsat": true,
+      "has_exact_or_hand_upgrades": false
+    },
+    {
+      "leaf": {
+        "rt": "bothMeet",
+        "left": "gap",
+        "fh": "pos"
+      },
+      "modules": "R18",
+      "geometric_hypotheses": {
+        "rt": "R and T both meet",
+        "left": "left gap",
+        "fh": "F horizontal positive",
+        "closer": "R18 positive projection",
+        "assumes": "Near-end G2; left gap; F sign +"
+      },
+      "scripts": [
+        {
+          "script": "check_round18_positive_projection.py",
+          "status": "z3-script-all-unsat",
+          "n_unsat": 9,
+          "n_rows": 9,
+          "checks_json": "round18_positive_projection_checks.json",
+          "solver": "z3-script",
+          "n_exact_or_hand_upgrades": 0
+        }
+      ],
+      "machine_checked": true,
+      "harness_all_unsat": false,
+      "z3_script_all_unsat": true,
+      "has_exact_or_hand_upgrades": false
+    },
+    {
+      "leaf": {
+        "rt": "topGap",
+        "left": "gap",
+        "fh": "empty"
+      },
+      "modules": "R19",
+      "geometric_hypotheses": {
+        "rt": "top outer gap (T misses)",
+        "left": "left gap",
+        "fh": "F horizontal empty",
+        "closer": "R19 top-gap closures",
+        "assumes": "Near-end G2; topGap; left gap; F axis-aligned"
+      },
+      "scripts": [
+        {
+          "script": "check_round19_top_gap.py",
+          "status": "z3-script-all-unsat",
+          "n_unsat": 13,
+          "n_rows": 13,
+          "checks_json": "round19_top_gap_checks.json",
+          "solver": "z3-script",
+          "n_exact_or_hand_upgrades": 0
+        }
+      ],
+      "machine_checked": true,
+      "harness_all_unsat": false,
+      "z3_script_all_unsat": true,
+      "has_exact_or_hand_upgrades": false
+    },
+    {
+      "leaf": {
+        "rt": "topGap",
+        "left": "gap",
+        "fh": "neg"
+      },
+      "modules": "R19",
+      "geometric_hypotheses": {
+        "rt": "topGap",
+        "left": "left gap",
+        "fh": "F horiz −",
+        "closer": "R19",
+        "assumes": "Near-end G2; topGap; left gap; F −"
+      },
+      "scripts": [
+        {
+          "script": "check_round19_top_gap.py",
+          "status": "z3-script-all-unsat",
+          "n_unsat": 13,
+          "n_rows": 13,
+          "checks_json": "round19_top_gap_checks.json",
+          "solver": "z3-script",
+          "n_exact_or_hand_upgrades": 0
+        }
+      ],
+      "machine_checked": true,
+      "harness_all_unsat": false,
+      "z3_script_all_unsat": true,
+      "has_exact_or_hand_upgrades": false
+    },
+    {
+      "leaf": {
+        "rt": "topGap",
+        "left": "meet",
+        "fh": "pos"
+      },
+      "modules": "R19",
+      "geometric_hypotheses": {
+        "rt": "topGap",
+        "left": "left meet",
+        "fh": "F horiz +",
+        "closer": "R19",
+        "assumes": "Near-end G2; topGap; left meet; F +"
+      },
+      "scripts": [
+        {
+          "script": "check_round19_top_gap.py",
+          "status": "z3-script-all-unsat",
+          "n_unsat": 13,
+          "n_rows": 13,
+          "checks_json": "round19_top_gap_checks.json",
+          "solver": "z3-script",
+          "n_exact_or_hand_upgrades": 0
+        }
+      ],
+      "machine_checked": true,
+      "harness_all_unsat": false,
+      "z3_script_all_unsat": true,
+      "has_exact_or_hand_upgrades": false
+    },
+    {
+      "leaf": {
+        "rt": "topGap",
+        "left": "meet",
+        "fh": "neg"
+      },
+      "modules": "R19",
+      "geometric_hypotheses": {
+        "rt": "topGap",
+        "left": "left meet",
+        "fh": "F horiz −",
+        "closer": "R19",
+        "assumes": "Near-end G2; topGap; left meet; F −"
+      },
+      "scripts": [
+        {
+          "script": "check_round19_top_gap.py",
+          "status": "z3-script-all-unsat",
+          "n_unsat": 13,
+          "n_rows": 13,
+          "checks_json": "round19_top_gap_checks.json",
+          "solver": "z3-script",
+          "n_exact_or_hand_upgrades": 0
+        }
+      ],
+      "machine_checked": true,
+      "harness_all_unsat": false,
+      "z3_script_all_unsat": true,
+      "has_exact_or_hand_upgrades": false
+    },
+    {
+      "leaf": {
+        "rt": "topGap",
+        "left": "meet",
+        "fh": "empty"
+      },
+      "modules": "R26",
+      "geometric_hypotheses": {
+        "rt": "topGap",
+        "left": "left meet",
+        "fh": "F empty",
+        "closer": "R26 g2_top dual harness",
+        "assumes": "Near-end G2; topGap; left meet; F axis-aligned — main R26 branch"
+      },
+      "scripts": [
+        {
+          "script": "check_round26_g2_top.py",
+          "status": "harness-all-unsat",
+          "n_unsat": 34,
+          "n_rows": 34,
+          "n_still_S_dual_only": 9,
+          "n_exact_or_hand_upgrades": 4,
+          "solver": "z3+cvc5-dual-catalog"
+        }
+      ],
+      "machine_checked": true,
+      "harness_all_unsat": true,
+      "z3_script_all_unsat": true,
+      "has_exact_or_hand_upgrades": true
+    },
+    {
+      "leaf": {
+        "rt": "rightGap",
+        "left": "meet",
+        "fh": "empty"
+      },
+      "modules": "R27/R28",
+      "geometric_hypotheses": {
+        "rt": "right outer gap",
+        "left": "left meet",
+        "fh": "F empty",
+        "closer": "R27/R28",
+        "assumes": "Near-end G2; rightGap; dual-branch closure"
+      },
+      "scripts": [
+        {
+          "script": "check_round27_g2_two_branches.py",
+          "status": "harness-all-unsat",
+          "n_unsat": 38,
+          "n_rows": 38,
+          "n_still_S_dual_only": 6,
+          "n_exact_or_hand_upgrades": 5,
+          "solver": "z3+cvc5-dual-catalog"
+        },
+        {
+          "script": "check_round28_g2_near_complete.py",
+          "status": "harness-all-unsat",
+          "n_unsat": 25,
+          "n_rows": 25,
+          "n_still_S_dual_only": 6,
+          "n_exact_or_hand_upgrades": 6,
+          "solver": "z3+cvc5-dual-catalog"
+        }
+      ],
+      "machine_checked": true,
+      "harness_all_unsat": true,
+      "z3_script_all_unsat": true,
+      "has_exact_or_hand_upgrades": true
+    },
+    {
+      "leaf": {
+        "rt": "rightGap",
+        "left": "meet",
+        "fh": "pos"
+      },
+      "modules": "R27/R28",
+      "geometric_hypotheses": {
+        "rt": "rightGap",
+        "left": "meet",
+        "fh": "+",
+        "closer": "R27/R28",
+        "assumes": "Near-end G2; rightGap"
+      },
+      "scripts": [
+        {
+          "script": "check_round27_g2_two_branches.py",
+          "status": "harness-all-unsat",
+          "n_unsat": 38,
+          "n_rows": 38,
+          "n_still_S_dual_only": 6,
+          "n_exact_or_hand_upgrades": 5,
+          "solver": "z3+cvc5-dual-catalog"
+        },
+        {
+          "script": "check_round28_g2_near_complete.py",
+          "status": "harness-all-unsat",
+          "n_unsat": 25,
+          "n_rows": 25,
+          "n_still_S_dual_only": 6,
+          "n_exact_or_hand_upgrades": 6,
+          "solver": "z3+cvc5-dual-catalog"
+        }
+      ],
+      "machine_checked": true,
+      "harness_all_unsat": true,
+      "z3_script_all_unsat": true,
+      "has_exact_or_hand_upgrades": true
+    },
+    {
+      "leaf": {
+        "rt": "rightGap",
+        "left": "meet",
+        "fh": "neg"
+      },
+      "modules": "R27/R28",
+      "geometric_hypotheses": {
+        "rt": "rightGap",
+        "left": "meet",
+        "fh": "−",
+        "closer": "R27/R28",
+        "assumes": "Near-end G2; rightGap"
+      },
+      "scripts": [
+        {
+          "script": "check_round27_g2_two_branches.py",
+          "status": "harness-all-unsat",
+          "n_unsat": 38,
+          "n_rows": 38,
+          "n_still_S_dual_only": 6,
+          "n_exact_or_hand_upgrades": 5,
+          "solver": "z3+cvc5-dual-catalog"
+        },
+        {
+          "script": "check_round28_g2_near_complete.py",
+          "status": "harness-all-unsat",
+          "n_unsat": 25,
+          "n_rows": 25,
+          "n_still_S_dual_only": 6,
+          "n_exact_or_hand_upgrades": 6,
+          "solver": "z3+cvc5-dual-catalog"
+        }
+      ],
+      "machine_checked": true,
+      "harness_all_unsat": true,
+      "z3_script_all_unsat": true,
+      "has_exact_or_hand_upgrades": true
+    },
+    {
+      "leaf": {
+        "rt": "rightGap",
+        "left": "gap",
+        "fh": "empty"
+      },
+      "modules": "R27/R28",
+      "geometric_hypotheses": {
+        "rt": "rightGap",
+        "left": "gap",
+        "fh": "empty",
+        "closer": "R27/R28",
+        "assumes": "Near-end G2; rightGap; left gap"
+      },
+      "scripts": [
+        {
+          "script": "check_round27_g2_two_branches.py",
+          "status": "harness-all-unsat",
+          "n_unsat": 38,
+          "n_rows": 38,
+          "n_still_S_dual_only": 6,
+          "n_exact_or_hand_upgrades": 5,
+          "solver": "z3+cvc5-dual-catalog"
+        },
+        {
+          "script": "check_round28_g2_near_complete.py",
+          "status": "harness-all-unsat",
+          "n_unsat": 25,
+          "n_rows": 25,
+          "n_still_S_dual_only": 6,
+          "n_exact_or_hand_upgrades": 6,
+          "solver": "z3+cvc5-dual-catalog"
+        }
+      ],
+      "machine_checked": true,
+      "harness_all_unsat": true,
+      "z3_script_all_unsat": true,
+      "has_exact_or_hand_upgrades": true
+    },
+    {
+      "leaf": {
+        "rt": "rightGap",
+        "left": "gap",
+        "fh": "pos"
+      },
+      "modules": "R27/R28",
+      "geometric_hypotheses": {
+        "rt": "rightGap",
+        "left": "gap",
+        "fh": "+",
+        "closer": "R27/R28",
+        "assumes": "Near-end G2; rightGap"
+      },
+      "scripts": [
+        {
+          "script": "check_round27_g2_two_branches.py",
+          "status": "harness-all-unsat",
+          "n_unsat": 38,
+          "n_rows": 38,
+          "n_still_S_dual_only": 6,
+          "n_exact_or_hand_upgrades": 5,
+          "solver": "z3+cvc5-dual-catalog"
+        },
+        {
+          "script": "check_round28_g2_near_complete.py",
+          "status": "harness-all-unsat",
+          "n_unsat": 25,
+          "n_rows": 25,
+          "n_still_S_dual_only": 6,
+          "n_exact_or_hand_upgrades": 6,
+          "solver": "z3+cvc5-dual-catalog"
+        }
+      ],
+      "machine_checked": true,
+      "harness_all_unsat": true,
+      "z3_script_all_unsat": true,
+      "has_exact_or_hand_upgrades": true
+    },
+    {
+      "leaf": {
+        "rt": "rightGap",
+        "left": "gap",
+        "fh": "neg"
+      },
+      "modules": "R27/R28",
+      "geometric_hypotheses": {
+        "rt": "rightGap",
+        "left": "gap",
+        "fh": "−",
+        "closer": "R27/R28",
+        "assumes": "Near-end G2; rightGap"
+      },
+      "scripts": [
+        {
+          "script": "check_round27_g2_two_branches.py",
+          "status": "harness-all-unsat",
+          "n_unsat": 38,
+          "n_rows": 38,
+          "n_still_S_dual_only": 6,
+          "n_exact_or_hand_upgrades": 5,
+          "solver": "z3+cvc5-dual-catalog"
+        },
+        {
+          "script": "check_round28_g2_near_complete.py",
+          "status": "harness-all-unsat",
+          "n_unsat": 25,
+          "n_rows": 25,
+          "n_still_S_dual_only": 6,
+          "n_exact_or_hand_upgrades": 6,
+          "solver": "z3+cvc5-dual-catalog"
+        }
+      ],
+      "machine_checked": true,
+      "harness_all_unsat": true,
+      "z3_script_all_unsat": true,
+      "has_exact_or_hand_upgrades": true
+    }
+  ],
+  "note_R14": "J certificate found, checker passed (12 rectangles, 316 rational coeffs)",
+  "real_gaps_leaves": []
+}

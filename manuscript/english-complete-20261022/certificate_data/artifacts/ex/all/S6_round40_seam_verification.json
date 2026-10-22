@@ -1,0 +1,90 @@
+{
+  "queries": [
+    {
+      "name": "cosine range gives z<a and a+2z<1",
+      "theory": "QF_NRA",
+      "result": "unsat",
+      "seconds": 0.006775796000511036
+    },
+    {
+      "name": "sine range gives z<a and a+2z<1",
+      "theory": "QF_NRA",
+      "result": "unsat",
+      "seconds": 0.0023442680003427085
+    },
+    {
+      "name": "meeting gives cosine angle envelope",
+      "theory": "QF_NRA",
+      "result": "unsat",
+      "seconds": 0.002248660000077507
+    },
+    {
+      "name": "meeting gives sine angle envelope",
+      "theory": "QF_NRA",
+      "result": "unsat",
+      "seconds": 0.0020520420002867468
+    },
+    {
+      "name": "seam horizontal coordinate is below a",
+      "theory": "QF_NRA",
+      "result": "unsat",
+      "seconds": 0.0035764430003837333
+    },
+    {
+      "name": "seam height is positive",
+      "theory": "QF_NRA",
+      "result": "unsat",
+      "seconds": 0.0023352069993052282
+    },
+    {
+      "name": "positive-normal cap for the upper corner",
+      "theory": "QF_NRA",
+      "result": "unsat",
+      "seconds": 0.002498099000149523
+    },
+    {
+      "name": "meeting puts seam after the turn",
+      "theory": "QF_NRA",
+      "result": "unsat",
+      "seconds": 0.001723903000311111
+    },
+    {
+      "name": "second side of lower square contains seam",
+      "theory": "QF_NRA",
+      "result": "unsat",
+      "seconds": 0.0016411790002166526
+    },
+    {
+      "name": "direct upper contact forces L>2-q(u)",
+      "theory": "QF_NRA",
+      "result": "unsat",
+      "seconds": 0.0020456740003282903
+    }
+  ],
+  "query_count": 10,
+  "identities": [
+    "seam upper-bound residual",
+    "seam positive-height residual",
+    "lower-corner turning coordinate",
+    "lower-corner second projection",
+    "upper-corner first support slack",
+    "upper-corner first projection"
+  ],
+  "identity_count": 6,
+  "constants": [
+    {
+      "name": "cosine a+2z margin",
+      "value": "11/85"
+    },
+    {
+      "name": "sine angle sum numerator at 2/5",
+      "value": "-1/25"
+    },
+    {
+      "name": "sine z<a numerator at 2/5",
+      "value": "-17/125"
+    }
+  ],
+  "constant_count": 3,
+  "scope": "small algebraic lemmas; geometric covering/closedness argument is in the report"
+}

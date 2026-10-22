@@ -1,0 +1,347 @@
+{
+  "updated": "2026-10-20 Asia/Shanghai",
+  "description": "G4 faithfulness expansion: full dual-wrapper M8–M11 inventory + script/cert presence",
+  "n_dual_entries": 31,
+  "n_pass": 31,
+  "n_fail": 0,
+  "all_pass": true,
+  "by_status": {
+    "passed": 30,
+    "superseded-by-check_round55_final": 1
+  },
+  "prior_spotcheck_pass": "21/21",
+  "samples": [
+    {
+      "block": "M8",
+      "script": "check_round41_certificates.py",
+      "script_exists": true,
+      "dual_status": "passed",
+      "certs_found": [
+        "round41_corner_certificate.json",
+        "round41_direct_certificate.json"
+      ],
+      "pass": true,
+      "sec": 1.34
+    },
+    {
+      "block": "M8",
+      "script": "check_round41_geometry.py",
+      "script_exists": true,
+      "dual_status": "passed",
+      "certs_found": [
+        "round41_corner_certificate.json",
+        "round41_direct_certificate.json"
+      ],
+      "pass": true,
+      "sec": 1.05
+    },
+    {
+      "block": "M8",
+      "script": "check_round42.py",
+      "script_exists": true,
+      "dual_status": "passed",
+      "certs_found": [
+        "round42_interval_certificate.json"
+      ],
+      "pass": true,
+      "sec": 2.23
+    },
+    {
+      "block": "M9",
+      "script": "check_round43.py",
+      "script_exists": true,
+      "dual_status": "passed",
+      "certs_found": [
+        "round43_certificate.json"
+      ],
+      "pass": true,
+      "sec": 0.38
+    },
+    {
+      "block": "M9",
+      "script": "check_round44.py",
+      "script_exists": true,
+      "dual_status": "passed",
+      "certs_found": [],
+      "pass": true,
+      "sec": 1.57
+    },
+    {
+      "block": "M9",
+      "script": "check_round45.py",
+      "script_exists": true,
+      "dual_status": "passed",
+      "certs_found": [],
+      "pass": true,
+      "sec": 0.37
+    },
+    {
+      "block": "M9",
+      "script": "check_round46.py",
+      "script_exists": true,
+      "dual_status": "passed",
+      "certs_found": [
+        "round46_certificate.json"
+      ],
+      "pass": true,
+      "sec": 0.48
+    },
+    {
+      "block": "M9",
+      "script": "check_round47.py",
+      "script_exists": true,
+      "dual_status": "passed",
+      "certs_found": [
+        "round47_certificate.json"
+      ],
+      "pass": true,
+      "sec": 0.54
+    },
+    {
+      "block": "M9",
+      "script": "check_round47_forced_fit.py",
+      "script_exists": true,
+      "dual_status": "passed",
+      "certs_found": [
+        "round47_certificate.json"
+      ],
+      "pass": true,
+      "sec": 0.03
+    },
+    {
+      "block": "M9",
+      "script": "check_round48.py",
+      "script_exists": true,
+      "dual_status": "passed",
+      "certs_found": [],
+      "pass": true,
+      "sec": 0.32
+    },
+    {
+      "block": "M9",
+      "script": "check_round49.py",
+      "script_exists": true,
+      "dual_status": "passed",
+      "certs_found": [],
+      "pass": true,
+      "sec": 0.27
+    },
+    {
+      "block": "M9",
+      "script": "check_round50.py",
+      "script_exists": true,
+      "dual_status": "passed",
+      "certs_found": [
+        "round50_certificate.json"
+      ],
+      "pass": true,
+      "sec": 0.36
+    },
+    {
+      "block": "M9",
+      "script": "check_round51.py",
+      "script_exists": true,
+      "dual_status": "passed",
+      "certs_found": [
+        "round51_certificate.json"
+      ],
+      "pass": true,
+      "sec": 1.86
+    },
+    {
+      "block": "M9",
+      "script": "check_round52.py",
+      "script_exists": true,
+      "dual_status": "passed",
+      "certs_found": [
+        "round52_certificate.json"
+      ],
+      "pass": true,
+      "sec": 0.36
+    },
+    {
+      "block": "M9",
+      "script": "check_round53.py",
+      "script_exists": true,
+      "dual_status": "passed",
+      "certs_found": [
+        "round53_certificate.json"
+      ],
+      "pass": true,
+      "sec": 0.94
+    },
+    {
+      "block": "M9",
+      "script": "check_round54.py",
+      "script_exists": true,
+      "dual_status": "passed",
+      "certs_found": [
+        "round54_certificate.json"
+      ],
+      "pass": true,
+      "sec": 1.55
+    },
+    {
+      "block": "M9",
+      "script": "check_round55.py",
+      "script_exists": true,
+      "dual_status": "superseded-by-check_round55_final",
+      "certs_found": [
+        "round55_certificate.json"
+      ],
+      "pass": true,
+      "sec": 0.51
+    },
+    {
+      "block": "M9",
+      "script": "check_round55_final.py",
+      "script_exists": true,
+      "dual_status": "passed",
+      "certs_found": [
+        "round55_certificate.json"
+      ],
+      "pass": true,
+      "sec": 9.03
+    },
+    {
+      "block": "M9",
+      "script": "check_round56.py",
+      "script_exists": true,
+      "dual_status": "passed",
+      "certs_found": [
+        "round56_certificate.json"
+      ],
+      "pass": true,
+      "sec": 23.39
+    },
+    {
+      "block": "M9",
+      "script": "check_round57.py",
+      "script_exists": true,
+      "dual_status": "passed",
+      "certs_found": [
+        "round57_certificate.json"
+      ],
+      "pass": true,
+      "sec": 23.99
+    },
+    {
+      "block": "M9",
+      "script": "check_round57_monotonicity.py",
+      "script_exists": true,
+      "dual_status": "passed",
+      "certs_found": [
+        "round57_certificate.json"
+      ],
+      "pass": true,
+      "sec": 0.24
+    },
+    {
+      "block": "M9",
+      "script": "check_round58.py",
+      "script_exists": true,
+      "dual_status": "passed",
+      "certs_found": [
+        "round58_certificate.json"
+      ],
+      "pass": true,
+      "sec": 21.7
+    },
+    {
+      "block": "M9",
+      "script": "check_round59.py",
+      "script_exists": true,
+      "dual_status": "passed",
+      "certs_found": [
+        "round59_certificate.json"
+      ],
+      "pass": true,
+      "sec": 0.94
+    },
+    {
+      "block": "M9",
+      "script": "check_round59_exit_forms.py",
+      "script_exists": true,
+      "dual_status": "passed",
+      "certs_found": [
+        "round59_certificate.json"
+      ],
+      "pass": true,
+      "sec": 0.33
+    },
+    {
+      "block": "M10",
+      "script": "check_round60.py",
+      "script_exists": true,
+      "dual_status": "passed",
+      "certs_found": [
+        "round60_certificate.json"
+      ],
+      "pass": true,
+      "sec": 4.55
+    },
+    {
+      "block": "M10",
+      "script": "check_round61.py",
+      "script_exists": true,
+      "dual_status": "passed",
+      "certs_found": [
+        "round61_certificate.json"
+      ],
+      "pass": true,
+      "sec": 9.2
+    },
+    {
+      "block": "M10",
+      "script": "check_round61_forms.py",
+      "script_exists": true,
+      "dual_status": "passed",
+      "certs_found": [
+        "round61_certificate.json"
+      ],
+      "pass": true,
+      "sec": 1.47
+    },
+    {
+      "block": "M10",
+      "script": "check_round62.py",
+      "script_exists": true,
+      "dual_status": "passed",
+      "certs_found": [
+        "round62_certificate.json"
+      ],
+      "pass": true,
+      "sec": 16.32
+    },
+    {
+      "block": "M11",
+      "script": "check_round63.py",
+      "script_exists": true,
+      "dual_status": "passed",
+      "certs_found": [],
+      "pass": true,
+      "sec": 0.55
+    },
+    {
+      "block": "M11",
+      "script": "check_round63_entry.py",
+      "script_exists": true,
+      "dual_status": "passed",
+      "certs_found": [],
+      "pass": true,
+      "sec": 0.26
+    },
+    {
+      "block": "M11",
+      "script": "check_round64.py",
+      "script_exists": true,
+      "dual_status": "passed",
+      "certs_found": [
+        "round64_certificate.json"
+      ],
+      "pass": true,
+      "sec": 0.87
+    }
+  ],
+  "honesty": "PASS = dual-wrapper status passed/superseded and script file present; not a geometric PDF re-proof."
+}

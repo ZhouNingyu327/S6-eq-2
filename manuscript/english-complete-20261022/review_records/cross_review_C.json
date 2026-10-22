@@ -1,0 +1,49 @@
+{
+  "reviewer": "english_final_mechanisms",
+  "date": "2026-10-22",
+  "scope": "Bounded translation and premise comparison only. No edits to agent A's files and no independent global validation.",
+  "comparisons": [
+    {
+      "module": "R6",
+      "section": "2, including 2.1 and 2.2",
+      "source": "work/s6_english_module_source/R6.md",
+      "translation": "work/S6_english_20261022/manuscript/technical_modules/R6.md",
+      "status": "checked-no-discrepancy",
+      "details": [
+        "The corrected weak inequality d_0=[c(1-alpha)+s beta-mu]/(sc)>=0 is retained, explicitly allowing singleton tangency.",
+        "Strict inequalities 1-alpha>c mu and beta<s mu are retained, together with r=beta/s<mu, the active upper chord endpoint argument, and u=(1-beta)/c.",
+        "Both c>=s and c<s continuous direction orders, both r<=1/r>=1 comparisons, and the exact negative factorization establishing Z<2 are faithfully present.",
+        "The source excess variable is renamed epsilon, avoiding conflict with C's half-angle, without changing any premise or sign."
+      ]
+    },
+    {
+      "module": "R10C",
+      "section": "All included source Sections 2 and 3",
+      "source": "work/s6_english_module_source/R10C.md",
+      "translation": "work/S6_english_20261022/manuscript/technical_modules/R10C.md",
+      "status": "checked-no-discrepancy",
+      "details": [
+        "The contradiction first assumes h_F=0, allowing both an empty intersection and a tangent point. The proof applies the parallel budget only to C, whose center and full positive bottom gap guarantee both intersections are nonempty.",
+        "The exact chain g_1+h_C>=4mu-L_1-S_2-U_2-U_4>...=8mu-7+U_1+S_4>1 is retained with the correct anchored-budget and S_3<1 uses.",
+        "Only after proving h_F>0 does the aggregate proof use g_3+h_F<=B for F. Its final lower bound 10mu-2B+U_1+U_3>8 matches the corrected source.",
+        "The source checker paths and UNSAT records are described as source records, not as a fresh replay by the translating agent."
+      ]
+    },
+    {
+      "module": "R12",
+      "section": "3, with the dependency statements in Scope and Section 2",
+      "source": "work/s6_english_module_source/R12.md",
+      "translation": "work/S6_english_20261022/manuscript/technical_modules/R12.md",
+      "status": "checked-no-discrepancy",
+      "details": [
+        "The far proof uses R11 Sections 3--5 ownership reductions and propagation; the translation explicitly bypasses the later supplementary angle/clamp route.",
+        "The upper-right perimeter inequality (5), the same-C bound (6), and the f=0 versus f>0 split match the source.",
+        "The f=0 case includes empty and singleton intersections and invokes no parallel bound on F. The f>0 case first establishes a real vertical-central intersection and uses the known left gap to justify f<=B-2mu+L_1+S_4.",
+        "The two strict final chains, through 9-5mu and through 10-7mu+B, are retained and close the entire far representative for all mu>1, including high angles.",
+        "The translation says it bypasses R11 Sections 7--10, while the source expressly says it does not use the half-angle ranges in Sections 8--10 and positively restricts its inputs to Sections 3--5. The translation's broader bypass statement is consistent with that restricted input list and introduces no discrepancy."
+      ]
+    }
+  ],
+  "discrepancies": [],
+  "conclusion": "No translation or premise discrepancy found in the three selected checks. This finding does not certify other modules or the global theorem."
+}

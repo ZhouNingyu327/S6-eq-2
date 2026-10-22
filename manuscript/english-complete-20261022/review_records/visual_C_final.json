@@ -1,0 +1,41 @@
+{
+  "reviewer": "english_final_mechanisms",
+  "date": "2026-10-22",
+  "review_type": "Bounded read-only visual recheck of corrected final renders",
+  "status": "no_remaining_defect_observed_within_scope",
+  "image_directory": "tmp/pdfs/S6_complete_english_final",
+  "inspected": {
+    "full_page_images": ["large-270.png", "large-220.png"],
+    "contact_sheets": ["contact-09.png", "contact-10.png", "contact-11.png", "contact-12.png"],
+    "contact_sheet_combined_page_range": "193-277 inclusive"
+  },
+  "previous_findings_rechecked": [
+    {
+      "combined_pdf_page": 270,
+      "printed_footer": "A-251 / 258",
+      "location": "R64 Section 1, equation (1)",
+      "status": "resolved",
+      "visual_result": "The long display is now broken into shorter rows. The right-hand equation tag has clear horizontal separation from the formula. No clipping or overlap is visible in the full-page render."
+    },
+    {
+      "combined_pdf_page": 220,
+      "printed_footer": "A-201 / 258",
+      "location": "R48 Section 1, first paragraph",
+      "status": "resolved",
+      "visual_result": "The period now stays with the inline A_i at the start of the following line. It no longer appears as an isolated punctuation mark at the beginning of a line."
+    }
+  ],
+  "remaining_defects": [],
+  "observations": [
+    "No new obvious page-edge clipping, formula/tag collision, overlapping text, broken glyph boxes or misplaced isolated heading was seen in the assigned final contact sheets.",
+    "The corrected page 270 retains readable headings, inline formulas, numbered displays and footer within the page margins.",
+    "The small pagination shift within R64 leaves a short continuation line at the top of page 271; it is legible, separated from the next heading and not clipped. This is recorded as normal pagination, not a blocking defect.",
+    "The final index and endmatter remain within the page frames on pages 273-277; the document still ends on combined page 277 in the supplied sheets."
+  ],
+  "scope_and_limitations": [
+    "This recheck visually inspected the two requested corrected pages at full-page resolution and all four requested contact sheets.",
+    "Contact sheets provide reduced-resolution review of 85 pages and do not establish character-level correctness of every formula on those pages.",
+    "No mathematical, prose-validity, source-fidelity, global-proof, searchable-text or accessibility assessment was performed.",
+    "No source changes, PDF changes or rebuild were performed by this reviewer. The conclusions apply only to the supplied final rendered images."
+  ]
+}

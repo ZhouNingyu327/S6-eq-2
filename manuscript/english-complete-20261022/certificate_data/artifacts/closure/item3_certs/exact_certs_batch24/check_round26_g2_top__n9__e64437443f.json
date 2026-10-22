@@ -1,0 +1,14 @@
+{
+  "id": "check_round26_g2_top__n9__e64437443f",
+  "file": "check_round26_g2_top",
+  "n": 9,
+  "query": "mu > 1 ; p >= s ; s > 0 ; p*p + s*s == 1 ; h*(1 + p) == s ; T > 0 ; r > 0 ; s*(r + T) + p*mu <= 1 ; r + T >= h",
+  "method": "exact-hand-tip-e-h",
+  "status": "exact",
+  "certificate": {
+    "type": "identity_tip_generic",
+    "claim": "r+T>=h",
+    "method_tag": "exact-hand-tip-e-h"
+  },
+  "batch": "26b"
+}

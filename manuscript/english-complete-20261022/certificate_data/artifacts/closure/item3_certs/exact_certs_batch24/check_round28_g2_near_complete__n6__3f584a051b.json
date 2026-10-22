@@ -1,0 +1,14 @@
+{
+  "id": "check_round28_g2_near_complete__n6__3f584a051b",
+  "file": "check_round28_g2_near_complete",
+  "n": 6,
+  "query": "h > 0 ; h < 1 ; w == u - h ; E + d < (1 - h)/(1 + h) ; L < E + u ; L - 1 >= w - d - (h*(1 - h))/(1 + h)",
+  "method": "exact-hand-L-E-w",
+  "status": "exact",
+  "certificate": {
+    "type": "hand_L_E_w",
+    "claim": "L-1 < E+u-1 < G-d+u-1 = u-h-d-tip <= required lower bound, strict empty",
+    "identity": "G+tip=1-h"
+  },
+  "batch": "26"
+}

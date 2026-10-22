@@ -1,0 +1,14 @@
+{
+  "id": "check_round28_g2_near_complete__n7__c549b58ab2",
+  "file": "check_round28_g2_near_complete",
+  "n": 7,
+  "query": "mu > 1 ; c >= s ; s > 0 ; c*c + s*s == 1 ; h*(1 + c) == s ; s*mu + c*(E + d) <= 1 ; (E + d)*(1 + h) >= 1 - h",
+  "method": "exact-hand-tip-d-G",
+  "status": "exact",
+  "certificate": {
+    "type": "identity_tip_d_G",
+    "identity": "length>=G=(1-h)/(1+h) forces covering >1 for mu>1",
+    "claim": "same tip-d-G"
+  },
+  "batch": "26"
+}

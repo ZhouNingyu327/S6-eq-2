@@ -1,0 +1,256 @@
+[
+  {
+    "name": "eta0 concavity",
+    "expression": "-(5*z**2 + 4*z - 4)/3",
+    "parts": [
+      {
+        "part": "numerator",
+        "degree": 2,
+        "minimum": "503/180",
+        "nonnegative": true,
+        "coefficients": [
+          "4",
+          "53/15",
+          "503/180"
+        ]
+      },
+      {
+        "part": "denominator",
+        "degree": 0,
+        "minimum": "3",
+        "nonnegative": true,
+        "coefficients": [
+          "3"
+        ]
+      }
+    ]
+  },
+  {
+    "name": "eta0 at zero",
+    "expression": "-z*(z - 2)/3",
+    "parts": [
+      {
+        "part": "numerator",
+        "degree": 2,
+        "minimum": "0",
+        "nonnegative": true,
+        "coefficients": [
+          "0",
+          "7/30",
+          "371/900"
+        ]
+      },
+      {
+        "part": "denominator",
+        "degree": 0,
+        "minimum": "3",
+        "nonnegative": true,
+        "coefficients": [
+          "3"
+        ]
+      }
+    ]
+  },
+  {
+    "name": "eta0 at separator",
+    "expression": "z**2*(1280*z**4 + 160*z**3 - 367*z**2 - 240*z + 156)/432",
+    "parts": [
+      {
+        "part": "numerator",
+        "degree": 6,
+        "minimum": "0",
+        "nonnegative": true,
+        "coefficients": [
+          "0",
+          "0",
+          "637/1125",
+          "3479/2250",
+          "32987633/12150000",
+          "5531071/1458000",
+          "170360701/36450000"
+        ]
+      },
+      {
+        "part": "denominator",
+        "degree": 0,
+        "minimum": "432",
+        "nonnegative": true,
+        "coefficients": [
+          "432"
+        ]
+      }
+    ]
+  },
+  {
+    "name": "eta1 concavity",
+    "expression": "-(319*z**2 + 322*z - 272)/225",
+    "parts": [
+      {
+        "part": "numerator",
+        "degree": 2,
+        "minimum": "161549/900",
+        "nonnegative": true,
+        "coefficients": [
+          "272",
+          "7033/30",
+          "161549/900"
+        ]
+      },
+      {
+        "part": "denominator",
+        "degree": 0,
+        "minimum": "225",
+        "nonnegative": true,
+        "coefficients": [
+          "225"
+        ]
+      }
+    ]
+  },
+  {
+    "name": "eta1 at zero",
+    "expression": "-z*(47*z - 128)/225",
+    "parts": [
+      {
+        "part": "numerator",
+        "degree": 2,
+        "minimum": "0",
+        "nonnegative": true,
+        "coefficients": [
+          "0",
+          "224/15",
+          "24577/900"
+        ]
+      },
+      {
+        "part": "denominator",
+        "degree": 0,
+        "minimum": "225",
+        "nonnegative": true,
+        "coefficients": [
+          "225"
+        ]
+      }
+    ]
+  },
+  {
+    "name": "eta1 at separator",
+    "expression": "(81664*z**6 + 33760*z**5 - 40829*z**4 - 14658*z**3 + 18264*z**2 - 4752*z + 576)/32400",
+    "parts": [
+      {
+        "part": "numerator",
+        "degree": 6,
+        "minimum": "1351274639/7290000",
+        "nonnegative": true,
+        "coefficients": [
+          "576",
+          "1956/5",
+          "306778/1125",
+          "19004771/90000",
+          "2299251511/12150000",
+          "1351274639/7290000",
+          "34785413359/182250000"
+        ]
+      },
+      {
+        "part": "denominator",
+        "degree": 0,
+        "minimum": "32400",
+        "nonnegative": true,
+        "coefficients": [
+          "32400"
+        ]
+      }
+    ]
+  },
+  {
+    "name": "objective low branch",
+    "expression": "(793600*z**6 - 614528*z**5 - 1364484*z**4 + 2558847*z**3 - 1305009*z**2 + 166536*z + 4860)/(12*(z + 1)*(100*z - 123)*(16*z**2 - 9*z - 6)*(16*z**2 - 9*z + 18))",
+    "parts": [
+      {
+        "part": "numerator",
+        "degree": 6,
+        "minimum": "15184751623/18225000",
+        "nonnegative": true,
+        "coefficients": [
+          "4860",
+          "56682/5",
+          "19614151/1500",
+          "2106799867/180000",
+          "17368689901/2025000",
+          "171657060391/36450000",
+          "15184751623/18225000"
+        ]
+      },
+      {
+        "part": "denominator",
+        "degree": 6,
+        "minimum": "159408",
+        "nonnegative": true,
+        "coefficients": [
+          "159408",
+          "833832/5",
+          "4307501/25",
+          "528446249/3000",
+          "30114810331/168750",
+          "544719723361/3037500",
+          "271600975633/1518750"
+        ]
+      }
+    ]
+  },
+  {
+    "name": "objective high branch",
+    "expression": "(327700*z**2 - 157971*z - 423)/(900*(z + 1)*(100*z - 123))",
+    "parts": [
+      {
+        "part": "numerator",
+        "degree": 2,
+        "minimum": "423",
+        "nonnegative": true,
+        "coefficients": [
+          "423",
+          "377059/20",
+          "1749731/90"
+        ]
+      },
+      {
+        "part": "denominator",
+        "degree": 2,
+        "minimum": "110630",
+        "nonnegative": true,
+        "coefficients": [
+          "110700",
+          "113115",
+          "110630"
+        ]
+      }
+    ]
+  },
+  {
+    "name": "separator above z",
+    "expression": "(16*z**2 - 21*z + 6)/12",
+    "parts": [
+      {
+        "part": "numerator",
+        "degree": 2,
+        "minimum": "887/450",
+        "nonnegative": true,
+        "coefficients": [
+          "6",
+          "71/20",
+          "887/450"
+        ]
+      },
+      {
+        "part": "denominator",
+        "degree": 0,
+        "minimum": "12",
+        "nonnegative": true,
+        "coefficients": [
+          "12"
+        ]
+      }
+    ]
+  }
+]

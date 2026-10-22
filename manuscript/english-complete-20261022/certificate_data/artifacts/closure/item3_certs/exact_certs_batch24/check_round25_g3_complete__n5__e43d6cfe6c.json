@@ -1,0 +1,34 @@
+{
+  "id": "check_round25_g3_complete__n5__e43d6cfe6c",
+  "file": "check_round25_g3_complete",
+  "n": 5,
+  "query": "g25_a > 0 ; 5*g25_a <= 2 ; g25_w > 0 ; g25_w*(1 - 2*g25_a*g25_a) < g25_a*g25_a ; 3*g25_w >= 2*g25_a",
+  "method": "exact-Bernstein-minw",
+  "status": "exact",
+  "certificate": {
+    "type": "bernstein_minw_univariate",
+    "tag": "raw",
+    "a": "g25_a",
+    "w": "g25_w",
+    "alpha": "2/3",
+    "beta": "0",
+    "box_a": [
+      "0",
+      "2/5"
+    ],
+    "f": "1 - 2*g25_a**2",
+    "witness": "-4*g25_a**3/3 - g25_a**2 + 2*g25_a/3",
+    "f_coeffs": [
+      "1",
+      "1",
+      "17/25"
+    ],
+    "witness_coeffs": [
+      "0",
+      "4/45",
+      "28/225",
+      "8/375"
+    ],
+    "claim": "f>0 and witness>=0 on box => min-w already violates strict upper ineq"
+  }
+}

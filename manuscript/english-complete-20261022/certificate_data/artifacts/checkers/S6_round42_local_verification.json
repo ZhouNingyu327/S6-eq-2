@@ -1,0 +1,176 @@
+{
+  "result": "passed",
+  "scope": "universal normalized forced seam; positive-C double direct contact excluded for eta in [1/3,9/25]",
+  "UNSAT": 2,
+  "NRA": 0,
+  "LRA": 2,
+  "queries": [
+    {
+      "name": "normalized seam is on contained horizontal slice",
+      "theory": "QF_LRA",
+      "result": "unsat"
+    },
+    {
+      "name": "same F bottom chord contradiction",
+      "theory": "QF_LRA",
+      "result": "unsat"
+    }
+  ],
+  "algebraic_identities": 14,
+  "identity_names": [
+    "normalized seam positive height difference",
+    "actual lower-corner edge through axis root",
+    "normalized lower-corner edge through axis root",
+    "axis-root translation gap",
+    "normalized seam upper horizontal bound",
+    "normalized height comparison with short leg",
+    "short leg limiting height identity",
+    "contained horizontal slice convex combination",
+    "normalized seam horizontal position gap",
+    "positive C normalized seam projection",
+    "C half-angle intercept ratio",
+    "C complementary half-angle",
+    "concavity parameter identity",
+    "seam comparison is concave in eta"
+  ],
+  "full_polynomial_identities": 18,
+  "nonnegative_rational_coefficients": 56,
+  "polynomial_checks": [
+    {
+      "name": "eta0 concavity",
+      "part": "numerator",
+      "degree": 2,
+      "minimum": "503/180"
+    },
+    {
+      "name": "eta0 concavity",
+      "part": "denominator",
+      "degree": 0,
+      "minimum": "3"
+    },
+    {
+      "name": "eta0 at zero",
+      "part": "numerator",
+      "degree": 2,
+      "minimum": "0"
+    },
+    {
+      "name": "eta0 at zero",
+      "part": "denominator",
+      "degree": 0,
+      "minimum": "3"
+    },
+    {
+      "name": "eta0 at separator",
+      "part": "numerator",
+      "degree": 6,
+      "minimum": "0"
+    },
+    {
+      "name": "eta0 at separator",
+      "part": "denominator",
+      "degree": 0,
+      "minimum": "432"
+    },
+    {
+      "name": "eta1 concavity",
+      "part": "numerator",
+      "degree": 2,
+      "minimum": "161549/900"
+    },
+    {
+      "name": "eta1 concavity",
+      "part": "denominator",
+      "degree": 0,
+      "minimum": "225"
+    },
+    {
+      "name": "eta1 at zero",
+      "part": "numerator",
+      "degree": 2,
+      "minimum": "0"
+    },
+    {
+      "name": "eta1 at zero",
+      "part": "denominator",
+      "degree": 0,
+      "minimum": "225"
+    },
+    {
+      "name": "eta1 at separator",
+      "part": "numerator",
+      "degree": 6,
+      "minimum": "1351274639/7290000"
+    },
+    {
+      "name": "eta1 at separator",
+      "part": "denominator",
+      "degree": 0,
+      "minimum": "32400"
+    },
+    {
+      "name": "objective low branch",
+      "part": "numerator",
+      "degree": 6,
+      "minimum": "15184751623/18225000"
+    },
+    {
+      "name": "objective low branch",
+      "part": "denominator",
+      "degree": 6,
+      "minimum": "159408"
+    },
+    {
+      "name": "objective high branch",
+      "part": "numerator",
+      "degree": 2,
+      "minimum": "423"
+    },
+    {
+      "name": "objective high branch",
+      "part": "denominator",
+      "degree": 2,
+      "minimum": "110630"
+    },
+    {
+      "name": "separator above z",
+      "part": "numerator",
+      "degree": 2,
+      "minimum": "887/450"
+    },
+    {
+      "name": "separator above z",
+      "part": "denominator",
+      "degree": 0,
+      "minimum": "12"
+    }
+  ],
+  "constants": [
+    {
+      "name": "global upper root exceeds actual seam height cap",
+      "exact": "61/948"
+    },
+    {
+      "name": "rational diameter threshold",
+      "exact": "1/144"
+    },
+    {
+      "name": "uniform right cap below one",
+      "exact": "64/225"
+    },
+    {
+      "name": "Phi composite decreasing",
+      "exact": "34075575/60302162"
+    },
+    {
+      "name": "large-z Phi endpoint below 7/12",
+      "exact": "-172591/132756 + 204*sqrt(77)/1369"
+    },
+    {
+      "name": "high branch half angle",
+      "exact": "16/25"
+    }
+  ],
+  "constant_count": 6,
+  "not_proved": "negative C rotation in this new interval, the other contacts, all C angles, entire G2 or S(6)=2"
+}

@@ -1,0 +1,193 @@
+{
+  "status": "all exact checks passed",
+  "queries": [
+    {
+      "name": "T8: any left gap contradicts two nonempty parallel budgets",
+      "theory": "QF_LRA",
+      "result": "unsat",
+      "seconds": 0.0013885750004192232
+    },
+    {
+      "name": "left meeting gives w > 3x/2",
+      "theory": "QF_NRA",
+      "result": "unsat",
+      "seconds": 0.0032094859998323955
+    },
+    {
+      "name": "top angle and cosine excess give y+epsilon <5x/12",
+      "theory": "QF_NRA",
+      "result": "unsat",
+      "seconds": 0.002298833999702765
+    },
+    {
+      "name": "cosine excess epsilon < y",
+      "theory": "QF_NRA",
+      "result": "unsat",
+      "seconds": 0.0013897320004616631
+    },
+    {
+      "name": "C positive orientation cannot reach u>11/15",
+      "theory": "QF_NRA",
+      "result": "unsat",
+      "seconds": 0.00219377000030363
+    },
+    {
+      "name": "C negative orientation half-angle h<x/(2-x)",
+      "theory": "QF_NRA",
+      "result": "unsat",
+      "seconds": 0.0021214879998296965
+    },
+    {
+      "name": "C right ray r < Delta(x)",
+      "theory": "QF_NRA",
+      "result": "unsat",
+      "seconds": 0.0020186990004731342
+    },
+    {
+      "name": "C downward ray d < h",
+      "theory": "QF_NRA",
+      "result": "unsat",
+      "seconds": 0.0016815439994388726
+    },
+    {
+      "name": "bottom-left gap and right gap endpoints cannot both lie in F",
+      "theory": "QF_NRA",
+      "result": "unsat",
+      "seconds": 0.003843062000669306
+    },
+    {
+      "name": "four outer edges cannot all be covered by four corner units",
+      "theory": "QF_LRA",
+      "result": "unsat",
+      "seconds": 0.00039504500000475673
+    },
+    {
+      "name": "T8 right meeting and F positive horizontal contradict bottom/horizontal budget",
+      "theory": "QF_LRA",
+      "result": "unsat",
+      "seconds": 0.0005157169998710742
+    },
+    {
+      "name": "F positive orientation cannot contain bottom midpoint and high right gap",
+      "theory": "QF_NRA",
+      "result": "unsat",
+      "seconds": 0.0025490309999440797
+    },
+    {
+      "name": "F negative orientation cannot contain bottom midpoint and far horizontal point",
+      "theory": "QF_NRA",
+      "result": "unsat",
+      "seconds": 0.0026731110001492198
+    },
+    {
+      "name": "T8 bottom meeting without positive F is impossible",
+      "theory": "QF_LRA",
+      "result": "unsat",
+      "seconds": 0.0005258679993858095
+    },
+    {
+      "name": "q >6x/(2+3x) follows from w>3x/2",
+      "theory": "QF_NRA",
+      "result": "unsat",
+      "seconds": 0.0016671379999024794
+    },
+    {
+      "name": "d+E <6x/5 from the new chord bounds",
+      "theory": "QF_LRA",
+      "result": "unsat",
+      "seconds": 0.0005025000000387081
+    },
+    {
+      "name": "T8 nonpositive horizontal: bottom chord plus vertical ray exceed unit budget",
+      "theory": "QF_NRA",
+      "result": "unsat",
+      "seconds": 0.002339590000701719
+    },
+    {
+      "name": "G3 cyclic all-corner-midpoint case: F vertical empty impossible",
+      "theory": "QF_LRA",
+      "result": "unsat",
+      "seconds": 0.0008263009995062021
+    },
+    {
+      "name": "G3 cyclic F vertical nonempty: right meeting impossible",
+      "theory": "QF_LRA",
+      "result": "unsat",
+      "seconds": 0.0008937239999795565
+    },
+    {
+      "name": "G3 cyclic F right gap plus vertical budgets impossible",
+      "theory": "QF_LRA",
+      "result": "unsat",
+      "seconds": 0.0008686259998285095
+    },
+    {
+      "name": "G2 right gap: y<=1/2 forces upper height >1/2",
+      "theory": "QF_LRA",
+      "result": "unsat",
+      "seconds": 0.0004516790004345239
+    },
+    {
+      "name": "G2 right gap: y>=1/2 forces right height >1/2",
+      "theory": "QF_NRA",
+      "result": "unsat",
+      "seconds": 0.0012692230002357974
+    },
+    {
+      "name": "Delta(m)<m for 0<m<4/15",
+      "theory": "QF_NRA",
+      "result": "unsat",
+      "seconds": 0.001588626999364351
+    },
+    {
+      "name": "G4 diagonal negative, TR top-midpoint duplicate: y controls C contradiction",
+      "theory": "QF_LRA",
+      "result": "unsat",
+      "seconds": 0.0005221929995968821
+    },
+    {
+      "name": "G4 diagonal negative, TR top-midpoint duplicate: x controls bottom contradiction",
+      "theory": "QF_LRA",
+      "result": "unsat",
+      "seconds": 0.0006109260002631345
+    },
+    {
+      "name": "G4 diagonal nonpositive, TR top-midpoint duplicate: long bottom chord and vertical ray",
+      "theory": "QF_NRA",
+      "result": "unsat",
+      "seconds": 0.0016746419996707118
+    }
+  ],
+  "query_count": 26,
+  "NRA_queries": 15,
+  "LRA_queries": 11,
+  "symbolic_checks": 4,
+  "constant_checks": {
+    "9/4 * (4/15) * (23/15) =23/25 <1": true,
+    "1256/3125 <5/12": true,
+    "15/26+79/132 <6/5": true,
+    "6/5 *4/15 =8/25 <1/2": true,
+    "32/375 <1/4": true,
+    "sqrt(2)-1 <11/15": true,
+    "sqrt(2)<3/2": true,
+    "2/11+15/13 <3/2": true
+  },
+  "four_midpoint_corner_matchings": [
+    [
+      1,
+      2,
+      3,
+      4
+    ],
+    [
+      2,
+      3,
+      4,
+      1
+    ]
+  ],
+  "new_scope": "entire G4 T8 excluded; G3/G4 cannot have all four midpoints with corner hosts; free upper corner in each remaining G4 representative has no outer midpoint; near G2 C right gap implies C avoids bottom",
+  "proof_method": "hand long-chord bounds, nonempty parallel traces, endpoint diameter, overlap allocation",
+  "no_search": "no target point enumeration, whole layouts, angle samples or interval partition",
+  "not_proved": "other G4 representatives; remaining G3/G2; S(6)=2"
+}

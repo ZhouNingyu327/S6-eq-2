@@ -1,0 +1,13 @@
+{
+  "id": "check_round34_left_negative__n12__0ad2e8e4bb",
+  "file": "check_round34_left_negative",
+  "n": 12,
+  "query": "u > 0 ; 2*u < 1 ; r > 0 ; r <= u ; w > 0 ; w == v*v ; v > 0 ; phi < 1 - v ; S1 <= phi ; S2 < r/(2 - r) ; S1 + S2 > 1 ; 9*w >= 2*u",
+  "method": "exact-hand-S1S2-phi",
+  "status": "exact",
+  "certificate": {
+    "type": "hand_S1S2_phi",
+    "claim": "S1+S2<1-v+u/(2-u)<=1 on u<1/2 with 9v^2>=2u (Bernstein/AM)"
+  },
+  "batch": "26d"
+}

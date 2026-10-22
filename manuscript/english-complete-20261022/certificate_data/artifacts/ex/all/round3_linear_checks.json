@@ -1,0 +1,21 @@
+[
+  {
+    "result": "unsat",
+    "scope": "opposite two-gap case",
+    "input": "star and coupled section inequalities"
+  },
+  {
+    "result": "unsat",
+    "scope": "right-gap extra cannot cover left critical tip",
+    "diameter_upper": "10/7"
+  },
+  {
+    "result": "unsat",
+    "scope": "bottom-gap extra cannot cover both horizontal critical tips",
+    "diameter_upper": "10/7"
+  },
+  {
+    "result": "unsat",
+    "scope": "adjacent gaps with left tip in C and top tip in F"
+  }
+]

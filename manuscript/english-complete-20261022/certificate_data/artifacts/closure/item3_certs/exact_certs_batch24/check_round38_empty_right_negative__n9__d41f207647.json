@@ -1,0 +1,13 @@
+{
+  "id": "check_round38_empty_right_negative__n9__d41f207647",
+  "file": "check_round38_empty_right_negative",
+  "n": 9,
+  "query": "K > 0 ; K <= 1 ; u > 0 ; d > 0 ; l > 0 ; l <= K*u ; K*l <= d ; u + d < 1 ; 2*l >= 1",
+  "method": "exact-hand-AMGM-ud",
+  "status": "exact",
+  "certificate": {
+    "type": "hand_AMGM_ud",
+    "claim": "u>=l/K, d>=K*l => u+d >= l/K + K*l >= 2l >=1, contradict u+d<1 strict"
+  },
+  "batch": "25c"
+}

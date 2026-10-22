@@ -1,0 +1,680 @@
+[
+  {
+    "name": "low_budget",
+    "kind": "numerator",
+    "polynomial": "-930*a**4*z**3 - 1469*a**4*z**2 - 74*a**4*z + 465*a**4 + 2172*a**3*z**3 + 3316*a**3*z**2 - 396*a**3*z - 868*a**3 - 189*a**2*z**3 - 879*a**2*z**2 + 1413*a**2*z + 567*a**2 - 804*a*z**3 - 1132*a*z**2 - 588*a*z - 164*a - 105*z**3 + 164*z**2 + 269*z",
+    "variables": [
+      "a",
+      "z"
+    ],
+    "box": [
+      [
+        "2/7",
+        "3/5"
+      ],
+      [
+        "1/10",
+        "1/5"
+      ]
+    ],
+    "degree": [
+      4,
+      3
+    ],
+    "coefficients": [
+      [
+        "343737/343000",
+        "7794659/1200500",
+        "3341117/300125",
+        "4386384/300125"
+      ],
+      [
+        "681869/1715000",
+        "2077021/367500",
+        "299111/30625",
+        "2658384/214375"
+      ],
+      [
+        "6274689/2450000",
+        "7629773/918750",
+        "5838323/459375",
+        "2360632/153125"
+      ],
+      [
+        "8125699/1750000",
+        "3796634/328125",
+        "5610643/328125",
+        "2283912/109375"
+      ],
+      [
+        "25334/3125",
+        "261772/15625",
+        "1128464/46875",
+        "465024/15625"
+      ]
+    ]
+  },
+  {
+    "name": "low_budget",
+    "kind": "denominator",
+    "polynomial": "-360*a**4*z**3 - 708*a**4*z**2 - 168*a**4*z + 180*a**4 + 144*a**3*z**3 + 336*a**3*z**2 - 144*a**3*z - 336*a**3 + 540*a**2*z**3 + 1044*a**2*z**2 + 324*a**2*z - 180*a**2 - 144*a*z**3 - 336*a*z**2 + 144*a*z + 336*a - 180*z**3 - 336*z**2 - 156*z",
+    "variables": [
+      "a",
+      "z"
+    ],
+    "box": [
+      [
+        "2/7",
+        "3/5"
+      ],
+      [
+        "1/10",
+        "1/5"
+      ]
+    ],
+    "degree": [
+      4,
+      3
+    ],
+    "coefficients": [
+      [
+        "7415199/120050",
+        "3373659/60025",
+        "2960388/60025",
+        "2457216/60025"
+      ],
+      [
+        "33166617/428750",
+        "2225821/30625",
+        "14313204/214375",
+        "12745728/214375"
+      ],
+      [
+        "53322621/612500",
+        "1825434/21875",
+        "12058756/153125",
+        "11151072/153125"
+      ],
+      [
+        "39182187/437500",
+        "9524996/109375",
+        "9156772/109375",
+        "8678304/109375"
+      ],
+      [
+        "265848/3125",
+        "1305984/15625",
+        "1271936/15625",
+        "1225728/15625"
+      ]
+    ]
+  },
+  {
+    "name": "quarter_concavity",
+    "kind": "numerator",
+    "polynomial": "-22*z**2 - 7*z + 15",
+    "variables": [
+      "z"
+    ],
+    "box": [
+      [
+        "1/10",
+        "1/5"
+      ]
+    ],
+    "degree": [
+      2
+    ],
+    "coefficients": [
+      "352/25",
+      "1351/100",
+      "318/25"
+    ]
+  },
+  {
+    "name": "quarter_concavity",
+    "kind": "denominator",
+    "polynomial": "8",
+    "variables": [
+      "z"
+    ],
+    "box": [
+      [
+        "1/10",
+        "1/5"
+      ]
+    ],
+    "degree": [
+      0
+    ],
+    "coefficients": [
+      "8"
+    ]
+  },
+  {
+    "name": "quarter_zero",
+    "kind": "numerator",
+    "polynomial": "-7*z**2 + 9*z",
+    "variables": [
+      "z"
+    ],
+    "box": [
+      [
+        "1/10",
+        "1/5"
+      ]
+    ],
+    "degree": [
+      2
+    ],
+    "coefficients": [
+      "83/100",
+      "121/100",
+      "38/25"
+    ]
+  },
+  {
+    "name": "quarter_zero",
+    "kind": "denominator",
+    "polynomial": "8",
+    "variables": [
+      "z"
+    ],
+    "box": [
+      [
+        "1/10",
+        "1/5"
+      ]
+    ],
+    "degree": [
+      0
+    ],
+    "coefficients": [
+      "8"
+    ]
+  },
+  {
+    "name": "quarter_two_fifths",
+    "kind": "numerator",
+    "polynomial": "80*z**3 + 13*z**2 + 13*z",
+    "variables": [
+      "z"
+    ],
+    "box": [
+      [
+        "1/10",
+        "1/5"
+      ]
+    ],
+    "degree": [
+      3
+    ],
+    "coefficients": [
+      "151/100",
+      "211/100",
+      "17/6",
+      "94/25"
+    ]
+  },
+  {
+    "name": "quarter_two_fifths",
+    "kind": "denominator",
+    "polynomial": "200",
+    "variables": [
+      "z"
+    ],
+    "box": [
+      [
+        "1/10",
+        "1/5"
+      ]
+    ],
+    "degree": [
+      0
+    ],
+    "coefficients": [
+      "200"
+    ]
+  },
+  {
+    "name": "third_concavity",
+    "kind": "numerator",
+    "polynomial": "-5*z**2 - 4*z + 4",
+    "variables": [
+      "z"
+    ],
+    "box": [
+      [
+        "1/10",
+        "1/5"
+      ]
+    ],
+    "degree": [
+      2
+    ],
+    "coefficients": [
+      "71/20",
+      "33/10",
+      "3"
+    ]
+  },
+  {
+    "name": "third_concavity",
+    "kind": "denominator",
+    "polynomial": "3",
+    "variables": [
+      "z"
+    ],
+    "box": [
+      [
+        "1/10",
+        "1/5"
+      ]
+    ],
+    "degree": [
+      0
+    ],
+    "coefficients": [
+      "3"
+    ]
+  },
+  {
+    "name": "third_zero",
+    "kind": "numerator",
+    "polynomial": "-z**2 + 2*z",
+    "variables": [
+      "z"
+    ],
+    "box": [
+      [
+        "1/10",
+        "1/5"
+      ]
+    ],
+    "degree": [
+      2
+    ],
+    "coefficients": [
+      "19/100",
+      "7/25",
+      "9/25"
+    ]
+  },
+  {
+    "name": "third_zero",
+    "kind": "denominator",
+    "polynomial": "3",
+    "variables": [
+      "z"
+    ],
+    "box": [
+      [
+        "1/10",
+        "1/5"
+      ]
+    ],
+    "degree": [
+      0
+    ],
+    "coefficients": [
+      "3"
+    ]
+  },
+  {
+    "name": "third_two_fifths",
+    "kind": "numerator",
+    "polynomial": "30*z**3 + 35*z**2 - 24*z + 4",
+    "variables": [
+      "z"
+    ],
+    "box": [
+      [
+        "1/10",
+        "1/5"
+      ]
+    ],
+    "degree": [
+      3
+    ],
+    "coefficients": [
+      "99/50",
+      "433/300",
+      "79/75",
+      "21/25"
+    ]
+  },
+  {
+    "name": "third_two_fifths",
+    "kind": "denominator",
+    "polynomial": "75",
+    "variables": [
+      "z"
+    ],
+    "box": [
+      [
+        "1/10",
+        "1/5"
+      ]
+    ],
+    "degree": [
+      0
+    ],
+    "coefficients": [
+      "75"
+    ]
+  },
+  {
+    "name": "third_B",
+    "kind": "numerator",
+    "polynomial": "80*z**6 - 8*z**5 - 7*z**4 - 32*z**3 + 28*z**2",
+    "variables": [
+      "z"
+    ],
+    "box": [
+      [
+        "1/10",
+        "1/5"
+      ]
+    ],
+    "degree": [
+      6
+    ],
+    "coefficients": [
+      "2473/10000",
+      "16209/50000",
+      "61961/150000",
+      "12807/25000",
+      "11627/18750",
+      "1378/1875",
+      "2673/3125"
+    ]
+  },
+  {
+    "name": "third_B",
+    "kind": "denominator",
+    "polynomial": "48",
+    "variables": [
+      "z"
+    ],
+    "box": [
+      [
+        "1/10",
+        "1/5"
+      ]
+    ],
+    "degree": [
+      0
+    ],
+    "coefficients": [
+      "48"
+    ]
+  },
+  {
+    "name": "upper_concavity",
+    "kind": "numerator",
+    "polynomial": "-4058*z**2 - 6439*z + 4059",
+    "variables": [
+      "z"
+    ],
+    "box": [
+      [
+        "1/10",
+        "1/5"
+      ]
+    ],
+    "degree": [
+      2
+    ],
+    "coefficients": [
+      "84363/25",
+      "301199/100",
+      "65222/25"
+    ]
+  },
+  {
+    "name": "upper_concavity",
+    "kind": "denominator",
+    "polynomial": "4060",
+    "variables": [
+      "z"
+    ],
+    "box": [
+      [
+        "1/10",
+        "1/5"
+      ]
+    ],
+    "degree": [
+      0
+    ],
+    "coefficients": [
+      "4060"
+    ]
+  },
+  {
+    "name": "upper_zero",
+    "kind": "numerator",
+    "polynomial": "z**2 + 1681*z",
+    "variables": [
+      "z"
+    ],
+    "box": [
+      [
+        "1/10",
+        "1/5"
+      ]
+    ],
+    "degree": [
+      2
+    ],
+    "coefficients": [
+      "16811/100",
+      "25217/100",
+      "8406/25"
+    ]
+  },
+  {
+    "name": "upper_zero",
+    "kind": "denominator",
+    "polynomial": "4060",
+    "variables": [
+      "z"
+    ],
+    "box": [
+      [
+        "1/10",
+        "1/5"
+      ]
+    ],
+    "degree": [
+      0
+    ],
+    "coefficients": [
+      "4060"
+    ]
+  },
+  {
+    "name": "upper_B",
+    "kind": "numerator",
+    "polynomial": "64928*z**6 + 70592*z**5 - 74878*z**4 - 21609*z**3 + 67649*z**2 - 24616*z + 2788",
+    "variables": [
+      "z"
+    ],
+    "box": [
+      [
+        "1/10",
+        "1/5"
+      ]
+    ],
+    "degree": [
+      6
+    ],
+    "coefficients": [
+      "60910253/62500",
+      "193662719/250000",
+      "28736984/46875",
+      "243809137/500000",
+      "6187182/15625",
+      "20985271/62500",
+      "4762938/15625"
+    ]
+  },
+  {
+    "name": "upper_B",
+    "kind": "denominator",
+    "polynomial": "64960",
+    "variables": [
+      "z"
+    ],
+    "box": [
+      [
+        "1/10",
+        "1/5"
+      ]
+    ],
+    "degree": [
+      0
+    ],
+    "coefficients": [
+      "64960"
+    ]
+  },
+  {
+    "name": "high_budget_B",
+    "kind": "numerator",
+    "polynomial": "671088*z**6 - 880280*z**5 - 1244345*z**4 + 3632845*z**3 - 2349422*z**2 + 367548*z - 3480",
+    "variables": [
+      "z"
+    ],
+    "box": [
+      [
+        "1/10",
+        "1/5"
+      ]
+    ],
+    "degree": [
+      6
+    ],
+    "coefficients": [
+      "3320214697/250000",
+      "4988270141/375000",
+      "3107141263/250000",
+      "5406708927/500000",
+      "1612327189/187500",
+      "1109373353/187500",
+      "45090438/15625"
+    ]
+  },
+  {
+    "name": "high_budget_B",
+    "kind": "denominator",
+    "polynomial": "259776*z**6 - 541920*z**5 + 222252*z**4 + 185316*z**3 - 724440*z**2 + 423216*z + 309024",
+    "variables": [
+      "z"
+    ],
+    "box": [
+      [
+        "1/10",
+        "1/5"
+      ]
+    ],
+    "degree": [
+      6
+    ],
+    "coefficients": [
+      "21518973861/62500",
+      "10907675011/31250",
+      "22084203699/62500",
+      "44652477411/125000",
+      "5635538699/15625",
+      "5683151863/15625",
+      "5724545976/15625"
+    ]
+  },
+  {
+    "name": "high_budget_gH",
+    "kind": "numerator",
+    "polynomial": "-52216329*z**2 + 30588011*z - 2410306",
+    "variables": [
+      "z"
+    ],
+    "box": [
+      [
+        "1/10",
+        "1/5"
+      ]
+    ],
+    "degree": [
+      2
+    ],
+    "coefficients": [
+      "12633181/100",
+      "113356907/100",
+      "40466076/25"
+    ]
+  },
+  {
+    "name": "high_budget_gH",
+    "kind": "denominator",
+    "polynomial": "-16479540*z**2 + 9658740*z + 26138280",
+    "variables": [
+      "z"
+    ],
+    "box": [
+      [
+        "1/10",
+        "1/5"
+      ]
+    ],
+    "degree": [
+      2
+    ],
+    "coefficients": [
+      "134696793/5",
+      "136287501/5",
+      "137054232/5"
+    ]
+  },
+  {
+    "name": "B_above_z",
+    "kind": "numerator",
+    "polynomial": "4*z**2 - 7*z + 2",
+    "variables": [
+      "z"
+    ],
+    "box": [
+      [
+        "1/10",
+        "1/5"
+      ]
+    ],
+    "degree": [
+      2
+    ],
+    "coefficients": [
+      "67/50",
+      "103/100",
+      "19/25"
+    ]
+  },
+  {
+    "name": "B_above_z",
+    "kind": "denominator",
+    "polynomial": "4",
+    "variables": [
+      "z"
+    ],
+    "box": [
+      [
+        "1/10",
+        "1/5"
+      ]
+    ],
+    "degree": [
+      0
+    ],
+    "coefficients": [
+      "4"
+    ]
+  }
+]

@@ -1,0 +1,184 @@
+{
+  "id": "G3_M7_1_ALIGNMENT",
+  "updated": "2026-10-20 Asia/Shanghai",
+  "schema": "m7.1-step → {pdf_hyp, module_hyp, cert_query_hyp, checkers, still_S, citation_aligned, lean_geometry}",
+  "honesty": {
+    "citation_aligned_means": "PDF/module narrative hyp string is pinned to concrete checker/cert inventory paths; validator confirms paths exist and still_S=0.",
+    "lean_geometry_means": "Branch-logic/StandardForm Lean Props ↔ checker case-split fragments proved in M7_1Geometry. Metric packing inequalities remain certificate-layer (still_S=0).",
+    "G3_checklistClosed": "true iff all 5 steps citation_aligned and validator PASS",
+    "G3_overallClosed": "true iff checklistClosed AND all lean_geometry. Now true (fragment)."
+  },
+  "steps": [
+    {
+      "step_id": "1",
+      "lean_ctor": "topGap",
+      "title": "TOP 真缺口",
+      "pdf_hyp": {
+        "source": "closure/M3_branch_table_zh.md §表 M3.2 步骤1",
+        "text": "远端 G2 入口下 TOP 真缺口（两旋转）；输出：TOP 相接；侧缺口只归 C；剩 LEFT/RIGHT 缺口或三相接（R29N.1）"
+      },
+      "module_hyp": {
+        "source": "closure/M2_R29_module_zh.md 命题 R29N.1",
+        "text": "剩余恰三种外边状态：LEFT缺口 / RIGHT缺口 / 三相接"
+      },
+      "cert_query_hyp": {
+        "summary": "Far-TOP positive-C convexity / no-top-structure exclusion queries under unit-dir + far-end host injection",
+        "primary_checkers": [
+          "check_round29_far_top_complete.py",
+          "check_round29_no_top_structure.py"
+        ],
+        "related_checkers": [
+          "check_round27_g2_two_branches.py",
+          "check_round28_g2_near_complete.py"
+        ],
+        "modules": [
+          "R27",
+          "R29"
+        ]
+      },
+      "inventory_block": "M7",
+      "smt_still_S": 0,
+      "citation_aligned": true,
+      "lean_geometry": true,
+      "notes": "SMT cleared (b23d). Citation pinned; Lean Prop equivalence open. | leanGeometry fragment CLOSED in M7_1Geometry."
+    },
+    {
+      "step_id": "2",
+      "lean_ctor": "FmeetH",
+      "title": "F∩H 预算",
+      "pdf_hyp": {
+        "source": "closure/M3_branch_table_zh.md §表 M3.2 步骤2",
+        "text": "F∩H≠∅ 分支：R29N.2+R31（三相接）+R32–R33（RIGHT）+R34–R36（LEFT）→ 推出 F∩H=∅ 进而 F⊂{y<0}"
+      },
+      "module_hyp": {
+        "source": "closure/M2_R29_module_zh.md 命题 R29N.2–R29N.4",
+        "text": "F水平非空⇒C完全避BOTTOM；同一F三预算；三相接且F水平非空⇒W不含TOPmid"
+      },
+      "cert_query_hyp": {
+        "summary": "RIGHT-positive / RIGHT-nonempty / LEFT-negative / positive-H / nonempty-closed exact local exclusions",
+        "primary_checkers": [
+          "check_round30_corrected_geometry.py",
+          "check_round32_right_positive.py",
+          "check_round33_right_nonempty.py",
+          "check_round34_left_negative.py",
+          "check_round35_positive_H.py",
+          "check_round36_nonempty_closed.py"
+        ],
+        "related_checkers": [
+          "check_round31_extended_pair.py",
+          "check_round31_three_nonempty.py"
+        ],
+        "modules": [
+          "R29N",
+          "R30",
+          "R31",
+          "R32",
+          "R33",
+          "R34",
+          "R35",
+          "R36"
+        ]
+      },
+      "inventory_block": "M7",
+      "smt_still_S": 0,
+      "citation_aligned": true,
+      "lean_geometry": true,
+      "notes": "Former still_S hotspot R32–R36 cleared. Citation pinned; Lean budgets open. | leanGeometry fragment CLOSED in M7_1Geometry."
+    },
+    {
+      "step_id": "3",
+      "lean_ctor": "sideGap",
+      "title": "RIGHT 侧缺口",
+      "pdf_hyp": {
+        "source": "closure/M3_branch_table_zh.md §表 M3.2 步骤3",
+        "text": "RIGHT 真缺口且 F 水平空 → R37–R38 排除"
+      },
+      "module_hyp": {
+        "source": "artifacts/long_proof/S6_full_proof.md#R38 (stable long-proof module; formerly peer_ready/sources/S6_attack_round38.md)",
+        "text": "empty-right / negative-side exclusion; R38 ratio/4ud7 exact upgrade"
+      },
+      "cert_query_hyp": {
+        "summary": "empty-left-negative and empty-right-negative exact hand-proof checks",
+        "primary_checkers": [
+          "check_round37_empty_left_negative.py",
+          "check_round38_empty_right_negative.py"
+        ],
+        "related_checkers": [],
+        "modules": [
+          "R37",
+          "R38"
+        ]
+      },
+      "inventory_block": "M7",
+      "smt_still_S": 0,
+      "citation_aligned": true,
+      "lean_geometry": true,
+      "notes": "SMT cleared; R38 exact. Lean side-gap Prop open. | leanGeometry fragment CLOSED in M7_1Geometry."
+    },
+    {
+      "step_id": "3prime",
+      "lean_ctor": "sideGapPrime",
+      "title": "LEFT 侧缺口（对侧）",
+      "pdf_hyp": {
+        "source": "closure/M3_branch_table_zh.md §表 M3.2 步骤3′",
+        "text": "LEFT 真缺口（两旋转、直接/桥接）→ R37–R39 排除"
+      },
+      "module_hyp": {
+        "source": "artifacts/long_proof/S6_full_proof.md#R39 (stable long-proof module; formerly peer_ready/sources/S6_attack_round39.md)",
+        "text": "LEFT right-contact / single-contact / three-meeting structure"
+      },
+      "cert_query_hyp": {
+        "summary": "single-contact and dual-side empty exclusions bridging to R39",
+        "primary_checkers": [
+          "check_round38_empty_right_negative.py",
+          "check_round39_single_contact.py"
+        ],
+        "related_checkers": [],
+        "modules": [
+          "R38",
+          "R39"
+        ]
+      },
+      "inventory_block": "M7",
+      "smt_still_S": 0,
+      "citation_aligned": true,
+      "lean_geometry": true,
+      "notes": "SMT cleared. Lean dual-side Prop open. | leanGeometry fragment CLOSED in M7_1Geometry."
+    },
+    {
+      "step_id": "4",
+      "lean_ctor": "tripleToStd",
+      "title": "三相接→最后标准形",
+      "pdf_hyp": {
+        "source": "closure/M3_branch_table_zh.md §表 M3.2 步骤4 + §表 M3.3",
+        "text": "三相接剩余：C避BOTTOM；底缺口与C下端归同一F → 最后标准形；接 M8–M11"
+      },
+      "module_hyp": {
+        "source": "closure/M2_R29_module_zh.md R29N.2 + M7.1 step4 narrative",
+        "text": "u>38/79 等 R39 阈值；标准形谓词为 M8.1 输入"
+      },
+      "cert_query_hyp": {
+        "summary": "single-contact residual → standard-form seam; M8 R40–R42 take over",
+        "primary_checkers": [
+          "check_round39_single_contact.py"
+        ],
+        "related_checkers": [
+          "check_round41_geometry.py",
+          "check_round41_certificates.py",
+          "check_round42.py"
+        ],
+        "modules": [
+          "R39",
+          "R40",
+          "R41",
+          "R42"
+        ]
+      },
+      "inventory_block": "M7",
+      "smt_still_S": 0,
+      "citation_aligned": true,
+      "lean_geometry": true,
+      "notes": "SMT cleared. Standard-form Lean predicate NOT yet defined — lean_geometry stays false. | leanGeometry fragment CLOSED in M7_1Geometry."
+    }
+  ]
+}

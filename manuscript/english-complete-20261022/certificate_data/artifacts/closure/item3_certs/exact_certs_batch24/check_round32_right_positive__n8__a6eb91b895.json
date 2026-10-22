@@ -1,0 +1,13 @@
+{
+  "id": "check_round32_right_positive__n8__a6eb91b895",
+  "file": "check_round32_right_positive",
+  "n": 8,
+  "query": "v > 0 ; phi < 1 - v ; S1 < l/(2 - l) ; S2 <= phi ; S1 + S2 > 1 ; l > 0 ; 2*l < 1 ; v >= l/(2 - l)",
+  "method": "exact-hand-S1S2-phi",
+  "status": "exact",
+  "certificate": {
+    "type": "hand_S1S2_phi",
+    "claim": "S1+S2 < l/(2-l)+phi <= v + phi < v+(1-v)=1"
+  },
+  "batch": "26"
+}

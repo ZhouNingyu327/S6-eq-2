@@ -1,0 +1,122 @@
+{
+  "p1_count": 10,
+  "p2": [
+    "check_round24_g3_fside__n5__cbecdd171f.json",
+    "check_round24_g3_fside__n7__ce41334842.json",
+    "check_round25_g3_complete__n5__d1f1497dfb.json",
+    "check_round25_g3_complete__n5__e43d6cfe6c.json",
+    "check_round25_g3_complete__n8__12ea6e3a3d.json",
+    "check_round25_g3_complete__n8__aa4c338fcf.json",
+    "check_round26_g2_top__n7__44d9df748d.json",
+    "check_round26_g2_top__n7__69e7323738.json",
+    "check_round26_g2_top__n7__7905cebf07.json",
+    "check_round26_g2_top__n7__9b6f03fd30.json",
+    "check_round27_g2_two_branches__n9__a80fbdcce8.json",
+    "check_round28_g2_near_complete__n5__023bbe2fb6.json",
+    "check_round28_g2_near_complete__n5__81d4ac97a5.json",
+    "check_round28_g2_near_complete__n5__b4013f035d.json",
+    "check_round28_g2_near_complete__n5__e725afebfd.json",
+    "check_round33_right_nonempty__n7__db06194097.json",
+    "check_round34_left_negative__n5__4b2f2e740a.json",
+    "check_round34_left_negative__n5__94dd9628c0.json",
+    "check_round34_left_negative__n7__b3fc127936.json",
+    "check_round34_left_negative__n9__354010980c.json",
+    "check_round35_positive_H__n6__934f6ba957.json",
+    "check_round36_nonempty_closed__n5__1be048b695.json",
+    "check_round36_nonempty_closed__n6__068a36fcc7.json",
+    "check_round38_empty_right_negative__n6__d76911a30a.json",
+    "check_round38_empty_right_negative__n7__4fa680734e.json",
+    "check_round38_empty_right_negative__n9__68193379b7.json",
+    "check_round39_single_contact__n7__60049c9a90.json",
+    "check_round39_single_contact__n9__067364b4bc.json"
+  ],
+  "p2_skipped": [
+    [
+      "check_round35_positive_H__n7__da8400507d.json",
+      "no coeff lists"
+    ],
+    [
+      "check_round38_empty_right_negative__n7__4c3efcd813.json",
+      "no coeff lists"
+    ],
+    [
+      "check_round39_single_contact__n9__ebdef6d8b7.json",
+      "no coeff lists"
+    ]
+  ],
+  "p3": [
+    "check_round28_g2_near_complete__n5__9855fce607.json",
+    "check_round32_right_positive__n8__78a5a46ff1.json",
+    "check_round33_right_nonempty__n12__05c3f3a323.json",
+    "check_round33_right_nonempty__n13__46bade99ee.json",
+    "check_round34_left_negative__n8__5e19d78058.json",
+    "check_round35_positive_H__n12__c23d75b876.json",
+    "check_round38_empty_right_negative__n7__bd26f7b647.json",
+    "check_round38_empty_right_negative__n8__93e5a9a520.json",
+    "check_round39_single_contact__n7__93f5a6f026.json",
+    "check_round39_single_contact__n9__14f5e26215.json"
+  ],
+  "p3_leaf_theorems": 195,
+  "p3_skipped_leaves": 0,
+  "p2_theorem_count": 47,
+  "p1": [
+    "check_round24_g3_fside__n4__a82de007c0.json",
+    "check_round27_g2_two_branches__n4__ba4d19a580.json",
+    "check_round29_no_top_structure__n6__5f3dda6861.json",
+    "check_round29_no_top_structure__n6__866f1cfbe2.json",
+    "check_round30_corrected_geometry__n3__81b6979c71.json",
+    "check_round30_corrected_geometry__n9__c76afaaaf1.json",
+    "check_round33_right_nonempty__n8__9f08d30032.json",
+    "check_round35_positive_H__n4__c5807376e0.json",
+    "check_round35_positive_H__n8__622d8fa357.json",
+    "check_round35_positive_H__n9__e2db3fea8c.json"
+  ],
+  "note": "P1\u2013P5 + Extra payload/algebra lifts. Not PrincipalClaim unconditional.",
+  "p4_catalog": 40,
+  "p4_core": [
+    "tip_eh_identity",
+    "tip_dG_identity",
+    "h_eq_t",
+    "halfangle_diff_numer",
+    "halfangle_diff_neg_of_T_gt"
+  ],
+  "p4_branch_samples": [
+    "tipBranchA/B/C via BernsteinExactExtra native_decide"
+  ],
+  "p5_catalog": 60,
+  "p5_numeric_certs": 4,
+  "extra": true,
+  "near_end": {
+    "round13_pair_module": "S6Core.Round13PairBernstein",
+    "round13_pair_theorems": 48,
+    "r24_28_module": "S6Core.NearEndExactR24_28",
+    "r24_28_lift_count": 20,
+    "r24_28_extra_module": "S6Core.NearEndExactR24_28Extra",
+    "r24_28_extra_lift_count": 35,
+    "living_leaf_strengthen": "S6Core.LivingLeafStrengthen",
+    "note": "native_decide payloads + LivingLeaf inventory strengthenings; \u2260 PrincipalClaim; forbidden files untouched",
+    "living_leaf_strengthen_theorems": "closer multiplicities + livingClosers membership R13/R14/R26",
+    "adjacent_module": "S6Core.NearEndAdjacentExact",
+    "adjacent_lift_count": 48,
+    "closer_bridge": "S6Core.LivingLeafCloserBridge",
+    "rational_checks": "S6Core.NearEndRationalChecks",
+    "open_closer_discharge_count": 8,
+    "named_closers_discharged_proved": false,
+    "cert_discharge": "S6Core.LivingLeafCertDischarge",
+    "inhabited_closer_certs": 8,
+    "named_closer_certs_discharged_proved": true,
+    "closer_discharged_encoding_note": "LivingLeafExcluded:=living\u2192False blocked for livingFlag=true leaves",
+    "se2_realisation": "S6Core.NearEndRealisation",
+    "geom_discharge": "S6Core.LivingLeafGeomDischarge",
+    "closer_geom_pending_count": 8,
+    "closer_geom_pending_proved": true,
+    "closer_full_geom_proved": true,
+    "outer_rt_rays": true,
+    "full_geom_excluded_priority": [
+      "R14",
+      "R17",
+      "R27/R28"
+    ],
+    "manuscript_ray_geometry_complete": false
+  }
+}

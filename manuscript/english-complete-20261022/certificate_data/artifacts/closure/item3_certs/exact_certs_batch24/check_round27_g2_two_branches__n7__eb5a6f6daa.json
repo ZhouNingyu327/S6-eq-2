@@ -1,0 +1,14 @@
+{
+  "id": "check_round27_g2_two_branches__n7__eb5a6f6daa",
+  "file": "check_round27_g2_two_branches",
+  "n": 7,
+  "query": "mu > 1 ; p >= s ; s > 0 ; p*p + s*s == 1 ; h*(1 + p) == s ; s*mu + p*(r - E) <= 1 ; (r - E)*(1 + h) >= 1 - h",
+  "method": "exact-hand-tip-d-G",
+  "status": "exact",
+  "certificate": {
+    "type": "identity_tip_generic",
+    "claim": "r-E>=G",
+    "method_tag": "exact-hand-tip-d-G"
+  },
+  "batch": "26b"
+}

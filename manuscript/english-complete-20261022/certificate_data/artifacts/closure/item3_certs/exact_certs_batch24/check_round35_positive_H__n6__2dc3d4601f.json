@@ -1,0 +1,13 @@
+{
+  "id": "check_round35_positive_H__n6__2dc3d4601f",
+  "file": "check_round35_positive_H",
+  "n": 6,
+  "query": "v > 0 ; 1 - phi > (5*v)/4 ; 1 - phi < r - rho ; r <= K*u ; k < (8*rho)/5 ; 5*k >= 8*K*u - 10*v",
+  "method": "exact-hand-A-k-eta-cascade",
+  "status": "exact",
+  "certificate": {
+    "type": "hand_A_k_eta_cascade",
+    "claim": "symmetric r/k form of v-budget cascade"
+  },
+  "batch": "26d"
+}

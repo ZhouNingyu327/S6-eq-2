@@ -1,0 +1,13 @@
+{
+  "id": "check_round33_right_nonempty__n4__94c07299b4",
+  "file": "check_round33_right_nonempty",
+  "n": 4,
+  "query": "D > 0 ; DD > 0 ; Rpp < 0 ; Rpp - 900/961*(Dp*Dp + D*DD) >= 0",
+  "method": "exact-hand-rpp-disc",
+  "status": "exact",
+  "certificate": {
+    "type": "hand_rpp_pos",
+    "claim": "Rpp >= (900/961)(Dp^2+D*DD)>0 contradicts Rpp<0"
+  },
+  "batch": "25c"
+}

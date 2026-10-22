@@ -1,0 +1,15 @@
+{
+  "status": "all exact checks passed",
+  "new_queries": [
+    {
+      "name": "G3 F right BR duplicate, top TL/bottom BL: empty F vertical impossible",
+      "theory": "QF_LRA",
+      "result": "unsat"
+    }
+  ],
+  "symbolic_identities": 4,
+  "symbolic_circle_condition": "Two trace identities have residual mu*(1-c^2-s^2)/(cs), zero on the unit circle.",
+  "geometric_premises": "See S6_round21_continuation_notes.md; free-corner formulas require the stated canonical form and no midpoint.",
+  "archive_status": "not included in frozen round21 main or addendum packets",
+  "not_proved": "other G3 host patterns; entire remaining G4/G2/G3; S(6)=2"
+}

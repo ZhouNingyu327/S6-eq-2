@@ -1,0 +1,13 @@
+{
+  "id": "check_round30_corrected_geometry__n7__775a41cc07",
+  "file": "check_round30_corrected_geometry",
+  "n": 7,
+  "query": "mu > 1 ; B < 1 ; U1 < a ; L2 + S2 + U2 < 2 ; L4 + S1 + a + 2*z - z*z <= 2 ; hc >= 8*mu - B - 2 - (L2 + S2 + U2) - (L4 + S1 + U1) + J ; hc <= 1 + 2*z - z*z + J",
+  "method": "exact-hand-hc-8mu",
+  "status": "exact",
+  "certificate": {
+    "type": "hand_hc_8mu",
+    "claim": "similar squeeze with L2+S2+U2<2 and L4+S1+a+2z-z^2<=2, U1<a,B<1,mu>1"
+  },
+  "batch": "26"
+}

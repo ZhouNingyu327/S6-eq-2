@@ -1,0 +1,13 @@
+{
+  "id": "check_round34_left_negative__n7__7ef05dcb54",
+  "file": "check_round34_left_negative",
+  "n": 7,
+  "query": "c >= s ; s > 0 ; c*c + s*s == 1 ; alpha == s*u - 1 ; c*r <= alpha + 1 ; K*c == s ; r > K*u",
+  "method": "exact-hand-Kr-vs-Ku",
+  "status": "exact",
+  "certificate": {
+    "type": "hand_Kr_vs_Ku",
+    "claim": "r>Ku=(s/c)u => c*r > s*u = alpha+1 >= c*r contradiction"
+  },
+  "batch": "26b"
+}

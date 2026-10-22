@@ -1,0 +1,13 @@
+{
+  "id": "check_round39_single_contact__n9__356ff62732",
+  "file": "check_round39_single_contact",
+  "n": 9,
+  "query": "K > 0 ; K <= 1 ; u > 0 ; d > 0 ; u + d < 1 ; r > 0 ; r <= K*u ; K*r <= d ; 2*r >= 1",
+  "method": "exact-hand-AMGM-ud",
+  "status": "exact",
+  "certificate": {
+    "type": "hand_AMGM_ud",
+    "claim": "u>=r/K, d>=K*r => u+d >= r/K+K*r >= 2r >=1, contradict u+d<1"
+  },
+  "batch": "26"
+}

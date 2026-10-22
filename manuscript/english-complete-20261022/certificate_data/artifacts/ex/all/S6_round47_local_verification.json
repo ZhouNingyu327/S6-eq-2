@@ -1,0 +1,33 @@
+{
+  "result": "passed",
+  "scope": "If W contains QU, S1+S2<1, same F bottom chord >2*mu-1>mu>1; F cannot be axis aligned",
+  "UNSAT": 0,
+  "algebraic_identities": 6,
+  "identity_names": [
+    "small tau total-short-leg gap",
+    "right cosine cap at tau quarter",
+    "right sine cap at tau quarter",
+    "common C F chord meets vertical axis",
+    "common chord effective depth",
+    "common overlap triangle"
+  ],
+  "full_polynomial_identities": 4,
+  "strictly_positive_rational_coefficients": 76,
+  "whole_analytic_charts": 4,
+  "constant_count": 3,
+  "constants": [
+    {
+      "name": "diameter angular sum threshold",
+      "exact": "1/144"
+    },
+    {
+      "name": "middle x low sum bound domain",
+      "exact": "9/16"
+    },
+    {
+      "name": "large tau lower a bound",
+      "exact": "1/12"
+    }
+  ],
+  "not_proved": "Any remaining whole contact mechanism, entire G2 or S(6)=2"
+}

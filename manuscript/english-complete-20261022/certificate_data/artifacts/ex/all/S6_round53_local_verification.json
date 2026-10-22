@@ -1,0 +1,48 @@
+{
+  "result": "passed",
+  "UNSAT": 0,
+  "algebraic_identities": 8,
+  "identity_names": [
+    "base over z denominator",
+    "derivative at base denominator",
+    "Q slope in actual S4",
+    "small angle Q at g z gap",
+    "large angle quadratic coefficient",
+    "Ys less than a polynomial",
+    "Ys less than a derivative",
+    "q inverse"
+  ],
+  "full_polynomial_reconstructions": 2,
+  "positive_rational_coefficients": 57,
+  "whole_analytic_charts": 2,
+  "constant_count": 6,
+  "constants": [
+    {
+      "name": "large angle chart starts below sqrt2 minus1",
+      "exact": "-7/5 + sqrt(2)"
+    },
+    {
+      "name": "Ys denominator positive at left",
+      "exact": "31/25"
+    },
+    {
+      "name": "a d minus N at left",
+      "exact": "17/125"
+    },
+    {
+      "name": "a d minus N derivative lower",
+      "exact": "2"
+    },
+    {
+      "name": "near diagonal upper root above seam height",
+      "exact": "11/60"
+    },
+    {
+      "name": "B tau below one",
+      "exact": "11/60"
+    }
+  ],
+  "new_lemma": "All current remaining: 0<Q<1 and S1<q(Q), Q=1-X1-e1 from the actual normalized LEFT seam",
+  "near_diagonal_consequence": "If W contains QU and sin(theta_C)>=12/17, then S1<q(5/12+tau); this is not the old +z premise",
+  "not_proved": "Entire new angle band or contact mechanism, G2 or S(6)=2"
+}

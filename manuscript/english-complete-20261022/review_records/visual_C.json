@@ -1,0 +1,46 @@
+{
+  "reviewer": "english_final_mechanisms",
+  "date": "2026-10-22",
+  "review_type": "Bounded read-only visual layout QA",
+  "status": "one_formula_tag_spacing_issue_and_one_minor_wrap",
+  "inputs": {
+    "image_directory": "tmp/pdfs/S6_complete_english",
+    "contact_sheets": ["contact-09.png", "contact-10.png", "contact-11.png", "contact-12.png"],
+    "contact_sheet_combined_page_range": "193-277 inclusive",
+    "full_page_images": ["large-199.png", "large-220.png", "large-245.png", "large-248.png", "large-270.png", "large-277.png"]
+  },
+  "method": "Inspected all specified local PNGs using view_image. Contact sheets were used for page density, margin, heading and broad overflow checks; the six requested full-page images were inspected for readable text, glyphs, formula layout and equation tags. No rebuild, PDF modification, source modification, or mathematical verification was performed.",
+  "findings": [
+    {
+      "combined_pdf_page": 270,
+      "printed_footer": "A-251 / 258",
+      "image": "large-270.png",
+      "location": "R64 Section 1, equation (1), second display row",
+      "severity": "formatting_issue",
+      "description": "The long second row ends with Sigma>7/12 immediately adjacent to the equation tag (1). There is no visible horizontal gutter, so the tag visually reads as attached to the formula. The row remains on the page; this is a formula/tag spacing collision rather than edge clipping.",
+      "suggested_layout_action": "Break the second display row before the final Sigma condition, or otherwise reserve a separate equation-number gutter. This is a layout suggestion only; no edit was made."
+    },
+    {
+      "combined_pdf_page": 220,
+      "printed_footer": "A-201 / 258",
+      "image": "large-220.png",
+      "location": "R48 Section 1, first paragraph, after the inline A_i at the end of the first line",
+      "severity": "minor_typographic_wrap",
+      "description": "The sentence-ending period wraps alone to the beginning of the next line before 'Then'. Text remains legible and nothing is clipped or overlapped.",
+      "suggested_layout_action": "Keep the sentence-ending punctuation with the preceding inline math if adjusting typography. No edit was made."
+    }
+  ],
+  "other_observations": [
+    "No other obvious page-edge clipping, text/formula overlap, missing-glyph boxes, or black replacement glyphs were seen in the assigned images.",
+    "The sampled full-page module titles and section headings have visible following content and consistent hierarchy; no isolated heading without its opening content was seen in those samples.",
+    "The full-page samples on 199, 245 and 248 show readable Greek symbols, subscripts, fractions, inequalities and numbered formulas within the page margins.",
+    "The final evidence-index page 277 has clear headings, bullets and readable endmatter. Long archive names wrap across lines; these do not appear clipped.",
+    "Several contact-sheet pages have substantial white space at module transitions, including page 223. This appears consistent with starting the next technical part on a new page and is not treated as a clipping or overlap defect."
+  ],
+  "limitations": [
+    "The contact sheets reduce page resolution, so absence of an obvious defect there is not a character-level audit of every equation on all 85 pages.",
+    "Only the six specified pages were inspected at full-page image resolution. Other pages were checked through the supplied contact sheets.",
+    "This report concerns rendered appearance only. It does not establish mathematical correctness, source fidelity, global premise transfer, searchable PDF text quality, accessibility or print-production compliance.",
+    "The report records the supplied renders; no post-correction render was generated or reviewed by this agent."
+  ]
+}

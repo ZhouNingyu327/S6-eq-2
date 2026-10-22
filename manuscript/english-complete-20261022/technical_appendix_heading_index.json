@@ -1,0 +1,2747 @@
+[
+  {
+    "id": "heading-1",
+    "level": 1,
+    "text": "English Technical Appendix"
+  },
+  {
+    "id": "heading-2",
+    "level": 1,
+    "text": "Technical Part A. Foundation and the two-centre cases"
+  },
+  {
+    "id": "heading-3",
+    "level": 2,
+    "text": "R2. Fundamental grid and chord budgets"
+  },
+  {
+    "id": "heading-4",
+    "level": 3,
+    "text": "1. Coordinates, roles, and the six-line grid"
+  },
+  {
+    "id": "heading-5",
+    "level": 3,
+    "text": "2. The sharp bound for two nonempty parallel chords"
+  },
+  {
+    "id": "heading-6",
+    "level": 3,
+    "text": "3. Corner normalization and the full grid bound"
+  },
+  {
+    "id": "heading-7",
+    "level": 3,
+    "text": "4. A long chord and three connected sections"
+  },
+  {
+    "id": "heading-8",
+    "level": 3,
+    "text": "5. Exclusion of G5 with two owned midpoints"
+  },
+  {
+    "id": "heading-9",
+    "level": 2,
+    "text": "R3. Cyclic midpoint hosts and the remaining G5 representatives"
+  },
+  {
+    "id": "heading-10",
+    "level": 3,
+    "text": "1. Coordinates and actual ownership"
+  },
+  {
+    "id": "heading-11",
+    "level": 3,
+    "text": "2. Input bounds and anchored corner parameters"
+  },
+  {
+    "id": "heading-12",
+    "level": 3,
+    "text": "3. At most two outer gaps"
+  },
+  {
+    "id": "heading-13",
+    "level": 3,
+    "text": "4. Two opposite gaps"
+  },
+  {
+    "id": "heading-14",
+    "level": 3,
+    "text": "5. One outer point and two central rays"
+  },
+  {
+    "id": "heading-15",
+    "level": 3,
+    "text": "6. Two adjacent gaps"
+  },
+  {
+    "id": "heading-16",
+    "level": 3,
+    "text": "7. A weighted three-ray bound"
+  },
+  {
+    "id": "heading-17",
+    "level": 3,
+    "text": "8. A ratio bound for a corner leg"
+  },
+  {
+    "id": "heading-18",
+    "level": 3,
+    "text": "9. Exactly one gap"
+  },
+  {
+    "id": "heading-19",
+    "level": 3,
+    "text": "11. Stronger exclusion, shared ownership, and the residual case"
+  },
+  {
+    "id": "heading-20",
+    "level": 2,
+    "text": "R4. Central boundary contacts and reductions of the one-midpoint case"
+  },
+  {
+    "id": "heading-21",
+    "level": 3,
+    "text": "1. Setup, previous exclusions, and repeated hosts"
+  },
+  {
+    "id": "heading-22",
+    "level": 3,
+    "text": "2. Boundary restrictions for a central tile"
+  },
+  {
+    "id": "heading-23",
+    "level": 3,
+    "text": "3. The forced-overlap grid lemma"
+  },
+  {
+    "id": "heading-24",
+    "level": 3,
+    "text": "4. The far representative: no bottom contact by F"
+  },
+  {
+    "id": "heading-25",
+    "level": 3,
+    "text": "5. The near representative: no bottom contact by F"
+  },
+  {
+    "id": "heading-26",
+    "level": 3,
+    "text": "6. Further near-case reductions"
+  },
+  {
+    "id": "heading-27",
+    "level": 3,
+    "text": "7. Stronger corner inequalities and exact angle elimination"
+  },
+  {
+    "id": "heading-28",
+    "level": 3,
+    "text": "8. Linear, parabolic, and optimal weighted three-ray bounds"
+  },
+  {
+    "id": "heading-29",
+    "level": 3,
+    "text": "9. Redundancy of C inside the near three-join shape"
+  },
+  {
+    "id": "heading-30",
+    "level": 3,
+    "text": "11. The remaining far-case entrance"
+  },
+  {
+    "id": "heading-31",
+    "level": 2,
+    "text": "R5. Excluding the near representative with three joined outer edges"
+  },
+  {
+    "id": "heading-32",
+    "level": 3,
+    "text": "1. Geometric hypotheses and input lemmas"
+  },
+  {
+    "id": "heading-33",
+    "level": 3,
+    "text": "2. The free corner has bottom leg less than one"
+  },
+  {
+    "id": "heading-34",
+    "level": 3,
+    "text": "3. The central chord of W is shorter than the short bottom leg of V2"
+  },
+  {
+    "id": "heading-35",
+    "level": 3,
+    "text": "4. Two cascades of half-angle bounds"
+  },
+  {
+    "id": "heading-36",
+    "level": 3,
+    "text": "5. Reduction to one inequality on the full physical domain"
+  },
+  {
+    "id": "heading-37",
+    "level": 3,
+    "text": "6. Concavity and exact polynomial positivity"
+  },
+  {
+    "id": "heading-38",
+    "level": 4,
+    "text": "6.1. Small half-angles and the cosine leg bound"
+  },
+  {
+    "id": "heading-39",
+    "level": 4,
+    "text": "6.2. Large half-angles and the sine leg bound"
+  },
+  {
+    "id": "heading-40",
+    "level": 3,
+    "text": "7. Contradiction and surviving shape"
+  },
+  {
+    "id": "heading-41",
+    "level": 2,
+    "text": "R6. Exclusion of every near G5 one-midpoint representative"
+  },
+  {
+    "id": "heading-42",
+    "level": 3,
+    "text": "1. Configuration and inherited inputs"
+  },
+  {
+    "id": "heading-43",
+    "level": 3,
+    "text": "2. A boundary--central chord lemma"
+  },
+  {
+    "id": "heading-44",
+    "level": 4,
+    "text": "2.1. Exact chord formulae, including tangency"
+  },
+  {
+    "id": "heading-45",
+    "level": 4,
+    "text": "2.2. Both direction orders"
+  },
+  {
+    "id": "heading-46",
+    "level": 3,
+    "text": "3. The one-sided long-chord budget of C"
+  },
+  {
+    "id": "heading-47",
+    "level": 3,
+    "text": "4. The right central endpoint belongs to F"
+  },
+  {
+    "id": "heading-48",
+    "level": 3,
+    "text": "5. If the upper endpoint is in F, C cannot dominate on the left"
+  },
+  {
+    "id": "heading-49",
+    "level": 3,
+    "text": "6. If the upper endpoint is in C, the same dominance fails"
+  },
+  {
+    "id": "heading-50",
+    "level": 3,
+    "text": "7. The grid contradiction after removing redundancy"
+  },
+  {
+    "id": "heading-51",
+    "level": 3,
+    "text": "8. Consequences for actual far-case ownership"
+  },
+  {
+    "id": "heading-52",
+    "level": 2,
+    "text": "R7. Boundary exclusion and redundancy in the far G5 representative"
+  },
+  {
+    "id": "heading-53",
+    "level": 3,
+    "text": "1. Far-case notation and the forced left ray"
+  },
+  {
+    "id": "heading-54",
+    "level": 3,
+    "text": "2. Upper boundary chord bounds, with tangency included"
+  },
+  {
+    "id": "heading-55",
+    "level": 4,
+    "text": "2.1. A top boundary chord"
+  },
+  {
+    "id": "heading-56",
+    "level": 4,
+    "text": "2.2. Two adjacent upper boundary chords"
+  },
+  {
+    "id": "heading-57",
+    "level": 3,
+    "text": "3. The far tile F has no outer boundary contact"
+  },
+  {
+    "id": "heading-58",
+    "level": 4,
+    "text": "3.1. Top or upper-side contact"
+  },
+  {
+    "id": "heading-59",
+    "level": 4,
+    "text": "3.2. Lower-side contact"
+  },
+  {
+    "id": "heading-60",
+    "level": 3,
+    "text": "4. Three join chains and the remaining redundancy of C"
+  },
+  {
+    "id": "heading-61",
+    "level": 2,
+    "text": "R8. The final far-case inequality and exclusion of G5"
+  },
+  {
+    "id": "heading-62",
+    "level": 3,
+    "text": "1. Established hypotheses for the last representative"
+  },
+  {
+    "id": "heading-63",
+    "level": 3,
+    "text": "2. Coupling both central chords of W to its outer legs"
+  },
+  {
+    "id": "heading-64",
+    "level": 3,
+    "text": "3. A two-corner inequality"
+  },
+  {
+    "id": "heading-65",
+    "level": 4,
+    "text": "3.1. The full two-dimensional parameter domain"
+  },
+  {
+    "id": "heading-66",
+    "level": 4,
+    "text": "3.2. Exact rational Bernstein certificate"
+  },
+  {
+    "id": "heading-67",
+    "level": 3,
+    "text": "4. Contradiction in both weight orders"
+  },
+  {
+    "id": "heading-68",
+    "level": 1,
+    "text": "Technical Part B. No owned midpoint and centre-owned midpoint cases"
+  },
+  {
+    "id": "heading-69",
+    "level": 2,
+    "text": "R9. Exclusion of the G1 three-join configuration"
+  },
+  {
+    "id": "heading-70",
+    "level": 3,
+    "text": "1. Cyclic corner matching and the three joins"
+  },
+  {
+    "id": "heading-71",
+    "level": 3,
+    "text": "2. Exactly one non-corner tile meets the bottom gap"
+  },
+  {
+    "id": "heading-72",
+    "level": 3,
+    "text": "3. A universal boundary-length bound for a larger square"
+  },
+  {
+    "id": "heading-73",
+    "level": 3,
+    "text": "4. If D=C, convexity excludes F from a quarter-square"
+  },
+  {
+    "id": "heading-74",
+    "level": 3,
+    "text": "5. If D=F, charge the extensions of C to corner slack"
+  },
+  {
+    "id": "heading-75",
+    "level": 3,
+    "text": "6. Exact rational certificates for the extension lemmas"
+  },
+  {
+    "id": "heading-76",
+    "level": 4,
+    "text": "6.1. The small-angle V4 lemma"
+  },
+  {
+    "id": "heading-77",
+    "level": 4,
+    "text": "6.2. The adjacent long-leg V3 lemma"
+  },
+  {
+    "id": "heading-78",
+    "level": 3,
+    "text": "7. A central region with a unique covering tile"
+  },
+  {
+    "id": "heading-79",
+    "level": 3,
+    "text": "8. Exactly two joins remain in G1"
+  },
+  {
+    "id": "heading-80",
+    "level": 2,
+    "text": "R10C. Nonempty-chord correction for opposite G1 gaps"
+  },
+  {
+    "id": "heading-81",
+    "level": 3,
+    "text": "2. Proof that the horizontal chord of F has positive length"
+  },
+  {
+    "id": "heading-82",
+    "level": 3,
+    "text": "3. The restored aggregate contradiction"
+  },
+  {
+    "id": "heading-83",
+    "level": 2,
+    "text": "R10. Completion of the G1 exclusion"
+  },
+  {
+    "id": "heading-84",
+    "level": 3,
+    "text": "1. Notation, normalization, and established inputs"
+  },
+  {
+    "id": "heading-85",
+    "level": 3,
+    "text": "3. Forced endpoint ownership with adjacent joins"
+  },
+  {
+    "id": "heading-86",
+    "level": 3,
+    "text": "4. C owns the bottom gap: a linear contradiction"
+  },
+  {
+    "id": "heading-87",
+    "level": 3,
+    "text": "5. C owns the left gap: coupling its direction to a corner"
+  },
+  {
+    "id": "heading-88",
+    "level": 4,
+    "text": "5.1. Calibration of the central extension"
+  },
+  {
+    "id": "heading-89",
+    "level": 4,
+    "text": "5.2. The lower-right quarter-square boundary"
+  },
+  {
+    "id": "heading-90",
+    "level": 3,
+    "text": "6. Full-domain positivity of Phi"
+  },
+  {
+    "id": "heading-91",
+    "level": 2,
+    "text": "R11. Interior-point obstruction and reduction of a far G2 representative"
+  },
+  {
+    "id": "heading-92",
+    "level": 3,
+    "text": "1. The representative and its complete parameters"
+  },
+  {
+    "id": "heading-93",
+    "level": 3,
+    "text": "2. Axial endpoint propagation"
+  },
+  {
+    "id": "heading-94",
+    "level": 3,
+    "text": "3. F misses the bottom: empty intersections must be separated"
+  },
+  {
+    "id": "heading-95",
+    "level": 4,
+    "text": "3.1. Nonempty horizontal-central intersection"
+  },
+  {
+    "id": "heading-96",
+    "level": 4,
+    "text": "3.2. Empty horizontal intersection and a bottom-right chord"
+  },
+  {
+    "id": "heading-97",
+    "level": 4,
+    "text": "3.3. Empty horizontal intersection and a bottom-left chord"
+  },
+  {
+    "id": "heading-98",
+    "level": 3,
+    "text": "4. The left endpoint belongs to F; right joining and a strict top-leg bound"
+  },
+  {
+    "id": "heading-99",
+    "level": 3,
+    "text": "5. No left join; the top must join"
+  },
+  {
+    "id": "heading-100",
+    "level": 3,
+    "text": "6. F meets the upper vertical axis and avoids the lower-right quarter"
+  },
+  {
+    "id": "heading-101",
+    "level": 3,
+    "text": "7. Two actual endpoints of the right central gap"
+  },
+  {
+    "id": "heading-102",
+    "level": 3,
+    "text": "8. Excluding the middle half-angle band"
+  },
+  {
+    "id": "heading-103",
+    "level": 3,
+    "text": "9. Excluding small half-angles using an interior point"
+  },
+  {
+    "id": "heading-104",
+    "level": 3,
+    "text": "10. The high-half-angle remainder"
+  },
+  {
+    "id": "heading-105",
+    "level": 2,
+    "text": "R12. The noncentral non-corner tile must contain an outer midpoint"
+  },
+  {
+    "id": "heading-106",
+    "level": 3,
+    "text": "1. Conventions, inputs, and the two selective representatives"
+  },
+  {
+    "id": "heading-107",
+    "level": 3,
+    "text": "2. Far-case ownership reductions inherited from R11"
+  },
+  {
+    "id": "heading-108",
+    "level": 3,
+    "text": "3. A new upper-right boundary budget closes the far case"
+  },
+  {
+    "id": "heading-109",
+    "level": 3,
+    "text": "4. Near-case parameters and the first host restriction"
+  },
+  {
+    "id": "heading-110",
+    "level": 3,
+    "text": "5. No left gap in the near representative"
+  },
+  {
+    "id": "heading-111",
+    "level": 4,
+    "text": "5.1. Bottom also has a gap"
+  },
+  {
+    "id": "heading-112",
+    "level": 4,
+    "text": "5.2. Bottom corners join"
+  },
+  {
+    "id": "heading-113",
+    "level": 3,
+    "text": "6. No top gap in the near representative"
+  },
+  {
+    "id": "heading-114",
+    "level": 3,
+    "text": "7. No right gap in the near representative"
+  },
+  {
+    "id": "heading-115",
+    "level": 3,
+    "text": "8. No near representative with all three joins"
+  },
+  {
+    "id": "heading-116",
+    "level": 4,
+    "text": "8.1. F meets bottom"
+  },
+  {
+    "id": "heading-117",
+    "level": 4,
+    "text": "8.2. F misses bottom"
+  },
+  {
+    "id": "heading-118",
+    "level": 3,
+    "text": "9. Exhaustion and the first global consequence"
+  },
+  {
+    "id": "heading-119",
+    "level": 3,
+    "text": "10. Separate exclusion of a shared midpoint"
+  },
+  {
+    "id": "heading-120",
+    "level": 4,
+    "text": "10.1. Far representative, or near representative with a left join"
+  },
+  {
+    "id": "heading-121",
+    "level": 4,
+    "text": "10.2. Near representative with a left gap"
+  },
+  {
+    "id": "heading-122",
+    "level": 1,
+    "text": "Technical Part C. Adjacent owned midpoints"
+  },
+  {
+    "id": "heading-123",
+    "level": 2,
+    "text": "R20. Opposite and adjacent midpoint representatives in G3 and G4"
+  },
+  {
+    "id": "heading-124",
+    "level": 3,
+    "text": "1. Common setup and finite host classification"
+  },
+  {
+    "id": "heading-125",
+    "level": 3,
+    "text": "2. G3: a nonempty vertical chord of F requires an outer gap"
+  },
+  {
+    "id": "heading-126",
+    "level": 3,
+    "text": "4. G4 diagonal hosts (4,2): no positive horizontal chord of F"
+  },
+  {
+    "id": "heading-127",
+    "level": 3,
+    "text": "5. The diagonal-host remainder must join on the left"
+  },
+  {
+    "id": "heading-128",
+    "level": 3,
+    "text": "6. T8 (4,3): no nonempty negative horizontal chord of F"
+  },
+  {
+    "id": "heading-129",
+    "level": 3,
+    "text": "7. Exact applicability of the historical geometric lemmas"
+  },
+  {
+    "id": "heading-130",
+    "level": 2,
+    "text": "R20A. Excluding a duplicated left midpoint in the same-side G4 representative"
+  },
+  {
+    "id": "heading-131",
+    "level": 3,
+    "text": "1. Actual anchors force right and top joins"
+  },
+  {
+    "id": "heading-132",
+    "level": 3,
+    "text": "2. F has a positive horizontal intersection"
+  },
+  {
+    "id": "heading-133",
+    "level": 3,
+    "text": "3. The left midpoint forces a very short right reach of C"
+  },
+  {
+    "id": "heading-134",
+    "level": 3,
+    "text": "4. Left coverage rules out a bottom join"
+  },
+  {
+    "id": "heading-135",
+    "level": 3,
+    "text": "5. The bottom chord and central joining chord of F are too long"
+  },
+  {
+    "id": "heading-136",
+    "level": 2,
+    "text": "R21. Excluding T8 and refining the remaining midpoint representatives"
+  },
+  {
+    "id": "heading-137",
+    "level": 3,
+    "text": "1. T8: actual anchors force left and top joins"
+  },
+  {
+    "id": "heading-138",
+    "level": 3,
+    "text": "2. Angle cascades and joint projections of C"
+  },
+  {
+    "id": "heading-139",
+    "level": 3,
+    "text": "3. T8 with a bottom join"
+  },
+  {
+    "id": "heading-140",
+    "level": 3,
+    "text": "4. T8 with a bottom gap"
+  },
+  {
+    "id": "heading-141",
+    "level": 3,
+    "text": "5. G3: no representative with all four corner-hosted midpoints"
+  },
+  {
+    "id": "heading-142",
+    "level": 3,
+    "text": "6. The free upper corners of both remaining G4 representatives have no midpoint"
+  },
+  {
+    "id": "heading-143",
+    "level": 3,
+    "text": "7. Correction of an overbroad historical right-gap allowance"
+  },
+  {
+    "id": "heading-144",
+    "level": 3,
+    "text": "8. A G2 near right-gap consequence"
+  },
+  {
+    "id": "heading-145",
+    "level": 2,
+    "text": "R21A. A strict lower bound for the floating vertical chord in diagonal G4"
+  },
+  {
+    "id": "heading-146",
+    "level": 3,
+    "text": "1. Actual geometry and two coupled budgets"
+  },
+  {
+    "id": "heading-147",
+    "level": 3,
+    "text": "2. Actual projections of C under the small-J assumption"
+  },
+  {
+    "id": "heading-148",
+    "level": 3,
+    "text": "3. Retain the square term and the floating-chord cancellation"
+  },
+  {
+    "id": "heading-149",
+    "level": 3,
+    "text": "4. Premise audit and extent of the checks"
+  },
+  {
+    "id": "heading-150",
+    "level": 2,
+    "text": "R22. Actual bridge endpoints exclude the diagonal G4 representative"
+  },
+  {
+    "id": "heading-151",
+    "level": 3,
+    "text": "1. Actual three-join framework and established inputs"
+  },
+  {
+    "id": "heading-152",
+    "level": 3,
+    "text": "2. The bridge lemma: C owns at least one positive-axis endpoint"
+  },
+  {
+    "id": "heading-153",
+    "level": 3,
+    "text": "3. C owns the upper endpoint: bottom-chord contradiction"
+  },
+  {
+    "id": "heading-154",
+    "level": 3,
+    "text": "4. C owns the right endpoint: complementary-angle feedback"
+  },
+  {
+    "id": "heading-155",
+    "level": 3,
+    "text": "5. Two conditional G3 directions retained for continuation"
+  },
+  {
+    "id": "heading-156",
+    "level": 2,
+    "text": "R22A. Two genuine gaps are forced in the same-side G4 representative"
+  },
+  {
+    "id": "heading-157",
+    "level": 3,
+    "text": "1. Unified notation and the actual upper-left bridge"
+  },
+  {
+    "id": "heading-158",
+    "level": 3,
+    "text": "2. Nonpositive horizontal F: C owns the right endpoint but not the upper one"
+  },
+  {
+    "id": "heading-159",
+    "level": 3,
+    "text": "3. Nonpositive horizontal F with a left join: feedback and the bottom parabola"
+  },
+  {
+    "id": "heading-160",
+    "level": 3,
+    "text": "4. Positive horizontal F cannot have a left join"
+  },
+  {
+    "id": "heading-161",
+    "level": 3,
+    "text": "5. Positive horizontal F cannot have a bottom join"
+  },
+  {
+    "id": "heading-162",
+    "level": 2,
+    "text": "R23. Completion of the G4 exclusion"
+  },
+  {
+    "id": "heading-163",
+    "level": 3,
+    "text": "1. The three G4 host representatives and the remaining case"
+  },
+  {
+    "id": "heading-164",
+    "level": 3,
+    "text": "2. Actual endpoints and two budgets in the last remainder"
+  },
+  {
+    "id": "heading-165",
+    "level": 3,
+    "text": "3. Exhaust the bottom-midpoint ownership of V1"
+  },
+  {
+    "id": "heading-166",
+    "level": 3,
+    "text": "4. A lower bound for the right-host angle function"
+  },
+  {
+    "id": "heading-167",
+    "level": 3,
+    "text": "5. C owns the upper endpoint: both bottom-host classes fail"
+  },
+  {
+    "id": "heading-168",
+    "level": 3,
+    "text": "6. The original free corner bridges: common strict bounds"
+  },
+  {
+    "id": "heading-169",
+    "level": 3,
+    "text": "7. Both free-corner angle ranges contradict actual projections of C"
+  },
+  {
+    "id": "heading-170",
+    "level": 1,
+    "text": "Technical Part D. Opposite owned midpoints"
+  },
+  {
+    "id": "heading-171",
+    "level": 2,
+    "text": "R24. Exclusion of the G3 representative with both hosts on the F side"
+  },
+  {
+    "id": "heading-172",
+    "level": 3,
+    "text": "1. Actual joins and the right-edge deficit"
+  },
+  {
+    "id": "heading-173",
+    "level": 3,
+    "text": "2. Joint projections of C and scalar budgets"
+  },
+  {
+    "id": "heading-174",
+    "level": 3,
+    "text": "3. A bridge bound for the original corner tile"
+  },
+  {
+    "id": "heading-175",
+    "level": 3,
+    "text": "4. Excluding a left-edge corner gap"
+  },
+  {
+    "id": "heading-176",
+    "level": 3,
+    "text": "5. The unique left midpoint host and angle loss"
+  },
+  {
+    "id": "heading-177",
+    "level": 3,
+    "text": "6. Both rotation signs of C"
+  },
+  {
+    "id": "heading-178",
+    "level": 2,
+    "text": "R24A. Reduction of the G3 representative with both hosts on the C side"
+  },
+  {
+    "id": "heading-179",
+    "level": 3,
+    "text": "1. The true left-edge gap prohibits both direct joins"
+  },
+  {
+    "id": "heading-180",
+    "level": 3,
+    "text": "2. An empty vertical section of F forces horizontal joining"
+  },
+  {
+    "id": "heading-181",
+    "level": 3,
+    "text": "3. Joint outer-leg and bridge budget"
+  },
+  {
+    "id": "heading-182",
+    "level": 3,
+    "text": "4. Closing the empty-section case"
+  },
+  {
+    "id": "heading-183",
+    "level": 3,
+    "text": "5. Actual reduction when F has a nonempty vertical section"
+  },
+  {
+    "id": "heading-184",
+    "level": 3,
+    "text": "6. The right edge must be joined"
+  },
+  {
+    "id": "heading-185",
+    "level": 3,
+    "text": "7. A conditional continuous upper bound"
+  },
+  {
+    "id": "heading-186",
+    "level": 2,
+    "text": "R25. Excluding all three G3 host representatives"
+  },
+  {
+    "id": "heading-187",
+    "level": 3,
+    "text": "1. Representatives and common inequalities"
+  },
+  {
+    "id": "heading-188",
+    "level": 3,
+    "text": "2. A local exit lemma closes the C-side residual case"
+  },
+  {
+    "id": "heading-189",
+    "level": 3,
+    "text": "3. A new angle budget and a two-step chain"
+  },
+  {
+    "id": "heading-190",
+    "level": 3,
+    "text": "4. The diagonal representative has a lower join but no direct upper join"
+  },
+  {
+    "id": "heading-191",
+    "level": 3,
+    "text": "5. A complete original upper bridge is impossible"
+  },
+  {
+    "id": "heading-192",
+    "level": 3,
+    "text": "6. The empty F-section diagonal branch"
+  },
+  {
+    "id": "heading-193",
+    "level": 3,
+    "text": "7. Shared bridging also gives a contradiction"
+  },
+  {
+    "id": "heading-194",
+    "level": 1,
+    "text": "Technical Part E. Near-end residual configurations"
+  },
+  {
+    "id": "heading-195",
+    "level": 2,
+    "text": "R13. Adjacent-corner budgets and necessary restrictions in G2"
+  },
+  {
+    "id": "heading-196",
+    "level": 3,
+    "text": "1. Geometric and analytic inputs"
+  },
+  {
+    "id": "heading-197",
+    "level": 3,
+    "text": "2. The adjacent-corner inequality"
+  },
+  {
+    "id": "heading-198",
+    "level": 3,
+    "text": "3. Near representative: three nonbottom joins force an empty F horizontal section"
+  },
+  {
+    "id": "heading-199",
+    "level": 3,
+    "text": "4. Near right/top joins with empty F section force a bottom gap longer than one"
+  },
+  {
+    "id": "heading-200",
+    "level": 3,
+    "text": "5. Far representative: three joins and nonempty F section force J positive"
+  },
+  {
+    "id": "heading-201",
+    "level": 3,
+    "text": "6. Far top gap with nonempty F section is excluded"
+  },
+  {
+    "id": "heading-202",
+    "level": 2,
+    "text": "R14. Forced seams, disappearance of a vertical section, and the near left gap"
+  },
+  {
+    "id": "heading-203",
+    "level": 3,
+    "text": "1. Normalized inputs and actual sections"
+  },
+  {
+    "id": "heading-204",
+    "level": 3,
+    "text": "2. The stronger margin Phi"
+  },
+  {
+    "id": "heading-205",
+    "level": 3,
+    "text": "3. A left-edge residual gap is impossible"
+  },
+  {
+    "id": "heading-206",
+    "level": 3,
+    "text": "4. A forced seam with the original left-host endpoint"
+  },
+  {
+    "id": "heading-207",
+    "level": 3,
+    "text": "5. The negative vertical section of W has zero length"
+  },
+  {
+    "id": "heading-208",
+    "level": 3,
+    "text": "6. A forced interior intersection in C"
+  },
+  {
+    "id": "heading-209",
+    "level": 2,
+    "text": "R15. Continuous angle restrictions and a long-leg-free intersection in the near residual case"
+  },
+  {
+    "id": "heading-210",
+    "level": 3,
+    "text": "1. Actual geometry and input bounds"
+  },
+  {
+    "id": "heading-211",
+    "level": 3,
+    "text": "2. Joint lower bounds for the rotations"
+  },
+  {
+    "id": "heading-212",
+    "level": 3,
+    "text": "3. The small-x exclusion"
+  },
+  {
+    "id": "heading-213",
+    "level": 3,
+    "text": "4. The large-x exclusion"
+  },
+  {
+    "id": "heading-214",
+    "level": 3,
+    "text": "5. A uniform central rotation bound"
+  },
+  {
+    "id": "heading-215",
+    "level": 3,
+    "text": "6. The small-y exclusion"
+  },
+  {
+    "id": "heading-216",
+    "level": 3,
+    "text": "7. Eliminating the long-leg parameter from the forced point"
+  },
+  {
+    "id": "heading-217",
+    "level": 2,
+    "text": "R15S. Angle separation and interior displacement of the near intersection"
+  },
+  {
+    "id": "heading-218",
+    "level": 3,
+    "text": "1. Separation of the two angles"
+  },
+  {
+    "id": "heading-219",
+    "level": 3,
+    "text": "2. Strict interior displacement"
+  },
+  {
+    "id": "heading-220",
+    "level": 2,
+    "text": "R16P. Projection premises for the near intersection"
+  },
+  {
+    "id": "heading-221",
+    "level": 3,
+    "text": "1. The auxiliary upper-point comparison"
+  },
+  {
+    "id": "heading-222",
+    "level": 3,
+    "text": "2. The remaining projection and elimination premises"
+  },
+  {
+    "id": "heading-223",
+    "level": 2,
+    "text": "R16. Exclusion of the near G2 three-join branch"
+  },
+  {
+    "id": "heading-224",
+    "level": 3,
+    "text": "1. Forced points and the actual bottom gap"
+  },
+  {
+    "id": "heading-225",
+    "level": 3,
+    "text": "2. Eliminating long legs and the bottom leg of W"
+  },
+  {
+    "id": "heading-226",
+    "level": 3,
+    "text": "3. Separate projection eliminations for both signs"
+  },
+  {
+    "id": "heading-227",
+    "level": 3,
+    "text": "4. A three-parameter diameter or area contradiction"
+  },
+  {
+    "id": "heading-228",
+    "level": 3,
+    "text": "5. Exact interval certificate on the full continuous region"
+  },
+  {
+    "id": "heading-229",
+    "level": 2,
+    "text": "R16A. Gap ownership and intersections with a nonempty near horizontal section"
+  },
+  {
+    "id": "heading-230",
+    "level": 3,
+    "text": "1. Two residual types and their limits"
+  },
+  {
+    "id": "heading-231",
+    "level": 3,
+    "text": "2. Horizontal position determines forbidden contacts"
+  },
+  {
+    "id": "heading-232",
+    "level": 3,
+    "text": "3. Complete ownership of the left gap"
+  },
+  {
+    "id": "heading-233",
+    "level": 3,
+    "text": "4. Extending the forced intersection in the negative type"
+  },
+  {
+    "id": "heading-234",
+    "level": 2,
+    "text": "R17. Excluding the negative horizontal branch by overlap and projections"
+  },
+  {
+    "id": "heading-235",
+    "level": 3,
+    "text": "1. Actual sections and corner inputs"
+  },
+  {
+    "id": "heading-236",
+    "level": 3,
+    "text": "2. Two hand-checkable lemmas"
+  },
+  {
+    "id": "heading-237",
+    "level": 3,
+    "text": "3. Ownership of the left gap and absence of C from bottom"
+  },
+  {
+    "id": "heading-238",
+    "level": 3,
+    "text": "4. Two gap endpoints force a bottom join"
+  },
+  {
+    "id": "heading-239",
+    "level": 3,
+    "text": "5. Dominating parameters without changing the recorded left gap"
+  },
+  {
+    "id": "heading-240",
+    "level": 3,
+    "text": "6. Actual overlap at the same bottom midpoint"
+  },
+  {
+    "id": "heading-241",
+    "level": 3,
+    "text": "7. Projection contradiction for both central rotation signs"
+  },
+  {
+    "id": "heading-242",
+    "level": 2,
+    "text": "R18. Excluding the positive horizontal type and classifying the remaining near gaps"
+  },
+  {
+    "id": "heading-243",
+    "level": 3,
+    "text": "1. Corner inputs and the residual left gap"
+  },
+  {
+    "id": "heading-244",
+    "level": 3,
+    "text": "2. Forced left and upper points of C"
+  },
+  {
+    "id": "heading-245",
+    "level": 3,
+    "text": "3. The actual right reach of C is smaller than y squared"
+  },
+  {
+    "id": "heading-246",
+    "level": 3,
+    "text": "4. Bottom joining is impossible"
+  },
+  {
+    "id": "heading-247",
+    "level": 3,
+    "text": "5. Two actual nonempty sections of F exceed their parallel budget"
+  },
+  {
+    "id": "heading-248",
+    "level": 3,
+    "text": "6. Combined conclusion and certificate limits"
+  },
+  {
+    "id": "heading-249",
+    "level": 3,
+    "text": "7. Direct classification of the remaining near configurations"
+  },
+  {
+    "id": "heading-250",
+    "level": 2,
+    "text": "R19. Top-gap endpoints replace the old angle cascade"
+  },
+  {
+    "id": "heading-251",
+    "level": 3,
+    "text": "1. Actual top endpoint and left-gap ownership"
+  },
+  {
+    "id": "heading-252",
+    "level": 3,
+    "text": "2. New angle restrictions from the top endpoint"
+  },
+  {
+    "id": "heading-253",
+    "level": 3,
+    "text": "3. Two outer-gap endpoints force bottom joining"
+  },
+  {
+    "id": "heading-254",
+    "level": 3,
+    "text": "4. Joint small quantities after the bottom join"
+  },
+  {
+    "id": "heading-255",
+    "level": 3,
+    "text": "5. The common bottom origin requires a maximum"
+  },
+  {
+    "id": "heading-256",
+    "level": 3,
+    "text": "6. Both central rotation signs contradict projections"
+  },
+  {
+    "id": "heading-257",
+    "level": 3,
+    "text": "7. Left joining forces an empty F horizontal section"
+  },
+  {
+    "id": "heading-258",
+    "level": 3,
+    "text": "8. Necessary conditions for the remaining family"
+  },
+  {
+    "id": "heading-259",
+    "level": 2,
+    "text": "R26. Closing the entire near G2 top-gap representative"
+  },
+  {
+    "id": "heading-260",
+    "level": 3,
+    "text": "1. Actual points and common parameters"
+  },
+  {
+    "id": "heading-261",
+    "level": 3,
+    "text": "2. The original W must bridge the left axial gap"
+  },
+  {
+    "id": "heading-262",
+    "level": 3,
+    "text": "3. Both central rotation signs"
+  },
+  {
+    "id": "heading-263",
+    "level": 3,
+    "text": "4. When the lower endpoint must belong to F"
+  },
+  {
+    "id": "heading-264",
+    "level": 3,
+    "text": "5. A scalar comparison independent of the former G3 placement"
+  },
+  {
+    "id": "heading-265",
+    "level": 3,
+    "text": "6. Excluding positive rotation"
+  },
+  {
+    "id": "heading-266",
+    "level": 3,
+    "text": "7. Compensation for negative rotation"
+  },
+  {
+    "id": "heading-267",
+    "level": 3,
+    "text": "8. Negative rotation below one quarter, with x at most one half"
+  },
+  {
+    "id": "heading-268",
+    "level": 3,
+    "text": "9. Negative rotation with x above one half and eta at most (1-x)/2"
+  },
+  {
+    "id": "heading-269",
+    "level": 3,
+    "text": "10. The final negative-rotation interval"
+  },
+  {
+    "id": "heading-270",
+    "level": 2,
+    "text": "R27. One rotation branch each for near right gaps and far top gaps"
+  },
+  {
+    "id": "heading-271",
+    "level": 3,
+    "text": "1. Common inputs"
+  },
+  {
+    "id": "heading-272",
+    "level": 3,
+    "text": "2. Near right gap with positive central rotation"
+  },
+  {
+    "id": "heading-273",
+    "level": 3,
+    "text": "3. Near positive rotation when F avoids the negative horizontal half-axis"
+  },
+  {
+    "id": "heading-274",
+    "level": 3,
+    "text": "4. Near positive rotation with a negative F horizontal section"
+  },
+  {
+    "id": "heading-275",
+    "level": 3,
+    "text": "5. Far top gap with negative central rotation"
+  },
+  {
+    "id": "heading-276",
+    "level": 3,
+    "text": "6. The true small excess of the top long leg"
+  },
+  {
+    "id": "heading-277",
+    "level": 3,
+    "text": "7. Exhausting direct right joining and an original W bridge"
+  },
+  {
+    "id": "heading-278",
+    "level": 3,
+    "text": "8. Scalar contradictions throughout the negative rotation range"
+  },
+  {
+    "id": "heading-279",
+    "level": 3,
+    "text": "9. Exact endpoint identities for the two remaining rotations"
+  },
+  {
+    "id": "heading-280",
+    "level": 2,
+    "text": "R28. Excluding the entire near G2 representative"
+  },
+  {
+    "id": "heading-281",
+    "level": 3,
+    "text": "1. A new actual long-leg lower bound"
+  },
+  {
+    "id": "heading-282",
+    "level": 3,
+    "text": "2. Angle balance inside the same C"
+  },
+  {
+    "id": "heading-283",
+    "level": 3,
+    "text": "3. A short-leg bound depending only on the long-leg excess"
+  },
+  {
+    "id": "heading-284",
+    "level": 3,
+    "text": "4. F avoids the negative horizontal half-axis"
+  },
+  {
+    "id": "heading-285",
+    "level": 3,
+    "text": "5. In the negative horizontal type, W still cannot reach the lower endpoint"
+  },
+  {
+    "id": "heading-286",
+    "level": 3,
+    "text": "6. Final joint left/bottom/horizontal budget"
+  },
+  {
+    "id": "heading-287",
+    "level": 3,
+    "text": "7. A host restriction for every remaining far family"
+  },
+  {
+    "id": "heading-288",
+    "level": 3,
+    "text": "8. Exact scalar square-difference proofs"
+  },
+  {
+    "id": "heading-289",
+    "level": 1,
+    "text": "Technical Part F. Far-end gaps and horizontal sections"
+  },
+  {
+    "id": "heading-290",
+    "level": 2,
+    "text": "R29. Excluding every standardized far top-gap representative"
+  },
+  {
+    "id": "heading-291",
+    "level": 3,
+    "text": "1. Actual endpoints and feedback from left joining"
+  },
+  {
+    "id": "heading-292",
+    "level": 3,
+    "text": "2. The actual long bottom chord of F"
+  },
+  {
+    "id": "heading-293",
+    "level": 3,
+    "text": "3. Direct right joining or a complete original W bridge"
+  },
+  {
+    "id": "heading-294",
+    "level": 3,
+    "text": "4. Small central angles: separate concavity and exact vertex deficits"
+  },
+  {
+    "id": "heading-295",
+    "level": 3,
+    "text": "5. Large central angles contradict diameter"
+  },
+  {
+    "id": "heading-296",
+    "level": 2,
+    "text": "R29N. Three far edge states and the corrected parallel directions"
+  },
+  {
+    "id": "heading-297",
+    "level": 3,
+    "text": "1. Exactly three remaining outer-edge states"
+  },
+  {
+    "id": "heading-298",
+    "level": 3,
+    "text": "2. A nonempty F horizontal section excludes every bottom contact of C"
+  },
+  {
+    "id": "heading-299",
+    "level": 3,
+    "text": "3. Three budgets for the same F"
+  },
+  {
+    "id": "heading-300",
+    "level": 3,
+    "text": "4. Under three joins and nonempty F section, W cannot duplicate the top midpoint"
+  },
+  {
+    "id": "heading-301",
+    "level": 3,
+    "text": "5. Correct caps for the last floating sections"
+  },
+  {
+    "id": "heading-302",
+    "level": 2,
+    "text": "R30. Correcting parallel directions and strengthening actual far axial constraints"
+  },
+  {
+    "id": "heading-303",
+    "level": 3,
+    "text": "1. Explicit withdrawal of the wrong parallel caps"
+  },
+  {
+    "id": "heading-304",
+    "level": 3,
+    "text": "2. Valid common constraints"
+  },
+  {
+    "id": "heading-305",
+    "level": 3,
+    "text": "3. A valid subtraction of C/F overlap on the negative vertical axis"
+  },
+  {
+    "id": "heading-306",
+    "level": 3,
+    "text": "4. An asymmetric axial-chord lemma"
+  },
+  {
+    "id": "heading-307",
+    "level": 3,
+    "text": "5. Under three joins, retain the floating length J"
+  },
+  {
+    "id": "heading-308",
+    "level": 3,
+    "text": "6. Excluding the continuous large-z subclass"
+  },
+  {
+    "id": "heading-309",
+    "level": 3,
+    "text": "7. Small z requires a square-root-sized floating section"
+  },
+  {
+    "id": "heading-310",
+    "level": 3,
+    "text": "8. Further position conditions for side-gap states"
+  },
+  {
+    "id": "heading-311",
+    "level": 2,
+    "text": "R31. Excluding far three joins with a nonempty F horizontal section"
+  },
+  {
+    "id": "heading-312",
+    "level": 3,
+    "text": "1. Valid three-join inputs"
+  },
+  {
+    "id": "heading-313",
+    "level": 3,
+    "text": "2. The original W must take both upper axial bridge endpoints"
+  },
+  {
+    "id": "heading-314",
+    "level": 3,
+    "text": "3. A dominating form for W and its actual position"
+  },
+  {
+    "id": "heading-315",
+    "level": 3,
+    "text": "4. The upper endpoint and right join force c greater than s"
+  },
+  {
+    "id": "heading-316",
+    "level": 3,
+    "text": "5. The horizontal central section of W is completely empty"
+  },
+  {
+    "id": "heading-317",
+    "level": 3,
+    "text": "6. An extended adjacent-corner lemma"
+  },
+  {
+    "id": "heading-318",
+    "level": 3,
+    "text": "7. Two adjacent budgets and an envelope of actual endpoints"
+  },
+  {
+    "id": "heading-319",
+    "level": 2,
+    "text": "R32. Excluding a right gap with a positive F horizontal section"
+  },
+  {
+    "id": "heading-320",
+    "level": 3,
+    "text": "1. Valid geometric inputs"
+  },
+  {
+    "id": "heading-321",
+    "level": 3,
+    "text": "2. Positive central rotation is impossible"
+  },
+  {
+    "id": "heading-322",
+    "level": 3,
+    "text": "3. Actual supports for negative central rotation"
+  },
+  {
+    "id": "heading-323",
+    "level": 3,
+    "text": "4. Positive F section forces a direct left join"
+  },
+  {
+    "id": "heading-324",
+    "level": 3,
+    "text": "5. The same bottom long leg controls the central height"
+  },
+  {
+    "id": "heading-325",
+    "level": 3,
+    "text": "6. The original W bridge forces the reverse inequality"
+  },
+  {
+    "id": "heading-326",
+    "level": 3,
+    "text": "7. A conditional duplicate-midpoint exclusion on the left"
+  },
+  {
+    "id": "heading-327",
+    "level": 2,
+    "text": "R33. Excluding every right gap with a nonempty F horizontal section"
+  },
+  {
+    "id": "heading-328",
+    "level": 3,
+    "text": "1. Actual endpoints and a necessary bridge inequality"
+  },
+  {
+    "id": "heading-329",
+    "level": 3,
+    "text": "2. The same F bridges the left axis and bottom"
+  },
+  {
+    "id": "heading-330",
+    "level": 3,
+    "text": "3. Two explicit continuous bounds"
+  },
+  {
+    "id": "heading-331",
+    "level": 3,
+    "text": "4. A scalar lemma on the complete continuous domain"
+  },
+  {
+    "id": "heading-332",
+    "level": 3,
+    "text": "5. Closing the right nonempty-horizontal family"
+  },
+  {
+    "id": "heading-333",
+    "level": 2,
+    "text": "R34. Excluding a left gap with a negative F horizontal section"
+  },
+  {
+    "id": "heading-334",
+    "level": 3,
+    "text": "1. Actual supports in the left-gap family"
+  },
+  {
+    "id": "heading-335",
+    "level": 3,
+    "text": "2. An original corner tile cannot contain both short positive endpoints"
+  },
+  {
+    "id": "heading-336",
+    "level": 3,
+    "text": "3. C cannot directly reach the right inner endpoint"
+  },
+  {
+    "id": "heading-337",
+    "level": 3,
+    "text": "4. Negative F section forces an impossible double bridge"
+  },
+  {
+    "id": "heading-338",
+    "level": 2,
+    "text": "R35. The last nonempty-horizontal family requires a two-tile relay"
+  },
+  {
+    "id": "heading-339",
+    "level": 3,
+    "text": "1. The same original F cannot contain both right axial gap endpoints"
+  },
+  {
+    "id": "heading-340",
+    "level": 3,
+    "text": "2. A full-domain scalar proof of the opposite inequality"
+  },
+  {
+    "id": "heading-341",
+    "level": 3,
+    "text": "3. Consequences and the exhaustive relay classification"
+  },
+  {
+    "id": "heading-342",
+    "level": 2,
+    "text": "R36. Excluding all nonempty F horizontal mechanisms"
+  },
+  {
+    "id": "heading-343",
+    "level": 3,
+    "text": "1. Actual relay endpoints and a joint F budget"
+  },
+  {
+    "id": "heading-344",
+    "level": 3,
+    "text": "2. Both relay orders fail when C reaches the top-host endpoint"
+  },
+  {
+    "id": "heading-345",
+    "level": 3,
+    "text": "3. The original W vertical bridge forces a stronger actual relay budget"
+  },
+  {
+    "id": "heading-346",
+    "level": 3,
+    "text": "4. A joint two-variable loss inequality on a full rectangle"
+  },
+  {
+    "id": "heading-347",
+    "level": 3,
+    "text": "5. Completed nonempty-horizontal exclusion and exact residual scope"
+  },
+  {
+    "id": "heading-348",
+    "level": 3,
+    "text": "6. A new bottom-contact lemma for empty-horizontal side gaps"
+  },
+  {
+    "id": "heading-349",
+    "level": 2,
+    "text": "R37. A global axial-root cap and two empty-horizontal side-gap rotation exclusions"
+  },
+  {
+    "id": "heading-350",
+    "level": 3,
+    "text": "1. Every actual central axial root lies between mu minus one and two minus mu"
+  },
+  {
+    "id": "heading-351",
+    "level": 3,
+    "text": "2. Actual supports for an empty-horizontal left gap with negative C"
+  },
+  {
+    "id": "heading-352",
+    "level": 3,
+    "text": "3. The same F bottom chord forces u plus q(eta-d) below one"
+  },
+  {
+    "id": "heading-353",
+    "level": 3,
+    "text": "4. Original W's vertical bridge forces a direct right join of C"
+  },
+  {
+    "id": "heading-354",
+    "level": 3,
+    "text": "5. Two scalar comparisons give the opposite bound"
+  },
+  {
+    "id": "heading-355",
+    "level": 3,
+    "text": "6. Empty-horizontal right gaps with positive rotation"
+  },
+  {
+    "id": "heading-356",
+    "level": 3,
+    "text": "7. Actual supports and unresolved double bridging in the left positive rotation"
+  },
+  {
+    "id": "heading-357",
+    "level": 2,
+    "text": "R38. Closing all right gaps and the left double-bridge subclass"
+  },
+  {
+    "id": "heading-358",
+    "level": 3,
+    "text": "1. Actual supports in the negative-rotation right-gap family"
+  },
+  {
+    "id": "heading-359",
+    "level": 3,
+    "text": "2. Original W must bridge the upper axis"
+  },
+  {
+    "id": "heading-360",
+    "level": 3,
+    "text": "3. The same F bottom-chord diameter forces w below two sevenths"
+  },
+  {
+    "id": "heading-361",
+    "level": 3,
+    "text": "4. The original W bridge contradicts the same F square budget"
+  },
+  {
+    "id": "heading-362",
+    "level": 3,
+    "text": "5. Original W cannot bridge both positive axes in the left positive rotation"
+  },
+  {
+    "id": "heading-363",
+    "level": 3,
+    "text": "6. C cannot contain both positive inner endpoints either"
+  },
+  {
+    "id": "heading-364",
+    "level": 3,
+    "text": "7. Excluding the top midpoint from the original left-gap W and recording the residual set"
+  },
+  {
+    "id": "heading-365",
+    "level": 2,
+    "text": "R39. Closing the LEFT true gap and excluding BOTTOM contact in the three-contact form"
+  },
+  {
+    "id": "heading-366",
+    "level": 3,
+    "text": "1. Common premises for the two remaining LEFT representatives"
+  },
+  {
+    "id": "heading-367",
+    "level": 3,
+    "text": "2. Direct contact only at QR​: rationalizing the original vertical bridge"
+  },
+  {
+    "id": "heading-368",
+    "level": 3,
+    "text": "3. Direct contact only at QU​: a short-reach lemma for the same C"
+  },
+  {
+    "id": "heading-369",
+    "level": 3,
+    "text": "4. Shrinking the domain using the actual horizontal bridge and bottom diameter"
+  },
+  {
+    "id": "heading-370",
+    "level": 3,
+    "text": "5. Strengthening the bridge by exact TOP contact"
+  },
+  {
+    "id": "heading-371",
+    "level": 3,
+    "text": "6. The three-contact form: a uniform upper reach and no BOTTOM contact"
+  },
+  {
+    "id": "heading-372",
+    "level": 3,
+    "text": "7. Three bottom budgets from the same original F"
+  },
+  {
+    "id": "heading-373",
+    "level": 1,
+    "text": "Technical Part G. Actual seams, contacts and lower exits"
+  },
+  {
+    "id": "heading-374",
+    "level": 2,
+    "text": "R40. A forced interior seam point in the three-contact form"
+  },
+  {
+    "id": "heading-375",
+    "level": 3,
+    "text": "1. Exact corner supports"
+  },
+  {
+    "id": "heading-376",
+    "level": 3,
+    "text": "2. LEFT contact forces z&lt;a and a+2z&lt;1"
+  },
+  {
+    "id": "heading-377",
+    "level": 3,
+    "text": "3. The actual seam point"
+  },
+  {
+    "id": "heading-378",
+    "level": 3,
+    "text": "4. Full coverage forces P∗​∈C"
+  },
+  {
+    "id": "heading-379",
+    "level": 3,
+    "text": "5. Joint budgets for this same C"
+  },
+  {
+    "id": "heading-380",
+    "level": 2,
+    "text": "R41. Near-diagonal double-direct contact and auxiliary seam comparisons"
+  },
+  {
+    "id": "heading-381",
+    "level": 3,
+    "text": "1. Projection of the actual seam point"
+  },
+  {
+    "id": "heading-382",
+    "level": 3,
+    "text": "2. First local inequality: S1​&lt;2/7"
+  },
+  {
+    "id": "heading-383",
+    "level": 3,
+    "text": "3. Stronger local inequality"
+  },
+  {
+    "id": "heading-384",
+    "level": 3,
+    "text": "4. Excluding near-diagonal double-direct contact"
+  },
+  {
+    "id": "heading-385",
+    "level": 3,
+    "text": "5. Repeated TOP midpoint: a third forced point"
+  },
+  {
+    "id": "heading-386",
+    "level": 2,
+    "text": "R42. A normalized seam point in the same central tile and a positive-rotation interval"
+  },
+  {
+    "id": "heading-387",
+    "level": 3,
+    "text": "1. Actual geometric data"
+  },
+  {
+    "id": "heading-388",
+    "level": 3,
+    "text": "2. A normalized point belongs to the unchanged original C"
+  },
+  {
+    "id": "heading-389",
+    "level": 3,
+    "text": "3. The positive-rotation projection"
+  },
+  {
+    "id": "heading-390",
+    "level": 3,
+    "text": "4. Larger z: an analytic exclusion"
+  },
+  {
+    "id": "heading-391",
+    "level": 3,
+    "text": "5. Small z: concavity covers the full half-angle interval"
+  },
+  {
+    "id": "heading-392",
+    "level": 3,
+    "text": "6. Complete rational coefficient records"
+  },
+  {
+    "id": "heading-393",
+    "level": 2,
+    "text": "R43. Small-angle double-direct exclusion for both rotations"
+  },
+  {
+    "id": "heading-394",
+    "level": 3,
+    "text": "1. Actual corner bounds"
+  },
+  {
+    "id": "heading-395",
+    "level": 3,
+    "text": "2. Common bounds for the two rotations"
+  },
+  {
+    "id": "heading-396",
+    "level": 3,
+    "text": "3. Three analytic bounds for the unrotated surplus"
+  },
+  {
+    "id": "heading-397",
+    "level": 3,
+    "text": "4. Small and intermediate a"
+  },
+  {
+    "id": "heading-398",
+    "level": 3,
+    "text": "5. Large a, including the extreme long-leg case"
+  },
+  {
+    "id": "heading-399",
+    "level": 2,
+    "text": "R44. A forced top seam point for an upper bridge without repeated TOP midpoint"
+  },
+  {
+    "id": "heading-400",
+    "level": 3,
+    "text": "1. A legal representative of W"
+  },
+  {
+    "id": "heading-401",
+    "level": 3,
+    "text": "2. A fresh angle cap from the actual QU​"
+  },
+  {
+    "id": "heading-402",
+    "level": 3,
+    "text": "3. Verifying the top seam in both actual squares"
+  },
+  {
+    "id": "heading-403",
+    "level": 3,
+    "text": "4. Full coverage forces this point into the original C"
+  },
+  {
+    "id": "heading-404",
+    "level": 3,
+    "text": "5. A normalized top point when RC​∈W"
+  },
+  {
+    "id": "heading-405",
+    "level": 2,
+    "text": "R45. Excluding two bridges by W and reducing four mechanisms to three"
+  },
+  {
+    "id": "heading-406",
+    "level": 3,
+    "text": "1. Actual inputs and legal normalization"
+  },
+  {
+    "id": "heading-407",
+    "level": 3,
+    "text": "2. The stronger angle cap z≤τ&lt;2/5"
+  },
+  {
+    "id": "heading-408",
+    "level": 3,
+    "text": "3. A tile W containing QU​ has no horizontal target contribution"
+  },
+  {
+    "id": "heading-409",
+    "level": 3,
+    "text": "4. Exclusion of two W bridges"
+  },
+  {
+    "id": "heading-410",
+    "level": 3,
+    "text": "5. The same corner chain forces x&lt;g(τ)"
+  },
+  {
+    "id": "heading-411",
+    "level": 3,
+    "text": "6. The normalized top point for every W containing QU​"
+  },
+  {
+    "id": "heading-412",
+    "level": 2,
+    "text": "R46. Rotation separation for an upper bridge and actual lower interfaces of C,F"
+  },
+  {
+    "id": "heading-413",
+    "level": 3,
+    "text": "1. Inputs when W contains QU​"
+  },
+  {
+    "id": "heading-414",
+    "level": 3,
+    "text": "2. The actual long-leg inequality L2​&gt;1+τ"
+  },
+  {
+    "id": "heading-415",
+    "level": 3,
+    "text": "3. A full two-parameter surplus bound"
+  },
+  {
+    "id": "heading-416",
+    "level": 3,
+    "text": "4. Rotation of the central tile is separated from zero"
+  },
+  {
+    "id": "heading-417",
+    "level": 3,
+    "text": "5. A universal lower-left interface point"
+  },
+  {
+    "id": "heading-418",
+    "level": 3,
+    "text": "6. A right interface and five actual points in the same F"
+  },
+  {
+    "id": "heading-419",
+    "level": 2,
+    "text": "R47. A long bottom chord and exact five-point constraints for the same F"
+  },
+  {
+    "id": "heading-420",
+    "level": 3,
+    "text": "1. The sum of the two short legs is less than one"
+  },
+  {
+    "id": "heading-421",
+    "level": 3,
+    "text": "2. A long actual bottom chord makes F nonaxial"
+  },
+  {
+    "id": "heading-422",
+    "level": 3,
+    "text": "3. Effective depth and actual overlap"
+  },
+  {
+    "id": "heading-423",
+    "level": 3,
+    "text": "4. Exact elimination of the direction and translation of one F"
+  },
+  {
+    "id": "heading-424",
+    "level": 2,
+    "text": "R48. Continuous-cover reductions and actual upper triple intersections"
+  },
+  {
+    "id": "heading-425",
+    "level": 3,
+    "text": "1. The common-point fan lemma"
+  },
+  {
+    "id": "heading-426",
+    "level": 3,
+    "text": "2. Exact five-point criterion for the lower half when QU​∈W"
+  },
+  {
+    "id": "heading-427",
+    "level": 3,
+    "text": "3. The original F contains the whole boundary tail after exit"
+  },
+  {
+    "id": "heading-428",
+    "level": 3,
+    "text": "4. An actual upper-right triple point without an old angle ordering"
+  },
+  {
+    "id": "heading-429",
+    "level": 3,
+    "text": "5. The upper interface for a right bridge"
+  },
+  {
+    "id": "heading-430",
+    "level": 3,
+    "text": "6. Boundary-path certificates for the upper half"
+  },
+  {
+    "id": "heading-431",
+    "level": 3,
+    "text": "7. Exactly two intersection combinations in the lower-right quadrant of a right bridge"
+  },
+  {
+    "id": "heading-432",
+    "level": 1,
+    "text": "Technical Part H. Bridge angles and the same bottom tile"
+  },
+  {
+    "id": "heading-433",
+    "level": 2,
+    "text": "R49. A continuous small-angle exclusion for a right bridge in both rotations"
+  },
+  {
+    "id": "heading-434",
+    "level": 3,
+    "text": "1. The actual bridge gives the correct short-leg replacement"
+  },
+  {
+    "id": "heading-435",
+    "level": 3,
+    "text": "2. The same central tile and LEFT corner bounds"
+  },
+  {
+    "id": "heading-436",
+    "level": 3,
+    "text": "3. Small a"
+  },
+  {
+    "id": "heading-437",
+    "level": 3,
+    "text": "4. Intermediate a"
+  },
+  {
+    "id": "heading-438",
+    "level": 3,
+    "text": "5. Large a, ordinary range"
+  },
+  {
+    "id": "heading-439",
+    "level": 3,
+    "text": "6. Large a, extreme range"
+  },
+  {
+    "id": "heading-440",
+    "level": 2,
+    "text": "R50. Enlarging the two-rotation right-bridge exclusion to η≤1/16"
+  },
+  {
+    "id": "heading-441",
+    "level": 3,
+    "text": "1. Inherited geometry and enlarged angle interval"
+  },
+  {
+    "id": "heading-442",
+    "level": 3,
+    "text": "2. Small a"
+  },
+  {
+    "id": "heading-443",
+    "level": 3,
+    "text": "3. A joint two-variable surplus for intermediate a"
+  },
+  {
+    "id": "heading-444",
+    "level": 3,
+    "text": "4. Large a, ordinary range"
+  },
+  {
+    "id": "heading-445",
+    "level": 3,
+    "text": "5. Large a, extreme range, with both normals checked anew"
+  },
+  {
+    "id": "heading-446",
+    "level": 2,
+    "text": "R51. Enlarging the two-rotation right-bridge exclusion to η≤1/8"
+  },
+  {
+    "id": "heading-447",
+    "level": 3,
+    "text": "1. Enlarged interval and required surplus"
+  },
+  {
+    "id": "heading-448",
+    "level": 3,
+    "text": "2. Small a, both rotations"
+  },
+  {
+    "id": "heading-449",
+    "level": 3,
+    "text": "3. Intermediate a: two complete charts from actual long-leg caps"
+  },
+  {
+    "id": "heading-450",
+    "level": 3,
+    "text": "4. A stronger joint lower bound for large a"
+  },
+  {
+    "id": "heading-451",
+    "level": 3,
+    "text": "5. The extreme range ϵ&lt;6δ"
+  },
+  {
+    "id": "heading-452",
+    "level": 2,
+    "text": "R52. Small-angle upper-bridge exclusion and a uniform angle lower bound"
+  },
+  {
+    "id": "heading-453",
+    "level": 3,
+    "text": "1. Actual common inputs"
+  },
+  {
+    "id": "heading-454",
+    "level": 3,
+    "text": "2. The bottom budget forces one small and one large corner parameter"
+  },
+  {
+    "id": "heading-455",
+    "level": 3,
+    "text": "3. Excluding the two wrong placements of the small parameter"
+  },
+  {
+    "id": "heading-456",
+    "level": 3,
+    "text": "4. The remaining positive-rotation placement"
+  },
+  {
+    "id": "heading-457",
+    "level": 3,
+    "text": "5. The remaining negative-rotation placement"
+  },
+  {
+    "id": "heading-458",
+    "level": 3,
+    "text": "6. The uniform consequence for all remaining mechanisms"
+  },
+  {
+    "id": "heading-459",
+    "level": 2,
+    "text": "R53. A universal actual relation between the left seam and the bottom short leg"
+  },
+  {
+    "id": "heading-460",
+    "level": 3,
+    "text": "1. Inputs from actual LEFT geometry"
+  },
+  {
+    "id": "heading-461",
+    "level": 3,
+    "text": "2. The case k≤1"
+  },
+  {
+    "id": "heading-462",
+    "level": 3,
+    "text": "3. The case k≥1: a quadratic in the actual long-leg surplus"
+  },
+  {
+    "id": "heading-463",
+    "level": 3,
+    "text": "4. A near-diagonal tile with QU​∈W: the correct +τ relation"
+  },
+  {
+    "id": "heading-464",
+    "level": 3,
+    "text": "5. Retaining the stronger actual right long-leg loss"
+  },
+  {
+    "id": "heading-465",
+    "level": 2,
+    "text": "R54. A complete near-diagonal exclusion when W contains the upper endpoint"
+  },
+  {
+    "id": "heading-466",
+    "level": 3,
+    "text": "1. Actual inputs"
+  },
+  {
+    "id": "heading-467",
+    "level": 3,
+    "text": "2. A fresh actual angle ordering"
+  },
+  {
+    "id": "heading-468",
+    "level": 3,
+    "text": "3. A position bound for every actual upper-right triple point"
+  },
+  {
+    "id": "heading-469",
+    "level": 3,
+    "text": "4. Directional width of the same C"
+  },
+  {
+    "id": "heading-470",
+    "level": 3,
+    "text": "5. Six complete scalar certificates"
+  },
+  {
+    "id": "heading-471",
+    "level": 3,
+    "text": "6. Returning to the actual covering"
+  },
+  {
+    "id": "heading-472",
+    "level": 2,
+    "text": "R55. Excluding the entire positive-rotation class with QU​∈W"
+  },
+  {
+    "id": "heading-473",
+    "level": 3,
+    "text": "1. Actual inputs only"
+  },
+  {
+    "id": "heading-474",
+    "level": 3,
+    "text": "2. Four full parameter domains independent of the angle of C"
+  },
+  {
+    "id": "heading-475",
+    "level": 3,
+    "text": "3. Two auxiliary endpoint directions"
+  },
+  {
+    "id": "heading-476",
+    "level": 3,
+    "text": "4. The same actual point pair"
+  },
+  {
+    "id": "heading-477",
+    "level": 3,
+    "text": "5. The two endpoint directions exclude all positive rotations"
+  },
+  {
+    "id": "heading-478",
+    "level": 3,
+    "text": "6. Intermediate consequences and their scope"
+  },
+  {
+    "id": "heading-479",
+    "level": 3,
+    "text": "7. Strengthening the first cap to τ&lt;3/20"
+  },
+  {
+    "id": "heading-480",
+    "level": 3,
+    "text": "8. The stronger same-F area budget and positive-rotation endpoints"
+  },
+  {
+    "id": "heading-481",
+    "level": 3,
+    "text": "9. A fixed-pair lemma with a finite auxiliary angle endpoint"
+  },
+  {
+    "id": "heading-482",
+    "level": 3,
+    "text": "10. Four endpoint inequalities finish every remaining angle"
+  },
+  {
+    "id": "heading-483",
+    "level": 2,
+    "text": "R56. A continuous high-angle exclusion for negative rotation with QU​∈W"
+  },
+  {
+    "id": "heading-484",
+    "level": 3,
+    "text": "1. Actual common inputs"
+  },
+  {
+    "id": "heading-485",
+    "level": 3,
+    "text": "2. Both actual coordinate bounds retain their μ dependence"
+  },
+  {
+    "id": "heading-486",
+    "level": 3,
+    "text": "3. Eliminating the seam height from negative-rotation widths"
+  },
+  {
+    "id": "heading-487",
+    "level": 3,
+    "text": "4. Small τ≤1/6: an axis-endpoint budget"
+  },
+  {
+    "id": "heading-488",
+    "level": 3,
+    "text": "5. Large τ: combining two necessary inequalities"
+  },
+  {
+    "id": "heading-489",
+    "level": 2,
+    "text": "R57. An actual lower-left exit point excludes a middle negative-rotation range"
+  },
+  {
+    "id": "heading-490",
+    "level": 3,
+    "text": "1. Actual axis endpoints and the actual lower-left interface"
+  },
+  {
+    "id": "heading-491",
+    "level": 3,
+    "text": "2. The same-F triangle excludes a full middle-angle, small-τ rectangle"
+  },
+  {
+    "id": "heading-492",
+    "level": 3,
+    "text": "3. Large τ: retaining a nonnegative actual short-leg slack"
+  },
+  {
+    "id": "heading-493",
+    "level": 2,
+    "text": "R58. Extending the negative-rotation exclusion to η≥1/6"
+  },
+  {
+    "id": "heading-494",
+    "level": 3,
+    "text": "1. A new lower bound for the actual left endpoint"
+  },
+  {
+    "id": "heading-495",
+    "level": 3,
+    "text": "2. Four actual width inequalities give an all-angle τ cap"
+  },
+  {
+    "id": "heading-496",
+    "level": 3,
+    "text": "3. Two actual lower bounds for x depending on τ"
+  },
+  {
+    "id": "heading-497",
+    "level": 3,
+    "text": "4. The actual E1​ and same F exclude 1/6≤η≤3/10"
+  },
+  {
+    "id": "heading-498",
+    "level": 3,
+    "text": "5. The remaining small η also requires τ&lt;1/6"
+  },
+  {
+    "id": "heading-499",
+    "level": 2,
+    "text": "R59. Excluding the entire upper-bridge mechanism"
+  },
+  {
+    "id": "heading-500",
+    "level": 3,
+    "text": "1. An area budget for the same actual C,F"
+  },
+  {
+    "id": "heading-501",
+    "level": 3,
+    "text": "2. The horizontal chord supplies a necessary negative expression"
+  },
+  {
+    "id": "heading-502",
+    "level": 3,
+    "text": "3. Small x: an actual quadratic bound for δ"
+  },
+  {
+    "id": "heading-503",
+    "level": 3,
+    "text": "4. Intermediate x: a fixed δ bound and concavity"
+  },
+  {
+    "id": "heading-504",
+    "level": 3,
+    "text": "5. Large x: the same F forces too long a left reach"
+  },
+  {
+    "id": "heading-505",
+    "level": 1,
+    "text": "Technical Part I. Remaining rotations and final contacts"
+  },
+  {
+    "id": "heading-506",
+    "level": 2,
+    "text": "R60. Excluding every negative rotation in the two remaining mechanisms"
+  },
+  {
+    "id": "heading-507",
+    "level": 3,
+    "text": "1. Actual inputs shared by the two mechanisms"
+  },
+  {
+    "id": "heading-508",
+    "level": 3,
+    "text": "2. Three common negative-rotation constraints"
+  },
+  {
+    "id": "heading-509",
+    "level": 3,
+    "text": "3. Larger z: a left-seam budget for every negative angle"
+  },
+  {
+    "id": "heading-510",
+    "level": 3,
+    "text": "4. Larger η, small z: the two endpoint projections suffice"
+  },
+  {
+    "id": "heading-511",
+    "level": 3,
+    "text": "5. Smaller η, intermediate z: separate directional bounds"
+  },
+  {
+    "id": "heading-512",
+    "level": 3,
+    "text": "6. Smaller η, small z: the same-F area closes the remainder"
+  },
+  {
+    "id": "heading-513",
+    "level": 2,
+    "text": "R61. An asymmetric triangle in the same F reduces the positive-rotation remainder"
+  },
+  {
+    "id": "heading-514",
+    "level": 3,
+    "text": "1. Actual premises and common budgets"
+  },
+  {
+    "id": "heading-515",
+    "level": 3,
+    "text": "2. An asymmetric necessary triangle condition"
+  },
+  {
+    "id": "heading-516",
+    "level": 3,
+    "text": "3. A universal positive-rotation lower-reach cap from P1​,DC​"
+  },
+  {
+    "id": "heading-517",
+    "level": 3,
+    "text": "4. Larger η, small z"
+  },
+  {
+    "id": "heading-518",
+    "level": 3,
+    "text": "5. Larger z: a common corner range"
+  },
+  {
+    "id": "heading-519",
+    "level": 3,
+    "text": "6. A hand proof excludes a≥g(η) for η≤1/3"
+  },
+  {
+    "id": "heading-520",
+    "level": 2,
+    "text": "R62. Excluding all small z and confining the common remainder to an open strip"
+  },
+  {
+    "id": "heading-521",
+    "level": 3,
+    "text": "1. Actual geometry and the range still to be treated"
+  },
+  {
+    "id": "heading-522",
+    "level": 3,
+    "text": "2. Eliminating η with the actual left and upper endpoints"
+  },
+  {
+    "id": "heading-523",
+    "level": 3,
+    "text": "3. Small a: seam-to-right width and the same-F area"
+  },
+  {
+    "id": "heading-524",
+    "level": 3,
+    "text": "4. Intermediate a: concavity of the complete joint budget"
+  },
+  {
+    "id": "heading-525",
+    "level": 3,
+    "text": "5. Large a: four rational endpoint values and separate concavity"
+  },
+  {
+    "id": "heading-526",
+    "level": 2,
+    "text": "R63. Excluding the entire right bridge and leaving only positive double-direct contact"
+  },
+  {
+    "id": "heading-527",
+    "level": 3,
+    "text": "1. A uniform actual right-reach cap"
+  },
+  {
+    "id": "heading-528",
+    "level": 3,
+    "text": "2. Two actual horizontal intersections force a small angle for the original W"
+  },
+  {
+    "id": "heading-529",
+    "level": 3,
+    "text": "3. Any actual horizontal point of W lies far left or far right"
+  },
+  {
+    "id": "heading-530",
+    "level": 3,
+    "text": "4. Both orientations contradict RC​∈W"
+  },
+  {
+    "id": "heading-531",
+    "level": 3,
+    "text": "5. Closing the right bridge and strengthening the double-direct remainder"
+  },
+  {
+    "id": "heading-532",
+    "level": 2,
+    "text": "R64. Excluding all positive rotations in the middle-z double-direct form"
+  },
+  {
+    "id": "heading-533",
+    "level": 3,
+    "text": "1. Complete local inputs"
+  },
+  {
+    "id": "heading-534",
+    "level": 3,
+    "text": "2. Two positive-rotation projections and endpoint rules"
+  },
+  {
+    "id": "heading-535",
+    "level": 3,
+    "text": "3. Small angles, including the axial endpoint"
+  },
+  {
+    "id": "heading-536",
+    "level": 3,
+    "text": "4. Middle angles"
+  },
+  {
+    "id": "heading-537",
+    "level": 3,
+    "text": "5. Large angles"
+  },
+  {
+    "id": "heading-538",
+    "level": 3,
+    "text": "6. Arithmetic records and the precise local conclusion"
+  },
+  {
+    "id": "heading-539",
+    "level": 1,
+    "text": "Module and evidence index"
+  },
+  {
+    "id": "heading-540",
+    "level": 2,
+    "text": "Part A: Foundation and the two-centre cases"
+  },
+  {
+    "id": "heading-541",
+    "level": 2,
+    "text": "Part B: No owned midpoint and centre-owned midpoint cases"
+  },
+  {
+    "id": "heading-542",
+    "level": 2,
+    "text": "Part C: Adjacent owned midpoints"
+  },
+  {
+    "id": "heading-543",
+    "level": 2,
+    "text": "Part D: Opposite owned midpoints"
+  },
+  {
+    "id": "heading-544",
+    "level": 2,
+    "text": "Part E: Near-end residual configurations"
+  },
+  {
+    "id": "heading-545",
+    "level": 2,
+    "text": "Part F: Far-end gaps and horizontal sections"
+  },
+  {
+    "id": "heading-546",
+    "level": 2,
+    "text": "Part G: Actual seams, contacts and lower exits"
+  },
+  {
+    "id": "heading-547",
+    "level": 2,
+    "text": "Part H: Bridge angles and the same bottom tile"
+  },
+  {
+    "id": "heading-548",
+    "level": 2,
+    "text": "Part I: Remaining rotations and final contacts"
+  },
+  {
+    "id": "heading-549",
+    "level": 2,
+    "text": "Recording a substantive review"
+  }
+]

@@ -1,0 +1,13 @@
+{
+  "id": "check_round28_g2_near_complete__n10__b055163039",
+  "file": "check_round28_g2_near_complete",
+  "n": 10,
+  "query": "mu > 1 ; d > 0 ; d < 1 ; H > 1 - d ; H < 1 ; cw*(1 + H*H) == 1 - H*H ; sw*(1 + H*H) == 2*H ; X >= 0 ; cw*X + sw*mu <= 1 ; X >= d/(2 - d)",
+  "method": "exact-hand-swA-endpoint",
+  "status": "exact",
+  "certificate": {
+    "type": "identity_swA_endpoint",
+    "claim": "at H=1-d,X=d/(2-d), mu=1 covering=1"
+  },
+  "batch": "26c"
+}

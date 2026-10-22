@@ -1,0 +1,11 @@
+{
+  "updated": "2026-10-20T23:45+08:00",
+  "r16_verify": "PASS (1173 boxes; manifest hash repaired; byte-for-byte tree regen)",
+  "lean": {
+    "Obligation4QIdentity": "已证 (q nonneg / <1 / monotone)",
+    "Obligation4M8": "已证 (R41 4zt product bound on [0,4/15]²)",
+    "Obligation4NearEnd": "已证 (bothGap + card)",
+    "living_leaf_geometry": "未证",
+    "m8_full": "未证 (open_m8_full_geometry)"
+  }
+}

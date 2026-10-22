@@ -1,0 +1,13 @@
+{
+  "id": "check_round34_left_negative__n7__207476de41",
+  "file": "check_round34_left_negative",
+  "n": 7,
+  "query": "mu > 1 ; u > 0 ; 2*u < 1 ; r <= K*u ; K > 0 ; K <= 1 ; r + u >= mu",
+  "method": "exact-hand-ru-lt-mu",
+  "status": "exact",
+  "certificate": {
+    "type": "hand_ru_lt_mu",
+    "claim": "r+u <=(K+1)u <=2u <1 <mu"
+  },
+  "batch": "25c"
+}

@@ -1,0 +1,56 @@
+{
+  "reviewer": "B / english_residual",
+  "review_type": "bounded read-only visual QA",
+  "status": "no_blocking_visual_defects_found_in_checked_scope",
+  "image_directory": "tmp/pdfs/S6_complete_english",
+  "contact_sheets_inspected": [
+    {"file": "contact-05.png", "physical_pages": "97-120"},
+    {"file": "contact-06.png", "physical_pages": "121-144"},
+    {"file": "contact-07.png", "physical_pages": "145-168"},
+    {"file": "contact-08.png", "physical_pages": "169-192"}
+  ],
+  "large_images_inspected": [
+    {"file": "large-068.png", "physical_page": 68, "printed_footer": "A-49 / 258"},
+    {"file": "large-082.png", "physical_page": 82, "printed_footer": "A-63 / 258"},
+    {"file": "large-101.png", "physical_page": 101, "printed_footer": "A-82 / 258"},
+    {"file": "large-127.png", "physical_page": 127, "printed_footer": "A-108 / 258"},
+    {"file": "large-158.png", "physical_page": 158, "printed_footer": "A-139 / 258"},
+    {"file": "large-179.png", "physical_page": 179, "printed_footer": "A-160 / 258"}
+  ],
+  "checks": {
+    "page_edge_or_body_clipping_observed": false,
+    "text_or_equation_overlap_observed": false,
+    "broken_or_missing_glyphs_observed_in_large_images": false,
+    "long_display_equations_fit_in_large_images": true,
+    "equation_numbers_separated_from_formula_content_in_large_images": true,
+    "headings_have_readable_hierarchy_and_clear_spacing": true,
+    "header_footer_and_body_separation_consistent": true
+  },
+  "blocking_issues": [],
+  "nonblocking_observations": [
+    {
+      "physical_page": 68,
+      "printed_footer": "A-49 / 258",
+      "location": "bottom of body",
+      "observation": "The page ends with the short lead-in 'and the parallel bound'; the associated display continues on the following page. The visible text is neither clipped nor overlapping. This is a minor page-break refinement opportunity, not a rendering blocker."
+    },
+    {
+      "physical_page": 158,
+      "printed_footer": "A-139 / 258",
+      "location": "bottom of Section 3",
+      "observation": "The final sentence introduces an implication that continues to its display on the next page. The introduction itself fits cleanly. Keeping the lead-in with the following display would be a minor typographic refinement."
+    },
+    {
+      "physical_pages": [120, 141, 168],
+      "location": "module-ending pages in contact sheets",
+      "observation": "These pages retain short concluding text near the top and substantial whitespace before the next module begins on a new page. This is consistent with the module-on-new-page layout; no overlap, clipping or orphan heading is visible."
+    }
+  ],
+  "limitations": [
+    "Contact sheets were reviewed for gross layout across physical pages 97-192. Their thumbnail resolution does not support a glyph-by-glyph or subscript-by-subscript check of every page.",
+    "Detailed glyph, equation-width and paragraph-spacing inspection was limited to the six requested large images.",
+    "Only the specified rendered PNGs were inspected; the PDF was not rebuilt, altered or exhaustively inspected.",
+    "This review assesses visual rendering and placement only. It does not validate the semantic proof, mathematical inequalities, formula transcription, certificate correctness or branch coverage.",
+    "No source files, PDF files or rendered images were modified."
+  ]
+}

@@ -1,0 +1,110 @@
+{
+  "result": "passed",
+  "UNSAT": 0,
+  "algebraic_identities": 6,
+  "identity_names": [
+    "cos actual denominator positive factorization",
+    "sin actual denominator positive factorization",
+    "cos long leg derives valid chart",
+    "sin long leg derives valid chart",
+    "sin cap decreases",
+    "negative exceptional q loss"
+  ],
+  "full_polynomial_reconstructions": 2,
+  "positive_rational_coefficients": 162,
+  "whole_analytic_charts": 2,
+  "constant_count": 22,
+  "constants": [
+    {
+      "name": "small q domain",
+      "exact": "47/504"
+    },
+    {
+      "name": "small positive final margin",
+      "exact": "21/1640"
+    },
+    {
+      "name": "small negative final margin",
+      "exact": "57/280"
+    },
+    {
+      "name": "cos chart denominator domain",
+      "exact": "47/72"
+    },
+    {
+      "name": "cos chart z below4over15",
+      "exact": "1/1410"
+    },
+    {
+      "name": "sin chart denominator domain",
+      "exact": "191/144"
+    },
+    {
+      "name": "sin chart z below4over15",
+      "exact": "29/2865"
+    },
+    {
+      "name": "middle q domain including C rotation",
+      "exact": "8299/26334"
+    },
+    {
+      "name": "large first q derivative",
+      "exact": "197/3844"
+    },
+    {
+      "name": "large first bracket",
+      "exact": "25/224"
+    },
+    {
+      "name": "large second bracket",
+      "exact": "97/60"
+    },
+    {
+      "name": "large ordinary q domain",
+      "exact": "5875/8778"
+    },
+    {
+      "name": "extreme z over K cap",
+      "exact": "9/490"
+    },
+    {
+      "name": "extreme z absolute cap",
+      "exact": "527/123480"
+    },
+    {
+      "name": "extreme Delta z ratio",
+      "exact": "79/30381"
+    },
+    {
+      "name": "extreme shifted root increment",
+      "exact": "9/1900"
+    },
+    {
+      "name": "extreme S1 coefficient",
+      "exact": "13/152"
+    },
+    {
+      "name": "positive exceptional q domain",
+      "exact": "1177/29400"
+    },
+    {
+      "name": "positive exceptional bottom contradiction",
+      "exact": "23/84"
+    },
+    {
+      "name": "negative shifted right coefficient",
+      "exact": "1/25"
+    },
+    {
+      "name": "negative q loss comparison",
+      "exact": "6/95"
+    },
+    {
+      "name": "negative final gap",
+      "exact": "1/4"
+    }
+  ],
+  "new_closed_subclass": "Right-W bridge: both C rotations eta in [0,1/8]",
+  "angle_degrees_max": 14.250032697803595,
+  "not_proved": "General right-W bridge, full I/II, other remaining mechanisms, G2 or S(6)=2"
+}
