@@ -68,4 +68,42 @@ def modellingNote : String :=
   "Proves the rational contradictions 8+3B+vF < 12μ and 8+2B+2μ < 12μ \
    under B<1, vF<μ, μ>1. Does not define B(μ) from geometry or import R13."
 
+/-! ## Real-valued budget hyp (edge branch uses `s : ℝ`) -/
+
+/-- Abstract parallel budget over ℝ `B` (μ, vF stay rational). -/
+structure BudgetHypReal where
+  μ : ℚ
+  B : ℝ
+  vF : ℚ
+  hμ : 1 < μ
+  hB : B < 1
+  hv : (vF : ℝ) < μ
+
+theorem sideGap_bound_real (h : BudgetHypReal) :
+    (8 : ℝ) + 3 * h.B + h.vF < 11 + h.μ := by
+  have h3 : (3 : ℝ) * h.B < 3 * 1 := by nlinarith [h.hB]
+  have hv' : (h.vF : ℝ) < h.μ := h.hv
+  nlinarith
+
+theorem sideGap_strict_lt_grid_real (h : BudgetHypReal) :
+    (8 : ℝ) + 3 * h.B + h.vF < 12 * h.μ := by
+  have h1 := sideGap_bound_real h
+  have h2 : (11 : ℝ) + h.μ < 12 * h.μ := by
+    have := eleven_add_mu_lt_twelve_mu h.μ h.hμ
+    exact_mod_cast this
+  nlinarith
+
+theorem sideGap_covering_impossible_real (h : BudgetHypReal)
+    (hp : (12 : ℝ) * h.μ ≤ 8 + 3 * h.B + h.vF) : False := by
+  have := sideGap_strict_lt_grid_real h
+  nlinarith
+
+def BudgetHypReal.of (μ : ℚ) (B : ℝ) (vF : ℚ)
+    (hμ : 1 < μ) (hB : B < 1) (hv : (vF : ℝ) < μ) : BudgetHypReal :=
+  ⟨μ, B, vF, hμ, hB, hv⟩
+
+def parallelBudgetRealAlgebraClosed : Bool := true
+theorem parallelBudgetRealAlgebraClosed_true : parallelBudgetRealAlgebraClosed = true := rfl
+
+
 end S6.ParallelBudget

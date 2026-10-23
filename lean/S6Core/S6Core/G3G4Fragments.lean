@@ -467,7 +467,7 @@ theorem G3SepWitnessExport_blocked_by_no_rat_sqrt2
     False :=
   no_pos_rat_sq_eq_two (G3SepWitnessExport_implies_pos_rat_sqrt2 h hcls)
 
-/-- Real critical-branch export (B as ℚ Bcrit); edge ℝ `B_lt_one` still open. -/
+/-- Real critical-branch export (B as ℚ Bcrit). Full edge ℝ package is `G3RealSideGapExport`. -/
 def G3RealBcritExport : Prop :=
   ∀ (T : S6.Obligation2.Target) (cov : S6.Obligation2Opens.PointwiseCover T),
     classify (S6.Obligation2Roles.RoleSelection.ofCover cov).toManuscript.flags.toOwnership =
@@ -498,5 +498,53 @@ theorem g3SepWitnessBlockedByNoRatSqrt2Closed_true :
 
 def g3RealBcritReductionClosed : Bool := true
 theorem g3RealBcritReductionClosed_true : g3RealBcritReductionClosed = true := rfl
+
+/-! ## G3 real-budget side-gap export (ℝ edge `B_lt_one` closed) -/
+
+/-- Named open: G3 cover realises a real-budget side-gap covering inequality
+(both critical and edge branches via `ParallelBudgetDataReal.B`). -/
+def G3RealSideGapExport : Prop :=
+  ∀ (T : S6.Obligation2.Target) (cov : S6.Obligation2Opens.PointwiseCover T),
+    classify (S6.Obligation2Roles.RoleSelection.ofCover cov).toManuscript.flags.toOwnership =
+        TopClass.G3 →
+      ∃ (D : ParallelBudgetDataReal) (vF : ℚ),
+        (vF : ℝ) < T.μ ∧
+          (12 : ℝ) * T.μ ≤ 8 + 3 * D.B + (vF : ℝ)
+
+theorem G3Exclusion_of_realSideGapExport (h : G3RealSideGapExport) : G3Exclusion := by
+  intro T cov hcls
+  rcases h T cov hcls with ⟨D, vF, hv, hp⟩
+  exact sideGap_covering_impossible_real
+    (BudgetHypReal.of T.μ D.B vF T.hμ D.B_lt_one hv) hp
+
+/-- Algebraic side-gap contradiction from a realised real budget. -/
+theorem sideGap_impossible_of_parallelBudgetReal (μ : ℚ) (D : ParallelBudgetDataReal)
+    (vF : ℚ) (hμ : 1 < μ) (hv : (vF : ℝ) < μ)
+    (hp : (12 : ℝ) * μ ≤ 8 + 3 * D.B + (vF : ℝ)) : False :=
+  sideGap_covering_impossible_real (BudgetHypReal.of μ D.B vF hμ D.B_lt_one hv) hp
+
+/-- Critical-only real export embeds into full real side-gap export. -/
+theorem G3RealSideGapExport_of_realBcrit (h : G3RealBcritExport) : G3RealSideGapExport := by
+  intro T cov hcls
+  rcases h T cov hcls with ⟨D, vF, hcrit, hv, hp⟩
+  refine ⟨D, vF, by exact_mod_cast hv, ?_⟩
+  have hB : D.B = (Bcrit D.d D.y : ℝ) := by
+    simp [ParallelBudgetDataReal.B, hcrit]
+  have hp' : (12 : ℚ) * T.μ ≤ 8 + 3 * Bcrit D.d D.y + vF := by
+    simpa [ParallelBudgetDataReal.BcritVal, Bcrit] using hp
+  have : (12 : ℝ) * T.μ ≤ 8 + 3 * (Bcrit D.d D.y : ℝ) + (vF : ℝ) := by
+    exact_mod_cast hp'
+  simpa [hB] using this
+
+/-- Flag: ℝ edge B + real side-gap algebra packaged; inhabit of export still open. -/
+def g3RealSideGapPackagingClosed : Bool := true
+theorem g3RealSideGapPackagingClosed_true : g3RealSideGapPackagingClosed = true := rfl
+
+def G3RealSideGapExportProved : Bool := false
+theorem G3RealSideGapExportProved_false : G3RealSideGapExportProved = false := rfl
+
+def g3RealEdgeBLtOneClosed : Bool := true
+theorem g3RealEdgeBLtOneClosed_true : g3RealEdgeBLtOneClosed = true := rfl
+
 
 end S6.G3G4Fragments

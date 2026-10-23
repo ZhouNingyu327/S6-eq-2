@@ -1,3 +1,15 @@
+## v0.26.12 — ℝ edge B_lt_one + real side-gap packaging (2026-10-23 Asia/Shanghai)
+
+- `ParallelChord`: `B_case2_lt_one_cleared_real` (`s : ℝ`, `s²=2` ⇒ `2(s-d)<1`).
+- `ParallelBudget`: `BudgetHypReal` + `sideGap_covering_impossible_real`.
+- `ParallelBudgetGeometry`: `split_ineq_of_crit_out_real`; `ParallelBudgetDataReal.B`
+  (crit/edge case-split) + `B_lt_one`; `exists_pos_real_sq_eq_two`; `mk_of_sqrt2`;
+  `parallelBudgetRealEdgeBLtOneProved=true`.
+- `G3G4Fragments`: `G3RealSideGapExport` ⇒ `G3Exclusion`; embeds `G3RealBcritExport`;
+  inhabit of export still open.
+- Open: inhabit G5k0 hyps / G3Bcrit / G3RealSideGap; unrestricted mid≤2.
+  `principalClaimProvedUnconditionally=false`.
+
 ## v0.26.11 — G3 Bcrit/ℝ + roles-cardinal CoverIneq (2026-10-23 Asia/Shanghai)
 
 - `ParallelBudgetGeometry`: `no_rat_sq_eq_two` / `no_pos_rat_sq_eq_two`; `ParallelBudgetDataBcrit`

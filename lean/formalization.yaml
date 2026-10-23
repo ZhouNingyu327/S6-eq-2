@@ -1,5 +1,5 @@
 # Catalog of manuscripts with a formalized (or partially formalized) main result.
-version: "v0.26.11"
+version: "v0.26.12"
 
 project:
   name: "ZhouNingyu327/S6-eq-2"
@@ -17,7 +17,7 @@ sources:
     lean_docs: docs/001.md
     status: partial_formalization_g3_bcrit_roles_cardinal_coverineq
     notes: >-
-      PrincipalClaim is a Prop. v0.26.11: no_rat_sq_eq_two; ParallelBudgetDataBcrit +
+      PrincipalClaim is a Prop. v0.26.12: Real edge B_lt_one + BudgetHypReal/G3RealSideGapExport packaging; v0.26.11: no_rat_sq_eq_two; ParallelBudgetDataBcrit +
       G3BcritExport/RealBcrit ⇒ Exclusion packaging; roles-cardinal /
       IdentityCCardinalF ⇒ ClampedUb/CoverIneq packaging. Open: inhabit SameDir/
       BodyChart/IdentityC/ClampedUb/RolesCardinal; G3 Bcrit inhabit; real edge B;

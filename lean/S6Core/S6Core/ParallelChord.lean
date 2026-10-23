@@ -58,4 +58,27 @@ theorem B_case2_lt_one_cleared (d s : ℚ)
 /-- Concrete rational check used in hand audits: 50>49 ⇒ 5√2>7. -/
 theorem fifty_gt_forty_nine : (50 : ℚ) > 49 := by norm_num
 
+/-- Case 2 over ℝ: `s² = 2`, `2 d s ≥ 3` ⇒ `2(s - d) < 1`. -/
+theorem B_case2_lt_one_cleared_real (d : ℚ) (s : ℝ)
+    (hs2 : s * s = (2 : ℝ)) (hs : (0 : ℝ) < s)
+    (hd : (3 : ℝ) ≤ 2 * (d : ℝ) * s) :
+    (2 : ℝ) * (s - (d : ℝ)) < 1 := by
+  have hsne : s ≠ 0 := ne_of_gt hs
+  have hinv : s⁻¹ = s / 2 := by
+    field_simp [hsne]
+    nlinarith [hs2]
+  have thr : (3 : ℝ) / s = (3 : ℝ) / 2 * s := by
+    calc (3 : ℝ) / s = 3 * s⁻¹ := by ring
+      _ = 3 * (s / 2) := by rw [hinv]
+      _ = (3 : ℝ) / 2 * s := by ring
+  have lower : (3 : ℝ) / 2 * s ≤ 2 * (d : ℝ) := by
+    have : (3 : ℝ) / s ≤ 2 * (d : ℝ) := (div_le_iff₀ hs).2 (by linarith)
+    simpa [thr] using this
+  have hs_lt_two : s < 2 := by
+    have h4 : (2 : ℝ) < 4 := by norm_num
+    have : s ^ 2 < (2 : ℝ) ^ 2 := by simpa [pow_two, hs2] using h4
+    exact (sq_lt_sq₀ (le_of_lt hs) (by norm_num : (0 : ℝ) ≤ 2)).1 this
+  have gap : (3 : ℝ) / 2 * s > 2 * s - 1 := by nlinarith
+  linarith
+
 end S6.ParallelChord

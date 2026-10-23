@@ -2,6 +2,8 @@
 
 ## Done
 
+- **v0.26.12:** ℝ edge `B_lt_one` + `BudgetHypReal` side-gap; `G3RealSideGapExport` packaging
+  (`exists_pos_real_sq_eq_two` / `mk_of_sqrt2`); inhabit of export still open
 - **v0.26.11:** G3 Bcrit-only + ℝ skeleton; `no_rat_sq_eq_two` blocks SepWitness ℚ√2;
   roles-cardinal / IdentityC+cardinalF ⇒ ClampedUb/CoverIneq packaging
 - **v0.26.10:** BodyChartAxisAligned ↔ SameDirAsC; BodyChartIdentityC ⇒ AxisAlignedIdentityC /
@@ -17,10 +19,10 @@
 
 ## Next
 
-1. Inhabit `SameDirG5k0Realisation` / `BodyChartAxisG5k0Realisation` /
+1. Inhabit `G3RealSideGapExport` / `G3BcritExport` / `G3RealBcritExport` (geometry→budget).
+2. Inhabit `SameDirG5k0Realisation` / `BodyChartAxisG5k0Realisation` /
    `BodyChartIdentityCG5k0Realisation` / `ClampedSquareUbG5k0Realisation` /
    `RolesCardinalFillerG5k0Realisation` / `IdentityCCardinalFG5k0Realisation` for every G5 k=0.
-2. Inhabit `G3BcritExport` (critical branch only) or finish ℝ edge `B_lt_one` + real side-gap.
 3. Unconditional `PrincipalClaim` only after ClassExclusions close.
 
 ## Honesty

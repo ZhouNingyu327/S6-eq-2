@@ -1,5 +1,6 @@
 import Mathlib.Tactic
 import Mathlib.Data.Rat.Sqrt
+import Mathlib.Analysis.Real.Sqrt
 import S6Core.ChordLength
 import S6Core.ParallelChord
 import S6Core.ObliqueChart
@@ -440,6 +441,80 @@ theorem ParallelBudgetDataReal.BcritVal_lt_one (D : ParallelBudgetDataReal)
     D.BcritVal < 1 :=
   Bcrit_lt_one D.d D.y D.hd D.hy2 (le_of_lt D.hy)
 
+/-- Edge-branch real value `2(s - d)`. -/
+def BedgeReal (d : ℚ) (s : ℝ) : ℝ := 2 * (s - (d : ℝ))
+
+theorem BedgeReal_lt_one (d : ℚ) (s : ℝ)
+    (hs2 : s * s = (2 : ℝ)) (hs : (0 : ℝ) < s)
+    (hd : (3 : ℝ) ≤ 2 * (d : ℝ) * s) :
+    BedgeReal d s < 1 := by
+  simpa [BedgeReal] using B_case2_lt_one_cleared_real d s hs2 hs hd
+
+/-- Manuscript split over ℝ: critical outside ⇒ `3 ≤ 2 d s`. -/
+theorem split_ineq_of_crit_out_real (D : ParallelBudgetDataReal)
+    (hcrit_out : (2 : ℚ) ≤ (D.d + D.y) * (D.d + D.y)) :
+    (3 : ℝ) ≤ 2 * (D.d : ℝ) * D.s := by
+  have hdy : (0 : ℝ) < ((D.d + D.y : ℚ) : ℝ) := by
+    have : (0 : ℚ) < D.d + D.y :=
+      add_pos (lt_trans (by norm_num : (0 : ℚ) < 1) D.hd) D.hy
+    exact_mod_cast this
+  have hy_ge : D.s - (D.d : ℝ) ≤ (D.y : ℝ) := by
+    have hs_le : D.s ≤ ((D.d + D.y : ℚ) : ℝ) := by
+      have : D.s * D.s ≤ (((D.d + D.y : ℚ) : ℝ) * ((D.d + D.y : ℚ) : ℝ)) := by
+        have h : (2 : ℝ) ≤ ((D.d + D.y) * (D.d + D.y) : ℚ) := by exact_mod_cast hcrit_out
+        simpa [D.hs2] using h
+      exact (sq_le_sq₀ (le_of_lt D.hs) (le_of_lt hdy)).1 (by simpa [pow_two] using this)
+    have hs_le' : D.s ≤ (D.d : ℝ) + (D.y : ℝ) := by
+      simpa [Rat.cast_add] using hs_le
+    linarith
+  have hsq : (D.s - (D.d : ℝ)) ^ 2 ≤ (D.y : ℝ) ^ 2 := by
+    have hnonneg : (0 : ℝ) ≤ D.s - (D.d : ℝ) := sub_nonneg.mpr D.hd_le_s
+    have hyR : (0 : ℝ) ≤ (D.y : ℝ) := by exact_mod_cast (le_of_lt D.hy)
+    exact (sq_le_sq₀ hnonneg hyR).2 hy_ge
+  have hy2R : (D.y : ℝ) * (D.y : ℝ) = (D.d : ℝ) * (D.d : ℝ) - 1 := by
+    exact_mod_cast D.hy2
+  nlinarith [D.hs2, hy2R, hsq]
+
+/-- Case-split real B: critical `d-y` or edge `2(s-d)`. -/
+noncomputable def ParallelBudgetDataReal.B (D : ParallelBudgetDataReal) : ℝ :=
+  if (D.d + D.y) * (D.d + D.y) ≤ 2 then (Bcrit D.d D.y : ℝ) else BedgeReal D.d D.s
+
+theorem ParallelBudgetDataReal.B_lt_one_critical (D : ParallelBudgetDataReal)
+    (h : (D.d + D.y) * (D.d + D.y) ≤ 2) :
+    D.B < 1 := by
+  have hB : D.B = (Bcrit D.d D.y : ℝ) := by simp [ParallelBudgetDataReal.B, h]
+  rw [hB]
+  have := Bcrit_lt_one D.d D.y D.hd D.hy2 (le_of_lt D.hy)
+  exact_mod_cast this
+
+theorem ParallelBudgetDataReal.B_lt_one_edge (D : ParallelBudgetDataReal)
+    (h : ¬ (D.d + D.y) * (D.d + D.y) ≤ 2) :
+    D.B < 1 := by
+  have hcrit_out : (2 : ℚ) ≤ (D.d + D.y) * (D.d + D.y) := by nlinarith
+  have hsplit := split_ineq_of_crit_out_real D hcrit_out
+  have hB : D.B = BedgeReal D.d D.s := by simp [ParallelBudgetDataReal.B, h]
+  rw [hB]
+  exact BedgeReal_lt_one D.d D.s D.hs2 D.hs hsplit
+
+theorem ParallelBudgetDataReal.B_lt_one (D : ParallelBudgetDataReal) : D.B < 1 := by
+  by_cases h : (D.d + D.y) * (D.d + D.y) ≤ 2
+  · exact D.B_lt_one_critical h
+  · exact D.B_lt_one_edge h
+
+/-- Inhabitible positive real square root of 2. -/
+theorem exists_pos_real_sq_eq_two : ∃ s : ℝ, (0 : ℝ) < s ∧ s * s = (2 : ℝ) := by
+  refine ⟨Real.sqrt 2, Real.sqrt_pos.mpr (by norm_num), ?_⟩
+  exact Real.mul_self_sqrt (by norm_num : (0 : ℝ) ≤ 2)
+
+/-- Build a real budget package from rational `d,y` with `d ≤ √2`. -/
+noncomputable def ParallelBudgetDataReal.mk_of_sqrt2 (d y : ℚ)
+    (hd : 1 < d) (hy : 0 < y) (hy2 : y * y = d * d - 1)
+    (hd_le : (d : ℝ) ≤ Real.sqrt 2) : ParallelBudgetDataReal :=
+  ⟨d, y, Real.sqrt 2, hd, hy, hy2,
+    Real.sqrt_pos.mpr (by norm_num),
+    Real.mul_self_sqrt (by norm_num : (0 : ℝ) ≤ 2),
+    hd_le⟩
+
 def parallelBudgetBcritClosed : Bool := true
 theorem parallelBudgetBcritClosed_true : parallelBudgetBcritClosed = true := rfl
 
@@ -447,8 +522,13 @@ def parallelBudgetNoRatSqrt2Closed : Bool := true
 theorem parallelBudgetNoRatSqrt2Closed_true :
     parallelBudgetNoRatSqrt2Closed = true := rfl
 
-def parallelBudgetRealEdgeBLtOneProved : Bool := false
-theorem parallelBudgetRealEdgeBLtOneProved_false :
-    parallelBudgetRealEdgeBLtOneProved = false := rfl
+/-- ℝ edge `B_lt_one` (both branches) closed. -/
+def parallelBudgetRealEdgeBLtOneProved : Bool := true
+theorem parallelBudgetRealEdgeBLtOneProved_true :
+    parallelBudgetRealEdgeBLtOneProved = true := rfl
+
+def parallelBudgetRealPackageClosed : Bool := true
+theorem parallelBudgetRealPackageClosed_true :
+    parallelBudgetRealPackageClosed = true := rfl
 
 end S6.ParallelBudgetGeometry
