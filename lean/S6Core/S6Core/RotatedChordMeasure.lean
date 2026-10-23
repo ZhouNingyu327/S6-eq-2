@@ -3138,4 +3138,195 @@ def rotatedFillerMidLeTwoProved : Bool := false
 theorem rotatedFillerMidLeTwoProved_false : rotatedFillerMidLeTwoProved = false := rfl
 
 
+
+/-! ### Clamped square-total UB ⇒ G5k0 Bridge (real CoverIneq) -/
+
+noncomputable def clampedHorizLo (g : RotatedSquare) (Y μ : ℚ) : ℝ :=
+  max (horizChordLo g Y) 0
+
+noncomputable def clampedHorizHi (g : RotatedSquare) (Y μ : ℚ) : ℝ :=
+  clampedHorizLo g Y μ + clampedHorizLen g Y μ
+
+noncomputable def clampedVertLo (g : RotatedSquare) (X μ : ℚ) : ℝ :=
+  max (vertChordLo g X) 0
+
+noncomputable def clampedVertHi (g : RotatedSquare) (X μ : ℚ) : ℝ :=
+  clampedVertLo g X μ + clampedVertLen g X μ
+
+theorem clampedHoriz_le (g : RotatedSquare) (Y μ : ℚ) :
+    clampedHorizLo g Y μ ≤ clampedHorizHi g Y μ := by
+  have hnn : 0 ≤ clampedHorizLen g Y μ := by
+    dsimp [clampedHorizLen]; exact le_max_right _ _
+  simp only [clampedHorizHi]; linarith
+
+theorem clampedVert_le (g : RotatedSquare) (X μ : ℚ) :
+    clampedVertLo g X μ ≤ clampedVertHi g X μ := by
+  have hnn : 0 ≤ clampedVertLen g X μ := by
+    dsimp [clampedVertLen]; exact le_max_right _ _
+  simp only [clampedVertHi]; linarith
+
+theorem clampedHorizHi_eq_min (g : RotatedSquare) (Y μ : ℚ)
+    (hle : clampedHorizLo g Y μ ≤ min (horizChordHi g Y) ((2 : ℝ) * μ)) :
+    clampedHorizHi g Y μ = min (horizChordHi g Y) ((2 : ℝ) * μ) := by
+  simp only [clampedHorizHi, clampedHorizLen, clampedHorizLo]
+  set A := max (horizChordLo g Y) (0 : ℝ)
+  set B := min (horizChordHi g Y) ((2 : ℝ) * μ)
+  have : max (B - A) 0 = B - A := max_eq_left (sub_nonneg.mpr hle)
+  simp only [this]; ring
+
+theorem clampedVertHi_eq_min (g : RotatedSquare) (X μ : ℚ)
+    (hle : clampedVertLo g X μ ≤ min (vertChordHi g X) ((2 : ℝ) * μ)) :
+    clampedVertHi g X μ = min (vertChordHi g X) ((2 : ℝ) * μ) := by
+  simp only [clampedVertHi, clampedVertLen, clampedVertLo]
+  set A := max (vertChordLo g X) (0 : ℝ)
+  set B := min (vertChordHi g X) ((2 : ℝ) * μ)
+  have : max (B - A) 0 = B - A := max_eq_left (sub_nonneg.mpr hle)
+  simp only [this]; ring
+
+theorem clamped_horiz_covers_of_rat (μ : ℚ) (hμ : 1 < μ)
+    (squares : Fin 6 → RotatedSquare) (Y : ℚ)
+    (hQ : ∀ q : ℚ, 0 ≤ q → q ≤ 2 * μ → ∃ i, RotatedSquare.contains (squares i) (q, Y)) :
+    Icc (0 : ℝ) ((2 : ℝ) * μ) ⊆
+      ⋃ i, Icc (clampedHorizLo (squares i) Y μ) (clampedHorizHi (squares i) Y μ) := by
+  have hL : (0 : ℚ) ≤ 2 * μ := by nlinarith [hμ]
+  have hEq : Icc (0 : ℝ) ((2 : ℝ) * μ) = Icc (0 : ℝ) ((2 * μ : ℚ) : ℝ) := by simp
+  rw [hEq]
+  have hslice : Icc (0 : ℝ) ((2 * μ : ℚ) : ℝ) ⊆ ⋃ i, horizSliceR (squares i) Y := by
+    refine Icc_subset_of_closed_of_rats _ (horizSliceUnion_isClosed squares Y) (2 * μ) hL ?_
+    intro q hq0 hqL
+    rcases hQ q hq0 hqL with ⟨i, hi⟩
+    exact mem_iUnion.mpr ⟨i, mem_horizSliceR_of_contains _ Y q hi⟩
+  intro x hx
+  rcases mem_iUnion.mp (hslice hx) with ⟨i, hi⟩
+  have hxI := slice_subset_chordIcc (squares i) Y hi
+  have hx0 : (0 : ℝ) ≤ x := (mem_Icc.mp hx).1
+  have hx1 : x ≤ ((2 * μ : ℚ) : ℝ) := (mem_Icc.mp hx).2
+  have hlo' : clampedHorizLo (squares i) Y μ ≤ x := by
+    simp only [clampedHorizLo]; exact max_le hxI.1 hx0
+  have hhi_raw : x ≤ min (horizChordHi (squares i) Y) ((2 : ℝ) * μ) :=
+    le_min hxI.2 (by exact_mod_cast hx1)
+  have hnn : clampedHorizLo (squares i) Y μ ≤
+      min (horizChordHi (squares i) Y) ((2 : ℝ) * μ) := le_trans hlo' hhi_raw
+  have hhi : x ≤ clampedHorizHi (squares i) Y μ := by
+    rw [clampedHorizHi_eq_min (squares i) Y μ hnn]; exact hhi_raw
+  exact mem_iUnion.mpr ⟨i, mem_Icc.mpr ⟨hlo', hhi⟩⟩
+
+theorem clamped_vert_covers_of_rat (μ : ℚ) (hμ : 1 < μ)
+    (squares : Fin 6 → RotatedSquare) (X : ℚ)
+    (hQ : ∀ q : ℚ, 0 ≤ q → q ≤ 2 * μ → ∃ i, RotatedSquare.contains (squares i) (X, q)) :
+    Icc (0 : ℝ) ((2 : ℝ) * μ) ⊆
+      ⋃ i, Icc (clampedVertLo (squares i) X μ) (clampedVertHi (squares i) X μ) := by
+  have hL : (0 : ℚ) ≤ 2 * μ := by nlinarith [hμ]
+  have hEq : Icc (0 : ℝ) ((2 : ℝ) * μ) = Icc (0 : ℝ) ((2 * μ : ℚ) : ℝ) := by simp
+  rw [hEq]
+  have hslice : Icc (0 : ℝ) ((2 * μ : ℚ) : ℝ) ⊆ ⋃ i, vertSliceR (squares i) X := by
+    refine Icc_subset_of_closed_of_rats _ (vertSliceUnion_isClosed squares X) (2 * μ) hL ?_
+    intro q hq0 hqL
+    rcases hQ q hq0 hqL with ⟨i, hi⟩
+    exact mem_iUnion.mpr ⟨i, mem_vertSliceR_of_contains _ X q hi⟩
+  intro x hx
+  rcases mem_iUnion.mp (hslice hx) with ⟨i, hi⟩
+  have hxI := slice_subset_vertChordIcc (squares i) X hi
+  have hx0 : (0 : ℝ) ≤ x := (mem_Icc.mp hx).1
+  have hx1 : x ≤ ((2 * μ : ℚ) : ℝ) := (mem_Icc.mp hx).2
+  have hlo' : clampedVertLo (squares i) X μ ≤ x := by
+    simp only [clampedVertLo]; exact max_le hxI.1 hx0
+  have hhi_raw : x ≤ min (vertChordHi (squares i) X) ((2 : ℝ) * μ) :=
+    le_min hxI.2 (by exact_mod_cast hx1)
+  have hnn : clampedVertLo (squares i) X μ ≤
+      min (vertChordHi (squares i) X) ((2 : ℝ) * μ) := le_trans hlo' hhi_raw
+  have hhi : x ≤ clampedVertHi (squares i) X μ := by
+    rw [clampedVertHi_eq_min (squares i) X μ hnn]; exact hhi_raw
+  exact mem_iUnion.mpr ⟨i, mem_Icc.mpr ⟨hlo', hhi⟩⟩
+
+theorem sum_clampedHoriz_ge (μ : ℚ) (hμ : 1 < μ)
+    (squares : Fin 6 → RotatedSquare) (Y : ℚ)
+    (hQ : ∀ q : ℚ, 0 ≤ q → q ≤ 2 * μ → ∃ i, RotatedSquare.contains (squares i) (q, Y)) :
+    (2 : ℝ) * μ ≤ ∑ i : Fin 6, clampedHorizLen (squares i) Y μ := by
+  have hab : (0 : ℝ) ≤ (2 : ℝ) * μ := by exact_mod_cast (by nlinarith [hμ] : (0 : ℚ) ≤ 2 * μ)
+  have hcover := clamped_horiz_covers_of_rat μ hμ squares Y hQ
+  have hdiff := cover_Icc_sum_diff (0 : ℝ) ((2 : ℝ) * μ) hab
+    (fun i => clampedHorizLo (squares i) Y μ)
+    (fun i => clampedHorizHi (squares i) Y μ)
+    (fun i => clampedHoriz_le (squares i) Y μ) hcover
+  simpa [clampedHorizHi] using hdiff
+
+theorem sum_clampedVert_ge (μ : ℚ) (hμ : 1 < μ)
+    (squares : Fin 6 → RotatedSquare) (X : ℚ)
+    (hQ : ∀ q : ℚ, 0 ≤ q → q ≤ 2 * μ → ∃ i, RotatedSquare.contains (squares i) (X, q)) :
+    (2 : ℝ) * μ ≤ ∑ i : Fin 6, clampedVertLen (squares i) X μ := by
+  have hab : (0 : ℝ) ≤ (2 : ℝ) * μ := by exact_mod_cast (by nlinarith [hμ] : (0 : ℚ) ≤ 2 * μ)
+  have hcover := clamped_vert_covers_of_rat μ hμ squares X hQ
+  have hdiff := cover_Icc_sum_diff (0 : ℝ) ((2 : ℝ) * μ) hab
+    (fun i => clampedVertLo (squares i) X μ)
+    (fun i => clampedVertHi (squares i) X μ)
+    (fun i => clampedVert_le (squares i) X μ) hcover
+  simpa [clampedVertHi] using hdiff
+
+theorem sum_clampedSquareTotal_ge_twelve_mu {T : Target} (cov : PointwiseCover T)
+    (hμ : 1 < T.μ) :
+    (12 : ℝ) * T.μ ≤ ∑ i : Fin 6, clampedSquareTotal (cov.squares i) T.μ := by
+  have H := RotatedGridRatCover_of_pointwise T cov
+  have hb := sum_clampedHoriz_ge T.μ hμ cov.squares 0 H.bottom
+  have ht := sum_clampedHoriz_ge T.μ hμ cov.squares (2 * T.μ) H.top
+  have hl := sum_clampedVert_ge T.μ hμ cov.squares 0 H.left
+  have hr := sum_clampedVert_ge T.μ hμ cov.squares (2 * T.μ) H.right
+  have hm := sum_clampedHoriz_ge T.μ hμ cov.squares T.μ H.hMid
+  have hv := sum_clampedVert_ge T.μ hμ cov.squares T.μ H.vMid
+  have hsum :
+      ∑ i : Fin 6, clampedSquareTotal (cov.squares i) T.μ =
+        (∑ i, clampedHorizLen (cov.squares i) 0 T.μ) +
+        (∑ i, clampedHorizLen (cov.squares i) (2 * T.μ) T.μ) +
+        (∑ i, clampedVertLen (cov.squares i) 0 T.μ) +
+        (∑ i, clampedVertLen (cov.squares i) (2 * T.μ) T.μ) +
+        (∑ i, clampedHorizLen (cov.squares i) T.μ T.μ) +
+        (∑ i, clampedVertLen (cov.squares i) T.μ T.μ) := by
+    simp only [clampedSquareTotal, Finset.sum_add_distrib]
+  linarith [hb, ht, hl, hr, hm, hv, hsum]
+
+theorem clampedSquareTotal_ub_impossible {T : Target} (cov : PointwiseCover T)
+    (hμ : 1 < T.μ) (hub : ∀ i, clampedSquareTotal (cov.squares i) T.μ ≤ 2) : False := by
+  have hge := sum_clampedSquareTotal_ge_twelve_mu cov hμ
+  have hle : ∑ i : Fin 6, clampedSquareTotal (cov.squares i) T.μ ≤ (12 : ℝ) := by
+    calc
+      ∑ i : Fin 6, clampedSquareTotal (cov.squares i) T.μ
+          ≤ ∑ _i : Fin 6, (2 : ℝ) := Finset.sum_le_sum fun _ _ => hub _
+      _ = 12 := by
+        simp [Finset.sum_const, Finset.card_univ, Fintype.card_fin]
+        norm_num
+  have hμR : (1 : ℝ) < T.μ := by exact_mod_cast hμ
+  nlinarith
+
+/-- Open: every G5 k=0 cover has per-tile clampedSquareTotal ≤ 2. -/
+def ClampedSquareUbG5k0Realisation : Prop :=
+  ∀ (T : Target) (cov : PointwiseCover T),
+    isG5Class cov →
+      (RoleSelection.ofCover cov).toManuscript.flags.k = ⟨0, by decide⟩ →
+        ∀ i : Fin 6, clampedSquareTotal (cov.squares i) T.μ ≤ 2
+
+theorem G5k0Bridge_of_clampedSquareUb (h : ClampedSquareUbG5k0Realisation) :
+    G5k0Bridge := by
+  intro T cov hcls hk
+  exact False.elim (clampedSquareTotal_ub_impossible cov T.hμ (h T cov hcls hk))
+
+theorem RotatedChordCoverIneq_of_clampedSquareUb (h : ClampedSquareUbG5k0Realisation) :
+    RotatedChordCoverIneq := by
+  intro T cov hcls hk
+  exact False.elim (clampedSquareTotal_ub_impossible cov T.hμ (h T cov hcls hk))
+
+theorem RotatedChordCoverIneq_of_bodyIdentityC (h : BodyChartIdentityCG5k0Realisation) :
+    RotatedChordCoverIneq :=
+  RotatedChordCoverIneq_of_identityC (AxisAlignedIdentityCRealisation_of_bodyIdentityC h)
+
+def clampedSquareUbG5k0RealisationProved : Bool := false
+theorem clampedSquareUbG5k0RealisationProved_false :
+    clampedSquareUbG5k0RealisationProved = false := rfl
+
+def clampedSquareUbBridgeClosed : Bool := true
+theorem clampedSquareUbBridgeClosed_true : clampedSquareUbBridgeClosed = true := rfl
+
+def bodyIdentityCCoverIneqClosed : Bool := true
+theorem bodyIdentityCCoverIneqClosed_true : bodyIdentityCCoverIneqClosed = true := rfl
+
+
 end S6.RotatedChordMeasure

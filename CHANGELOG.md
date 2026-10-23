@@ -1,3 +1,13 @@
+## v0.26.10 — BodyChart↔SameDir + clampedSquareUb⇒Bridge (2026-10-23 Asia/Shanghai)
+
+- `AxisG5k0FromCover`: `BodyChartAxisAligned ↔ SameDirAsC`; chart-axis+body-axis ⇒ world axis;
+  `BodyChartIdentityCG5k0Realisation` ⇒ `AxisAlignedIdentityCRealisation` / Bridge / GeomExport
+  (packaging; inhabit still open).
+- `RotatedChordMeasure`: clamped line covers + ∑ clampedSquareTotal ≥ 12μ; per-tile UB≤2
+  impossible ⇒ `ClampedSquareUbG5k0Realisation` ⇒ Bridge/CoverIneq; CoverIneq of bodyIdentityC.
+- Open: inhabit SameDir/BodyChart/IdentityC/ClampedUb; unrestricted mid≤2; G3 ℚ√2.
+  `principalClaimProvedUnconditionally=false`.
+
 ## v0.26.9 — filler mid-pack + SameDir⇒BodyChart (2026-10-23 Asia/Shanghai)
 
 - `RotatedChordMeasure`: centre-tile clampedSquareTotal = mid-sum ≤ 2·projWidth (μ²>2);

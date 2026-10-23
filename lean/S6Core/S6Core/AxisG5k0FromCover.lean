@@ -776,10 +776,108 @@ theorem sameDirG5k0RealisationProved_false : sameDirG5k0RealisationProved = fals
 def sameDirToBodyChartClosed : Bool := true
 theorem sameDirToBodyChartClosed_true : sameDirToBodyChartClosed = true := rfl
 
+/-! ## BodyChart ↔ SameDir (reverse) + BodyChart+IdentityC ⇒ world IdentityC -/
+
+/-- Pullback axis-aligned ⇒ shared world direction. -/
+theorem dir_eq_of_pullback_axis (g f : RotatedSquare)
+    (h : isAxisAligned (RotatedSquare.pullback g f)) : f.dir = g.dir := by
+  have hcomp_c : g.dir.c * f.dir.c + g.dir.s * f.dir.s = 1 := by
+    simpa [isAxisAligned, RotatedSquare.pullback, RigidMotion.comp, RigidMotion.inverse,
+      UnitDir.comp, unitDirInv] using h.1
+  have hdiff :
+      (f.dir.c - g.dir.c) ^ 2 + (f.dir.s - g.dir.s) ^ 2 = 0 := by
+    nlinarith [g.dir.hc, f.dir.hc, hcomp_c]
+  have hzc : f.dir.c = g.dir.c := by
+    nlinarith [sq_nonneg (f.dir.c - g.dir.c), sq_nonneg (f.dir.s - g.dir.s), hdiff]
+  have hzs : f.dir.s = g.dir.s := by
+    nlinarith [sq_nonneg (f.dir.c - g.dir.c), sq_nonneg (f.dir.s - g.dir.s), hdiff]
+  exact unitDir_eq _ _ hzc hzs
+
+theorem SameDirAsC_of_BodyChartAxisAligned {T : Target} (cov : PointwiseCover T)
+    (h : BodyChartAxisAligned cov) : SameDirAsC cov := by
+  intro i
+  have hcov : (RoleSelection.ofCover cov).cov = cov := rfl
+  have hp : isAxisAligned (bodyChartSquares cov i) := h i
+  simpa [SameDirAsC, bodyChartSquares, hcov] using
+    dir_eq_of_pullback_axis
+      ((RoleSelection.ofCover cov).cov.squares (RoleSelection.ofCover cov).iC)
+      ((RoleSelection.ofCover cov).cov.squares i)
+      (by simpa [bodyChartSquares, hcov] using hp)
+
+theorem BodyChartAxisAligned_iff_SameDirAsC {T : Target} (cov : PointwiseCover T) :
+    BodyChartAxisAligned cov ↔ SameDirAsC cov :=
+  ⟨SameDirAsC_of_BodyChartAxisAligned cov, BodyChartAxisAligned_of_SameDirAsC cov⟩
+
+theorem BodyChartAxisG5k0Realisation_iff_SameDir :
+    BodyChartAxisG5k0Realisation ↔ SameDirG5k0Realisation := by
+  constructor
+  · intro h T cov hcls hk
+    exact SameDirAsC_of_BodyChartAxisAligned cov (h T cov hcls hk)
+  · exact BodyChartAxisG5k0Realisation_of_sameDir
+
+/-- Chart tile axis + body-chart axis ⇒ world tile axis. -/
+theorem isAxisAligned_of_body_axis_of_chart_axis (g f : RotatedSquare)
+    (hg : isAxisAligned g) (hp : isAxisAligned (RotatedSquare.pullback g f)) :
+    isAxisAligned f := by
+  have hdir := dir_eq_of_pullback_axis g f hp
+  exact ⟨by simpa [hdir] using hg.1, by simpa [hdir] using hg.2⟩
+
+theorem world_axis_of_BodyChartAxis_of_C_axis {T : Target} (cov : PointwiseCover T)
+    (hbody : BodyChartAxisAligned cov)
+    (hC : isAxisAligned
+      ((RoleSelection.ofCover cov).cov.squares (RoleSelection.ofCover cov).iC)) :
+    ∀ i : Fin 6, isAxisAligned (cov.squares i) := by
+  intro i
+  have hcov : (RoleSelection.ofCover cov).cov = cov := rfl
+  exact isAxisAligned_of_body_axis_of_chart_axis
+    ((RoleSelection.ofCover cov).cov.squares (RoleSelection.ofCover cov).iC)
+    (cov.squares i) (by simpa [hcov] using hC)
+    (by
+      have hp : isAxisAligned (bodyChartSquares cov i) := hbody i
+      simpa [bodyChartSquares, hcov] using hp)
+
+/-- Open hyp: body-chart axis + world C = identityPose for every G5 k=0. -/
+def BodyChartIdentityCG5k0Realisation : Prop :=
+  ∀ (T : Target) (cov : PointwiseCover T),
+    isG5Class cov →
+      (RoleSelection.ofCover cov).toManuscript.flags.k = ⟨0, by decide⟩ →
+        BodyChartAxisAligned cov ∧
+          (RoleSelection.ofCover cov).cov.squares (RoleSelection.ofCover cov).iC =
+            identityPose
+
+theorem AxisAlignedIdentityCRealisation_of_bodyIdentityC
+    (h : BodyChartIdentityCG5k0Realisation) : AxisAlignedIdentityCRealisation := by
+  intro T cov hcls hk
+  obtain ⟨hbody, hC⟩ := h T cov hcls hk
+  refine ⟨?_, hC⟩
+  exact world_axis_of_BodyChartAxis_of_C_axis cov hbody
+    (by simpa [hC] using isAxisAligned_identity)
+
+theorem G5k0Bridge_of_bodyIdentityC (h : BodyChartIdentityCG5k0Realisation) :
+    G5k0Bridge :=
+  G5k0Bridge_of_identityCRealisation
+    (AxisAlignedIdentityCRealisation_of_bodyIdentityC h)
+
+theorem G5k0GeomExport_of_bodyIdentityC (h : BodyChartIdentityCG5k0Realisation) :
+    G5k0GeomExport :=
+  G5k0GeomExport_of_identityCRealisation
+    (AxisAlignedIdentityCRealisation_of_bodyIdentityC h)
+
+def bodyChartIdentityCG5k0RealisationProved : Bool := false
+theorem bodyChartIdentityCG5k0RealisationProved_false :
+    bodyChartIdentityCG5k0RealisationProved = false := rfl
+
+def bodyChartIffSameDirClosed : Bool := true
+theorem bodyChartIffSameDirClosed_true : bodyChartIffSameDirClosed = true := rfl
+
+def bodyIdentityCToAxisIdentityCClosed : Bool := true
+theorem bodyIdentityCToAxisIdentityCClosed_true :
+    bodyIdentityCToAxisIdentityCClosed = true := rfl
+
 def openAxisG5k0FromCover : List String :=
   ["AxisAlignedIdentityCRealisation (world axis + C=identityPose for every G5 k=0)",
-   "BodyChartAxisG5k0Realisation (via SameDirG5k0Realisation or world-axis; packaging closed)",
-   "SameDirG5k0Realisation inhabit (every G5 k=0 is same-dir as C)",
+   "BodyChartAxisG5k0Realisation / SameDirG5k0Realisation inhabit (iff packaging closed)",
+   "BodyChartIdentityCG5k0Realisation inhabit (body-axis + world C=identity)",
    "RotatedChordCoverIneq / BoundPackage from general PointwiseCover",
    "Manuscript fHasO uses O=(μ,μ) not C.toBody(world O) when C≠identity (model gap)"]
 
