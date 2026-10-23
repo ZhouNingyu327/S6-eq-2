@@ -3454,5 +3454,63 @@ def identityCCardinalFCoverIneqClosed : Bool := true
 theorem identityCCardinalFCoverIneqClosed_true :
     identityCCardinalFCoverIneqClosed = true := rfl
 
+/-! ### IdentityC + axis-F + μ²>2 ⇒ IdentityCCardinalF (pw(F)=1 automatic) -/
+
+theorem squareProjWidth_eq_one_of_axisAligned (g : RotatedSquare)
+    (h : isAxisAligned g) : squareProjWidth g = 1 := by
+  obtain ⟨hc, hs⟩ := h
+  simp [squareProjWidth, hc, hs]
+
+theorem squareProjWidth_le_one_of_axisAligned (g : RotatedSquare)
+    (h : isAxisAligned g) : squareProjWidth g ≤ 1 :=
+  le_of_eq (squareProjWidth_eq_one_of_axisAligned g h)
+
+/-- Open inhabit reduced: C=`identityPose`, F axis-aligned, and `μ²>2` for every G5 k=0.
+`pw(F)≤1` and F∋O then follow. -/
+def IdentityCAxisFMuSqG5k0Realisation : Prop :=
+  ∀ (T : Target) (cov : PointwiseCover T),
+    isG5Class cov →
+      (RoleSelection.ofCover cov).toManuscript.flags.k = ⟨0, by decide⟩ →
+        (RoleSelection.ofCover cov).cov.squares (RoleSelection.ofCover cov).iC =
+            PdfNormalisation.identityPose ∧
+          isAxisAligned
+              ((RoleSelection.ofCover cov).cov.squares (RoleSelection.ofCover cov).iF) ∧
+            2 < T.μ * T.μ
+
+theorem IdentityCCardinalFG5k0Realisation_of_identityC_axisF_muSq
+    (h : IdentityCAxisFMuSqG5k0Realisation) :
+    IdentityCCardinalFG5k0Realisation := by
+  intro T cov hcls hk
+  rcases h T cov hcls hk with ⟨hC, hFaxis, hμ2⟩
+  refine ⟨hC, hμ2, ?_⟩
+  exact squareProjWidth_le_one_of_axisAligned _ hFaxis
+
+theorem ClampedSquareUbG5k0Realisation_of_identityC_axisF_muSq
+    (h : IdentityCAxisFMuSqG5k0Realisation) :
+    ClampedSquareUbG5k0Realisation :=
+  ClampedSquareUbG5k0Realisation_of_roles_cardinal
+    (RolesCardinalFillerG5k0Realisation_of_identityC_cardinalF
+      (IdentityCCardinalFG5k0Realisation_of_identityC_axisF_muSq h))
+
+theorem RotatedChordCoverIneq_of_identityC_axisF_muSq
+    (h : IdentityCAxisFMuSqG5k0Realisation) :
+    RotatedChordCoverIneq :=
+  RotatedChordCoverIneq_of_clampedSquareUb
+    (ClampedSquareUbG5k0Realisation_of_identityC_axisF_muSq h)
+
+theorem G5k0Bridge_of_identityC_axisF_muSq
+    (h : IdentityCAxisFMuSqG5k0Realisation) :
+    G5k0Bridge :=
+  G5k0Bridge_of_clampedSquareUb
+    (ClampedSquareUbG5k0Realisation_of_identityC_axisF_muSq h)
+
+def identityCAxisFMuSqG5k0RealisationProved : Bool := false
+theorem identityCAxisFMuSqG5k0RealisationProved_false :
+    identityCAxisFMuSqG5k0RealisationProved = false := rfl
+
+def identityCAxisFMuSqCoverIneqClosed : Bool := true
+theorem identityCAxisFMuSqCoverIneqClosed_true :
+    identityCAxisFMuSqCoverIneqClosed = true := rfl
+
 
 end S6.RotatedChordMeasure

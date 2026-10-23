@@ -546,5 +546,79 @@ theorem G3RealSideGapExportProved_false : G3RealSideGapExportProved = false := r
 def g3RealEdgeBLtOneClosed : Bool := true
 theorem g3RealEdgeBLtOneClosed_true : g3RealEdgeBLtOneClosed = true := rfl
 
+/-! ## G3 real sep/cap inhabit targets (s = √2 inhabitible) -/
+
+/-- Named open: G3 cover supplies `(d,y,vF)` + real `s²=2` and covering ineq. -/
+def G3RealSepWitnessExport : Prop :=
+  ∀ (T : S6.Obligation2.Target) (cov : S6.Obligation2Opens.PointwiseCover T),
+    classify (S6.Obligation2Roles.RoleSelection.ofCover cov).toManuscript.flags.toOwnership =
+        TopClass.G3 →
+      ∃ (d y vF : ℚ) (s : ℝ) (hd : 1 < d) (hy : 0 < y) (hy2 : y * y = d * d - 1)
+        (hs : (0 : ℝ) < s) (hs2 : s * s = (2 : ℝ)) (hd_le : (d : ℝ) ≤ s),
+          (vF : ℝ) < T.μ ∧
+            (12 : ℝ) * T.μ ≤
+              8 + 3 * (ParallelBudgetDataReal.mk' d y s hd hy hy2 hs hs2 hd_le).B +
+                (vF : ℝ)
+
+theorem G3RealSideGapExport_of_realSepWitness (h : G3RealSepWitnessExport) :
+    G3RealSideGapExport := by
+  intro T cov hcls
+  rcases h T cov hcls with ⟨d, y, vF, s, hd, hy, hy2, hs, hs2, hd_le, hv, hp⟩
+  exact ⟨ParallelBudgetDataReal.mk' d y s hd hy hy2 hs hs2 hd_le, vF, hv, hp⟩
+
+theorem G3Exclusion_of_realSepWitness (h : G3RealSepWitnessExport) : G3Exclusion :=
+  G3Exclusion_of_realSideGapExport (G3RealSideGapExport_of_realSepWitness h)
+
+/-- Named open: G3 cover supplies oriented square + triangular-cap + critical `y` + `vF`.
+Real `s=√2` is constructed; residual is geometry→`(Q,H,y,vF)` + covering ineq. -/
+def G3RealCapYExport : Prop :=
+  ∀ (T : S6.Obligation2.Target) (cov : S6.Obligation2Opens.PointwiseCover T),
+    classify (S6.Obligation2Roles.RoleSelection.ofCover cov).toManuscript.flags.toOwnership =
+        TopClass.G3 →
+      ∃ (Q : OrientedUnitSquare) (H : TriangularCapCuts Q) (y vF : ℚ)
+        (hy : 0 < y) (hy2 : y * y = H.d * H.d - 1),
+          (vF : ℝ) < T.μ ∧
+            (12 : ℝ) * T.μ ≤
+              8 + 3 * (ParallelBudgetDataReal_of_cap Q H y hy hy2).B + (vF : ℝ)
+
+theorem G3RealSepWitnessExport_of_realCapY (h : G3RealCapYExport) :
+    G3RealSepWitnessExport := by
+  intro T cov hcls
+  rcases h T cov hcls with ⟨Q, H, y, vF, hy, hy2, hv, hp⟩
+  refine ⟨H.d, y, vF, Real.sqrt 2, H.hd, hy, hy2,
+    Real.sqrt_pos.mpr (by norm_num),
+    Real.mul_self_sqrt (by norm_num : (0 : ℝ) ≤ 2),
+    H.d_le_sqrt2 Q, hv, ?_⟩
+  -- mk' with √2 = of_cap
+  have hD :
+      ParallelBudgetDataReal.mk' H.d y (Real.sqrt 2) H.hd hy hy2
+          (Real.sqrt_pos.mpr (by norm_num))
+          (Real.mul_self_sqrt (by norm_num : (0 : ℝ) ≤ 2))
+          (H.d_le_sqrt2 Q) =
+        ParallelBudgetDataReal_of_cap Q H y hy hy2 := by
+    simp [ParallelBudgetDataReal.mk', ParallelBudgetDataReal_of_cap,
+      ParallelBudgetDataReal.mk_of_sqrt2]
+  simpa [hD] using hp
+
+theorem G3RealSideGapExport_of_realCapY (h : G3RealCapYExport) :
+    G3RealSideGapExport :=
+  G3RealSideGapExport_of_realSepWitness (G3RealSepWitnessExport_of_realCapY h)
+
+theorem G3Exclusion_of_realCapY (h : G3RealCapYExport) : G3Exclusion :=
+  G3Exclusion_of_realSideGapExport (G3RealSideGapExport_of_realCapY h)
+
+def g3RealSepWitnessReductionClosed : Bool := true
+theorem g3RealSepWitnessReductionClosed_true :
+    g3RealSepWitnessReductionClosed = true := rfl
+
+def g3RealCapYReductionClosed : Bool := true
+theorem g3RealCapYReductionClosed_true : g3RealCapYReductionClosed = true := rfl
+
+def G3RealSepWitnessExportProved : Bool := false
+theorem G3RealSepWitnessExportProved_false : G3RealSepWitnessExportProved = false := rfl
+
+def G3RealCapYExportProved : Bool := false
+theorem G3RealCapYExportProved_false : G3RealCapYExportProved = false := rfl
+
 
 end S6.G3G4Fragments

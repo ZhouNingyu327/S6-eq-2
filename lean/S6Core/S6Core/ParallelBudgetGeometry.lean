@@ -506,6 +506,13 @@ theorem exists_pos_real_sq_eq_two : ∃ s : ℝ, (0 : ℝ) < s ∧ s * s = (2 : 
   refine ⟨Real.sqrt 2, Real.sqrt_pos.mpr (by norm_num), ?_⟩
   exact Real.mul_self_sqrt (by norm_num : (0 : ℝ) ≤ 2)
 
+/-- Build a real budget package from rational `d,y` and real `s`. -/
+def ParallelBudgetDataReal.mk' (d y : ℚ) (s : ℝ)
+    (hd : 1 < d) (hy : 0 < y) (hy2 : y * y = d * d - 1)
+    (hs : (0 : ℝ) < s) (hs2 : s * s = (2 : ℝ)) (hd_le : (d : ℝ) ≤ s) :
+    ParallelBudgetDataReal :=
+  ⟨d, y, s, hd, hy, hy2, hs, hs2, hd_le⟩
+
 /-- Build a real budget package from rational `d,y` with `d ≤ √2`. -/
 noncomputable def ParallelBudgetDataReal.mk_of_sqrt2 (d y : ℚ)
     (hd : 1 < d) (hy : 0 < y) (hy2 : y * y = d * d - 1)
@@ -514,6 +521,43 @@ noncomputable def ParallelBudgetDataReal.mk_of_sqrt2 (d y : ℚ)
     Real.sqrt_pos.mpr (by norm_num),
     Real.mul_self_sqrt (by norm_num : (0 : ℝ) ≤ 2),
     hd_le⟩
+
+theorem OrientedUnitSquare.width_le_sqrt2 (Q : OrientedUnitSquare) :
+    (Q.width : ℝ) ≤ Real.sqrt 2 := by
+  have hsq : Q.width * Q.width ≤ (2 : ℚ) := Q.width_sq_le_two
+  have hsqR : (Q.width : ℝ) * (Q.width : ℝ) ≤ (2 : ℝ) := by exact_mod_cast hsq
+  have hw0 : (0 : ℝ) ≤ Q.width := by
+    have : (0 : ℚ) ≤ Q.width := le_of_lt (lt_trans (by norm_num : (0 : ℚ) < 1) Q.width_gt_one)
+    exact_mod_cast this
+  have h2 : (0 : ℝ) ≤ Real.sqrt 2 := Real.sqrt_nonneg _
+  have : (Q.width : ℝ) ^ 2 ≤ (Real.sqrt 2) ^ 2 := by
+    simpa [pow_two, Real.mul_self_sqrt (by norm_num : (0 : ℝ) ≤ 2)] using hsqR
+  exact (sq_le_sq₀ hw0 h2).1 this
+
+theorem TriangularCapCuts.d_le_width (Q : OrientedUnitSquare) (H : TriangularCapCuts Q) :
+    H.d ≤ Q.width := by
+  have := H.htd
+  have := H.ht0
+  linarith
+
+theorem TriangularCapCuts.d_le_sqrt2 (Q : OrientedUnitSquare) (H : TriangularCapCuts Q) :
+    (H.d : ℝ) ≤ Real.sqrt 2 :=
+  le_trans (by exact_mod_cast H.d_le_width Q) Q.width_le_sqrt2
+
+/-- Cap + critical `y` ⇒ inhabitible real budget (uses `s = √2`). -/
+noncomputable def ParallelBudgetDataReal_of_cap (Q : OrientedUnitSquare)
+    (H : TriangularCapCuts Q) (y : ℚ)
+    (hy : 0 < y) (hy2 : y * y = H.d * H.d - 1) : ParallelBudgetDataReal :=
+  ParallelBudgetDataReal.mk_of_sqrt2 H.d y H.hd hy hy2 (H.d_le_sqrt2 Q)
+
+theorem ParallelBudgetDataReal_of_cap_B_lt_one (Q : OrientedUnitSquare)
+    (H : TriangularCapCuts Q) (y : ℚ)
+    (hy : 0 < y) (hy2 : y * y = H.d * H.d - 1) :
+    (ParallelBudgetDataReal_of_cap Q H y hy hy2).B < 1 :=
+  (ParallelBudgetDataReal_of_cap Q H y hy hy2).B_lt_one
+
+def parallelBudgetRealOfCapClosed : Bool := true
+theorem parallelBudgetRealOfCapClosed_true : parallelBudgetRealOfCapClosed = true := rfl
 
 def parallelBudgetBcritClosed : Bool := true
 theorem parallelBudgetBcritClosed_true : parallelBudgetBcritClosed = true := rfl

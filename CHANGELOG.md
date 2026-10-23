@@ -1,3 +1,14 @@
+## v0.26.13 — G3 real sep/cap reduction + IdentityC axis-F μ² pack (2026-10-23 Asia/Shanghai)
+
+- `ParallelBudgetGeometry`: `ParallelBudgetDataReal.mk'`; `OrientedUnitSquare.width_le_sqrt2`;
+  `TriangularCapCuts.d_le_width` / `d_le_sqrt2`; `ParallelBudgetDataReal_of_cap` (+ `B_lt_one`).
+- `G3G4Fragments`: `G3RealSepWitnessExport` / `G3RealCapYExport` ⇒ SideGap / Exclusion
+  (√2 inhabitible; geometry→`(d,y,vF)` / `(Q,H,y,vF)` still open).
+- `RotatedChordMeasure`: `IdentityCAxisFMuSqG5k0Realisation` ⇒ IdentityCCardinalF /
+  ClampedSquareUb / CoverIneq / Bridge (`pw(F)=1` from axis-F).
+- Open: inhabit G3RealSep/CapY / IdentityCAxisFMuSq; unrestricted mid≤2.
+  `principalClaimProvedUnconditionally=false`.
+
 ## v0.26.12 — ℝ edge B_lt_one + real side-gap packaging (2026-10-23 Asia/Shanghai)
 
 - `ParallelChord`: `B_case2_lt_one_cleared_real` (`s : ℝ`, `s²=2` ⇒ `2(s-d)<1`).
