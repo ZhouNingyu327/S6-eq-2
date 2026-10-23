@@ -1,3 +1,12 @@
+## v0.26.7 — R14 NoLeftTip + AngleOrder algebraic unsat (2026-10-23 Asia/Shanghai)
+
+- `CertR14BridgeJunction`: Lean-prove Z3 bridge `no_left_tip` and junction
+  `angle_order` packs unsat (`NoLeftTipHyps` / `AngleOrderHyps` ⇒ False).
+- Conditionals: `R14SE2Realises{NoLeftTip,AngleOrder}Pack` ⇒ ForcesBridgeJunction /
+  `BernsteinForcesRawEmpty "R14"`. Extended `NearEndR14With{NoLeftTip,AngleOrder}` empty.
+- ForcesBridgeJunction still false; SE2⇒pack OPEN (no invented NearEndSE2 fields).
+  `principalClaim` / `namedClosersDischarged` untouched. Lake green.
+
 ## v0.26.6 — R14 JCondition + SumBudget unsat; extended packages empty (2026-10-22 Asia/Shanghai)
 
 - `CertR14BridgeJunction`: Lean-prove Z3 `J_condition` and junction `sumBudget`

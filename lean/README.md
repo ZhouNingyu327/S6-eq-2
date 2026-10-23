@@ -60,7 +60,8 @@ geometric proofs.
 | Centre outer-miss (`μ²>2`); four-corner projWidth mid-miss (`|c|+|s|<μ`) | **Proved** |
 | Four-corner `clampedSquareTotal ≤2` under projWidth | **Proved** |
 | μ²>2 auto corner pack; centre outer clamped=0; chord ≤ projWidth | **Proved** |
-| Same-dir ⇒ body-chart axis-aligned + C=`identityPose` | **Proved** |
+| Same-dir ⇒ body-chart axis-aligned + C=`identityPose` (packaging) | **Proved** |
+| μ²>2 auto corner pack; centre outer clamped=0; chord ≤ projWidth (Lean body) | **Proved** |
 | Filler mid ≤2; general `ChordMatrixExport`; full BodyChartAxis / IdentityC | **Open** |
 | Inhabit `RotatedSixLineMeasureLift` from `RotatedGridRatCover` | **Open** |
 | Axis/identity-C realisation ⇒ `RotatedChordCoverIneq` | **Proved conditional** |
