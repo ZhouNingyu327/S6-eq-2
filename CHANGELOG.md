@@ -1,3 +1,15 @@
+## v0.26.11 — G3 Bcrit/ℝ + roles-cardinal CoverIneq (2026-10-23 Asia/Shanghai)
+
+- `ParallelBudgetGeometry`: `no_rat_sq_eq_two` / `no_pos_rat_sq_eq_two`; `ParallelBudgetDataBcrit`
+  (critical-only, no ℚ√2); `ParallelBudgetDataReal` skeleton (edge `B_lt_one` still open).
+- `G3G4Fragments`: `G3BcritExport` / `G3RealBcritExport` ⇒ SideGap/Exclusion; SepWitness inhabit
+  blocked by no-ℚ-√2 when a G3 cover exists.
+- `RotatedChordMeasure`: roles Fin6 partition; `RolesCardinalFillerG5k0Realisation` /
+  `IdentityCCardinalFG5k0Realisation` ⇒ ClampedSquareUb / CoverIneq / Bridge (packaging;
+  inhabit still open).
+- Open: inhabit SameDir/BodyChart/IdentityC/ClampedUb/RolesCardinal; G3 Bcrit inhabit;
+  real edge B; unrestricted mid≤2. `principalClaimProvedUnconditionally=false`.
+
 ## v0.26.10 — BodyChart↔SameDir + clampedSquareUb⇒Bridge (2026-10-23 Asia/Shanghai)
 
 - `AxisG5k0FromCover`: `BodyChartAxisAligned ↔ SameDirAsC`; chart-axis+body-axis ⇒ world axis;

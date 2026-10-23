@@ -2,6 +2,8 @@
 
 ## Done
 
+- **v0.26.11:** G3 Bcrit-only + ℝ skeleton; `no_rat_sq_eq_two` blocks SepWitness ℚ√2;
+  roles-cardinal / IdentityC+cardinalF ⇒ ClampedUb/CoverIneq packaging
 - **v0.26.10:** BodyChartAxisAligned ↔ SameDirAsC; BodyChartIdentityC ⇒ AxisAlignedIdentityC /
   Bridge / CoverIneq packaging; clamped line covers + ∑clampedSquareTotal≥12μ; ClampedSquareUb⇒Bridge
 - **v0.26.9:** filler centre-tile mid-pack (≤2·projWidth; ≤2 if projWidth≤1); roles skeleton;
@@ -16,13 +18,13 @@
 ## Next
 
 1. Inhabit `SameDirG5k0Realisation` / `BodyChartAxisG5k0Realisation` /
-   `BodyChartIdentityCG5k0Realisation` / `ClampedSquareUbG5k0Realisation` for every G5 k=0;
-   **or** ℚ-export CoverIneq from roles pack.
-2. Else G3Sep/Cap — `s*s=2` over ℚ uninhabitable; need ℝ export or B-only side-gap.
+   `BodyChartIdentityCG5k0Realisation` / `ClampedSquareUbG5k0Realisation` /
+   `RolesCardinalFillerG5k0Realisation` / `IdentityCCardinalFG5k0Realisation` for every G5 k=0.
+2. Inhabit `G3BcritExport` (critical branch only) or finish ℝ edge `B_lt_one` + real side-gap.
 3. Unconditional `PrincipalClaim` only after ClassExclusions close.
 
 ## Honesty
 
 `principalClaimProvedUnconditionally` stays **false**. PrincipalClaim not claimed proved.
 Centre/filler Euclidean mid-sum can exceed 2 at 45°; packing uses roles / projWidth / body chart /
-clamped UB inhabit.
+clamped UB inhabit. G3 Sep/Cap with ℚ `s²=2` uninhabitable.

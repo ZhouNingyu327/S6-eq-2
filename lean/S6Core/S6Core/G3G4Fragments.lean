@@ -423,4 +423,80 @@ theorem g3CapGeometryExportProved_false : g3CapGeometryExportProved = false := r
 def g3CapGeometryReductionClosed : Bool := true
 theorem g3CapGeometryReductionClosed_true : g3CapGeometryReductionClosed = true := rfl
 
+/-! ## G3 Bcrit-only / ℝ export (bypass uninhabitable ℚ `s²=2`) -/
+
+/-- Critical-only side-gap export: no √2 rational. -/
+def G3BcritExport : Prop :=
+  ∀ (T : S6.Obligation2.Target) (cov : S6.Obligation2Opens.PointwiseCover T),
+    classify (S6.Obligation2Roles.RoleSelection.ofCover cov).toManuscript.flags.toOwnership =
+        TopClass.G3 →
+      ∃ (D : ParallelBudgetDataBcrit) (vF : ℚ),
+        vF < T.μ ∧ (12 : ℚ) * T.μ ≤ 8 + 3 * D.B + vF
+
+theorem G3SideGapDataExport_of_BcritExport (h : G3BcritExport) :
+    G3SideGapDataExport := by
+  intro T cov hcls
+  rcases h T cov hcls with ⟨D, vF, hv, hp⟩
+  exact ⟨D.B, vF, D.B_lt_one, hv, hp⟩
+
+theorem G3Exclusion_of_BcritExport (h : G3BcritExport) : G3Exclusion :=
+  G3Exclusion_of_dataExport (G3SideGapDataExport_of_BcritExport h)
+
+theorem sideGap_impossible_of_Bcrit (μ : ℚ) (D : ParallelBudgetDataBcrit) (vF : ℚ)
+    (hμ : 1 < μ) (hv : vF < μ)
+    (hp : (12 : ℚ) * μ ≤ 8 + 3 * D.B + vF) : False :=
+  sideGap_impossible (BudgetHyp.of μ D.B vF hμ D.B_lt_one hv) hp
+
+/-- Any SepWitness inhabit would yield a positive rational square root of 2. -/
+theorem G3SepWitnessExport_implies_pos_rat_sqrt2
+    (h : G3SepWitnessExport)
+    {T : S6.Obligation2.Target} {cov : S6.Obligation2Opens.PointwiseCover T}
+    (hcls :
+      classify (S6.Obligation2Roles.RoleSelection.ofCover cov).toManuscript.flags.toOwnership =
+        TopClass.G3) :
+    ∃ s : ℚ, 0 < s ∧ s * s = (2 : ℚ) := by
+  rcases h T cov hcls with ⟨_, _, s, _, _, _, _, hs, hs2, _, _, _⟩
+  exact ⟨s, hs, hs2⟩
+
+theorem G3SepWitnessExport_blocked_by_no_rat_sqrt2
+    (h : G3SepWitnessExport)
+    {T : S6.Obligation2.Target} {cov : S6.Obligation2Opens.PointwiseCover T}
+    (hcls :
+      classify (S6.Obligation2Roles.RoleSelection.ofCover cov).toManuscript.flags.toOwnership =
+        TopClass.G3) :
+    False :=
+  no_pos_rat_sq_eq_two (G3SepWitnessExport_implies_pos_rat_sqrt2 h hcls)
+
+/-- Real critical-branch export (B as ℚ Bcrit); edge ℝ `B_lt_one` still open. -/
+def G3RealBcritExport : Prop :=
+  ∀ (T : S6.Obligation2.Target) (cov : S6.Obligation2Opens.PointwiseCover T),
+    classify (S6.Obligation2Roles.RoleSelection.ofCover cov).toManuscript.flags.toOwnership =
+        TopClass.G3 →
+      ∃ (D : ParallelBudgetDataReal) (vF : ℚ),
+        (D.d + D.y) * (D.d + D.y) ≤ 2 ∧
+          vF < T.μ ∧ (12 : ℚ) * T.μ ≤ 8 + 3 * D.BcritVal + vF
+
+theorem G3BcritExport_of_realBcrit (h : G3RealBcritExport) : G3BcritExport := by
+  intro T cov hcls
+  rcases h T cov hcls with ⟨D, vF, hcrit, hv, hp⟩
+  refine ⟨ParallelBudgetDataBcrit.mk' D.d D.y D.hd D.hy D.hy2 hcrit, vF, hv, ?_⟩
+  change (12 : ℚ) * T.μ ≤ 8 + 3 * Bcrit D.d D.y + vF
+  simpa [ParallelBudgetDataReal.BcritVal, Bcrit] using hp
+
+theorem G3Exclusion_of_realBcritExport (h : G3RealBcritExport) : G3Exclusion :=
+  G3Exclusion_of_BcritExport (G3BcritExport_of_realBcrit h)
+
+def g3BcritExportProved : Bool := false
+theorem g3BcritExportProved_false : g3BcritExportProved = false := rfl
+
+def g3BcritReductionClosed : Bool := true
+theorem g3BcritReductionClosed_true : g3BcritReductionClosed = true := rfl
+
+def g3SepWitnessBlockedByNoRatSqrt2Closed : Bool := true
+theorem g3SepWitnessBlockedByNoRatSqrt2Closed_true :
+    g3SepWitnessBlockedByNoRatSqrt2Closed = true := rfl
+
+def g3RealBcritReductionClosed : Bool := true
+theorem g3RealBcritReductionClosed_true : g3RealBcritReductionClosed = true := rfl
+
 end S6.G3G4Fragments

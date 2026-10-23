@@ -1,4 +1,5 @@
 import Mathlib.Tactic
+import Mathlib.Data.Rat.Sqrt
 import S6Core.ChordLength
 import S6Core.ParallelChord
 import S6Core.ObliqueChart
@@ -385,5 +386,69 @@ def residual_chord_length_from_intersection : String :=
 def obligation1_algebraAndMaxClosed : Bool := true
 theorem obligation1_algebraAndMaxClosed_true :
     obligation1_algebraAndMaxClosed = true := rfl
+
+/-! ## ℚ√2 impossible; Bcrit-only and ℝ budget packages -/
+
+/-- No rational squares to 2 (blocks `ParallelBudgetData.hs2` inhabit). -/
+theorem no_rat_sq_eq_two : ¬∃ s : ℚ, s * s = (2 : ℚ) := by
+  rw [Rat.exists_mul_self]
+  have hs : Rat.sqrt (2 : ℚ) = 1 := by
+    simp [Rat.sqrt_natCast, Nat.sqrt_two]
+  simp [hs]
+
+theorem no_pos_rat_sq_eq_two : ¬∃ s : ℚ, 0 < s ∧ s * s = (2 : ℚ) := by
+  intro ⟨s, _, hs⟩
+  exact no_rat_sq_eq_two ⟨s, hs⟩
+
+/-- Critical-branch-only budget: no `s² = 2` witness. Usable when `(d+y)² ≤ 2`. -/
+structure ParallelBudgetDataBcrit where
+  d : ℚ
+  y : ℚ
+  hd : 1 < d
+  hy : 0 < y
+  hy2 : y * y = d * d - 1
+  hcrit : (d + y) * (d + y) ≤ 2
+
+def ParallelBudgetDataBcrit.B (D : ParallelBudgetDataBcrit) : ℚ := Bcrit D.d D.y
+
+theorem ParallelBudgetDataBcrit.B_lt_one (D : ParallelBudgetDataBcrit) : D.B < 1 :=
+  Bcrit_lt_one D.d D.y D.hd D.hy2 (le_of_lt D.hy)
+
+def ParallelBudgetDataBcrit.mk' (d y : ℚ)
+    (hd : 1 < d) (hy : 0 < y) (hy2 : y * y = d * d - 1)
+    (hcrit : (d + y) * (d + y) ≤ 2) : ParallelBudgetDataBcrit :=
+  ⟨d, y, hd, hy, hy2, hcrit⟩
+
+/-- ℝ diagonal witness package (edge branch). `s : ℝ` with `s² = 2` is inhabitible;
+full edge-algebra `B_lt_one` over ℝ is residual packaging. -/
+structure ParallelBudgetDataReal where
+  d : ℚ
+  y : ℚ
+  s : ℝ
+  hd : 1 < d
+  hy : 0 < y
+  hy2 : y * y = d * d - 1
+  hs : (0 : ℝ) < s
+  hs2 : s * s = (2 : ℝ)
+  hd_le_s : (d : ℝ) ≤ s
+
+/-- Critical-branch real B as a rational (same as Bcrit). -/
+def ParallelBudgetDataReal.BcritVal (D : ParallelBudgetDataReal) : ℚ := Bcrit D.d D.y
+
+theorem ParallelBudgetDataReal.BcritVal_lt_one (D : ParallelBudgetDataReal)
+    (h : (D.d + D.y) * (D.d + D.y) ≤ 2) :
+    D.BcritVal < 1 :=
+  Bcrit_lt_one D.d D.y D.hd D.hy2 (le_of_lt D.hy)
+
+def parallelBudgetBcritClosed : Bool := true
+theorem parallelBudgetBcritClosed_true : parallelBudgetBcritClosed = true := rfl
+
+def parallelBudgetNoRatSqrt2Closed : Bool := true
+theorem parallelBudgetNoRatSqrt2Closed_true :
+    parallelBudgetNoRatSqrt2Closed = true := rfl
+
+def parallelBudgetRealEdgeBLtOneProved : Bool := false
+theorem parallelBudgetRealEdgeBLtOneProved_false :
+    parallelBudgetRealEdgeBLtOneProved = false := rfl
 
 end S6.ParallelBudgetGeometry

@@ -46,7 +46,8 @@ chord/clamped ≤ projWidth; mid-sum ≤ 2·projWidth.
 Proved: filler (centre-tile) outer clamped=0; mid-sum ≤ 2·projWidth; ≤2 when
 projWidth≤1 (cardinal); roles pack skeleton under μ²>2.
 Open: general filler mid≤2 (false at 45° Euclidean); ChordMatrixExport;
-full BodyChartAxis / IdentityC inhabit; G3 (s²=2/ℚ); unconditional PrincipalClaim.
+full BodyChartAxis / IdentityC / RolesCardinal inhabit; G3 Bcrit inhabit; unconditional PrincipalClaim.
+Packaging: roles-cardinal / IdentityC+cardinalF ⇒ ClampedUb/CoverIneq; G3 Bcrit/ℝ (see G3G4Fragments).
 -/
 
 namespace S6.RotatedChordMeasure
@@ -3327,6 +3328,131 @@ theorem clampedSquareUbBridgeClosed_true : clampedSquareUbBridgeClosed = true :=
 
 def bodyIdentityCCoverIneqClosed : Bool := true
 theorem bodyIdentityCCoverIneqClosed_true : bodyIdentityCCoverIneqClosed = true := rfl
+
+
+
+/-! ### Roles cardinal fillers ⇒ ClampedSquareUb / CoverIneq (ℚ-adjacent export) -/
+
+theorem RoleSelection_fin6_partition {T : Target} (R : RoleSelection T) :
+    ∀ k : Fin 6,
+      k = R.owners.i1 ∨ k = R.owners.i2 ∨ k = R.owners.i3 ∨ k = R.owners.i4 ∨
+        k = R.iC ∨ k = R.iF := by
+  have hpd := S6.Obligation2Norm.owners_pairwise_distinct T R.owners
+  have hC := R.hC_ne_corners
+  have hF := R.hF_ne_corners
+  exact fin6_partition_of_six_distinct
+    R.owners.i1 R.owners.i2 R.owners.i3 R.owners.i4 R.iC R.iF
+    hpd.1 hpd.2.1 hpd.2.2.1 (Ne.symm hC.1) (Ne.symm hF.1)
+    hpd.2.2.2.1 hpd.2.2.2.2.1 (Ne.symm hC.2.1) (Ne.symm hF.2.1)
+    hpd.2.2.2.2.2 (Ne.symm hC.2.2.1) (Ne.symm hF.2.2.1)
+    (Ne.symm hC.2.2.2) (Ne.symm hF.2.2.2) R.hCF
+
+theorem identityPose_projWidth_le_one :
+    |(PdfNormalisation.identityPose).dir.c| +
+      |(PdfNormalisation.identityPose).dir.s| ≤ 1 := by
+  simp [PdfNormalisation.identityPose]
+
+/-- projWidth of a rotated square. -/
+def squareProjWidth (g : RotatedSquare) : ℚ := |g.dir.c| + |g.dir.s|
+
+theorem PointwiseCover_roles_cardinal_clamped_le_two {T : Target}
+    (cov : PointwiseCover T) (hμ : 1 < T.μ) (hμ2 : 2 < T.μ * T.μ)
+    (hpwC : squareProjWidth
+        ((RoleSelection.ofCover cov).cov.squares (RoleSelection.ofCover cov).iC) ≤ 1)
+    (hpwF : squareProjWidth
+        ((RoleSelection.ofCover cov).cov.squares (RoleSelection.ofCover cov).iF) ≤ 1)
+    (hFcen : RotatedSquare.contains
+        ((RoleSelection.ofCover cov).cov.squares (RoleSelection.ofCover cov).iF)
+        (Target.centre T)) :
+    ∀ i : Fin 6, clampedSquareTotal (cov.squares i) T.μ ≤ 2 := by
+  intro i
+  let R := RoleSelection.ofCover cov
+  have hskel :=
+    PointwiseCover_roles_clamped_pack_of_mu_sq_gt_centre_cardinal cov hμ hμ2 (by
+      simpa [squareProjWidth] using hpwC)
+  have hFbound :=
+    contains_centre_clampedSquareTotal_le_two_of_projWidth_le_one
+      (R.cov.squares R.iF) T.μ hμ2 (by simpa [Target.centre] using hFcen)
+      (by simpa [squareProjWidth] using hpwF)
+  have heq : R.owners.squares = cov.squares := R.hsq
+  rcases RoleSelection_fin6_partition R i with hi | hi | hi | hi | hi | hi
+  · rw [hi, ← heq]; exact hskel.1
+  · rw [hi, ← heq]; exact hskel.2.1
+  · rw [hi, ← heq]; exact hskel.2.2.1
+  · rw [hi, ← heq]; exact hskel.2.2.2.1
+  · rw [hi]; exact hskel.2.2.2.2
+  · rw [hi]; exact hFbound
+
+/-- Open inhabit: every G5 k=0 cover has μ²>2, cardinal C/F, and F∋O. -/
+def RolesCardinalFillerG5k0Realisation : Prop :=
+  ∀ (T : Target) (cov : PointwiseCover T),
+    isG5Class cov →
+      (RoleSelection.ofCover cov).toManuscript.flags.k = ⟨0, by decide⟩ →
+        2 < T.μ * T.μ ∧
+          squareProjWidth
+              ((RoleSelection.ofCover cov).cov.squares (RoleSelection.ofCover cov).iC) ≤ 1 ∧
+            squareProjWidth
+                ((RoleSelection.ofCover cov).cov.squares (RoleSelection.ofCover cov).iF) ≤ 1 ∧
+              RotatedSquare.contains
+                ((RoleSelection.ofCover cov).cov.squares (RoleSelection.ofCover cov).iF)
+                (Target.centre T)
+
+theorem ClampedSquareUbG5k0Realisation_of_roles_cardinal
+    (h : RolesCardinalFillerG5k0Realisation) :
+    ClampedSquareUbG5k0Realisation := by
+  intro T cov hcls hk i
+  rcases h T cov hcls hk with ⟨hμ2, hpwC, hpwF, hFcen⟩
+  exact PointwiseCover_roles_cardinal_clamped_le_two cov T.hμ hμ2 hpwC hpwF hFcen i
+
+theorem RotatedChordCoverIneq_of_roles_cardinal
+    (h : RolesCardinalFillerG5k0Realisation) :
+    RotatedChordCoverIneq :=
+  RotatedChordCoverIneq_of_clampedSquareUb
+    (ClampedSquareUbG5k0Realisation_of_roles_cardinal h)
+
+theorem G5k0Bridge_of_roles_cardinal (h : RolesCardinalFillerG5k0Realisation) :
+    G5k0Bridge :=
+  G5k0Bridge_of_clampedSquareUb (ClampedSquareUbG5k0Realisation_of_roles_cardinal h)
+
+/-- Identity-C + G5 ⇒ F∋O and pw(C)=1; residual is μ²>2 + pw(F)≤1. -/
+def IdentityCCardinalFG5k0Realisation : Prop :=
+  ∀ (T : Target) (cov : PointwiseCover T),
+    isG5Class cov →
+      (RoleSelection.ofCover cov).toManuscript.flags.k = ⟨0, by decide⟩ →
+        (RoleSelection.ofCover cov).cov.squares (RoleSelection.ofCover cov).iC =
+            PdfNormalisation.identityPose ∧
+          2 < T.μ * T.μ ∧
+            squareProjWidth
+                ((RoleSelection.ofCover cov).cov.squares (RoleSelection.ofCover cov).iF) ≤ 1
+
+theorem RolesCardinalFillerG5k0Realisation_of_identityC_cardinalF
+    (h : IdentityCCardinalFG5k0Realisation) :
+    RolesCardinalFillerG5k0Realisation := by
+  intro T cov hcls hk
+  rcases h T cov hcls hk with ⟨hC, hμ2, hpwF⟩
+  refine ⟨hμ2, ?_, hpwF, worldF_contains_O_of_identityC_G5 cov hC hcls⟩
+  simpa [squareProjWidth, hC] using identityPose_projWidth_le_one
+
+theorem RotatedChordCoverIneq_of_identityC_cardinalF
+    (h : IdentityCCardinalFG5k0Realisation) :
+    RotatedChordCoverIneq :=
+  RotatedChordCoverIneq_of_roles_cardinal
+    (RolesCardinalFillerG5k0Realisation_of_identityC_cardinalF h)
+
+def rolesCardinalFillerG5k0RealisationProved : Bool := false
+theorem rolesCardinalFillerG5k0RealisationProved_false :
+    rolesCardinalFillerG5k0RealisationProved = false := rfl
+
+def identityCCardinalFG5k0RealisationProved : Bool := false
+theorem identityCCardinalFG5k0RealisationProved_false :
+    identityCCardinalFG5k0RealisationProved = false := rfl
+
+def rolesCardinalCoverIneqClosed : Bool := true
+theorem rolesCardinalCoverIneqClosed_true : rolesCardinalCoverIneqClosed = true := rfl
+
+def identityCCardinalFCoverIneqClosed : Bool := true
+theorem identityCCardinalFCoverIneqClosed_true :
+    identityCCardinalFCoverIneqClosed = true := rfl
 
 
 end S6.RotatedChordMeasure
