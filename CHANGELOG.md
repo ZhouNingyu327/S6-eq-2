@@ -1,4 +1,4 @@
-## v0.26.7 — R14 NoLeftTip + AngleOrder algebraic unsat (2026-10-23 Asia/Shanghai)
+## v0.26.8 — R14 NoLeftTip + AngleOrder algebraic unsat (2026-10-23 Asia/Shanghai)
 
 - `CertR14BridgeJunction`: Lean-prove Z3 bridge `no_left_tip` and junction
   `angle_order` packs unsat (`NoLeftTipHyps` / `AngleOrderHyps` ⇒ False).
@@ -6,6 +6,14 @@
   `BernsteinForcesRawEmpty "R14"`. Extended `NearEndR14With{NoLeftTip,AngleOrder}` empty.
 - ForcesBridgeJunction still false; SE2⇒pack OPEN (no invented NearEndSE2 fields).
   `principalClaim` / `namedClosersDischarged` untouched. Lake green.
+
+## v0.26.7 — μ²>2 auto pack + same-dir BodyChart (Lean body) (2026-10-23 Asia/Shanghai)
+
+- `RotatedChordMeasure`: chord/clamped ≤ projWidth; mid-sum ≤ 2·projWidth;
+  centre outer clamped=0 (μ²>2); four-corner clampedSquareTotal auto from μ²>2.
+- `AxisG5k0FromCover`: same-dir pullback ⇒ body-chart axis-aligned + C=identity packaging.
+- Lands Lean body for docs-only v0.26.6 claims. Fillers/ChordMatrixExport/full
+  BodyChartAxis inhabit still open; `principalClaimProvedUnconditionally=false`.
 
 ## v0.26.6 — R14 JCondition + SumBudget unsat; extended packages empty (2026-10-22 Asia/Shanghai)
 

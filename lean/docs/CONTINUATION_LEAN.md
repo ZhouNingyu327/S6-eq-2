@@ -2,6 +2,8 @@
 
 ## Done
 
+- **v0.26.8 (R14 cert):** NoLeftTip + AngleOrder algebraic unsat; ForcesBridgeJunction still false; SE2⇒pack OPEN
+
 - **v0.26.4:** four-corner `clampedSquareTotal ≤2` under projWidth
 - **v0.26.6 (docs):** claimed μ²>2 auto pack / same-dir BodyChart (Lean body deferred)
 - **v0.26.7:** Lean body — μ²>2 auto corner `clampedSquareTotal`; centre outer clamped=0;

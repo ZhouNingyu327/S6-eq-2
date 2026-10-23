@@ -19,7 +19,7 @@ Sources (read-only): `artifacts/ex/all/check_round14_bridge.py`,
 * SE2 for R14 excludes `JunctionConflict` / dual residual.
 * SE2 left-gap ⇒ `dL > 1`; with `z ∈ (0,1)`, `leftRayBound z < dL`.
 * Algebraic Z3 packs unsat: `LeftLengthHyps`, `ABridgeHyps`, `LeftGapOwnerHyps`,
-  `JConditionHyps`, `SumBudgetHyps`.
+  `JConditionHyps`, `SumBudgetHyps`, `NoLeftTipHyps`, `AngleOrderHyps`.
 * Extended living packages `NearEndR14With*` empty (SE2 + pack hyps ⇒ False)
   without claiming plain SE2 implies the pack fields.
 * Conditionals: `R14SE2Realises*Pack` ⇒ ForcesBridgeJunction / raw-empty
@@ -679,6 +679,214 @@ theorem bernsteinForcesRawEmpty_R14_of_sumBudgetPack
   bernsteinForcesRawEmpty_R14_of_bridgeJunction
     (r14SE2ForcesBridgeJunctionContradiction_of_sumBudgetPack H)
 
+/-! ## Algebraic Z3 bridge noLeftTip unsat -/
+
+/-- Bridge script `no_left_tip`: C cannot contain the left anchored inner tip. -/
+structure NoLeftTipHyps (x k w S l r u : ℚ) : Prop where
+  hx0 : 0 < x
+  hx1 : x < 1
+  hk0 : 0 < k
+  hk1 : k < (4 : ℚ) / 15
+  hw : 0 ≤ w
+  hS : 0 ≤ S
+  hgap : 0 < 1 - S - x - 2 * k + k * k - w
+  hl : 1 - w ≤ l
+  hr : 1 - x ≤ r
+  hu : 1 - k ≤ u
+  hsum : l + r + u * u ≤ 2
+
+theorem noLeftTipHyps_false (x k w S l r u : ℚ) (H : NoLeftTipHyps x k w S l r u) :
+    False := by
+  have hklt1 : k < 1 := lt_trans H.hk1 (by norm_num)
+  have h1k : 0 ≤ 1 - k := by linarith
+  have hu0 : 0 ≤ u := le_trans h1k H.hu
+  have hu2 : (1 - k) * (1 - k) ≤ u * u := by nlinarith [H.hu, hu0]
+  have hw_ge : 1 - x - 2 * k + k * k ≤ w := by
+    have hle :
+        (1 - w) + (1 - x) + (1 - k) * (1 - k) ≤ l + r + u * u := by
+      nlinarith [H.hl, H.hr, hu2]
+    have : (1 - w) + (1 - x) + (1 - k) * (1 - k) ≤ 2 :=
+      le_trans hle H.hsum
+    nlinarith
+  have hw_lt : w < 1 - x - 2 * k + k * k := by
+    have : w < 1 - S - x - 2 * k + k * k := by linarith [H.hgap]
+    linarith [H.hS]
+  exact (not_le_of_gt hw_lt) hw_ge
+
+def R14NoLeftTipPackUnsat : Prop :=
+  ∀ x k w S l r u : ℚ, NoLeftTipHyps x k w S l r u → False
+
+theorem r14NoLeftTipPackUnsat : R14NoLeftTipPackUnsat := noLeftTipHyps_false
+
+def r14NoLeftTipPackUnsatProved : Bool := true
+theorem r14NoLeftTipPackUnsatProved_true : r14NoLeftTipPackUnsatProved = true := rfl
+
+def R14SE2RealisesNoLeftTipPack : Prop :=
+  ∀ _cfg : NearEndSE2 BernsteinGeometryMap.leaf_R14,
+    ∃ x k w S l r u : ℚ, NoLeftTipHyps x k w S l r u
+
+def r14SE2RealisesNoLeftTipPackProved : Bool := false
+theorem r14SE2RealisesNoLeftTipPackProved_false :
+    r14SE2RealisesNoLeftTipPackProved = false := rfl
+
+theorem r14SE2ForcesBridgeJunctionContradiction_of_noLeftTipPack
+    (H : R14SE2RealisesNoLeftTipPack) :
+    R14SE2ForcesBridgeJunctionContradiction := by
+  intro cfg
+  obtain ⟨x, k, w, S, l, r, u, h⟩ := H cfg
+  exact noLeftTipHyps_false x k w S l r u h
+
+theorem bernsteinForcesRawEmpty_R14_of_noLeftTipPack
+    (H : R14SE2RealisesNoLeftTipPack) :
+    BernsteinForcesRawEmpty "R14" :=
+  bernsteinForcesRawEmpty_R14_of_bridgeJunction
+    (r14SE2ForcesBridgeJunctionContradiction_of_noLeftTipPack H)
+
+/-! ## Algebraic Z3 junction angleOrder unsat -/
+
+/-- Junction script `check_angle_order`: right-adjacent meeting forces `t₃ < t₂`
+(`y ≥ x` is unsat under the tan/budget hyps). -/
+structure AngleOrderHyps (x y L N T : ℚ) : Prop where
+  hx0 : 0 < x
+  hx1 : x < 1
+  hy0 : 0 < y
+  hy1 : y < 1
+  hL : 1 ≤ L
+  hN : 1 ≤ N
+  hLcos : L * (1 - x * x) ≤ 1 + x * x
+  hLsin : 2 * x * L ≤ 1 + x * x
+  hTeq : T * (1 - y * y) = 1 + y * y - 2 * y * N
+  hT0 : 0 ≤ T
+  hLT : 2 ≤ L + T
+  hyx : x ≤ y
+
+private theorem angleOrder_T_le (y N T : ℚ)
+    (hy0 : 0 < y) (hy1 : y < 1) (hN : 1 ≤ N)
+    (hTeq : T * (1 - y * y) = 1 + y * y - 2 * y * N) (_hT0 : 0 ≤ T) :
+    T ≤ (1 - y) / (1 + y) := by
+  have hypos : 0 < 1 - y := by linarith
+  have h1y : (0 : ℚ) < 1 + y := by linarith
+  have h1y2 : 0 < 1 - y * y := by nlinarith
+  have hNy : 2 * y ≤ 2 * y * N := by nlinarith [hN, hy0]
+  have hnum : 1 + y * y - 2 * y * N ≤ (1 - y) * (1 - y) := by
+    have : 1 + y * y - 2 * y = (1 - y) * (1 - y) := by ring
+    linarith
+  have hmul : T * (1 - y * y) ≤ (1 - y) * (1 - y) := by
+    rw [hTeq]; exact hnum
+  have hdiv : T ≤ (1 - y) * (1 - y) / (1 - y * y) :=
+    (le_div_iff₀ h1y2).mpr (by nlinarith [hmul])
+  have hsimp : (1 - y) * (1 - y) / (1 - y * y) = (1 - y) / (1 + y) := by
+    have hfac : 1 - y * y = (1 - y) * (1 + y) := by ring
+    rw [hfac]
+    field_simp [ne_of_gt hypos, ne_of_gt h1y]
+  rwa [hsimp] at hdiv
+
+private theorem angleOrder_L_ge (x y L N T : ℚ) (H : AngleOrderHyps x y L N T) :
+    (1 + 3 * x) / (1 + x) ≤ L := by
+  have hTle := angleOrder_T_le y N T H.hy0 H.hy1 H.hN H.hTeq H.hT0
+  have hLge : 2 - (1 - y) / (1 + y) ≤ L := by linarith [H.hLT, hTle]
+  have hrew : 2 - (1 - y) / (1 + y) = (1 + 3 * y) / (1 + y) := by
+    have h1y : (0 : ℚ) < 1 + y := by linarith [H.hy0]
+    field_simp [ne_of_gt h1y]
+    ring
+  have hLge' : (1 + 3 * y) / (1 + y) ≤ L := by rwa [← hrew]
+  have hmono : (1 + 3 * x) / (1 + x) ≤ (1 + 3 * y) / (1 + y) := by
+    have hx1 : (0 : ℚ) < 1 + x := by linarith [H.hx0]
+    have hy1 : (0 : ℚ) < 1 + y := by linarith [H.hy0]
+    rw [div_le_div_iff₀ hx1 hy1]
+    nlinarith [H.hyx]
+  exact le_trans hmono hLge'
+
+theorem angleOrderHyps_false (x y L N T : ℚ) (H : AngleOrderHyps x y L N T) :
+    False := by
+  have hLge := angleOrder_L_ge x y L N T H
+  have hx0 : 0 < x := H.hx0
+  have hx1 : x < 1 := H.hx1
+  have hx1p : (0 : ℚ) < 1 + x := by linarith
+  have h1x2 : 0 < 1 - x * x := by nlinarith
+  have hLg : L ≤ (1 + x * x) / (2 * x) := by
+    have hx2 : (0 : ℚ) < 2 * x := by nlinarith
+    exact (le_div_iff₀ hx2).mpr (by linarith [H.hLsin])
+  have hLh : L ≤ (1 + x * x) / (1 - x * x) :=
+    (le_div_iff₀ h1x2).mpr H.hLcos
+  by_cases hcross : x * x + 2 * x ≤ 1
+  · have hx12 : x < (1 : ℚ) / 2 := by
+      by_contra h
+      have hx12' : (1 : ℚ) / 2 ≤ x := le_of_not_gt h
+      nlinarith [hcross, hx12']
+    have hstrict : (1 + x * x) / (1 - x * x) < (1 + 3 * x) / (1 + x) := by
+      rw [div_lt_div_iff₀ h1x2 hx1p]
+      nlinarith [hx12]
+    exact (not_le_of_gt (lt_of_le_of_lt hLh hstrict)) hLge
+  · have hcross' : 1 < x * x + 2 * x := lt_of_not_ge hcross
+    have hx25 : (2 : ℚ) / 5 < x := by
+      by_contra h
+      have hx25' : x ≤ (2 : ℚ) / 5 := le_of_not_gt h
+      have : x * x + 2 * x ≤ (2 : ℚ) / 5 * ((2 : ℚ) / 5) + 2 * ((2 : ℚ) / 5) := by
+        nlinarith [hx25']
+      nlinarith [hcross']
+    set a : ℚ := (2 : ℚ) / 5
+    have hq25 : -a * a * a + 5 * (a * a) + a - 1 = (17 : ℚ) / 125 := by
+      simp only [a]; norm_num
+    have hfac :
+        (-(x * x * x) + 5 * (x * x) + x - 1) -
+            (-a * a * a + 5 * (a * a) + a - 1) =
+          (x - a) * (-(x * x + x * a + a * a) + 5 * (x + a) + 1) := by
+      ring
+    have hposfac : 0 < -(x * x + x * a + a * a) + 5 * (x + a) + 1 := by
+      have ha_val : a = (2 : ℚ) / 5 := rfl
+      rw [ha_val]
+      nlinarith [hx0, hx1]
+    have hqpos : 0 < -(x * x * x) + 5 * (x * x) + x - 1 := by
+      have ha : 0 < x - a := sub_pos.mpr hx25
+      have hinc :
+          (-a * a * a + 5 * (a * a) + a - 1) <
+            -(x * x * x) + 5 * (x * x) + x - 1 := by
+        have : 0 <
+            (-(x * x * x) + 5 * (x * x) + x - 1) -
+              (-a * a * a + 5 * (a * a) + a - 1) := by
+          rw [hfac]; exact mul_pos ha hposfac
+        linarith
+      have h17 : (0 : ℚ) < (17 : ℚ) / 125 := by norm_num
+      calc
+        (0 : ℚ) < (17 : ℚ) / 125 := h17
+        _ = -a * a * a + 5 * (a * a) + a - 1 := hq25.symm
+        _ < -(x * x * x) + 5 * (x * x) + x - 1 := hinc
+    have hstrict : (1 + x * x) / (2 * x) < (1 + 3 * x) / (1 + x) := by
+      have hx2 : (0 : ℚ) < 2 * x := by nlinarith
+      rw [div_lt_div_iff₀ hx2 hx1p]
+      nlinarith [hqpos]
+    exact (not_le_of_gt (lt_of_le_of_lt hLg hstrict)) hLge
+
+def R14AngleOrderPackUnsat : Prop :=
+  ∀ x y L N T : ℚ, AngleOrderHyps x y L N T → False
+
+theorem r14AngleOrderPackUnsat : R14AngleOrderPackUnsat := angleOrderHyps_false
+
+def r14AngleOrderPackUnsatProved : Bool := true
+theorem r14AngleOrderPackUnsatProved_true : r14AngleOrderPackUnsatProved = true := rfl
+
+def R14SE2RealisesAngleOrderPack : Prop :=
+  ∀ _cfg : NearEndSE2 BernsteinGeometryMap.leaf_R14,
+    ∃ x y L N T : ℚ, AngleOrderHyps x y L N T
+
+def r14SE2RealisesAngleOrderPackProved : Bool := false
+theorem r14SE2RealisesAngleOrderPackProved_false :
+    r14SE2RealisesAngleOrderPackProved = false := rfl
+
+theorem r14SE2ForcesBridgeJunctionContradiction_of_angleOrderPack
+    (H : R14SE2RealisesAngleOrderPack) :
+    R14SE2ForcesBridgeJunctionContradiction := by
+  intro cfg
+  obtain ⟨x, y, L, N, T, h⟩ := H cfg
+  exact angleOrderHyps_false x y L N T h
+
+theorem bernsteinForcesRawEmpty_R14_of_angleOrderPack
+    (H : R14SE2RealisesAngleOrderPack) :
+    BernsteinForcesRawEmpty "R14" :=
+  bernsteinForcesRawEmpty_R14_of_bridgeJunction
+    (r14SE2ForcesBridgeJunctionContradiction_of_angleOrderPack H)
+
 /-! ## Honest extended living packages (empty; not plain-SE2) -/
 
 /-- SE2 plus ABridge witnesses. Empty by `aBridgeHyps_false`. Does **not**
@@ -718,6 +926,34 @@ structure NearEndR14WithJCondition where
 theorem not_nearEndR14WithJCondition : ¬ Nonempty NearEndR14WithJCondition := by
   rintro ⟨w⟩
   exact jConditionHyps_false w.μ w.cfg.z w.D w.U w.K w.pack
+
+structure NearEndR14WithNoLeftTip where
+  cfg : NearEndSE2 BernsteinGeometryMap.leaf_R14
+  x : ℚ
+  k : ℚ
+  w : ℚ
+  S : ℚ
+  l : ℚ
+  r : ℚ
+  u : ℚ
+  pack : NoLeftTipHyps x k w S l r u
+
+theorem not_nearEndR14WithNoLeftTip : ¬ Nonempty NearEndR14WithNoLeftTip := by
+  rintro ⟨w⟩
+  exact noLeftTipHyps_false w.x w.k w.w w.S w.l w.r w.u w.pack
+
+structure NearEndR14WithAngleOrder where
+  cfg : NearEndSE2 BernsteinGeometryMap.leaf_R14
+  x : ℚ
+  y : ℚ
+  L : ℚ
+  N : ℚ
+  T : ℚ
+  pack : AngleOrderHyps x y L N T
+
+theorem not_nearEndR14WithAngleOrder : ¬ Nonempty NearEndR14WithAngleOrder := by
+  rintro ⟨w⟩
+  exact angleOrderHyps_false w.x w.y w.L w.N w.T w.pack
 
 def r14ExtendedPackagesEmptyProved : Bool := true
 theorem r14ExtendedPackagesEmptyProved_true :
@@ -762,13 +998,13 @@ def rawSE2EmptyProved : Bool := false
 theorem rawSE2EmptyProved_false : rawSE2EmptyProved = false := rfl
 
 def blockedReason : String :=
-  "CLOSED: LeftLength/ABridge/LeftGapOwner/JCondition/SumBudget algebraic unsat; \
-   NearEndR14With* extended packages empty. BLOCKED: plain SE2⇒pack fields; \
+  "CLOSED: LeftLength/ABridge/LeftGapOwner/JCondition/SumBudget/NoLeftTip/AngleOrder \
+   algebraic unsat; NearEndR14With* empty. BLOCKED: plain SE2⇒pack fields; \
    ForcesBridgeJunction. Not R-poly≤0."
 
 def openStatus : String :=
-  "CLOSED: five algebraic packs + extended-package emptiness. \
-   OPEN: SE2⇒packs; ForcesBridgeJunction; BernsteinForcesRawEmpty; angleOrder. \
+  "CLOSED: seven algebraic packs + extended-package emptiness. \
+   OPEN: SE2⇒packs; ForcesBridgeJunction; BernsteinForcesRawEmpty; angleBudget. \
    Not PrincipalClaim / namedClosersDischarged."
 
 end S6.CertR14BridgeJunction
