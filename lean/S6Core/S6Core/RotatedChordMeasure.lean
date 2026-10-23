@@ -43,8 +43,10 @@ projWidth mid-miss (|c|+|s|<μ) for all four corners (partial μ²≤2 path).
 Proved: four-corner clampedSquareTotal ≤2 under projWidth (mids+far sides empty).
 Proved: μ²>2 auto corner clampedSquareTotal; centre outer clamped=0;
 chord/clamped ≤ projWidth; mid-sum ≤ 2·projWidth.
-Open: filler packing; ChordMatrixExport; full BodyChartAxis / IdentityC;
-G3 from covers (s²=2/ℚ blocked); unconditional PrincipalClaim.
+Proved: filler (centre-tile) outer clamped=0; mid-sum ≤ 2·projWidth; ≤2 when
+projWidth≤1 (cardinal); roles pack skeleton under μ²>2.
+Open: general filler mid≤2 (false at 45° Euclidean); ChordMatrixExport;
+full BodyChartAxis / IdentityC inhabit; G3 (s²=2/ℚ); unconditional PrincipalClaim.
 -/
 
 namespace S6.RotatedChordMeasure
@@ -2989,6 +2991,151 @@ theorem rotatedCentreOuterClampedZeroClosed_true :
 
 def rotatedChordLeProjWidthClosed : Bool := true
 theorem rotatedChordLeProjWidthClosed_true : rotatedChordLeProjWidthClosed = true := rfl
+
+/-! ### Filler (centre-containing) mid packing under μ²>2 -/
+
+theorem unitDir_projWidth_le_one_imp (u : UnitDir) (h : |u.c| + |u.s| ≤ 1) :
+    |u.c| * |u.s| = 0 ∧ |u.c| + |u.s| = 1 := by
+  have hc := u.hc
+  have h1 : |u.c| ^ 2 = u.c ^ 2 := sq_abs u.c
+  have h2 : |u.s| ^ 2 = u.s ^ 2 := sq_abs u.s
+  have hsq : (|u.c| + |u.s|) ^ 2 = u.c ^ 2 + u.s ^ 2 + 2 * |u.c| * |u.s| := by
+    calc
+      (|u.c| + |u.s|) ^ 2 = |u.c| ^ 2 + |u.s| ^ 2 + 2 * |u.c| * |u.s| := by ring
+      _ = u.c ^ 2 + u.s ^ 2 + 2 * |u.c| * |u.s| := by rw [h1, h2]
+  have hle : (|u.c| + |u.s|) ^ 2 ≤ 1 := by
+    have : 0 ≤ |u.c| + |u.s| := add_nonneg (abs_nonneg _) (abs_nonneg _)
+    nlinarith [h]
+  have hprod : 2 * |u.c| * |u.s| ≤ 0 := by nlinarith [hsq, hc, hle]
+  have h0 : |u.c| * |u.s| = 0 := by
+    nlinarith [mul_nonneg (abs_nonneg u.c) (abs_nonneg u.s), hprod]
+  have hsum : |u.c| + |u.s| = 1 := by
+    have : (|u.c| + |u.s|) ^ 2 = 1 := by nlinarith [hsq, hc, h0]
+    have hnn : 0 ≤ |u.c| + |u.s| := add_nonneg (abs_nonneg _) (abs_nonneg _)
+    nlinarith [h, this, hnn]
+  exact ⟨h0, hsum⟩
+
+/-- Any tile owning the target centre: outer clamped lengths vanish when μ²>2. -/
+theorem contains_centre_outer_clamped_eq_zero (g : RotatedSquare) (μ : ℚ)
+    (hμ2 : 2 < μ * μ) (hcen : RotatedSquare.contains g (μ, μ)) :
+    clampedHorizLen g 0 μ = 0 ∧ clampedHorizLen g (2 * μ) μ = 0 ∧
+      clampedVertLen g 0 μ = 0 ∧ clampedVertLen g (2 * μ) μ = 0 :=
+  centre_outer_clamped_eq_zero g μ hμ2 hcen
+
+theorem contains_centre_clampedSquareTotal_eq_mid_sum (g : RotatedSquare) (μ : ℚ)
+    (hμ2 : 2 < μ * μ) (hcen : RotatedSquare.contains g (μ, μ)) :
+    clampedSquareTotal g μ =
+      clampedHorizLen g μ μ + clampedVertLen g μ μ := by
+  obtain ⟨hB, hT, hL, hR⟩ := contains_centre_outer_clamped_eq_zero g μ hμ2 hcen
+  simp only [clampedSquareTotal, hB, hT, hL, hR, add_zero, zero_add]
+
+/-- Centre-owning tile: clampedSquareTotal = mid-sum ≤ 2 · projWidth. -/
+theorem contains_centre_clampedSquareTotal_le_two_projWidth (g : RotatedSquare) (μ : ℚ)
+    (hμ2 : 2 < μ * μ) (hcen : RotatedSquare.contains g (μ, μ)) :
+    clampedSquareTotal g μ ≤
+      (2 : ℝ) * ((|g.dir.c| : ℝ) + (|g.dir.s| : ℝ)) := by
+  rw [contains_centre_clampedSquareTotal_eq_mid_sum g μ hμ2 hcen]
+  exact clamped_mid_sum_le_two_projWidth g μ
+
+/-- When projWidth ≤ 1 (cardinal orientation), centre-tile clampedSquareTotal ≤ 2. -/
+theorem contains_centre_clampedSquareTotal_le_two_of_projWidth_le_one
+    (g : RotatedSquare) (μ : ℚ) (hμ2 : 2 < μ * μ)
+    (hcen : RotatedSquare.contains g (μ, μ))
+    (hpw : |g.dir.c| + |g.dir.s| ≤ 1) :
+    clampedSquareTotal g μ ≤ 2 := by
+  have h := contains_centre_clampedSquareTotal_le_two_projWidth g μ hμ2 hcen
+  have hpwR : (|g.dir.c| : ℝ) + (|g.dir.s| : ℝ) ≤ 1 := by exact_mod_cast hpw
+  linarith
+
+theorem contains_centre_clampedSquareTotal_le_two_of_axis (g : RotatedSquare) (μ : ℚ)
+    (hμ2 : 2 < μ * μ) (hcen : RotatedSquare.contains g (μ, μ))
+    (halign : isAxisAligned g) :
+    clampedSquareTotal g μ ≤ 2 := by
+  obtain ⟨hc, hs⟩ := halign
+  have hpw : |g.dir.c| + |g.dir.s| ≤ 1 := by
+    simp [hc, hs]
+  exact contains_centre_clampedSquareTotal_le_two_of_projWidth_le_one g μ hμ2 hcen hpw
+
+theorem RoleSelection_centre_clampedSquareTotal_le_two_projWidth {T : Target}
+    (R : RoleSelection T) (hμ2 : 2 < T.μ * T.μ) :
+    clampedSquareTotal (R.cov.squares R.iC) T.μ ≤
+      (2 : ℝ) * ((|(R.cov.squares R.iC).dir.c| : ℝ) +
+        (|(R.cov.squares R.iC).dir.s| : ℝ)) := by
+  simpa [Target.centre] using
+    contains_centre_clampedSquareTotal_le_two_projWidth
+      (R.cov.squares R.iC) T.μ hμ2 R.hCentre
+
+/-- Roles skeleton under μ²>2: four corners ≤2; centre filler mid ≤ 2·projWidth. -/
+theorem PointwiseCover_roles_clamped_pack_of_mu_sq_gt {T : Target}
+    (cov : PointwiseCover T) (hμ : 1 < T.μ) (hμ2 : 2 < T.μ * T.μ) :
+    let C := cov.toCornerOwners
+    let R := RoleSelection.ofCover cov
+    clampedSquareTotal (C.squares C.i1) T.μ ≤ 2 ∧
+      clampedSquareTotal (C.squares C.i2) T.μ ≤ 2 ∧
+      clampedSquareTotal (C.squares C.i3) T.μ ≤ 2 ∧
+      clampedSquareTotal (C.squares C.i4) T.μ ≤ 2 ∧
+      clampedSquareTotal (R.cov.squares R.iC) T.μ ≤
+        (2 : ℝ) * ((|(R.cov.squares R.iC).dir.c| : ℝ) +
+          (|(R.cov.squares R.iC).dir.s| : ℝ)) := by
+  intro C R
+  have hc := PointwiseCover_corner_clampedSquareTotal_of_mu_sq_gt cov hμ hμ2
+  refine ⟨hc.1, hc.2.1, hc.2.2.1, hc.2.2.2, ?_⟩
+  exact RoleSelection_centre_clampedSquareTotal_le_two_projWidth R hμ2
+
+/-- Conditional: centre filler also ≤2 when its projWidth ≤ 1. -/
+theorem PointwiseCover_roles_clamped_pack_of_mu_sq_gt_centre_cardinal {T : Target}
+    (cov : PointwiseCover T) (hμ : 1 < T.μ) (hμ2 : 2 < T.μ * T.μ)
+    (hpwC : let R := RoleSelection.ofCover cov
+      |(R.cov.squares R.iC).dir.c| + |(R.cov.squares R.iC).dir.s| ≤ 1) :
+    let C := cov.toCornerOwners
+    let R := RoleSelection.ofCover cov
+    clampedSquareTotal (C.squares C.i1) T.μ ≤ 2 ∧
+      clampedSquareTotal (C.squares C.i2) T.μ ≤ 2 ∧
+      clampedSquareTotal (C.squares C.i3) T.μ ≤ 2 ∧
+      clampedSquareTotal (C.squares C.i4) T.μ ≤ 2 ∧
+      clampedSquareTotal (R.cov.squares R.iC) T.μ ≤ 2 := by
+  intro C R
+  have hskel := PointwiseCover_roles_clamped_pack_of_mu_sq_gt cov hμ hμ2
+  refine ⟨hskel.1, hskel.2.1, hskel.2.2.1, hskel.2.2.2.1, ?_⟩
+  exact contains_centre_clampedSquareTotal_le_two_of_projWidth_le_one
+    (R.cov.squares R.iC) T.μ hμ2 (by simpa [Target.centre] using R.hCentre) hpwC
+
+/-- Under identity-C + G5: world `iF` also owns the centre → same filler mid pack. -/
+theorem PointwiseCover_G5_iF_clamped_le_two_projWidth_of_identityC {T : Target}
+    (cov : PointwiseCover T) (hμ2 : 2 < T.μ * T.μ)
+    (hC : (RoleSelection.ofCover cov).cov.squares (RoleSelection.ofCover cov).iC =
+      PdfNormalisation.identityPose)
+    (hG5 : isG5Class cov) :
+    let R := RoleSelection.ofCover cov
+    clampedSquareTotal (R.cov.squares R.iF) T.μ ≤
+      (2 : ℝ) * ((|(R.cov.squares R.iF).dir.c| : ℝ) +
+        (|(R.cov.squares R.iF).dir.s| : ℝ)) := by
+  intro R
+  have hF := worldF_contains_O_of_identityC_G5 cov hC hG5
+  simpa [Target.centre] using
+    contains_centre_clampedSquareTotal_le_two_projWidth
+      (R.cov.squares R.iF) T.μ hμ2 hF
+
+theorem PointwiseCover_G5_iF_clamped_le_two_of_identityC_cardinal {T : Target}
+    (cov : PointwiseCover T) (hμ2 : 2 < T.μ * T.μ)
+    (hC : (RoleSelection.ofCover cov).cov.squares (RoleSelection.ofCover cov).iC =
+      PdfNormalisation.identityPose)
+    (hG5 : isG5Class cov)
+    (hpwF : let R := RoleSelection.ofCover cov
+      |(R.cov.squares R.iF).dir.c| + |(R.cov.squares R.iF).dir.s| ≤ 1) :
+    let R := RoleSelection.ofCover cov
+    clampedSquareTotal (R.cov.squares R.iF) T.μ ≤ 2 := by
+  intro R
+  have hF := worldF_contains_O_of_identityC_G5 cov hC hG5
+  exact contains_centre_clampedSquareTotal_le_two_of_projWidth_le_one
+    (R.cov.squares R.iF) T.μ hμ2 (by simpa [Target.centre] using hF) hpwF
+
+def rotatedFillerMidPackClosed : Bool := true
+theorem rotatedFillerMidPackClosed_true : rotatedFillerMidPackClosed = true := rfl
+
+/-- Honest: unrestricted filler mid≤2 is still open (45° mid-sum can exceed 2). -/
+def rotatedFillerMidLeTwoProved : Bool := false
+theorem rotatedFillerMidLeTwoProved_false : rotatedFillerMidLeTwoProved = false := rfl
 
 
 end S6.RotatedChordMeasure

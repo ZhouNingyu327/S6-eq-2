@@ -1,3 +1,11 @@
+## v0.26.9 — filler mid-pack + SameDir⇒BodyChart (2026-10-23 Asia/Shanghai)
+
+- `RotatedChordMeasure`: centre-tile clampedSquareTotal = mid-sum ≤ 2·projWidth (μ²>2);
+  ≤2 when projWidth≤1; roles corner+centre skeleton; G5+identityC ⇒ iF same pack.
+- `AxisG5k0FromCover`: `SameDirAsC` / `SameDirG5k0Realisation` ⇒ `BodyChartAxisG5k0Realisation`
+  (packaging; inhabit still open).
+- Unrestricted filler mid≤2 remains false (45°). `principalClaimProvedUnconditionally=false`.
+
 ## v0.26.8 — R14 NoLeftTip + AngleOrder algebraic unsat (2026-10-23 Asia/Shanghai)
 
 - `CertR14BridgeJunction`: Lean-prove Z3 bridge `no_left_tip` and junction

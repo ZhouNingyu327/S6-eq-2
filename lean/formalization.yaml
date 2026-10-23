@@ -1,5 +1,5 @@
 # Catalog of manuscripts with a formalized (or partially formalized) main result.
-version: "v0.26.7"
+version: "v0.26.9"
 
 project:
   name: "ZhouNingyu327/S6-eq-2"
@@ -15,11 +15,11 @@ sources:
     id: ../preprints/Six-unit-squares-cannot-cover-a-square-of-side-greater-than-2-October-21-2026/paper.pdf
     type: article
     lean_docs: docs/001.md
-    status: partial_formalization_musqgt_pack_samedir_bodychart_lean
+    status: partial_formalization_filler_mid_pack_samedir_bodychart
     notes: >-
-      PrincipalClaim is a Prop. v0.26.7 lands Lean body for claims docs-only in v0.26.6:
-      μ²>2 auto corner clampedSquareTotal; centre outer clamped=0; chord/clamped ≤ projWidth;
-      mid-sum ≤ 2·projWidth; same-dir ⇒ BodyChartAxisAligned + C=identity packaging.
-      Open: filler mid ≤2; ChordMatrixExport; full BodyChartAxis/IdentityC inhabit;
-      G3 (s²=2/ℚ blocked); unconditional PrincipalClaim.
+      PrincipalClaim is a Prop. v0.26.9: filler (centre-tile) mid pack under μ²>2
+      (outers=0, mid≤2·projWidth; ≤2 when projWidth≤1); roles skeleton; G5+identityC ⇒ iF
+      same pack; SameDirG5k0Realisation ⇒ BodyChartAxisG5k0Realisation packaging.
+      Open: unrestricted filler mid≤2 (false at 45°); ChordMatrixExport;
+      BodyChartAxis/IdentityC/SameDir inhabit; G3 (s²=2/ℚ); unconditional PrincipalClaim.
       principalClaimProvedUnconditionally=false. ~81–84% openai/math Lean bar (honest).

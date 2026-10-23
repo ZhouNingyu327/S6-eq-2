@@ -740,10 +740,46 @@ theorem same_dir_realises_body_identityC {T : Target} (cov : PointwiseCover T)
 def sameDirBodyChartClosed : Bool := true
 theorem sameDirBodyChartClosed_true : sameDirBodyChartClosed = true := rfl
 
+/-! ## SameDir realisation ⇒ BodyChartAxisG5k0 (conditional inhabit) -/
+
+/-- Every tile shares the centre tile's world direction. -/
+def SameDirAsC {T : Target} (cov : PointwiseCover T) : Prop :=
+  ∀ i : Fin 6,
+    (cov.squares i).dir =
+      ((RoleSelection.ofCover cov).cov.squares (RoleSelection.ofCover cov).iC).dir
+
+theorem BodyChartAxisAligned_of_SameDirAsC {T : Target} (cov : PointwiseCover T)
+    (h : SameDirAsC cov) : BodyChartAxisAligned cov :=
+  bodyChartAxisAligned_of_same_dir_as_C cov h
+
+/-- Open hyp: every G5 k=0 cover is same-dir as its centre tile. -/
+def SameDirG5k0Realisation : Prop :=
+  ∀ (T : Target) (cov : PointwiseCover T),
+    isG5Class cov →
+      (RoleSelection.ofCover cov).toManuscript.flags.k = ⟨0, by decide⟩ →
+        SameDirAsC cov
+
+theorem BodyChartAxisG5k0Realisation_of_sameDir (h : SameDirG5k0Realisation) :
+    BodyChartAxisG5k0Realisation := by
+  intro T cov hcls hk
+  exact BodyChartAxisAligned_of_SameDirAsC cov (h T cov hcls hk)
+
+theorem same_dir_realises_body_identityC_of_SameDirAsC {T : Target}
+    (cov : PointwiseCover T) (h : SameDirAsC cov) :
+    BodyChartAxisAligned cov ∧
+      bodyChartSquares cov (RoleSelection.ofCover cov).iC = identityPose :=
+  same_dir_realises_body_identityC cov h
+
+def sameDirG5k0RealisationProved : Bool := false
+theorem sameDirG5k0RealisationProved_false : sameDirG5k0RealisationProved = false := rfl
+
+def sameDirToBodyChartClosed : Bool := true
+theorem sameDirToBodyChartClosed_true : sameDirToBodyChartClosed = true := rfl
 
 def openAxisG5k0FromCover : List String :=
   ["AxisAlignedIdentityCRealisation (world axis + C=identityPose for every G5 k=0)",
-   "BodyChartAxisG5k0Realisation (axis in C-body chart for every G5 k=0; same-dir packaging closed)",
+   "BodyChartAxisG5k0Realisation (via SameDirG5k0Realisation or world-axis; packaging closed)",
+   "SameDirG5k0Realisation inhabit (every G5 k=0 is same-dir as C)",
    "RotatedChordCoverIneq / BoundPackage from general PointwiseCover",
    "Manuscript fHasO uses O=(μ,μ) not C.toBody(world O) when C≠identity (model gap)"]
 
